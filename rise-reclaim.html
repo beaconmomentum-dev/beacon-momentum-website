@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise & Reclaim - Community for Survivors | Rebuild Your Life</title>
+    <meta name="description" content="Rise & Reclaim: A supportive community for people who have survived adversity. Find healing, connection, and tools to rebuild your life with others who understand your journey.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-teal: #1B7F7A;
+            --beacon-gold: #D4AF37;
+            --deep-navy: #1A2B3D;
+            --warm-gray: #6B7280;
+            --light-background: #F8FAFC;
+            --deep-red: #8B1538;
+            --parchment: #F5F1E8;
+            --warm-gold: #B8860B;
+        }
+        
+        .beacon-teal { color: var(--beacon-teal); }
+        .beacon-gold { color: var(--beacon-gold); }
+        .deep-red { color: var(--deep-red); }
+        .warm-gold { color: var(--warm-gold); }
+        .bg-beacon-teal { background-color: var(--beacon-teal); }
+        .bg-beacon-gold { background-color: var(--beacon-gold); }
+        .bg-deep-red { background-color: var(--deep-red); }
+        .bg-parchment { background-color: var(--parchment); }
+        .bg-warm-gold { background-color: var(--warm-gold); }
+        .border-beacon-gold { border-color: var(--beacon-gold); }
+        .border-deep-red { border-color: var(--deep-red); }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .inter { font-family: 'Inter', sans-serif; }
+        
+        .hero-gradient { 
+            background: linear-gradient(135deg, var(--deep-red) 0%, #722030 50%, var(--deep-red) 100%); 
+        }
+        
+        .flame-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Cpath d='M30 15c-8 0-15 7-15 15s7 15 15 15c8 0 15-7 15-15s-7-15-15-15zm0 25c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, var(--parchment), #f0ebe1);
+            border-left: 4px solid var(--deep-red);
+        }
+        
+        .feature-card {
+            background: linear-gradient(145deg, white, var(--light-background));
+            border-top: 3px solid var(--beacon-gold);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--warm-gold), var(--beacon-gold));
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--beacon-gold), var(--warm-gold));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 21, 56, 0.2);
+        }
+        
+        .secondary-button {
+            border: 2px solid var(--deep-red);
+            color: var(--deep-red);
+            background: transparent;
+        }
+        
+        .secondary-button:hover {
+            background: var(--deep-red);
+            color: white;
+        }
+    </style>
+</head>
+<body class="inter" style="background-color: var(--light-background);">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-red-800 to-yellow-600 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">R&R</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold playfair" style="color: var(--deep-red);">Rise & Reclaim</h1>
+                        <p class="text-xs" style="color: var(--warm-gray);">Lighting the Way Forward</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="font-medium" style="color: var(--warm-gray);" onmouseover="this.style.color='var(--beacon-teal)'" onmouseout="this.style.color='var(--warm-gray)'">Home</a>
+                    <a href="#mission" class="font-medium" style="color: var(--warm-gray);" onmouseover="this.style.color='var(--beacon-teal)'" onmouseout="this.style.color='var(--warm-gray)'">Our Mission</a>
+                    <a href="#community" class="font-medium" style="color: var(--warm-gray);" onmouseover="this.style.color='var(--beacon-teal)'" onmouseout="this.style.color='var(--warm-gray)'">Community</a>
+                    <a href="#journey" class="font-medium" style="color: var(--warm-gray);" onmouseover="this.style.color='var(--beacon-teal)'" onmouseout="this.style.color='var(--warm-gray)'">Your Journey</a>
+                    <a href="#stories" class="font-medium" style="color: var(--warm-gray);" onmouseover="this.style.color='var(--beacon-teal)'" onmouseout="this.style.color='var(--warm-gray)'">Stories</a>
+                    <a href="#join" class="font-medium" style="color: var(--warm-gray);" onmouseover="this.style.color='var(--beacon-teal)'" onmouseout="this.style.color='var(--warm-gray)'">Join Us</a>
+                </div>
+                <button class="md:hidden">
+                    <span class="text-2xl">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20 flame-pattern relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-8">
+                    <img src="rise-reclaim-icon.png" alt="Rise & Reclaim Icon" style="width: 80px; height: 80px; object-fit: contain; margin: 0 auto;">
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair">
+                    Rise & Reclaim Your Future
+                </h1>
+                
+                <p class="text-xl md:text-2xl leading-relaxed mb-10 text-red-100">
+                    A supportive community for people who have survived adversity. Find healing, connection, 
+                    and the tools to rebuild your life with others who understand your journey.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#join" class="cta-button text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg">
+                        Join Our Community →
+                    </a>
+                    <a href="#mission" class="secondary-button px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--deep-red);">Our Mission</h2>
+                <p class="text-xl leading-relaxed" style="color: var(--deep-navy);">
+                    We believe that surviving adversity is just the beginning. True transformation happens when we rise together 
+                    and reclaim our power to create meaningful lives. Through evidence-based healing approaches, peer support, 
+                    and practical tools, we help survivors move from surviving to thriving.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Features -->
+    <section id="community" class="py-20 bg-parchment">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6 playfair" style="color: var(--deep-red);">What You'll Find in Our Community</h2>
+                    <p class="text-xl" style="color: var(--deep-navy);">Rise & Reclaim offers a comprehensive support system designed to meet you wherever you are in your healing journey.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">🤝</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Peer Support Groups</h3>
+                        <p style="color: var(--warm-gray);">Connect with others who understand your experience through facilitated support groups focused on healing and growth.</p>
+                    </div>
+
+                    <div class="feature-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Trauma-Informed Resources</h3>
+                        <p style="color: var(--warm-gray);">Access evidence-based tools and resources designed specifically for trauma survivors by licensed professionals.</p>
+                    </div>
+
+                    <div class="feature-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">💼</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Skills & Employment</h3>
+                        <p style="color: var(--warm-gray);">Develop practical skills and find meaningful work opportunities through our partnership network.</p>
+                    </div>
+
+                    <div class="feature-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">🏠</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Safe Spaces</h3>
+                        <p style="color: var(--warm-gray);">Participate in judgment-free environments where you can share, learn, and grow at your own pace.</p>
+                    </div>
+
+                    <div class="feature-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">📚</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Educational Workshops</h3>
+                        <p style="color: var(--warm-gray);">Learn practical life skills, financial literacy, and personal development through expert-led workshops.</p>
+                    </div>
+
+                    <div class="feature-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">🌱</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Mentorship Program</h3>
+                        <p style="color: var(--warm-gray);">Connect with mentors who have walked similar paths and can guide you through your transformation journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Framework -->
+    <section id="journey" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6 playfair" style="color: var(--deep-red);">Your Journey to Reclaiming Your Life</h2>
+                    <p class="text-xl" style="color: var(--deep-navy);">Every journey is unique, but you don't have to walk it alone. Here's how we support you every step of the way.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background-color: var(--deep-red);">1</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Connect & Belong</h3>
+                        <p style="color: var(--warm-gray);">Join our welcoming community and find your support network of people who truly understand.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background-color: var(--deep-red);">2</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Heal & Process</h3>
+                        <p style="color: var(--warm-gray);">Work through trauma with professional resources and peer support in a safe, non-judgmental environment.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background-color: var(--deep-red);">3</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Build & Grow</h3>
+                        <p style="color: var(--warm-gray);">Develop new skills, rebuild confidence, and create the foundation for your new life.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background-color: var(--deep-red);">4</div>
+                        <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Thrive & Give Back</h3>
+                        <p style="color: var(--warm-gray);">Live your reclaimed life fully and help others on their journey to transformation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="stories" class="py-20 bg-parchment">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6 playfair" style="color: var(--deep-red);">Stories of Transformation</h2>
+                    <p class="text-xl" style="color: var(--deep-navy);">Hear from community members who have found healing, hope, and new purpose through Rise & Reclaim.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="testimonial-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">🎖️</div>
+                        <blockquote class="text-lg italic mb-6" style="color: var(--deep-navy);">
+                            "After 15 years in the military and struggling with PTSD, I felt lost. Rise & Reclaim gave me a community that understood my battles and helped me find purpose again."
+                        </blockquote>
+                        <div class="font-semibold" style="color: var(--deep-red);">— Sarah M., US Army Veteran</div>
+                    </div>
+
+                    <div class="testimonial-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">🔓</div>
+                        <blockquote class="text-lg italic mb-6" style="color: var(--deep-navy);">
+                            "Coming out of a 10-year sentence, I had no idea how to rebuild. The mentorship and job training programs here changed everything for me."
+                        </blockquote>
+                        <div class="font-semibold" style="color: var(--deep-red);">— Marcus T., Formerly Incarcerated</div>
+                    </div>
+
+                    <div class="testimonial-card p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl mb-4">💪</div>
+                        <blockquote class="text-lg italic mb-6" style="color: var(--deep-navy);">
+                            "Surviving addiction was just the beginning. Rise & Reclaim taught me that recovery is about building a life worth living, not just staying clean."
+                        </blockquote>
+                        <div class="font-semibold" style="color: var(--deep-red);">— Jennifer L., 3 Years in Recovery</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Sign Up -->
+    <section id="join" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-6 playfair" style="color: var(--deep-red);">Ready to Rise & Reclaim Your Future?</h2>
+                    <p class="text-xl" style="color: var(--deep-navy);">
+                        Join our community of survivors who are committed to healing, growth, and creating meaningful lives. 
+                        Your journey to transformation starts here.
+                    </p>
+                </div>
+
+                <div class="bg-parchment rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-center playfair" style="color: var(--beacon-teal);">Join Our Community</h3>
+                    
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" style="color: var(--deep-navy);">Full Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-beacon-teal" style="border-color: var(--warm-gray); background-color: var(--light-background);">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" style="color: var(--deep-navy);">Email Address</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-beacon-teal" style="border-color: var(--warm-gray); background-color: var(--light-background);">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" style="color: var(--deep-navy);">What brings you to our community? (Optional)</label>
+                            <select class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-beacon-teal" style="border-color: var(--warm-gray); background-color: var(--light-background);">
+                                <option value="">Please select...</option>
+                                <option value="veteran">Military/Veteran Experience</option>
+                                <option value="incarceration">Formerly Incarcerated</option>
+                                <option value="addiction">Addiction Recovery</option>
+                                <option value="trauma">Trauma Survivor</option>
+                                <option value="family">Family Member/Supporter</option>
+                                <option value="professional">Professional/Helper</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" style="color: var(--deep-navy);">What are you hoping to find in our community? (Optional)</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-beacon-teal" style="border-color: var(--warm-gray); background-color: var(--light-background);" placeholder="Share what you're looking for..."></textarea>
+                        </div>
+
+                        <div class="space-y-3">
+                            <label class="flex items-start space-x-3">
+                                <input type="checkbox" class="mt-1" style="accent-color: var(--beacon-teal);">
+                                <span class="text-sm" style="color: var(--warm-gray);">I'd like to receive updates about community events, new resources, and success stories.</span>
+                            </label>
+                            <label class="flex items-start space-x-3">
+                                <input type="checkbox" class="mt-1" style="accent-color: var(--beacon-teal);">
+                                <span class="text-sm" style="color: var(--warm-gray);">I understand that Rise & Reclaim is a supportive community and not a substitute for professional mental health treatment. I agree to the community guidelines and privacy policy.</span>
+                            </label>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="cta-button text-white px-12 py-4 rounded-lg font-semibold text-lg shadow-lg">
+                                Join Rise & Reclaim →
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="mt-8 p-4 rounded-lg text-center" style="background-color: rgba(139, 21, 56, 0.1); border-left: 4px solid var(--deep-red);">
+                        <p class="text-sm font-semibold" style="color: var(--deep-red);">
+                            Need immediate crisis support? Call 988 (Suicide & Crisis Lifeline) or text HOME to 741741 (Crisis Text Line)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 text-white" style="background-color: var(--deep-navy);">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-br from-red-800 to-yellow-600 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">R&R</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Rise & Reclaim</h3>
+                                <p class="text-sm text-gray-300">Lighting the Way Forward</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">
+                            A supportive community for survivors, helping people transform adversity into strength and reclaim their future.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4" style="color: var(--beacon-gold);">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#mission" class="text-gray-300 hover:text-white">Our Mission</a></li>
+                            <li><a href="#community" class="text-gray-300 hover:text-white">Community Features</a></li>
+                            <li><a href="#journey" class="text-gray-300 hover:text-white">Your Journey</a></li>
+                            <li><a href="#stories" class="text-gray-300 hover:text-white">Success Stories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4" style="color: var(--beacon-gold);">Part of Beacon Momentum</h4>
+                        <ul class="space-y-2">
+                            <li><a href="https://beaconmomentum.com" class="text-gray-300 hover:text-white">Beacon Momentum</a></li>
+                            <li><a href="https://digitalgrandpa.org" class="text-gray-300 hover:text-white">Digital Grandpa</a></li>
+                            <li><a href="https://beaconmomentum.com/labs" class="text-gray-300 hover:text-white">Beacon Labs</a></li>
+                            <li><a href="#join" class="text-gray-300 hover:text-white">Get Started Today</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-600 pt-8 text-center">
+                    <p class="text-gray-300">
+                        © 2025 Rise & Reclaim. Part of the Beacon Momentum ecosystem. 
+                        <span class="mx-2">•</span>
+                        <a href="#" class="hover:text-white">Privacy Policy</a>
+                        <span class="mx-2">•</span>
+                        <a href="#" class="hover:text-white">Community Guidelines</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

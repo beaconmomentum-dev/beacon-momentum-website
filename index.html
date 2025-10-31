@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beacon Momentum - Lighting the Way Forward</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-teal: #0F766E;
+            --beacon-gold: #D97706;
+            --beacon-cream: #FEF7ED;
+            --beacon-dark: #1F2937;
+            --beacon-gray: #6B7280;
+            --beacon-light: #F9FAFB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background-color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--beacon-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--beacon-teal);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--beacon-teal);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Divisions Section */
+        .divisions {
+            padding: 4rem 0;
+            background: var(--beacon-light);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--beacon-dark);
+        }
+
+        .divisions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .division-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .division-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .division-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .division-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .division-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--beacon-dark);
+        }
+
+        .division-subtitle {
+            color: var(--beacon-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .division-description {
+            color: var(--beacon-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list li {
+            padding: 0.5rem 0;
+            color: var(--beacon-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: var(--beacon-teal);
+            font-weight: bold;
+        }
+
+        .how-to-join {
+            background: var(--beacon-cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .how-to-join h4 {
+            color: var(--beacon-teal);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .join-steps {
+            list-style: none;
+        }
+
+        .join-steps li {
+            padding: 0.3rem 0;
+            color: var(--beacon-dark);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .step-number {
+            background: var(--beacon-teal);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .division-cta {
+            background: var(--beacon-teal);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .division-cta:hover {
+            background: #0D5D56;
+            transform: translateY(-1px);
+        }
+
+        /* Digital Grandpa specific styling */
+        .digital-grandpa-card {
+            position: relative;
+        }
+
+        .founder-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--beacon-gold);
+            margin-bottom: 1rem;
+        }
+
+        .founder-badge {
+            background: var(--beacon-teal);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close {
+            color: var(--beacon-gray);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+
+        .close:hover {
+            color: var(--beacon-dark);
+        }
+
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--beacon-teal);
+            margin-bottom: 1.5rem;
+            padding-right: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--beacon-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--beacon-teal);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: var(--beacon-teal);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #0D5D56;
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 4rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--beacon-gray);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--beacon-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: var(--beacon-gold);
+        }
+
+        .footer-section a {
+            color: #D1D5DB;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--beacon-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9CA3AF;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .divisions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <div class="logo-icon">B</div>
+                    Beacon Momentum
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#divisions">Divisions</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Lighting the Way Forward</h1>
+            <p>Empowering communities through storytelling, recovery support, and innovative tools for transparent, equitable growth.</p>
+            <a href="#divisions" class="cta-button">Explore Our Communities</a>
+        </div>
+    </section>
+
+    <!-- Divisions Section -->
+    <section class="divisions" id="divisions">
+        <div class="container">
+            <h2 class="section-title">Our Three Divisions</h2>
+            <p style="text-align: center; color: var(--beacon-gray); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Each division serves a unique purpose in our mission to create transparent, supportive communities where everyone can thrive.
+            </p>
+            
+            <div class="divisions-grid">
+                <!-- Digital Grandpa -->
+                <div class="division-card digital-grandpa-card">
+                    <div class="division-icon">
+                        <img src="digital-grandpa-icon.png" alt="Digital Grandpa Icon">
+                    </div>
+                    <img src="bob-burr-professional-photo.jpeg" alt="Bob Burr" class="founder-photo">
+                    <div class="founder-badge">✓ Verified Veteran</div>
+                    <h3 class="division-title">Digital Grandpa</h3>
+                    <p class="division-subtitle">STORYTELLING & MENTORSHIP</p>
+                    <p class="division-description">
+                        Connect with wisdom keepers who've walked difficult paths. Share your story, find mentorship, and help others navigate their journeys through the power of lived experience.
+                    </p>
+                    
+                    <h4 style="color: var(--beacon-teal); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">What You'll Get:</h4>
+                    <ul class="benefits-list">
+                        <li>One-on-one mentorship connections</li>
+                        <li>Weekly community story circles</li>
+                        <li>Platform to share your wisdom</li>
+                        <li>Legacy building support</li>
+                        <li>Intergenerational healing opportunities</li>
+                    </ul>
+                    
+                    <div class="how-to-join">
+                        <h4>How to Join Digital Grandpa:</h4>
+                        <ol class="join-steps">
+                            <li><span class="step-number">1</span>Complete our story intake form</li>
+                            <li><span class="step-number">2</span>Schedule a welcome call with Bob</li>
+                            <li><span class="step-number">3</span>Attend your first community circle</li>
+                            <li><span class="step-number">4</span>Begin sharing or receiving mentorship</li>
+                        </ol>
+                    </div>
+                    
+                    <button class="division-cta" onclick="openModal('digitalGrandpaModal')">Start Your Story Journey</button>
+                </div>
+
+                <!-- Rise & Reclaim -->
+                <div class="division-card">
+                    <div class="division-icon">
+                        <img src="rise-reclaim-icon.png" alt="Rise & Reclaim Icon">
+                    </div>
+                    <h3 class="division-title">Rise & Reclaim</h3>
+                    <p class="division-subtitle">COMMUNITY & RECOVERY</p>
+                    <p class="division-description">
+                        Join a supportive community of individuals in recovery building meaningful lives through shared work, mutual support, and transparent income opportunities.
+                    </p>
+                    
+                    <h4 style="color: var(--beacon-teal); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">What You'll Get:</h4>
+                    <ul class="benefits-list">
+                        <li>Weekly recovery support groups</li>
+                        <li>Paid work opportunities (50/50 revenue splits)</li>
+                        <li>Skills training and development</li>
+                        <li>24/7 peer support network</li>
+                        <li>Financial transparency and fair compensation</li>
+                    </ul>
+                    
+                    <div class="how-to-join">
+                        <h4>How to Join Rise & Reclaim:</h4>
+                        <ol class="join-steps">
+                            <li><span class="step-number">1</span>Complete recovery status assessment</li>
+                            <li><span class="step-number">2</span>Attend a virtual community meeting</li>
+                            <li><span class="step-number">3</span>Complete skills and interests survey</li>
+                            <li><span class="step-number">4</span>Begin with community support activities</li>
+                        </ol>
+                    </div>
+                    
+                    <button class="division-cta" onclick="openModal('riseReclaimModal')">Join Our Recovery Community</button>
+                </div>
+
+                <!-- Beacon Labs -->
+                <div class="division-card">
+                    <div class="division-icon">
+                        <img src="beacon-labs-icon.png" alt="Beacon Labs Icon">
+                    </div>
+                    <h3 class="division-title">Beacon Labs</h3>
+                    <p class="division-subtitle">TOOLS & SYSTEMS</p>
+                    <p class="division-description">
+                        Access cutting-edge tools for transparent community building, automated revenue sharing, and impact tracking. Perfect for organizations and community leaders.
+                    </p>
+                    
+                    <h4 style="color: var(--beacon-teal); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">What You'll Get:</h4>
+                    <ul class="benefits-list">
+                        <li>Automated revenue splitting tools</li>
+                        <li>Real-time impact dashboards</li>
+                        <li>Community management platform</li>
+                        <li>Technical support and training</li>
+                        <li>Custom integration assistance</li>
+                    </ul>
+                    
+                    <div class="how-to-join">
+                        <h4>How to Access Beacon Labs:</h4>
+                        <ol class="join-steps">
+                            <li><span class="step-number">1</span>Schedule a platform demonstration</li>
+                            <li><span class="step-number">2</span>Discuss your community's needs</li>
+                            <li><span class="step-number">3</span>Receive custom implementation plan</li>
+                            <li><span class="step-number">4</span>Begin with guided setup and training</li>
+                        </ol>
+                    </div>
+                    
+                    <button class="division-cta" onclick="openModal('beaconLabsModal')">Request Platform Demo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <h2 class="section-title">Our Collective Impact</h2>
+            <div class="impact-stats">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Stories Shared</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">Community Members</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">$125K+</span>
+                    <span class="stat-label">Revenue Shared</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Positive Outcomes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Beacon Momentum</h3>
+                    <p style="color: #D1D5DB; line-height: 1.6;">Lighting the way forward through storytelling, recovery support, and innovative community tools.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Divisions</h3>
+                    <a href="#digital-grandpa">Digital Grandpa</a>
+                    <a href="#rise-reclaim">Rise & Reclaim</a>
+                    <a href="#beacon-labs">Beacon Labs</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="#stories">Community Stories</a>
+                    <a href="#support">Support Center</a>
+                    <a href="#training">Training Materials</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Get Started</h3>
+                    <a href="#join">Join a Community</a>
+                    <a href="#mentor">Become a Mentor</a>
+                    <a href="#partner">Partner with Us</a>
+                    <a href="#demo">Request a Demo</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Beacon Momentum. All rights reserved. Lighting the Way Forward.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Digital Grandpa Modal -->
+    <div id="digitalGrandpaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('digitalGrandpaModal')">&times;</span>
+            <h2>Join Digital Grandpa Community</h2>
+            <form>
+                <div class="form-group">
+                    <label for="dg-name">Full Name *</label>
+                    <input type="text" id="dg-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dg-email">Email Address *</label>
+                    <input type="email" id="dg-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="dg-phone">Phone Number</label>
+                    <input type="tel" id="dg-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="dg-interest">I'm interested in:</label>
+                    <select id="dg-interest" name="interest">
+                        <option value="">Select an option</option>
+                        <option value="sharing">Sharing my story and wisdom</option>
+                        <option value="mentoring">Becoming a mentor</option>
+                        <option value="seeking">Seeking mentorship and guidance</option>
+                        <option value="listening">Listening to stories and learning</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dg-story">Briefly share what life experiences you'd like to discuss or learn about (optional):</label>
+                    <textarea id="dg-story" name="story" placeholder="e.g., Military service, recovery journey, overcoming adversity..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rise & Reclaim Modal -->
+    <div id="riseReclaimModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('riseReclaimModal')">&times;</span>
+            <h2>Join Rise & Reclaim Community</h2>
+            <form>
+                <div class="form-group">
+                    <label for="rr-name">Full Name *</label>
+                    <input type="text" id="rr-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="rr-email">Email Address *</label>
+                    <input type="email" id="rr-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="rr-phone">Phone Number</label>
+                    <input type="tel" id="rr-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="rr-recovery">Recovery Status:</label>
+                    <select id="rr-recovery" name="recovery">
+                        <option value="">Select an option</option>
+                        <option value="early">Early recovery (0-1 year)</option>
+                        <option value="stable">Stable recovery (1-5 years)</option>
+                        <option value="long-term">Long-term recovery (5+ years)</option>
+                        <option value="supporter">Supporting someone in recovery</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rr-skills">Skills or interests you'd like to develop:</label>
+                    <textarea id="rr-skills" name="skills" placeholder="e.g., Job skills, creative pursuits, community leadership..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="rr-support">What type of support are you most interested in?</label>
+                    <select id="rr-support" name="support">
+                        <option value="">Select an option</option>
+                        <option value="peer">Peer support groups</option>
+                        <option value="work">Work opportunities</option>
+                        <option value="training">Skills training</option>
+                        <option value="mentorship">Mentorship</option>
+                        <option value="all">All of the above</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Join Community</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Beacon Labs Modal -->
+    <div id="beaconLabsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('beaconLabsModal')">&times;</span>
+            <h2>Request Beacon Labs Demo</h2>
+            <form>
+                <div class="form-group">
+                    <label for="bl-name">Full Name *</label>
+                    <input type="text" id="bl-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="bl-email">Email Address *</label>
+                    <input type="email" id="bl-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="bl-org">Organization/Community Name</label>
+                    <input type="text" id="bl-org" name="organization">
+                </div>
+                <div class="form-group">
+                    <label for="bl-role">Your Role:</label>
+                    <select id="bl-role" name="role">
+                        <option value="">Select an option</option>
+                        <option value="founder">Community Founder/Leader</option>
+                        <option value="manager">Community Manager</option>
+                        <option value="developer">Developer/Technical Lead</option>
+                        <option value="partner">Potential Partner</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bl-size">Community Size:</label>
+                    <select id="bl-size" name="size">
+                        <option value="">Select an option</option>
+                        <option value="starting">Just starting (0-10 members)</option>
+                        <option value="small">Small community (10-50 members)</option>
+                        <option value="medium">Medium community (50-200 members)</option>
+                        <option value="large">Large community (200+ members)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bl-tools">What tools or features are you most interested in?</label>
+                    <textarea id="bl-tools" name="tools" placeholder="e.g., Revenue splitting, impact tracking, member management..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="bl-timeline">Implementation Timeline:</label>
+                    <select id="bl-timeline" name="timeline">
+                        <option value="">Select an option</option>
+                        <option value="immediate">Immediate (within 30 days)</option>
+                        <option value="short">Short-term (1-3 months)</option>
+                        <option value="medium">Medium-term (3-6 months)</option>
+                        <option value="exploring">Just exploring options</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Request Demo</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Here you would typically send the data to your backend
+                console.log('Form submitted:', data);
+                
+                // Show success message
+                alert('Thank you for your application! We will be in touch soon.');
+                
+                // Close modal
+                const modal = this.closest('.modal');
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                
+                // Reset form
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
+
