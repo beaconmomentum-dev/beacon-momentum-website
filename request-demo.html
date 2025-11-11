@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!-- Beacon Labs Demo Request Page -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Demo - Beacon Labs</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-teal: #0F766E;
+            --beacon-gold: #D97706;
+            --beacon-cream: #FEF7ED;
+            --beacon-dark: #1F2937;
+            --beacon-gray: #6B7280;
+            --beacon-light: #F9FAFB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background-color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--beacon-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--beacon-teal);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            color: white;
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            padding: 4rem 0;
+            background: var(--beacon-light);
+        }
+
+        .demo-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .demo-intro h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--beacon-teal);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-intro p {
+            color: var(--beacon-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .demo-features {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem auto;
+            max-width: 700px;
+        }
+
+        .demo-features h3 {
+            color: var(--beacon-teal);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .demo-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .demo-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .demo-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--beacon-gold);
+            font-weight: bold;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--beacon-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: var(--beacon-gold);
+        }
+
+        .footer-section a {
+            color: #D1D5DB;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--beacon-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9CA3AF;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">B</div>
+                    Beacon Momentum
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
+                    <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
+                    <li><a href="labs.html" class="active">Beacon Labs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Request a Demo</h1>
+            <p>Experience Beacon Labs' innovative tools for transparent, community-driven growth.</p>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="demo-intro">
+                <h2>See Beacon Labs in Action</h2>
+                <p>Beacon Labs is our technology and innovation division, building tools that bring transparency, fairness, and community empowerment to the forefront. Our platform helps organizations and communities manage resources, track impact, and ensure equitable distribution.</p>
+                
+                <div class="demo-features">
+                    <h3>What You'll See in Your Demo:</h3>
+                    <ul>
+                        <li>Real-time financial transparency dashboards</li>
+                        <li>Community governance and decision-making tools</li>
+                        <li>Automated revenue sharing and payment systems</li>
+                        <li>Impact tracking and reporting features</li>
+                        <li>Integration capabilities with your existing systems</li>
+                        <li>Custom configuration options for your organization</li>
+                    </ul>
+                </div>
+
+                <p>Fill out the form below to schedule your personalized demo. Our team will reach out within 24 hours to arrange a time that works for you.</p>
+            </div>
+
+            <div class="form-container">
+                <iframe src="https://api.phoenixcollective.tech/widget/form/Ph2wrUiQhlqyAP3aVkny"
+                        width="100%" height="650" style="border:none;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Beacon Momentum</h3>
+                    <p>Lighting the way forward through storytelling, recovery support, and innovative tools for transparent growth.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Divisions</h3>
+                    <a href="digital-grandpa.html">Digital Grandpa</a>
+                    <a href="rise-reclaim.html">Rise & Reclaim</a>
+                    <a href="labs.html">Beacon Labs</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="inquiry.html">Academy Inquiry</a>
+                    <a href="request-demo.html">Request Demo</a>
+                    <p style="margin-top: 1rem; color: #D1D5DB;">
+                        P.O. Box # 244<br>
+                        Cheshire, MA 01225-0244<br>
+                        (413) 597-8975<br>
+                        admin@beaconmomentum.com
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Beacon Momentum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
