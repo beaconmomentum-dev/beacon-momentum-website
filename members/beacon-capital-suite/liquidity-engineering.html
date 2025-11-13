@@ -37,15 +37,19 @@
         </div>
     </header>
 
-    <section class="hero-gradient text-white py-16">
+    <section class="hero-gradient text-white py-20">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
                 <div class="text-6xl mb-6">💧</div>
+                <p class="text-sm uppercase tracking-wider mb-4" style="color: var(--beacon-gold);">Module 2 of 5</p>
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                     Liquidity Engineering Basics
                 </h1>
-                <p class="text-2xl md:text-3xl italic" style="color: var(--beacon-gold); text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+                <p class="text-2xl md:text-3xl italic mb-8" style="color: var(--beacon-gold); text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
                     "Liquidity is the lifeblood of every financial system."
+                </p>
+                <p class="text-xl max-w-3xl mx-auto" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+                    Most people think DeFi is about tokens. Professionals know it's about liquidity mechanics.
                 </p>
             </div>
         </div>
@@ -54,12 +58,80 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <p class="text-xl leading-relaxed mb-8" style="color: #1A2B3D;">
-                    Most people think DeFi is about tokens. Professionals know it's about liquidity mechanics.
-                </p>
-                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
-                    <p class="text-lg font-semibold text-yellow-800 mb-2">📚 Content Expansion In Progress</p>
-                    <p class="text-gray-700">This module is currently being expanded with comprehensive educational content. The framework and learning objectives below outline what will be covered.</p>
+                <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">What Members Learn</h2>
+                
+                <div class="space-y-6 mb-12">
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
+                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How Liquidity Pools Function</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Liquidity pools are the foundation of decentralized exchanges and lending protocols. Unlike traditional order books, pools use automated market makers (AMMs) to facilitate trades. You'll learn how these pools work, why they exist, and what role they play in the DeFi ecosystem—without ever discussing or promising returns.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Understanding liquidity pools means understanding how value flows through decentralized systems. This is where price discovery happens, where arbitrage opportunities emerge, and where systemic risks can concentrate.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
+                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">The Difference Between "Volume," "Liquidity," and "Depth"</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            These terms are often used interchangeably, but they mean very different things:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-lg text-gray-700 ml-4">
+                            <li><strong>Volume</strong> measures how much trading activity occurs over time</li>
+                            <li><strong>Liquidity</strong> measures how easily assets can be bought or sold without moving the price</li>
+                            <li><strong>Depth</strong> measures how much capital sits in the order book or pool at various price levels</li>
+                        </ul>
+                        <p class="text-lg text-gray-700 leading-relaxed mt-4">
+                            Professionals use these metrics to evaluate market health, identify manipulation, and assess risk. You'll learn to read these signals like a professional operator.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
+                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Why Liquidity Movement Signals Market Behavior</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            When liquidity enters or exits a protocol, it tells a story. Large liquidity withdrawals can signal loss of confidence. Sudden liquidity additions might indicate institutional positioning. Liquidity migration between protocols reveals where smart money is moving—and why.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed mt-4">
+                            By learning to track liquidity flows, you gain insight into market sentiment, protocol health, and potential opportunities or risks before they become obvious to the crowd.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
+                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How Protocols Use Liquidity to Stabilize or Destabilize Systems</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Liquidity isn't neutral—it's a tool. Protocols use liquidity incentives to attract capital, stabilize prices, and bootstrap ecosystems. But those same mechanisms can create fragility. When incentives dry up, liquidity evaporates. When liquidity concentrates in a single pool, it creates systemic risk.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed mt-4">
+                            You'll learn to recognize when liquidity is being used strategically versus when it's creating hidden vulnerabilities.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
+                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">The Core Risk Factors in Liquidity-Based Systems</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Liquidity systems come with specific risks that don't exist in traditional markets:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-lg text-gray-700 ml-4 mt-4">
+                            <li><strong>Impermanent Loss:</strong> The opportunity cost of providing liquidity versus holding assets</li>
+                            <li><strong>Liquidity Crunch:</strong> When everyone tries to exit at once and there's no one to buy</li>
+                            <li><strong>Slippage:</strong> The price impact of large trades in shallow pools</li>
+                            <li><strong>Rug Pulls:</strong> When developers drain liquidity and disappear</li>
+                            <li><strong>Oracle Manipulation:</strong> When price feeds are manipulated to exploit liquidity providers</li>
+                        </ul>
+                        <p class="text-lg text-gray-700 leading-relaxed mt-4">
+                            Understanding these risks is essential for anyone participating in DeFi. We'll teach you how to identify them, measure them, and protect yourself.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
+                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How Smart Money Protects Itself During Liquidity Events</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Professional operators don't panic during liquidity crises—they prepare for them. They use position sizing, diversification, exit strategies, and hedging to protect capital when liquidity dries up. They monitor on-chain data to see liquidity shifts before they become catastrophic.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed mt-4">
+                            You'll learn the same protective strategies that institutions use to survive market stress events.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,29 +140,51 @@
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: var(--beacon-teal);">Learning Objectives</h2>
-                <div class="space-y-4">
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-teal-600">
-                        <p class="text-lg text-gray-700">✓ What liquidity actually means in decentralized systems</p>
+                <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--phoenix-red);">Practical Competencies</h2>
+                
+                <p class="text-xl leading-relaxed mb-8 text-gray-700">
+                    Members will walk away able to:
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Interpret Liquidity Flows</h3>
+                        <p class="text-gray-700">Read on-chain data to understand where liquidity is moving, why it's moving, and what that signals about market conditions.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-teal-600">
-                        <p class="text-lg text-gray-700">✓ How liquidity pools work and why they matter</p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Understand How Markets Self-Correct</h3>
+                        <p class="text-gray-700">Recognize the mechanisms that bring markets back to equilibrium—and when those mechanisms fail.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-teal-600">
-                        <p class="text-lg text-gray-700">✓ The relationship between liquidity and price stability</p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Recognize Dangerous Conditions Early</h3>
+                        <p class="text-gray-700">Spot warning signs of liquidity crises, manipulation, or systemic fragility before they become obvious.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-teal-600">
-                        <p class="text-lg text-gray-700">✓ Impermanent loss and other liquidity risks</p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">See Behind Protocol Incentives</h3>
+                        <p class="text-gray-700">Understand why protocols offer certain incentives, what they're trying to achieve, and what risks they're creating.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-teal-600">
-                        <p class="text-lg text-gray-700">✓ How professional operators manage liquidity</p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Think Like an Engineer</h3>
+                        <p class="text-gray-700">Approach markets with a systems mindset, not a speculative mindset. Focus on mechanics, not hype.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-teal-600">
-                        <p class="text-lg text-gray-700">✓ Liquidity mining and yield generation mechanics</p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Protect Your Capital</h3>
+                        <p class="text-gray-700">Use liquidity analysis to make safer, more informed decisions about where and how to participate in DeFi.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-teal-600">
-                        <p class="text-lg text-gray-700">✓ When to provide liquidity and when to avoid it</p>
-                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-8 rounded-lg border-l-4" style="border-color: var(--phoenix-red);">
+                    <p class="text-2xl font-bold mb-4 playfair" style="color: var(--phoenix-red);">
+                        This module upgrades how you see the market.
+                    </p>
+                    <p class="text-xl text-gray-700">
+                        From surface-level price watching to understanding structural forces.
+                    </p>
                 </div>
             </div>
         </div>
@@ -99,32 +193,48 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gradient-to-r from-red-50 to-yellow-50 p-8 rounded-lg border-l-4 border-red-600 mb-8">
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--phoenix-red);">🔥 Phoenix Framework</h3>
-                    <p class="text-lg text-gray-700 mb-4">This module follows the Phoenix Rising transformation path:</p>
-                    <div class="grid md:grid-cols-4 gap-4 text-center">
-                        <div class="bg-white p-4 rounded">
-                            <p class="font-bold text-gray-600">Ashes</p>
-                            <p class="text-sm text-gray-600">Clear misconceptions</p>
+                <div class="bg-gradient-to-r from-red-50 to-yellow-50 p-8 rounded-lg border-l-4 border-red-600 mb-12">
+                    <h3 class="text-3xl font-bold mb-6 playfair" style="color: var(--phoenix-red);">🔥 The Phoenix Framework</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        This module follows the Phoenix Rising transformation path:
+                    </p>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="bg-white p-6 rounded-lg text-center">
+                            <p class="text-3xl mb-2">🌑</p>
+                            <p class="font-bold text-gray-600 mb-2">Ashes</p>
+                            <p class="text-sm text-gray-600">Clear misconceptions about liquidity and price movements</p>
                         </div>
-                        <div class="bg-white p-4 rounded">
-                            <p class="font-bold text-orange-600">Stirring</p>
-                            <p class="text-sm text-gray-600">Build foundations</p>
+                        <div class="bg-white p-6 rounded-lg text-center">
+                            <p class="text-3xl mb-2">🔥</p>
+                            <p class="font-bold text-orange-600 mb-2">Stirring</p>
+                            <p class="text-sm text-gray-600">Build understanding of liquidity mechanics and flows</p>
                         </div>
-                        <div class="bg-white p-4 rounded">
-                            <p class="font-bold" style="color: var(--phoenix-red);">Rising</p>
-                            <p class="text-sm text-gray-600">Apply frameworks</p>
+                        <div class="bg-white p-6 rounded-lg text-center">
+                            <p class="text-3xl mb-2">🦅</p>
+                            <p class="font-bold mb-2" style="color: var(--phoenix-red);">Rising</p>
+                            <p class="text-sm text-gray-600">Apply liquidity analysis to real protocols and markets</p>
                         </div>
-                        <div class="bg-white p-4 rounded">
-                            <p class="font-bold" style="color: var(--beacon-gold);">Soaring</p>
-                            <p class="text-sm text-gray-600">Operate with sovereignty</p>
+                        <div class="bg-white p-6 rounded-lg text-center">
+                            <p class="text-3xl mb-2">✨</p>
+                            <p class="font-bold mb-2" style="color: var(--beacon-gold);">Soaring</p>
+                            <p class="text-sm text-gray-600">Navigate DeFi with liquidity intelligence and confidence</p>
                         </div>
                     </div>
                 </div>
 
+                <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600 mb-12">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">💡 Key Takeaway</h3>
+                    <p class="text-lg text-gray-700">
+                        Liquidity is the invisible force that makes DeFi work—or fail. By understanding liquidity mechanics, you gain a professional-level advantage that most participants never develop. You'll see opportunities and risks that others miss, and you'll make decisions based on structure, not speculation.
+                    </p>
+                </div>
+
                 <div class="text-center">
+                    <p class="text-xl mb-6 text-gray-700">
+                        <strong>The deeper you understand the system, the more power you regain.</strong>
+                    </p>
                     <a href="multi-wallet-structures.html" class="inline-block bg-teal-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-teal-700 transition">
-                        Next Module →
+                        Learn the Next Principle →
                     </a>
                 </div>
             </div>
