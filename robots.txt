@@ -1,0 +1,8 @@
+# Beacon Momentum - robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /members/
+
+# Sitemap location
+Sitemap: https://beaconmomentum.com/sitemap.xml
