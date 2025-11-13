@@ -3,6 +3,10 @@
 User-agent: *
 Allow: /
 Disallow: /members/
+Disallow: /member-dashboard.html
+Disallow: /login.html
+Disallow: /register.html
+Disallow: /api/
 
 # Sitemap location
 Sitemap: https://beaconmomentum.com/sitemap.xml
