@@ -43,8 +43,33 @@ async function attachUser(req, res, next) {
     next();
 }
 
+// Middleware to check if user is admin
+function requireAdmin(req, res, next) {
+    if (!req.session || !req.session.userId) {
+        if (req.path.startsWith('/api/')) {
+            return res.status(401).json({ success: false, message: 'Authentication required' });
+        } else {
+            const redirectUrl = encodeURIComponent(req.originalUrl);
+            return res.redirect(`/login.html?redirect=${redirectUrl}`);
+        }
+    }
+    
+    const db = require('../database/init_enhanced');
+    db.get('SELECT is_admin FROM users WHERE id = ?', [req.session.userId], (err, user) => {
+        if (err || !user || !user.is_admin) {
+            if (req.path.startsWith('/api/')) {
+                return res.status(403).json({ success: false, message: 'Admin access required' });
+            } else {
+                return res.status(403).send('Admin access required');
+            }
+        }
+        next();
+    });
+}
+
 module.exports = {
     requireAuth,
     redirectIfAuth,
-    attachUser
+    attachUser,
+    requireAdmin
 };
