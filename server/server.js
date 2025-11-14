@@ -64,11 +64,27 @@ app.use('/api/auth/login', authLimiter);
 app.use('/api/auth/register', registerLimiter);
 app.use('/api/auth', authRoutes);
 
-// Serve static files from parent directory
-app.use(express.static(path.join(__dirname, '..')));
+// Protect /members directory - MUST come before general static files
+app.use('/members', requireAuth, (req, res, next) => {
+    // Serve static files from members directory
+    express.static(path.join(__dirname, '..', 'members'))(req, res, next);
+});
 
-// Protect /members directory
-app.use('/members', requireAuth, express.static(path.join(__dirname, '..', 'members')));
+// Serve auth pages
+app.get('/login.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'login.html'));
+});
+
+app.get('/register.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'register.html'));
+});
+
+app.get('/member-dashboard.html', requireAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'member-dashboard.html'));
+});
+
+// Serve static files from parent directory (public files)
+app.use(express.static(path.join(__dirname, '..')));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
