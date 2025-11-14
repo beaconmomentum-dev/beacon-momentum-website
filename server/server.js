@@ -11,6 +11,9 @@ require('./database/init');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Trust nginx proxy
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet({
     contentSecurityPolicy: false // Disable for now, can configure later

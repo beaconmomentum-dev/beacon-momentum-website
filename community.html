@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Community Forum | Beacon Momentum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-teal: #1B7F7A;
+            --beacon-gold: #D4AF37;
+            --phoenix-red: #8B1538;
+        }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .inter { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 inter">
+    <script src="/assets/js/auth-check.js"></script>
+
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between py-4">
+                <a href="index.html" class="font-bold text-xl">Beacon Momentum</a>
+                <div class="flex items-center gap-4">
+                    <a href="member-dashboard.html" class="text-sm hover:opacity-80">Dashboard</a>
+                    <a href="my-progress.html" class="text-sm hover:opacity-80">My Progress</a>
+                    <button onclick="logout()" class="text-sm hover:opacity-80" style="color: var(--beacon-gold);">Logout</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 playfair">Community Forum</h1>
+            <p class="text-gray-600">Connect, learn, and grow with fellow Beacon members</p>
+        </div>
+
+        <!-- Forum Categories -->
+        <div class="grid gap-4" id="categories-container">
+            <div class="bg-white rounded-lg shadow p-6">
+                <p class="text-gray-500">Loading categories...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadCategories() {
+            try {
+                const response = await fetch('/api/community/categories');
+                const data = await response.json();
+
+                if (data.success) {
+                    const container = document.getElementById('categories-container');
+                    container.innerHTML = '';
+
+                    data.categories.forEach(category => {
+                        const card = document.createElement('div');
+                        card.className = 'bg-white rounded-lg shadow hover:shadow-lg transition p-6 cursor-pointer';
+                        card.onclick = () => window.location.href = `/forum-category.html?id=${category.id}`;
+                        card.innerHTML = `
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-4xl">${category.icon || '💬'}</div>
+                                    <div>
+                                        <h2 class="text-xl font-bold text-gray-900 mb-2">${category.name}</h2>
+                                        <p class="text-gray-600 mb-3">${category.description}</p>
+                                        <div class="flex items-center gap-4 text-sm text-gray-500">
+                                            <span>${category.topic_count} topics</span>
+                                            <span>•</span>
+                                            <span>${category.post_count} posts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to load categories:', error);
+            }
+        }
+
+        function logout() {
+            fetch('/api/auth/logout', { method: 'POST' })
+                .then(() => window.location.href = '/index.html');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCategories);
+    </script>
+</body>
+</html>

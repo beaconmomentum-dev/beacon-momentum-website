@@ -58,6 +58,10 @@
                         <p class="text-red-700 text-sm"></p>
                     </div>
 
+                    <div id="success-message" class="hidden bg-green-50 border-l-4 border-green-600 p-4 mb-6 rounded">
+                        <p class="text-green-700 text-sm"></p>
+                    </div>
+
                     <form id="register-form" class="space-y-6">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
@@ -195,8 +199,19 @@
                 const data = await response.json();
 
                 if (data.success) {
-                    // Registration successful - redirect to dashboard
-                    window.location.href = '/member-dashboard.html';
+                    // Registration successful
+                    if (data.requiresVerification) {
+                        // Show verification message
+                        const successDiv = document.getElementById('success-message');
+                        successDiv.querySelector('p').textContent = data.message || 'Registration successful! Please check your email to verify your account.';
+                        successDiv.classList.remove('hidden');
+                        form.reset();
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Check Your Email';
+                    } else {
+                        // No verification required, redirect immediately
+                        window.location.href = '/member-dashboard.html';
+                    }
                 } else {
                     // Show error
                     showError(data.message || 'Registration failed. Please try again.');

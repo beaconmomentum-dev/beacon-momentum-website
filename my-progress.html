@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>My Progress | Beacon Momentum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-teal: #1B7F7A;
+            --beacon-gold: #D4AF37;
+            --phoenix-red: #8B1538;
+        }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .inter { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 inter">
+    <script src="/assets/js/auth-check.js"></script>
+
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between py-4">
+                <a href="index.html" class="font-bold text-xl">Beacon Momentum</a>
+                <div class="flex items-center gap-4">
+                    <a href="member-dashboard.html" class="text-sm hover:opacity-80">Dashboard</a>
+                    <a href="members/beacon-capital-suite/" class="text-sm hover:opacity-80">Modules</a>
+                    <button onclick="logout()" class="text-sm hover:opacity-80" style="color: var(--beacon-gold);">Logout</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 playfair">My Learning Progress</h1>
+            <p class="text-gray-600">Track your journey through the Beacon Capital Suite</p>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">Overall Progress</h2>
+                    <p class="text-gray-600">Beacon Capital Suite Completion</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-5xl font-bold" style="color: var(--beacon-teal);" id="overall-percent">0%</div>
+                    <p class="text-sm text-gray-600">
+                        <span id="completed-count">0</span> of <span id="total-count">5</span> modules complete
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
+                <div class="h-4 rounded-full transition-all duration-500" style="background-color: var(--beacon-teal); width: 0%;" id="overall-bar"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(27, 127, 122, 0.1);">
+                            <svg class="w-6 h-6" style="color: var(--beacon-teal);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-gray-900" id="total-time">0</p>
+                            <p class="text-sm text-gray-600">Hours Invested</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(212, 175, 55, 0.1);">
+                            <svg class="w-6 h-6" style="color: var(--beacon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-gray-900" id="achievements-count">0</p>
+                            <p class="text-sm text-gray-600">Achievements</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(139, 21, 56, 0.1);">
+                            <svg class="w-6 h-6" style="color: var(--phoenix-red);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-gray-900" id="streak-days">0</p>
+                            <p class="text-sm text-gray-600">Day Streak</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module Progress -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Module Progress</h2>
+            <div id="modules-container" class="space-y-4">
+                <!-- Modules will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Achievements</h2>
+            <div id="achievements-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Achievements will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Community Leaderboard</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Rank</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Member</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Completed</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Time Invested</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Avg Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body" class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td colspan="5" class="px-6 py-4 text-center text-gray-500">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modules = [
+            { id: 'module-1', name: 'DeFi Investment Banking Foundations', url: '/members/beacon-capital-suite/module-1.html' },
+            { id: 'module-2', name: 'Liquidity Engineering Basics', url: '/members/beacon-capital-suite/module-2.html' },
+            { id: 'module-3', name: 'Multi-Wallet Structures & Capital Protection', url: '/members/beacon-capital-suite/module-3.html' },
+            { id: 'module-4', name: 'Beacon Internal Capital Flows Overview', url: '/members/beacon-capital-suite/module-4.html' },
+            { id: 'module-5', name: 'Safe Navigation Protocols', url: '/members/beacon-capital-suite/module-5.html' }
+        ];
+
+        async function loadProgress() {
+            try {
+                const response = await fetch('/api/progress/my-progress');
+                const data = await response.json();
+
+                if (data.success) {
+                    const progress = data.progress;
+
+                    // Update overall stats
+                    document.getElementById('overall-percent').textContent = progress.overall + '%';
+                    document.getElementById('overall-bar').style.width = progress.overall + '%';
+                    document.getElementById('completed-count').textContent = progress.completed;
+                    document.getElementById('total-count').textContent = progress.total;
+
+                    // Calculate total time
+                    let totalMinutes = 0;
+                    progress.modules.forEach(m => {
+                        totalMinutes += m.time_spent_minutes || 0;
+                    });
+                    const totalHours = Math.round(totalMinutes / 60);
+                    document.getElementById('total-time').textContent = totalHours;
+
+                    // Load modules
+                    const modulesContainer = document.getElementById('modules-container');
+                    modulesContainer.innerHTML = '';
+
+                    modules.forEach((module, index) => {
+                        const moduleProgress = progress.modules.find(m => m.module_id === module.id) || {
+                            progress_percent: 0,
+                            completed: false
+                        };
+
+                        const moduleCard = document.createElement('div');
+                        moduleCard.className = 'border rounded-lg p-4 hover:shadow-md transition';
+                        moduleCard.innerHTML = `
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background-color: var(--beacon-teal);">
+                                        ${index + 1}
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900">${module.name}</h3>
+                                        <p class="text-sm text-gray-500">${moduleProgress.progress_percent}% complete</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    ${moduleProgress.completed ? `
+                                        <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                                            ✓ Completed
+                                        </span>
+                                    ` : ''}
+                                    <a href="${module.url}" class="px-4 py-2 rounded-lg text-sm font-medium text-white" style="background-color: var(--beacon-teal);">
+                                        ${moduleProgress.progress_percent > 0 ? 'Continue' : 'Start'}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="h-2 rounded-full" style="background-color: var(--beacon-teal); width: ${moduleProgress.progress_percent}%;"></div>
+                            </div>
+                        `;
+                        modulesContainer.appendChild(moduleCard);
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to load progress:', error);
+            }
+        }
+
+        async function loadAchievements() {
+            try {
+                const response = await fetch('/api/progress/achievements');
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById('achievements-count').textContent = data.achievements.length;
+
+                    const container = document.getElementById('achievements-container');
+                    container.innerHTML = '';
+
+                    if (data.achievements.length === 0) {
+                        container.innerHTML = '<p class="text-gray-500 col-span-3">No achievements yet. Keep learning to earn your first badge!</p>';
+                        return;
+                    }
+
+                    data.achievements.forEach(achievement => {
+                        const card = document.createElement('div');
+                        card.className = 'border rounded-lg p-4 bg-gradient-to-br from-yellow-50 to-white';
+                        card.innerHTML = `
+                            <div class="flex items-start gap-3">
+                                <div class="text-3xl">🏆</div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900">${achievement.achievement_name}</h3>
+                                    <p class="text-sm text-gray-600 mt-1">${achievement.achievement_description}</p>
+                                    <p class="text-xs text-gray-500 mt-2">Earned ${new Date(achievement.earned_at).toLocaleDateString()}</p>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to load achievements:', error);
+            }
+        }
+
+        async function loadLeaderboard() {
+            try {
+                const response = await fetch('/api/progress/leaderboard');
+                const data = await response.json();
+
+                if (data.success) {
+                    const tbody = document.getElementById('leaderboard-body');
+                    tbody.innerHTML = '';
+
+                    if (data.leaderboard.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">No data yet</td></tr>';
+                        return;
+                    }
+
+                    data.leaderboard.forEach((user, index) => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="text-lg font-bold ${index < 3 ? 'text-yellow-600' : 'text-gray-600'}">
+                                    ${index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
+                                ${user.first_name} ${user.last_name.charAt(0)}.
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">
+                                ${user.completed_modules} / 5
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">
+                                ${Math.round(user.total_time_minutes / 60)}h
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-20 bg-gray-200 rounded-full h-2">
+                                        <div class="h-2 rounded-full" style="background-color: var(--beacon-teal); width: ${user.avg_progress}%;"></div>
+                                    </div>
+                                    <span class="text-sm text-gray-600">${Math.round(user.avg_progress)}%</span>
+                                </div>
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to load leaderboard:', error);
+            }
+        }
+
+        function logout() {
+            fetch('/api/auth/logout', { method: 'POST' })
+                .then(() => window.location.href = '/index.html');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProgress();
+            loadAchievements();
+            loadLeaderboard();
+        });
+    </script>
+</body>
+</html>
