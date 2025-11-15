@@ -61,6 +61,7 @@ const membershipRoutes = require('./routes/membership');
 const stripeWebhookRoutes = require('./routes/stripe_webhook');
 const ghlWebhookRoutes = require('./routes/ghl_webhook');
 const { requireAuth, attachUser } = require('./middleware/auth');
+const { requireMembership, requireRole } = require('./middleware/membership');
 
 // Attach user to all requests
 app.use(attachUser);
@@ -73,9 +74,30 @@ app.use('/api/membership', membershipRoutes);
 app.use('/api/stripe', stripeWebhookRoutes);
 app.use('/api/ghl', ghlWebhookRoutes);
 
-// Protect /members directory - MUST come before general static files
+// Protect content directories - MUST come before general static files
+
+// Capital Suite - Requires capital_suite or all_access membership
+app.use('/capital-suite', requireAuth, requireMembership('capital_suite'), (req, res, next) => {
+    express.static(path.join(__dirname, '..', 'capital-suite'))(req, res, next);
+});
+
+// Solopreneur Launchpad - Requires solopreneur_launchpad or all_access membership
+app.use('/solopreneur-launchpad', requireAuth, requireMembership('solopreneur_launchpad'), (req, res, next) => {
+    express.static(path.join(__dirname, '..', 'solopreneur-launchpad'))(req, res, next);
+});
+
+// Rise & Reclaim - Requires rise_reclaim or all_access membership
+app.use('/rise-reclaim', requireAuth, requireMembership('rise_reclaim'), (req, res, next) => {
+    express.static(path.join(__dirname, '..', 'rise-reclaim'))(req, res, next);
+});
+
+// All Access - Requires all_access membership or founding_member role
+app.use('/all-access', requireAuth, requireRole('founding_member'), (req, res, next) => {
+    express.static(path.join(__dirname, '..', 'all-access'))(req, res, next);
+});
+
+// Legacy /members directory - Requires authentication only
 app.use('/members', requireAuth, (req, res, next) => {
-    // Serve static files from members directory
     express.static(path.join(__dirname, '..', 'members'))(req, res, next);
 });
 
