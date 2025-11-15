@@ -57,6 +57,9 @@ app.use(session({
 
 // Import routes
 const authRoutes = require('./routes/auth');
+const membershipRoutes = require('./routes/membership');
+const stripeWebhookRoutes = require('./routes/stripe_webhook');
+const ghlWebhookRoutes = require('./routes/ghl_webhook');
 const { requireAuth, attachUser } = require('./middleware/auth');
 
 // Attach user to all requests
@@ -66,6 +69,9 @@ app.use(attachUser);
 app.use('/api/auth/login', authLimiter);
 app.use('/api/auth/register', registerLimiter);
 app.use('/api/auth', authRoutes);
+app.use('/api/membership', membershipRoutes);
+app.use('/api/stripe', stripeWebhookRoutes);
+app.use('/api/ghl', ghlWebhookRoutes);
 
 // Protect /members directory - MUST come before general static files
 app.use('/members', requireAuth, (req, res, next) => {
