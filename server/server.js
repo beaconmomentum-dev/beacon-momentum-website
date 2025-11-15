@@ -48,9 +48,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: process.env.NODE_ENV === 'production', // HTTPS only in production
+        secure: 'auto', // Auto-detect HTTPS (works with Cloudflare proxy)
         httpOnly: true, // Prevent XSS
-        sameSite: 'strict', // CSRF protection
+        sameSite: 'lax', // CSRF protection (lax works better with Cloudflare proxy)
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
 }));
