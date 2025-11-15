@@ -142,6 +142,126 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
+        /* Beacon Narrative Section */
+        .beacon-narrative {
+            position: relative;
+            background: var(--beacon-cream);
+            padding: 5rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .beacon-narrative::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,200 Q300,150 600,200 T1200,200 L1200,400 L0,400 Z" fill="%23F8F5F1" opacity="0.3"/><circle cx="600" cy="80" r="15" fill="%23FF7A00" opacity="0.6"/><path d="M600,95 L600,200" stroke="%23FF7A00" stroke-width="3" opacity="0.5"/><path d="M580,110 L600,95 L620,110" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.5"/><path d="M560,130 L600,95 L640,130" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.4"/><path d="M540,150 L600,95 L660,150" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .narrative-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .narrative-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--beacon-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .narrative-headline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--beacon-orange), transparent);
+            box-shadow: 0 0 10px var(--beacon-orange);
+        }
+
+        .narrative-subheadline {
+            font-size: 1.4rem;
+            color: var(--beacon-gold);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .narrative-body {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--beacon-dark);
+            margin-bottom: 2.5rem;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .narrative-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .narrative-body p:first-child {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--beacon-teal);
+        }
+
+        .narrative-body strong {
+            color: var(--beacon-orange);
+            font-weight: 600;
+        }
+
+        .narrative-closing {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--beacon-teal);
+            font-weight: 500;
+            margin-top: 2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .narrative-cta {
+            background: var(--beacon-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+        }
+
+        .narrative-cta:hover {
+            background: var(--beacon-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
+        }
+
         /* Divisions Section */
         .divisions {
             padding: 4rem 0;
@@ -497,6 +617,36 @@
                 font-size: 2.5rem;
             }
 
+            .beacon-narrative {
+                padding: 3rem 0;
+            }
+
+            .narrative-headline {
+                font-size: 2rem;
+            }
+
+            .narrative-subheadline {
+                font-size: 1.1rem;
+            }
+
+            .narrative-body {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .narrative-body p:first-child {
+                font-size: 1.1rem;
+            }
+
+            .narrative-closing {
+                font-size: 1.1rem;
+            }
+
+            .narrative-cta {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+
             .divisions-grid {
                 grid-template-columns: 1fr;
             }
@@ -541,6 +691,47 @@
                 <a href="#quiz" class="cta-button">Find Your Path Forward</a>
                 <a href="#stories" class="cta-button" style="background: transparent; border: 2px solid white; color: white;">Watch Stories of Transformation</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Beacon Narrative Section -->
+    <section class="beacon-narrative">
+        <div class="narrative-container">
+            <h2 class="narrative-headline">The Beacon Narrative</h2>
+            <p class="narrative-subheadline">
+                A lighthouse for people rebuilding their lives — and for generations who've been left without a fair shot.
+            </p>
+            
+            <div class="narrative-body">
+                <p>
+                    I wasn't handed much in life — no roadmap, no safety net, no inheritance.<br>
+                    What I had was grit, necessity, and the unwillingness to quit.
+                </p>
+                
+                <p>
+                    I grew up in a world where nothing came easy.<br>
+                    The military became the forge that taught me discipline, clarity, and resilience.<br>
+                    Entrepreneurship taught me reinvention, adaptation, and how to rise again when life blindsides you.
+                </p>
+                
+                <p>
+                    <strong>Beacon Momentum</strong> was built for people rebuilding — and for the generations who've been told they'll never own a home, never get ahead, and never break free.
+                </p>
+                
+                <p>
+                    <strong>Digital Grandpa</strong> exists to guide.<br>
+                    <strong>Rise & Reclaim</strong> exists to rebuild.<br>
+                    <strong>The Solopreneur Launchpad</strong> exists to empower.<br>
+                    <strong>The Capital Suite</strong> exists to create opportunity where none was given.
+                </p>
+            </div>
+            
+            <p class="narrative-closing">
+                A lighthouse doesn't move. It stands. It shines. It guides.<br>
+                That's why Beacon exists — to light the way forward for anyone ready to rise and reclaim their future.
+            </p>
+            
+            <a href="#divisions" class="narrative-cta">Learn the Beacon Pathway →</a>
         </div>
     </section>
 
