@@ -668,8 +668,72 @@
             color: #9CA3AF;
         }
 
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--beacon-dark);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: white;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 1rem 20px;
+            color: var(--beacon-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--beacon-light);
+            transition: background-color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--beacon-light);
+            color: var(--beacon-teal);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
             .nav-links {
                 display: none;
             }
@@ -741,7 +805,22 @@
                     <li><a href="press.html">Press</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </nav>
+            <div class="mobile-menu">
+                <a href="/">Home</a>
+                <a href="founding-member.html">Founding Member</a>
+                <a href="digital-grandpa.html">Digital Grandpa</a>
+                <a href="rise-reclaim.html">Rise & Reclaim</a>
+                <a href="labs.html">Beacon Labs</a>
+                <a href="our-compass.html">Our Compass</a>
+                <a href="press.html">Press</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </header>
 
@@ -2020,14 +2099,6 @@
             </div>
 
             <div class="founding-benefit-item">
-                <span class="founding-benefit-icon">🎙️</span>
-                <div class="founding-benefit-title">Direct Access to Bob</div>
-                <div class="founding-benefit-description">
-                    Monthly Q&A sessions, exclusive workshops, and direct communication with the founder.
-                </div>
-            </div>
-
-            <div class="founding-benefit-item">
                 <span class="founding-benefit-icon">🚀</span>
                 <div class="founding-benefit-title">Shape the Platform</div>
                 <div class="founding-benefit-description">
@@ -2706,4 +2777,36 @@
         </div>
     </div>
 </footer>
-</body></html>
+<script>
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
