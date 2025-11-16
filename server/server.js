@@ -16,7 +16,27 @@ app.set('trust proxy', 1);
 
 // Security middleware
 app.use(helmet({
-    contentSecurityPolicy: false // Disable for now, can configure later
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "https://cdn.tailwindcss.com", "https://cdnjs.cloudflare.com", "'unsafe-inline'"],
+            styleSrc: ["'self'", "https://cdn.tailwindcss.com", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "'unsafe-inline'"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+            imgSrc: ["'self'", "data:", "https:"],
+            connectSrc: ["'self'"],
+            frameSrc: ["'none'"],
+            objectSrc: ["'none'"],
+            upgradeInsecureRequests: []
+        }
+    },
+    strictTransportSecurity: {
+        maxAge: 31536000, // 1 year
+        includeSubDomains: true,
+        preload: true
+    },
+    frameguard: { action: 'deny' },
+    noSniff: true,
+    xssFilter: true
 }));
 
 // Rate limiting
@@ -48,16 +68,25 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: process.env.NODE_ENV === 'production', // HTTPS only in production
+        secure: 'auto', // Auto-detect HTTPS (works with Cloudflare proxy)
         httpOnly: true, // Prevent XSS
-        sameSite: 'strict', // CSRF protection
+        sameSite: 'lax', // CSRF protection (lax works better with Cloudflare proxy)
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
 }));
 
 // Import routes
 const authRoutes = require('./routes/auth');
+const membershipRoutes = require('./routes/membership');
+const stripeWebhookRoutes = require('./routes/stripe_webhook');
+const ghlWebhookRoutes = require('./routes/ghl_webhook');
+const coursesRoutes = require('./routes/courses_routes');
+const communityRoutes = require('./routes/community_routes');
+const eventsRoutes = require('./routes/events_routes');
+const progressRoutes = require('./routes/progress_routes');
+const resourcesRoutes = require('./routes/resources_routes');
 const { requireAuth, attachUser } = require('./middleware/auth');
+const { requireMembership, requireRole } = require('./middleware/membership');
 
 // Attach user to all requests
 app.use(attachUser);
@@ -66,10 +95,41 @@ app.use(attachUser);
 app.use('/api/auth/login', authLimiter);
 app.use('/api/auth/register', registerLimiter);
 app.use('/api/auth', authRoutes);
+app.use('/api/membership', membershipRoutes);
+app.use('/api/stripe', stripeWebhookRoutes);
+app.use('/api/ghl', ghlWebhookRoutes);
 
-// Protect /members directory - MUST come before general static files
+// Course module routes
+app.use('/api/courses', coursesRoutes);
+app.use('/api/community', communityRoutes);
+app.use('/api/events', eventsRoutes);
+app.use('/api/progress', progressRoutes);
+app.use('/api/resources', resourcesRoutes);
+
+// Protect content directories - MUST come before general static files
+
+// Capital Suite - Requires capital_suite or all_access membership
+app.use('/capital-suite', requireAuth, requireMembership('capital_suite'), (req, res, next) => {
+    express.static(path.join(__dirname, '..', 'capital-suite'))(req, res, next);
+});
+
+// Solopreneur Launchpad - Requires solopreneur_launchpad or all_access membership
+app.use('/solopreneur-launchpad', requireAuth, requireMembership('solopreneur_launchpad'), (req, res, next) => {
+    express.static(path.join(__dirname, '..', 'solopreneur-launchpad'))(req, res, next);
+});
+
+// Rise & Reclaim - Requires rise_reclaim or all_access membership
+app.use('/rise-reclaim', requireAuth, requireMembership('rise_reclaim'), (req, res, next) => {
+    express.static(path.join(__dirname, '..', 'rise-reclaim'))(req, res, next);
+});
+
+// All Access - Requires all_access membership or founding_member role
+app.use('/all-access', requireAuth, requireRole('founding_member'), (req, res, next) => {
+    express.static(path.join(__dirname, '..', 'all-access'))(req, res, next);
+});
+
+// Legacy /members directory - Requires authentication only
 app.use('/members', requireAuth, (req, res, next) => {
-    // Serve static files from members directory
     express.static(path.join(__dirname, '..', 'members'))(req, res, next);
 });
 

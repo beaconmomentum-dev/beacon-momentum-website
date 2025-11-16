@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Digital Grandpa</title>
+    <meta name="description" content="Thank you for reaching out to Digital Grandpa. Bob will be in touch soon.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-gold: #D4AF37;
+            --beacon-dark: #1F2937;
+            --beacon-cream: #F8F5F1;
+            --beacon-orange: #F59E0B;
+            --beacon-gray: #6B7280;
+            --beacon-light: #F9FAFB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background: linear-gradient(135deg, #FEF3C7 0%, #FFF7ED 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-gold);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+
+        .thank-you-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 4rem 3rem;
+            max-width: 700px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--beacon-gold) 0%, var(--beacon-orange) 100%);
+        }
+
+        .lighthouse-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--beacon-gold) 0%, var(--beacon-orange) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s ease-in-out infinite;
+            font-size: 2.5rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(212, 175, 55, 0);
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--beacon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--beacon-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .bob-quote {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FFF7ED 100%);
+            border-left: 4px solid var(--beacon-gold);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: left;
+            font-style: italic;
+            color: var(--beacon-dark);
+            position: relative;
+        }
+
+        .bob-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--beacon-gold);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: 'Playfair Display', serif;
+            opacity: 0.3;
+        }
+
+        .bob-quote p {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .bob-signature {
+            text-align: right;
+            font-weight: 600;
+            color: var(--beacon-gold);
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
+        .info-box {
+            background: var(--beacon-light);
+            border-left: 4px solid var(--beacon-gold);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--beacon-gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .info-box p {
+            color: var(--beacon-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .info-box li {
+            padding: 0.5rem 0;
+            color: var(--beacon-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .info-box li::before {
+            content: '🔦';
+            flex-shrink: 0;
+        }
+
+        .cta-section {
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--beacon-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--beacon-gold) 0%, var(--beacon-orange) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--beacon-gold);
+            border: 2px solid var(--beacon-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--beacon-gold);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--beacon-dark);
+            color: white;
+            padding: 2rem 0 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--beacon-gold);
+        }
+
+        .footer-bottom {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 3rem 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="digital-grandpa.html" class="logo">
+                    <img src="images/beacon-logo-icon.png" alt="Digital Grandpa">
+                    Digital Grandpa
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="thank-you-card">
+                <div class="lighthouse-icon">
+                    🔦
+                </div>
+
+                <h1>Bob Will Be In Touch Soon!</h1>
+                <p class="subtitle">Your message has been received and Bob is looking forward to helping you.</p>
+
+                <div class="bob-quote">
+                    <p>Thank you for reaching out. Whether you need help with technology, guidance on life's journey, or just someone to talk to, I'm here for you. You're in good hands.</p>
+                    <div class="bob-signature">— Bob Burr, Digital Grandpa</div>
+                </div>
+
+                <div class="info-box">
+                    <h3>What Happens Next?</h3>
+                    <ul>
+                        <li>You'll receive a confirmation email from Bob within minutes</li>
+                        <li>Bob will personally review your request and respond within 24 hours</li>
+                        <li>He'll reach out via email or phone with guidance, resources, or next steps</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>Need Immediate Help?</h3>
+                    <p><strong>Bob's Email:</strong> BobBurr80@gmail.com</p>
+                    <p><strong>Beacon Momentum:</strong> (413) 597-8975</p>
+                    <p style="margin-top: 1rem;">While you wait, check out Bob's resources and stories on the Digital Grandpa page.</p>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Explore More from Beacon Momentum</h3>
+                    <div class="button-group">
+                        <a href="digital-grandpa.html" class="btn btn-primary">Read Bob's Stories</a>
+                        <a href="rise-reclaim.html" class="btn btn-secondary">Rise & Reclaim</a>
+                        <a href="index.html" class="btn btn-secondary">Homepage</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #E5E7EB;">
+                    <p style="color: var(--beacon-gray); font-size: 0.95rem;">
+                        <strong>Bob's Wisdom:</strong> "Technology should serve you, not frustrate you. Let's figure this out together."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="digital-grandpa.html">Digital Grandpa</a>
+                    <a href="our-compass.html">Our Compass</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Beacon Momentum | Powered by Phoenix Collective | Lighting the Way Forward</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Analytics Event Tracking -->
+    <script>
+        // Track thank you page view as conversion
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+                'event_category': 'Digital Grandpa',
+                'event_label': 'Support Request Completed'
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Beacon Momentum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="/images/logo.png" alt="Beacon Momentum" class="h-8 w-auto" onerror="this.style.display='none'">
+                        <span class="ml-2 text-xl font-bold text-gray-900">Beacon Momentum</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/member-dashboard.html" class="text-gray-700 hover:text-teal-600">Dashboard</a>
+                    <a href="/courses.html" class="text-gray-700 hover:text-teal-600">Courses</a>
+                    <a href="/resources.html" class="text-gray-700 hover:text-teal-600">Resources</a>
+                    <a href="/community.html" class="text-gray-700 hover:text-teal-600">Community</a>
+                    <a href="/events.html" class="text-teal-600 font-semibold">Events</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-red-600 to-pink-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h1 class="text-4xl font-bold mb-4">Community Events</h1>
+            <p class="text-xl text-red-100">Join live calls, workshops, and community gatherings</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Tabs -->
+        <div class="mb-8 border-b border-gray-200">
+            <nav class="flex space-x-8">
+                <button id="upcoming-tab" 
+                        class="tab-btn py-4 px-1 border-b-2 border-red-600 font-semibold text-red-600 whitespace-nowrap">
+                    <i class="fas fa-calendar-alt mr-2"></i>Upcoming Events
+                </button>
+                <button id="past-tab" 
+                        class="tab-btn py-4 px-1 border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap">
+                    <i class="fas fa-history mr-2"></i>Past Events
+                </button>
+            </nav>
+        </div>
+
+        <!-- Events Container -->
+        <div id="events-container">
+            <!-- Events will be inserted here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <p class="text-center text-gray-400">&copy; 2025 Beacon Momentum. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/api.js"></script>
+    <script src="/js/components.js"></script>
+    <script src="/js/events.js"></script>
+</body>
+</html>

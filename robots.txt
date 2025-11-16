@@ -1,12 +1,42 @@
-# Beacon Momentum - robots.txt
+# robots.txt for beaconmomentum.com
 
+# Allow all crawlers to access public pages
 User-agent: *
 Allow: /
-Disallow: /members/
+
+# Disallow member area (authentication required)
 Disallow: /member-dashboard.html
+Disallow: /courses.html
+Disallow: /course-detail.html
+Disallow: /lesson-view.html
+Disallow: /community.html
+Disallow: /community-space.html
+Disallow: /community-post.html
+Disallow: /create-post.html
+Disallow: /events.html
+Disallow: /event-detail.html
+Disallow: /resources.html
+Disallow: /my-progress.html
+Disallow: /messages.html
+
+# Disallow admin and server directories
+Disallow: /admin-dashboard.html
+Disallow: /server/
+Disallow: /api/
+
+# Disallow authentication pages
 Disallow: /login.html
 Disallow: /register.html
-Disallow: /api/
+Disallow: /forgot-password.html
+Disallow: /reset-password.html
+Disallow: /verify-email.html
+Disallow: /resend-verification.html
+
+# Disallow partial HTML files
+Disallow: /partials/
+
+# Disallow old/backup files
+Disallow: /*-old.html
 
 # Sitemap location
 Sitemap: https://beaconmomentum.com/sitemap.xml

@@ -3,97 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Community Forum | Beacon Momentum</title>
+    <title>Community - Beacon Momentum</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --phoenix-red: #8B1538;
-        }
-        .playfair { font-family: 'Playfair Display', serif; }
-        .inter { font-family: 'Inter', sans-serif; }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 inter">
-    <script src="/assets/js/auth-check.js"></script>
-
-    <header class="bg-gray-900 text-white shadow-lg">
-        <div class="container mx-auto px-4">
-            <nav class="flex items-center justify-between py-4">
-                <a href="index.html" class="font-bold text-xl">Beacon Momentum</a>
-                <div class="flex items-center gap-4">
-                    <a href="member-dashboard.html" class="text-sm hover:opacity-80">Dashboard</a>
-                    <a href="my-progress.html" class="text-sm hover:opacity-80">My Progress</a>
-                    <button onclick="logout()" class="text-sm hover:opacity-80" style="color: var(--beacon-gold);">Logout</button>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="/images/logo.png" alt="Beacon Momentum" class="h-8 w-auto" onerror="this.style.display='none'">
+                        <span class="ml-2 text-xl font-bold text-gray-900">Beacon Momentum</span>
+                    </a>
                 </div>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container mx-auto px-4 py-8">
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 playfair">Community Forum</h1>
-            <p class="text-gray-600">Connect, learn, and grow with fellow Beacon members</p>
-        </div>
-
-        <!-- Forum Categories -->
-        <div class="grid gap-4" id="categories-container">
-            <div class="bg-white rounded-lg shadow p-6">
-                <p class="text-gray-500">Loading categories...</p>
+                <div class="flex items-center space-x-4">
+                    <a href="/member-dashboard.html" class="text-gray-700 hover:text-teal-600">Dashboard</a>
+                    <a href="/courses.html" class="text-gray-700 hover:text-teal-600">Courses</a>
+                    <a href="/resources.html" class="text-gray-700 hover:text-teal-600">Resources</a>
+                    <a href="/community.html" class="text-teal-600 font-semibold">Community</a>
+                    <a href="/events.html" class="text-gray-700 hover:text-teal-600">Events</a>
+                </div>
             </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-orange-600 to-red-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h1 class="text-4xl font-bold mb-4">Community</h1>
+            <p class="text-xl text-orange-100">Connect with others on their transformation journey</p>
         </div>
     </div>
 
-    <script>
-        async function loadCategories() {
-            try {
-                const response = await fetch('/api/community/categories');
-                const data = await response.json();
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Community Spaces Grid -->
+        <div id="spaces-container">
+            <!-- Loading state will be inserted here -->
+        </div>
+    </main>
 
-                if (data.success) {
-                    const container = document.getElementById('categories-container');
-                    container.innerHTML = '';
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <p class="text-center text-gray-400">&copy; 2025 Beacon Momentum. All rights reserved.</p>
+        </div>
+    </footer>
 
-                    data.categories.forEach(category => {
-                        const card = document.createElement('div');
-                        card.className = 'bg-white rounded-lg shadow hover:shadow-lg transition p-6 cursor-pointer';
-                        card.onclick = () => window.location.href = `/forum-category.html?id=${category.id}`;
-                        card.innerHTML = `
-                            <div class="flex items-start justify-between">
-                                <div class="flex items-start gap-4">
-                                    <div class="text-4xl">${category.icon || '💬'}</div>
-                                    <div>
-                                        <h2 class="text-xl font-bold text-gray-900 mb-2">${category.name}</h2>
-                                        <p class="text-gray-600 mb-3">${category.description}</p>
-                                        <div class="flex items-center gap-4 text-sm text-gray-500">
-                                            <span>${category.topic_count} topics</span>
-                                            <span>•</span>
-                                            <span>${category.post_count} posts</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        `;
-                        container.appendChild(card);
-                    });
-                }
-            } catch (error) {
-                console.error('Failed to load categories:', error);
-            }
-        }
-
-        function logout() {
-            fetch('/api/auth/logout', { method: 'POST' })
-                .then(() => window.location.href = '/index.html');
-        }
-
-        document.addEventListener('DOMContentLoaded', loadCategories);
-    </script>
+    <!-- Scripts -->
+    <script src="/js/api.js"></script>
+    <script src="/js/components.js"></script>
+    <script src="/js/community.js"></script>
 </body>
 </html>

@@ -5,6 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Grandpa - Beacon Momentum Division</title>
     <meta name="description" content="Digital Grandpa: Storytelling & Mentorship division of Beacon Momentum. Bob's journey from veteran to mentor, helping others transform setbacks into comebacks.">
+    <link rel="canonical" href="https://beaconmomentum.com/digital-grandpa.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/digital-grandpa.html">
+    <meta property="og:title" content="Digital Grandpa - Storytelling & Mentorship">
+    <meta property="og:description" content="Digital Grandpa: Bob's journey from veteran to mentor, helping others transform setbacks into comebacks through storytelling and mentorship.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/digital-grandpa-hero-merged.png">
+    <meta property="og:site_name" content="Beacon Momentum">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/digital-grandpa.html">
+    <meta property="twitter:title" content="Digital Grandpa - Storytelling & Mentorship">
+    <meta property="twitter:description" content="Digital Grandpa: Bob's journey from veteran to mentor, helping others transform setbacks into comebacks through storytelling and mentorship.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/digital-grandpa-hero-merged.png">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bob Burr",
+      "alternateName": "Digital Grandpa",
+      "jobTitle": "Founder & Mentor",
+      "description": "Veteran mentor, storyteller, and founder of Beacon Momentum. Helping survivors of trauma and adversity transform setbacks into comebacks through mentorship and community support.",
+      "url": "https://beaconmomentum.com/digital-grandpa.html",
+      "image": "https://beaconmomentum.com/images/digital-grandpa-hero-merged.png",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Beacon Momentum",
+        "url": "https://beaconmomentum.com"
+      },
+      "knowsAbout": [
+        "Veteran mentorship",
+        "Trauma recovery",
+        "Community building",
+        "Storytelling",
+        "Life coaching"
+      ]
+    }
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -16,10 +59,53 @@
         .playfair { font-family: 'Playfair Display', serif; }
         .merriweather { font-family: 'Merriweather', serif; }
         .inter { font-family: 'Inter', sans-serif; }
-        .gradient-hero { background: linear-gradient(135deg, #063D3A 0%, #0A1419 100%); }
+        .gradient-hero { 
+            background: linear-gradient(135deg, #063D3A 0%, #0A1419 100%);
+            background-image: url('images/digital-grandpa-hero-merged.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 600px;
+        }
+        .gradient-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 61, 58, 0.3);
+            z-index: 0;
+        }
+        .gradient-hero > * {
+            position: relative;
+            z-index: 1;
+        }
         .lighthouse-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M30 30l15-15v30l-15-15zm0 0l-15 15v-30l15 15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
+        
+        /* Form Styles */
+        .contact-form { width: 100%; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #1F2937; font-weight: 500; font-size: 0.95rem; }
+        .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"], .form-group select, .form-group textarea {
+            width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 6px; font-size: 1rem; font-family: 'Inter', sans-serif; transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .checkbox-group label { display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; }
+        .checkbox-group input[type="checkbox"] { margin-top: 0.25rem; width: 18px; height: 18px; cursor: pointer; }
+        .checkbox-group span { font-size: 0.95rem; color: #6B7280; }
+        .submit-btn { width: 100%; padding: 1rem 2rem; background: linear-gradient(135deg, #D4AF37 0%, #F59E0B 100%); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); }
+        .submit-btn:active { transform: translateY(0); }
+        .form-message { margin-top: 1rem; padding: 1rem; border-radius: 6px; text-align: center; font-weight: 500; }
+        .form-message.success { background: #D1FAE5; color: #065F46; border: 1px solid #10B981; }
+        .form-message.error { background: #FEE2E2; color: #991B1B; border: 1px solid #EF4444; }
+        @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; gap: 1rem; } .form-group { margin-bottom: 1rem; } }
     </style>
 </head>
 <body class="bg-gray-50 inter">
@@ -59,10 +145,9 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="gradient-hero text-white py-16 lighthouse-pattern relative overflow-hidden">
+    <section class="gradient-hero text-white relative overflow-hidden" style="padding: 6rem 0 4rem 0;">
         <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Column - Content -->
+            <div class="max-w-3xl mx-auto text-center">
                 <div>
                     <div class="inline-flex items-center bg-white/10 rounded-full px-4 py-2 mb-6">
                         <svg class="w-5 h-5 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -80,7 +165,7 @@
                         Connect with those who've navigated great challenges and are ready to share their hard-won wisdom. Whether you're seeking guidance or ready to mentor others, this is where experience becomes impact.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="https://digitalgrandpa.org" class="bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center">
                             Visit Digital Grandpa
                             <svg class="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,18 +177,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Right Column - Bob's Photo -->
-                <div class="flex justify-center lg:justify-end">
-                    <div class="relative">
-                        <div class="w-80 h-96 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl p-1 shadow-2xl">
-                            <img src="images/bob-burr-professional-photo.jpg" alt="Bob Burr - Digital Grandpa Founder" class="w-full h-full object-contain rounded-lg">
-                        </div>
-                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-full shadow-lg">
-                            ✓ Verified Veteran
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -112,9 +185,21 @@
     <section id="story" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
+                <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold mb-6 text-gray-800 playfair">Meet Bob Burr</h2>
-                    <p class="text-xl text-gray-600">Sometimes you don't need a guru. You need a grandpa.</p>
+                    <p class="text-xl text-gray-600 mb-8">Sometimes you don't need a guru. You need a grandpa.</p>
+                    
+                    <!-- Bob's Photo -->
+                    <div class="flex justify-center mb-12">
+                        <div class="relative">
+                            <div class="w-80 h-96 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl p-1 shadow-2xl">
+                                <img src="images/bob-burr-professional-photo.jpg" alt="Bob Burr - Digital Grandpa Founder" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-full shadow-lg">
+                                ✓ Verified Veteran
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-12 items-start mb-16">
@@ -305,6 +390,79 @@
         </div>
     </section>
 
+    <!-- Support Form Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-6 text-gray-800 playfair">Get Support from Digital Grandpa</h2>
+                    <p class="text-xl text-gray-600">
+                        Have questions or need guidance? Bob and the Digital Grandpa team are here to help.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <form id="digitalGrandpaForm" action="https://api.leadconnectorhq.com/hooks/forms/submit" method="POST" class="contact-form">
+                        <!-- Hidden fields for GHL routing -->
+                        <input type="hidden" name="location_id" value="YOUR_GHL_LOCATION_ID">
+                        <input type="hidden" name="form_id" value="digital_grandpa_support">
+                        <input type="hidden" name="tags" value="digital-grandpa,support-request">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first_name">First Name *</label>
+                                <input type="text" id="first_name" name="first_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name *</label>
+                                <input type="text" id="last_name" name="last_name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="support_type">What do you need help with? *</label>
+                            <select id="support_type" name="support_type" required>
+                                <option value="">Select an option...</option>
+                                <option value="tech-support">Technology Help</option>
+                                <option value="life-guidance">Life Guidance</option>
+                                <option value="storytelling">Storytelling & Legacy</option>
+                                <option value="mentorship">Mentorship Request</option>
+                                <option value="general">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Tell us more about how we can help *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="newsletter" value="yes">
+                                <span>I'd like to receive wisdom and updates from Digital Grandpa</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message to Bob</button>
+                        
+                        <div id="formMessage" class="form-message" style="display:none;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-20 gradient-hero text-white">
         <div class="container mx-auto px-4 text-center">
@@ -391,6 +549,35 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.getElementById('digitalGrandpaForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('.submit-btn');
+            const formMessage = document.getElementById('formMessage');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.style.display = 'none';
+            const formData = new FormData(form);
+            try {
+                await fetch(form.action, { method: 'POST', body: formData, mode: 'no-cors' });
+                formMessage.textContent = 'Thank you! Bob will get back to you soon.';
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                form.reset();
+                if (typeof gtag !== 'undefined') { gtag('event', 'form_submission', { 'event_category': 'Digital Grandpa', 'event_label': 'Support Request' }); }
+                setTimeout(function() { window.location.href = 'thank-you-digital-grandpa.html'; }, 1500);
+            } catch (error) {
+                formMessage.textContent = 'Sorry, there was an error. Please email us at admin@beaconmomentum.com';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    </script>
 </body>
 </html>
 

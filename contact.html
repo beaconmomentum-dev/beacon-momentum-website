@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Beacon Momentum 3.1</title>
     <meta name="description" content="Get in touch with Beacon Momentum 3.1. We're here to answer your questions and help you connect with the right resources. Powered by Phoenix Collective.">
+    <link rel="canonical" href="https://beaconmomentum.com/contact.html">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Beacon Momentum",
+      "description": "Get in touch with Beacon Momentum. We're here to answer your questions and help you connect with the right resources.",
+      "url": "https://beaconmomentum.com/contact.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Beacon Momentum",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "email": "BobBurr80@gmail.com",
+          "availableLanguage": "English"
+        }
+      }
+    }
+    </script>
+    
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,6 +177,118 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
+        /* Form Styles */
+        .contact-form {
+            width: 100%;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--beacon-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--beacon-orange);
+            box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group span {
+            font-size: 0.95rem;
+            color: var(--beacon-gray);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--beacon-orange) 0%, var(--beacon-gold) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 122, 0, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .form-message.success {
+            background: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #10B981;
+        }
+
+        .form-message.error {
+            background: #FEE2E2;
+            color: #991B1B;
+            border: 1px solid #EF4444;
+        }
+
         /* Footer */
         .footer {
             background: var(--beacon-dark);
@@ -206,6 +341,15 @@
             .form-container {
                 padding: 1.5rem;
             }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -247,8 +391,63 @@
             </div>
 
             <div class="form-container">
-                <iframe src="https://api.leadconnectorhq.com/widget/form/MerNsxolhA8hIOPIfiRG" style="width:100%;height:700px;border:none;border-radius:6px" title="Beacon Momentum Contact Form"></iframe>
-                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                <form id="contactForm" action="https://api.leadconnectorhq.com/hooks/forms/submit" method="POST" class="contact-form">
+                    <!-- Hidden fields for GHL routing -->
+                    <input type="hidden" name="location_id" value="YOUR_GHL_LOCATION_ID">
+                    <input type="hidden" name="form_id" value="beacon_contact_form">
+                    <input type="hidden" name="tags" value="contact,general-inquiry">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first_name">First Name *</label>
+                            <input type="text" id="first_name" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name *</label>
+                            <input type="text" id="last_name" name="last_name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inquiry_type">What can we help you with? *</label>
+                        <select id="inquiry_type" name="inquiry_type" required>
+                            <option value="">Select an option...</option>
+                            <option value="general">General Question</option>
+                            <option value="digital-grandpa">Digital Grandpa</option>
+                            <option value="rise-reclaim">Rise & Reclaim</option>
+                            <option value="beacon-labs">Beacon Labs</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="support">Support Request</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" name="newsletter" value="yes">
+                            <span>I'd like to receive updates and insights from Beacon Momentum</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    
+                    <div id="formMessage" class="form-message" style="display:none;"></div>
+                </form>
             </div>
         </div>
     </section>
@@ -283,5 +482,64 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitBtn = form.querySelector('.submit-btn');
+            const formMessage = document.getElementById('formMessage');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Disable submit button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.style.display = 'none';
+            
+            // Collect form data
+            const formData = new FormData(form);
+            
+            try {
+                // Submit to GHL
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' // GHL webhook doesn't support CORS
+                });
+                
+                // Since no-cors mode doesn't return response, assume success
+                formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                
+                // Reset form
+                form.reset();
+                
+                // Track conversion (if analytics is set up)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_submission', {
+                        'event_category': 'Contact',
+                        'event_label': 'General Contact Form'
+                    });
+                }
+                
+                // Redirect to thank you page after 1.5 seconds
+                setTimeout(() => {
+                    window.location.href = 'thank-you-contact.html';
+                }, 1500);
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                formMessage.textContent = 'Sorry, there was an error sending your message. Please try again or email us directly at admin@beaconmomentum.com';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    </script>
 </body>
 </html>

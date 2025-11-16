@@ -41,13 +41,8 @@ router.post('/register', async (req, res) => {
         }
 
         // Create user (unverified)
-        const userId = await User.create({
-            email,
-            password,
-            firstName,
-            lastName,
-            isVerified: false
-        });
+        const user = await User.create(email, password, firstName, lastName);
+        const userId = user.id;
 
         // Generate verification token
         const { token } = await tokenManager.createVerificationToken(userId);

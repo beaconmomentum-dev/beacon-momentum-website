@@ -3,309 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | Beacon Momentum</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Terms of Service - Beacon Momentum</title>
     <style>
-        :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --phoenix-red: #8B1538;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .playfair { font-family: 'Playfair Display', serif; }
-        .inter { font-family: 'Inter', sans-serif; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #008080 0%, #00cc66 100%);
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #008080;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #008080;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #00cc66;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #00cc66;
+            margin: 20px 0;
+        }
+
+        .contact-box {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #00cc66;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-50 inter">
-    <header class="bg-gray-900 text-white shadow-lg">
-        <div class="container mx-auto px-4">
-            <nav class="flex items-center justify-between py-4">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="images/beacon-logo-icon.png" alt="Beacon" style="width: 40px; height: 40px;">
-                    <div class="flex flex-col leading-tight">
-                        <span class="text-xl font-bold">Beacon Momentum</span>
-                        <span class="text-xs italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
-                    </div>
-                </a>
-                <div class="flex items-center gap-4">
-                    <a href="index.html" class="text-sm hover:opacity-80">Home</a>
-                    <a href="contact.html" class="text-sm hover:opacity-80">Contact</a>
-                </div>
-            </nav>
-        </div>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">Beacon Momentum</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/our-compass.html">Our Compass</a>
+                <a href="/founding-member.html">Founding Member</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+        </nav>
     </header>
 
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Terms of Service</h1>
-                <p class="text-gray-600 mb-8">Last Updated: November 13, 2025</p>
+    <div class="container">
+        <h1>Terms of Service</h1>
+        <p class="last-updated"><strong>Last Updated:</strong> November 15, 2025</p>
 
-                <div class="bg-white rounded-lg shadow-lg p-8 space-y-8">
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">1. Agreement to Terms</h2>
-                        <p class="text-gray-700 mb-4">
-                            By accessing or using Beacon Momentum ("Service," "we," "our," or "us"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you do not have permission to access the Service.
-                        </p>
-                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-600">
-                            <p class="text-gray-700">
-                                <strong>Important:</strong> These Terms contain a binding arbitration clause and class action waiver that affect your legal rights. Please read carefully.
-                            </p>
-                        </div>
-                    </section>
+        <h2>1. Agreement to Terms</h2>
+        <p>By using our website, beaconmomentum.com (the "Site"), and the services offered herein (the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the Site or Services.</p>
 
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">2. Educational Purpose & Disclaimers</h2>
-                        
-                        <h3 class="text-xl font-semibold mb-3">2.1 Educational Content Only</h3>
-                        <p class="text-gray-700 mb-4">
-                            Beacon Momentum provides <strong>educational content only</strong> about digital assets, decentralized finance (DeFi), and financial sovereignty. Our content is designed to inform and educate, not to provide financial, investment, legal, or tax advice.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3">2.2 Not Financial Advice</h3>
-                        <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-600 mb-4">
-                            <p class="text-gray-700 mb-4">
-                                <strong>⚠️ IMPORTANT DISCLAIMER:</strong>
-                            </p>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li>We are <strong>NOT</strong> financial advisors, investment advisors, or licensed professionals</li>
-                                <li>Nothing on this platform constitutes financial, investment, legal, or tax advice</li>
-                                <li>We do <strong>NOT</strong> recommend any specific investments, tokens, or protocols</li>
-                                <li>All investment decisions are your sole responsibility</li>
-                                <li>You should consult with licensed professionals before making financial decisions</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="text-xl font-semibold mb-3">2.3 Risk Acknowledgment</h3>
-                        <p class="text-gray-700 mb-4">
-                            By using our Service, you acknowledge and agree that:
-                        </p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Digital assets and DeFi protocols involve substantial risk of loss</li>
-                            <li>You may lose some or all of your invested capital</li>
-                            <li>Past performance does not guarantee future results</li>
-                            <li>Market conditions can change rapidly and unpredictably</li>
-                            <li>You are solely responsible for your own research and due diligence</li>
-                            <li>You should never invest more than you can afford to lose</li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">3. User Accounts</h2>
-                        
-                        <h3 class="text-xl font-semibold mb-3">3.1 Account Creation</h3>
-                        <p class="text-gray-700 mb-4">
-                            To access member content, you must create an account. You agree to:
-                        </p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Provide accurate, current, and complete information</li>
-                            <li>Maintain and update your information to keep it accurate</li>
-                            <li>Maintain the security of your password</li>
-                            <li>Notify us immediately of any unauthorized access</li>
-                            <li>Be responsible for all activities under your account</li>
-                        </ul>
-
-                        <h3 class="text-xl font-semibold mb-3 mt-4">3.2 Age Requirement</h3>
-                        <p class="text-gray-700">
-                            You must be at least 18 years old to use our Service. By using the Service, you represent that you meet this age requirement.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3 mt-4">3.3 Account Termination</h3>
-                        <p class="text-gray-700">
-                            We reserve the right to suspend or terminate your account at any time for violations of these Terms, fraudulent activity, or any other reason at our sole discretion.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">4. Subscription and Payments</h2>
-                        
-                        <h3 class="text-xl font-semibold mb-3">4.1 Subscription Tiers</h3>
-                        <p class="text-gray-700 mb-4">
-                            We offer multiple subscription tiers with varying access levels and features. Pricing and features are subject to change with notice.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3">4.2 Payment Terms</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Subscriptions are billed in advance on a recurring basis (monthly or annually)</li>
-                            <li>Payment is processed through Stripe, our third-party payment processor</li>
-                            <li>You authorize us to charge your payment method for all fees incurred</li>
-                            <li>All fees are non-refundable except as required by law</li>
-                        </ul>
-
-                        <h3 class="text-xl font-semibold mb-3 mt-4">4.3 Cancellation</h3>
-                        <p class="text-gray-700 mb-4">
-                            You may cancel your subscription at any time. Cancellation will take effect at the end of your current billing period. You will retain access until the end of the paid period.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3">4.4 Refund Policy</h3>
-                        <p class="text-gray-700">
-                            We do not offer refunds for partial months or unused portions of subscriptions, except as required by applicable law. If you believe you are entitled to a refund, please contact support@beaconmomentum.com.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">5. Intellectual Property</h2>
-                        
-                        <h3 class="text-xl font-semibold mb-3">5.1 Our Content</h3>
-                        <p class="text-gray-700 mb-4">
-                            All content on Beacon Momentum, including text, graphics, logos, images, videos, and software, is our property or the property of our licensors and is protected by copyright, trademark, and other intellectual property laws.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3">5.2 Limited License</h3>
-                        <p class="text-gray-700 mb-4">
-                            We grant you a limited, non-exclusive, non-transferable license to access and use our content for personal, non-commercial educational purposes. You may not:
-                        </p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Reproduce, distribute, or publicly display our content without permission</li>
-                            <li>Modify, reverse engineer, or create derivative works</li>
-                            <li>Share your account credentials or access with others</li>
-                            <li>Use our content for commercial purposes</li>
-                            <li>Remove or alter any copyright notices or attributions</li>
-                        </ul>
-
-                        <h3 class="text-xl font-semibold mb-3 mt-4">5.3 User Content</h3>
-                        <p class="text-gray-700 mb-4">
-                            When you post content to our community forums or messaging features, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and display that content in connection with operating the Service.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">6. Prohibited Conduct</h2>
-                        <p class="text-gray-700 mb-4">You agree NOT to:</p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Violate any laws or regulations</li>
-                            <li>Infringe on intellectual property rights</li>
-                            <li>Transmit viruses, malware, or harmful code</li>
-                            <li>Attempt to gain unauthorized access to our systems</li>
-                            <li>Interfere with or disrupt the Service</li>
-                            <li>Harass, threaten, or abuse other users</li>
-                            <li>Post spam, advertisements, or promotional content</li>
-                            <li>Impersonate others or misrepresent your affiliation</li>
-                            <li>Scrape, crawl, or data mine our content</li>
-                            <li>Use bots or automated tools without permission</li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">7. Disclaimers and Limitations of Liability</h2>
-                        
-                        <h3 class="text-xl font-semibold mb-3">7.1 "As Is" Service</h3>
-                        <p class="text-gray-700 mb-4">
-                            THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3">7.2 No Guarantee of Results</h3>
-                        <p class="text-gray-700 mb-4">
-                            We do not guarantee that our educational content will lead to any specific financial outcomes. Your results may vary based on numerous factors beyond our control.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3">7.3 Limitation of Liability</h3>
-                        <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
-                            <p class="text-gray-700 mb-4">
-                                TO THE MAXIMUM EXTENT PERMITTED BY LAW, BEACON MOMENTUM SHALL NOT BE LIABLE FOR:
-                            </p>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li>Any indirect, incidental, special, or consequential damages</li>
-                                <li>Loss of profits, revenue, data, or business opportunities</li>
-                                <li>Financial losses resulting from investment decisions</li>
-                                <li>Damages arising from your use or inability to use the Service</li>
-                                <li>Any damages exceeding the amount you paid us in the past 12 months</li>
-                            </ul>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">8. Indemnification</h2>
-                        <p class="text-gray-700">
-                            You agree to indemnify, defend, and hold harmless Beacon Momentum, its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses (including legal fees) arising from your use of the Service, violation of these Terms, or infringement of any third-party rights.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">9. Dispute Resolution</h2>
-                        
-                        <h3 class="text-xl font-semibold mb-3">9.1 Informal Resolution</h3>
-                        <p class="text-gray-700 mb-4">
-                            Before filing any formal dispute, you agree to contact us at support@beaconmomentum.com to attempt to resolve the issue informally.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3">9.2 Binding Arbitration</h3>
-                        <p class="text-gray-700 mb-4">
-                            Any dispute arising from these Terms or the Service will be resolved through binding arbitration rather than in court, except that you may assert claims in small claims court if they qualify.
-                        </p>
-
-                        <h3 class="text-xl font-semibold mb-3">9.3 Class Action Waiver</h3>
-                        <p class="text-gray-700">
-                            You agree to resolve disputes on an individual basis only. You waive any right to participate in class actions, class arbitrations, or representative proceedings.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">10. Governing Law</h2>
-                        <p class="text-gray-700">
-                            These Terms are governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">11. Changes to Terms</h2>
-                        <p class="text-gray-700 mb-4">
-                            We reserve the right to modify these Terms at any time. We will notify you of material changes by:
-                        </p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Posting the updated Terms on this page</li>
-                            <li>Updating the "Last Updated" date</li>
-                            <li>Sending an email notification</li>
-                        </ul>
-                        <p class="text-gray-700 mt-4">
-                            Your continued use of the Service after changes are posted constitutes acceptance of the updated Terms.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">12. Severability</h2>
-                        <p class="text-gray-700">
-                            If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">13. Contact Information</h2>
-                        <p class="text-gray-700 mb-4">
-                            If you have questions about these Terms, please contact us:
-                        </p>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <p class="text-gray-700 mb-2"><strong>Beacon Momentum</strong></p>
-                            <p class="text-gray-700 mb-2">Email: <a href="mailto:support@beaconmomentum.com" style="color: var(--beacon-teal);">support@beaconmomentum.com</a></p>
-                            <p class="text-gray-700 mb-2">Legal: <a href="mailto:legal@beaconmomentum.com" style="color: var(--beacon-teal);">legal@beaconmomentum.com</a></p>
-                            <p class="text-gray-700">Website: <a href="https://beaconmomentum.com" style="color: var(--beacon-teal);">https://beaconmomentum.com</a></p>
-                        </div>
-                    </section>
-
-                    <section class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
-                        <h3 class="text-lg font-semibold mb-2">Acknowledgment</h3>
-                        <p class="text-gray-700">
-                            By using Beacon Momentum, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
-                        </p>
-                    </section>
-                </div>
-            </div>
+        <h2>2. Founding Member Program</h2>
+        
+        <div class="highlight-box">
+            <h3>2.1. One-Time Payment</h3>
+            <p>The Founding Member program is offered for a one-time payment of <strong>$1,997</strong>. This payment grants you lifetime access to the Beacon Momentum platform, including all current and future content within the Rise & Reclaim, Solopreneur Launchpad, and Capital Suite pathways.</p>
         </div>
-    </section>
 
-    <footer class="bg-gray-900 text-white py-8 mt-16">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-between items-center">
-                <div class="w-full md:w-auto mb-4 md:mb-0 text-center md:text-left">
-                    <p class="text-gray-400 text-sm">&copy; 2025 Beacon Momentum. All rights reserved.</p>
-                </div>
-                <div class="w-full md:w-auto text-center md:text-right">
-                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white text-sm mr-4">Privacy Policy</a>
-                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white text-sm mr-4">Terms of Service</a>
-                    <a href="contact.html" class="text-gray-400 hover:text-white text-sm">Contact</a>
-                </div>
-            </div>
+        <h3>2.2. Lifetime Access</h3>
+        <p>"Lifetime access" refers to the lifetime of the Beacon Momentum platform. Should the platform be discontinued, we will provide at least 120 days notice and offer a way to download all purchased content.</p>
+
+        <h3>2.3. No Recurring Fees</h3>
+        <p>Founding Members will not be subject to any recurring subscription fees for the lifetime of their membership.</p>
+
+        <h2>3. User Accounts</h2>
+        <p>To access the Services, you must create an account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
+
+        <h2>4. Intellectual Property</h2>
+        <p>All content on the Site and within the Services, including text, graphics, logos, and course materials, is the property of Beacon Momentum and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works from our content without our express written permission.</p>
+
+        <h2>5. User Conduct</h2>
+        <p>You agree not to use the Site or Services for any unlawful purpose or in any way that could harm our platform or other users. This includes:</p>
+        
+        <ul>
+            <li>Harassing, abusing, or harming another person</li>
+            <li>Uploading or transmitting viruses or other malicious code</li>
+            <li>Engaging in any automated use of the system, such as using scripts to send comments or messages</li>
+            <li>Attempting to bypass any measures of the Site designed to prevent or restrict access</li>
+        </ul>
+
+        <h2>6. Refund Policy</h2>
+        <p>We offer a <strong>15-30 day money-back guarantee</strong> on the Founding Member program. Please see our <a href="/refund-policy.html" style="color: #00cc66; text-decoration: none; font-weight: 600;">Refund Policy</a> for full details.</p>
+
+        <h2>7. Disclaimers</h2>
+        <p>The information provided on the Site and within the Services is for educational purposes only. We make no guarantees about the results you will achieve from using our content. Your success depends on your own effort, motivation, and follow-through.</p>
+
+        <h2>8. Limitation of Liability</h2>
+        <p>In no event will we be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in connection with your use of the Site or Services.</p>
+
+        <h2>9. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflict of law principles.</p>
+
+        <h2>10. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. We will notify you of any changes by updating the "Last Updated" date of these Terms. Your continued use of the Site or Services after any such changes constitutes your acceptance of the new Terms.</p>
+
+        <h2>11. Contact Us</h2>
+        <div class="contact-box">
+            <p><strong>If you have any questions about these Terms, please contact us at:</strong></p>
+            <p><strong>Beacon Momentum</strong><br>
+            Email: team@beaconmomentum.com</p>
         </div>
+
+        <p style="margin-top: 40px; font-size: 14px; color: #666;"><em>This document is for informational purposes and does not constitute legal advice. You should consult with a legal professional for advice on your specific situation.</em></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
+        <p>
+            <a href="/privacy-policy.html">Privacy Policy</a> |
+            <a href="/terms-of-service.html">Terms of Service</a> |
+            <a href="/refund-policy.html">Refund Policy</a>
+        </p>
     </footer>
 </body>
 </html>

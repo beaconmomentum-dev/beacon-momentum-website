@@ -6,6 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beacon Momentum 3.1 - Empowering the Rebuilders</title>
     <meta name="description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Phoenix Collective, a Rise & Reclaim Initiative.">
+    <link rel="canonical" href="https://beaconmomentum.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/">
+    <meta property="og:title" content="Beacon Momentum 3.1 - Empowering the Rebuilders">
+    <meta property="og:description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Phoenix Collective, a Rise & Reclaim Initiative.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
+    <meta property="og:site_name" content="Beacon Momentum">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/">
+    <meta property="twitter:title" content="Beacon Momentum 3.1 - Empowering the Rebuilders">
+    <meta property="twitter:description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Phoenix Collective, a Rise & Reclaim Initiative.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Beacon Momentum",
+      "url": "https://beaconmomentum.com",
+      "logo": "https://beaconmomentum.com/images/beacon-logo-badge.png",
+      "description": "Beacon Momentum empowers rebuilders through transformative programs, mentorship, and community support. We help survivors of trauma, veterans, and those rebuilding their lives achieve financial sovereignty and personal growth.",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "BobBurr80@gmail.com",
+        "url": "https://beaconmomentum.com/contact.html"
+      },
+      "sameAs": [
+        "https://beaconmomentum.com"
+      ]
+    }
+    </script>
+    
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,9 +140,31 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background-image: url('images/hero-bg-option2-clean.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
             color: white;
-            padding: 4rem 0;
+            padding: 10rem 0 6rem 0;
             text-align: center;
+            position: relative;
+            min-height: 550px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 118, 110, 0.2);
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -140,6 +201,126 @@
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Beacon Narrative Section */
+        .beacon-narrative {
+            position: relative;
+            background: var(--beacon-cream);
+            padding: 5rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .beacon-narrative::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,200 Q300,150 600,200 T1200,200 L1200,400 L0,400 Z" fill="%23F8F5F1" opacity="0.3"/><circle cx="600" cy="80" r="15" fill="%23FF7A00" opacity="0.6"/><path d="M600,95 L600,200" stroke="%23FF7A00" stroke-width="3" opacity="0.5"/><path d="M580,110 L600,95 L620,110" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.5"/><path d="M560,130 L600,95 L640,130" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.4"/><path d="M540,150 L600,95 L660,150" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .narrative-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .narrative-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--beacon-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .narrative-headline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--beacon-orange), transparent);
+            box-shadow: 0 0 10px var(--beacon-orange);
+        }
+
+        .narrative-subheadline {
+            font-size: 1.4rem;
+            color: var(--beacon-gold);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .narrative-body {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--beacon-dark);
+            margin-bottom: 2.5rem;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .narrative-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .narrative-body p:first-child {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--beacon-teal);
+        }
+
+        .narrative-body strong {
+            color: var(--beacon-orange);
+            font-weight: 600;
+        }
+
+        .narrative-closing {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--beacon-teal);
+            font-weight: 500;
+            margin-top: 2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .narrative-cta {
+            background: var(--beacon-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+        }
+
+        .narrative-cta:hover {
+            background: var(--beacon-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
         }
 
         /* Divisions Section */
@@ -497,6 +678,36 @@
                 font-size: 2.5rem;
             }
 
+            .beacon-narrative {
+                padding: 3rem 0;
+            }
+
+            .narrative-headline {
+                font-size: 2rem;
+            }
+
+            .narrative-subheadline {
+                font-size: 1.1rem;
+            }
+
+            .narrative-body {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .narrative-body p:first-child {
+                font-size: 1.1rem;
+            }
+
+            .narrative-closing {
+                font-size: 1.1rem;
+            }
+
+            .narrative-cta {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+
             .divisions-grid {
                 grid-template-columns: 1fr;
             }
@@ -514,7 +725,7 @@
         <div class="container">
             <nav class="nav">
                 <a href="/" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
-                    <img src="images/beacon-logo-icon.png" alt="Beacon Momentum" style="width: 40px; height: 40px; object-fit: contain;">
+                    <img src="images/beacon-logo.png" alt="Beacon Momentum" style="width: 70px; height: 70px; object-fit: contain;">
                     <div style="display: flex; flex-direction: column; line-height: 1.2;">
                         <span style="font-size: 1.25rem; font-weight: 700;">Beacon Momentum</span>
                         <span style="font-size: 0.75rem; font-weight: 500; color: var(--beacon-gold); font-style: italic;">Lighting the Way Forward</span>
@@ -522,10 +733,12 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
+                    <li><a href="founding-member.html">Founding Member</a></li>
                     <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
                     <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
                     <li><a href="labs.html">Beacon Labs</a></li>
-                    <li><a href="financial-sovereignty/modern-wealth-navigation.html">Financial Sovereignty</a></li>
+                    <li><a href="our-compass.html">Our Compass</a></li>
+                    <li><a href="press.html">Press</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -535,7 +748,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Every Setback is a Setup for a Comeback.</h1>
+            <h1>The Lighthouse Is Lit.</h1>
             <p>For anyone who has faced a defining moment and is ready for their next chapter. This is a place to find your footing, share your story, and build what comes next, supported by a community that gets it.</p>
             <div class="hero-cta-group" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="#quiz" class="cta-button">Find Your Path Forward</a>
@@ -544,487 +757,1953 @@
         </div>
     </section>
 
-    <!-- Divisions Section -->
-    <section class="divisions" id="divisions">
-        <div class="container">
-            <h2 class="section-title">Our Three Divisions</h2>
-            <p style="text-align: center; color: var(--beacon-gray); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Each division serves a unique purpose in our mission to create transparent, supportive communities where everyone can thrive.
+    <!-- Beacon Narrative Section -->
+    <section class="beacon-narrative">
+        <div class="narrative-container">
+            <h2 class="narrative-headline">The Beacon Narrative</h2>
+            <p class="narrative-subheadline">
+                A lighthouse for people rebuilding their lives — and for generations who've been left without a fair shot.
             </p>
             
-            <div class="divisions-grid">
-                <!-- Digital Grandpa -->
-                <div class="division-card digital-grandpa-card">
-                    <div class="division-icon">
-                        <img src="images/digital-grandpa-icon.png" alt="Digital Grandpa Icon">
-                    </div>
-                    <img src="images/bob-burr-professional-photo.jpeg" alt="Bob Burr, Founder & Fellow Rebuilder" class="founder-photo">
-                    <div class="founder-badge" style="background: var(--beacon-gold); color: var(--beacon-dark);">Bob, Founder & Fellow Rebuilder</div>
-                    <h3 class="division-title">Digital Grandpa</h3>
-                    <p class="division-subtitle">MENTORSHIP & WISDOM SHARING</p>
-                    <p class="division-description">
-                        Connect with those who've navigated great challenges and are ready to share their hard-won wisdom. Whether you're seeking guidance or ready to mentor others, this is where experience becomes impact.
-                    </p>
-                    
-                    <h4 style="color: var(--beacon-teal); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">What You'll Get:</h4>
-                    <ul class="benefits-list">
-                        <li>One-on-one mentorship connections</li>
-                        <li>Weekly community story circles</li>
-                        <li>Platform to share your wisdom</li>
-                        <li>Legacy building support</li>
-                        <li>Intergenerational healing opportunities</li>
-                    </ul>
-                    
-                    <div class="how-to-join">
-                        <h4>How to Join Digital Grandpa:</h4>
-                        <ol class="join-steps">
-                            <li><span class="step-number">1</span>Complete our story intake form</li>
-                            <li><span class="step-number">2</span>Schedule a welcome call with Bob</li>
-                            <li><span class="step-number">3</span>Attend your first community circle</li>
-                            <li><span class="step-number">4</span>Begin sharing or receiving mentorship</li>
-                        </ol>
-                    </div>
-                    
-                    <a href="digital-grandpa.html" class="division-cta" style="display: inline-block; text-align: center; text-decoration: none;">Talk to Someone Who Gets It</a>
-                </div>
-
-                <!-- Rise & Reclaim -->
-                <div class="division-card">
-                    <div class="division-icon">
-                        <img src="images/rise-reclaim-icon.png" alt="Rise & Reclaim Icon">
-                    </div>
-                    <h3 class="division-title">Rise & Reclaim</h3>
-                    <p class="division-subtitle">COMMUNITY & REBUILDING</p>
-                    <p class="division-description">
-                        Join a supportive community of people rebuilding meaningful lives through shared work, mutual support, and transparent income opportunities. Build your foundation with others who understand the journey.
-                    </p>
-                    
-                    <h4 style="color: var(--beacon-teal); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">What You'll Get:</h4>
-                    <ul class="benefits-list">
-                        <li>Weekly community support groups</li>
-                        <li>Paid work opportunities (50/50 revenue splits)</li>
-                        <li>Skills training and development</li>
-                        <li>24/7 peer support network</li>
-                        <li>Financial transparency and fair compensation</li>
-                    </ul>
-                    
-                    <div class="how-to-join">
-                        <h4>How to Join Rise & Reclaim:</h4>
-                        <ol class="join-steps">
-                            <li><span class="step-number">1</span>Attend a free community welcome call</li>
-                            <li><span class="step-number">2</span>Share your goals and interests</li>
-                            <li><span class="step-number">3</span>Complete skills and interests survey</li>
-                            <li><span class="step-number">4</span>Begin with community support activities</li>
-                        </ol>
-                    </div>
-                    
-                    <a href="rise-reclaim.html" class="division-cta" style="display: inline-block; text-align: center; text-decoration: none;">Find Support in Your Rebuilding Journey</a>
-                </div>
-
-                <!-- Beacon Labs -->
-                <div class="division-card">
-                    <div class="division-icon">
-                        <img src="images/beacon-labs-icon.png" alt="Beacon Labs Icon">
-                    </div>
-                    <h3 class="division-title">Beacon Labs</h3>
-                    <p class="division-subtitle">TOOLS & SYSTEMS</p>
-                    <p class="division-description">
-                        Access cutting-edge tools for transparent community building, automated revenue sharing, and impact tracking. Perfect for organizations and community leaders.
-                    </p>
-                    
-                    <h4 style="color: var(--beacon-teal); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">What You'll Get:</h4>
-                    <ul class="benefits-list">
-                        <li>Automated revenue splitting tools</li>
-                        <li>Real-time impact dashboards</li>
-                        <li>Community management platform</li>
-                        <li>Technical support and training</li>
-                        <li>Custom integration assistance</li>
-                    </ul>
-                    
-                    <div class="how-to-join">
-                        <h4>How to Access Beacon Labs:</h4>
-                        <ol class="join-steps">
-                            <li><span class="step-number">1</span>Schedule a platform demonstration</li>
-                            <li><span class="step-number">2</span>Discuss your community's needs</li>
-                            <li><span class="step-number">3</span>Receive custom implementation plan</li>
-                            <li><span class="step-number">4</span>Begin with guided setup and training</li>
-                        </ol>
-                    </div>
-                    
-                    <a href="labs.html" class="division-cta" style="display: inline-block; text-align: center; text-decoration: none;">See the Platform in Action</a>
-                </div>
+            <div class="narrative-body">
+                <p>
+                    I wasn't handed much in life — no roadmap, no safety net, no inheritance.<br>
+                    What I had was grit, necessity, and the unwillingness to quit.
+                </p>
+                
+                <p>
+                    I grew up in a world where nothing came easy.<br>
+                    The military became the forge that taught me discipline, clarity, and resilience.<br>
+                    Entrepreneurship taught me reinvention, adaptation, and how to rise again when life blindsides you.
+                </p>
+                
+                <p>
+                    <strong>Beacon Momentum</strong> was built for people rebuilding — and for the generations who've been told they'll never own a home, never get ahead, and never break free.
+                </p>
+                
+                <p>
+                    <strong>Digital Grandpa</strong> exists to guide.<br>
+                    <strong>Rise & Reclaim</strong> exists to rebuild.<br>
+                    <strong>The Solopreneur Launchpad</strong> exists to empower.<br>
+                    <strong>The Capital Suite</strong> exists to create opportunity where none was given.
+                </p>
             </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <!-- Transformation Stories Section -->
-    <section class="transformation-stories" id="stories" style="padding: 4rem 0; background: var(--beacon-light);">
-        <div class="container">
-            <h2 class="section-title">Stories of Transformation</h2>
-            <p style="text-align: center; color: var(--beacon-gray); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Real people, real journeys, real comebacks. These are the stories of those who've walked through their defining moments and found their next chapter.
+            
+            <p class="narrative-closing">
+                A lighthouse doesn't move. It stands. It shines. It guides.<br>
+                That's why Beacon exists — to light the way forward for anyone ready to rise and reclaim their future.
             </p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                
-                <!-- Story 1: Finding Purpose After Service -->
-                <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--beacon-teal); border: 3px solid var(--beacon-gold); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; margin-right: 1rem;">MS</div>
-                        <div>
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--beacon-dark); margin-bottom: 0.3rem;">A Story of Finding Purpose After a Life of Service</h3>
-                            <p style="color: var(--beacon-gray); font-weight: 600;">Mike S.</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Challenge</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"After a 22-year career in a high-stakes, structured environment, my world went silent. The mission was over. The team was gone. I didn't know who I was without the uniform and the daily sense of purpose. I felt adrift, and the skills I had spent a lifetime building suddenly felt useless in the civilian world."</p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Path</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"Here, I didn't have to explain the feeling of being without a mission. I connected with others who understood that unique void. Sharing my experiences wasn't about reliving the past; it was about inventorying my strengths. Through mentorship conversations, I began to see that my experience in leadership, strategy, and resilience wasn't obsolete—it was desperately needed."</p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Next Chapter</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"Today, I use my experience to mentor younger individuals navigating their own major life transitions. I found that my purpose wasn't over; it just needed a new direction. I've helped launch two community projects and have found a new sense of mission in helping others build their own comebacks."</p>
-                    </div>
-                    
-                    <blockquote style="background: #F8F5F1; padding: 1.5rem; border-left: 4px solid var(--beacon-gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--beacon-dark); margin: 0;">
-                        "This place didn't label me by my past. It helped me see how my past could build a meaningful future."
-                    </blockquote>
-                </div>
-                
-                <!-- Story 2: Rebuilding from the Ground Up -->
-                <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--beacon-teal); border: 3px solid var(--beacon-gold); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; margin-right: 1rem;">JR</div>
-                        <div>
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--beacon-dark); margin-bottom: 0.3rem;">A Story of Rebuilding from the Ground Up</h3>
-                            <p style="color: var(--beacon-gray); font-weight: 600;">Jessica R.</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Challenge</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"I had hit my rock bottom. A series of bad decisions had cost me my career, my savings, and some of my most important relationships. I felt buried under a mountain of shame and was terrified of judgment. I wanted to rebuild, but I had no foundation to stand on and no idea where to even start."</p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Path</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"The first community welcome call I attended was terrifying, but nobody asked me to define myself by my worst moments. Instead, they asked what I wanted to build. For the first time, I was in a room of people who saw my potential, not my past. Through the Rise & Reclaim division, I started with small, paid tasks that helped the community, which gave me a sense of stability and worth. The 50/50 revenue split wasn't just fair; it was empowering."</p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Next Chapter</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"A year later, I co-manage the community's outreach program. I have a stable income, I'm rebuilding trust with my family, and I'm using my own journey to help onboard new members. I'm not just 'in recovery'; I'm actively rebuilding a life I am proud of, piece by piece."</p>
-                    </div>
-                    
-                    <blockquote style="background: #F8F5F1; padding: 1.5rem; border-left: 4px solid var(--beacon-gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--beacon-dark); margin: 0;">
-                        "I came here looking for a second chance. What I found was a community that believed in me until I could believe in myself again."
-                    </blockquote>
-                </div>
-                
-                <!-- Story 3: Turning Wisdom into Impact -->
-                <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--beacon-teal); border: 3px solid var(--beacon-gold); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold; margin-right: 1rem;">ME</div>
-                        <div>
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--beacon-dark); margin-bottom: 0.3rem;">A Story of Turning Wisdom into Impact</h3>
-                            <p style="color: var(--beacon-gray); font-weight: 600;">Maria E.</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Challenge</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"After 40 years of running a small business and raising a family, I had a lifetime of lessons learned the hard way. But with my kids grown and the business sold, I felt... invisible. I had all this wisdom, all these stories of failure and success, but no one to share them with. I worried my experience would just fade away."</p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Path</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"Through the Digital Grandpa division, I realized my 'old stories' were someone else's survival guide. I was matched with a young entrepreneur who was facing the exact challenges I had conquered a decade ago. The process wasn't about giving lectures; it was about sharing my journey—the mistakes, the lucky breaks, the perseverance. It was a conversation, not a classroom."</p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--beacon-teal); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">The Next Chapter</h4>
-                        <p style="color: var(--beacon-gray); line-height: 1.6; font-style: italic;">"I now mentor three different individuals, each with their own unique challenges. Seeing a piece of my hard-won wisdom help someone else avoid a pitfall is more rewarding than any business deal I ever closed. I'm not retired; I'm a 'wisdom keeper,' and I'm creating a legacy that has nothing to do with money and everything to do with impact."</p>
-                    </div>
-                    
-                    <blockquote style="background: #F8F5F1; padding: 1.5rem; border-left: 4px solid var(--beacon-gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--beacon-dark); margin: 0;">
-                        "I thought my most valuable contributions were behind me. This community showed me they were just waiting for the right person to share them with."
-                    </blockquote>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    <section class="impact" id="impact">
-        <div class="container">
-            <h2 class="section-title">Our Collective Impact</h2>
-            <div class="impact-stats">
-                <div class="stat">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Stories Shared</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">1,200+</span>
-                    <span class="stat-label">Community Members</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">$125K+</span>
-                    <span class="stat-label">Revenue Shared</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">95%</span>
-                    <span class="stat-label">Positive Outcomes</span>
-                </div>
-            </div>
+            <a href="#divisions" class="narrative-cta">Learn the Beacon Pathway →</a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Beacon Momentum</h3>
-                    <p style="color: #D1D5DB; line-height: 1.6;">Lighting the Way Forward through storytelling, rebuilding support, and innovative community tools.</p>
+<!-- Digital Grandpa Wisdom Section -->
+<style>
+    .dg-wisdom {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #323232 0%, #0d7377 100%);
+        color: white;
+    }
+    
+    .dg-wisdom-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        text-align: center;
+    }
+    
+    .dg-wisdom-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #14FFEC;
+    }
+    
+    .dg-wisdom-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: #ddd;
+        font-style: italic;
+    }
+    
+    .dg-beliefs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .dg-belief-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid #14FFEC;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+    
+    .dg-belief-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+    }
+    
+    .dg-belief-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #14FFEC;
+        margin-bottom: 1rem;
+    }
+    
+    .dg-belief-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: white;
+    }
+    
+    .dg-wisdom-footer {
+        margin-top: 3rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #14FFEC;
+    }
+    
+    @media (max-width: 768px) {
+        .dg-wisdom {
+            padding: 3rem 0;
+        }
+        
+        .dg-wisdom-title {
+            font-size: 2rem;
+        }
+        
+        .dg-beliefs {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+</style>
+
+<section class="dg-wisdom">
+    <div class="dg-wisdom-container">
+        <h2 class="dg-wisdom-title">What I Believe</h2>
+        <p class="dg-wisdom-subtitle">Here's what I've learned: People don't need hype. They need clarity. They need honesty. And they need the next right step.</p>
+        
+        <div class="dg-beliefs">
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">1</div>
+                <p class="dg-belief-text">We meet you where you are.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">2</div>
+                <p class="dg-belief-text">We walk beside you, not above you.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">3</div>
+                <p class="dg-belief-text">We let your story matter.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">4</div>
+                <p class="dg-belief-text">We share truth in 30–90 seconds.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">5</div>
+                <p class="dg-belief-text">We honor your dignity.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">6</div>
+                <p class="dg-belief-text">We rise as a tribe.</p>
+            </div>
+        </div>
+        
+        <p class="dg-wisdom-footer">Simple. Real. Human.</p>
+    </div>
+</section>
+
+<!-- CSS for Section 3: The Beacon Pathway (3 Pillars) -->
+<style>
+    /* The Beacon Pathway Section */
+    .beacon-pathway {
+        padding: 5rem 0;
+        background: white;
+    }
+
+    .pathway-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .pathway-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--beacon-dark);
+    }
+
+    .pathway-subtitle {
+        text-align: center;
+        color: var(--beacon-gray);
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pathway-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .pathway-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pathway-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold));
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .pathway-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        border-color: var(--beacon-orange);
+    }
+
+    .pathway-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .pathway-card-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .pathway-card-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--beacon-dark);
+    }
+
+    .pathway-card-tagline {
+        font-size: 1.1rem;
+        color: var(--beacon-gold);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+
+    .pathway-card-description {
+        color: var(--beacon-gray);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+    }
+
+    .pathway-card-cta {
+        background: var(--beacon-teal);
+        color: white;
+        padding: 0.9rem 1.8rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+    }
+
+    .pathway-card-cta:hover {
+        background: var(--beacon-orange);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .beacon-pathway {
+            padding: 3rem 0;
+        }
+
+        .pathway-title {
+            font-size: 2rem;
+        }
+
+        .pathway-subtitle {
+            font-size: 1rem;
+        }
+
+        .pathway-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .pathway-card {
+            padding: 2rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 3: The Beacon Pathway (3 Pillars) -->
+<section class="beacon-pathway" id="pathway">
+    <a id="divisions" style="position: absolute; top: -80px;"></a>
+    <div class="pathway-container">
+        <h2 class="pathway-title">The Beacon Pathway</h2>
+        <p class="pathway-subtitle">
+            Three distinct paths to rebuild, launch, and create opportunity. Choose your starting point.
+        </p>
+        
+        <div class="pathway-grid">
+            <!-- Card 1: Rise & Reclaim -->
+            <div class="pathway-card">
+                <div class="pathway-card-icon">
+                    🌅
                 </div>
-                <div class="footer-section">
-                    <h3>Our Divisions</h3>
-                    <a href="digital-grandpa.html">Digital Grandpa</a>
-                    <a href="rise-reclaim.html">Rise & Reclaim</a>
-                    <a href="labs.html">Beacon Labs</a>
+                <h3 class="pathway-card-title">Rise & Reclaim</h3>
+                <p class="pathway-card-tagline">Rebuild from the ground up.</p>
+                <p class="pathway-card-description">
+                    For anyone who's faced a defining moment and is ready to rebuild their life with purpose, community, and transparent support. Start where you are, build what comes next.
+                </p>
+                <a href="#rise-reclaim-section" class="pathway-card-cta">Start Here →</a>
+            </div>
+
+            <!-- Card 2: Solopreneur Launchpad -->
+            <div class="pathway-card">
+                <div class="pathway-card-icon">
+                    🚀
                 </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <a href="contact.html">Community Stories</a>
-                    <a href="contact.html">Support Center</a>
-                    <a href="contact.html">Training Materials</a>
-                    <a href="contact.html">Contact Us</a>
+                <h3 class="pathway-card-title">Solopreneur Launchpad</h3>
+                <p class="pathway-card-tagline">Build a one-person business.</p>
+                <p class="pathway-card-description">
+                    Learn to build, launch, and scale a modern one-person business. No venture capital, no co-founders, no permission needed. Just you, your skills, and a clear path forward.
+                </p>
+                <a href="#solopreneur-section" class="pathway-card-cta">Launch →</a>
+            </div>
+
+            <!-- Card 3: Capital Suite -->
+            <div class="pathway-card">
+                <div class="pathway-card-icon">
+                    💎
                 </div>
-                <div class="footer-section">
-                    <h3>Get Started</h3>
-                    <a href="contact.html">Join a Community</a>
-                    <a href="contact.html">Become a Mentor</a>
-                    <a href="contact.html">Partner with Us</a>
-                    <a href="request-demo.html">Request a Demo</a>
+                <h3 class="pathway-card-title">Capital Suite</h3>
+                <p class="pathway-card-tagline">Create opportunity where none was given.</p>
+                <p class="pathway-card-description">
+                    Build financial resilience through ethical, practical DeFi. Learn to navigate digital assets, stablecoins, and decentralized finance without the hype or complexity.
+                </p>
+                <a href="#capital-suite-section" class="pathway-card-cta">Explore →</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CSS for Section 4: Why Beacon Exists (Economic Reality) -->
+<style>
+    /* Why Beacon Exists Section */
+    .why-beacon-exists {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #FEF3C7 0%, #F8F5F1 100%);
+    }
+
+    .why-beacon-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .why-beacon-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-dark);
+        text-align: left;
+    }
+
+    .why-beacon-subtext {
+        font-size: 1.2rem;
+        color: var(--beacon-gray);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    .economic-reality-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+    }
+
+    .economic-reality-list li {
+        padding: 1.2rem 0;
+        padding-left: 3rem;
+        position: relative;
+        color: var(--beacon-dark);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .economic-reality-list li:last-child {
+        border-bottom: none;
+    }
+
+    .economic-reality-list li::before {
+        content: '⚠️';
+        position: absolute;
+        left: 0;
+        font-size: 1.5rem;
+        top: 1rem;
+    }
+
+    .economic-reality-list li strong {
+        color: var(--beacon-orange);
+        font-weight: 600;
+    }
+
+    .why-beacon-divider {
+        height: 2px;
+        background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold), var(--beacon-orange));
+        margin: 3rem 0;
+        border: none;
+    }
+
+    .why-beacon-cta {
+        text-align: center;
+        margin-top: 2.5rem;
+    }
+
+    .why-beacon-cta-button {
+        background: var(--beacon-orange);
+        color: white;
+        padding: 1.1rem 2.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+    }
+
+    .why-beacon-cta-button:hover {
+        background: var(--beacon-gold);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 25px rgba(217, 119, 6, 0.4);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .why-beacon-exists {
+            padding: 3rem 0;
+        }
+
+        .why-beacon-headline {
+            font-size: 2rem;
+        }
+
+        .why-beacon-subtext {
+            font-size: 1rem;
+        }
+
+        .economic-reality-list li {
+            font-size: 1rem;
+            padding-left: 2.5rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 4: Why Beacon Exists (Economic Reality) -->
+<section class="why-beacon-exists">
+    <div class="why-beacon-container">
+        <h2 class="why-beacon-headline">Why Beacon Exists</h2>
+        
+        <p class="why-beacon-subtext">
+            The economic reality for millions of Americans has become increasingly harsh. The system that once promised opportunity now creates barriers. Beacon was built to address these realities head-on.
+        </p>
+
+        <ul class="economic-reality-list">
+            <li>
+                <strong>Housing Crisis:</strong> The median home price has increased 400% since 1980, while wages have barely kept pace with inflation. Homeownership is now out of reach for most young Americans.
+            </li>
+            <li>
+                <strong>Wage Stagnation:</strong> Real wages have remained flat for 40 years while productivity has soared. Workers are producing more value but seeing less of it.
+            </li>
+            <li>
+                <strong>Debt Traps:</strong> Student loans, medical debt, and credit card debt have created a permanent underclass unable to build wealth or achieve financial security.
+            </li>
+            <li>
+                <strong>Retirement Crisis:</strong> Pensions have disappeared, 401(k)s are underfunded, and Social Security is uncertain. Most Americans will never be able to retire.
+            </li>
+            <li>
+                <strong>Generational Theft:</strong> Millennials and Gen Z are the first generations expected to be poorer than their parents, despite being more educated and working longer hours.
+            </li>
+            <li>
+                <strong>System Failure:</strong> The traditional path (college → job → house → retirement) no longer works for the majority. New pathways are required.
+            </li>
+        </ul>
+
+        <hr class="why-beacon-divider">
+
+        <div class="why-beacon-cta">
+            <a href="#pathway" class="why-beacon-cta-button">See How Beacon Helps →</a>
+        </div>
+    </div>
+</section>
+<!-- CSS for Section 5: Who We Serve (2-Audience Section) -->
+<style>
+    /* Who We Serve Section */
+    .who-we-serve {
+        padding: 5rem 0;
+        background: white;
+    }
+
+    .who-we-serve-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .who-we-serve-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--beacon-dark);
+    }
+
+    .audience-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .audience-box {
+        padding: 3rem;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .audience-box:hover {
+        transform: translateY(-5px);
+    }
+
+    .audience-box-rebuilders {
+        background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+        color: white;
+    }
+
+    .audience-box-nextgen {
+        background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+        color: white;
+    }
+
+    .audience-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    .audience-label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+
+    .audience-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+
+    .audience-tagline {
+        font-size: 1.3rem;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        opacity: 0.95;
+        font-weight: 500;
+    }
+
+    .audience-description {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .audience-features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .audience-features li {
+        padding: 0.6rem 0;
+        padding-left: 1.8rem;
+        position: relative;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+
+    .audience-features li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .audience-cta {
+        background: white;
+        color: var(--beacon-dark);
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .audience-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .who-we-serve {
+            padding: 3rem 0;
+        }
+
+        .who-we-serve-title {
+            font-size: 2rem;
+        }
+
+        .audience-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .audience-box {
+            padding: 2rem;
+        }
+
+        .audience-headline {
+            font-size: 1.6rem;
+        }
+
+        .audience-tagline {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 5: Who We Serve (2-Audience Section) -->
+<section class="who-we-serve">
+    <div class="who-we-serve-container">
+        <h2 class="who-we-serve-title">Who We Serve</h2>
+        
+        <div class="audience-grid">
+            <!-- Left Box: Rebuilders (40s-70s) -->
+            <div class="audience-box audience-box-rebuilders">
+                <span class="audience-icon">🌄</span>
+                <div class="audience-label">Rebuilders</div>
+                <h3 class="audience-headline">For Those Starting Their Next Chapter</h3>
+                <p class="audience-tagline">"It's not too late. Your next chapter begins here."</p>
+                
+                <p class="audience-description">
+                    You've faced setbacks—divorce, job loss, health challenges, or life transitions that forced you to rebuild. You're in your 40s, 50s, 60s, or 70s, and you're ready to reclaim your purpose, income, and independence.
+                </p>
+
+                <ul class="audience-features">
+                    <li>Practical guidance for rebuilding after major life transitions</li>
+                    <li>Community support from people who understand your journey</li>
+                    <li>Clear pathways to financial stability and independence</li>
+                    <li>No judgment, no hype—just honest, transparent support</li>
+                </ul>
+
+                <a href="#rise-reclaim-section" class="audience-cta">Explore Rise & Reclaim →</a>
+            </div>
+
+            <!-- Right Box: Millennials & Gen Z -->
+            <div class="audience-box audience-box-nextgen">
+                <span class="audience-icon">🔥</span>
+                <div class="audience-label">Next Generation</div>
+                <h3 class="audience-headline">For Those Building Their First Chapter</h3>
+                <p class="audience-tagline">"You didn't fail—the system did."</p>
+                
+                <p class="audience-description">
+                    You're a Millennial or Gen Z facing a rigged economy. Student debt, unaffordable housing, wage stagnation, and a broken system. You're ready to build wealth and opportunity on your own terms.
+                </p>
+
+                <ul class="audience-features">
+                    <li>Learn to build a one-person business without venture capital</li>
+                    <li>Master DeFi and digital assets for financial resilience</li>
+                    <li>Create income streams outside the traditional system</li>
+                    <li>Build the future you were promised but never given</li>
+                </ul>
+
+                <a href="#solopreneur-section" class="audience-cta">Explore Solopreneur Launchpad →</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CSS for Section 6: Feature Program Blocks -->
+<style>
+    /* Program Feature Blocks */
+    .program-block {
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .program-block-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Rise & Reclaim Styling */
+    .program-block-rise {
+        background: linear-gradient(135deg, #F8F5F1 0%, #FEF3C7 100%);
+    }
+
+    /* Solopreneur Launchpad Styling */
+    .program-block-solopreneur {
+        background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+    }
+
+    /* Capital Suite Styling */
+    .program-block-capital {
+        background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+    }
+
+    .program-block-badge {
+        display: inline-block;
+        background: var(--beacon-orange);
+        color: white;
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+    }
+
+    .program-block-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-dark);
+        line-height: 1.2;
+    }
+
+    .program-block-description {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--beacon-gray);
+        margin-bottom: 2rem;
+        max-width: 800px;
+    }
+
+    .program-block-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2.5rem 0;
+    }
+
+    .program-feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .program-feature-icon {
+        font-size: 1.8rem;
+        flex-shrink: 0;
+    }
+
+    .program-feature-text {
+        font-size: 1rem;
+        color: var(--beacon-dark);
+        line-height: 1.6;
+    }
+
+    .program-feature-text strong {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: var(--beacon-teal);
+    }
+
+    .program-block-cta {
+        background: var(--beacon-teal);
+        color: white;
+        padding: 1.2rem 2.8rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 20px rgba(15, 118, 110, 0.3);
+        margin-top: 1rem;
+    }
+
+    .program-block-cta:hover {
+        background: var(--beacon-orange);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 30px rgba(255, 122, 0, 0.4);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .program-block {
+            padding: 4rem 0;
+        }
+
+        .program-block-headline {
+            font-size: 2rem;
+        }
+
+        .program-block-description {
+            font-size: 1rem;
+        }
+
+        .program-block-features {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<!-- HTML for Section 6.1: Rise & Reclaim Program Block -->
+<section class="program-block program-block-rise" id="rise-reclaim-section">
+    <div class="program-block-container">
+        <span class="program-block-badge">Rise & Reclaim</span>
+        <h2 class="program-block-headline">Rebuild Your Life, Your Purpose, and Your Momentum.</h2>
+        <p class="program-block-description">
+            For anyone who's faced a defining moment—divorce, job loss, health crisis, or life transition—and is ready to rebuild with purpose, community, and transparent support. This is where your next chapter begins.
+        </p>
+
+        <div class="program-block-features">
+            <div class="program-feature-item">
+                <span class="program-feature-icon">🛠️</span>
+                <div class="program-feature-text">
+                    <strong>Practical Rebuilding Tools</strong>
+                    Step-by-step guidance for financial recovery, career transitions, and life restructuring.
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Beacon Momentum | Powered by Phoenix Collective | A Rise & Reclaim Initiative</p>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">🤝</span>
+                <div class="program-feature-text">
+                    <strong>Community Support</strong>
+                    Connect with others who understand your journey. No judgment, just real support.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">📚</span>
+                <div class="program-feature-text">
+                    <strong>Life Skills Library</strong>
+                    Access resources on budgeting, job searching, health management, and more.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">🎯</span>
+                <div class="program-feature-text">
+                    <strong>Purpose Mapping</strong>
+                    Discover what comes next and create a clear path forward.
+                </div>
             </div>
         </div>
-    </footer>
 
-    <!-- Modals -->
-    <!-- Digital Grandpa Modal -->
-    <div id="digitalGrandpaModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('digitalGrandpaModal')">&times;</span>
-            <h2>Join Digital Grandpa Community</h2>
-            <form>
-                <div class="form-group">
-                    <label for="dg-name">Full Name *</label>
-                    <input type="text" id="dg-name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="dg-email">Email Address *</label>
-                    <input type="email" id="dg-email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="dg-phone">Phone Number</label>
-                    <input type="tel" id="dg-phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="dg-interest">I'm interested in:</label>
-                    <select id="dg-interest" name="interest">
-                        <option value="">Select an option</option>
-                        <option value="sharing">Sharing my story and wisdom</option>
-                        <option value="mentoring">Becoming a mentor</option>
-                        <option value="seeking">Seeking mentorship and guidance</option>
-                        <option value="listening">Listening to stories and learning</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="dg-story">Briefly share what life experiences you'd like to discuss or learn about (optional):</label>
-                    <textarea id="dg-story" name="story" placeholder="e.g., Military service, recovery journey, overcoming adversity..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Submit Application</button>
-            </form>
-        </div>
+        <a href="/rise-reclaim/" class="program-block-cta">Start Your Rebuild →</a>
     </div>
+</section>
 
-    <!-- Rise & Reclaim Modal -->
-    <div id="riseReclaimModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('riseReclaimModal')">&times;</span>
-            <h2>Join Rise & Reclaim Community</h2>
-            <form>
-                <div class="form-group">
-                    <label for="rr-name">Full Name *</label>
-                    <input type="text" id="rr-name" name="name" required>
+<!-- HTML for Section 6.2: Solopreneur Launchpad Program Block -->
+<section class="program-block program-block-solopreneur" id="solopreneur-section">
+    <div class="program-block-container">
+        <span class="program-block-badge">Solopreneur Launchpad</span>
+        <h2 class="program-block-headline">Own Your Income. Build a Modern One-Person Business.</h2>
+        <p class="program-block-description">
+            Learn to build, launch, and scale a profitable one-person business. No venture capital, no co-founders, no permission needed. Just you, your skills, and a clear path to sustainable income.
+        </p>
+
+        <div class="program-block-features">
+            <div class="program-feature-item">
+                <span class="program-feature-icon">💡</span>
+                <div class="program-feature-text">
+                    <strong>Business Model Selection</strong>
+                    Find the right business model for your skills, interests, and lifestyle.
                 </div>
-                <div class="form-group">
-                    <label for="rr-email">Email Address *</label>
-                    <input type="email" id="rr-email" name="email" required>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">🚀</span>
+                <div class="program-feature-text">
+                    <strong>Launch Framework</strong>
+                    Step-by-step system to go from idea to first customer in 30 days.
                 </div>
-                <div class="form-group">
-                    <label for="rr-phone">Phone Number</label>
-                    <input type="tel" id="rr-phone" name="phone">
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">📈</span>
+                <div class="program-feature-text">
+                    <strong>Growth Strategies</strong>
+                    Marketing, sales, and scaling tactics that work for one-person businesses.
                 </div>
-                <div class="form-group">
-                    <label for="rr-recovery">Recovery Status:</label>
-                    <select id="rr-recovery" name="recovery">
-                        <option value="">Select an option</option>
-                        <option value="early">Early recovery (0-1 year)</option>
-                        <option value="stable">Stable recovery (1-5 years)</option>
-                        <option value="long-term">Long-term recovery (5+ years)</option>
-                        <option value="supporter">Supporting someone in recovery</option>
-                    </select>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">⚙️</span>
+                <div class="program-feature-text">
+                    <strong>Automation & Systems</strong>
+                    Build systems that let you scale without hiring employees.
                 </div>
-                <div class="form-group">
-                    <label for="rr-skills">Skills or interests you'd like to develop:</label>
-                    <textarea id="rr-skills" name="skills" placeholder="e.g., Job skills, creative pursuits, community leadership..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="rr-support">What type of support are you most interested in?</label>
-                    <select id="rr-support" name="support">
-                        <option value="">Select an option</option>
-                        <option value="peer">Peer support groups</option>
-                        <option value="work">Work opportunities</option>
-                        <option value="training">Skills training</option>
-                        <option value="mentorship">Mentorship</option>
-                        <option value="all">All of the above</option>
-                    </select>
-                </div>
-                <button type="submit" class="submit-btn">Join Community</button>
-            </form>
+            </div>
         </div>
-    </div>
 
-    <!-- Beacon Labs Modal -->
-    <div id="beaconLabsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('beaconLabsModal')">&times;</span>
-            <h2>Request Beacon Labs Demo</h2>
-            <form>
-                <div class="form-group">
-                    <label for="bl-name">Full Name *</label>
-                    <input type="text" id="bl-name" name="name" required>
+        <a href="founding-member.html" class="program-block-cta">Begin Your Launch →</a>
+    </div>
+</section>
+
+<!-- HTML for Section 6.3: Beacon Capital Suite Program Block -->
+<section class="program-block program-block-capital" id="capital-suite-section">
+    <div class="program-block-container">
+        <span class="program-block-badge">Beacon Capital Suite</span>
+        <h2 class="program-block-headline">Build Financial Resilience Through Ethical, Practical DeFi.</h2>
+        <p class="program-block-description">
+            Navigate digital assets, stablecoins, and decentralized finance without the hype or complexity. Learn to build wealth and create opportunity in the new financial system—ethically and transparently.
+        </p>
+
+        <div class="program-block-features">
+            <div class="program-feature-item">
+                <span class="program-feature-icon">🏦</span>
+                <div class="program-feature-text">
+                    <strong>DeFi Fundamentals</strong>
+                    Understand blockchain, crypto, and decentralized finance from the ground up.
                 </div>
-                <div class="form-group">
-                    <label for="bl-email">Email Address *</label>
-                    <input type="email" id="bl-email" name="email" required>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">💰</span>
+                <div class="program-feature-text">
+                    <strong>Stablecoin Strategies</strong>
+                    Earn yield and preserve capital using dollar-backed digital assets.
                 </div>
-                <div class="form-group">
-                    <label for="bl-org">Organization/Community Name</label>
-                    <input type="text" id="bl-org" name="organization">
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">🔒</span>
+                <div class="program-feature-text">
+                    <strong>Security & Safety</strong>
+                    Protect your assets with proper wallet management and security practices.
                 </div>
-                <div class="form-group">
-                    <label for="bl-role">Your Role:</label>
-                    <select id="bl-role" name="role">
-                        <option value="">Select an option</option>
-                        <option value="founder">Community Founder/Leader</option>
-                        <option value="manager">Community Manager</option>
-                        <option value="developer">Developer/Technical Lead</option>
-                        <option value="partner">Potential Partner</option>
-                        <option value="other">Other</option>
-                    </select>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">📊</span>
+                <div class="program-feature-text">
+                    <strong>Portfolio Building</strong>
+                    Create a diversified digital asset portfolio aligned with your risk tolerance.
                 </div>
-                <div class="form-group">
-                    <label for="bl-size">Community Size:</label>
-                    <select id="bl-size" name="size">
-                        <option value="">Select an option</option>
-                        <option value="starting">Just starting (0-10 members)</option>
-                        <option value="small">Small community (10-50 members)</option>
-                        <option value="medium">Medium community (50-200 members)</option>
-                        <option value="large">Large community (200+ members)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="bl-tools">What tools or features are you most interested in?</label>
-                    <textarea id="bl-tools" name="tools" placeholder="e.g., Revenue splitting, impact tracking, member management..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="bl-timeline">Implementation Timeline:</label>
-                    <select id="bl-timeline" name="timeline">
-                        <option value="">Select an option</option>
-                        <option value="immediate">Immediate (within 30 days)</option>
-                        <option value="short">Short-term (1-3 months)</option>
-                        <option value="medium">Medium-term (3-6 months)</option>
-                        <option value="exploring">Just exploring options</option>
-                    </select>
-                </div>
-                <button type="submit" class="submit-btn">Request Demo</button>
-            </form>
+            </div>
         </div>
-    </div>
 
-    <script>
-        // Modal functionality
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
+        <a href="founding-member.html" class="program-block-cta">Explore Capital Suite →</a>
+    </div>
+</section>
+<!-- CSS for Section 7: Founding Member Offer Block -->
+<style>
+    /* Founding Member Offer Section */
+    .founding-member-offer {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .founding-member-offer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="%23D97706" opacity="0.1"/></svg>');
+        opacity: 0.3;
+    }
+
+    .founding-member-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .founding-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--beacon-gold), var(--beacon-orange));
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(217, 119, 6, 0.6);
+        }
+    }
+
+    .founding-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .founding-headline .gold-text {
+        color: var(--beacon-gold);
+    }
+
+    .founding-subheadline {
+        font-size: 1.3rem;
+        color: #cbd5e1;
+        margin-bottom: 3rem;
+        line-height: 1.7;
+    }
+
+    .founding-benefits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+        text-align: left;
+    }
+
+    .founding-benefit-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.8rem;
+        border-radius: 12px;
+        border: 1px solid rgba(217, 119, 6, 0.2);
+        transition: all 0.3s;
+    }
+
+    .founding-benefit-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--beacon-gold);
+        transform: translateY(-3px);
+    }
+
+    .founding-benefit-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .founding-benefit-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--beacon-gold);
+    }
+
+    .founding-benefit-description {
+        font-size: 0.95rem;
+        color: #cbd5e1;
+        line-height: 1.6;
+    }
+
+    .founding-price-box {
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px solid var(--beacon-gold);
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin: 3rem 0;
+        text-align: center;
+    }
+
+    .founding-price {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--beacon-gold);
+        margin-bottom: 0.5rem;
+    }
+
+    .founding-price-label {
+        font-size: 1.1rem;
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+    }
+
+    .founding-price-details {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        font-style: italic;
+    }
+
+    .founding-cta-primary {
+        background: linear-gradient(135deg, var(--beacon-gold), var(--beacon-orange));
+        color: white;
+        padding: 1.5rem 3.5rem;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 6px 30px rgba(217, 119, 6, 0.5);
+        margin-top: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .founding-cta-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 40px rgba(217, 119, 6, 0.7);
+    }
+
+    .founding-countdown {
+        display: none; /* Hidden until activated */
+        background: rgba(239, 68, 68, 0.2);
+        border: 2px solid #ef4444;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .founding-countdown.active {
+        display: block;
+    }
+
+    .countdown-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        color: #fca5a5;
+    }
+
+    .countdown-timer {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #ef4444;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .founding-member-offer {
+            padding: 4rem 0;
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto';
+        .founding-headline {
+            font-size: 2rem;
         }
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
+        .founding-subheadline {
+            font-size: 1.1rem;
         }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        .founding-benefits {
+            grid-template-columns: 1fr;
+        }
 
-        // Form submission handling
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form data
-                const formData = new FormData(this);
-                const data = Object.fromEntries(formData);
-                
-                // Here you would typically send the data to your backend
-                console.log('Form submitted:', data);
-                
-                // Show success message
-                alert('Thank you for your application! We will be in touch soon.');
-                
-                // Close modal
-                const modal = this.closest('.modal');
-                if (modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-                
-                // Reset form
-                this.reset();
-            });
-        });
-    </script>
-</body>
-</html>
+        .founding-price {
+            font-size: 2.5rem;
+        }
 
+        .founding-cta-primary {
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 7: Founding Member Offer Block -->
+<section class="founding-member-offer" id="founding-member">
+    <div class="founding-member-container">
+        <span class="founding-badge">🏆 Founding Member Opportunity</span>
+        
+        <h2 class="founding-headline">
+            Join the <span class="gold-text">Founding Members</span> and Lock In Lifetime Access
+        </h2>
+        
+        <p class="founding-subheadline">
+            Be part of the foundation. Get lifetime access to all three pathways, exclusive founding member benefits, and help shape the future of Beacon Momentum.
+        </p>
+
+        <div class="founding-benefits">
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon">🔓</span>
+                <div class="founding-benefit-title">Lifetime Access to Everything</div>
+                <div class="founding-benefit-description">
+                    Capital Suite, Solopreneur Launchpad, Rise & Reclaim—all current and future content, forever.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon">💎</span>
+                <div class="founding-benefit-title">Founding Member Badge</div>
+                <div class="founding-benefit-description">
+                    Special recognition in the community and priority access to new features and programs.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon">🎙️</span>
+                <div class="founding-benefit-title">Direct Access to Bob</div>
+                <div class="founding-benefit-description">
+                    Monthly Q&A sessions, exclusive workshops, and direct communication with the founder.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon">🚀</span>
+                <div class="founding-benefit-title">Shape the Platform</div>
+                <div class="founding-benefit-description">
+                    Founding members influence content, features, and the direction of Beacon Momentum.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon">🤝</span>
+                <div class="founding-benefit-description">
+                    Private community forum, networking opportunities, and connections with other founding members.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon">📈</span>
+                <div class="founding-benefit-title">No Price Increases Ever</div>
+                <div class="founding-benefit-description">
+                    Lock in your price now. As the platform grows, your investment never increases.
+                </div>
+            </div>
+        </div>
+
+        <div class="founding-price-box">
+            <div class="founding-price">$1,997</div>
+            <div class="founding-price-label">One-Time Payment • Lifetime Access</div>
+            <div class="founding-price-details">
+                Or 3 payments of $697 • No recurring fees • No hidden costs
+            </div>
+        </div>
+
+        <a href="/founding-member.html" class="founding-cta-primary">Claim Your Founding Member Spot →</a>
+
+        <!-- Countdown Timer (Hidden by default, activate when needed) -->
+        <div class="founding-countdown" id="founding-countdown">
+            <div class="countdown-label">Founding Member Offer Ends In:</div>
+            <div class="countdown-timer" id="countdown-display">7 Days 12 Hours 34 Minutes</div>
+        </div>
+    </div>
+</section>
+<!-- CSS for Section 8: Testimonials -->
+<style>
+    /* Testimonials Section */
+    .testimonials-section {
+        padding: 5rem 0;
+        background: white;
+    }
+
+    .testimonials-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .testimonials-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--beacon-dark);
+    }
+
+    .testimonials-subtitle {
+        text-align: center;
+        color: var(--beacon-gray);
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+
+    .testimonial-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border: 1px solid #e5e7eb;
+        transition: all 0.3s;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .testimonial-quote {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--beacon-gray);
+        margin-bottom: 1.5rem;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .testimonial-author-info {
+        flex: 1;
+    }
+
+    .testimonial-name {
+        font-weight: 600;
+        color: var(--beacon-dark);
+        margin-bottom: 0.2rem;
+    }
+
+    .testimonial-role {
+        font-size: 0.9rem;
+        color: var(--beacon-gray);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .testimonials-section {
+            padding: 3rem 0;
+        }
+
+        .testimonials-title {
+            font-size: 2rem;
+        }
+
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<!-- CSS for Section 9: Lighthouse Philosophy -->
+<style>
+    /* Lighthouse Philosophy Section */
+    .lighthouse-philosophy {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .lighthouse-philosophy::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+    }
+
+    .lighthouse-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .lighthouse-icon {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        display: block;
+        animation: lighthouse-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes lighthouse-pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+    }
+
+    .lighthouse-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        line-height: 1.3;
+    }
+
+    .lighthouse-body {
+        font-size: 1.3rem;
+        line-height: 1.9;
+        margin-bottom: 1.5rem;
+        opacity: 0.95;
+    }
+
+    .lighthouse-closing {
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 600;
+        margin-top: 2rem;
+        color: var(--beacon-gold);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .lighthouse-philosophy {
+            padding: 4rem 0;
+        }
+
+        .lighthouse-headline {
+            font-size: 2rem;
+        }
+
+        .lighthouse-body {
+            font-size: 1.1rem;
+        }
+
+        .lighthouse-closing {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 8: Testimonials (Placeholder) -->
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <h2 class="testimonials-title">What Our Community Says</h2>
+        <p class="testimonials-subtitle">
+            Real stories from people rebuilding, launching, and creating opportunity.
+        </p>
+
+        <div class="testimonials-grid">
+            <!-- Testimonial Card 1 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "After my divorce at 52, I thought my best years were behind me. Beacon showed me they were just beginning. The Rise & Reclaim program gave me the tools and community I needed to rebuild."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Sarah M.</div>
+                        <div class="testimonial-role">Rise & Reclaim Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 2 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "I was drowning in student debt with no clear path forward. The Solopreneur Launchpad taught me to build a business on my terms. Six months in, I'm making more than my old job."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Marcus T.</div>
+                        <div class="testimonial-role">Solopreneur Launchpad Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 3 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "The Capital Suite demystified DeFi for me. No hype, no scams—just practical education and ethical guidance. I finally understand how to build wealth in the digital economy."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Jennifer L.</div>
+                        <div class="testimonial-role">Capital Suite Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 4 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "Beacon isn't just a platform—it's a community that actually cares. After losing my job at 58, I found purpose, income, and friends who understand the journey."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Robert K.</div>
+                        <div class="testimonial-role">Founding Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 5 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "As a millennial, I was told I'd never own a home or retire. Beacon showed me alternative paths to wealth that the system never taught me. Game changer."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Alex P.</div>
+                        <div class="testimonial-role">Capital Suite Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 6 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "Bob's transparency and honesty are rare. No BS, no hype—just real guidance from someone who's been through it. That's why I became a founding member."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">David W.</div>
+                        <div class="testimonial-role">Founding Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HTML for Section 9: Lighthouse Philosophy -->
+<section class="lighthouse-philosophy">
+    <div class="lighthouse-container">
+        <span class="lighthouse-icon">🗼</span>
+        
+        <h2 class="lighthouse-headline">The Lighthouse Never Moves.</h2>
+        
+        <p class="lighthouse-body">
+            A lighthouse doesn't chase ships. It doesn't promise easy passage or calm seas. It simply stands—unwavering, consistent, reliable.
+        </p>
+        
+        <p class="lighthouse-body">
+            It shines its light so those navigating rough waters can find their way. It doesn't judge how you got there. It doesn't ask if you deserve help. It just guides.
+        </p>
+        
+        <p class="lighthouse-body">
+            That's what Beacon Momentum is. We don't move with trends or fads. We stand for people rebuilding their lives, launching new ventures, and creating opportunity where none was given.
+        </p>
+        
+        <p class="lighthouse-closing">
+            The lighthouse stands. The light shines. The way is clear.
+        </p>
+    </div>
+</section>
+<!-- CSS for Section 10: Final CTA (Bottom Funnel) -->
+<style>
+    /* Final CTA Section */
+    .final-cta-section {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #FEF3C7 0%, #F8F5F1 100%);
+        text-align: center;
+    }
+
+    .final-cta-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .final-cta-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-dark);
+        line-height: 1.2;
+    }
+
+    .final-cta-subheadline {
+        font-size: 1.3rem;
+        color: var(--beacon-gray);
+        line-height: 1.7;
+        margin-bottom: 3rem;
+    }
+
+    .final-cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .final-cta-primary {
+        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        color: white;
+        padding: 1.5rem 3rem;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 6px 30px rgba(15, 118, 110, 0.3);
+    }
+
+    .final-cta-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 40px rgba(15, 118, 110, 0.5);
+    }
+
+    .final-cta-secondary {
+        background: white;
+        color: var(--beacon-teal);
+        padding: 1.5rem 3rem;
+        border: 2px solid var(--beacon-teal);
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .final-cta-secondary:hover {
+        background: var(--beacon-teal);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .final-cta-section {
+            padding: 4rem 0;
+        }
+
+        .final-cta-headline {
+            font-size: 2rem;
+        }
+
+        .final-cta-subheadline {
+            font-size: 1.1rem;
+        }
+
+        .final-cta-buttons {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .final-cta-primary,
+        .final-cta-secondary {
+            padding: 1.2rem 2rem;
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<!-- CSS for Section 11: Footer -->
+<style>
+    /* Footer Section */
+    .site-footer {
+        background: var(--beacon-dark);
+        color: white;
+        padding: 4rem 0 2rem;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .footer-column h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-gold);
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+        color: var(--beacon-gold);
+    }
+
+    .footer-description {
+        color: #cbd5e1;
+        line-height: 1.7;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .footer-social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 1.2rem;
+    }
+
+    .footer-social-link:hover {
+        background: var(--beacon-gold);
+        transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .footer-bottom-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+        color: var(--beacon-gold);
+    }
+
+    .phoenix-attribution {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: #64748b;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .site-footer {
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links {
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 10: Final CTA (Bottom Funnel) -->
+<section class="final-cta-section">
+    <div class="final-cta-container">
+        <h2 class="final-cta-headline">Your New Chapter Starts Here.</h2>
+        <p class="final-cta-subheadline">
+            Whether you're rebuilding, launching, or creating opportunity—Beacon Momentum is your lighthouse. Choose your path forward.
+        </p>
+        
+        <div class="final-cta-buttons">
+            <a href="/founding-member.html" class="final-cta-primary">Join the Founding Members →</a>
+            <a href="#pathway" class="final-cta-secondary">Explore the Beacon Pathway →</a>
+        </div>
+    </div>
+</section>
+
+<!-- HTML for Section 11: Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <!-- Column 1: About Beacon -->
+            <div class="footer-column">
+                <h3>Beacon Momentum</h3>
+                <p class="footer-description">
+                    A lighthouse for people rebuilding their lives and creating opportunity where none was given. Military discipline meets entrepreneurial grit.
+                </p>
+                <div class="footer-social">
+                    <a href="https://twitter.com/beaconmomentum" class="footer-social-link" aria-label="Twitter">𝕏</a>
+                    <a href="https://facebook.com/beaconmomentum" class="footer-social-link" aria-label="Facebook">f</a>
+                    <a href="https://linkedin.com/company/beaconmomentum" class="footer-social-link" aria-label="LinkedIn">in</a>
+                    <a href="https://youtube.com/@beaconmomentum" class="footer-social-link" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+
+            <!-- Column 2: Product Pathways -->
+            <div class="footer-column">
+                <h3>Pathways</h3>
+                <ul class="footer-links">
+                    <li><a href="#rise-reclaim-section">Rise & Reclaim</a></li>
+                    <li><a href="#solopreneur-section">Solopreneur Launchpad</a></li>
+                    <li><a href="#capital-suite-section">Beacon Capital Suite</a></li>
+                    <li><a href="/digital-grandpa/">Digital Grandpa</a></li>
+                    <li><a href="/founding-member.html">Founding Member</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Resources -->
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="/blog/">Blog & Articles</a></li>
+                    <li><a href="/community/">Community Forum</a></li>
+                    <li><a href="/resources/">Free Resources</a></li>
+                    <li><a href="/success-stories/">Success Stories</a></li>
+                    <li><a href="/faq/">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact & Support -->
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="mailto:team@beaconmomentum.com">team@beaconmomentum.com</a></li>
+                    <li><a href="/support/">Help Center</a></li>
+                    <li><a href="/about/">About Bob</a></li>
+                    <li><a href="/partner/">Partner With Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
+            
+            <div class="footer-bottom-links">
+                <a href="/terms-of-service.html">Terms of Service</a>
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <a href="/refund-policy.html">Refund Policy</a>
+            </div>
+
+            <p class="phoenix-attribution">
+                Built with integrity by <a href="https://phoenixcollective.io" style="color: var(--beacon-gold);">Phoenix Collective</a>
+            </p>
+        </div>
+    </div>
+</footer>
+</body></html>

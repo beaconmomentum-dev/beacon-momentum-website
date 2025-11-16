@@ -1,26 +1,17 @@
-const nodemailer = require('nodemailer');
+const sgMail = require('@sendgrid/mail');
 
 class EmailService {
     constructor() {
-        // Configure email transporter
-        // Using environment variables for email credentials
-        this.transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST || 'smtp.gmail.com',
-            port: process.env.SMTP_PORT || 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS
-            }
-        });
+        // Configure SendGrid API
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     }
 
     async sendVerificationEmail(email, token, firstName) {
         const verificationUrl = `${process.env.BASE_URL || 'https://beaconmomentum.com'}/verify-email.html?token=${token}`;
         
-        const mailOptions = {
-            from: `"Beacon Momentum" <${process.env.SMTP_USER}>`,
+        const msg = {
             to: email,
+            from: process.env.SMTP_FROM || 'admin@beaconmomentum.com',
             subject: 'Verify Your Beacon Momentum Account',
             html: `
                 <!DOCTYPE html>
@@ -51,7 +42,7 @@ class EmailService {
                             <p style="word-break: break-all; color: #666;">${verificationUrl}</p>
                             <p><strong>This link will expire in 24 hours.</strong></p>
                             <p>If you didn't create an account with Beacon Momentum, please ignore this email.</p>
-                            <p>Welcome aboard!<br>The Beacon Momentum Team</p>
+                            <p>Best regards,<br>The Beacon Momentum Team</p>
                         </div>
                         <div class="footer">
                             <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
@@ -64,10 +55,11 @@ class EmailService {
         };
 
         try {
-            await this.transporter.sendMail(mailOptions);
-            return { success: true };
+            const response = await sgMail.send(msg);
+            console.log('✅ Verification email sent via SendGrid API:', response[0].statusCode);
+            return { success: true, messageId: response[0].headers['x-message-id'] };
         } catch (error) {
-            console.error('Email sending error:', error);
+            console.error('❌ Email sending error:', error.response ? error.response.body : error);
             return { success: false, error: error.message };
         }
     }
@@ -75,9 +67,9 @@ class EmailService {
     async sendPasswordResetEmail(email, token, firstName) {
         const resetUrl = `${process.env.BASE_URL || 'https://beaconmomentum.com'}/reset-password.html?token=${token}`;
         
-        const mailOptions = {
-            from: `"Beacon Momentum" <${process.env.SMTP_USER}>`,
+        const msg = {
             to: email,
+            from: process.env.SMTP_FROM || 'admin@beaconmomentum.com',
             subject: 'Reset Your Beacon Momentum Password',
             html: `
                 <!DOCTYPE html>
@@ -86,11 +78,11 @@ class EmailService {
                     <style>
                         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
                         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                        .header { background: linear-gradient(135deg, #8B1538 0%, #a31d47 100%); color: white; padding: 30px; text-align: center; }
+                        .header { background: linear-gradient(135deg, #1a472a 0%, #2d5f3f 100%); color: white; padding: 30px; text-align: center; }
                         .content { background: #f9f9f9; padding: 30px; }
                         .button { display: inline-block; background: #D4AF37; color: #1a1a1a; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; }
-                        .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
                         .warning { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; }
+                        .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
                     </style>
                 </head>
                 <body>
@@ -103,7 +95,7 @@ class EmailService {
                             <p>We received a request to reset your Beacon Momentum password.</p>
                             <p>Click the button below to create a new password:</p>
                             <p style="text-align: center;">
-                                <a href="${resetUrl}" class="button">Reset My Password</a>
+                                <a href="${resetUrl}" class="button">Reset Password</a>
                             </p>
                             <p>Or copy and paste this link into your browser:</p>
                             <p style="word-break: break-all; color: #666;">${resetUrl}</p>
@@ -124,10 +116,11 @@ class EmailService {
         };
 
         try {
-            await this.transporter.sendMail(mailOptions);
-            return { success: true };
+            const response = await sgMail.send(msg);
+            console.log('✅ Password reset email sent via SendGrid API:', response[0].statusCode);
+            return { success: true, messageId: response[0].headers['x-message-id'] };
         } catch (error) {
-            console.error('Email sending error:', error);
+            console.error('❌ Email sending error:', error.response ? error.response.body : error);
             return { success: false, error: error.message };
         }
     }
@@ -135,9 +128,9 @@ class EmailService {
     async sendWelcomeEmail(email, firstName) {
         const dashboardUrl = `${process.env.BASE_URL || 'https://beaconmomentum.com'}/member-dashboard.html`;
         
-        const mailOptions = {
-            from: `"Beacon Momentum" <${process.env.SMTP_USER}>`,
+        const msg = {
             to: email,
+            from: process.env.SMTP_FROM || 'admin@beaconmomentum.com',
             subject: 'Welcome to Beacon Capital Suite!',
             html: `
                 <!DOCTYPE html>
@@ -195,10 +188,11 @@ class EmailService {
         };
 
         try {
-            await this.transporter.sendMail(mailOptions);
-            return { success: true };
+            const response = await sgMail.send(msg);
+            console.log('✅ Welcome email sent via SendGrid API:', response[0].statusCode);
+            return { success: true, messageId: response[0].headers['x-message-id'] };
         } catch (error) {
-            console.error('Email sending error:', error);
+            console.error('❌ Email sending error:', error.response ? error.response.body : error);
             return { success: false, error: error.message };
         }
     }

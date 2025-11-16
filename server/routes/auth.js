@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const { validateRegister, validateLogin } = require('../middleware/validation');
+const { logAuthAttempt, logRegistration, logSecurityError } = require('../utils/logger');
 
 // Register new user
-router.post('/register', async (req, res) => {
+router.post('/register', validateRegister, async (req, res) => {
     try {
         const { email, password, firstName, lastName } = req.body;
 
@@ -31,6 +33,9 @@ router.post('/register', async (req, res) => {
 
         // Create user
         const user = await User.create(email, password, firstName, lastName);
+
+        // Log successful registration
+        logRegistration(email, true, req.ip);
 
         // Create session
         req.session.userId = user.id;
@@ -64,8 +69,8 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// Login user
-router.post('/login', async (req, res) => {
+// Login
+router.post('/login', validateLogin, async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -81,6 +86,7 @@ router.post('/login', async (req, res) => {
         const user = await User.findByEmail(email);
         
         if (!user) {
+            logAuthAttempt(email, false, req.ip, 'User not found');
             return res.status(401).json({
                 success: false,
                 message: 'Invalid email or password'
@@ -91,6 +97,7 @@ router.post('/login', async (req, res) => {
         const isValid = await User.verifyPassword(password, user.password_hash);
         
         if (!isValid) {
+            logAuthAttempt(email, false, req.ip, 'Invalid password');
             return res.status(401).json({
                 success: false,
                 message: 'Invalid email or password'
@@ -104,6 +111,9 @@ router.post('/login', async (req, res) => {
                 message: 'Account is inactive. Please contact support.'
             });
         }
+
+        // Log successful login
+        logAuthAttempt(email, true, req.ip);
 
         // Update last login
         await User.updateLastLogin(user.id);
@@ -124,10 +134,12 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (err) {
-        console.error('Login error:', err);
+        console.error('Registration error:', err);
+        logRegistration(req.body.email, false, req.ip, err.message);
+        logSecurityError(err, { route: '/register', email: req.body.email });
         res.status(500).json({
             success: false,
-            message: 'Login failed. Please try again.'
+            message: err.message || 'Registration failed'
         });
     }
 });

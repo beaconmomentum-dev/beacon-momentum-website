@@ -5,6 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rise & Reclaim - Community for Survivors | Rebuild Your Life</title>
     <meta name="description" content="Rise & Reclaim: A supportive community for people who have survived adversity. Find healing, connection, and tools to rebuild your life with others who understand your journey.">
+    <link rel="canonical" href="https://beaconmomentum.com/rise-reclaim.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/rise-reclaim.html">
+    <meta property="og:title" content="Rise & Reclaim - Community for Survivors">
+    <meta property="og:description" content="A supportive community for people who have survived adversity. Find healing, connection, and tools to rebuild your life with others who understand your journey.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/rise-reclaim-hero-phoenix.png">
+    <meta property="og:site_name" content="Beacon Momentum">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/rise-reclaim.html">
+    <meta property="twitter:title" content="Rise & Reclaim - Community for Survivors">
+    <meta property="twitter:description" content="A supportive community for people who have survived adversity. Find healing, connection, and tools to rebuild your life with others who understand your journey.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/rise-reclaim-hero-phoenix.png">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Rise & Reclaim",
+      "description": "A transformative 12-week program for survivors of trauma, addiction, incarceration, and adversity. Build resilience, find community, and reclaim your life with expert guidance and peer support.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Beacon Momentum",
+        "url": "https://beaconmomentum.com"
+      },
+      "courseMode": "online",
+      "educationalLevel": "Beginner to Intermediate",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT12W"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Survivors of trauma, veterans, formerly incarcerated individuals, people in recovery"
+      }
+    }
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -34,7 +77,27 @@
         .inter { font-family: 'Inter', sans-serif; }
         
         .hero-gradient { 
-            background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%); 
+            background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%);
+            background-image: url('images/rise-reclaim-hero-phoenix-v2.webp');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 650px;
+        }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(61, 10, 28, 0.25);
+            z-index: 0;
+        }
+        .hero-gradient > * {
+            position: relative;
+            z-index: 1;
         }
         
         .flame-pattern {
@@ -63,15 +126,40 @@
         }
         
         .secondary-button {
-            border: 2px solid var(--deep-red);
-            color: var(--deep-red);
-            background: transparent;
+            border: 2px solid white;
+            color: white;
+            background: rgba(139, 21, 56, 0.8);
+            backdrop-filter: blur(4px);
         }
         
         .secondary-button:hover {
-            background: var(--deep-red);
+            background: rgba(139, 21, 56, 1);
             color: white;
+            border-color: var(--beacon-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 21, 56, 0.4);
         }
+        
+        /* Form Styles */
+        .contact-form { width: 100%; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #1F2937; font-weight: 500; font-size: 0.95rem; }
+        .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"], .form-group select, .form-group textarea {
+            width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 6px; font-size: 1rem; font-family: 'Inter', sans-serif; transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--deep-red); box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .checkbox-group label { display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; }
+        .checkbox-group input[type="checkbox"] { margin-top: 0.25rem; width: 18px; height: 18px; cursor: pointer; }
+        .checkbox-group span { font-size: 0.95rem; color: #6B7280; }
+        .submit-btn { width: 100%; padding: 1rem 2rem; background: linear-gradient(135deg, var(--deep-red) 0%, var(--beacon-gold) 100%); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(139, 21, 56, 0.3); }
+        .submit-btn:active { transform: translateY(0); }
+        .form-message { margin-top: 1rem; padding: 1rem; border-radius: 6px; text-align: center; font-weight: 500; }
+        .form-message.success { background: #D1FAE5; color: #065F46; border: 1px solid #10B981; }
+        .form-message.error { background: #FEE2E2; color: #991B1B; border: 1px solid #EF4444; }
+        @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; gap: 1rem; } .form-group { margin-bottom: 1rem; } }
     </style>
 </head>
 <body class="inter" style="background-color: var(--light-background);">
@@ -101,17 +189,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20 flame-pattern relative overflow-hidden">
+    <section class="hero-gradient text-white relative overflow-hidden" style="padding: 10rem 0 5rem 0;">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
-                <div class="mb-8">
-                    <img src="images/rise-reclaim-icon.png" alt="Rise & Reclaim Icon" style="width: 80px; height: 80px; object-fit: contain; margin: 0 auto;">
-                </div>
-                
-                <div class="mb-4">
-                    <p class="text-lg md:text-xl font-semibold" style="color: var(--beacon-gold); text-shadow: 1px 1px 4px rgba(0,0,0,0.7); letter-spacing: 2px;">🔥 PHOENIX RISING FROM THE ASHES 🔥</p>
-                </div>
-                
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                     Rise & Reclaim Your Future
                 </h1>
@@ -121,8 +201,8 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#join" class="cta-button text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg">
-                        Find Support in Your Rebuilding Journey →
+                    <a href="founding-member.html" class="cta-button text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg">
+                        Join Rise & Reclaim →
                     </a>
                     <a href="#mission" class="secondary-button px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
                         Learn More
@@ -285,57 +365,77 @@
                     </p>
                 </div>
 
+                <div class="text-center mb-8">
+                    <a href="founding-member.html" class="inline-block bg-gradient-to-r from-red-800 to-red-900 text-white px-10 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                        Become a Founding Member - Full Access to All Programs
+                    </a>
+                    <p class="mt-4 text-gray-600">Or fill out the form below to learn more</p>
+                </div>
+
                 <div class="bg-parchment rounded-2xl p-8 shadow-lg">
-                    <h3 class="text-2xl font-bold mb-6 text-center playfair" style="color: var(--beacon-teal);">Join Our Community</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-center playfair" style="color: var(--beacon-teal);">Request More Information</h3>
                     
-                    <form class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-semibold mb-2" style="color: var(--deep-navy);">Full Name</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-beacon-teal" style="border-color: var(--warm-gray); background-color: var(--light-background);">
+                    <form id="riseReclaimForm" action="https://api.leadconnectorhq.com/hooks/forms/submit" method="POST" class="contact-form">
+                        <!-- Hidden fields for GHL routing -->
+                        <input type="hidden" name="location_id" value="YOUR_GHL_LOCATION_ID">
+                        <input type="hidden" name="form_id" value="rise_reclaim_inquiry">
+                        <input type="hidden" name="tags" value="rise-reclaim,program-inquiry">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first_name">First Name *</label>
+                                <input type="text" id="first_name" name="first_name" required>
                             </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2" style="color: var(--deep-navy);">Email Address</label>
-                                <input type="email" class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-beacon-teal" style="border-color: var(--warm-gray); background-color: var(--light-background);">
+                            <div class="form-group">
+                                <label for="last_name">Last Name *</label>
+                                <input type="text" id="last_name" name="last_name" required>
                             </div>
                         </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold mb-2" style="color: var(--deep-navy);">What brings you to our community? (Optional)</label>
-                            <select class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-beacon-teal" style="border-color: var(--warm-gray); background-color: var(--light-background);">
-                                <option value="">Please select...</option>
-                                <option value="veteran">Military/Veteran Experience</option>
-                                <option value="incarceration">Formerly Incarcerated</option>
-                                <option value="addiction">Addiction Recovery</option>
-                                <option value="trauma">Trauma Survivor</option>
-                                <option value="family">Family Member/Supporter</option>
-                                <option value="professional">Professional/Helper</option>
-                                <option value="other">Other</option>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest_level">I'm interested in: *</label>
+                            <select id="interest_level" name="interest_level" required>
+                                <option value="">Select an option...</option>
+                                <option value="learn-more">Learning More About the Program</option>
+                                <option value="ready-to-start">Ready to Start the 12-Week Journey</option>
+                                <option value="scholarship">Scholarship Information</option>
+                                <option value="group-cohort">Joining a Group Cohort</option>
+                                <option value="questions">I Have Questions</option>
                             </select>
                         </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold mb-2" style="color: var(--deep-navy);">What are you hoping to find in our community? (Optional)</label>
-                            <textarea rows="3" class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-beacon-teal" style="border-color: var(--warm-gray); background-color: var(--light-background);" placeholder="Share what you're looking for..."></textarea>
+                        
+                        <div class="form-group">
+                            <label for="background">Tell us a bit about your journey (optional)</label>
+                            <textarea id="background" name="background" rows="4" placeholder="Share what brings you to Rise & Reclaim..."></textarea>
                         </div>
-
-                        <div class="space-y-3">
-                            <label class="flex items-start space-x-3">
-                                <input type="checkbox" class="mt-1" style="accent-color: var(--beacon-teal);">
-                                <span class="text-sm" style="color: var(--warm-gray);">I'd like to receive updates about community events, new resources, and success stories.</span>
+                        
+                        <div class="form-group">
+                            <label for="message">Questions or specific needs? *</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="newsletter" value="yes">
+                                <span>I'd like to receive updates and resources from Rise & Reclaim</span>
                             </label>
-                            <label class="flex items-start space-x-3">
-                                <input type="checkbox" class="mt-1" style="accent-color: var(--beacon-teal);">
-                                <span class="text-sm" style="color: var(--warm-gray);">I understand that Rise & Reclaim is a supportive community and not a substitute for professional mental health treatment. I agree to the community guidelines and privacy policy.</span>
-                            </label>
                         </div>
-
-                        <div class="text-center">
-                            <button type="submit" class="cta-button text-white px-12 py-4 rounded-lg font-semibold text-lg shadow-lg">
-                                Join Rise & Reclaim →
-                            </button>
-                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send My Inquiry</button>
+                        
+                        <div id="formMessage" class="form-message" style="display:none;"></div>
                     </form>
+                </div>
 
                     <div class="mt-8 p-4 rounded-lg text-center" style="background-color: rgba(139, 21, 56, 0.1); border-left: 4px solid var(--deep-red);">
                         <p class="text-sm font-semibold" style="color: var(--deep-red);">
@@ -399,6 +499,35 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.getElementById('riseReclaimForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('.submit-btn');
+            const formMessage = document.getElementById('formMessage');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.style.display = 'none';
+            const formData = new FormData(form);
+            try {
+                await fetch(form.action, { method: 'POST', body: formData, mode: 'no-cors' });
+                formMessage.textContent = 'Thank you! We\'ll be in touch soon to discuss your journey with Rise & Reclaim.';
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                form.reset();
+                if (typeof gtag !== 'undefined') { gtag('event', 'form_submission', { 'event_category': 'Rise & Reclaim', 'event_label': 'Program Inquiry' }); }
+                setTimeout(function() { window.location.href = 'thank-you-rise-reclaim.html'; }, 1500);
+            } catch (error) {
+                formMessage.textContent = 'Sorry, there was an error. Please email us at admin@beaconmomentum.com';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    </script>
 </body>
 </html>
 
