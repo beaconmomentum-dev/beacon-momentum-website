@@ -6,6 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beacon Momentum 3.1 - Empowering the Rebuilders</title>
     <meta name="description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Phoenix Collective, a Rise & Reclaim Initiative.">
+    <link rel="canonical" href="https://beaconmomentum.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/">
+    <meta property="og:title" content="Beacon Momentum 3.1 - Empowering the Rebuilders">
+    <meta property="og:description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Phoenix Collective, a Rise & Reclaim Initiative.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
+    <meta property="og:site_name" content="Beacon Momentum">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/">
+    <meta property="twitter:title" content="Beacon Momentum 3.1 - Empowering the Rebuilders">
+    <meta property="twitter:description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Phoenix Collective, a Rise & Reclaim Initiative.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Beacon Momentum",
+      "url": "https://beaconmomentum.com",
+      "logo": "https://beaconmomentum.com/images/beacon-logo-badge.png",
+      "description": "Beacon Momentum empowers rebuilders through transformative programs, mentorship, and community support. We help survivors of trauma, veterans, and those rebuilding their lives achieve financial sovereignty and personal growth.",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "BobBurr80@gmail.com",
+        "url": "https://beaconmomentum.com/contact.html"
+      },
+      "sameAs": [
+        "https://beaconmomentum.com"
+      ]
+    }
+    </script>
+    
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,9 +140,31 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background-image: url('images/hero-bg-option2-clean.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
             color: white;
-            padding: 4rem 0;
+            padding: 10rem 0 6rem 0;
             text-align: center;
+            position: relative;
+            min-height: 550px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 118, 110, 0.2);
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -607,8 +668,72 @@
             color: #9CA3AF;
         }
 
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--beacon-dark);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: white;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 1rem 20px;
+            color: var(--beacon-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--beacon-light);
+            transition: background-color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--beacon-light);
+            color: var(--beacon-teal);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
             .nav-links {
                 display: none;
             }
@@ -664,7 +789,7 @@
         <div class="container">
             <nav class="nav">
                 <a href="/" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
-                    <img src="images/beacon-logo-icon.png" alt="Beacon Momentum" style="width: 40px; height: 40px; object-fit: contain;">
+                    <img src="images/beacon-logo.png" alt="Beacon Momentum" style="width: 70px; height: 70px; object-fit: contain;">
                     <div style="display: flex; flex-direction: column; line-height: 1.2;">
                         <span style="font-size: 1.25rem; font-weight: 700;">Beacon Momentum</span>
                         <span style="font-size: 0.75rem; font-weight: 500; color: var(--beacon-gold); font-style: italic;">Lighting the Way Forward</span>
@@ -672,24 +797,41 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
+                    <li><a href="founding-member.html">Founding Member</a></li>
                     <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
                     <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
                     <li><a href="labs.html">Beacon Labs</a></li>
-                    <li><a href="financial-sovereignty/modern-wealth-navigation.html">Financial Sovereignty</a></li>
+                    <li><a href="our-compass.html">Our Compass</a></li>
+                    <li><a href="press.html">Press</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </nav>
+            <div class="mobile-menu">
+                <a href="/">Home</a>
+                <a href="founding-member.html">Founding Member</a>
+                <a href="digital-grandpa.html">Digital Grandpa</a>
+                <a href="rise-reclaim.html">Rise & Reclaim</a>
+                <a href="labs.html">Beacon Labs</a>
+                <a href="our-compass.html">Our Compass</a>
+                <a href="press.html">Press</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Every Setback is a Setup for a Comeback.</h1>
-            <p>For anyone who has faced a defining moment and is ready for their next chapter. This is a place to find your footing, share your story, and build what comes next, supported by a community that gets it.</p>
+            <h1>The Lighthouse is On. You're Not Doing This Alone.</h1>
+            <p>Founded by a veteran mentor, Beacon Momentum is a safe harbor for those navigating life's storms. Learn about our founder and why we exist.</p>
             <div class="hero-cta-group" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#quiz" class="cta-button">Find Your Path Forward</a>
-                <a href="#stories" class="cta-button" style="background: transparent; border: 2px solid white; color: white;">Watch Stories of Transformation</a>
+                <a href="about.html" class="cta-button">Discover Our Story</a>
+                <a href="#programs" class="cta-button" style="background: transparent; border: 2px solid white; color: white;">Explore Programs</a>
             </div>
         </div>
     </section>
@@ -734,6 +876,192 @@
             <a href="#divisions" class="narrative-cta">Learn the Beacon Pathway →</a>
         </div>
     </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="content-section" style="background-color: var(--beacon-cream); padding: 5rem 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="playfair" style="text-align: center; font-size: 3rem; color: var(--beacon-teal); margin-bottom: 1rem;">Find Your Path Forward</h2>
+            <p style="text-align: center; font-size: 1.25rem; color: #666; margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">Whether you're rebuilding from the ground up, launching your own venture, or seeking wise guidance, we have a path designed for where you are right now.</p>
+            
+            <p style="text-align: center; font-size: 1.375rem; font-weight: 600; color: var(--beacon-teal); margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">No matter where you're starting, there is a path forward — and you won't walk it alone.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                
+                <!-- Rise & Reclaim -->
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🌅</div>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem; text-align: center;">Rise & Reclaim</h3>
+                    <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem; text-align: center;">For Those Rebuilding from the Ground Up</p>
+                    <p style="color: #555; line-height: 1.8; margin-bottom: 2rem;">A 12-week guided journey for those navigating the aftermath of profound life changes. This isn't about "bouncing back"—it's about rising stronger, with purpose and a community that understands the fight.</p>
+                    <div style="text-align: center;">
+                        <a href="rise-reclaim.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Rise & Reclaim</a>
+                        <p style="font-size: 0.875rem; color: #888; margin-top: 0.75rem; font-style: italic;">Start the journey that rebuilds you from the inside out.</p>
+                    </div>
+                </div>
+                
+                <!-- Solopreneur Launchpad & Capital Suite -->
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">💼</div>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem; text-align: center;">Business Suite</h3>
+                    <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem; text-align: center;">For Those Building Their Own Table</p>
+                    <p style="color: #555; line-height: 1.8; margin-bottom: 2rem;">A comprehensive toolkit for aspiring entrepreneurs and small business owners. Learn to launch, fund, and grow your venture with practical guidance, financial literacy, and the wisdom to avoid common pitfalls.</p>
+                    <div style="text-align: center;">
+                        <a href="solopreneur-launchpad.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Explore the Business Suite</a>
+                        <p style="font-size: 0.875rem; color: #888; margin-top: 0.75rem; font-style: italic;">Learn the skills that build real, sustainable independence.</p>
+                    </div>
+                </div>
+                
+                <!-- Digital Grandpa Mentorship -->
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🧭</div>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem; text-align: center;">Digital Grandpa</h3>
+                    <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem; text-align: center;">For Those Who Need a Steady Hand</p>
+                    <p style="color: #555; line-height: 1.8; margin-bottom: 2rem;">Ongoing mentorship providing hope, wisdom, and direction with love and compassion. Get the gentle voice of experience when you need it most—no judgment, just genuine care and guidance.</p>
+                    <div style="text-align: center;">
+                        <a href="digital-grandpa.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Mentorship</a>
+                        <p style="font-size: 0.875rem; color: #888; margin-top: 0.75rem; font-style: italic;">You don't have to navigate this alone.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Strip -->
+    <section class="content-section" style="padding: 5rem 0; background-color: #f0f4f8;">
+        <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+            <p style="font-size: 1.5rem; font-style: italic; color: #555; line-height: 1.8; margin-bottom: 1.5rem;">"I finally felt understood. Rise & Reclaim didn’t just change my direction — it changed my life."</p>
+            <p style="font-size: 1.125rem; font-weight: 600; color: var(--beacon-teal);">— J.D., Veteran & Rise & Reclaim Alumnus</p>
+        </div>
+    </section>
+
+<!-- Digital Grandpa Wisdom Section -->
+<style>
+    .dg-wisdom {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #323232 0%, #0d7377 100%);
+        color: white;
+    }
+    
+    .dg-wisdom-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        text-align: center;
+    }
+    
+    .dg-wisdom-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #14FFEC;
+    }
+    
+    .dg-wisdom-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: #ddd;
+        font-style: italic;
+    }
+    
+    .dg-beliefs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .dg-belief-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid #14FFEC;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+    
+    .dg-belief-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+    }
+    
+    .dg-belief-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #14FFEC;
+        margin-bottom: 1rem;
+    }
+    
+    .dg-belief-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: white;
+    }
+    
+    .dg-wisdom-footer {
+        margin-top: 3rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #14FFEC;
+    }
+    
+    @media (max-width: 768px) {
+        .dg-wisdom {
+            padding: 3rem 0;
+        }
+        
+        .dg-wisdom-title {
+            font-size: 2rem;
+        }
+        
+        .dg-beliefs {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+</style>
+
+<section class="dg-wisdom">
+    <div class="dg-wisdom-container">
+        <h2 class="dg-wisdom-title">What I Believe</h2>
+        <p class="dg-wisdom-subtitle">Here's what I've learned: People don't need hype. They need clarity. They need honesty. And they need the next right step.</p>
+        
+        <div class="dg-beliefs">
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">1</div>
+                <p class="dg-belief-text">We meet you where you are.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">2</div>
+                <p class="dg-belief-text">We walk beside you, not above you.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">3</div>
+                <p class="dg-belief-text">We let your story matter.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">4</div>
+                <p class="dg-belief-text">We share truth in 30–90 seconds.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">5</div>
+                <p class="dg-belief-text">We honor your dignity.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">6</div>
+                <p class="dg-belief-text">We rise as a tribe.</p>
+            </div>
+        </div>
+        
+        <p class="dg-wisdom-footer">Simple. Real. Human.</p>
+    </div>
+</section>
+
 <!-- CSS for Section 3: The Beacon Pathway (3 Pillars) -->
 <style>
     /* The Beacon Pathway Section */
@@ -886,6 +1214,7 @@
 
 <!-- HTML for Section 3: The Beacon Pathway (3 Pillars) -->
 <section class="beacon-pathway" id="pathway">
+    <a id="divisions" style="position: absolute; top: -80px;"></a>
     <div class="pathway-container">
         <h2 class="pathway-title">The Beacon Pathway</h2>
         <p class="pathway-subtitle">
@@ -1522,7 +1851,7 @@
             </div>
         </div>
 
-        <a href="/solopreneur-launchpad/" class="program-block-cta">Begin Your Launch →</a>
+        <a href="founding-member.html" class="program-block-cta">Begin Your Launch →</a>
     </div>
 </section>
 
@@ -1569,7 +1898,7 @@
             </div>
         </div>
 
-        <a href="/capital-suite/" class="program-block-cta">Explore Capital Suite →</a>
+        <a href="founding-member.html" class="program-block-cta">Explore Capital Suite →</a>
     </div>
 </section>
 <!-- CSS for Section 7: Founding Member Offer Block -->
@@ -1828,14 +2157,6 @@
             </div>
 
             <div class="founding-benefit-item">
-                <span class="founding-benefit-icon">🎙️</span>
-                <div class="founding-benefit-title">Direct Access to Bob</div>
-                <div class="founding-benefit-description">
-                    Monthly Q&A sessions, exclusive workshops, and direct communication with the founder.
-                </div>
-            </div>
-
-            <div class="founding-benefit-item">
                 <span class="founding-benefit-icon">🚀</span>
                 <div class="founding-benefit-title">Shape the Platform</div>
                 <div class="founding-benefit-description">
@@ -1860,14 +2181,14 @@
         </div>
 
         <div class="founding-price-box">
-            <div class="founding-price">$1,997</div>
+            <div class="founding-price">$2,997</div>
             <div class="founding-price-label">One-Time Payment • Lifetime Access</div>
             <div class="founding-price-details">
-                Or 3 payments of $697 • No recurring fees • No hidden costs
+                No recurring fees • No hidden costs • Third-party payment options may be available at checkout
             </div>
         </div>
 
-        <a href="/register.html" class="founding-cta-primary">Claim Your Founding Member Spot →</a>
+        <a href="/founding-member.html" class="founding-cta-primary">Claim Your Founding Member Spot →</a>
 
         <!-- Countdown Timer (Hidden by default, activate when needed) -->
         <div class="founding-countdown" id="founding-countdown">
@@ -2438,7 +2759,7 @@
         </p>
         
         <div class="final-cta-buttons">
-            <a href="/register.html" class="final-cta-primary">Join the Founding Members →</a>
+            <a href="/founding-member.html" class="final-cta-primary">Join the Founding Members →</a>
             <a href="#pathway" class="final-cta-secondary">Explore the Beacon Pathway →</a>
         </div>
     </div>
@@ -2470,7 +2791,7 @@
                     <li><a href="#solopreneur-section">Solopreneur Launchpad</a></li>
                     <li><a href="#capital-suite-section">Beacon Capital Suite</a></li>
                     <li><a href="/digital-grandpa/">Digital Grandpa</a></li>
-                    <li><a href="#founding-member">Founding Member</a></li>
+                    <li><a href="/founding-member.html">Founding Member</a></li>
                 </ul>
             </div>
 
@@ -2479,10 +2800,10 @@
                 <h3>Resources</h3>
                 <ul class="footer-links">
                     <li><a href="/blog/">Blog & Articles</a></li>
-                    <li><a href="/community/">Community Forum</a></li>
-                    <li><a href="/resources/">Free Resources</a></li>
-                    <li><a href="/success-stories/">Success Stories</a></li>
-                    <li><a href="/faq/">FAQ</a></li>
+                    <li><a href="community.html">Community Forum</a></li>
+                    <li><a href="resources.html">Free Resources</a></li>
+                    <li><a href="blog/">Success Stories</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
             </div>
 
@@ -2492,9 +2813,9 @@
                 <ul class="footer-links">
                     <li><a href="/contact.html">Contact Us</a></li>
                     <li><a href="mailto:team@beaconmomentum.com">team@beaconmomentum.com</a></li>
-                    <li><a href="/support/">Help Center</a></li>
-                    <li><a href="/about/">About Bob</a></li>
-                    <li><a href="/partner/">Partner With Us</a></li>
+                    <li><a href="contact.html">Help Center</a></li>
+                    <li><a href="our-compass.html">About Us</a></li>
+                    <li><a href="contact.html">Partner With Us</a></li>
                 </ul>
             </div>
         </div>
@@ -2503,10 +2824,9 @@
             <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
             
             <div class="footer-bottom-links">
-                <a href="/terms/">Terms of Service</a>
-                <a href="/privacy/">Privacy Policy</a>
-                <a href="/refund/">Refund Policy</a>
-                <a href="/disclaimer/">Disclaimer</a>
+                <a href="/terms-of-service.html">Terms of Service</a>
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <a href="/refund-policy.html">Refund Policy</a>
             </div>
 
             <p class="phoenix-attribution">
@@ -2515,4 +2835,36 @@
         </div>
     </div>
 </footer>
-</body></html>
+<script>
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
