@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Library - Beacon Momentum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="/images/logo.png" alt="Beacon Momentum" class="h-8 w-auto" onerror="this.style.display='none'">
+                        <span class="ml-2 text-xl font-bold text-gray-900">Beacon Momentum</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/member-dashboard.html" class="text-gray-700 hover:text-teal-600">Dashboard</a>
+                    <a href="/courses.html" class="text-gray-700 hover:text-teal-600">Courses</a>
+                    <a href="/resources.html" class="text-teal-600 font-semibold">Resources</a>
+                    <a href="/community.html" class="text-gray-700 hover:text-teal-600">Community</a>
+                    <a href="/events.html" class="text-gray-700 hover:text-teal-600">Events</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-teal-600 to-teal-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h1 class="text-4xl font-bold mb-4">Resource Library</h1>
+            <p class="text-xl text-teal-100">Download guides, workbooks, and tools to support your journey</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Resources Grid -->
+        <div id="resources-container">
+            <!-- Loading state will be inserted here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <p class="text-center text-gray-400">&copy; 2025 Beacon Momentum. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/api.js"></script>
+    <script src="/js/components.js"></script>
+    <script src="/js/resources.js"></script>
+</body>
+</html>

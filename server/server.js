@@ -16,7 +16,27 @@ app.set('trust proxy', 1);
 
 // Security middleware
 app.use(helmet({
-    contentSecurityPolicy: false // Disable for now, can configure later
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "https://cdn.tailwindcss.com", "https://cdnjs.cloudflare.com", "'unsafe-inline'"],
+            styleSrc: ["'self'", "https://cdn.tailwindcss.com", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "'unsafe-inline'"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+            imgSrc: ["'self'", "data:", "https:"],
+            connectSrc: ["'self'"],
+            frameSrc: ["'none'"],
+            objectSrc: ["'none'"],
+            upgradeInsecureRequests: []
+        }
+    },
+    strictTransportSecurity: {
+        maxAge: 31536000, // 1 year
+        includeSubDomains: true,
+        preload: true
+    },
+    frameguard: { action: 'deny' },
+    noSniff: true,
+    xssFilter: true
 }));
 
 // Rate limiting
@@ -60,6 +80,11 @@ const authRoutes = require('./routes/auth');
 const membershipRoutes = require('./routes/membership');
 const stripeWebhookRoutes = require('./routes/stripe_webhook');
 const ghlWebhookRoutes = require('./routes/ghl_webhook');
+const coursesRoutes = require('./routes/courses_routes');
+const communityRoutes = require('./routes/community_routes');
+const eventsRoutes = require('./routes/events_routes');
+const progressRoutes = require('./routes/progress_routes');
+const resourcesRoutes = require('./routes/resources_routes');
 const { requireAuth, attachUser } = require('./middleware/auth');
 const { requireMembership, requireRole } = require('./middleware/membership');
 
@@ -73,6 +98,13 @@ app.use('/api/auth', authRoutes);
 app.use('/api/membership', membershipRoutes);
 app.use('/api/stripe', stripeWebhookRoutes);
 app.use('/api/ghl', ghlWebhookRoutes);
+
+// Course module routes
+app.use('/api/courses', coursesRoutes);
+app.use('/api/community', communityRoutes);
+app.use('/api/events', eventsRoutes);
+app.use('/api/progress', progressRoutes);
+app.use('/api/resources', resourcesRoutes);
 
 // Protect content directories - MUST come before general static files
 

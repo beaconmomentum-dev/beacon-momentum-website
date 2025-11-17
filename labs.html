@@ -18,6 +18,35 @@
     <meta property="twitter:title" content="Beacon Labs - Infrastructure for Equitable Communities">
     <meta property="twitter:description" content="Building transparent revenue-sharing systems and impact tracking tools that power equitable joint ventures.">
     
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Beacon Labs",
+      "applicationCategory": "BusinessApplication",
+      "description": "Infrastructure for equitable communities. Transparent revenue-sharing systems, automated impact tracking, and tools that power equitable joint ventures and community transformation.",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Beacon Momentum",
+        "url": "https://beaconmomentum.com"
+      },
+      "featureList": [
+        "Automated revenue sharing",
+        "Impact tracking and reporting",
+        "Transparent joint venture management",
+        "Community collaboration tools"
+      ]
+    }
+    </script>
+    
     <link rel="canonical" href="https://beaconmomentum.com/labs">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,11 +140,16 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #0A4F4B 0%, #0D2A28 100%);
+            background-image: url('images/hero-bg-option3-clean.png');
+            background-size: cover;
+            background-position: left center;
+            background-repeat: no-repeat;
             color: var(--white);
-            padding: 6rem 0;
+            padding: 8rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 700px;
         }
 
         .hero::before {
@@ -125,8 +159,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            background: rgba(10, 79, 75, 0.4);
+            z-index: 1;
         }
 
         .hero-content {
@@ -545,8 +579,7 @@
                 <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
                 <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
                 <li><a href="labs.html" class="active">Beacon Labs</a></li>
-                <li><a href="financial-sovereignty/modern-wealth-navigation.html">Financial Sovereignty</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <button class="mobile-menu">☰</button>
         </div>
@@ -556,7 +589,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in-up">
-                <h1>Building the Infrastructure for Equitable Communities</h1>
+                <h1>Supporting Opportunity for the Communities We Serve</h1>
                 <p class="hero-subtitle">The engine room powering transparent joint ventures, automated revenue sharing, and measurable social impact across the Beacon ecosystem.</p>
                 <div class="cta-buttons">
                     <a href="request-demo.html" class="btn btn-primary">Request a Demo →</a>
@@ -740,7 +773,22 @@
         // Simple form handling
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your interest! We\'ll be in touch soon.');
+            
+            // Track conversion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submission', {
+                    'event_category': 'Beacon Labs',
+                    'event_label': 'Labs Inquiry Form'
+                });
+            }
+            
+            // Show brief success message then redirect
+            alert('Thank you for your interest! Redirecting...');
+            
+            // Redirect to thank you page
+            setTimeout(function() {
+                window.location.href = 'thank-you-beacon-labs.html';
+            }, 500);
         });
 
         // Mobile menu toggle

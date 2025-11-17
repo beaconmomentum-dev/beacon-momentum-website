@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Compass - Beacon Momentum</title>
+    <meta name="description" content="Our mission is to empower people rebuilding their lives through storytelling, mentorship, and transparent opportunities. Learn about our values and approach.">
+    <link rel="canonical" href="https://beaconmomentum.com/our-compass.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/our-compass.html">
+    <meta property="og:title" content="Our Compass - Mission, Vision & Values - Beacon Momentum">
+    <meta property="og:description" content="Learn about Beacon Momentum's mission to empower people rebuilding their lives through storytelling, mentorship, and transparent opportunities.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-logo-badge.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/our-compass.html">
+    <meta property="twitter:title" content="Our Compass - Mission, Vision & Values - Beacon Momentum">
+    <meta property="twitter:description" content="Learn about Beacon Momentum's mission to empower people rebuilding their lives through storytelling, mentorship, and transparent opportunities.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-logo-badge.png">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Our Compass - Mission, Vision & Values",
+      "description": "Learn about Beacon Momentum's mission to empower people rebuilding their lives through storytelling, mentorship, and transparent opportunities.",
+      "url": "https://beaconmomentum.com/our-compass.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Beacon Momentum",
+        "url": "https://beaconmomentum.com",
+        "mission": "To empower people rebuilding their lives through storytelling, mentorship, and transparent opportunities for financial sovereignty.",
+        "foundingDate": "2024"
+      }
+    }
+    </script>
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-orange: #FF7A00;
+            --beacon-dark: #1F1F1F;
+            --beacon-cream: #F8F5F1;
+            --beacon-gold: #D97706;
+            --beacon-gray: #6B7280;
+            --beacon-light: #F9FAFB;
+            --beacon-teal: #0F766E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background-color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--beacon-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--beacon-teal);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 118, 110, 0.1);
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 0;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .mission-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--beacon-cream);
+            padding: 3rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--beacon-orange);
+        }
+
+        .mission-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--beacon-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-box p {
+            font-size: 1.25rem;
+            color: var(--beacon-gray);
+            line-height: 1.8;
+        }
+
+        .mission-box strong {
+            color: var(--beacon-orange);
+            font-weight: 600;
+        }
+
+        /* Pillars Section */
+        .pillars-section {
+            background: var(--beacon-light);
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--beacon-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--beacon-gray);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--beacon-teal);
+            transition: all 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .pillar-number {
+            background: var(--beacon-teal);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--beacon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .pillar-card p {
+            font-size: 1.05rem;
+            color: var(--beacon-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pillar-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--beacon-dark);
+        }
+
+        .pillar-card li::before {
+            content: '→';
+            color: var(--beacon-orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: var(--beacon-cream);
+            padding: 5rem 0;
+        }
+
+        .values-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .value-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .value-icon {
+            font-size: 4rem;
+            text-align: center;
+        }
+
+        .value-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--beacon-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-content p {
+            font-size: 1.1rem;
+            color: var(--beacon-gray);
+            line-height: 1.7;
+        }
+
+        /* Difference Section */
+        .difference-section {
+            background: linear-gradient(135deg, var(--beacon-dark), var(--beacon-teal));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .difference-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .difference-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .difference-section p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .difference-section strong {
+            color: var(--beacon-gold);
+            font-size: 1.3em;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .download-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--beacon-light);
+            padding: 3rem;
+            border-radius: 12px;
+        }
+
+        .download-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--beacon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .download-box p {
+            font-size: 1.1rem;
+            color: var(--beacon-gray);
+            margin-bottom: 2rem;
+        }
+
+        .download-btn {
+            background: var(--beacon-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background: var(--beacon-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 122, 0, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--beacon-dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--beacon-gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="container nav">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">B</div>
+                Beacon Momentum
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
+                <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
+                <li><a href="labs.html">Beacon Labs</a></li>
+                <li><a href="our-compass.html" class="active">Our Compass</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Our Compass</h1>
+            <p><strong>Six Pillars Built for Reinvention, Resilience & Real-World Transformation</strong><br>
+            A clear path for people rebuilding their lives in a changing world.</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-box">
+                <h2>Our Mission</h2>
+                <p>We <strong>empower people rebuilding their lives</strong> through storytelling, mentorship, and transparent opportunities. We don't rescue — we empower. We don't hype — we tell the truth. We don't dwell in the past — we build the future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Six Pillars Section -->
+    <section class="pillars-section">
+        <div class="container">
+            <h2 class="section-title">Our Six Pillars</h2>
+            <p class="section-subtitle">The foundation of everything we build at Beacon Momentum</p>
+            
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">1</div>
+                    <h3>Personalized Membership Experiences</h3>
+                    <p>We meet people exactly where they are — whether stabilizing, rebuilding, or rising. Our programs adapt to emotional readiness, life season, and career transition needs.</p>
+                    <ul>
+                        <li>Rise & Reclaim Success Path (Stabilize → Build → Rise → Reclaim)</li>
+                        <li>Veteran Navigation Track</li>
+                        <li>AI-guided Solopreneur Launchpad personalization</li>
+                        <li>Daily Digital Grandpa micro-lessons matched to energy level</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">2</div>
+                    <h3>Hybrid Human + AI Content</h3>
+                    <p>Beacon fuses lived experience with powerful AI tools. Your wisdom leads; AI scales it; our community brings it to life.</p>
+                    <ul>
+                        <li>Founder insights → AI structure → Community proof</li>
+                        <li>Daily content engine across DG, R&R, and Launchpad</li>
+                        <li>Human-led emotional tone, AI-supported structure</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">3</div>
+                    <h3>Member-Generated Content</h3>
+                    <p>Your story becomes someone else's lifeline. Our community grows through real wins, real struggles, and real courage.</p>
+                    <ul>
+                        <li>Lighthouse Moments</li>
+                        <li>Rise & Reclaim milestone shares</li>
+                        <li>Veteran peer guidance channels</li>
+                        <li>Launchpad micro-case studies</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">4</div>
+                    <h3>Video & Short-Form Media</h3>
+                    <p>Digital Grandpa's voice delivers truth in 30–90 second doses — exactly when people need it.</p>
+                    <ul>
+                        <li>Morning Lighthouse Messages</li>
+                        <li>Micro-lessons</li>
+                        <li>60-second skill boosts</li>
+                        <li>Beacon Fireside livestreams</li>
+                        <li>Veteran transition insights</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 5 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">5</div>
+                    <h3>Ethical & Sustainable Storytelling</h3>
+                    <p>We honor every member's dignity. No hype. No pity. No exploitation. Only truth and forward momentum.</p>
+                    <ul>
+                        <li>Beacon Story Code</li>
+                        <li>Co-created narratives</li>
+                        <li>Agency-forward storytelling</li>
+                        <li>Trauma-aware content practices</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 6 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">6</div>
+                    <h3>Interactive Community Features</h3>
+                    <p>Belonging changes everything. Small wins create momentum. Daily structure builds confidence.</p>
+                    <ul>
+                        <li>Rise & Reclaim badges</li>
+                        <li>Momentum Meter</li>
+                        <li>Veteran cohorts</li>
+                        <li>Monthly challenges</li>
+                        <li>Live Q&A workshops</li>
+                        <li>DG Fireside AMAs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-container">
+                <div class="value-row">
+                    <div class="value-icon">🔥</div>
+                    <div class="value-content">
+                        <h3>Truth Over Hype</h3>
+                        <p>We tell the real story — the struggles, the setbacks, and the victories. No false promises, no toxic positivity.</p>
+                    </div>
+                </div>
+
+                <div class="value-row">
+                    <div class="value-icon">🤝</div>
+                    <div class="value-content">
+                        <h3>Empowerment Over Rescue</h3>
+                        <p>We don't save people. We equip them with tools, community, and confidence to save themselves.</p>
+                    </div>
+                </div>
+
+                <div class="value-row">
+                    <div class="value-icon">🌟</div>
+                    <div class="value-content">
+                        <h3>Dignity Over Pity</h3>
+                        <p>Every member is a rebuilder, not a victim. We honor their agency, resilience, and potential.</p>
+                    </div>
+                </div>
+
+                <div class="value-row">
+                    <div class="value-icon">🚀</div>
+                    <div class="value-content">
+                        <h3>Forward Over Backward</h3>
+                        <p>We acknowledge the past, but we don't live there. Our focus is on building what comes next.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beacon Difference Section -->
+    <section class="difference-section">
+        <div class="container difference-container">
+            <h2>The Beacon Difference</h2>
+            <p>We don't rescue — we empower. We don't hype — we tell the truth. We don't dwell in the past — we build the future.</p>
+            <p>This is Beacon Momentum. <strong>This is the lighthouse.</strong></p>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="container">
+            <div class="download-box">
+                <h3>📄 Download Our Complete Strategy</h3>
+                <p>Get the full Beacon Momentum Content Strategy document, including our press kit and founder story.</p>
+                <a href="press/Beacon_Press_Edition.pdf" class="download-btn" download>Download Press Kit (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- About -->
+                <div class="footer-section">
+                    <h4>Beacon Momentum</h4>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Empowering the rebuilders. Igniting the next chapter.</p>
+                </div>
+
+                <!-- Divisions -->
+                <div class="footer-section">
+                    <h4>Our Divisions</h4>
+                    <ul>
+                        <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
+                        <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
+                        <li><a href="labs.html">Beacon Labs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="our-compass.html">About Beacon</a></li>
+                        <li><a href="blog/">Blog & Stories</a></li>
+                        <li><a href="press.html">Press & Media</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h4>Get In Touch</h4>
+                    <p style="color: rgba(255,255,255,0.8);">Email: <a href="mailto:BobBurr80@gmail.com">BobBurr80@gmail.com</a></p>
+                    <p style="color: rgba(255,255,255,0.8);">Phone: <a href="tel:+19198007265">(919) 800-7265</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Beacon Momentum. All rights reserved. | 
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="terms-of-service.html">Terms of Service</a> | 
+                <a href="refund-policy.html">Refund Policy</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<!-- Beacon Momentum - About Us Page -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Beacon Momentum | A Lighthouse for Life's Storms</title>
+    <meta name="description" content="Learn about Beacon Momentum and our founder Bob Burr (Digital Grandpa). We are a lighthouse for people rebuilding their lives and creating opportunity where none was given.">
+    <link rel="canonical" href="https://beaconmomentum.com/about.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/about.html">
+    <meta property="og:title" content="About Us - Beacon Momentum">
+    <meta property="og:description" content="A lighthouse for people rebuilding their lives. Founded by Bob Burr (Digital Grandpa), we guide with compassion, empower with truth, and light the way forward.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-logo-badge.png">
+    <meta property="og:site_name" content="Beacon Momentum">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/about.html">
+    <meta property="twitter:title" content="About Us - Beacon Momentum">
+    <meta property="twitter:description" content="A lighthouse for people rebuilding their lives. Founded by Bob Burr (Digital Grandpa), we guide with compassion, empower with truth, and light the way forward.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-logo-badge.png">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-orange: #FF7A00;
+            --beacon-dark: #1F1F1F;
+            --beacon-cream: #F8F5F1;
+            --beacon-gold: #D97706;
+            --beacon-gray: #6B7280;
+            --beacon-light: #F9FAFB;
+            --beacon-teal: #0F766E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background-color: white;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--beacon-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--beacon-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--beacon-teal) 0%, #065F46 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: var(--beacon-cream);
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--beacon-teal);
+        }
+
+        .content-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--beacon-dark);
+        }
+
+        .content-section .lead {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--beacon-orange);
+            margin-bottom: 2rem;
+        }
+
+        /* Promise Section */
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .promise-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .promise-card h3 {
+            color: var(--beacon-teal);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .promise-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--beacon-orange);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--beacon-orange);
+        }
+
+        .btn-primary:hover {
+            background: var(--beacon-cream);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--beacon-orange);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--beacon-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h4 {
+            color: var(--beacon-orange);
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a:hover {
+            color: var(--beacon-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: var(--beacon-gray);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--beacon-dark);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.25rem;
+            }
+
+            .content-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo playfair">Beacon Momentum</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
+                <li><a href="solopreneur-launchpad.html">Solopreneur Launchpad</a></li>
+                <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
+                <li><a href="founding-member.html">Founding Member</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="playfair">About Beacon Momentum</h1>
+            <p class="tagline">A Lighthouse for Life's Storms</p>
+        </div>
+    </section>
+
+    <!-- Credibility Anchor -->
+    <section class="content-section" style="padding: 2rem 0; background-color: var(--beacon-cream);">
+        <div class="container">
+            <p style="text-align: center; font-size: 1.25rem; font-weight: 600; color: var(--beacon-teal); font-style: italic;">Founded by a veteran, shaped by real storms, and built for those who rise again.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="container">
+            <p class="lead">Life has a way of shaking the ground beneath your feet. Industries collapse. Health changes. Relationships shift. Careers vanish. The map you were given stops making sense. These moments don't define you by the fall — they define you by how you rise.</p>
+            
+            <p><strong>Beacon Momentum exists for people who are rising.</strong></p>
+            
+            <p>We are a lighthouse for those rebuilding their lives and creating opportunity where none was given. We serve veterans stepping into uncertain civilian territory, working-class adults pushed aside by forces beyond their control, and survivors of personal and economic storms that left everything different than before.</p>
+            
+            <p><strong>Beacon Momentum is built for the rebuilders, the reinventors, and the resilient.</strong></p>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="playfair">Our Founder: The Voice Behind the Light</h2>
+            
+            <!-- Founder Photo -->
+            <div style="text-align: center; margin: 2rem 0;">
+                <img src="images/bob-burr-portrait.jpg" alt="Bob Burr, Founder of Beacon Momentum" style="max-width: 300px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            </div>
+            
+            <p>Beacon Momentum was founded by <strong>Bob Burr</strong> — mentor, veteran, storyteller, and the steady presence many know as <strong>Digital Grandpa</strong>.</p>
+            
+            <p>Bob didn't learn his wisdom from books. He earned it the hard way: through service, through crisis, through rebuilding from scratch, and through the quiet victories that come from simply refusing to quit.</p>
+            
+            <p>He built Beacon Momentum to give people what he never had during his hardest seasons:</p>
+            
+            <p style="margin-left: 2rem; font-style: italic;">
+A steady hand<br>
+A patient voice<br>
+A compassionate guide who doesn't judge your past
+            </p>
+            
+            <p>And a philosophy rooted in three simple truths:<br>
+<strong>love first, wisdom always, and your best interest at heart</strong></p>
+            
+            <p style="text-align: center; font-size: 1.25rem; margin: 2rem 0; line-height: 1.8;">
+This isn't coaching.<br>
+This isn't hype.<br>
+<strong>This is a gentle voice of experience when you need it most.</strong>
+            </p>
+            
+            <p>And long after Bob is gone, this philosophy will remain the soul of Beacon Momentum — carried forward through programs, leaders, and the Digital Grandpa Way.</p>
+            
+            <p><strong>Beacon Momentum is the culmination of decades of service, research, mentorship, and lived experience — now built into a system that can scale far beyond one man.</strong></p>
+        </div>
+    </section>
+
+    <!-- Promise Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="playfair">Our Promise to You</h2>
+            
+            <p>When you join the Beacon Momentum community, you are entering a safe harbor built on a foundation of trust and respect. Our promise is simple, and it is unwavering:</p>
+            
+            <div class="promise-grid">
+                <div class="promise-card">
+                    <h3>1. You Will Be Seen</h3>
+                    <p>You're not a username. You're not a case number. You're a human being with a story that deserves dignity.</p>
+                </div>
+                
+                <div class="promise-card">
+                    <h3>2. You Will Hear the Truth</h3>
+                    <p>We don't sugarcoat. We don't sell fantasies. We tell the truth in a way that strengthens, not shames.</p>
+                </div>
+                
+                <div class="promise-card">
+                    <h3>3. You Will Be Empowered</h3>
+                    <p>You walk your path. We walk with you. Our job isn't to carry you — it's to help you stand tall again.</p>
+                </div>
+                
+                <div class="promise-card">
+                    <h3>4. Your Best Interest Always Comes First</h3>
+                    <p>Every program, every resource, every decision starts with one question:<br><em>"What serves the person in front of us?"</em><br><br>You deserve nothing less.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Grandpa Way Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="playfair">The Digital Grandpa Way</h2>
+            
+            <p>The heart of Beacon Momentum is a philosophy:</p>
+            
+            <p style="margin-left: 2rem; line-height: 2; font-size: 1.125rem;">
+Lead with compassion<br>
+Guide without judgment<br>
+Offer wisdom patiently<br>
+Celebrate small wins<br>
+Stand with people until they can stand on their own
+            </p>
+            
+            <p><strong>This approach will outlive the man who created it.</strong></p>
+            
+            <p>It is now the cultural backbone of the Beacon ecosystem.</p>
+        </div>
+    </section>
+
+    <!-- Program Transition -->
+    <section class="content-section">
+        <div class="container">
+            <p style="font-size: 1.125rem; line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto;">Everything we build — from the <strong>Rise & Reclaim</strong> transformation path to the <strong>Solopreneur Launchpad</strong> and <strong>Capital Suite</strong> — exists for one purpose: to give you the tools, guidance, and structure to rebuild your life with dignity and direction.</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="playfair">Where You Go From Here</h2>
+            <p>If you're ready to move from chaos to clarity…<br>
+If you're ready to stop drifting and start rebuilding…<br>
+If you're ready to rise — at your pace, in your way, with support that doesn't quit —</p>
+            
+            <p style="font-size: 1.5rem; font-weight: 600; margin: 1.5rem 0;">The lighthouse is on. You're not doing this alone.</p>
+            
+            <div class="cta-buttons">
+                <a href="rise-reclaim.html" class="btn btn-primary">Explore Our Programs</a>
+                <a href="founding-member.html" class="btn btn-secondary">Join the Community</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Beacon Momentum</h4>
+                    <p>Lighting the Way Forward</p>
+                </div>
+                <div>
+                    <h4>Programs</h4>
+                    <a href="rise-reclaim.html">Rise & Reclaim</a>
+                    <a href="solopreneur-launchpad.html">Solopreneur Launchpad</a>
+                    <a href="digital-grandpa.html">Digital Grandpa</a>
+                    <a href="capital-suite.html">Capital Suite</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="founding-member.html">Founding Member</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Beacon Momentum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

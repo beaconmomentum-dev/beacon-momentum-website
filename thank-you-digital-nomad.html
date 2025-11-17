@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Digital Nomad</title>
+    <meta name="description" content="Thank you for your interest in the Digital Nomad program. Your journey to location independence begins here.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nomad-green: #10B981;
+            --nomad-forest: #059669;
+            --nomad-brown: #92400E;
+            --nomad-tan: #D97706;
+            --beacon-dark: #1F2937;
+            --beacon-gray: #6B7280;
+            --beacon-light: #F9FAFB;
+            --nomad-cream: #FEF3C7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background: linear-gradient(135deg, #ECFDF5 0%, #FEF3C7 50%, #F0FDF4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nomad-green);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+
+        .thank-you-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.15);
+            padding: 4rem 3rem;
+            max-width: 750px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--nomad-green) 0%, var(--nomad-tan) 100%);
+        }
+
+        .compass-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--nomad-green) 0%, var(--nomad-forest) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: compassSpin 8s linear infinite;
+            font-size: 3rem;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .compass-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--nomad-tan);
+            opacity: 0.5;
+            animation: compassPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes compassSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes compassPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 0.2;
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--beacon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--beacon-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .adventure-message {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border-left: 4px solid var(--nomad-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .adventure-message h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--nomad-green);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .adventure-message p {
+            color: var(--beacon-dark);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box {
+            background: var(--beacon-light);
+            border-left: 4px solid var(--nomad-tan);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--nomad-tan);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .info-box p {
+            color: var(--beacon-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .info-box li {
+            padding: 0.5rem 0;
+            color: var(--beacon-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .info-box li::before {
+            content: '🧭';
+            flex-shrink: 0;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .journey-card {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #A7F3D0;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .journey-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .journey-card h4 {
+            font-size: 1rem;
+            color: var(--nomad-green);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .journey-card p {
+            font-size: 0.85rem;
+            color: var(--beacon-gray);
+        }
+
+        .resources-box {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-left: 4px solid var(--nomad-brown);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .resources-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--nomad-brown);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .resources-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resources-box li {
+            padding: 0.5rem 0;
+            color: var(--beacon-dark);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .resources-box li::before {
+            content: '🌍';
+            flex-shrink: 0;
+        }
+
+        .cta-section {
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--beacon-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--nomad-green) 0%, var(--nomad-forest) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--nomad-green);
+            border: 2px solid var(--nomad-green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--nomad-green);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--beacon-dark);
+            color: white;
+            padding: 2rem 0 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--nomad-green);
+        }
+
+        .footer-bottom {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 3rem 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .journey-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="images/beacon-logo-icon.png" alt="Digital Nomad">
+                    Digital Nomad
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="thank-you-card">
+                <div class="compass-icon">
+                    🧭
+                </div>
+
+                <h1>Your Adventure Awaits!</h1>
+                <p class="subtitle">Thank you for your interest in the Digital Nomad program. Your journey to location independence and financial freedom on the road begins here.</p>
+
+                <div class="adventure-message">
+                    <h3>Navigate Your Path to Freedom</h3>
+                    <p>The Digital Nomad program is designed for those who dream of working remotely while exploring the world. Whether you're planning your first nomadic adventure or looking to optimize your current lifestyle, we're here to guide you.</p>
+                    <p>Your compass is set. Let's chart your course together.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>What Happens Next?</h3>
+                    <ul>
+                        <li>You'll receive a welcome email with program details and resources</li>
+                        <li>Our team will review your inquiry and respond within 24-48 hours</li>
+                        <li>We'll discuss your travel goals and financial situation</li>
+                        <li>You'll get access to our Digital Nomad toolkit and community</li>
+                    </ul>
+                </div>
+
+                <div class="journey-grid">
+                    <div class="journey-card">
+                        <div class="icon">💼</div>
+                        <h4>Remote Income</h4>
+                        <p>Build sustainable income streams</p>
+                    </div>
+                    <div class="journey-card">
+                        <div class="icon">✈️</div>
+                        <h4>Travel Planning</h4>
+                        <p>Navigate visas, logistics, budgets</p>
+                    </div>
+                    <div class="journey-card">
+                        <div class="icon">🌐</div>
+                        <h4>Global Community</h4>
+                        <p>Connect with fellow nomads</p>
+                    </div>
+                </div>
+
+                <div class="resources-box">
+                    <h3>🗺️ Free Resources While You Wait</h3>
+                    <ul>
+                        <li><strong>Digital Nomad Starter Guide</strong> - Essential tips for your first trip</li>
+                        <li><strong>Remote Work Opportunities</strong> - Curated job boards and platforms</li>
+                        <li><strong>Budget Calculator</strong> - Estimate costs for popular destinations</li>
+                        <li><strong>Visa Requirements Database</strong> - Navigate international travel</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>Questions About Digital Nomad Life?</h3>
+                    <p><strong>Email:</strong> admin@beaconmomentum.com</p>
+                    <p><strong>Phone:</strong> (413) 597-8975</p>
+                    <p style="margin-top: 1rem;">We're here to answer questions about remote work, travel planning, financial preparation, or anything else related to the nomadic lifestyle.</p>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Continue Your Journey</h3>
+                    <div class="button-group">
+                        <a href="index.html" class="btn btn-primary">Explore All Programs</a>
+                        <a href="digital-grandpa.html" class="btn btn-secondary">Meet Digital Grandpa</a>
+                        <a href="labs.html" class="btn btn-secondary">Visit Beacon Labs</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #E5E7EB;">
+                    <p style="color: var(--beacon-gray); font-size: 0.95rem; font-style: italic;">
+                        "The world is a book, and those who do not travel read only one page." — Saint Augustine
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="our-compass.html">Our Compass</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Beacon Momentum | Powered by Phoenix Collective | Navigate Your Freedom</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Analytics Event Tracking -->
+    <script>
+        // Track thank you page view as conversion
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+                'event_category': 'Digital Nomad',
+                'event_label': 'Nomad Inquiry Completed',
+                'value': 1
+            });
+        }
+    </script>
+</body>
+</html>

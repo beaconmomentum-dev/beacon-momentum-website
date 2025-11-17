@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press & Media - Beacon Momentum</title>
+    <meta name="description" content="Media resources, press releases, and contact information for journalists covering Beacon Momentum's mission to empower people rebuilding their lives.">
+    <link rel="canonical" href="https://beaconmomentum.com/press.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/press.html">
+    <meta property="og:title" content="Press & Media - Beacon Momentum">
+    <meta property="og:description" content="Media resources, press releases, and contact information for journalists covering Beacon Momentum.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-logo-badge.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/press.html">
+    <meta property="twitter:title" content="Press & Media - Beacon Momentum">
+    <meta property="twitter:description" content="Media resources, press releases, and contact information for journalists covering Beacon Momentum.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-logo-badge.png">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-orange: #FF7A00;
+            --beacon-dark: #1F1F1F;
+            --beacon-cream: #F8F5F1;
+            --beacon-gold: #D97706;
+            --beacon-gray: #6B7280;
+            --beacon-light: #F9FAFB;
+            --beacon-teal: #0F766E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background-color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--beacon-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--beacon-teal);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--beacon-dark), var(--beacon-teal));
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Press Contact Section */
+        .press-contact {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--beacon-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--beacon-orange);
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--beacon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--beacon-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--beacon-teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            color: var(--beacon-orange);
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--beacon-cream);
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--beacon-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--beacon-gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--beacon-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content strong {
+            color: var(--beacon-dark);
+            font-weight: 600;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .founder-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--beacon-light);
+            padding: 3rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--beacon-gold);
+        }
+
+        .founder-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--beacon-gold);
+            margin-bottom: 1rem;
+        }
+
+        .founder-card h4 {
+            font-size: 1.2rem;
+            color: var(--beacon-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--beacon-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .download-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .download-box p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .download-btn {
+            background: white;
+            color: var(--beacon-teal);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background: var(--beacon-cream);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--beacon-light);
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--beacon-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--beacon-gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--beacon-dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--beacon-gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="container nav">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">B</div>
+                Beacon Momentum
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
+                <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
+                <li><a href="labs.html">Beacon Labs</a></li>
+                <li><a href="our-compass.html">Our Compass</a></li>
+                <li><a href="press.html" class="active">Press</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Press & Media</h1>
+            <p>Resources, stories, and contact information for journalists covering Beacon Momentum's mission to empower people rebuilding their lives.</p>
+        </div>
+    </section>
+
+    <!-- Press Contact Section -->
+    <section class="press-contact">
+        <div class="container">
+            <h2 class="section-title">Media Inquiries</h2>
+            <p class="section-subtitle">Get in touch with our team for interviews, press releases, and media kits</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📧 General Press</h3>
+                    <p><strong>Email:</strong> <a href="mailto:BobBurr80@gmail.com">BobBurr80@gmail.com</a></p>
+                    <p><strong>Response Time:</strong> Within 24-48 hours</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📞 Phone Contact</h3>
+                    <p><strong>Phone:</strong> <a href="tel:+19198007265">(919) 800-7265</a></p>
+                    <p><strong>Available:</strong> Monday-Friday, 9am-5pm EST</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📄 Press Kit</h3>
+                    <p><strong>Download:</strong> <a href="press/Beacon_Press_Edition.pdf" download>Full Press Kit (PDF)</a></p>
+                    <p>Includes logos, founder bio, and fact sheet</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Beacon Momentum</h2>
+            <div class="about-content">
+                <p><strong>Beacon Momentum</strong> is a mission-driven platform empowering people rebuilding their lives through storytelling, mentorship, and transparent opportunities for financial sovereignty.</p>
+                
+                <p>We serve <strong>trauma survivors, veterans, formerly incarcerated individuals, and anyone navigating major life transitions</strong> — providing practical tools, community support, and pathways to sustainable income.</p>
+                
+                <p>Our approach combines <strong>lived experience with AI-powered tools</strong>, creating personalized learning paths that meet people exactly where they are in their rebuilding journey.</p>
+                
+                <p><strong>Founded in 2024</strong>, Beacon Momentum operates through three core divisions:</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.5rem;">→ <strong>Digital Grandpa:</strong> Tech support and life guidance from founder Bob Burr</li>
+                    <li style="margin-bottom: 0.5rem;">→ <strong>Rise & Reclaim:</strong> 12-week trauma recovery and financial empowerment program</li>
+                    <li style="margin-bottom: 0.5rem;">→ <strong>Beacon Labs:</strong> Experimental tools and community-driven innovation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder-section">
+        <div class="container">
+            <h2 class="section-title">Founder Story</h2>
+            <div class="founder-card">
+                <h3>Bob Burr</h3>
+                <h4>Founder & "Digital Grandpa"</h4>
+                <p>Bob Burr is a U.S. Navy veteran, tech entrepreneur, and advocate for trauma survivors and people rebuilding their lives. After decades in technology and business, Bob founded Beacon Momentum to create transparent, dignified pathways for financial sovereignty.</p>
+                
+                <p>His approach combines military discipline, entrepreneurial grit, and grandfatherly wisdom — offering practical guidance without hype, pity, or exploitation.</p>
+                
+                <p>Bob's mission is simple: <strong>empower the rebuilders, ignite the next chapter.</strong></p>
+                
+                <p><strong>Available for:</strong> Podcast interviews, speaking engagements, expert commentary on trauma recovery, veteran transitions, and ethical entrepreneurship.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">By the Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Core Programs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Week Transformation Path</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Community Support</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Transparency Commitment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="container">
+            <div class="download-box">
+                <h2>📄 Download Full Press Kit</h2>
+                <p>Complete media resources including logos, founder bio, fact sheet, and high-resolution images</p>
+                <a href="press/Beacon_Press_Edition.pdf" class="download-btn" download>Download Press Kit (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- About -->
+                <div class="footer-section">
+                    <h4>Beacon Momentum</h4>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Empowering the rebuilders. Igniting the next chapter.</p>
+                </div>
+
+                <!-- Divisions -->
+                <div class="footer-section">
+                    <h4>Our Divisions</h4>
+                    <ul>
+                        <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
+                        <li><a href="rise-reclaim.html">Rise & Reclaim</a></li>
+                        <li><a href="labs.html">Beacon Labs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="our-compass.html">About Beacon</a></li>
+                        <li><a href="blog/">Blog & Stories</a></li>
+                        <li><a href="press.html">Press & Media</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h4>Get In Touch</h4>
+                    <p style="color: rgba(255,255,255,0.8);">Email: <a href="mailto:BobBurr80@gmail.com">BobBurr80@gmail.com</a></p>
+                    <p style="color: rgba(255,255,255,0.8);">Phone: <a href="tel:+19198007265">(919) 800-7265</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Beacon Momentum. All rights reserved. | 
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="terms-of-service.html">Terms of Service</a> | 
+                <a href="refund-policy.html">Refund Policy</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

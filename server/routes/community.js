@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../database/init');
+const { validateCreatePost, validateCreateComment, validateSlug } = require('../middleware/validation');
 
 // Middleware to check authentication
 const requireAuth = (req, res, next) => {
