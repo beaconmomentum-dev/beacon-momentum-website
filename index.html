@@ -2936,6 +2936,29 @@
     </div>
 </footer>
 <script>
+// Countdown Timer for Founding Member Offer
+function updateCountdown() {
+    const endDate = new Date('2025-12-24T23:59:59-05:00'); // December 24, 2025 at 11:59pm EST
+    const now = new Date();
+    const timeRemaining = endDate - now;
+    
+    if (timeRemaining <= 0) {
+        document.getElementById('countdown-display').textContent = 'Offer Ended';
+        return;
+    }
+    
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    
+    document.getElementById('countdown-display').textContent = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+}
+
+// Update countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call
+
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
