@@ -141,10 +141,10 @@ These files have `--phoenix-red` CSS variables (cosmetic, low priority):
 - [ ] Stripe payment links tested
 - [ ] Countdown timer verified
 - [ ] Contact form tested
-- [ ] Support email added to all pages
+- [x] Support email added to all pages (32 pages updated)
 - [ ] Internal anchor links tested
 - [ ] Thank-you pages verified
 - [ ] Phoenix CSS variables replaced
-- [ ] All fixes deployed to droplet
-- [ ] Cloudflare cache purged
+- [x] All fixes deployed to droplet
+- [x] Cloudflare cache purged
 - [ ] Final verification complete
