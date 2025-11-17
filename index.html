@@ -810,6 +810,11 @@
             font-weight: 600;
             letter-spacing: 0.3px;
         }
+    
+    .black-friday-banner-text-mobile {
+        display: none;
+    }
+    
         .black-friday-banner-cta {
             background: #D4AF37;
             color: #1A2B3D;
@@ -851,6 +856,11 @@
             .black-friday-banner-text {
                 font-size: 0.95rem;
             }
+    
+    .black-friday-banner-text-mobile {
+        display: none;
+    }
+    
             .black-friday-banner-cta {
                 padding: 0.4rem 1rem;
                 font-size: 0.9rem;
@@ -860,18 +870,22 @@
     <div class="black-friday-banner" id="blackFridayBanner">
         <div class="black-friday-banner-content">
             <span class="black-friday-banner-text">
-                🎁 Black Friday Early Access: Lifetime Membership - Limited Time Until December 24th - Give the Gift of Transformation
-            </span>
-            <a href="/founding-member.html" class="black-friday-banner-cta">
-                Claim Your Spot →
+                🎁 Black Friday Early Access: Lifetime Membership - Offer Ends December 24 at 11:59pm EST - Give the Gift of Transformation
+            </span></span>
+        <!-- Mobile version -->
+        <span class="black-friday-banner-text-mobile">
+            🎁 Lifetime Membership - Ends Dec 24
+        </span>
+            <a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025" class="black-friday-banner-cta">
+                Claim Lifetime Access →
             </a>
         </div>
-        <button class="black-friday-banner-close" onclick="dismissBanner()" aria-label="Close banner">
+        <button class="black-friday-banner-close" onclick="dismissBFBanner()" aria-label="Close banner">
             ×
         </button>
     </div>
     <script>
-        function dismissBanner() {
+        function dismissBFBanner() {
             const banner = document.getElementById('blackFridayBanner');
             banner.classList.add('hidden');
             localStorage.setItem('blackFridayBannerDismissed', 'true');
@@ -2273,7 +2287,7 @@
             </div>
         </div>
 
-        <a href="/founding-member.html" class="founding-cta-primary">Claim Your Founding Member Spot →</a>
+        <a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025" class="founding-cta-primary">Claim Your Founding Member Spot →</a>
 
         <!-- Countdown Timer (Hidden by default, activate when needed) -->
         <div class="founding-countdown" id="founding-countdown">
@@ -2844,7 +2858,7 @@
         </p>
         
         <div class="final-cta-buttons">
-            <a href="/founding-member.html" class="final-cta-primary">Join the Founding Members →</a>
+            <a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025" class="final-cta-primary">Join the Founding Members →</a>
             <a href="#pathway" class="final-cta-secondary">Explore the Beacon Pathway →</a>
         </div>
     </div>
@@ -2876,7 +2890,7 @@
                     <li><a href="#solopreneur-section">Solopreneur Launchpad</a></li>
                     <li><a href="#capital-suite-section">Beacon Capital Suite</a></li>
                     <li><a href="/digital-grandpa/">Mentorship</a></li>
-                    <li><a href="/founding-member.html">Founding Member</a></li>
+                    <li><a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025">Founding Member</a></li>
                 </ul>
             </div>
 

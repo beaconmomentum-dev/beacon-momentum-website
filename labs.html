@@ -567,6 +567,170 @@
     </style>
 </head>
 <body>
+<!-- Black Friday Early Access Banner - V2 (Jarvis-optimized) -->
+<style>
+    .black-friday-banner {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+        color: white;
+        padding: 0.875rem 0;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        z-index: 1000;
+    }
+    
+    .black-friday-banner-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 3rem 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .black-friday-banner-text {
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        line-height: 1.4;
+    }
+    
+    .black-friday-banner-text-mobile {
+        display: none;
+    }
+    
+    .black-friday-banner-cta {
+        background: #D4AF37;
+        color: #1A2B3D;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        white-space: nowrap;
+    }
+    
+    .black-friday-banner-cta:hover {
+        background: #FFD700;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    
+    .black-friday-banner-close {
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.4rem;
+        line-height: 1;
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .black-friday-banner-close:hover {
+        background: rgba(255,255,255,0.3);
+    }
+    
+    .black-friday-banner.hidden {
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .black-friday-banner {
+            padding: 0.75rem 0;
+        }
+        
+        .black-friday-banner-content {
+            padding: 0 2.5rem 0 0.75rem;
+            gap: 0.5rem;
+        }
+        
+        .black-friday-banner-text {
+            display: none;
+        }
+        
+        .black-friday-banner-text-mobile {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .black-friday-banner-cta {
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+        }
+        
+        .black-friday-banner-close {
+            right: 0.25rem;
+            width: 1.75rem;
+            height: 1.75rem;
+            font-size: 1.2rem;
+        }
+    }
+</style>
+
+<div class="black-friday-banner" id="blackFridayBanner">
+    <div class="black-friday-banner-content">
+        <!-- Desktop version -->
+        <span class="black-friday-banner-text">
+            🎁 Black Friday Early Access: Lifetime Membership - Offer Ends December 24 at 11:59pm EST - Give the Gift of Transformation
+        </span>
+        <!-- Mobile version -->
+        <span class="black-friday-banner-text-mobile">
+            🎁 Lifetime Membership - Ends Dec 24
+        </span>
+        <a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025" class="black-friday-banner-cta">
+            Claim Lifetime Access →
+        </a>
+    </div>
+    <button class="black-friday-banner-close" onclick="dismissBFBanner()" aria-label="Close banner">
+        ×
+    </button>
+</div>
+
+<script>
+    function dismissBFBanner() {
+        const banner = document.getElementById('blackFridayBanner');
+        if (banner) {
+            banner.classList.add('hidden');
+            // Store dismissal in localStorage for 24 hours
+            const dismissedUntil = Date.now() + (24 * 60 * 60 * 1000);
+            localStorage.setItem('blackFridayBannerDismissed', dismissedUntil.toString());
+        }
+    }
+    
+    // Check if banner was previously dismissed
+    window.addEventListener('DOMContentLoaded', function() {
+        const banner = document.getElementById('blackFridayBanner');
+        if (!banner) return;
+        
+        const dismissedUntil = localStorage.getItem('blackFridayBannerDismissed');
+        if (dismissedUntil && Date.now() < parseInt(dismissedUntil)) {
+            banner.classList.add('hidden');
+        }
+        
+        // Auto-remove banner after December 24, 2025 at 11:59pm EST
+        const expiryDate = new Date('2025-12-24T23:59:59-05:00');
+        const now = new Date();
+        if (now > expiryDate) {
+            banner.classList.add('hidden');
+        }
+    });
+</script>
+
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
