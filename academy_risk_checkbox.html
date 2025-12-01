@@ -1,0 +1,111 @@
+<!-- Academy Risk Acknowledgment Checkbox -->
+<!-- Add this to the Academy signup/enrollment form -->
+
+<div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-6">
+    <h3 class="text-xl font-bold mb-4 flex items-center" style="color: var(--deep-navy);">
+        <svg class="w-6 h-6 mr-2 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        Risk Acknowledgment Required
+    </h3>
+    
+    <div class="space-y-4 text-gray-700">
+        <p class="font-semibold">Before enrolling in Beacon Academy, you must acknowledge and accept the following risks:</p>
+        
+        <div class="space-y-3 text-sm">
+            <label class="flex items-start cursor-pointer">
+                <input type="checkbox" required class="mt-1 mr-3 w-5 h-5" id="risk-crypto">
+                <span>
+                    <strong>Cryptocurrency & DeFi Risks:</strong> I understand that cryptocurrency and decentralized finance involve significant financial risk, including the potential for total loss of invested capital. Past performance does not guarantee future results.
+                </span>
+            </label>
+            
+            <label class="flex items-start cursor-pointer">
+                <input type="checkbox" required class="mt-1 mr-3 w-5 h-5" id="risk-education">
+                <span>
+                    <strong>Educational Purpose Only:</strong> I understand that Beacon Academy provides educational content only and does not constitute financial advice, investment recommendations, or professional financial services.
+                </span>
+            </label>
+            
+            <label class="flex items-start cursor-pointer">
+                <input type="checkbox" required class="mt-1 mr-3 w-5 h-5" id="risk-research">
+                <span>
+                    <strong>Personal Responsibility:</strong> I agree to conduct my own independent research and consult with qualified financial professionals before making any investment decisions. I will not rely solely on Beacon Academy content for investment choices.
+                </span>
+            </label>
+            
+            <label class="flex items-start cursor-pointer">
+                <input type="checkbox" required class="mt-1 mr-3 w-5 h-5" id="risk-volatile">
+                <span>
+                    <strong>Market Volatility:</strong> I understand that cryptocurrency markets are highly volatile and can experience rapid, significant price fluctuations. I am prepared for the possibility of substantial losses.
+                </span>
+            </label>
+            
+            <label class="flex items-start cursor-pointer">
+                <input type="checkbox" required class="mt-1 mr-3 w-5 h-5" id="risk-regulatory">
+                <span>
+                    <strong>Regulatory Uncertainty:</strong> I understand that cryptocurrency and DeFi regulations are evolving and uncertain. Future regulatory changes could impact my investments or access to platforms.
+                </span>
+            </label>
+            
+            <label class="flex items-start cursor-pointer">
+                <input type="checkbox" required class="mt-1 mr-3 w-5 h-5" id="risk-no-guarantee">
+                <span>
+                    <strong>No Guarantees:</strong> I understand that Beacon Academy makes no guarantees regarding investment returns, profits, or specific outcomes. All investment decisions are made at my own risk.
+                </span>
+            </label>
+            
+            <label class="flex items-start cursor-pointer">
+                <input type="checkbox" required class="mt-1 mr-3 w-5 h-5" id="risk-jv">
+                <span>
+                    <strong>Joint Ventures:</strong> I understand that JV opportunities are educational collaborations and do not guarantee profits. I assume full responsibility for my participation and any associated risks.
+                </span>
+            </label>
+        </div>
+        
+        <div class="mt-6 p-4 bg-white rounded border border-yellow-300">
+            <label class="flex items-start cursor-pointer">
+                <input type="checkbox" required class="mt-1 mr-3 w-6 h-6" id="risk-final-acknowledgment">
+                <span class="font-bold text-base">
+                    <strong>FINAL ACKNOWLEDGMENT:</strong> I have read, understood, and agree to all of the above risk disclosures. I acknowledge that I am enrolling in Beacon Academy for educational purposes only and accept full responsibility for any investment decisions I make based on the knowledge I gain.
+                </span>
+            </label>
+        </div>
+        
+        <p class="text-xs text-gray-600 mt-4">
+            By checking these boxes and proceeding with enrollment, you legally acknowledge these risks and agree that Beacon Momentum, its founders, and instructors are not liable for any financial losses you may incur.
+        </p>
+    </div>
+</div>
+
+<script>
+// Disable submit button until all checkboxes are checked
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"][required]');
+    const submitButton = document.querySelector('button[type="submit"]');
+    
+    if (submitButton) {
+        // Initially disable submit button
+        submitButton.disabled = true;
+        submitButton.style.opacity = '0.5';
+        submitButton.style.cursor = 'not-allowed';
+        
+        // Check all checkboxes on change
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                
+                if (allChecked) {
+                    submitButton.disabled = false;
+                    submitButton.style.opacity = '1';
+                    submitButton.style.cursor = 'pointer';
+                } else {
+                    submitButton.disabled = true;
+                    submitButton.style.opacity = '0.5';
+                    submitButton.style.cursor = 'not-allowed';
+                }
+            });
+        });
+    }
+});
+</script>

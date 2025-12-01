@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Take the free Financial Sovereignty Quiz and discover your personalized path to financial freedom. Get your score and 90-day action plan in 2 minutes.">
+    <title>Financial Sovereignty Quiz | Beacon Momentum</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e3a5f;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero-section {
+            background: white;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+        
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .subheadline {
+            font-size: 20px;
+            color: #f59e0b;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        .body-copy {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 30px;
+            text-align: left;
+            line-height: 1.8;
+        }
+        
+        .benefits-list {
+            text-align: left;
+            margin: 30px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            font-size: 17px;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        /* Report Preview Section */
+        .report-preview {
+            background: #f9fafb;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .report-preview h2 {
+            margin-top: 0;
+        }
+        
+        .report-preview-text {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .report-sample {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        
+        .report-sample-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .report-sample-content {
+            font-size: 15px;
+            color: #6b7280;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        .report-sample-content strong {
+            color: #f59e0b;
+        }
+        
+        .report-pages-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .report-pages-list li {
+            padding: 12px 20px;
+            background: #f3f4f6;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #1e3a5f;
+            font-weight: 500;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            margin: 50px 0;
+        }
+        
+        .testimonial-card {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            color: #374151;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        
+        .testimonial-role {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 25px 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #f59e0b;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .form-section {
+            background: #f3f4f6;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        .optional-label {
+            font-size: 13px;
+            color: #9ca3af;
+            font-weight: normal;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .trust-indicators {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .trust-item {
+            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+        
+        .trust-item:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .badge-icon {
+            width: 24px;
+            height: 24px;
+            color: #10b981;
+        }
+        
+        .badge-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        
+        .footer-copy {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 30px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .subheadline {
+                font-size: 18px;
+            }
+            
+            .body-copy {
+                font-size: 16px;
+            }
+            
+            .form-section {
+                padding: 25px;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .report-preview {
+                padding: 25px;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <!-- Logo -->
+            <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 10 L50 90 M30 30 L70 30 M30 50 L70 50 M30 70 L70 70 M35 10 L65 10 M40 90 L60 90" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="50" cy="15" r="8" fill="#f59e0b"/>
+            </svg>
+            
+            <h1>Discover Your Financial Sovereignty Score</h1>
+            
+            <p class="subheadline">Take this 2-minute quiz to uncover your financial independence level and get a personalized roadmap to true financial freedom.</p>
+            
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stat-box">
+                    <span class="stat-number">2,847+</span>
+                    <span class="stat-label">Members</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">2 Min</span>
+                    <span class="stat-label">To Complete</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Free</span>
+                </div>
+            </div>
+            
+            <div class="body-copy">
+                <p>Financial sovereignty isn't just about having money—it's about having <strong>control, clarity, and confidence</strong> in your financial future.</p>
+                
+                <p style="margin-top: 15px;">Whether you're rebuilding after setbacks, launching your first venture, or seeking alternatives to traditional finance, understanding where you stand today is the first step toward lasting financial independence.</p>
+            </div>
+            
+            <ul class="benefits-list">
+                <li>Your current Financial Sovereignty Score (0-36)</li>
+                <li>Your financial personality type (The Sovereign, Builder, Rebuilder, or Awakening)</li>
+                <li>The #1 obstacle holding you back from financial freedom</li>
+                <li>A personalized 90-day action plan tailored to your situation</li>
+                <li>Access to resources that match your exact needs</li>
+            </ul>
+            
+            <!-- Report Preview Section -->
+            <div class="report-preview">
+                <h2>Here's What You'll Receive</h2>
+                <p class="report-preview-text">Immediately after completing the quiz, you'll receive a comprehensive 7-page personalized PDF report delivered straight to your inbox.</p>
+                
+                <div class="report-sample">
+                    <div class="report-sample-title">Sample Report Preview</div>
+                    <div class="report-sample-content">
+                        <p><strong>Your Score:</strong> 24/36 - THE BUILDER</p>
+                        <p style="margin-top: 10px;">"You're on the right track with solid financial awareness and some independence. You understand the basics and are working toward greater control..."</p>
+                    </div>
+                </div>
+                
+                <ul class="report-pages-list">
+                    <li>📊 Page 1: Your personalized score and personality type</li>
+                    <li>🎯 Page 2: Detailed breakdown by category</li>
+                    <li>💡 Page 3: Your strengths and growth areas</li>
+                    <li>📅 Page 4-5: Custom 90-day action plan</li>
+                    <li>🚀 Page 6: Recommended pathway forward</li>
+                    <li>📚 Page 7: Resources and next steps</li>
+                </ul>
+            </div>
+            
+            <!-- Testimonials Section -->
+            <div class="testimonials">
+                <h2>What Others Are Saying</h2>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I thought I was doing okay financially until I took this quiz. Seeing my actual score broken down opened my eyes to where I was vulnerable. The 90-day action plan gave me a clear roadmap I could actually follow."</p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-role">Increased score from 14 to 24 in 90 days</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The quiz was eye-opening. I realized I had zero financial independence—one job loss away from disaster. Three months later, I've built a 3-month emergency fund and started a side business. Game changer."</p>
+                    <div class="testimonial-author">Michael R.</div>
+                    <div class="testimonial-role">Rise & Reclaim Member</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"What I love most is that it's not generic advice. My report was tailored to MY situation, MY score, MY personality type. Finally, financial guidance that actually makes sense for where I am."</p>
+                    <div class="testimonial-author">Jennifer L.</div>
+                    <div class="testimonial-role">Solopreneur Launchpad Member</div>
+                </div>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="badge">
+                    <svg class="badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="badge-text">100% Secure</span>
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                    <span class="badge-text">No Spam Ever</span>
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="badge-text">Instant Results</span>
+                </div>
+            </div>
+            
+            <!-- Form Section -->
+            <div class="form-section">
+                <h2 style="margin-top: 0; font-size: 24px;">Get Your Free Report Now</h2>
+                
+                <!-- 
+                    INSTRUCTIONS FOR GHL:
+                    1. Replace this form with your GHL form embed code
+                    2. Make sure to include these fields:
+                       - First Name (required)
+                       - Email Address (required)
+                       - Phone Number (optional)
+                       - Hidden field: Lead Source = "Financial Sovereignty Quiz"
+                    3. Set up automation to send Email 1 immediately upon submission
+                    4. Attach the personalized PDF report based on their quiz score
+                -->
+                
+                <form id="quiz-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="first-name">First Name *</label>
+                        <input type="text" id="first-name" name="first_name" required placeholder="Enter your first name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="optional-label">(Optional)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    
+                    <!-- Hidden field for lead source tracking -->
+                    <input type="hidden" name="lead_source" value="Financial Sovereignty Quiz">
+                    
+                    <button type="submit" class="submit-btn">Get My Financial Sovereignty Score →</button>
+                </form>
+            </div>
+            
+            <div class="trust-indicators">
+                <div class="trust-item">Join 2,847+ members building financial freedom</div>
+                <div class="trust-item">Your information is 100% secure and never shared</div>
+                <div class="trust-item">Unsubscribe anytime with one click</div>
+            </div>
+            
+            <p class="footer-copy">
+                Beacon Momentum is an educational platform providing peer support, skill-building resources, and community connection. We do not provide financial advice, investment recommendations, or professional counseling. This quiz is for informational purposes only.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Optional: Add form validation or tracking
+        document.getElementById('quiz-form').addEventListener('submit', function(e) {
+            // Add any custom tracking or validation here
+            // GHL will handle the actual form submission
+            
+            // Example: Track with Google Analytics
+            // gtag('event', 'quiz_submit', {'event_category': 'lead_magnet'});
+        });
+    </script>
+</body>
+</html>

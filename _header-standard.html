@@ -1,0 +1,92 @@
+<!-- STANDARD HEADER FOR ALL BEACON MOMENTUM PAGES -->
+<!-- Version: 1.0 | Updated: Nov 29, 2025 -->
+
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+                <img src="images/beacon-logo-v3.png" alt="Beacon Momentum Lighthouse" style="width: 90px; height: 90px; object-fit: contain;">
+                <span style="font-size: 1.5rem; font-weight: 700; color: var(--beacon-teal);">Beacon Momentum</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#pathways">Pathways ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="beacon-rise.html">Beacon Rise</a></li>
+                        <li><a href="beacon-launch.html">Beacon Launch</a></li>
+                        <li><a href="beacon-academy.html">Beacon Academy</a></li>
+                    </ul>
+                </li>
+                <li><a href="digital-grandpa.html">Digital Grandpa</a></li>
+                <li><a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f">Beacon Academy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn">Member Login</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="beacon-rise.html">Beacon Rise</a>
+            <a href="beacon-launch.html">Beacon Launch</a>
+            <a href="beacon-academy.html">Beacon Academy</a>
+            <a href="digital-grandpa.html">Digital Grandpa</a>
+            <a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f">Beacon Academy</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</header>
+
+<style>
+/* Dropdown Navigation Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    min-width: 200px;
+    padding: 0.5rem 0;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background: var(--light-gray);
+}
+
+/* Mobile menu - no dropdowns */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        display: block;
+        box-shadow: none;
+        padding-left: 1rem;
+    }
+}
+</style>

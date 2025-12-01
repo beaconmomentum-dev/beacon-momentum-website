@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Take the free Financial Sovereignty Quiz and discover your personalized path to financial freedom. Get your score and 90-day action plan in 2 minutes.">
+    <title>Financial Sovereignty Quiz | Beacon Momentum</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e3a5f;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero-section {
+            background: white;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+        
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .subheadline {
+            font-size: 20px;
+            color: #f59e0b;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        .body-copy {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 30px;
+            text-align: left;
+            line-height: 1.8;
+        }
+        
+        .benefits-list {
+            text-align: left;
+            margin: 30px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            font-size: 17px;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .form-section {
+            background: #f3f4f6;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        .optional-label {
+            font-size: 13px;
+            color: #9ca3af;
+            font-weight: normal;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .trust-indicators {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .trust-item {
+            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+        
+        .trust-item:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .footer-copy {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 30px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .subheadline {
+                font-size: 18px;
+            }
+            
+            .body-copy {
+                font-size: 16px;
+            }
+            
+            .form-section {
+                padding: 25px;
+            }
+        }
+    </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPGQ5841NL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GPGQ5841NL');
+</script>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <!-- Logo - Replace with your actual logo URL -->
+            <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 10 L50 90 M30 30 L70 30 M30 50 L70 50 M30 70 L70 70 M35 10 L65 10 M40 90 L60 90" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="50" cy="15" r="8" fill="#f59e0b"/>
+            </svg>
+            
+            <h1>Discover Your Financial Sovereignty Score</h1>
+            
+            <p class="subheadline">Take this 2-minute quiz to uncover your financial independence level and get a personalized roadmap to true financial freedom.</p>
+            
+            <div class="body-copy">
+                <p>Financial sovereignty isn't just about having money—it's about having <strong>control, clarity, and confidence</strong> in your financial future.</p>
+                
+                <p style="margin-top: 15px;">Whether you're rebuilding after setbacks, launching your first venture, or seeking alternatives to traditional finance, understanding where you stand today is the first step toward lasting financial independence.</p>
+            </div>
+            
+            <ul class="benefits-list">
+                <li>Your current Financial Sovereignty Score (0-100)</li>
+                <li>Your financial personality type</li>
+                <li>The #1 obstacle holding you back from financial freedom</li>
+                <li>A personalized 90-day action plan tailored to your situation</li>
+                <li>Access to resources that match your exact needs</li>
+            </ul>
+            
+            <div class="form-section">
+                <!-- 
+                    INSTRUCTIONS FOR GHL:
+                    1. Replace this form with your GHL form embed code
+                    2. Make sure to include these fields:
+                       - First Name (required)
+                       - Email Address (required)
+                       - Phone Number (optional)
+                       - Hidden field: Lead Source = "Financial Sovereignty Quiz"
+                    3. Set up automation to send Email 1 immediately upon submission
+                -->
+                
+                <form id="quiz-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="first-name">First Name *</label>
+                        <input type="text" id="first-name" name="first_name" required placeholder="Enter your first name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="optional-label">(Optional)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    
+                    <!-- Hidden field for lead source tracking -->
+                    <input type="hidden" name="lead_source" value="Financial Sovereignty Quiz">
+                    
+                    <button type="submit" class="submit-btn">Get My Financial Sovereignty Score →</button>
+                </form>
+            </div>
+            
+            <div class="trust-indicators">
+                <div class="trust-item">2,847+ members building financial freedom</div>
+                <div class="trust-item">No spam, ever. Unsubscribe anytime.</div>
+                <div class="trust-item">Your information is 100% secure</div>
+            </div>
+            
+            <p class="footer-copy">
+                Beacon Momentum is an educational platform. We do not provide financial advice or investment recommendations. This quiz is for informational purposes only.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Optional: Add form validation or tracking
+        document.getElementById('quiz-form').addEventListener('submit', function(e) {
+            // Add any custom tracking or validation here
+            // GHL will handle the actual form submission
+        });
+    </script>
+</body>
+</html>

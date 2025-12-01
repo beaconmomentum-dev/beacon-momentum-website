@@ -1,0 +1,156 @@
+<!-- CSS for Our Compass Section -->
+<style>
+    /* Our Compass Section */
+    .our-compass {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #1a4d5c 0%, #0d2832 100%);
+        color: white;
+    }
+
+    .our-compass-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .our-compass-headline {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--beacon-gold);
+    }
+
+    .our-compass-subheadline {
+        font-size: 1.25rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .our-mission {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 3rem;
+        border-left: 4px solid var(--beacon-gold);
+    }
+
+    .our-mission h3 {
+        font-size: 1.5rem;
+        color: var(--beacon-gold);
+        margin-bottom: 1rem;
+    }
+
+    .our-mission p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.95);
+    }
+
+    .core-values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .core-value-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .core-value-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .core-value-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .core-value-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--beacon-gold);
+        margin-bottom: 0.5rem;
+    }
+
+    .core-value-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    @media (max-width: 768px) {
+        .our-compass-headline {
+            font-size: 2rem;
+        }
+
+        .our-compass-subheadline {
+            font-size: 1.1rem;
+        }
+
+        .core-values-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<!-- HTML for Our Compass Section -->
+<section class="our-compass">
+    <div class="our-compass-container">
+        <h2 class="our-compass-headline">Our Compass</h2>
+        <p class="our-compass-subheadline">
+            Built for reinvention, resilience, and real-world transformation.
+        </p>
+
+        <div class="our-mission">
+            <h3>Our Mission</h3>
+            <p>
+                We empower people rebuilding their lives through storytelling, mentorship, and transparent opportunities. We don't rescue — we empower. We don't hype — we tell the truth. We don't dwell in the past — we build the future.
+            </p>
+        </div>
+
+        <div class="core-values-grid">
+            <div class="core-value-card">
+                <div class="core-value-icon" style="font-size: 3rem; font-weight: bold; color: #FDB022;">⚓</div>
+                <div class="core-value-title">Truth Over Hype</div>
+                <div class="core-value-description">
+                    We tell the real story — the struggles, the setbacks, and the victories. No false promises, no toxic positivity.
+                </div>
+            </div>
+
+            <div class="core-value-card">
+                <div class="core-value-icon">🤝</div>
+                <div class="core-value-title">Empowerment Over Rescue</div>
+                <div class="core-value-description">
+                    We don't save people. We equip them with tools, community, and confidence to save themselves.
+                </div>
+            </div>
+
+            <div class="core-value-card">
+                <div class="core-value-icon" style="font-size: 3rem; font-weight: bold; color: #FDB022;">★</div>
+                <div class="core-value-title">Dignity Over Pity</div>
+                <div class="core-value-description">
+                    Every member is a rebuilder, not a victim. We honor their agency, resilience, and potential.
+                </div>
+            </div>
+
+            <div class="core-value-card">
+                <div class="core-value-icon" style="font-size: 3rem; font-weight: bold; color: #FDB022;">➤</div>
+                <div class="core-value-title">Forward Over Backward</div>
+                <div class="core-value-description">
+                    We acknowledge the past, but we don't live there. Our focus is on building what comes next.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

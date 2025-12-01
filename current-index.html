@@ -1,0 +1,3028 @@
+<!DOCTYPE html>
+<!-- Beacon Momentum 3.1 - Empowering the Rebuilders. Igniting the Next Chapter. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beacon Momentum 3.1 - Empowering the Rebuilders</title>
+    <meta name="description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Beacon Labs, a Beacon Rise Initiative.">
+    <link rel="canonical" href="https://beaconmomentum.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/">
+    <meta property="og:title" content="Beacon Momentum 3.1 - Empowering the Rebuilders">
+    <meta property="og:description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Beacon Labs, a Beacon Rise Initiative.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
+    <meta property="og:site_name" content="Beacon Momentum">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/">
+    <meta property="twitter:title" content="Beacon Momentum 3.1 - Empowering the Rebuilders">
+    <meta property="twitter:description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Beacon Labs, a Beacon Rise Initiative.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Beacon Momentum",
+      "url": "https://beaconmomentum.com",
+      "logo": "https://beaconmomentum.com/images/beacon-logo-badge.png",
+      "description": "Beacon Momentum empowers rebuilders through transformative programs, mentorship, and community support. We help survivors of trauma, veterans, and those rebuilding their lives achieve financial sovereignty and personal growth.",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "support@beaconmomentum.com",
+        "url": "https://beaconmomentum.com/contact.html"
+      },
+      "sameAs": [
+        "https://beaconmomentum.com"
+      ]
+    }
+    </script>
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-orange: #FF7A00;
+            --beacon-dark: #1F1F1F;
+            --beacon-cream: #F8F5F1;
+            --beacon-gold: #FDB022;
+            --beacon-gray: #6B7280;
+            --beacon-light: #F9FAFB;
+            /* Legacy color compatibility */
+            --beacon-teal: #0F766E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background-color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--beacon-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--beacon-teal);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('images/hero-bg-option2-clean.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 10rem 0 6rem 0;
+            text-align: center;
+            position: relative;
+            min-height: 550px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 118, 110, 0.2);
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--beacon-teal);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Beacon Narrative Section */
+        .beacon-narrative {
+            position: relative;
+            background: var(--beacon-cream);
+            padding: 5rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .beacon-narrative::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,200 Q300,150 600,200 T1200,200 L1200,400 L0,400 Z" fill="%23F8F5F1" opacity="0.3"/><circle cx="600" cy="80" r="15" fill="%23FF7A00" opacity="0.6"/><path d="M600,95 L600,200" stroke="%23FF7A00" stroke-width="3" opacity="0.5"/><path d="M580,110 L600,95 L620,110" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.5"/><path d="M560,130 L600,95 L640,130" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.4"/><path d="M540,150 L600,95 L660,150" fill="none" stroke="%23FF7A00" stroke-width="2" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .narrative-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .narrative-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--beacon-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .narrative-headline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--beacon-orange), transparent);
+            box-shadow: 0 0 10px var(--beacon-orange);
+        }
+
+        .narrative-subheadline {
+            font-size: 1.4rem;
+            color: var(--beacon-gold);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .narrative-body {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--beacon-dark);
+            margin-bottom: 2.5rem;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .narrative-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .narrative-body p:first-child {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--beacon-teal);
+        }
+
+        .narrative-body strong {
+            color: var(--beacon-orange);
+            font-weight: 600;
+        }
+
+        .narrative-closing {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--beacon-teal);
+            font-weight: 500;
+            margin-top: 2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .narrative-cta {
+            background: var(--beacon-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+        }
+
+        .narrative-cta:hover {
+            background: var(--beacon-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
+        }
+
+        /* Divisions Section */
+        .divisions {
+            padding: 4rem 0;
+            background: var(--beacon-light);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--beacon-dark);
+        }
+
+        .divisions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .division-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .division-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .division-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .division-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .division-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--beacon-dark);
+        }
+
+        .division-subtitle {
+            color: var(--beacon-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .division-description {
+            color: var(--beacon-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list li {
+            padding: 0.5rem 0;
+            color: var(--beacon-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: var(--beacon-teal);
+            font-weight: bold;
+        }
+
+        .how-to-join {
+            background: var(--beacon-cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .how-to-join h4 {
+            color: var(--beacon-teal);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .join-steps {
+            list-style: none;
+        }
+
+        .join-steps li {
+            padding: 0.3rem 0;
+            color: var(--beacon-dark);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .step-number {
+            background: var(--beacon-teal);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .division-cta {
+            background: var(--beacon-teal);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .division-cta:hover {
+            background: #0D5D56;
+            transform: translateY(-1px);
+        }
+
+        /* Digital Grandpa specific styling */
+        .digital-grandpa-card {
+            position: relative;
+        }
+
+        .founder-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--beacon-gold);
+            margin-bottom: 1rem;
+        }
+
+        .founder-badge {
+            background: var(--beacon-teal);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close {
+            color: var(--beacon-gray);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+
+        .close:hover {
+            color: var(--beacon-dark);
+        }
+
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--beacon-teal);
+            margin-bottom: 1.5rem;
+            padding-right: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--beacon-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--beacon-teal);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: var(--beacon-teal);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #0D5D56;
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 4rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--beacon-gray);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--beacon-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: var(--beacon-gold);
+        }
+
+        .footer-section a {
+            color: #D1D5DB;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--beacon-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9CA3AF;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--beacon-dark);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: white;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 1rem 20px;
+            color: var(--beacon-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--beacon-light);
+            transition: background-color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--beacon-light);
+            color: var(--beacon-teal);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .beacon-narrative {
+                padding: 3rem 0;
+            }
+
+            .narrative-headline {
+                font-size: 2rem;
+            }
+
+            .narrative-subheadline {
+                font-size: 1.1rem;
+            }
+
+            .narrative-body {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .narrative-body p:first-child {
+                font-size: 1.1rem;
+            }
+
+            .narrative-closing {
+                font-size: 1.1rem;
+            }
+
+            .narrative-cta {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+
+            .divisions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+        }
+    </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPGQ5841NL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GPGQ5841NL');
+</script>
+    <link rel="stylesheet" href="/member-login.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+</head>
+<body>
+    <!-- Black Friday Early Access Banner -->
+    <style>
+        .black-friday-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        .black-friday-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .black-friday-banner-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+    
+    .black-friday-banner-text-mobile {
+        display: none;
+    }
+    
+        .black-friday-banner-cta {
+            background: #D4AF37;
+            color: #1A2B3D;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .black-friday-banner-cta:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .black-friday-banner-close {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: background 0.3s ease;
+        }
+        .black-friday-banner-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .black-friday-banner.hidden {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .black-friday-banner-text {
+                font-size: 0.95rem;
+            }
+    
+    .black-friday-banner-text-mobile {
+        display: none;
+    }
+    
+            .black-friday-banner-cta {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <div class="black-friday-banner" id="blackFridayBanner">
+        <div class="black-friday-banner-content">
+            <span class="black-friday-banner-text">
+                <img src="icons/lighthouse-achievement.png" alt="Special Offer" style="width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.5em;"> BLACK FRIDAY: Save $500 on Lifetime Access - Only $3,497 (Reg. $3,997) - Ends Dec 24 at 11:59pm EST
+            </span></span>
+        <!-- Mobile version -->
+        <span class="black-friday-banner-text-mobile">
+            <img src="icons/lighthouse-achievement.png" alt="Special Offer" style="width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.3em;"> Lifetime Membership - Ends Dec 24
+        </span>
+            <a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f" class="black-friday-banner-cta">
+                Claim Lifetime Access →
+            </a>
+        </div>
+        <button class="black-friday-banner-close" onclick="dismissBFBanner()" aria-label="Close banner">
+            ×
+        </button>
+    </div>
+    <script>
+        function dismissBFBanner() {
+            const banner = document.getElementById('blackFridayBanner');
+            banner.classList.add('hidden');
+            localStorage.setItem('blackFridayBannerDismissed', 'true');
+        }
+        window.addEventListener('DOMContentLoaded', function() {
+            const wasDismissed = localStorage.getItem('blackFridayBannerDismissed');
+            if (wasDismissed === 'true') {
+                document.getElementById('blackFridayBanner').classList.add('hidden');
+            }
+        });
+        const expiryDate = new Date('2025-12-24T23:59:59');
+        const now = new Date();
+        if (now > expiryDate) {
+            document.getElementById('blackFridayBanner').classList.add('hidden');
+        }
+    </script>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                    <img src="images/beacon-logo.png" alt="Beacon Momentum" style="width: 70px; height: 70px; object-fit: contain;">
+                    <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                        <span style="font-size: 1.25rem; font-weight: 700;">Beacon Momentum</span>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f">Beacon Academy</a></li>
+                    <li><a href="digital-grandpa.html">Mentorship</a></li>
+                    <li><a href="beacon-rise.html">Beacon Rise</a></li>
+                    <li><a href="beacon-launch.html">Beacon Launch</a></li>
+                    <li><a href="labs.html">Beacon Labs</a></li>
+                    <li><a href="our-compass.html">Our Compass</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn">Member Login</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+            <div class="mobile-menu">
+                <a href="/">Home</a>
+                <a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f">Beacon Academy</a>
+                <a href="digital-grandpa.html">Mentorship</a>
+                <a href="beacon-rise.html">Beacon Rise</a>
+                <a href="beacon-launch.html">Beacon Launch</a>
+                <a href="labs.html">Beacon Labs</a>
+                <a href="our-compass.html">Our Compass</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>The Lighthouse is On. You're Not Doing This Alone.</h1>
+            <p>Founded by a veteran mentor, Beacon Momentum is a safe harbor for those navigating life's storms. Learn about our founder and why we exist.</p>
+            <div class="hero-cta-group" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="about.html" class="cta-button">Discover Our Story</a>
+                <a href="#programs" class="cta-button" style="background: transparent; border: 2px solid white; color: white;">Explore Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beacon Narrative Section -->
+    <section class="beacon-narrative">
+        <div class="narrative-container">
+            <h2 class="narrative-headline">The Beacon Narrative</h2>
+            <p class="narrative-subheadline">
+                A lighthouse for people rebuilding their lives — and for generations who've been left without a fair shot.
+            </p>
+            
+            <div class="narrative-body">
+                <p>
+                    I wasn't handed much in life — no roadmap, no safety net, no inheritance.<br>
+                    What I had was grit, necessity, and the unwillingness to quit.
+                </p>
+                
+                <p>
+                    I grew up in a world where nothing came easy.<br>
+                    The military became the forge that taught me discipline, clarity, and resilience.<br>
+                    Entrepreneurship taught me reinvention, adaptation, and how to rise again when life blindsides you.
+                </p>
+                
+                <p>
+                    <strong>Beacon Momentum</strong> was built for people rebuilding — and for the generations who've been told they'll never own a home, never get ahead, and never break free.
+                </p>
+                
+                <p>
+                    <strong>Beacon Rise:</strong> Reclaim Your Life After Transition<br>
+                    <strong>Beacon Launch:</strong> Build Your Business, Own Your Future<br>
+                    <strong>Beacon Academy:</strong> Master DeFi & Modern Finance<br>
+                    <br>
+                    Three pathways. One clear mission: Light the way forward.
+                </p>
+            </div>
+            
+            <p class="narrative-closing">
+                A lighthouse doesn't move. It stands. It shines. It guides.<br>
+                That's why Beacon exists — to light the way forward for anyone ready to rise and reclaim their future.
+            </p>
+            
+            <a href="#divisions" class="narrative-cta">Learn the Beacon Pathway →</a>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="content-section" style="background-color: var(--beacon-cream); padding: 5rem 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="playfair" style="text-align: center; font-size: 3rem; color: var(--beacon-teal); margin-bottom: 1rem;">Find Your Path Forward</h2>
+            <p style="text-align: center; font-size: 1.25rem; color: #666; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">Whether you're rebuilding from the ground up, launching your own venture, or seeking wise guidance, we have a path designed for where you are right now.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                
+                <!-- Beacon Rise -->
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
+                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Beacon Rise</h3>
+                    <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For People in Transition</p>
+                    <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">A 12-week guided journey for people navigating profound life changes. This isn't about "bouncing back"—it's about rising stronger, with purpose and a community that understands the journey.</p>
+                    <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Built on lived wisdom, compassion, community, and structure.</p>
+                    <a href="beacon-rise.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Beacon Rise</a>
+                </div>
+                
+                <!-- Beacon Launch & Beacon Academy -->
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
+                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Beacon Launch</h3>
+                    <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For the Builder</p>
+                    <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">A comprehensive toolkit for entrepreneurs ready to build their own table. Learn to launch, fund, and grow your venture with practical guidance, financial literacy, and the wisdom to avoid common pitfalls.</p>
+                    <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Built from real-world experience — so you don't have to learn the hard way.</p>
+                    <a href="beacon-launch.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Explore the Beacon Launch</a>
+                </div>
+                
+                <!-- Digital Grandpa Mentorship -->
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
+                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Digital Grandpa</h3>
+                    <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For the Leader Seeking Wisdom</p>
+                    <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">Ongoing mentorship providing hope, wisdom, and direction with love and compassion. Get the steady hand of experience when you need it most—no judgment, just genuine care and guidance.</p>
+                    <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Most people who reach out aren't lost — they're just tired of walking alone.</p>
+                    <a href="digital-grandpa.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Mentorship</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+<!-- Digital Grandpa Wisdom Section -->
+<style>
+    .dg-wisdom {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #323232 0%, #0d7377 100%);
+        color: white;
+    }
+    
+    .dg-wisdom-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        text-align: center;
+    }
+    
+    .dg-wisdom-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #14FFEC;
+    }
+    
+    .dg-wisdom-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: #ddd;
+        font-style: italic;
+    }
+    
+    .dg-beliefs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .dg-belief-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid #14FFEC;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+    
+    .dg-belief-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+    }
+    
+    .dg-belief-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #14FFEC;
+        margin-bottom: 1rem;
+    }
+    
+    .dg-belief-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: white;
+    }
+    
+    .dg-wisdom-footer {
+        margin-top: 3rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #14FFEC;
+    }
+    
+    @media (max-width: 768px) {
+        .dg-wisdom {
+            padding: 3rem 0;
+        }
+        
+        .dg-wisdom-title {
+            font-size: 2rem;
+        }
+        
+        .dg-beliefs {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+</style>
+
+<section class="dg-wisdom">
+    <div class="dg-wisdom-container">
+        <h2 class="dg-wisdom-title">What I Believe</h2>
+        <p class="dg-wisdom-subtitle">Here's what I've learned: People don't need hype. They need clarity. They need honesty. And they need the next right step.</p>
+        
+        <div class="dg-beliefs">
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">1</div>
+                <p class="dg-belief-text">We meet you where you are.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">2</div>
+                <p class="dg-belief-text">We walk beside you, not above you.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">3</div>
+                <p class="dg-belief-text">We let your story matter.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">4</div>
+                <p class="dg-belief-text">We share truth in 30–90 seconds.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">5</div>
+                <p class="dg-belief-text">We honor your dignity.</p>
+            </div>
+            
+            <div class="dg-belief-card">
+                <div class="dg-belief-number">6</div>
+                <p class="dg-belief-text">We rise as a tribe.</p>
+            </div>
+        </div>
+        
+        <p class="dg-wisdom-footer">Simple. Real. Human.</p>
+    </div>
+</section>
+
+<!-- CSS for Section 3: The Beacon Pathway (3 Pillars) -->
+<style>
+    /* The Beacon Pathway Section */
+    .beacon-pathway {
+        padding: 5rem 0;
+        background: white;
+    }
+
+    .pathway-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .pathway-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--beacon-dark);
+    }
+
+    .pathway-subtitle {
+        text-align: center;
+        color: var(--beacon-gray);
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pathway-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .pathway-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pathway-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold));
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .pathway-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        border-color: var(--beacon-orange);
+    }
+
+    .pathway-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .pathway-card-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .pathway-card-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--beacon-dark);
+    }
+
+    .pathway-card-tagline {
+        font-size: 1.1rem;
+        color: var(--beacon-gold);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+
+    .pathway-card-description {
+        color: var(--beacon-gray);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+    }
+
+    .pathway-card-cta {
+        background: var(--beacon-teal);
+        color: white;
+        padding: 0.9rem 1.8rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+    }
+
+    .pathway-card-cta:hover {
+        background: var(--beacon-orange);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .beacon-pathway {
+            padding: 3rem 0;
+        }
+
+        .pathway-title {
+            font-size: 2rem;
+        }
+
+        .pathway-subtitle {
+            font-size: 1rem;
+        }
+
+        .pathway-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .pathway-card {
+            padding: 2rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 3: The Beacon Pathway (3 Pillars) -->
+<section class="beacon-pathway" id="pathway">
+    <a id="divisions" style="position: absolute; top: -80px;"></a>
+    <div class="pathway-container">
+        <h2 class="pathway-title">The Beacon Pathway</h2>
+        <p class="pathway-subtitle">
+            Three distinct paths to rebuild, launch, and create opportunity. Choose your starting point.
+        </p>
+        
+        <div class="pathway-grid">
+            <!-- Card 1: Beacon Rise -->
+            <div class="pathway-card">
+                <div class="pathway-card-icon">
+                    <img src="icons/lighthouse-achievement.png" alt="Beacon Rise" style="display: inline-block; vertical-align: middle;">
+                </div>
+                <h3 class="pathway-card-title">Beacon Rise</h3>
+                <p class="pathway-card-tagline">Reclaim Your Life After Transition</p>
+                <p class="pathway-card-description">
+                    For anyone who's faced a defining moment and is ready to rebuild their life with purpose, community, and transparent support. Start where you are, build what comes next.
+                </p>
+                <a href="#beacon-rise-section" class="pathway-card-cta">Start Here →</a>
+            </div>
+
+            <!-- Card 2: Beacon Launch -->
+            <div class="pathway-card">
+                <div class="pathway-card-icon">
+                    <img src="icons/flag-milestone.png" alt="Launch" style="display: inline-block; vertical-align: middle;">
+                </div>
+                <h3 class="pathway-card-title">Beacon Launch</h3>
+                <p class="pathway-card-tagline">Build Your Business, Own Your Future</p>
+                <p class="pathway-card-description">
+                    Learn to build, launch, and scale a modern one-person business. No venture capital, no co-founders, no permission needed. Just you, your skills, and a clear path forward.
+                </p>
+                <a href="#solopreneur-section" class="pathway-card-cta">Launch →</a>
+            </div>
+
+            <!-- Card 3: Beacon Academy -->
+            <div class="pathway-card">
+                <div class="pathway-card-icon">
+                    <img src="icons/anchor-locked.png" alt="Premium" style="display: inline-block; vertical-align: middle;">
+                </div>
+                <h3 class="pathway-card-title">Beacon Academy</h3>
+                <p class="pathway-card-tagline">Master DeFi & Modern Finance</p>
+                <p class="pathway-card-description">
+                    Build financial resilience through ethical, practical DeFi. Learn to navigate digital assets, stablecoins, and decentralized finance without the hype or complexity.
+                </p>
+                <a href="#beacon-academy-section" class="pathway-card-cta">Explore →</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CSS for Section 4: Why Beacon Exists (Economic Reality) -->
+<style>
+    /* Why Beacon Exists Section */
+    .why-beacon-exists {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #FEF3C7 0%, #F8F5F1 100%);
+    }
+
+    .why-beacon-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .why-beacon-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-dark);
+        text-align: left;
+    }
+
+    .why-beacon-subtext {
+        font-size: 1.2rem;
+        color: var(--beacon-gray);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    .economic-reality-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+    }
+
+    .economic-reality-list li {
+        padding: 1.2rem 0;
+        padding-left: 3rem;
+        position: relative;
+        color: var(--beacon-dark);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .economic-reality-list li:last-child {
+        border-bottom: none;
+    }
+
+    .economic-reality-list li::before {
+        content: '⚠️';
+        position: absolute;
+        left: 0;
+        font-size: 1.5rem;
+        top: 1rem;
+    }
+
+    .economic-reality-list li strong {
+        color: var(--beacon-orange);
+        font-weight: 600;
+    }
+
+    .why-beacon-divider {
+        height: 2px;
+        background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold), var(--beacon-orange));
+        margin: 3rem 0;
+        border: none;
+    }
+
+    .why-beacon-cta {
+        text-align: center;
+        margin-top: 2.5rem;
+    }
+
+    .why-beacon-cta-button {
+        background: var(--beacon-orange);
+        color: white;
+        padding: 1.1rem 2.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+    }
+
+    .why-beacon-cta-button:hover {
+        background: var(--beacon-gold);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 25px rgba(217, 119, 6, 0.4);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .why-beacon-exists {
+            padding: 3rem 0;
+        }
+
+        .why-beacon-headline {
+            font-size: 2rem;
+        }
+
+        .why-beacon-subtext {
+            font-size: 1rem;
+        }
+
+        .economic-reality-list li {
+            font-size: 1rem;
+            padding-left: 2.5rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 4: Why Beacon Exists (Economic Reality) -->
+<section class="why-beacon-exists">
+    <div class="why-beacon-container">
+        <h2 class="why-beacon-headline">Why Beacon Exists</h2>
+        
+        <p class="why-beacon-subtext">
+            The economic reality for millions of Americans has become increasingly harsh. The system that once promised opportunity now creates barriers. Beacon was built to address these realities head-on.
+        </p>
+
+        <ul class="economic-reality-list">
+            <li>
+                <strong>Housing Crisis:</strong> The median home price has increased 400% since 1980, while wages have barely kept pace with inflation. Homeownership is now out of reach for most young Americans.
+            </li>
+            <li>
+                <strong>Wage Stagnation:</strong> Real wages have remained flat for 40 years while productivity has soared. Workers are producing more value but seeing less of it.
+            </li>
+            <li>
+                <strong>Debt Traps:</strong> Student loans, medical debt, and credit card debt have created a permanent underclass unable to build wealth or achieve financial security.
+            </li>
+            <li>
+                <strong>Retirement Crisis:</strong> Pensions have disappeared, 401(k)s are underfunded, and Social Security is uncertain. Most Americans will never be able to retire.
+            </li>
+            <li>
+                <strong>Generational Theft:</strong> Millennials and Gen Z are the first generations expected to be poorer than their parents, despite being more educated and working longer hours.
+            </li>
+            <li>
+                <strong>System Failure:</strong> The traditional path (college → job → house → retirement) no longer works for the majority. New pathways are required.
+            </li>
+        </ul>
+
+        <hr class="why-beacon-divider">
+
+        <div class="why-beacon-cta">
+            <a href="#pathway" class="why-beacon-cta-button">See How Beacon Helps →</a>
+        </div>
+    </div>
+</section>
+<!-- CSS for Section 5: Who We Serve (2-Audience Section) -->
+<style>
+    /* Who We Serve Section */
+    .who-we-serve {
+        padding: 5rem 0;
+        background: white;
+    }
+
+    .who-we-serve-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .who-we-serve-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--beacon-dark);
+    }
+
+    .audience-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .audience-box {
+        padding: 3rem;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .audience-box:hover {
+        transform: translateY(-5px);
+    }
+
+    .audience-box-rebuilders {
+        background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+        color: white;
+    }
+
+    .audience-box-nextgen {
+        background: linear-gradient(135deg, #FDB022 0%, #F59E0B 100%);
+        color: white;
+    }
+
+    .audience-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    .audience-label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+
+    .audience-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+
+    .audience-tagline {
+        font-size: 1.3rem;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        opacity: 0.95;
+        font-weight: 500;
+    }
+
+    .audience-description {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .audience-features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .audience-features li {
+        padding: 0.6rem 0;
+        padding-left: 1.8rem;
+        position: relative;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+
+    .audience-features li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .audience-cta {
+        background: white;
+        color: var(--beacon-dark);
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .audience-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .who-we-serve {
+            padding: 3rem 0;
+        }
+
+        .who-we-serve-title {
+            font-size: 2rem;
+        }
+
+        .audience-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .audience-box {
+            padding: 2rem;
+        }
+
+        .audience-headline {
+            font-size: 1.6rem;
+        }
+
+        .audience-tagline {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 5: Who We Serve (2-Audience Section) -->
+<section class="who-we-serve">
+    <div class="who-we-serve-container">
+        <h2 class="who-we-serve-title">Who We Serve</h2>
+        
+        <div class="audience-grid">
+            <!-- Left Box: Rebuilders (40s-70s) -->
+            <div class="audience-box audience-box-rebuilders">
+                <span class="audience-icon"><img src="icons/lighthouse-achievement.png" alt="Rebuilders" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="audience-label">Rebuilders</div>
+                <h3 class="audience-headline">For Those Starting Their Next Chapter</h3>
+                <p class="audience-tagline">"It's not too late. Your next chapter begins here."</p>
+                
+                <p class="audience-description">
+                    You've faced setbacks—divorce, job loss, health challenges, or life transitions that forced you to rebuild. You're in your 40s, 50s, 60s, or 70s, and you're ready to reclaim your purpose, income, and independence.
+                </p>
+
+                <ul class="audience-features">
+                    <li>Practical guidance for rebuilding after major life transitions</li>
+                    <li>Community support from people who understand your journey</li>
+                    <li>Clear pathways to financial stability and independence</li>
+                    <li>No judgment, no hype—just honest, transparent support</li>
+                </ul>
+
+                <a href="#beacon-rise-section" class="audience-cta">Explore Beacon Rise →</a>
+            </div>
+
+            <!-- Right Box: Millennials & Gen Z -->
+            <div class="audience-box audience-box-nextgen">
+                <span class="audience-icon"><img src="icons/wave-streak.png" alt="Momentum" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="audience-label">Next Generation</div>
+                <h3 class="audience-headline">For Those Building Their First Chapter</h3>
+                <p class="audience-tagline">"You didn't fail—the system did."</p>
+                
+                <p class="audience-description">
+                    You're a Millennial or Gen Z facing a rigged economy. Student debt, unaffordable housing, wage stagnation, and a broken system. You're ready to build wealth and opportunity on your own terms.
+                </p>
+
+                <ul class="audience-features">
+                    <li>Learn to build a one-person business without venture capital</li>
+                    <li>Master DeFi and digital assets for financial resilience</li>
+                    <li>Create income streams outside the traditional system</li>
+                    <li>Build the future you were promised but never given</li>
+                </ul>
+
+                <a href="#solopreneur-section" class="audience-cta">Explore Beacon Launch →</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CSS for Section 6: Feature Program Blocks -->
+<style>
+    /* Program Feature Blocks */
+    .program-block {
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .program-block-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Beacon Rise Styling */
+    .program-block-rise {
+        background: linear-gradient(135deg, #F8F5F1 0%, #FEF3C7 100%);
+    }
+
+    /* Beacon Launch Styling */
+    .program-block-solopreneur {
+        background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+    }
+
+    /* Beacon Academy Styling */
+    .program-block-capital {
+        background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+    }
+
+    .program-block-badge {
+        display: inline-block;
+        background: var(--beacon-orange);
+        color: white;
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+    }
+
+    .program-block-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-dark);
+        line-height: 1.2;
+    }
+
+    .program-block-description {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--beacon-gray);
+        margin-bottom: 2rem;
+        max-width: 800px;
+    }
+
+    .program-block-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2.5rem 0;
+    }
+
+    .program-feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .program-feature-icon {
+        font-size: 1.8rem;
+        flex-shrink: 0;
+    }
+
+    .program-feature-text {
+        font-size: 1rem;
+        color: var(--beacon-dark);
+        line-height: 1.6;
+    }
+
+    .program-feature-text strong {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: var(--beacon-teal);
+    }
+
+    .program-block-cta {
+        background: var(--beacon-teal);
+        color: white;
+        padding: 1.2rem 2.8rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 20px rgba(15, 118, 110, 0.3);
+        margin-top: 1rem;
+    }
+
+    .program-block-cta:hover {
+        background: var(--beacon-orange);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 30px rgba(255, 122, 0, 0.4);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .program-block {
+            padding: 4rem 0;
+        }
+
+        .program-block-headline {
+            font-size: 2rem;
+        }
+
+        .program-block-description {
+            font-size: 1rem;
+        }
+
+        .program-block-features {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<!-- HTML for Section 6.1: Beacon Rise Program Block -->
+<section class="program-block program-block-rise" id="beacon-rise-section">
+    <div class="program-block-container">
+        <span class="program-block-badge">Beacon Rise</span>
+        <h2 class="program-block-headline">Rebuild Your Life, Your Purpose, and Your Momentum.</h2>
+        <p class="program-block-description">
+            For anyone who's faced a defining moment—divorce, job loss, health crisis, or life transition—and is ready to rebuild with purpose, community, and transparent support. This is where your next chapter begins.
+        </p>
+
+        <div class="program-block-features">
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/ship-wheel-community.png" alt="Tools" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>Practical Rebuilding Tools</strong>
+                    Step-by-step guidance for financial rebuilding, career transitions, and life restructuring.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/ship-wheel-community.png" alt="Community" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>Community Support</strong>
+                    Connect with others who understand your journey. No judgment, just real support.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/scroll-certificate.png" alt="Learning" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>Life Skills Library</strong>
+                    Access resources on budgeting, job searching, health management, and more.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/compass-challenge.png" alt="Purpose" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>Purpose Mapping</strong>
+                    Discover what comes next and create a clear path forward.
+                </div>
+            </div>
+        </div>
+
+        <a href="/beacon-rise/" class="program-block-cta">Start Your Rebuild →</a>
+    </div>
+</section>
+
+<!-- HTML for Section 6.2: Beacon Launch Program Block -->
+<section class="program-block program-block-solopreneur" id="solopreneur-section">
+    <div class="program-block-container">
+        <span class="program-block-badge">Beacon Launch</span>
+        <h2 class="program-block-headline">Own Your Income. Build a Modern One-Person Business.</h2>
+        <p class="program-block-description">
+            Learn to build, launch, and scale a profitable one-person business. No venture capital, no co-founders, no permission needed. Just you, your skills, and a clear path to sustainable income.
+        </p>
+
+        <div class="program-block-features">
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/lighthouse-achievement.png" alt="Innovation" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>Business Model Selection</strong>
+                    Find the right business model for your skills, interests, and lifestyle.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/flag-milestone.png" alt="Launch" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>Launch Framework</strong>
+                    Step-by-step system to go from idea to first customer in 30 days.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/wave-streak.png" alt="Growth" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>Growth Strategies</strong>
+                    Marketing, sales, and scaling tactics that work for one-person businesses.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/ship-wheel-community.png" alt="Systems" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>Automation & Systems</strong>
+                    Build systems that let you scale without hiring employees.
+                </div>
+            </div>
+        </div>
+
+        <a href="beacon-launch.html" class="program-block-cta">Begin Your Launch →</a>
+    </div>
+</section>
+
+<!-- HTML for Section 6.3: Beacon Beacon Academy Program Block -->
+<section class="program-block program-block-capital" id="beacon-academy-section">
+    <div class="program-block-container">
+        <span class="program-block-badge">Beacon Beacon Academy</span>
+        <h2 class="program-block-headline">Build Financial Resilience Through Ethical, Practical DeFi.</h2>
+        <p class="program-block-description">
+            Navigate digital assets, stablecoins, and decentralized finance without the hype or complexity. Learn to build wealth and create opportunity in the new financial system—ethically and transparently.
+        </p>
+
+        <div class="program-block-features">
+            <div class="program-feature-item">
+                <span class="program-feature-icon"><img src="icons/anchor-locked.png" alt="Finance" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="program-feature-text">
+                    <strong>DeFi Fundamentals</strong>
+                    Understand blockchain, crypto, and decentralized finance from the ground up.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">💰</span>
+                <div class="program-feature-text">
+                    <strong>Stablecoin Strategies</strong>
+                    Earn yield and preserve capital using dollar-backed digital assets.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">🔒</span>
+                <div class="program-feature-text">
+                    <strong>Security & Safety</strong>
+                    Protect your assets with proper wallet management and security practices.
+                </div>
+            </div>
+
+            <div class="program-feature-item">
+                <span class="program-feature-icon">📊</span>
+                <div class="program-feature-text">
+                    <strong>Portfolio Building</strong>
+                    Create a diversified digital asset portfolio aligned with your risk tolerance.
+                </div>
+            </div>
+        </div>
+
+        <a href="beacon-launch.html" class="program-block-cta">Explore Beacon Academy →</a>
+    </div>
+</section>
+<!-- CSS for Section 7: Founding Member Offer Block -->
+<style>
+    /* Founding Member Offer Section */
+    .founding-member-offer {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .founding-member-offer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="%23D97706" opacity="0.1"/></svg>');
+        opacity: 0.3;
+    }
+
+    .founding-member-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .founding-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--beacon-gold), var(--beacon-orange));
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(217, 119, 6, 0.6);
+        }
+    }
+
+    .founding-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .founding-headline .gold-text {
+        color: var(--beacon-gold);
+    }
+
+    .founding-subheadline {
+        font-size: 1.3rem;
+        color: #cbd5e1;
+        margin-bottom: 3rem;
+        line-height: 1.7;
+    }
+
+    .founding-benefits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+        text-align: left;
+    }
+
+    .founding-benefit-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.8rem;
+        border-radius: 12px;
+        border: 1px solid rgba(217, 119, 6, 0.2);
+        transition: all 0.3s;
+    }
+
+    .founding-benefit-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--beacon-gold);
+        transform: translateY(-3px);
+    }
+
+    .founding-benefit-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .founding-benefit-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--beacon-gold);
+    }
+
+    .founding-benefit-description {
+        font-size: 0.95rem;
+        color: #cbd5e1;
+        line-height: 1.6;
+    }
+
+    .founding-price-box {
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px solid var(--beacon-gold);
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin: 3rem 0;
+        text-align: center;
+    }
+
+    .founding-price {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--beacon-gold);
+        margin-bottom: 0.5rem;
+    }
+
+    .founding-price-label {
+        font-size: 1.1rem;
+        color: #cbd5e1;
+        margin-bottom: 1rem;
+    }
+
+    .founding-price-details {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        font-style: italic;
+    }
+
+    .founding-cta-primary {
+        background: linear-gradient(135deg, var(--beacon-gold), var(--beacon-orange));
+        color: white;
+        padding: 1.5rem 3.5rem;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 6px 30px rgba(217, 119, 6, 0.5);
+        margin-top: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .founding-cta-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 40px rgba(217, 119, 6, 0.7);
+    }
+
+    .founding-countdown {
+        display: none; /* Hidden until activated */
+        background: rgba(239, 68, 68, 0.2);
+        border: 2px solid #ef4444;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .founding-countdown.active {
+        display: block;
+    }
+
+    .countdown-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        color: #fca5a5;
+    }
+
+    .countdown-timer {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #ef4444;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .founding-member-offer {
+            padding: 4rem 0;
+        }
+
+        .founding-headline {
+            font-size: 2rem;
+        }
+
+        .founding-subheadline {
+            font-size: 1.1rem;
+        }
+
+        .founding-benefits {
+            grid-template-columns: 1fr;
+        }
+
+        .founding-price {
+            font-size: 2.5rem;
+        }
+
+        .founding-cta-primary {
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 7: Founding Member Offer Block -->
+<section class="founding-member-offer" id="founding-member">
+    <div class="founding-member-container">
+        <span class="founding-badge">★ Founding Member Opportunity</span>
+        
+        <h2 class="founding-headline">
+            Join the <span class="gold-text">Founding Members</span> and Lock In Lifetime Access
+        </h2>
+        
+        <p class="founding-subheadline">
+            Be part of the foundation. Get lifetime access to all three pathways, exclusive founding member benefits, and help shape the future of Beacon Momentum.
+        </p>
+
+        <div class="founding-benefits">
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon">🔓</span>
+                <div class="founding-benefit-title">Lifetime Access to Everything</div>
+                <div class="founding-benefit-description">
+                    Beacon Academy, Beacon Launch, Beacon Rise—all current and future content, forever.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon"><img src="icons/anchor-locked.png" alt="Premium" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="founding-benefit-title">Founding Member Badge</div>
+                <div class="founding-benefit-description">
+                    Special recognition in the community and priority access to new features and programs.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon"><img src="icons/flag-milestone.png" alt="Launch" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="founding-benefit-title">Shape the Platform</div>
+                <div class="founding-benefit-description">
+                    Founding members influence content, features, and the direction of Beacon Momentum.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon"><img src="icons/ship-wheel-community.png" alt="Community" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="founding-benefit-description">
+                    Private community forum, networking opportunities, and connections with other founding members.
+                </div>
+            </div>
+
+            <div class="founding-benefit-item">
+                <span class="founding-benefit-icon"><img src="icons/wave-streak.png" alt="Growth" style="display: inline-block; vertical-align: middle;"></span>
+                <div class="founding-benefit-title">No Price Increases Ever</div>
+                <div class="founding-benefit-description">
+                    Lock in your price now. As the platform grows, your investment never increases.
+                </div>
+            </div>
+        </div>
+
+        <div class="founding-price-box">
+            <div class="founding-price">$3,997</div>
+            <div class="founding-price-label">One-Time Payment • Lifetime Access</div>
+            <div class="founding-price-details">
+                No recurring fees • No hidden costs • Third-party payment options may be available at checkout
+            </div>
+        </div>
+
+        <a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f" class="founding-cta-primary">Claim Your Founding Member Spot →</a>
+
+        <!-- Countdown Timer (Hidden by default, activate when needed) -->
+        <div class="founding-countdown" id="founding-countdown">
+            <div class="countdown-label">Founding Member Offer Ends In:</div>
+            <div class="countdown-timer" id="countdown-display">7 Days 12 Hours 34 Minutes</div>
+        </div>
+    </div>
+</section>
+<!-- CSS for Section 8: Testimonials -->
+<style>
+    /* Testimonials Section */
+    .testimonials-section {
+        padding: 5rem 0;
+        background: white;
+    }
+
+    .testimonials-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .testimonials-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--beacon-dark);
+    }
+
+    .testimonials-subtitle {
+        text-align: center;
+        color: var(--beacon-gray);
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+
+    .testimonial-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border: 1px solid #e5e7eb;
+        transition: all 0.3s;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .testimonial-quote {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--beacon-gray);
+        margin-bottom: 1.5rem;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .testimonial-author-info {
+        flex: 1;
+    }
+
+    .testimonial-name {
+        font-weight: 600;
+        color: var(--beacon-dark);
+        margin-bottom: 0.2rem;
+    }
+
+    .testimonial-role {
+        font-size: 0.9rem;
+        color: var(--beacon-gray);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .testimonials-section {
+            padding: 3rem 0;
+        }
+
+        .testimonials-title {
+            font-size: 2rem;
+        }
+
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<!-- CSS for Section 9: Lighthouse Philosophy -->
+<style>
+    /* Lighthouse Philosophy Section */
+    .lighthouse-philosophy {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .lighthouse-philosophy::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+    }
+
+    .lighthouse-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .lighthouse-icon {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        display: block;
+        animation: lighthouse-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes lighthouse-pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+    }
+
+    .lighthouse-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        line-height: 1.3;
+    }
+
+    .lighthouse-body {
+        font-size: 1.3rem;
+        line-height: 1.9;
+        margin-bottom: 1.5rem;
+        opacity: 0.95;
+    }
+
+    .lighthouse-closing {
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 600;
+        margin-top: 2rem;
+        color: var(--beacon-gold);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .lighthouse-philosophy {
+            padding: 4rem 0;
+        }
+
+        .lighthouse-headline {
+            font-size: 2rem;
+        }
+
+        .lighthouse-body {
+            font-size: 1.1rem;
+        }
+
+        .lighthouse-closing {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 8: Testimonials (Placeholder) -->
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <h2 class="testimonials-title">What Our Community Says</h2>
+        <p class="testimonials-subtitle">
+            Real stories from people rebuilding, launching, and creating opportunity.
+        </p>
+
+        <div class="testimonials-grid">
+            <!-- Testimonial Card 1 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "After my divorce at 52, I thought my best years were behind me. Beacon showed me they were just beginning. The Beacon Rise program gave me the tools and community I needed to rebuild."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Sarah M.</div>
+                        <div class="testimonial-role">Beacon Rise Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 2 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "I was drowning in student debt with no clear path forward. The Beacon Launch taught me to build a business on my terms. Six months in, I'm making more than my old job."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Marcus T.</div>
+                        <div class="testimonial-role">Beacon Launch Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 3 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "The Beacon Academy demystified DeFi for me. No hype, no scams—just practical education and ethical guidance. I finally understand how to build wealth in the digital economy."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Jennifer L.</div>
+                        <div class="testimonial-role">Beacon Academy Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 4 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "Beacon isn't just a platform—it's a community that actually cares. After losing my job at 58, I found purpose, income, and friends who understand the journey."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Robert K.</div>
+                        <div class="testimonial-role">Beacon Academy</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 5 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "As a millennial, I was told I'd never own a home or retire. Beacon showed me alternative paths to wealth that the system never taught me. Game changer."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">Alex P.</div>
+                        <div class="testimonial-role">Beacon Academy Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 6 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "Bob's transparency and honesty are rare. No BS, no hype—just real guidance from someone who's been through it. That's why I became a founding member."
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-author-info">
+                        <div class="testimonial-name">David W.</div>
+                        <div class="testimonial-role">Beacon Academy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HTML for Section 9: Lighthouse Philosophy -->
+<section class="lighthouse-philosophy">
+    <div class="lighthouse-container">
+        <span class="lighthouse-icon" style="font-size: 4rem; color: #FDB022; display: block; margin-bottom: 1rem;">🗼</span>
+        
+        <h2 class="lighthouse-headline">The Lighthouse Never Moves.</h2>
+        
+        <p class="lighthouse-body">
+            A lighthouse doesn't chase ships. It doesn't promise easy passage or calm seas. It simply stands—unwavering, consistent, reliable.
+        </p>
+        
+        <p class="lighthouse-body">
+            It shines its light so those navigating rough waters can find their way. It doesn't judge how you got there. It doesn't ask if you deserve help. It just guides.
+        </p>
+        
+        <p class="lighthouse-body">
+            That's what Beacon Momentum is. We don't move with trends or fads. We stand for people rebuilding their lives, launching new ventures, and creating opportunity where none was given.
+        </p>
+        
+        <p class="lighthouse-closing">
+            The lighthouse stands. The light shines. The way is clear.
+        </p>
+    </div>
+</section>
+<!-- CSS for Section 10: Final CTA (Bottom Funnel) -->
+<style>
+    /* Final CTA Section */
+    .final-cta-section {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #FEF3C7 0%, #F8F5F1 100%);
+        text-align: center;
+    }
+
+    .final-cta-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .final-cta-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-dark);
+        line-height: 1.2;
+    }
+
+    .final-cta-subheadline {
+        font-size: 1.3rem;
+        color: var(--beacon-gray);
+        line-height: 1.7;
+        margin-bottom: 3rem;
+    }
+
+    .final-cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .final-cta-primary {
+        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        color: white;
+        padding: 1.5rem 3rem;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 6px 30px rgba(15, 118, 110, 0.3);
+    }
+
+    .final-cta-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 40px rgba(15, 118, 110, 0.5);
+    }
+
+    .final-cta-secondary {
+        background: white;
+        color: var(--beacon-teal);
+        padding: 1.5rem 3rem;
+        border: 2px solid var(--beacon-teal);
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .final-cta-secondary:hover {
+        background: var(--beacon-teal);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .final-cta-section {
+            padding: 4rem 0;
+        }
+
+        .final-cta-headline {
+            font-size: 2rem;
+        }
+
+        .final-cta-subheadline {
+            font-size: 1.1rem;
+        }
+
+        .final-cta-buttons {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .final-cta-primary,
+        .final-cta-secondary {
+            padding: 1.2rem 2rem;
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<!-- CSS for Section 11: Footer -->
+<style>
+    /* Footer Section */
+    .site-footer {
+        background: var(--beacon-dark);
+        color: white;
+        padding: 4rem 0 2rem;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .footer-column h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-gold);
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+        color: var(--beacon-gold);
+    }
+
+    .footer-description {
+        color: #cbd5e1;
+        line-height: 1.7;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .footer-social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 1.2rem;
+    }
+
+    .footer-social-link:hover {
+        background: var(--beacon-gold);
+        transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .footer-bottom-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+        color: var(--beacon-gold);
+    }
+
+    .phoenix-attribution {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: #64748b;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .site-footer {
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links {
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+    }
+</style>
+
+<!-- HTML for Section 10: Final CTA (Bottom Funnel) -->
+<section class="final-cta-section">
+    <div class="final-cta-container">
+        <h2 class="final-cta-headline">Your New Chapter Starts Here.</h2>
+        <p class="final-cta-subheadline">
+            Whether you're rebuilding, launching, or creating opportunity—Beacon Momentum is your lighthouse. Choose your path forward.
+        </p>
+        
+        <div class="final-cta-buttons">
+            <a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f" class="final-cta-primary">Join the Founding Members →</a>
+            <a href="#pathway" class="final-cta-secondary">Explore the Beacon Pathway →</a>
+        </div>
+    </div>
+</section>
+
+<!-- HTML for Section 11: Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <!-- Column 1: About Beacon -->
+            <div class="footer-column">
+                <h3>Beacon Momentum</h3>
+                <p class="footer-description">
+                    Three pathways. One mission. Real transformation through peer-driven systems, transparent opportunities, and merit-based advancement.
+                </p>
+                <div class="footer-social">
+                    <a href="https://twitter.com/beaconmomentum" class="footer-social-link" aria-label="Twitter">𝕏</a>
+                    <a href="https://facebook.com/beaconmomentum" class="footer-social-link" aria-label="Facebook">f</a>
+                    <a href="https://linkedin.com/company/beaconmomentum" class="footer-social-link" aria-label="LinkedIn">in</a>
+                    <a href="https://youtube.com/@beaconmomentum" class="footer-social-link" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+
+            <!-- Column 2: Product Pathways -->
+            <div class="footer-column">
+                <h3>Pathways</h3>
+                <ul class="footer-links">
+                    <li><a href="#beacon-rise-section">Beacon Rise</a></li>
+                    <li><a href="#solopreneur-section">Beacon Launch</a></li>
+                    <li><a href="#beacon-academy-section">Beacon Beacon Academy</a></li>
+                    <li><a href="/digital-grandpa/">Mentorship</a></li>
+                    <li><a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f">Beacon Academy</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Resources -->
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="/blog/">Blog & Articles</a></li>
+                    <li><a href="community.html">Community Forum</a></li>
+                    <li><a href="resources.html">Free Resources</a></li>
+                    <li><a href="blog/">Success Stories</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact & Support -->
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="mailto:support@beaconmomentum.com">support@beaconmomentum.com</a></li>
+                    <li><a href="tel:+14132580254">(413) 258-0254</a></li>
+                    <li>PO Box 244<br>Cheshire, MA 01225</li>
+                    <li><a href="contact.html">Help Center</a></li>
+                    <li><a href="our-compass.html">About Us</a></li>
+                    <li><a href="contact.html">Partner With Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Master Disclaimer -->
+        <div style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid rgba(245, 158, 11, 0.3); background-color: rgba(245, 158, 11, 0.1); border-radius: 0.5rem;">
+            <h3 style="margin-bottom: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #f59e0b;">EDUCATIONAL PLATFORM DISCLAIMER</h3>
+            <div style="font-size: 0.75rem; line-height: 1.5; color: #9ca3af;">
+                <p style="margin-bottom: 0.5rem;">
+                    Beacon Momentum is an educational platform providing peer support, skill-building resources, and community connection. We do not provide medical advice, mental health treatment, therapy, counseling, financial advice, or investment recommendations.
+                </p>
+                <p style="margin-bottom: 0.5rem;">
+                    The content, courses, and community support available through this platform are for educational and informational purposes only and are not a substitute for professional medical care, licensed therapy, or financial advisory services.
+                </p>
+                <p style="margin-bottom: 0.5rem;">
+                    If you are experiencing a medical emergency, mental health crisis, or suicidal thoughts, please contact emergency services (911) or a crisis hotline immediately. For ongoing health concerns, consult qualified healthcare professionals.
+                </p>
+                <p>
+                    Results vary by individual. We make no guarantees, warranties, or promises regarding specific outcomes from using this platform.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
+            
+            <div class="footer-bottom-links">
+                <a href="/terms.html">Terms of Service</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/refund.html">Refund Policy</a>
+                <a href="/accessibility.html">Accessibility Statement</a>
+                <a href="/cookie.html">Cookie Policy</a>
+                <a href="/disclaimer.html">Disclaimer</a>
+                <a href="/gdpr-ccpa.html">GDPR/CCPA Compliance</a>
+            </div>
+
+            <p class="phoenix-attribution">
+                Built by <a href="/labs.html" style="color: var(--beacon-gold);">Beacon Labs</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script>
+// Countdown Timer for Founding Member Offer
+function updateCountdown() {
+    const endDate = new Date('2025-12-24T23:59:59-05:00'); // December 24, 2025 at 11:59pm EST
+    const now = new Date();
+    const timeRemaining = endDate - now;
+    
+    if (timeRemaining <= 0) {
+        document.getElementById('countdown-display').textContent = 'Offer Ended';
+        return;
+    }
+    
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    
+    document.getElementById('countdown-display').textContent = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+}
+
+// Update countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call
+
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

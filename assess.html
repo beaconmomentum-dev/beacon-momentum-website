@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereignty Assessment | Beacon Momentum</title>
+    <meta name="description" content="Discover your pathway to sovereignty. Take our assessment to find whether Beacon Rise, Beacon Launch, or Beacon Academy is right for you.">
+    <link rel="icon" type="image/png" href="images/beacon-logo-v3.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-teal: #1B7F7A;
+            --beacon-gold: #F59E0B;
+            --text-gray: #2D3748;
+            --light-gray: #718096;
+            --white: #FFFFFF;
+            --bg-light: #F7FAFC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-gray);
+            line-height: 1.6;
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0A4F4B 0%, #0D2A28 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Assessment Section */
+        .assessment {
+            padding: 4rem 0;
+        }
+
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-number {
+            color: var(--beacon-gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            padding: 1.5rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .option:hover {
+            border-color: var(--beacon-teal);
+            background: rgba(27, 127, 122, 0.05);
+        }
+
+        .option.selected {
+            border-color: var(--beacon-teal);
+            background: rgba(27, 127, 122, 0.1);
+        }
+
+        .option-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+
+        .option-desc {
+            font-size: 0.875rem;
+            color: var(--light-gray);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #E2E8F0;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--beacon-teal);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #156B66;
+        }
+
+        .btn-secondary {
+            background: #E2E8F0;
+            color: var(--text-gray);
+        }
+
+        .btn-secondary:hover {
+            background: #CBD5E0;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Results */
+        .results {
+            display: none;
+            padding: 4rem 0;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .result-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--beacon-teal);
+            margin-bottom: 1rem;
+        }
+
+        .result-subtitle {
+            font-size: 1.25rem;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+        }
+
+        .result-description {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+        }
+
+        .result-cta {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: var(--beacon-teal);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .result-cta:hover {
+            background: #156B66;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .question-text {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPGQ5841NL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GPGQ5841NL');
+</script>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo-container">
+                <img src="images/beacon-logo-v3.png" alt="Beacon Momentum Lighthouse" class="logo-img">
+                <span class="logo-text">Beacon Momentum</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Discover Your Pathway</h1>
+            <p>Answer 12 questions to find which Beacon pathway is right for you: Rise, Launch, or Academy.</p>
+        </div>
+    </section>
+
+    <!-- Assessment -->
+    <section class="assessment">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+
+            <div id="questionsContainer">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>← Previous</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Next →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results" id="results">
+        <div class="container">
+            <div class="result-card" id="resultCard">
+                <!-- Result will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const questions = [
+            {
+                number: 1,
+                text: "Where are you in your journey right now?",
+                options: [
+                    { title: "Rebuilding after a major life transition", desc: "Divorce, job loss, career change, or other significant life event", value: "rise" },
+                    { title: "Ready to start or grow my business", desc: "Want to build a one-person business or scale existing venture", value: "launch" },
+                    { title: "Teaching or building institutions", desc: "Educator, coach, or building programs for others", value: "academy" }
+                ]
+            },
+            {
+                number: 2,
+                text: "What's your primary goal?",
+                options: [
+                    { title: "Reclaim my independence and purpose", desc: "Get back on my feet and rebuild my life", value: "rise" },
+                    { title: "Build sustainable income streams", desc: "Create financial freedom through entrepreneurship", value: "launch" },
+                    { title: "Master modern finance and teach others", desc: "Understand DeFi and help others learn", value: "academy" }
+                ]
+            },
+            {
+                number: 3,
+                text: "What's your current age range?",
+                options: [
+                    { title: "40-70 years old", desc: "Experienced, rebuilding or transitioning", value: "rise" },
+                    { title: "25-45 years old", desc: "Building my first or next venture", value: "launch" },
+                    { title: "Any age, focused on education", desc: "Age doesn't matter, I'm here to learn and teach", value: "academy" }
+                ]
+            },
+            {
+                number: 4,
+                text: "What type of support do you need most?",
+                options: [
+                    { title: "Emotional support and community", desc: "People who understand what I'm going through", value: "rise" },
+                    { title: "Business frameworks and infrastructure", desc: "Practical tools to build and scale", value: "launch" },
+                    { title: "Educational content and resources", desc: "Deep learning about modern finance", value: "academy" }
+                ]
+            },
+            {
+                number: 5,
+                text: "How would you describe your current situation?",
+                options: [
+                    { title: "Starting over", desc: "Major life change, need to rebuild foundation", value: "rise" },
+                    { title: "Building momentum", desc: "Have some traction, ready to scale", value: "launch" },
+                    { title: "Seeking knowledge", desc: "Want to understand and master new financial systems", value: "academy" }
+                ]
+            },
+            {
+                number: 6,
+                text: "What's your relationship with technology?",
+                options: [
+                    { title: "Learning as I go", desc: "Technology is new but I'm willing to learn", value: "rise" },
+                    { title: "Comfortable and ready to leverage it", desc: "Ready to use tech to build my business", value: "launch" },
+                    { title: "Want to master cutting-edge finance tech", desc: "Interested in DeFi, crypto, and modern systems", value: "academy" }
+                ]
+            },
+            {
+                number: 7,
+                text: "What's your timeline?",
+                options: [
+                    { title: "Taking it one day at a time", desc: "Focused on stability first", value: "rise" },
+                    { title: "6-12 months to launch/scale", desc: "Ready to move quickly", value: "launch" },
+                    { title: "Long-term learning journey", desc: "Building deep expertise over time", value: "academy" }
+                ]
+            },
+            {
+                number: 8,
+                text: "What's your current income situation?",
+                options: [
+                    { title: "Need to establish stable income", desc: "Starting from scratch or rebuilding", value: "rise" },
+                    { title: "Have income, want to scale it", desc: "Ready to grow what I have", value: "launch" },
+                    { title: "Income is stable, seeking knowledge", desc: "Can invest in learning", value: "academy" }
+                ]
+            },
+            {
+                number: 9,
+                text: "What's your biggest challenge?",
+                options: [
+                    { title: "Emotional recovery and direction", desc: "Need clarity and support", value: "rise" },
+                    { title: "Business strategy and execution", desc: "Know what to do, need help doing it", value: "launch" },
+                    { title: "Understanding complex financial systems", desc: "Want to master DeFi and modern finance", value: "academy" }
+                ]
+            },
+            {
+                number: 10,
+                text: "What type of community do you want?",
+                options: [
+                    { title: "People rebuilding their lives", desc: "Shared experience and mutual support", value: "rise" },
+                    { title: "Entrepreneurs and builders", desc: "Action-takers building businesses", value: "launch" },
+                    { title: "Learners and educators", desc: "People passionate about financial education", value: "academy" }
+                ]
+            },
+            {
+                number: 11,
+                text: "What's your learning style?",
+                options: [
+                    { title: "Practical, step-by-step guidance", desc: "Show me what to do next", value: "rise" },
+                    { title: "Frameworks I can implement", desc: "Give me the system, I'll execute", value: "launch" },
+                    { title: "Deep dives and comprehensive education", desc: "I want to truly understand", value: "academy" }
+                ]
+            },
+            {
+                number: 12,
+                text: "What does success look like for you?",
+                options: [
+                    { title: "Independence and peace of mind", desc: "Stable life, clear purpose, supportive community", value: "rise" },
+                    { title: "Profitable business and freedom", desc: "Income, impact, and lifestyle flexibility", value: "launch" },
+                    { title: "Mastery and ability to teach others", desc: "Deep knowledge and helping others learn", value: "academy" }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = [];
+
+        function renderQuestion(index) {
+            const container = document.getElementById('questionsContainer');
+            const question = questions[index];
+            
+            container.innerHTML = `
+                <div class="question-card active">
+                    <div class="question-number">Question ${question.number} of ${questions.length}</div>
+                    <h2 class="question-text">${question.text}</h2>
+                    <div class="options">
+                        ${question.options.map((opt, i) => `
+                            <div class="option" onclick="selectOption(${i}, '${opt.value}')">
+                                <div class="option-title">${opt.title}</div>
+                                <div class="option-desc">${opt.desc}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            updateProgress();
+            updateButtons();
+        }
+
+        function selectOption(optionIndex, value) {
+            answers[currentQuestion] = value;
+            
+            // Visual feedback
+            const options = document.querySelectorAll('.option');
+            options.forEach((opt, i) => {
+                opt.classList.toggle('selected', i === optionIndex);
+            });
+
+            // Enable next button
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                renderQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion(currentQuestion);
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function updateButtons() {
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+            document.getElementById('nextBtn').disabled = !answers[currentQuestion];
+            
+            if (currentQuestion === questions.length - 1 && answers[currentQuestion]) {
+                document.getElementById('nextBtn').textContent = 'See Results →';
+            } else {
+                document.getElementById('nextBtn').textContent = 'Next →';
+            }
+        }
+
+        function showResults() {
+            // Count answers
+            const counts = { rise: 0, launch: 0, academy: 0 };
+            answers.forEach(answer => counts[answer]++);
+
+            // Determine result
+            let result = 'rise';
+            if (counts.launch > counts.rise && counts.launch > counts.academy) result = 'launch';
+            else if (counts.academy > counts.rise && counts.academy > counts.launch) result = 'academy';
+
+            const results = {
+                rise: {
+                    icon: '🏔️',
+                    title: 'Beacon Rise',
+                    subtitle: 'Reclaim Your Life After Transition',
+                    description: 'Based on your answers, Beacon Rise is your pathway. You\'re rebuilding after a major life transition, and you need practical guidance, emotional support, and a community of people who understand your journey. Beacon Rise provides the frameworks, mentorship, and peer support to help you reclaim your independence and build your next chapter.',
+                    link: 'beacon-rise.html'
+                },
+                launch: {
+                    icon: '🚀',
+                    title: 'Beacon Launch',
+                    subtitle: 'Build Your Business, Own Your Future',
+                    description: 'Based on your answers, Beacon Launch is your pathway. You\'re ready to build or scale a business, and you need practical frameworks, infrastructure, and a community of action-takers. Beacon Launch provides the business systems, backend infrastructure, and entrepreneurial support to help you create sustainable income and lifestyle freedom.',
+                    link: 'beacon-launch.html'
+                },
+                academy: {
+                    icon: '🎓',
+                    title: 'Beacon Academy',
+                    subtitle: 'Master DeFi & Modern Finance',
+                    description: 'Based on your answers, Beacon Academy is your pathway. You\'re seeking deep knowledge about modern finance, DeFi, and emerging financial systems. Beacon Academy provides comprehensive education, real-world application opportunities, and a community of learners and educators building expertise in decentralized finance.',
+                    link: 'beacon-academy.html'
+                }
+            };
+
+            const resultData = results[result];
+            
+            document.querySelector('.assessment').style.display = 'none';
+            document.getElementById('results').classList.add('active');
+            document.getElementById('resultCard').innerHTML = `
+                <div class="result-icon">${resultData.icon}</div>
+                <h2 class="result-title">${resultData.title}</h2>
+                <div class="result-subtitle">${resultData.subtitle}</div>
+                <p class="result-description">${resultData.description}</p>
+                <a href="${resultData.link}" class="result-cta">Explore ${resultData.title} →</a>
+            `;
+        }
+
+        // Initialize
+        renderQuestion(0);
+    </script>
+</body>
+</html>

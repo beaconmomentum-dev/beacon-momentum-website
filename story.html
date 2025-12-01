@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bob Burr's Story | From Childhood Loss to Institutional Proof | Beacon Momentum</title>
+    <meta name="description" content="The complete story of Bob Burr: Presidential Award winner, 40+ years of service, 7-8% recidivism rate, and the founder of Beacon Momentum.">
+    <link rel="icon" type="image/png" href="images/beacon-logo-v3.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-teal: #1B7F7A;
+            --beacon-gold: #F59E0B;
+            --text-gray: #2D3748;
+            --light-gray: #718096;
+            --white: #FFFFFF;
+            --bg-light: #F7FAFC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-gray);
+            line-height: 1.8;
+            background: var(--bg-light);
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--beacon-teal);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0A4F4B 0%, #0D2A28 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--beacon-gold);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Story Content */
+        .story-content {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: white;
+            padding: 4rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--beacon-teal);
+            margin: 3rem 0 1.5rem 0;
+            padding-top: 2rem;
+            border-top: 2px solid var(--bg-light);
+        }
+
+        .story-content h2:first-of-type {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .story-content h3 {
+            font-size: 1.75rem;
+            color: var(--text-gray);
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        .story-content strong {
+            color: var(--beacon-teal);
+            font-weight: 600;
+        }
+
+        .story-content ul, .story-content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+        }
+
+        .story-content li {
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+
+        .pullquote {
+            background: rgba(27, 127, 122, 0.1);
+            border-left: 4px solid var(--beacon-teal);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-gray);
+        }
+
+        .timeline {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--beacon-gold);
+            min-width: 100px;
+        }
+
+        .timeline-event {
+            flex: 1;
+        }
+
+        .cta-section {
+            background: var(--beacon-teal);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: var(--beacon-gold);
+            color: var(--text-gray);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #FDB022;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .story-content {
+                padding: 2rem;
+            }
+
+            .story-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPGQ5841NL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GPGQ5841NL');
+</script>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo-container">
+                <img src="images/beacon-logo-v3.png" alt="Beacon Momentum Lighthouse" class="logo-img">
+                <span class="logo-text">Beacon Momentum</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>From Childhood Loss to<br>Institutional Proof to Global Scale</h1>
+            <p class="hero-subtitle">The Bob Burr Story: 51 Years of Rebuilding</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">7-8%</div>
+                    <div class="stat-label">Recidivism Rate<br>(vs. 55-60% state average)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">51 Years</div>
+                    <div class="stat-label">Continuous Service</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2,847</div>
+                    <div class="stat-label">Digital Grandpa Members<br>(2022-2025)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Presidential</div>
+                    <div class="stat-label">Award Winner<br>(1000 Points of Light)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Content -->
+    <div class="story-content">
+        <h2>The Story in 60 Seconds</h2>
+        <p>Bob Burr's mother died when he was 12. He earned his GED at 17, served 6 years in the Navy, led an organization that received the Presidential 1000 Points of Light Award, built a multi-million dollar business over 20 years, spent 15 years as Chaplain and Educator inside Federal/State prisons, directed GraceHouse to a <strong>7-8% recidivism rate</strong> (vs. the state's 55-60%), built Digital Grandpa to 2,847 members organically—and now launches Beacon Momentum in Q1 2026 to scale those proven frameworks globally through AI-powered technology.</p>
+
+        <div class="pullquote">
+            "Bob achieved 7-8X better outcomes than the state corrections system. From childhood loss to institutional proof. This is not a guru. This is 51 years of rebuilding."
+        </div>
+
+        <h2>The Complete Timeline</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1974</div>
+                <div class="timeline-event">Mother died from cancer (Bob age 12) → Left formal education</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1979</div>
+                <div class="timeline-event">GED at 17 → Self-made foundation</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1980-1987</div>
+                <div class="timeline-event">Navy service (6 years, honorable discharge)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1980s-1990s</div>
+                <div class="timeline-event">Business success → NGO project leadership → Operation Share receives Presidential Award</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">By age 30</div>
+                <div class="timeline-event">Self-made millionaire (sustained 20 years)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2002-2003</div>
+                <div class="timeline-event">Post-9/11 targeting → Chose family over fighting charges</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2002-2017</div>
+                <div class="timeline-event">15 years inside as Chaplain, Educator, Librarian, Mentor, Friend</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2017-2021</div>
+                <div class="timeline-event">Founded GraceHouse, scaled to 30 beds/7 properties, achieved 7-8% recidivism</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-event">Returned to New England, reconnected with son John (now 33, weekly meals)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2022-2025</div>
+                <div class="timeline-event">Created Digital Grandpa philosophy and global community (2,847 members)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025-2026</div>
+                <div class="timeline-event">Launched Beacon Momentum platform (formal launch Q1 2026)</div>
+            </div>
+        </div>
+
+        <h2>Military Foundation (1979-1987)</h2>
+        
+        <h3>Early Loss and Self-Made Foundation</h3>
+        <p><strong>1974:</strong> Bob's mother died from cancer when he was 12 years old. Family tragedy necessitated leaving formal education. He spent the next 5 years working and preparing for independence.</p>
+
+        <p><strong>August 1979:</strong> Earned GED at age 17 through self-directed education after his mother's death. The GED qualified him to enlist in the Navy as a "graduate."</p>
+
+        <h3>Navy Service & Development</h3>
+        <p><strong>Late November 1980:</strong> Turned 18, entered US Navy</p>
+        <ul>
+            <li><strong>US Navy Active Duty:</strong> Late 1980 - October 1985 (4 years)</li>
+            <li><strong>US Navy Reserve:</strong> October 1985 - October 1987 (2 years)</li>
+            <li><strong>Total:</strong> 6 years of Navy service</li>
+            <li><strong>Discharge:</strong> Honorable discharge with commendations</li>
+            <li><strong>Foundation:</strong> Leadership training, discipline, service mindset</li>
+        </ul>
+
+        <div class="pullquote">
+            "Bob's journey didn't start with advantages—it started with losing his mother at 12 and having to leave formal education to survive. The GED wasn't a backup plan; it was self-determination. The Navy wasn't just service; it was a pathway out after family tragedy. Everything Bob built came from having nothing, losing everything early, and choosing to rebuild. This is why he can speak to anyone who's lost it all—he's been doing it since age 12."
+        </div>
+
+        <h2>Business Success (Mid-1980s - 2003)</h2>
+        
+        <h3>~20 Years of Entrepreneurial Achievement</h3>
+        <ul>
+            <li>Founded <strong>Pinnacle Insurance Agency</strong></li>
+            <li>Expanded into <strong>investment banking</strong> operations</li>
+            <li><strong>Self-made millionaire by age 30</strong> (~1992-1993)</li>
+            <li>Built million-dollar business in ~7-8 years after Navy discharge</li>
+            <li>Sustained wealth for 10+ years (1993-2003)</li>
+            <li>Integrated faith, business, and community service throughout</li>
+        </ul>
+
+        <p><strong>Note on Documentation:</strong> Bob's business records for Pinnacle Insurance Agency were seized by government entities 1999-2001—years before his 2002 arrest. No financial documentation remains. What remains is Bob's lived experience and the operational excellence demonstrated through 51 years of subsequent leadership across military, NGO, business, and ministry sectors.</p>
+
+        <h2>Global NGO Leadership (1990s)</h2>
+        
+        <h3>Operation Share - International Humanitarian Service</h3>
+        <p><strong>Leadership Roles (Operation Share Global NGO):</strong></p>
+        <ul>
+            <li><strong>Program Manager</strong> - designed and led international programs</li>
+            <li><strong>Finance Manager</strong> - managed multi-country budgets and operations</li>
+            <li><strong>Project Manager</strong> - coordinated intercessory outreach globally</li>
+            <li>Oversaw operations across multiple countries</li>
+            <li>Led teams serving vulnerable populations worldwide</li>
+        </ul>
+
+        <p><strong>Presidential Recognition:</strong> Operation Share received President George H.W. Bush's <strong>1000 Points of Light Award</strong> (1990s). Bob served as Program/Finance/Project Manager for Operation Share during this recognition—national validation of the organization's global humanitarian impact.</p>
+
+        <h2>Institutional Ministry (2002-2017)</h2>
+        
+        <h3>15 Years Inside as Chaplain, Educator, Librarian, Mentor, Friend</h3>
+        <p>Bob spent 15 years serving inside federal and state prisons in formal documented roles:</p>
+        <ul>
+            <li><strong>Chaplain</strong> - spiritual guidance and crisis intervention</li>
+            <li><strong>Educator</strong> - teaching life skills, financial literacy, and personal development</li>
+            <li><strong>Librarian</strong> - managing educational resources and programs</li>
+            <li><strong>Mentor</strong> - one-on-one guidance for men preparing for release</li>
+            <li><strong>Friend</strong> - consistent presence through the hardest years</li>
+        </ul>
+
+        <div class="pullquote">
+            "Bob didn't visit prisons. He lived inside them for 15 years. He knows what it's like to lose everything, to be written off by society, and to rebuild from absolute zero. That's not theory. That's lived experience."
+        </div>
+
+        <h2>GraceHouse (2017-2021)</h2>
+        
+        <h3>The Numbers That Matter</h3>
+        <ul>
+            <li><strong>7-8% recidivism rate</strong> under Bob's directorship</li>
+            <li><strong>State average: 55-60%</strong> return to incarceration within 5 years</li>
+            <li><strong>Bob's success: 92-93% stayed free</strong> (vs. state's 40-45%)</li>
+            <li><strong>Scaled from 0 to 30 beds across 7 properties</strong> in 4 years</li>
+            <li><strong>GraceHouse still operating</strong> under new board leadership</li>
+        </ul>
+
+        <p><strong>How Bob Did It:</strong> Structured re-entry program combining housing, employment support, peer accountability, trauma recovery, and spiritual foundation. No government funding. No grants. Just proven frameworks that worked.</p>
+
+        <h2>Digital Grandpa (2022-2025)</h2>
+        
+        <h3>Proving the Model Organically</h3>
+        <p>After stepping down from GraceHouse, Bob returned to New England and reconnected with his son John (now 33, they share weekly meals). He created Digital Grandpa—a mentorship platform for men 40-70 rebuilding after major life transitions.</p>
+
+        <ul>
+            <li><strong>2,847 members</strong> built organically (no paid ads, no venture capital)</li>
+            <li><strong>156,000+ collective days of sobriety</strong> tracked in the community</li>
+            <li><strong>Wisdom-based guidance</strong> from someone who's lived it all</li>
+            <li><strong>Peer-driven community</strong> of men supporting each other</li>
+        </ul>
+
+        <p>Digital Grandpa proved the demand for Bob's frameworks. Now Beacon Momentum scales those frameworks to serve three distinct audiences through AI-powered infrastructure.</p>
+
+        <h2>Beacon Momentum (2026+)</h2>
+        
+        <h3>Three Pathways, One Mission</h3>
+        <p>Beacon Momentum launches Q1 2026 with three distinct pathways:</p>
+
+        <ol>
+            <li><strong>Beacon Rise:</strong> "Reclaim Your Life After Transition" - Rebuilders (40s-70s) navigating major life transitions</li>
+            <li><strong>Beacon Launch:</strong> "Build Your Business, Own Your Future" - Next generation entrepreneurs (25-45)</li>
+            <li><strong>Beacon Academy:</strong> "Master DeFi & Modern Finance" - Educators teaching DeFi/modern finance</li>
+        </ol>
+
+        <p><strong>Business Model:</strong> Dual revenue streams (membership + backend services) create sustainable, scalable impact. AI-powered support ensures 24/7 availability. Peer-driven community ensures it outlasts the founder.</p>
+
+        <h2>Why This Matters</h2>
+        
+        <h3>Unique Positioning</h3>
+        <ul>
+            <li><strong>Achieved 7-8X better outcomes</strong> (7-8% recidivism vs. 55-60% state average)</li>
+            <li><strong>Presidential validation</strong> before the fall (character proven at highest level)</li>
+            <li><strong>Complete life experience</strong> (top → bottom → back up)</li>
+            <li><strong>51 years of service</strong> (not 2-3 years like most gurus)</li>
+            <li><strong>Operational scale</strong> (30 beds, 7 properties proves he can execute)</li>
+            <li><strong>Built to last</strong> (GraceHouse still operates after Bob stepped down)</li>
+        </ul>
+
+        <div class="pullquote">
+            "No one else sits at the intersection of Presidential recognition + business success + institutional ministry + licensed credentials + technology platform + 51 years of continuous service."
+        </div>
+
+        <h2>The Pitch</h2>
+        
+        <p><strong>For Investors:</strong> 51 years of proven frameworks institutionalized through AI-powered infrastructure. Measurable outcomes. Recurring revenue. Market validated. Founder credibility unmatched.</p>
+
+        <p><strong>For Strategic Partners:</strong> Presidential Award-winning leader with military, NGO, business, and ministry experience. Access to three underserved markets. Proven frameworks. Real outcomes.</p>
+
+        <p><strong>For Affiliates:</strong> A platform that actually transforms lives. Presidential Award winner. Millionaire. Prisoner. Rebuilder. 94% success rate. The story sells itself.</p>
+
+        <p><strong>For Media:</strong> The culmination of 51 years of service—from Presidential Award to 15 years inside to building a platform for the forgotten. This is a legacy story.</p>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Rebuild?</h2>
+            <p>Join thousands of others who've found their pathway to sovereignty.</p>
+            <a href="assess.html" class="cta-button">Take the Sovereignty Assessment →</a>
+        </div>
+    </section>
+</body>
+</html>
