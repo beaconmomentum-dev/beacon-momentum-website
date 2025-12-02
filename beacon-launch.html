@@ -1,231 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beacon Beacon Academy - DeFi & Financial Education | Beacon Momentum</title>
-    <meta name="description" content="Comprehensive cryptocurrency and DeFi education included in Mentor and Lifetime tiers. Master digital assets, liquidity engineering, and financial sovereignty.">
+    <title>Beacon Launch - Build Your Business, Own Your Future | Beacon Momentum</title>
+    <meta name="description" content="Launch your business the right way. Practical frameworks, proven systems, and done-for-you infrastructure for solopreneurs and first-time entrepreneurs.">
     <link rel="canonical" href="https://beaconmomentum.com/beacon-launch.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://beaconmomentum.com/beacon-launch.html">
-    <meta property="og:title" content="Beacon Beacon Academy - DeFi & Financial Education | Beacon Momentum">
-    <meta property="og:description" content="Comprehensive cryptocurrency and DeFi education included in Mentor and Lifetime tiers. Master digital assets, liquidity engineering, and financial sovereignty.">
-    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-launch-hero.jpg">
+    <meta property="og:title" content="Beacon Launch - Build Your Business, Own Your Future | Beacon Momentum">
+    <meta property="og:description" content="Launch your business the right way. Practical frameworks, proven systems, and done-for-you infrastructure for solopreneurs and first-time entrepreneurs.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
     <meta property="og:site_name" content="Beacon Momentum">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://beaconmomentum.com/beacon-launch.html">
-    <meta property="twitter:title" content="Beacon Beacon Academy - DeFi & Financial Education | Beacon Momentum">
-    <meta property="twitter:description" content="Comprehensive cryptocurrency and DeFi education included in Mentor and Lifetime tiers. Master digital assets, liquidity engineering, and financial sovereignty.">
-    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-launch-hero.jpg">
+    <meta property="twitter:title" content="Beacon Launch - Build Your Business, Own Your Future | Beacon Momentum">
+    <meta property="twitter:description" content="Launch your business the right way. Practical frameworks, proven systems, and done-for-you infrastructure for solopreneurs and first-time entrepreneurs.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
     
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
+            --beacon-teal: #0F766E;
+            --beacon-gold: #F59E0B;
             --deep-navy: #1A2B3D;
             --warm-gray: #6B7280;
             --light-background: #F8FAFC;
-            --deep-red: #8B1538;
             --parchment: #F5F1E8;
-        }
+            --launch-blue: #2563EB;
+            --launch-blue-dark: #1E40AF;
+        
+    /* Pathway-specific accents */
+    --rise-accent: #8B5CF6;
+    --launch-accent: #2563EB;
+    --academy-accent: #059669;
+}
         .playfair { font-family: 'Playfair Display', serif; }
         .inter { font-family: 'Inter', sans-serif; }
     </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPGQ5841NL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GPGQ5841NL');
+</script>
 </head>
 <body class="inter" style="background-color: var(--light-background);">
-<!-- Black Friday Early Access Banner - V2 (Jarvis-optimized) -->
-<style>
-    .black-friday-banner {
-        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
-        color: white;
-        padding: 0.875rem 0;
-        text-align: center;
-        position: relative;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        z-index: 1000;
-    }
-    
-    .black-friday-banner-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 3rem 0 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-    
-    .black-friday-banner-text {
-        font-size: 1.05rem;
-        font-weight: 600;
-        letter-spacing: 0.3px;
-        line-height: 1.4;
-    }
-    
-    .black-friday-banner-text-mobile {
-        display: none;
-    }
-    
-    .black-friday-banner-cta {
-        background: #D4AF37;
-        color: #1A2B3D;
-        padding: 0.5rem 1.5rem;
-        border-radius: 0.5rem;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        white-space: nowrap;
-    }
-    
-    .black-friday-banner-cta:hover {
-        background: #FFD700;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-    
-    .black-friday-banner-close {
-        position: absolute;
-        right: 0.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255,255,255,0.2);
-        border: none;
-        color: white;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.4rem;
-        line-height: 1;
-        transition: background 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .black-friday-banner-close:hover {
-        background: rgba(255,255,255,0.3);
-    }
-    
-    .black-friday-banner.hidden {
-        display: none;
-    }
-    
-    @media (max-width: 768px) {
-        .black-friday-banner {
-            padding: 0.75rem 0;
-        }
-        
-        .black-friday-banner-content {
-            padding: 0 2.5rem 0 0.75rem;
-            gap: 0.5rem;
-        }
-        
-        .black-friday-banner-text {
-            display: none;
-        }
-        
-        .black-friday-banner-text-mobile {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .black-friday-banner-cta {
-            padding: 0.4rem 1rem;
-            font-size: 0.85rem;
-        }
-        
-        .black-friday-banner-close {
-            right: 0.25rem;
-            width: 1.75rem;
-            height: 1.75rem;
-            font-size: 1.2rem;
-        }
-    }
-</style>
-
-<div class="black-friday-banner" id="blackFridayBanner">
-    <div class="black-friday-banner-content">
-        <!-- Desktop version -->
-        <span class="black-friday-banner-text">
-            🎁 Black Friday Early Access: Lifetime Membership - Offer Ends December 24 at 11:59pm EST - Give the Gift of Transformation
-        </span>
-        <!-- Mobile version -->
-        <span class="black-friday-banner-text-mobile">
-            🎁 Lifetime Membership - Ends Dec 24
-        </span>
-        <a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025" class="black-friday-banner-cta">
-            Claim Lifetime Access →
-        </a>
-    </div>
-    <button class="black-friday-banner-close" onclick="dismissBFBanner()" aria-label="Close banner">
-        ×
-    </button>
-</div>
-
-<script>
-    function dismissBFBanner() {
-        const banner = document.getElementById('blackFridayBanner');
-        if (banner) {
-            banner.classList.add('hidden');
-            // Store dismissal in localStorage for 24 hours
-            const dismissedUntil = Date.now() + (24 * 60 * 60 * 1000);
-            localStorage.setItem('blackFridayBannerDismissed', dismissedUntil.toString());
-        }
-    }
-    
-    // Check if banner was previously dismissed
-    window.addEventListener('DOMContentLoaded', function() {
-        const banner = document.getElementById('blackFridayBanner');
-        if (!banner) return;
-        
-        const dismissedUntil = localStorage.getItem('blackFridayBannerDismissed');
-        if (dismissedUntil && Date.now() < parseInt(dismissedUntil)) {
-            banner.classList.add('hidden');
-        }
-        
-        // Auto-remove banner after December 24, 2025 at 11:59pm EST
-        const expiryDate = new Date('2025-12-24T23:59:59-05:00');
-        const now = new Date();
-        if (now > expiryDate) {
-            banner.classList.add('hidden');
-        }
-    });
-</script>
-
-
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm border-b">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-3">
-                    <a href="index.html"><img src="images/beacon-logo-icon.png" alt="Beacon Momentum" class="w-10 h-10 object-contain"></a>
-                    <div>
-                        <h1 class="text-xl font-bold playfair" style="color: var(--beacon-teal);">Beacon Momentum</h1>
-                        <p class="text-sm" style="color: var(--beacon-gold); font-style: italic;">Lighting the Way Forward</p>
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="images/beacon-logo-v3.png" alt="Beacon Momentum Lighthouse" class="w-16 h-16 object-contain">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold playfair" style="color: var(--beacon-teal);">Beacon Momentum</span>
+                        <span class="text-sm italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
                     </div>
+                </a>
+                <div class="hidden md:flex space-x-6" data-mobile-menu>
+                    <a href="index.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Home</a>
+                    <a href="beacon-rise.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Rise</a>
+                    <a href="beacon-launch.html" class="font-semibold" style="color: var(--launch-blue);">Beacon Launch</a>
+                    <a href="beacon-academy.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Academy</a>
+                    <a href="labs.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Labs</a>
+                    <a href="digital-grandpa.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Mentorship</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Contact</a>
+                    <a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn font-medium" style="display: inline-block; padding: 10px 20px; margin-left: 15px; background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: #ffffff !important; font-weight: 600; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3); transition: all 0.3s ease;">Member Login</a>
                 </div>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="font-medium" style="color: var(--warm-gray);">Home</a>
-                    <a href="founding-member.html" class="font-medium" style="color: var(--warm-gray);">Founding Member</a>
-                    <a href="digital-grandpa.html" class="font-medium" style="color: var(--warm-gray);">Mentorship</a>
-                    <a href="beacon-rise.html" class="font-medium" style="color: var(--warm-gray);">Beacon Rise</a>
-                    <a href="beacon-launch.html" class="font-medium" style="color: var(--beacon-teal); font-weight: 600;">Beacon Launch</a>
-                    <a href="labs.html" class="font-medium" style="color: var(--warm-gray);">Beacon Labs</a>
-                    <a href="contact.html" class="font-medium" style="color: var(--warm-gray);">Contact</a>
-                </div>
-                <button class="md:hidden">
+                <button class="md:hidden text-gray-700" id="mobile-menu-toggle" data-mobile-menu-toggle>
                     <span class="text-2xl">&#9776;</span>
                 </button>
             </div>
@@ -233,241 +84,422 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-deep-navy text-white text-center py-20" style="background-image: url('images/beacon-launch-hero-final.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 43, 61, 0.65); z-index: 0;"></div>
+    <section class="text-white text-center py-24" style="background-image: url('images/beacon-launch-hero.png'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 43, 61, 0.7); z-index: 0;"></div>
         <div class="container mx-auto px-4" style="position: relative; z-index: 1;">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 playfair">Build Your Own Table. We'll Help You Set It.</h1>
-            <p class="text-xl md:text-2xl mb-6">The complete toolkit for entrepreneurs who are ready to build a life of freedom and independence.</p>
-            <p class="text-lg text-gray-300 italic mb-8 max-w-3xl mx-auto">"This is the system I wish I had when I first stepped into entrepreneurship with no map, no mentor, and no safety net."</p>
-            <a href="https://app.beaconmomentum.com/checkout?source=beacon-launch&utm_source=marketing&utm_medium=website&utm_campaign=beacon-launch&pathway=launch" class="bg-beacon-gold text-deep-navy px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-yellow-500 transition-colors">Start Building Your Business Today</a>
+            <p class="text-lg mb-4 opacity-90">BEACON LAUNCH</p>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 playfair">Build Your Business, Own Your Future</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Practical frameworks, proven systems, and done-for-you infrastructure for solopreneurs ready to create real income and lasting freedom.</p>
+            <a href="founding-member.html" class="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-gray-100 transition-colors inline-block">Start Building Today</a>
+            <p class="mt-6 text-sm text-blue-100 max-w-2xl mx-auto">
+                "This is the system I wish I had when I first stepped into entrepreneurship—no map, no mentor, no safety net. Now you don't have to figure it out alone."
+                <br><span class="italic">— Bob Burr, Founder</span>
+            </p>
         </div>
     </section>
 
-    <!-- Is This You? Section -->
-    <section class="bg-white py-20">
+    <!-- The Problem Section -->
+    <section class="bg-white py-24">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--deep-red);">Are You Ready to Build?</h2>
+            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--deep-navy);">The Dream vs. The Reality</h2>
             <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-                <p class="mb-6">This suite is for the builders, the creators, the ones who see a better way and are willing to create it. It's for the aspiring entrepreneur with a powerful idea and the small business owner who's ready to scale. If you're tired of working for someone else's dream and you're ready to build your own, you're in the right place.</p>
+                <p class="mb-6">You know you're meant to build something. You've got the drive, the ideas, the willingness to work. But every time you try to get started, you hit the same walls:</p>
+                <div class="grid md:grid-cols-2 gap-6 text-left my-8">
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
+                        <p class="font-semibold text-red-800 mb-2">The Tech Overwhelm</p>
+                        <p class="text-gray-600">Websites, funnels, CRM, email marketing, payment processing... Where do you even start?</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
+                        <p class="font-semibold text-red-800 mb-2">The Information Overload</p>
+                        <p class="text-gray-600">Thousands of courses, gurus, and "guaranteed" methods—but no clear path that actually works.</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
+                        <p class="font-semibold text-red-800 mb-2">The Isolation</p>
+                        <p class="text-gray-600">Building alone, with no one who understands what you're going through or can help when you're stuck.</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
+                        <p class="font-semibold text-red-800 mb-2">The Capital Trap</p>
+                        <p class="text-gray-600">Everyone says you need investors, loans, or massive savings to start. But what if you don't have that?</p>
+                    </div>
+                </div>
+                <p>You don't need another course. You need a system that works, infrastructure that's built for you, and a community that has your back.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution Section -->
+    <section class="py-24" style="background-color: var(--parchment);">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">Beacon Launch: Your Business, Built Right</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                <p class="mb-6">Beacon Launch isn't another course that leaves you to figure out the hard parts alone. It's a complete system: <strong>proven frameworks</strong> to guide your decisions, <strong>done-for-you infrastructure</strong> to handle the tech, and a <strong>community of builders</strong> who get it.</p>
+                <p class="mb-6">Whether you're launching your first side hustle or scaling an existing business, Beacon Launch gives you everything you need to create sustainable income without venture capital, without massive debt, and without years of trial and error.</p>
+                <p class="text-xl font-semibold" style="color: var(--launch-blue);">We don't just teach you frameworks—we build your business infrastructure FOR you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="bg-white py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-navy);">What You Get With Beacon Launch</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Framework 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg border-t-4" style="border-color: var(--launch-blue);">
+                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg></div>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Business Foundation Framework</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• Clarity on your offer and target market</li>
+                        <li>• Pricing strategy that works</li>
+                        <li>• Business model validation</li>
+                        <li>• Legal basics (LLC, contracts, compliance)</li>
+                        <li>• Financial foundation (accounts, tracking, taxes)</li>
+                    </ul>
+                </div>
+
+                <!-- Framework 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg border-t-4" style="border-color: var(--launch-blue);">
+                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Client Acquisition System</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• Lead generation strategies that don't require ads</li>
+                        <li>• Sales conversations that convert</li>
+                        <li>• Follow-up systems that work while you sleep</li>
+                        <li>• Referral frameworks for sustainable growth</li>
+                        <li>• Content strategy for authority building</li>
+                    </ul>
+                </div>
+
+                <!-- Framework 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg border-t-4" style="border-color: var(--launch-blue);">
+                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Operations & Delivery</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• Service delivery frameworks</li>
+                        <li>• Client onboarding systems</li>
+                        <li>• Project management basics</li>
+                        <li>• Time management for solopreneurs</li>
+                        <li>• Scaling without burning out</li>
+                    </ul>
+                </div>
+
+                <!-- Framework 4 -->
+                <div class="bg-gray-50 p-6 rounded-lg border-t-4" style="border-color: var(--beacon-gold);">
+                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Done-For-You Infrastructure</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• Professional website built for you</li>
+                        <li>• CRM and contact management</li>
+                        <li>• Email marketing automation</li>
+                        <li>• Sales funnels and landing pages</li>
+                        <li>• Payment processing integration</li>
+                        <li>• Booking and scheduling system</li>
+                    </ul>
+                    <p class="mt-4 text-sm font-semibold" style="color: var(--launch-blue);">Add Backend Services: $297-$597/mo</p>
+                </div>
+
+                <!-- Framework 5 -->
+                <div class="bg-gray-50 p-6 rounded-lg border-t-4" style="border-color: var(--beacon-gold);">
+                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Community & Support</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• Private community of builders</li>
+                        <li>• Weekly live Q&A sessions</li>
+                        <li>• Accountability partnerships</li>
+                        <li>• Direct access to mentors</li>
+                        <li>• Resource library and templates</li>
+                    </ul>
+                </div>
+
+                <!-- Framework 6 -->
+                <div class="bg-gray-50 p-6 rounded-lg border-t-4" style="border-color: var(--beacon-gold);">
+                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Beacon Labs AI Support</h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• 24/7 AI assistant for business questions</li>
+                        <li>• Content generation tools</li>
+                        <li>• Business strategy guidance</li>
+                        <li>• Market research assistance</li>
+                        <li>• Writing and copywriting support</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For Section -->
+    <section class="py-24" style="background-color: var(--parchment);">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">Who Beacon Launch Is For</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--launch-blue);">This IS For You If:</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>You're ready to build a business but don't know where to start</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>You want practical frameworks, not theory</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>You're willing to put in the work but need direction</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>You want your tech handled so you can focus on clients</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>You value community and accountability</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>You're building without venture capital or big investors</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4 playfair text-red-700">This Is NOT For You If:</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2 mt-1">✗</span>
+                                <span>You're looking for get-rich-quick schemes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2 mt-1">✗</span>
+                                <span>You want someone else to do ALL the work</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2 mt-1">✗</span>
+                                <span>You're not willing to learn and grow</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2 mt-1">✗</span>
+                                <span>You expect results without effort</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2 mt-1">✗</span>
+                                <span>You already have a fully operational business</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-2 mt-1">✗</span>
+                                <span>You're seeking investment/funding advice</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Founder Section -->
+    <section class="bg-white py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Why I Built This</h3>
+                    <div class="text-gray-700 space-y-4">
+                        <p>I've been an entrepreneur for over 25 years. I've built multiple businesses from scratch—some successful, some failures. I've made every mistake you can imagine and learned lessons the hard way.</p>
+                        <p>What I know now: <strong>most people fail not because they lack talent or drive, but because they don't have the right systems and support.</strong> They're trying to figure out tech, marketing, sales, operations, and delivery all at once, with no roadmap and no one to ask for help.</p>
+                        <p>Beacon Launch is what I wish existed when I started. Proven frameworks. Done-for-you infrastructure. A community that has your back. Everything you need to build a real business without the years of trial and error.</p>
+                        <p class="font-semibold" style="color: var(--launch-blue);">Your business is worth building right. Let's do this together.</p>
+                        <p class="italic">— Bob Burr, Founder of Beacon Momentum</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24" style="background: linear-gradient(135deg, var(--launch-blue) 0%, var(--launch-blue-dark) 100%);">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h2 class="text-4xl font-bold mb-6 playfair">Ready to Build Your Business?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join Beacon Launch and get the frameworks, infrastructure, and community you need to create sustainable income and lasting freedom.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+                <!-- Member Tier -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">Member</h3>
+                    <p class="text-3xl font-bold mb-4">$97<span class="text-lg font-normal">/mo</span></p>
+                    <ul class="text-left text-sm space-y-2 mb-6">
+                        <li>✓ Full Beacon Launch curriculum</li>
+                        <li>✓ Community access</li>
+                        <li>✓ Weekly live Q&A</li>
+                        <li>✓ Beacon Labs AI support</li>
+                        <li>✓ Resource library</li>
+                    </ul>
+                    <a href="founding-member.html" class="block w-full py-3 rounded-lg font-semibold transition-colors" style="background: var(--beacon-teal); color: white;">Join Now</a>
+                </div>
+                
+                <!-- Mentor Tier -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg border-4" style="border-color: var(--beacon-gold); transform: scale(1.05);">
+                    <div class="text-xs font-bold uppercase mb-2 py-1 px-3 rounded inline-block" style="background: var(--beacon-gold); color: white;">Most Popular</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">Mentor</h3>
+                    <p class="text-3xl font-bold mb-4">$297<span class="text-lg font-normal">/mo</span></p>
+                    <ul class="text-left text-sm space-y-2 mb-6">
+                        <li>✓ Everything in Member</li>
+                        <li>✓ Access to ALL pathways</li>
+                        <li>✓ Monthly 1-on-1 coaching</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Advanced workshops</li>
+                    </ul>
+                    <a href="founding-member.html" class="block w-full py-3 rounded-lg font-semibold transition-colors" style="background: var(--beacon-gold); color: white;">Join Now</a>
+                </div>
+                
+                <!-- Lifetime Tier -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">Lifetime</h3>
+                    <p class="text-3xl font-bold mb-4">$3,997<span class="text-lg font-normal"> once</span></p>
+                    <ul class="text-left text-sm space-y-2 mb-6">
+                        <li>✓ Everything in Mentor</li>
+                        <li>✓ Lifetime access forever</li>
+                        <li>✓ Founding member status</li>
+                        <li>✓ Revenue share opportunities</li>
+                        <li>✓ Product development input</li>
+                    </ul>
+                    <a href="founding-member.html" class="block w-full py-3 rounded-lg font-semibold transition-colors" style="background: var(--beacon-teal); color: white;">Join Now</a>
+                </div>
             </div>
             
-            <!-- This Is Who It's For -->
-            <div class="max-w-2xl mx-auto mt-12 bg-gray-50 p-8 rounded-lg">
-                <h3 class="text-2xl font-bold mb-6 playfair" style="color: var(--beacon-teal);">This program is built for:</h3>
-                <div class="grid md:grid-cols-2 gap-4 text-left text-lg">
-                    <div class="flex items-start">
-                        <span class="text-beacon-gold mr-3 mt-1">&#10003;</span>
-                        <span>Early-stage founders</span>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="text-beacon-gold mr-3 mt-1">&#10003;</span>
-                        <span>Men leaving corporate jobs</span>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="text-beacon-gold mr-3 mt-1">&#10003;</span>
-                        <span>Veterans wanting financial independence</span>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="text-beacon-gold mr-3 mt-1">&#10003;</span>
-                        <span>Anyone ready to build a business with their own two hands</span>
-                    </div>
-                </div>
-            </div>
+            <p class="text-blue-100">
+                <strong>Want your tech handled too?</strong> Add Backend Services starting at $297/mo. 
+                <a href="backend-services.html" class="underline hover:text-white">Learn more →</a>
+            </p>
         </div>
     </section>
-
-
-    <!-- The Two Pillars Section -->
-    <section class="bg-parchment py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">The Two Pillars of the Beacon Launch</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold mb-4 playfair">The Beacon Launch</h3>
-                    <p class="text-gray-700">Your A-to-Z guide for turning an idea into a real business. From mindset and messaging to legal and launch, this is the practical, step-by-step guidance you need to get off the ground.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold mb-4 playfair">The Beacon Academy</h3>
-                    <p class="text-gray-700">Unlock the world of business credit and financial sovereignty. Learn how to build a strong business credit profile, access funding, and manage your finances like a seasoned pro.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- What's Inside Section -->
-    <section class="bg-white py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-red);">What's Inside the Beacon Launch</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-3xl font-bold mb-6 playfair" style="color: var(--beacon-teal);">Beacon Launch</h3>
-                    <ul class="space-y-4 text-lg text-gray-700">
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 1:</strong> The Founder's Mindset</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 2:</strong> Your Mission & Message</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 3:</strong> The Lean Business Plan</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 4:</strong> Legal & Business Formation</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 5:</strong> Building Your Online Presence</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 6:</strong> The Launch Strategy</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-3xl font-bold mb-6 playfair" style="color: var(--beacon-teal);">Beacon Academy</h3>
-                    <ul class="space-y-4 text-lg text-gray-700">
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 1:</strong> The Foundations of Business Credit</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 2:</strong> Building Your Business Credit Profile</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 3:</strong> Accessing Business Loans & Lines of Credit</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 4:</strong> Advanced Credit Strategies</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 5:</strong> Managing Your Business Finances</li>
-                        <li class="flex items-start"><span class="text-beacon-gold mr-3">&#10003;</span> <strong>Module 6:</strong> The Path to Financial Sovereignty</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Outcomes You Can Expect Section -->
-    <section class="bg-white py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">After Completing the Beacon Launch, You Will:</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-                <div class="flex items-start">
-                    <span class="text-beacon-gold text-2xl mr-4">✓</span>
-                    <p class="text-lg text-gray-700">Know exactly how to launch and scale a one-person business</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="text-beacon-gold text-2xl mr-4">✓</span>
-                    <p class="text-lg text-gray-700">Understand how to build business credit without risk</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="text-beacon-gold text-2xl mr-4">✓</span>
-                    <p class="text-lg text-gray-700">Avoid the traps that sink most new founders</p>
-                </div>
-                <div class="flex items-start">
-                    <span class="text-beacon-gold text-2xl mr-4">✓</span>
-                    <p class="text-lg text-gray-700">Have a clear plan for revenue, funding, and long-term stability</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Built from Real-World Experience Section -->
-    <section class="bg-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6 playfair" style="color: var(--beacon-teal);">Built from Real-World Experience</h2>
-            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-                <p>With over 25 years of experience in entrepreneurship and mentoring, I've built multiple ventures, survived downturns, and learned credit, risk, and business the hard way — so you don't have to.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Beacon Momentum Advantage Section -->
-    <section class="bg-parchment py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">The Beacon Momentum Advantage</h2>
-            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-                <p class="mb-6">This isn't another get-rich-quick scheme. The Beacon Launch is grounded in the Digital Grandpa philosophy of sustainable, long-term success. We teach you how to build a real business that lasts, one that serves your life and your values. It's about more than just making money; it's about building a life of freedom and independence.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Testimonials Section -->
-    <section class="bg-white py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-red);">From Idea to Impact</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-                    <p class="text-lg italic text-gray-700 mb-4">"The Beacon Launch gave me the confidence and the exact steps I needed to finally quit my job and launch my own consulting business. I haven't looked back."
-                    </p>
-                    <p class="font-bold text-right">- S.L., Founder, L&D Consulting</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-                    <p class="text-lg italic text-gray-700 mb-4">"The Beacon Academy demystified business credit for me. I was able to secure a line of credit that allowed me to hire my first employee. Game-changing."
-                    </p>
-                    <p class="font-bold text-right">- D.P., Owner, Artisan Coffee Roasters</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
 
     <!-- FAQ Section -->
-    <section class="bg-white py-20">
+    <section class="bg-white py-24">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-red);">Frequently Asked Questions</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="mb-6">
-                    <h3 class="text-xl font-bold mb-2">Is this for beginners?</h3>
-                    <p class="text-gray-700">Absolutely. The Beacon Launch is designed to take you from idea to launch and beyond, no matter your starting point. We cover the fundamentals in a clear, actionable way.</p>
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-navy);">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                
+                <div class="border-b pb-6">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">Do I need business experience to join?</h3>
+                    <p class="text-gray-700">No. Beacon Launch is designed for first-time entrepreneurs and solopreneurs. We start with the fundamentals and build from there. If you're willing to learn and put in the work, you can succeed here.</p>
                 </div>
-                <div class="mb-6">
-                    <h3 class="text-xl font-bold mb-2">Do I need a business idea to start?</h3>
-                    <p class="text-gray-700">No. The first module of the Beacon Launch is designed to help you find and validate a business idea that aligns with your skills and passions.</p>
+                
+                <div class="border-b pb-6">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">What kind of business can I build?</h3>
+                    <p class="text-gray-700">Our frameworks work for service-based businesses, coaching, consulting, freelancing, and digital products. If you're building something where you exchange your skills/knowledge for money, Beacon Launch can help.</p>
                 </div>
-                <div class="mb-6">
-                    <h3 class="text-xl font-bold mb-2">What if I already have a business?</h3>
-                    <p class="text-gray-700">The Beacon Launch is still for you. The Beacon Academy will teach you how to build business credit and access funding to grow your existing business, and the Beacon Launch can help you refine your model and strategy.</p>
+                
+                <div class="border-b pb-6">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">What are the Backend Services?</h3>
+                    <p class="text-gray-700">Backend Services are our done-for-you infrastructure offering. We build your website, CRM, email automation, funnels, payment processing, and more—so you can focus on serving clients instead of fighting with tech. Starts at $297/mo.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support-Driven Closing -->
-    <section class="bg-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-3xl mx-auto">
-                <p class="text-2xl font-semibold text-gray-800 mb-2">No jargon. No fluff. No complicated frameworks.</p>
-                <p class="text-xl text-gray-600">You get real training, real tools, and a system that works in the real world.</p>
+                
+                <div class="border-b pb-6">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">How is this different from other business courses?</h3>
+                    <p class="text-gray-700">Most courses give you information and leave you to figure out implementation alone. Beacon Launch gives you frameworks AND builds your infrastructure. Plus you get a community of builders and ongoing support—not just a course you complete and forget.</p>
+                </div>
+                
+                <div class="border-b pb-6">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">What if I'm not sure Beacon Launch is right for me?</h3>
+                    <p class="text-gray-700">Take our free <a href="assess.html" class="underline" style="color: var(--launch-blue);">Sovereignty Assessment</a>. In 5 minutes, you'll know which Beacon pathway is the best fit for where you are right now.</p>
+                </div>
+                
             </div>
         </div>
     </section>
 
     <!-- Final CTA Section -->
-    <section class="bg-deep-navy text-white text-center py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-4 playfair">Stop Building Someone Else's Dream. Start Building Yours.</h2>
-            <a href="https://app.beaconmomentum.com/checkout?source=beacon-launch&utm_source=marketing&utm_medium=website&utm_campaign=beacon-launch&pathway=launch" class="bg-beacon-gold text-deep-navy px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-yellow-500 transition-colors">Enroll in the Beacon Launch Today</a>
+    <section class="py-24" style="background: var(--deep-navy);">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h2 class="text-4xl font-bold mb-6 playfair">Your Business Is Waiting to Be Built</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Stop waiting for the perfect moment. Stop trying to figure it out alone. Join Beacon Launch and start building the business—and the life—you've been working toward.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="founding-member.html" class="px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-colors inline-block" style="background: var(--beacon-gold); color: var(--deep-navy);">Join Beacon Launch Today →</a>
+                <a href="assess.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-800 transition-colors inline-block">Take the Free Assessment</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">Beacon Momentum</h3>
-                    <p class="text-gray-300">Lighting the way forward through education, empowerment, and community.</p>
+                    <h3 class="text-lg font-bold mb-4 playfair" style="color: var(--beacon-gold);">Beacon Momentum</h3>
+                    <p class="text-gray-400 text-sm">A lighthouse for people rebuilding their lives and creating opportunity where none was given.</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">Our Programs</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="founding-member.html" class="hover:text-white">Founding Member</a></li>
-                        <li><a href="digital-grandpa.html" class="hover:text-white">Mentorship</a></li>
-                        <li><a href="beacon-rise.html" class="hover:text-white">Beacon Rise</a></li>
-                        <li><a href="beacon-launch.html" class="hover:text-white">Beacon Launch</a></li>
-                        <li><a href="labs.html" class="hover:text-white">Beacon Labs</a></li>
+                    <h3 class="text-lg font-bold mb-4">Pathways</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="beacon-rise.html" class="hover:text-beacon-gold transition-colors">Beacon Rise</a></li>
+                        <li><a href="beacon-launch.html" class="hover:text-beacon-gold transition-colors">Beacon Launch</a></li>
+                        <li><a href="beacon-academy.html" class="hover:text-beacon-gold transition-colors">Beacon Academy</a></li>
+                        <li><a href="labs.html" class="hover:text-beacon-gold transition-colors">Beacon Labs</a></li>
+                        <li><a href="backend-services.html" class="hover:text-beacon-gold transition-colors">Backend Services</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">Connect</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
-                        <li>Email: <a href="mailto:support@beaconmomentum.com" class="hover:text-white">support@beaconmomentum.com</a></li>
-                        <li>Phone: <a href="tel:+14132580254" class="hover:text-white">(413) 258-0254</a></li>
-                        <li>Mailing Address: PO Box 244, Cheshire, MA 01225-0244</li>
-                        <li>Office Hours: Monday - Friday, 9AM-3PM EST (Appointment Only)</li>
+                    <h3 class="text-lg font-bold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="story.html" class="hover:text-beacon-gold transition-colors">Bob's Story</a></li>
+                        <li><a href="assess.html" class="hover:text-beacon-gold transition-colors">Take Assessment</a></li>
+                        <li><a href="digital-grandpa.html" class="hover:text-beacon-gold transition-colors">Mentorship</a></li>
+                        <li><a href="founding-member.html" class="hover:text-beacon-gold transition-colors">Founding Member</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="contact.html" class="hover:text-beacon-gold transition-colors">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-beacon-gold transition-colors">About</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#6615131616091412260403070509080b090b030812130b4805090b"><span class="__cf_email__" data-cfemail="790a0c0909160b0d391b1c181a16171416141c170d0c14571a1614">[email&#160;protected]</span></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Beacon Momentum. All rights reserved. | Built by <a href="labs.html" class="hover:text-white" style="color: var(--beacon-gold);">Beacon Labs</a></p>
-                <p class="mt-2"><a href="terms-of-service.html" class="hover:text-white">Terms of Service</a> | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="refund-policy.html" class="hover:text-white">Refund Policy</a> | <a href="accessibility.html" class="hover:text-white">Accessibility</a> | <a href="cookie-policy.html" class="hover:text-white">Cookie Policy</a> | <a href="disclaimer.html" class="hover:text-white">Disclaimer</a> | <a href="gdpr-ccpa.html" class="hover:text-white">GDPR/CCPA</a></p>
+            
+            <!-- Disclaimer -->
+            <div class="border-t border-gray-800 pt-8 mb-8">
+                <div class="bg-gray-800 p-4 rounded-lg text-xs text-gray-400">
+                    <p class="font-semibold text-gray-300 mb-2">EDUCATIONAL PLATFORM DISCLAIMER</p>
+                    <p>Beacon Momentum is an educational platform providing peer support, skill-building resources, and community connection. Results vary by individual. We make no guarantees regarding specific income or business outcomes. Building a successful business requires effort, persistence, and adaptation to your specific circumstances.</p>
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Beacon Momentum. Built with ❤️ by the Beacon Momentum team.</p>
             </div>
         </div>
     </footer>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            // Mobile menu implementation would go here
+            alert('Mobile menu - implement full functionality');
+        });
+    </script>
+
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('[data-mobile-menu-toggle]');
+            const mobileMenu = document.querySelector('[data-mobile-menu]');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenuBtn.innerHTML = '✕';
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.innerHTML = '☰';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
