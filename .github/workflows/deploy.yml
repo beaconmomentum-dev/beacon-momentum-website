@@ -1,0 +1,39 @@
+name: Deploy to Digital Ocean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Deploy to Digital Ocean
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            echo "🚀 Starting deployment..."
+            
+            # Pull latest code from GitHub
+            cd /var/www/beacon-repo
+            git pull origin main
+            
+            # Copy HTML files to live site
+            echo "📦 Copying files to live site..."
+            rsync -av --exclude='node_modules' --exclude='.git' --exclude='server' *.html /var/www/html/ 2>/dev/null || true
+            rsync -av --exclude='node_modules' --exclude='.git' images/ /var/www/html/images/ 2>/dev/null || true
+            rsync -av --exclude='node_modules' --exclude='.git' css/ /var/www/html/css/ 2>/dev/null || true
+            rsync -av --exclude='node_modules' --exclude='.git' js/ /var/www/html/js/ 2>/dev/null || true
+            
+            # Set proper permissions
+            chmod -R 755 /var/www/html
+            
+            echo "✅ Deployment complete at $(date)"
