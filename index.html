@@ -883,23 +883,40 @@
         </button>
     </div>
     <script>
-        function dismissBFBanner() {
-            const banner = document.getElementById('blackFridayBanner');
+    function dismissBFBanner() {
+        const banner = document.getElementById('blackFridayBanner');
+        if (banner) {
             banner.classList.add('hidden');
-            localStorage.setItem('blackFridayBannerDismissed', 'true');
+            // Store dismissal in localStorage for 24 hours
+            const dismissedUntil = Date.now() + (24 * 60 * 60 * 1000);
+            localStorage.setItem('blackFridayBannerDismissed', dismissedUntil.toString());
         }
-        window.addEventListener('DOMContentLoaded', function() {
-            const wasDismissed = localStorage.getItem('blackFridayBannerDismissed');
-            if (wasDismissed === 'true') {
-                document.getElementById('blackFridayBanner').classList.add('hidden');
-            }
-        });
-        const expiryDate = new Date('2025-12-24T23:59:59');
+    }
+    
+    // Check if banner should be shown based on expiration date
+    function checkBannerExpiration() {
+        const banner = document.getElementById('blackFridayBanner');
+        if (!banner) return;
+        
+        // Set expiration to January 1, 2026 at 12:01 AM EST (UTC-5)
+        const expirationDate = new Date('2026-01-01T00:01:00-05:00');
         const now = new Date();
-        if (now > expiryDate) {
-            document.getElementById('blackFridayBanner').classList.add('hidden');
+        
+        if (now >= expirationDate) {
+            banner.classList.add('hidden');
+            return;
         }
-    </script>
+        
+        // Check if user manually dismissed it
+        const dismissed = localStorage.getItem('blackFridayBannerDismissed');
+        if (dismissed && Date.now() < parseInt(dismissed)) {
+            banner.classList.add('hidden');
+        }
+    }
+    
+    // Run on page load
+    checkBannerExpiration();
+</script>
     <!-- Header -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4">
@@ -2994,7 +3011,7 @@
 <script>
 // Countdown Timer for Founding Member Offer
 function updateCountdown() {
-    const endDate = new Date('2025-12-24T23:59:59-05:00'); // December 24, 2025 at 11:59pm EST
+    const endDate = new Date('2026-01-01T00:01:00-05:00'); // December 24, 2025 at 11:59pm EST
     const now = new Date();
     const timeRemaining = endDate - now;
     
