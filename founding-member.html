@@ -1003,7 +1003,7 @@
     <section class="founding-hero">
         <div class="container">
             <h1>The Lighthouse Is Lit.<br>Join Us at the Watch.</h1>
-            <p class="subheadline" style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--beacon-gold);">Built from 2,874 real stories. Proven over 3 years. Now open to Founding Members.</p>
+            <p class="subheadline" style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--beacon-gold);">Built from 51 years of rebuilding expertise. 2,874 souls served. Now open to Founding Members.</p>
             <p class="subheadline">Lifetime Access. One-Time Commitment. Limited Enrollment.</p>
             <p class="body-text">
                 Join the Founding Members of Beacon Momentum and take your post at the watch. It's time to navigate your future with clarity, purpose, and a community at your back.
@@ -1014,6 +1014,154 @@
             </div>
         </div>
     </section>
+
+    <!-- Countdown Timer Section -->
+    <style>
+        .countdown-container {
+            background: linear-gradient(135deg, #8B1538 0%, #D4AF37 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .countdown-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 4rem;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+            background: rgba(255,255,255,0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            min-width: 100px;
+        }
+
+        .countdown-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        .countdown-separator {
+            font-size: 3rem;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+
+        .countdown-subtext {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .countdown-number {
+                font-size: 2.5rem;
+                min-width: 70px;
+                padding: 0.75rem 1rem;
+            }
+            
+            .countdown-headline {
+                font-size: 1.75rem;
+            }
+            
+            .countdown-separator {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div id="countdown-timer" class="countdown-container">
+            <h2 class="countdown-headline">Lifetime Access Ends In:</h2>
+            <div class="countdown-display">
+                <div class="countdown-unit">
+                    <span id="countdown-days" class="countdown-number">00</span>
+                    <span class="countdown-label">DAYS</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-unit">
+                    <span id="countdown-hours" class="countdown-number">00</span>
+                    <span class="countdown-label">HOURS</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-unit">
+                    <span id="countdown-minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">MINS</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-unit">
+                    <span id="countdown-seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">SECS</span>
+                </div>
+            </div>
+            <p class="countdown-subtext">After Dec 24: $97-247/month (no lifetime option)</p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer to Dec 24, 2025 11:59pm EST
+        function initCountdown() {
+            // Set target date (Dec 24, 2025, 11:59:59 PM EST)
+            const targetDate = new Date('2025-12-24T23:59:59-05:00').getTime();
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+                
+                // Calculate time units
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Update DOM
+                document.getElementById('countdown-days').innerHTML = days.toString().padStart(2, '0');
+                document.getElementById('countdown-hours').innerHTML = hours.toString().padStart(2, '0');
+                document.getElementById('countdown-minutes').innerHTML = minutes.toString().padStart(2, '0');
+                document.getElementById('countdown-seconds').innerHTML = seconds.toString().padStart(2, '0');
+                
+                // If countdown is over
+                if (distance < 0) {
+                    document.getElementById('countdown-timer').innerHTML = "OFFER EXPIRED";
+                    clearInterval(countdownInterval);
+                }
+            }
+            
+            // Update every second
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initCountdown);
+    </script>
 
     <!-- Section 2: Why Now (Economic Reality) -->
     <section class="why-now-section">
