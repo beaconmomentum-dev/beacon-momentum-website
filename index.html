@@ -868,11 +868,11 @@
     <div class="black-friday-banner" id="blackFridayBanner">
         <div class="black-friday-banner-content">
             <span class="black-friday-banner-text">
-                <img src="icons/lighthouse-achievement.png" alt="Special Offer" style="width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.5em;"> Founding Members: Pay Once, Never Again - Lifetime Access Through Year's End
-            </span></span>
+                <img src="icons/lighthouse-achievement.png" alt="Special Offer" style="width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.5em;"> Founding Members: Pay Once, Never Again - <span id="countdown-desktop" style="font-weight: 700;"></span>
+            </span>
         <!-- Mobile version -->
         <span class="black-friday-banner-text-mobile">
-            <img src="icons/lighthouse-achievement.png" alt="Special Offer" style="width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.3em;"> Save $500 - Lifetime - Ends Dec 24
+            <img src="icons/lighthouse-achievement.png" alt="Special Offer" style="width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.3em;"> <span id="countdown-mobile" style="font-weight: 700;"></span>
         </span>
             <a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025" class="black-friday-banner-cta">
                 Claim Lifetime Access →
@@ -913,6 +913,36 @@
             banner.classList.add('hidden');
         }
     }
+    
+    // Countdown timer function
+    function updateCountdown() {
+        const deadline = new Date('2026-01-01T00:00:00-05:00'); // Dec 31, 2025 11:59 PM EST
+        const now = new Date();
+        const diff = deadline - now;
+        
+        if (diff <= 0) {
+            document.getElementById('countdown-desktop').textContent = 'Offer Ended';
+            document.getElementById('countdown-mobile').textContent = 'Ended';
+            return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        // Desktop version (more detailed)
+        document.getElementById('countdown-desktop').textContent = 
+            `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
+        
+        // Mobile version (compact)
+        document.getElementById('countdown-mobile').textContent = 
+            `${days}d ${hours}h left`;
+    }
+    
+    // Update countdown immediately and then every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
     
     // Run on page load
     checkBannerExpiration();
