@@ -991,7 +991,7 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>The Lighthouse is On. You're Not Doing This Alone.</h1>
-            <p>Founded by a veteran mentor, Beacon Momentum is a safe harbor for those navigating life's storms. Learn about our founder and why we exist.</p>
+            <p>Founded by a veteran mentor who's helped 2,874 people navigate life's storms over 3 years. You're not doing this alone.</p>
             <div class="hero-cta-group" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="assessment.html" class="cta-button">Take the Free Assessment</a>
                 <a href="founding-member.html" class="cta-button" style="background: transparent; border: 2px solid white; color: white;">Start Your Journey Today</a>
@@ -999,53 +999,233 @@
         </div>
     </section>
 
-    <!-- Beacon Narrative Section -->
+    <!-- Origin Story Section -->
     <section class="beacon-narrative">
         <div class="narrative-container">
-            <h2 class="narrative-headline">The Beacon Narrative</h2>
+            <h2 class="narrative-headline">From One Mentor to a Movement</h2>
             <p class="narrative-subheadline">
-                A lighthouse for anyone ready to chart their own course — and for generations who've been left without a fair shot.
+                2,874 souls served. 3 years of proven experience. A platform built from lived wisdom.
             </p>
             
             <div class="narrative-body">
                 <p>
-                    I wasn't handed much in life — no roadmap, no safety net, no inheritance.<br>
-                    What I had was grit, necessity, and the unwillingness to quit.
+                    In 2022, I started <strong>Digital Grandpa</strong> — a simple one-on-one mentorship program for people navigating life's toughest transitions.
                 </p>
                 
                 <p>
-                    I grew up in a world where nothing came easy.<br>
-                    The military became the forge that taught me discipline, clarity, and resilience.<br>
-                    Entrepreneurship taught me reinvention, adaptation, and how to rise again when life blindsides you.
+                    Divorce. Job loss. Financial crisis. Life-altering change. Over three years, I worked with <strong>2,874 souls</strong>. I listened to their stories. I walked beside them through the storms. And I learned something critical:
                 </p>
                 
                 <p>
-                    <strong>In 2022, Digital Grandpa was born</strong> — one-on-one mentorship for those who needed a steady hand and honest guidance. Over three years, we served <strong>2,874 souls</strong>, listening to their stories, walking beside them, and learning what people truly needed.
+                    <strong>People don't need hype. They need clarity. They need honesty. And they need the next right step.</strong>
                 </p>
                 
                 <p>
-                    <strong>In 2025, we realized</strong> that to serve more people, we needed to expand beyond 1-on-1 mentorship. That's when <strong>Beacon Momentum</strong> was conceived — a platform built from lived experience, designed for anyone ready to chart their own course.
+                    In 2025, I realized one mentor couldn't serve everyone who needed help. So I built <strong>Beacon Momentum</strong> — an educational platform and peer learning community designed to light the way forward for anyone ready to chart their own course.
                 </p>
                 
                 <p>
-                    <strong>Officially launched in Q1 2026</strong>, Beacon Momentum offers three educational pathways:
+                    This isn't therapy. This isn't a get-rich-quick scheme. This is practical education, honest guidance, and a community that understands where you've been — because we've been there too.
+                </p>
+                
+                <p>
+                    <strong>Officially launching in Q1 2026</strong>, Beacon Momentum offers three educational pathways:
                 </p>
                 
                 <p>
                     <strong>Beacon Rise:</strong> Navigate life transitions with practical skills and peer support<br>
                     <strong>Beacon Launch:</strong> Build a one-person business on your own terms<br>
-                    <strong>Beacon Academy:</strong> Master DeFi and modern finance ethically<br>
-                    <br>
-                    Three pathways. One clear mission: Light the way forward.
+                    <strong>Beacon Academy:</strong> Master DeFi and modern finance ethically
                 </p>
             </div>
             
             <p class="narrative-closing">
-                A lighthouse doesn't move. It stands. It shines. It guides.<br>
-                That's why Beacon exists — to light the way forward for anyone ready to rise and reclaim their future.
+                The lighthouse is on. Let's navigate these waters together.<br>
+                You're not doing this alone.
             </p>
             
-            <a href="#divisions" class="narrative-cta">Learn the Beacon Pathway →</a>
+            <a href="#programs" class="narrative-cta">Explore Your Path Forward →</a>
+        </div>
+    </section>
+
+    <!-- What We Are (And Aren't) Section -->
+    <style>
+        .what-we-are {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .what-we-are-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .what-we-are-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--beacon-dark);
+        }
+        
+        .what-we-are-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .what-we-are-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .what-we-are-column {
+            background: #f9fafb;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .what-we-are-column.is {
+            border-left: 4px solid var(--beacon-teal);
+        }
+        
+        .what-we-are-column.isnt {
+            border-left: 4px solid var(--beacon-orange);
+        }
+        
+        .what-we-are-column-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .what-we-are-column.is .what-we-are-column-title {
+            color: var(--beacon-teal);
+        }
+        
+        .what-we-are-column.isnt .what-we-are-column-title {
+            color: var(--beacon-orange);
+        }
+        
+        .what-we-are-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .what-we-are-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+        
+        .what-we-are-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .what-we-are-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        
+        .what-we-are-column.is .what-we-are-icon {
+            color: var(--beacon-teal);
+        }
+        
+        .what-we-are-column.isnt .what-we-are-icon {
+            color: var(--beacon-orange);
+        }
+        
+        @media (max-width: 768px) {
+            .what-we-are-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .what-we-are-title {
+                font-size: 2rem;
+            }
+            
+            .what-we-are-column {
+                padding: 2rem;
+            }
+        }
+    </style>
+    
+    <section class="what-we-are">
+        <div class="what-we-are-container">
+            <h2 class="what-we-are-title">What Beacon Momentum Is (And Isn't)</h2>
+            <p class="what-we-are-subtitle">
+                Clear boundaries. Honest positioning. No confusion about what we offer.
+            </p>
+            
+            <div class="what-we-are-grid">
+                <!-- What We Are -->
+                <div class="what-we-are-column is">
+                    <h3 class="what-we-are-column-title">
+                        <span>✅</span> What We Are
+                    </h3>
+                    <ul class="what-we-are-list">
+                        <li>
+                            <span class="what-we-are-icon">📚</span>
+                            <span><strong>Educational platform</strong> with structured programs for life transitions, entrepreneurship, and financial literacy</span>
+                        </li>
+                        <li>
+                            <span class="what-we-are-icon">🤝</span>
+                            <span><strong>Peer learning community</strong> where people support each other through shared experiences</span>
+                        </li>
+                        <li>
+                            <span class="what-we-are-icon">🛠️</span>
+                            <span><strong>Practical skills training</strong> in budgeting, business planning, and modern finance</span>
+                        </li>
+                        <li>
+                            <span class="what-we-are-icon">💡</span>
+                            <span><strong>Transparent, honest guidance</strong> from lived experience—no hype, no false promises</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- What We're Not -->
+                <div class="what-we-are-column isnt">
+                    <h3 class="what-we-are-column-title">
+                        <span>❌</span> What We're Not
+                    </h3>
+                    <ul class="what-we-are-list">
+                        <li>
+                            <span class="what-we-are-icon">🏥</span>
+                            <span><strong>Not therapy or mental health services</strong>—we don't diagnose, treat, or provide clinical care</span>
+                        </li>
+                        <li>
+                            <span class="what-we-are-icon">⚖️</span>
+                            <span><strong>Not medical, legal, or financial advice</strong>—consult licensed professionals for those needs</span>
+                        </li>
+                        <li>
+                            <span class="what-we-are-icon">💸</span>
+                            <span><strong>Not a get-rich-quick scheme</strong>—we teach sustainable skills, not shortcuts</span>
+                        </li>
+                        <li>
+                            <span class="what-we-are-icon">🎪</span>
+                            <span><strong>Not hype or false promises</strong>—just honest education and community support</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
