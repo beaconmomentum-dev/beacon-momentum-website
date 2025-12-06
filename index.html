@@ -1048,6 +1048,103 @@
         </div>
     </section>
 
+    <!-- Animated Counter Section -->
+    <style>
+        .stats-section {
+            background: linear-gradient(135deg, var(--beacon-teal) 0%, #14B8A6 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><circle cx="100" cy="100" r="3" fill="white" opacity="0.3"/><circle cx="300" cy="200" r="2" fill="white" opacity="0.2"/><circle cx="500" cy="150" r="3" fill="white" opacity="0.25"/><circle cx="700" cy="250" r="2" fill="white" opacity="0.3"/><circle cx="900" cy="100" r="3" fill="white" opacity="0.2"/><circle cx="1100" cy="200" r="2" fill="white" opacity="0.25"/></svg>');
+            background-size: cover;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .stats-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stats-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        .stats-counter {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .stats-counter span {
+            display: inline-block;
+        }
+
+        .stats-subtext {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .stats-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .stats-counter {
+                font-size: 3.5rem;
+            }
+            
+            .stats-headline {
+                font-size: 1.1rem;
+            }
+            
+            .stats-subtext {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <p class="stats-headline">Over Three Years of Proven Experience</p>
+            <div class="stats-counter">
+                <span id="counter">0</span>
+            </div>
+            <p class="stats-subtext">Souls Served Through Life's Toughest Transitions</p>
+            <p class="stats-description">
+                From Digital Grandpa's founding in 2022 to today, we've walked beside 2,874 people through divorce, job loss, financial crisis, and life-altering change. Each story taught us something. Each person shaped what Beacon Momentum would become.
+            </p>
+        </div>
+    </section>
+
     <!-- What We Are (And Aren't) Section -->
     <style>
         .what-we-are {
@@ -1395,216 +1492,412 @@
     </div>
 </section>
 
-<!-- CSS for Section 3: The Beacon Pathway (3 Pillars) -->
+<!-- Timeline Graphic Section -->
 <style>
-    /* The Beacon Pathway Section */
-    .beacon-pathway {
+    .timeline-section {
         padding: 5rem 0;
         background: white;
     }
 
-    .pathway-container {
-        max-width: 1200px;
+    .timeline-container {
+        max-width: 1000px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 2rem;
     }
 
-    .pathway-title {
+    .timeline-title {
         font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         text-align: center;
         margin-bottom: 1rem;
         color: var(--beacon-dark);
     }
 
-    .pathway-subtitle {
+    .timeline-subtitle {
         text-align: center;
-        color: var(--beacon-gray);
         font-size: 1.2rem;
-        margin-bottom: 3rem;
+        color: #666;
+        margin-bottom: 4rem;
         max-width: 700px;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .pathway-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .pathway-card {
-        background: white;
-        border-radius: 12px;
-        padding: 2.5rem;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
+    .timeline {
         position: relative;
-        overflow: hidden;
+        padding: 2rem 0;
     }
 
-    .pathway-card::before {
+    .timeline::before {
         content: '';
         position: absolute;
+        left: 50%;
         top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold));
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--beacon-teal) 0%, var(--beacon-orange) 50%, var(--beacon-gold) 100%);
+        transform: translateX(-50%);
+        box-shadow: 0 0 20px rgba(15, 118, 110, 0.3);
     }
 
-    .pathway-card:hover {
-        transform: scale(1.02);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        border-color: var(--beacon-orange);
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4rem;
+        position: relative;
     }
 
-    .pathway-card:hover::before {
-        transform: scaleX(1);
+    .timeline-item:last-child {
+        margin-bottom: 0;
     }
 
-    .pathway-card-icon {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+    .timeline-item:nth-child(odd) {
+        flex-direction: row;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-content {
+        flex: 1;
+        padding: 2rem;
+        background: #f9fafb;
         border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after {
+        content: '';
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-left: 20px solid #f9fafb;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::after {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 20px solid #f9fafb;
+    }
+
+    .timeline-marker {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: white;
+        border: 4px solid var(--beacon-teal);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 1.5rem;
         font-size: 2rem;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 4px 20px rgba(15, 118, 110, 0.3);
+        flex-shrink: 0;
+        margin: 0 2rem;
     }
 
-    .pathway-card-icon img {
-        background: white;
-        padding: 0.5rem;
-        border-radius: 6px;
-        width: 40px;
-        height: 40px;
-        object-fit: contain;
+    .timeline-item:nth-child(2) .timeline-marker {
+        border-color: var(--beacon-orange);
+        box-shadow: 0 4px 20px rgba(255, 122, 0, 0.3);
     }
 
-    .pathway-card-title {
+    .timeline-item:nth-child(3) .timeline-marker {
+        border-color: var(--beacon-gold);
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .timeline-item:nth-child(4) .timeline-marker {
+        border-color: var(--beacon-teal);
+        box-shadow: 0 4px 20px rgba(15, 118, 110, 0.3);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 4px 20px rgba(15, 118, 110, 0.3);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(15, 118, 110, 0.5);
+        }
+    }
+
+    .timeline-year {
         font-family: 'Playfair Display', serif;
         font-size: 1.8rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: var(--beacon-dark);
+        font-weight: 700;
+        color: var(--beacon-teal);
+        margin-bottom: 0.5rem;
     }
 
-    .pathway-card-tagline {
-        font-size: 1.1rem;
+    .timeline-item:nth-child(2) .timeline-year {
+        color: var(--beacon-orange);
+    }
+
+    .timeline-item:nth-child(3) .timeline-year {
         color: var(--beacon-gold);
+    }
+
+    .timeline-label {
+        font-size: 0.9rem;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #666;
         margin-bottom: 1rem;
-        font-style: italic;
     }
 
-    .pathway-card-description {
-        color: var(--beacon-gray);
+    .timeline-title-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--beacon-dark);
+        margin-bottom: 0.75rem;
+    }
+
+    .timeline-description {
+        font-size: 1rem;
         line-height: 1.7;
-        margin-bottom: 1.5rem;
+        color: #555;
     }
 
-    .pathway-card-cta {
+    .timeline-stat {
+        display: inline-block;
         background: var(--beacon-teal);
         color: white;
-        padding: 0.9rem 1.8rem;
-        border: none;
-        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
         font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-top: 1rem;
     }
 
-    .pathway-card-cta:hover {
+    .timeline-item:nth-child(2) .timeline-stat {
         background: var(--beacon-orange);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
     }
 
-    /* Mobile Responsive */
+    .timeline-item:nth-child(3) .timeline-stat {
+        background: var(--beacon-gold);
+    }
+
     @media (max-width: 768px) {
-        .beacon-pathway {
-            padding: 3rem 0;
+        .timeline::before {
+            left: 40px;
         }
 
-        .pathway-title {
-            font-size: 2rem;
+        .timeline-item,
+        .timeline-item:nth-child(even) {
+            flex-direction: row !important;
         }
 
-        .pathway-subtitle {
-            font-size: 1rem;
+        .timeline-marker {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            margin: 0 1rem 0 0;
         }
 
-        .pathway-grid {
-            grid-template-columns: 1fr;
+        .timeline-content {
+            padding: 1.5rem;
         }
 
-        .pathway-card {
-            padding: 2rem;
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: auto;
+            left: -20px;
+            border-left: none;
+            border-right: 20px solid #f9fafb;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+        }
+
+        .timeline-title-text {
+            font-size: 1.2rem;
         }
     }
 </style>
 
-<!-- HTML for Section 3: The Beacon Pathway (3 Pillars) -->
-<section class="beacon-pathway" id="pathway">
+<section class="timeline-section" id="pathway">
     <a id="divisions" style="position: absolute; top: -80px;"></a>
-    <div class="pathway-container">
-        <h2 class="pathway-title">The Beacon Pathway</h2>
-        <p class="pathway-subtitle">
-            Three distinct paths to rebuild, launch, and create opportunity. Choose your starting point.
+    <div class="timeline-container">
+        <h2 class="timeline-title">The Journey: Digital Grandpa to Beacon Momentum</h2>
+        <p class="timeline-subtitle">
+            An evolution built from lived experience, shaped by 2,874 souls, and designed to light the way forward.
         </p>
-        
-        <div class="pathway-grid">
-            <!-- Card 1: Beacon Rise -->
-            <div class="pathway-card">
-                <div class="pathway-card-icon">
-                    <img src="icons/lighthouse-achievement.png" alt="Beacon Rise" style="display: inline-block; vertical-align: middle;">
+
+        <div class="timeline">
+            <!-- 2022: Digital Grandpa Founded -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-label">The Beginning</div>
+                    <h3 class="timeline-title-text">Digital Grandpa Founded</h3>
+                    <p class="timeline-description">
+                        Started as a simple one-on-one mentorship program for people navigating life's toughest transitions. No hype, no false promises—just honest guidance from someone who's been there.
+                    </p>
+                    <span class="timeline-stat">🚀 Launch Year</span>
                 </div>
-                <h3 class="pathway-card-title">Beacon Rise</h3>
-                <p class="pathway-card-tagline">Reclaim Your Life After Transition</p>
-                <p class="pathway-card-description">
-                    For anyone who's faced a defining moment and is ready to rebuild their life with purpose, community, and transparent support. Start where you are, build what comes next.
-                </p>
-                <a href="#beacon-rise-section" class="pathway-card-cta">Start Here →</a>
+                <div class="timeline-marker">🌱</div>
+                <div style="flex: 1;"></div>
             </div>
 
-            <!-- Card 2: Beacon Launch -->
-            <div class="pathway-card">
-                <div class="pathway-card-icon">
-                    <img src="icons/flag-milestone.png" alt="Launch" style="display: inline-block; vertical-align: middle;">
+            <!-- 2022-2025: 2,874 Souls Served -->
+            <div class="timeline-item">
+                <div style="flex: 1;"></div>
+                <div class="timeline-marker">❤️</div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2022-2025</div>
+                    <div class="timeline-label">Three Years of Learning</div>
+                    <h3 class="timeline-title-text">2,874 Souls Served</h3>
+                    <p class="timeline-description">
+                        Divorce. Job loss. Financial crisis. Life-altering change. We listened to their stories, walked beside them through the storms, and learned what people truly need: clarity, honesty, and the next right step.
+                    </p>
+                    <span class="timeline-stat">2,874 People Helped</span>
                 </div>
-                <h3 class="pathway-card-title">Beacon Launch</h3>
-                <p class="pathway-card-tagline">Build Your Business, Own Your Future</p>
-                <p class="pathway-card-description">
-                    Learn to build, launch, and scale a modern one-person business. No venture capital, no co-founders, no permission needed. Just you, your skills, and a clear path forward.
-                </p>
-                <a href="#solopreneur-section" class="pathway-card-cta">Launch →</a>
             </div>
 
-            <!-- Card 3: Beacon Academy -->
-            <div class="pathway-card">
-                <div class="pathway-card-icon">
-                    <img src="icons/anchor-locked.png" alt="Premium" style="display: inline-block; vertical-align: middle;">
+            <!-- 2025: Beacon Momentum Conceived -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-label">The Evolution</div>
+                    <h3 class="timeline-title-text">Beacon Momentum Conceived</h3>
+                    <p class="timeline-description">
+                        Realized one mentor couldn't serve everyone who needed help. Built an educational platform and peer learning community to scale the wisdom gained from 2,874 conversations into three structured pathways.
+                    </p>
+                    <span class="timeline-stat">🏗️ Platform Built</span>
                 </div>
-                <h3 class="pathway-card-title">Beacon Academy</h3>
-                <p class="pathway-card-tagline">Master DeFi & Modern Finance</p>
-                <p class="pathway-card-description">
-                    Build financial resilience through ethical, practical DeFi. Learn to navigate digital assets, stablecoins, and decentralized finance without the hype or complexity.
-                </p>
-                <a href="#beacon-academy-section" class="pathway-card-cta">Explore →</a>
+                <div class="timeline-marker">💡</div>
+                <div style="flex: 1;"></div>
+            </div>
+
+            <!-- Q1 2026: Official Launch -->
+            <div class="timeline-item">
+                <div style="flex: 1;"></div>
+                <div class="timeline-marker">🚢</div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Q1 2026</div>
+                    <div class="timeline-label">The Launch</div>
+                    <h3 class="timeline-title-text">Official Launch</h3>
+                    <p class="timeline-description">
+                        Beacon Momentum officially launches with three educational pathways: Beacon Rise (life transitions), Beacon Launch (entrepreneurship), and Beacon Academy (financial literacy). The lighthouse is on.
+                    </p>
+                    <span class="timeline-stat">🎯 Coming Soon</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Milestone Badges Section -->
+<style>
+    .milestones-section {
+        background: var(--beacon-dark);
+        padding: 4rem 0;
+        color: white;
+    }
+
+    .milestones-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .milestones-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .milestone-card {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .milestone-card:hover {
+        background: rgba(255,255,255,0.1);
+        transform: translateY(-5px);
+    }
+
+    .milestone-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .milestone-number {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--beacon-gold);
+        margin-bottom: 0.5rem;
+    }
+
+    .milestone-label {
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+</style>
+
+<section class="milestones-section">
+    <div class="milestones-container">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">By The Numbers</h2>
+        <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">The impact of three years of dedicated mentorship</p>
+
+        <div class="milestones-grid">
+            <div class="milestone-card">
+                <div class="milestone-icon">👥</div>
+                <div class="milestone-number" data-count="2874">0</div>
+                <div class="milestone-label">Souls Served</div>
+            </div>
+
+            <div class="milestone-card">
+                <div class="milestone-icon">📅</div>
+                <div class="milestone-number" data-count="3">0</div>
+                <div class="milestone-label">Years Experience</div>
+            </div>
+
+            <div class="milestone-card">
+                <div class="milestone-icon">🎯</div>
+                <div class="milestone-number" data-count="3">0</div>
+                <div class="milestone-label">Educational Pathways</div>
+            </div>
+
+            <div class="milestone-card">
+                <div class="milestone-icon">🌟</div>
+                <div class="milestone-number" data-count="100">0</div>
+                <div class="milestone-label">% Authentic</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CSS for Section 4: Why Beacon Exists (Economic Reality) -->
 <style>
     /* Why Beacon Exists Section */
@@ -3281,6 +3574,88 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+});
+</script>
+
+<!-- Visual Enhancements JavaScript -->
+<script>
+// ============================================
+// ANIMATED COUNTER FUNCTION
+// ============================================
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16); // 60fps
+    const counter = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target.toLocaleString();
+            clearInterval(counter);
+        } else {
+            element.textContent = Math.floor(start).toLocaleString();
+        }
+    }, 16);
+}
+
+// ============================================
+// INTERSECTION OBSERVER FOR SCROLL TRIGGER
+// ============================================
+const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+            entry.target.classList.add('animated');
+            
+            // Animate main counter
+            if (entry.target.id === 'counter') {
+                animateCounter(entry.target, 2874, 2500);
+            }
+            
+            // Animate milestone counters
+            if (entry.target.classList.contains('milestone-number')) {
+                const target = parseInt(entry.target.dataset.count);
+                animateCounter(entry.target, target, 2000);
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe main counter
+const mainCounter = document.getElementById('counter');
+if (mainCounter) {
+    observer.observe(mainCounter);
+}
+
+// Observe milestone counters
+const milestoneCounters = document.querySelectorAll('.milestone-number');
+milestoneCounters.forEach(counter => {
+    observer.observe(counter);
+});
+
+// ============================================
+// TIMELINE ITEM FADE-IN ANIMATION
+// ============================================
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 150); // Stagger animation
+        }
+    });
+}, { threshold: 0.2 });
+
+timelineItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = 'all 0.6s ease';
+    timelineObserver.observe(item);
 });
 </script>
 </body>
