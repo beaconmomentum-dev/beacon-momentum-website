@@ -6726,6 +6726,148 @@ document.addEventListener('DOMContentLoaded', function() {
         padding: 1rem;
     }
 }
+
+/* ========================================
+   MOBILE OPTIMIZATION FIXES
+   Added: December 7, 2025
+   ======================================== */
+
+/* Fix #1: Beacon Kit Hero Section - Mobile Responsive */
+@media (max-width: 768px) {
+    .beacon-kit-hero {
+        padding: 40px 20px !important;
+    }
+    
+    .beacon-kit-hero h2 {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .beacon-kit-hero p {
+        font-size: 1.1rem !important;
+    }
+    
+    .beacon-kit-hero .beacon-kit-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .beacon-kit-card {
+        padding: 1.5rem !important;
+    }
+    
+    .beacon-kit-card-title {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* Fix #2: Hero CTA Buttons - Stack Vertically on Mobile */
+@media (max-width: 768px) {
+    .hero-cta-group {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+        padding: 0 1rem !important;
+    }
+    
+    .hero-cta-group .cta-button {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+}
+
+/* Fix #3: Pathway Grid - Force Single Column on Mobile */
+@media (max-width: 768px) {
+    .pathway-grid,
+    .programs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .pathway-card,
+    .program-card {
+        max-width: 100% !important;
+    }
+}
+
+/* Fix #4: Form Inputs - Prevent iOS Auto-Zoom */
+@media (max-width: 768px) {
+    input[type="email"],
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"],
+    textarea,
+    select {
+        font-size: 16px !important;
+        -webkit-appearance: none;
+        border-radius: 4px;
+    }
+    
+    .beacon-kit-modal input[type="email"],
+    .exit-intent-modal input[type="email"],
+    .quiz-container input {
+        font-size: 16px !important;
+    }
+}
+
+/* Fix #5: Spots Counter - Keep Compact on Mobile */
+@media (max-width: 768px) {
+    .spots-counter-badge {
+        bottom: 6rem !important;
+        right: 1rem !important;
+        left: auto !important;
+        width: auto !important;
+        max-width: calc(100% - 2rem) !important;
+    }
+}
+
+/* Additional Mobile Optimizations */
+@media (max-width: 768px) {
+    /* Reduce stats counter size */
+    .stats-counter {
+        font-size: 2.5rem !important;
+    }
+    
+    /* Ensure all grids stack properly */
+    .feature-grid,
+    .benefit-grid,
+    .offering-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Make all buttons touch-friendly (44x44px minimum) */
+    button,
+    .cta-button,
+    .btn,
+    a.button {
+        min-height: 44px !important;
+        min-width: 44px !important;
+        padding: 12px 24px !important;
+    }
+    
+    /* Improve modal close buttons */
+    .modal-close,
+    .quiz-close,
+    .exit-intent-close,
+    .beacon-kit-modal-close {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.5rem !important;
+    }
+    
+    /* Ensure proper spacing for mobile */
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
 </style>
 
 <!-- Quiz Modal HTML -->
