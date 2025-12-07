@@ -1873,25 +1873,25 @@
         <div class="milestones-grid">
             <div class="milestone-card">
                 <div class="milestone-icon">👥</div>
-                <div class="milestone-number" data-count="2874">0</div>
+                <div class="milestone-number" data-count="2874">2,874</div>
                 <div class="milestone-label">Souls Served</div>
             </div>
 
             <div class="milestone-card">
                 <div class="milestone-icon">📅</div>
-                <div class="milestone-number" data-count="51">0</div>
+                <div class="milestone-number" data-count="51">51</div>
                 <div class="milestone-label">Years Experience</div>
             </div>
 
             <div class="milestone-card">
                 <div class="milestone-icon">🎯</div>
-                <div class="milestone-number" data-count="3">0</div>
+                <div class="milestone-number" data-count="3">3</div>
                 <div class="milestone-label">Educational Pathways</div>
             </div>
 
             <div class="milestone-card">
                 <div class="milestone-icon">🌟</div>
-                <div class="milestone-number" data-count="100">0</div>
+                <div class="milestone-number" data-count="100">100</div>
                 <div class="milestone-label">% Authentic</div>
             </div>
         </div>
@@ -3617,6 +3617,7 @@ const observer = new IntersectionObserver((entries) => {
             // Animate milestone counters
             if (entry.target.classList.contains('milestone-number')) {
                 const target = parseInt(entry.target.dataset.count);
+                entry.target.textContent = '0'; // Reset to 0 before animating
                 animateCounter(entry.target, target, 2000);
             }
         }

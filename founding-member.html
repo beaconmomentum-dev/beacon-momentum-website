@@ -1310,7 +1310,8 @@
             <div class="pricing-container">
                 <h2>Founding Member Investment</h2>
                 <div class="price-amount" style="color: #D4AF37;">$3,997</div>
-                <p class="price-subtitle" style="font-weight: 600;">Founding Member — Pay Once, Never Again</p>
+                <p class="price-subtitle" style="font-weight: 700; font-size: 24pt; color: var(--beacon-gold); margin: 1rem 0;">Pay Once, Never Again</p>
+                <p class="price-subtitle" style="font-weight: 600;">Founding Member — Lifetime Access</p>
                 <p class="price-subtitle">Lifetime Access — One Payment</p>
                 <p class="price-subtitle" style="font-size: 0.95rem; margin-top: 0.5rem;">No recurring fees • No hidden costs • Third-party payment options may be available at checkout</p>
                 
@@ -1348,6 +1349,161 @@
     </section>
 
     <!-- Section 8: Founder Message -->
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-container">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 1rem; color: var(--beacon-dark);">What Our Community Says</h2>
+                <p style="text-align: center; color: var(--beacon-gray); font-size: 1.1rem; margin-bottom: 3rem;">
+                    Real stories from people rebuilding, launching, and creating opportunity.
+                </p>
+
+                <div class="testimonials-grid">
+                    <!-- Testimonial Card 1: Marcus T. (Beacon Launch) -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "I was drowning in student debt with no clear path forward. The Beacon Launch taught me to build a business on my terms. Six months in, I'm making more than my old job."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">👤</div>
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-name">Marcus T.</div>
+                                <div class="testimonial-role">Beacon Launch Member</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2: Robert K. (Founding Member) -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "Beacon isn't just a platform—it's a community that actually cares. After losing my job at 58, I found purpose, income, and friends who understand the journey."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">👤</div>
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-name">Robert K.</div>
+                                <div class="testimonial-role">Founding Member</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3: Sarah M. (Beacon Rise) -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "After my divorce at 52, I thought my best years were behind me. Beacon showed me they were just beginning. The Beacon Rise program gave me the tools and community I needed to rebuild."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">👤</div>
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-name">Sarah M.</div>
+                                <div class="testimonial-role">Beacon Rise Member</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 4: David W. (Founding Member) -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "Bob's transparency and honesty are rare. No BS, no hype—just real guidance from someone who's been through it. That's why I became a founding member."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">👤</div>
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-name">David W.</div>
+                                <div class="testimonial-role">Founding Member</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .testimonial-quote {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--beacon-gray);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .testimonial-author-info {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--beacon-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--beacon-gray);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 3rem 0;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
     <section class="founder-message-section">
         <div class="container">
             <div class="founder-message-container">
