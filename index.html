@@ -993,6 +993,7 @@
             <h1>51 Years of Rebuilding Lives. 2,874 Souls Found Their Way.<br>The Lighthouse is On.</h1>
             <p>Presidential Award winner. Navy veteran. GraceHouse director (7-8% recidivism vs. 55-60% state). Digital Grandpa founder. Five decades of proven frameworks, now scaled globally through Beacon Momentum.</p>
             <div class="hero-cta-group" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button onclick="openQuiz()" class="cta-button" style="background: var(--beacon-gold); color: var(--beacon-dark); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">🧭 Find Your Path</button>
                 <a href="assessment.html" class="cta-button">Take the Free Assessment</a>
                 <a href="founding-member.html" class="cta-button" style="background: transparent; border: 2px solid white; color: white;">Start Your Journey Today</a>
             </div>
@@ -3428,6 +3429,258 @@
 
 <!-- HTML for Section 11: Footer -->
 <footer class="site-footer">
+<!-- FAQ Accordion Section -->
+<style>
+/* FAQ Section */
+.faq-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.faq-header h2 {
+    font-size: 2.5rem;
+    color: var(--beacon-dark);
+    margin-bottom: 1rem;
+}
+
+.faq-header p {
+    font-size: 1.1rem;
+    color: var(--beacon-gray);
+}
+
+/* Accordion Styles */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: #f8f9fa;
+}
+
+.accordion-question {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--beacon-dark);
+    flex: 1;
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    color: var(--beacon-teal);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.accordion-answer {
+    color: var(--beacon-gray);
+    line-height: 1.7;
+}
+
+.accordion-answer strong {
+    color: var(--beacon-dark);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .faq-header h2 {
+        font-size: 2rem;
+    }
+
+    .accordion-question {
+        font-size: 1rem;
+    }
+
+    .accordion-header {
+        padding: 1.2rem;
+    }
+}
+</style>
+
+<section class="faq-section" id="faq">
+    <div class="faq-container">
+        <div class="faq-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about Beacon Momentum</p>
+        </div>
+
+        <div class="accordion">
+            <!-- FAQ 1 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-question">What makes Beacon Momentum different from other programs?</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-answer">
+                        <strong>51 years of proven expertise.</strong> Bob's frameworks have helped 2,874 people rebuild their lives—from his Presidential Award-winning work to directing GraceHouse (7-8% recidivism vs. 55-60% state average). This isn't theory; it's five decades of real-world results now scaled through Beacon Momentum. You're learning from someone who's walked the path, not just studied it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-question">Which program is right for me?</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-answer">
+                        <strong>Take the Path Finder quiz</strong> (click "🧭 Find Your Path" above) for a personalized recommendation. Generally: <strong>Beacon Rise</strong> is for life transitions (divorce, job loss, health crisis), <strong>Beacon Launch</strong> is for building a one-person business, and <strong>Beacon Academy</strong> is for learning DeFi and digital assets. All programs include community support and lifetime access.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-question">What's included in Founding Member access?</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-answer">
+                        <strong>Everything, forever.</strong> Pay once ($3,997), never again. You get lifetime access to Beacon Academy, Beacon Launch, Beacon Rise, all future content, priority support, founding member badge, and the ability to shape the platform. After Dec 24, 2025, this becomes $97-247/month with no lifetime option. Lock in your price now.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-question">How much time do I need to commit?</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-answer">
+                        <strong>As little or as much as you want.</strong> Beacon Rise works with 2-5 hours/week for life planning. Beacon Launch requires 5-10 hours/week for business building. Beacon Academy is self-paced for learning DeFi. All programs are designed for busy adults—you control the pace.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-question">Is there a money-back guarantee?</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-answer">
+                        <strong>Yes. 30-day full refund, no questions asked.</strong> If Beacon Momentum isn't the right fit, email us within 30 days for a complete refund. We're confident in the value, but we also know not every program fits every person. Your investment is protected.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-question">What results can I expect?</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-answer">
+                        <strong>Real transformation takes time and effort.</strong> Our community reports: clarity within 2-4 weeks (Beacon Rise), first income within 30-90 days (Beacon Launch), and financial literacy within 3-6 months (Beacon Academy). Results depend on your commitment—we provide the frameworks, community, and support. You bring the action.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-question">Can I access the community without buying a program?</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-answer">
+                        <strong>Not yet.</strong> The community is currently exclusive to program members to maintain quality and trust. However, we're exploring a free tier for 2026. For now, start with the free assessment to see if Beacon Momentum is right for you, then join a program to access the full community.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-question">What if I'm over 50 and not tech-savvy?</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-answer">
+                        <strong>You're exactly who we built this for.</strong> Bob is 75 and learned all this from scratch through Digital Grandpa. Our programs assume zero tech knowledge—we teach everything step-by-step. Plus, the community is full of people in their 50s, 60s, and 70s who've successfully navigated the same learning curve. You're not alone.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleAccordion(header) {
+    const item = header.parentElement;
+    const wasActive = item.classList.contains('active');
+    
+    // Close all accordion items
+    document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('active');
+    });
+    
+    // Open clicked item if it wasn't already active
+    if (!wasActive) {
+        item.classList.add('active');
+    }
+}
+</script>
     <div class="footer-container">
         <div class="footer-grid">
             <!-- Column 1: About Beacon -->
@@ -3660,4 +3913,593 @@ timelineItems.forEach(item => {
 });
 </script>
 </body>
+<!-- Sticky Navigation Enhancement -->
+<style>
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--beacon-teal) 0%, var(--beacon-gold) 100%);
+    z-index: 10001;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
+}
+
+/* Enhanced Sticky Navigation */
+header {
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+header.scrolled .logo {
+    transform: scale(0.9);
+}
+
+header.scrolled nav a {
+    color: var(--beacon-dark);
+}
+
+header.scrolled nav a:hover {
+    color: var(--beacon-teal);
+}
+
+/* Floating CTA Button (appears on scroll) */
+.floating-cta {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--beacon-gold);
+    color: var(--beacon-dark);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.floating-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.floating-cta:hover {
+    background: var(--beacon-teal);
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(15, 118, 110, 0.4);
+}
+
+.floating-cta-icon {
+    font-size: 1.2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .floating-cta {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .scroll-progress {
+        height: 3px;
+    }
+}
+</style>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Floating CTA Button -->
+<a href="/founding-member.html" class="floating-cta" id="floatingCta">
+    <span class="floating-cta-icon">🚀</span>
+    <span>Claim Lifetime Access</span>
+</a>
+
+<script>
+// Scroll Progress Bar
+function updateScrollProgress() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('scrollProgress').style.width = scrolled + '%';
+}
+
+// Sticky Header Enhancement
+function updateStickyHeader() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+}
+
+// Floating CTA Visibility
+function updateFloatingCta() {
+    const floatingCta = document.getElementById('floatingCta');
+    const heroSection = document.querySelector('.hero');
+    const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 800;
+    
+    if (window.scrollY > heroBottom) {
+        floatingCta.classList.add('visible');
+    } else {
+        floatingCta.classList.remove('visible');
+    }
+}
+
+// Attach scroll listeners
+window.addEventListener('scroll', function() {
+    updateScrollProgress();
+    updateStickyHeader();
+    updateFloatingCta();
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateScrollProgress();
+    updateStickyHeader();
+    updateFloatingCta();
+});
+</script>
+<!-- Path Finder Quiz Component -->
+<style>
+/* Quiz Modal Overlay */
+.quiz-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.quiz-modal-overlay.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Quiz Container */
+.quiz-container {
+    background: white;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Quiz Header */
+.quiz-header {
+    background: linear-gradient(135deg, var(--beacon-teal) 0%, var(--beacon-dark) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+}
+
+.quiz-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+}
+
+.quiz-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+/* Quiz Body */
+.quiz-body {
+    padding: 2rem;
+}
+
+/* Quiz Question */
+.quiz-question {
+    display: none;
+    animation: fadeInQuestion 0.4s ease-in-out;
+}
+
+.quiz-question.active {
+    display: block;
+}
+
+@keyframes fadeInQuestion {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.quiz-question h3 {
+    color: var(--beacon-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+/* Quiz Options */
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quiz-option {
+    background: #f8f9fa;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.quiz-option:hover {
+    background: #fff;
+    border-color: var(--beacon-teal);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2);
+}
+
+.quiz-option-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.quiz-option-text {
+    flex: 1;
+}
+
+.quiz-option-title {
+    font-weight: 600;
+    color: var(--beacon-dark);
+    margin-bottom: 0.3rem;
+}
+
+.quiz-option-desc {
+    font-size: 0.9rem;
+    color: var(--beacon-gray);
+}
+
+/* Quiz Progress */
+.quiz-progress {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.quiz-progress-dot {
+    flex: 1;
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+.quiz-progress-dot.active {
+    background: var(--beacon-teal);
+}
+
+/* Quiz Result */
+.quiz-result {
+    display: none;
+    text-align: center;
+    animation: fadeInQuestion 0.4s ease-in-out;
+}
+
+.quiz-result.active {
+    display: block;
+}
+
+.quiz-result-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-result h3 {
+    color: var(--beacon-dark);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.quiz-result p {
+    color: var(--beacon-gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.quiz-result-cta {
+    display: inline-block;
+    background: var(--beacon-teal);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.quiz-result-cta:hover {
+    background: var(--beacon-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Quiz Close Button */
+.quiz-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.quiz-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .quiz-container {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .quiz-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .quiz-question h3 {
+        font-size: 1.1rem;
+    }
+
+    .quiz-option {
+        padding: 1rem;
+    }
+}
+</style>
+
+<!-- Quiz Modal HTML -->
+<div class="quiz-modal-overlay" id="pathFinderQuiz">
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <button class="quiz-close" onclick="closeQuiz()">&times;</button>
+            <h2>🧭 Find Your Path</h2>
+            <p>Answer 3 quick questions to discover which program fits you best</p>
+        </div>
+
+        <div class="quiz-body">
+            <!-- Progress Indicator -->
+            <div class="quiz-progress">
+                <div class="quiz-progress-dot active" data-step="1"></div>
+                <div class="quiz-progress-dot" data-step="2"></div>
+                <div class="quiz-progress-dot" data-step="3"></div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="quiz-question active" data-question="1">
+                <h3>What's your current situation?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuestion(1, 'transition')">
+                        <span class="quiz-option-icon">🔄</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">Life Transition</div>
+                            <div class="quiz-option-desc">Divorce, job loss, health crisis, or major life change</div>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="answerQuestion(1, 'business')">
+                        <span class="quiz-option-icon">🚀</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">Want to Start a Business</div>
+                            <div class="quiz-option-desc">Ready to build a one-person income stream</div>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="answerQuestion(1, 'finance')">
+                        <span class="quiz-option-icon">💰</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">Financial Growth</div>
+                            <div class="quiz-option-desc">Want to learn about crypto, DeFi, and digital assets</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question" data-question="2">
+                <h3>What's your biggest priority right now?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuestion(2, 'stability')">
+                        <span class="quiz-option-icon">🏠</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">Stability & Purpose</div>
+                            <div class="quiz-option-desc">Finding direction and rebuilding confidence</div>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="answerQuestion(2, 'income')">
+                        <span class="quiz-option-icon">💵</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">Generate Income</div>
+                            <div class="quiz-option-desc">Creating a sustainable revenue stream</div>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="answerQuestion(2, 'wealth')">
+                        <span class="quiz-option-icon">📈</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">Build Wealth</div>
+                            <div class="quiz-option-desc">Growing assets and financial freedom</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question" data-question="3">
+                <h3>How much time can you commit per week?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuestion(3, 'light')">
+                        <span class="quiz-option-icon">⏰</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">2-5 hours</div>
+                            <div class="quiz-option-desc">I need something flexible</div>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="answerQuestion(3, 'moderate')">
+                        <span class="quiz-option-icon">📅</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">5-10 hours</div>
+                            <div class="quiz-option-desc">I'm ready to put in focused effort</div>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="answerQuestion(3, 'intensive')">
+                        <span class="quiz-option-icon">🔥</span>
+                        <div class="quiz-option-text">
+                            <div class="quiz-option-title">10+ hours</div>
+                            <div class="quiz-option-desc">I'm all-in and ready to transform</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="quiz-result" id="resultRise">
+                <div class="quiz-result-icon">🌅</div>
+                <h3>Beacon Rise is Your Path</h3>
+                <p>Based on your answers, you need tools for life transitions, purpose mapping, and community support. Beacon Rise helps you rebuild with clarity and confidence.</p>
+                <a href="/beacon-rise.html" class="quiz-result-cta">Explore Beacon Rise →</a>
+            </div>
+
+            <div class="quiz-result" id="resultLaunch">
+                <div class="quiz-result-icon">🚀</div>
+                <h3>Beacon Launch is Your Path</h3>
+                <p>You're ready to build a business. Beacon Launch gives you the framework, tools, and systems to go from idea to income in 30 days.</p>
+                <a href="/beacon-launch.html" class="quiz-result-cta">Explore Beacon Launch →</a>
+            </div>
+
+            <div class="quiz-result" id="resultAcademy">
+                <div class="quiz-result-icon">🎓</div>
+                <h3>Beacon Academy is Your Path</h3>
+                <p>You're focused on financial growth and digital assets. Beacon Academy teaches you DeFi, crypto, and wealth-building strategies from the ground up.</p>
+                <a href="/beacon-academy.html" class="quiz-result-cta">Explore Beacon Academy →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quiz JavaScript -->
+<script>
+let quizAnswers = {};
+
+function openQuiz() {
+    document.getElementById('pathFinderQuiz').classList.add('active');
+    quizAnswers = {};
+    // Reset to question 1
+    document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+    document.querySelector('[data-question="1"]').classList.add('active');
+    document.querySelectorAll('.quiz-result').forEach(r => r.classList.remove('active'));
+    document.querySelectorAll('.quiz-progress-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === 0);
+    });
+}
+
+function closeQuiz() {
+    document.getElementById('pathFinderQuiz').classList.remove('active');
+}
+
+function answerQuestion(questionNum, answer) {
+    quizAnswers[questionNum] = answer;
+    
+    // Update progress
+    document.querySelectorAll('.quiz-progress-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i < questionNum);
+    });
+    
+    // Move to next question or show result
+    if (questionNum < 3) {
+        document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+        document.querySelector(`[data-question="${questionNum + 1}"]`).classList.add('active');
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    // Hide all questions
+    document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+    
+    // Determine result based on answers
+    let result = 'resultRise'; // default
+    
+    if (quizAnswers[1] === 'business' || quizAnswers[2] === 'income') {
+        result = 'resultLaunch';
+    } else if (quizAnswers[1] === 'finance' || quizAnswers[2] === 'wealth') {
+        result = 'resultAcademy';
+    } else if (quizAnswers[1] === 'transition' || quizAnswers[2] === 'stability') {
+        result = 'resultRise';
+    }
+    
+    // Show result
+    document.getElementById(result).classList.add('active');
+}
+
+// Close quiz when clicking outside
+document.getElementById('pathFinderQuiz')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeQuiz();
+    }
+});
+</script>
+
+<!-- Quiz Trigger Button (add to hero section or prominent location) -->
+<button onclick="openQuiz()" style="background: var(--beacon-gold); color: var(--beacon-dark); border: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
+    🧭 Find Your Path
+</button>
 </html>
