@@ -1492,6 +1492,281 @@
         <p class="dg-wisdom-footer">Simple. Real. Human.</p>
     </div>
 </section>
+<!-- Founder Video Section -->
+<style>
+/* Founder Video Section */
+.founder-video-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--beacon-dark) 0%, #1a2b3d 100%);
+    color: white;
+}
+
+.founder-video-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.founder-video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Video Player */
+.founder-video-player {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    background: #000;
+}
+
+.founder-video-placeholder {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: linear-gradient(135deg, #1a2b3d 0%, var(--beacon-teal) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.founder-video-placeholder-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+.founder-video-play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.founder-video-play-button:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+.founder-video-play-icon {
+    width: 0;
+    height: 0;
+    border-left: 25px solid var(--beacon-teal);
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    margin-left: 5px;
+}
+
+.founder-video-placeholder-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.founder-video-duration {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+/* Video Content */
+.founder-video-content {
+    padding: 0 2rem;
+}
+
+.founder-video-badge {
+    display: inline-block;
+    background: var(--beacon-gold);
+    color: var(--beacon-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+}
+
+.founder-video-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.founder-video-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.founder-video-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.founder-video-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid var(--beacon-gold);
+}
+
+.founder-video-highlight-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.founder-video-highlight-text {
+    flex: 1;
+}
+
+.founder-video-highlight-title {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.founder-video-highlight-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.founder-video-cta {
+    display: inline-block;
+    background: var(--beacon-gold);
+    color: var(--beacon-dark);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.founder-video-cta:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .founder-video-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .founder-video-content {
+        padding: 0;
+    }
+
+    .founder-video-title {
+        font-size: 2rem;
+    }
+
+    .founder-video-play-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .founder-video-play-icon {
+        border-left-width: 20px;
+        border-top-width: 12px;
+        border-bottom-width: 12px;
+    }
+}
+</style>
+
+<section class="founder-video-section">
+    <div class="founder-video-container">
+        <div class="founder-video-grid">
+            <!-- Video Player -->
+            <div class="founder-video-player">
+                <div class="founder-video-placeholder">
+                    <div class="founder-video-placeholder-content">
+                        <div class="founder-video-play-button">
+                            <div class="founder-video-play-icon"></div>
+                        </div>
+                        <div class="founder-video-placeholder-text">
+                            Meet Bob: 51 Years of Rebuilding Lives
+                        </div>
+                        <div class="founder-video-duration">⏱️ 45 seconds</div>
+                    </div>
+                </div>
+                <!-- Video will be embedded here when available -->
+                <!-- <iframe src="..." frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            </div>
+
+            <!-- Video Content -->
+            <div class="founder-video-content">
+                <span class="founder-video-badge">🎥 Founder Story</span>
+                <h2 class="founder-video-title">From Presidential Award to Digital Grandpa</h2>
+                <p class="founder-video-subtitle">
+                    Five decades of proven frameworks. 2,874 lives rebuilt. Now scaled globally through Beacon Momentum.
+                </p>
+
+                <ul class="founder-video-highlights">
+                    <li class="founder-video-highlight">
+                        <span class="founder-video-highlight-icon">🏆</span>
+                        <div class="founder-video-highlight-text">
+                            <div class="founder-video-highlight-title">Presidential Award Winner</div>
+                            <div class="founder-video-highlight-desc">Recognized for transformative community impact</div>
+                        </div>
+                    </li>
+                    <li class="founder-video-highlight">
+                        <span class="founder-video-highlight-icon">🏠</span>
+                        <div class="founder-video-highlight-text">
+                            <div class="founder-video-highlight-title">GraceHouse Director</div>
+                            <div class="founder-video-highlight-desc">7-8% recidivism vs. 55-60% state average</div>
+                        </div>
+                    </li>
+                    <li class="founder-video-highlight">
+                        <span class="founder-video-highlight-icon">⚓</span>
+                        <div class="founder-video-highlight-text">
+                            <div class="founder-video-highlight-title">Navy Veteran</div>
+                            <div class="founder-video-highlight-desc">Discipline, service, and leadership foundation</div>
+                        </div>
+                    </li>
+                    <li class="founder-video-highlight">
+                        <span class="founder-video-highlight-icon">👴</span>
+                        <div class="founder-video-highlight-text">
+                            <div class="founder-video-highlight-title">Digital Grandpa at 75</div>
+                            <div class="founder-video-highlight-desc">Learned tech from scratch, now teaching thousands</div>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="/founder.html" class="founder-video-cta">Read Bob's Full Story →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Video player functionality (when video is available)
+document.querySelector('.founder-video-play-button')?.addEventListener('click', function() {
+    // Replace placeholder with actual video embed
+    // For now, redirect to founder page
+    window.location.href = '/founder.html';
+});
+</script>
 
 <!-- Timeline Graphic Section -->
 <style>
@@ -3624,9 +3899,684 @@
 
 <!-- HTML for Section 11: Footer -->
 <footer class="site-footer">
+<!-- Stories Hub Teaser Section -->
+<style>
+/* Stories Hub Section */
+.stories-hub-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #1a2b3d 0%, var(--beacon-dark) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.stories-hub-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(212,175,55,0.1)"/></svg>');
+    opacity: 0.3;
+}
+
+.stories-hub-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.stories-hub-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.stories-hub-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--beacon-gold);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--beacon-gold);
+}
+
+.stories-hub-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.stories-hub-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Stories Grid */
+.stories-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stories-hub-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stories-hub-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+    border-color: var(--beacon-gold);
+}
+
+.stories-hub-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stories-hub-card-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--beacon-teal) 0%, var(--beacon-gold) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.stories-hub-card-info {
+    flex: 1;
+}
+
+.stories-hub-card-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.stories-hub-card-program {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.stories-hub-card-quote {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+.stories-hub-card-stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stories-hub-card-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stories-hub-card-stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--beacon-gold);
+}
+
+.stories-hub-card-stat-label {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* CTA */
+.stories-hub-cta-container {
+    text-align: center;
+}
+
+.stories-hub-cta {
+    display: inline-block;
+    background: var(--beacon-gold);
+    color: var(--beacon-dark);
+    padding: 1.2rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.stories-hub-cta:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
+
+.stories-hub-coming-soon {
+    display: inline-block;
+    margin-left: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .stories-hub-title {
+        font-size: 2rem;
+    }
+
+    .stories-hub-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stories-hub-coming-soon {
+        display: block;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
+</style>
+
+<section class="stories-hub-section">
+    <div class="stories-hub-container">
+        <div class="stories-hub-header">
+            <span class="stories-hub-badge">📖 Member Stories</span>
+            <h2 class="stories-hub-title">Real Transformations, Real People</h2>
+            <p class="stories-hub-subtitle">
+                From rock bottom to rebuilt. These are the stories that prove it's never too late.
+            </p>
+        </div>
+
+        <div class="stories-hub-grid">
+            <!-- Story 1: Marcus -->
+            <div class="stories-hub-card">
+                <div class="stories-hub-card-header">
+                    <div class="stories-hub-card-avatar">👨‍💼</div>
+                    <div class="stories-hub-card-info">
+                        <div class="stories-hub-card-name">Marcus T.</div>
+                        <div class="stories-hub-card-program">Beacon Launch Member</div>
+                    </div>
+                </div>
+                <p class="stories-hub-card-quote">
+                    "Drowning in student debt at 42. Six months later, I'm making more than my old job—and I'm my own boss."
+                </p>
+                <div class="stories-hub-card-stats">
+                    <div class="stories-hub-card-stat">
+                        <div class="stories-hub-card-stat-number">$6.2K</div>
+                        <div class="stories-hub-card-stat-label">First 90 days</div>
+                    </div>
+                    <div class="stories-hub-card-stat">
+                        <div class="stories-hub-card-stat-number">3</div>
+                        <div class="stories-hub-card-stat-label">Clients</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story 2: Sarah -->
+            <div class="stories-hub-card">
+                <div class="stories-hub-card-header">
+                    <div class="stories-hub-card-avatar">👩‍🦰</div>
+                    <div class="stories-hub-card-info">
+                        <div class="stories-hub-card-name">Sarah M.</div>
+                        <div class="stories-hub-card-program">Beacon Rise Member</div>
+                    </div>
+                </div>
+                <p class="stories-hub-card-quote">
+                    "After my divorce at 52, I thought my best years were behind me. Beacon showed me they were just beginning."
+                </p>
+                <div class="stories-hub-card-stats">
+                    <div class="stories-hub-card-stat">
+                        <div class="stories-hub-card-stat-number">21</div>
+                        <div class="stories-hub-card-stat-label">Days to clarity</div>
+                    </div>
+                    <div class="stories-hub-card-stat">
+                        <div class="stories-hub-card-stat-number">100%</div>
+                        <div class="stories-hub-card-stat-label">Confidence</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story 3: Robert -->
+            <div class="stories-hub-card">
+                <div class="stories-hub-card-header">
+                    <div class="stories-hub-card-avatar">👨‍🦳</div>
+                    <div class="stories-hub-card-info">
+                        <div class="stories-hub-card-name">Robert K.</div>
+                        <div class="stories-hub-card-program">Founding Member</div>
+                    </div>
+                </div>
+                <p class="stories-hub-card-quote">
+                    "Lost my job at 58. Found purpose, income, and friends who understand the journey. Best investment I ever made."
+                </p>
+                <div class="stories-hub-card-stats">
+                    <div class="stories-hub-card-stat">
+                        <div class="stories-hub-card-stat-number">$4.8K</div>
+                        <div class="stories-hub-card-stat-label">Monthly income</div>
+                    </div>
+                    <div class="stories-hub-card-stat">
+                        <div class="stories-hub-card-stat-number">12</div>
+                        <div class="stories-hub-card-stat-label">Months in</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stories-hub-cta-container">
+            <a href="#" class="stories-hub-cta" onclick="alert('Stories Hub launching soon! Join as a Founding Member to be featured.'); return false;">
+                Read More Stories →
+            </a>
+            <span class="stories-hub-coming-soon">Coming Q1 2026</span>
+        </div>
+    </div>
+</section>
 <!-- FAQ Accordion Section -->
 <style>
 /* FAQ Section */
+<!-- Free Beacon Kit Section -->
+<style>
+/* Beacon Kit Section */
+.beacon-kit-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.beacon-kit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.beacon-kit-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.beacon-kit-badge {
+    display: inline-block;
+    background: var(--beacon-gold);
+    color: var(--beacon-dark);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.beacon-kit-title {
+    font-size: 2.5rem;
+    color: var(--beacon-dark);
+    margin-bottom: 1rem;
+}
+
+.beacon-kit-subtitle {
+    font-size: 1.2rem;
+    color: var(--beacon-gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Kit Grid */
+.beacon-kit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.beacon-kit-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.beacon-kit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    border-color: var(--beacon-teal);
+}
+
+.beacon-kit-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.beacon-kit-card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--beacon-dark);
+    margin-bottom: 0.8rem;
+}
+
+.beacon-kit-card-desc {
+    color: var(--beacon-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.beacon-kit-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.beacon-kit-card-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--beacon-dark);
+}
+
+.beacon-kit-card-feature::before {
+    content: '✓';
+    color: var(--beacon-teal);
+    font-weight: 700;
+}
+
+.beacon-kit-card-button {
+    width: 100%;
+    background: var(--beacon-teal);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.beacon-kit-card-button:hover {
+    background: var(--beacon-dark);
+    transform: translateY(-2px);
+}
+
+/* Download Modal */
+.beacon-kit-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10003;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.beacon-kit-modal-overlay.active {
+    display: flex;
+}
+
+.beacon-kit-modal {
+    background: white;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease-out;
+    position: relative;
+}
+
+.beacon-kit-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--beacon-gray);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.beacon-kit-modal-close:hover {
+    background: #f0f0f0;
+    color: var(--beacon-dark);
+}
+
+.beacon-kit-modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--beacon-dark);
+}
+
+.beacon-kit-modal-desc {
+    color: var(--beacon-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.beacon-kit-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.beacon-kit-modal-input {
+    padding: 0.8rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.beacon-kit-modal-input:focus {
+    outline: none;
+    border-color: var(--beacon-teal);
+}
+
+.beacon-kit-modal-submit {
+    background: var(--beacon-teal);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.beacon-kit-modal-submit:hover {
+    background: var(--beacon-dark);
+    transform: translateY(-2px);
+}
+
+.beacon-kit-modal-privacy {
+    font-size: 0.85rem;
+    color: var(--beacon-gray);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .beacon-kit-title {
+        font-size: 2rem;
+    }
+
+    .beacon-kit-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<section class="beacon-kit-section">
+    <div class="beacon-kit-container">
+        <div class="beacon-kit-header">
+            <span class="beacon-kit-badge">📦 Free Resources</span>
+            <h2 class="beacon-kit-title">Get Your Free Beacon Kit</h2>
+            <p class="beacon-kit-subtitle">
+                Three essential guides to help you rebuild, launch, or grow—no commitment required.
+            </p>
+        </div>
+
+        <div class="beacon-kit-grid">
+            <!-- Beacon Rise Guide -->
+            <div class="beacon-kit-card">
+                <div class="beacon-kit-card-icon">🧭</div>
+                <h3 class="beacon-kit-card-title">Life Transition Roadmap</h3>
+                <p class="beacon-kit-card-desc">
+                    Navigate divorce, job loss, or major life changes with clarity and purpose.
+                </p>
+                <ul class="beacon-kit-card-features">
+                    <li class="beacon-kit-card-feature">7-day clarity framework</li>
+                    <li class="beacon-kit-card-feature">Financial reset checklist</li>
+                    <li class="beacon-kit-card-feature">Purpose mapping worksheet</li>
+                    <li class="beacon-kit-card-feature">Community connection guide</li>
+                </ul>
+                <button class="beacon-kit-card-button" onclick="openBeaconKitModal('Life Transition Roadmap')">
+                    Download Free PDF →
+                </button>
+            </div>
+
+            <!-- Beacon Launch Guide -->
+            <div class="beacon-kit-card">
+                <div class="beacon-kit-card-icon">🚀</div>
+                <h3 class="beacon-kit-card-title">One-Person Business Blueprint</h3>
+                <p class="beacon-kit-card-desc">
+                    Build a profitable business with no employees, no venture capital, no permission.
+                </p>
+                <ul class="beacon-kit-card-features">
+                    <li class="beacon-kit-card-feature">30-day launch checklist</li>
+                    <li class="beacon-kit-card-feature">Business model selector</li>
+                    <li class="beacon-kit-card-feature">First $1K action plan</li>
+                    <li class="beacon-kit-card-feature">Automation toolkit</li>
+                </ul>
+                <button class="beacon-kit-card-button" onclick="openBeaconKitModal('One-Person Business Blueprint')">
+                    Download Free PDF →
+                </button>
+            </div>
+
+            <!-- Beacon Academy Guide -->
+            <div class="beacon-kit-card">
+                <div class="beacon-kit-card-icon">🏦</div>
+                <h3 class="beacon-kit-card-title">DeFi Starter Guide</h3>
+                <p class="beacon-kit-card-desc">
+                    Understand decentralized finance without the jargon—built for beginners 50+.
+                </p>
+                <ul class="beacon-kit-card-features">
+                    <li class="beacon-kit-card-feature">DeFi basics explained</li>
+                    <li class="beacon-kit-card-feature">Security checklist</li>
+                    <li class="beacon-kit-card-feature">Platform comparison</li>
+                    <li class="beacon-kit-card-feature">First steps walkthrough</li>
+                </ul>
+                <button class="beacon-kit-card-button" onclick="openBeaconKitModal('DeFi Starter Guide')">
+                    Download Free PDF →
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download Modal -->
+<div class="beacon-kit-modal-overlay" id="beaconKitModal">
+    <div class="beacon-kit-modal">
+        <button class="beacon-kit-modal-close" onclick="closeBeaconKitModal()">&times;</button>
+        <h3 class="beacon-kit-modal-title" id="beaconKitModalTitle">Get Your Free Guide</h3>
+        <p class="beacon-kit-modal-desc">
+            Enter your email to receive <strong id="beaconKitGuideName"></strong> instantly. No spam, unsubscribe anytime.
+        </p>
+        <form class="beacon-kit-modal-form" onsubmit="submitBeaconKitForm(event)">
+            <input 
+                type="text" 
+                class="beacon-kit-modal-input" 
+                placeholder="Your Name" 
+                required 
+                id="beaconKitName"
+            />
+            <input 
+                type="email" 
+                class="beacon-kit-modal-input" 
+                placeholder="Your Email" 
+                required 
+                id="beaconKitEmail"
+            />
+            <button type="submit" class="beacon-kit-modal-submit">
+                Send Me the Guide →
+            </button>
+        </form>
+        <p class="beacon-kit-modal-privacy">
+            🔒 We respect your privacy. Your email is safe with us.
+        </p>
+    </div>
+</div>
+
+<script>
+let selectedGuide = '';
+
+function openBeaconKitModal(guideName) {
+    selectedGuide = guideName;
+    document.getElementById('beaconKitGuideName').textContent = guideName;
+    document.getElementById('beaconKitModal').classList.add('active');
+}
+
+function closeBeaconKitModal() {
+    document.getElementById('beaconKitModal').classList.remove('active');
+    document.getElementById('beaconKitName').value = '';
+    document.getElementById('beaconKitEmail').value = '';
+}
+
+function submitBeaconKitForm(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('beaconKitName').value;
+    const email = document.getElementById('beaconKitEmail').value;
+    
+    // In production, send to email service (Mailchimp, ConvertKit, etc.)
+    console.log('Beacon Kit Request:', { name, email, guide: selectedGuide });
+    
+    // For now, show success message and close modal
+    alert(`Thank you, ${name}! Check your email for "${selectedGuide}".`);
+    closeBeaconKitModal();
+    
+    // Optional: Redirect to thank you page or trigger download
+    // window.location.href = '/downloads/' + selectedGuide.toLowerCase().replace(/ /g, '-') + '.pdf';
+}
+
+// Close modal when clicking outside
+document.getElementById('beaconKitModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeBeaconKitModal();
+    }
+});
+</script>
 .faq-section {
     padding: 4rem 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
