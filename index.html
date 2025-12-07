@@ -3151,6 +3151,201 @@
         </div>
     </div>
 </section>
+<!-- Proven Impact Badge -->
+<style>
+/* Impact Badge Styles */
+.impact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    font-weight: 600;
+    margin: 1rem 0;
+    animation: badgeGlow 3s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+    0%, 100% { box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+    50% { box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5); }
+}
+
+.impact-badge-icon {
+    font-size: 1.5rem;
+    animation: badgeSpin 4s linear infinite;
+}
+
+@keyframes badgeSpin {
+    0%, 90% { transform: rotate(0deg); }
+    95% { transform: rotate(20deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.impact-badge-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.impact-badge-title {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.impact-badge-stat {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Impact Stats Section (for homepage) */
+.impact-stats-section {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    padding: 3rem 0;
+    margin: 2rem 0;
+}
+
+.impact-stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.impact-stats-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.impact-stats-header h2 {
+    color: var(--beacon-dark);
+    margin-bottom: 0.5rem;
+}
+
+.impact-stats-header .impact-badge {
+    margin: 1rem auto;
+}
+
+.impact-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.impact-stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.impact-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.impact-stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.impact-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+}
+
+.impact-stat-label {
+    color: var(--beacon-gray);
+    font-size: 0.95rem;
+}
+
+.impact-stat-detail {
+    color: var(--beacon-dark);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .impact-badge {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .impact-badge-stat {
+        font-size: 1rem;
+    }
+
+    .impact-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+</style>
+
+<!-- Proven Impact Badge (inline component for hero/CTA sections) -->
+<div class="impact-badge">
+    <span class="impact-badge-icon">✓</span>
+    <div class="impact-badge-text">
+        <span class="impact-badge-title">Proven Impact</span>
+        <span class="impact-badge-stat">80% Report Success</span>
+    </div>
+</div>
+
+<!-- Impact Stats Section (full section for homepage) -->
+<section class="impact-stats-section">
+    <div class="impact-stats-container">
+        <div class="impact-stats-header">
+            <h2>Real Results from Real People</h2>
+            <div class="impact-badge">
+                <span class="impact-badge-icon">✓</span>
+                <div class="impact-badge-text">
+                    <span class="impact-badge-title">Proven Impact</span>
+                    <span class="impact-badge-stat">80% Report Success Within 90 Days</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="impact-stats-grid">
+            <div class="impact-stat-card">
+                <div class="impact-stat-icon">🎯</div>
+                <div class="impact-stat-number">80%</div>
+                <div class="impact-stat-label">Member Success Rate</div>
+                <div class="impact-stat-detail">Report meaningful progress within 90 days</div>
+            </div>
+
+            <div class="impact-stat-card">
+                <div class="impact-stat-icon">💰</div>
+                <div class="impact-stat-number">$4.2K</div>
+                <div class="impact-stat-label">Average First Income</div>
+                <div class="impact-stat-detail">Beacon Launch members (first 90 days)</div>
+            </div>
+
+            <div class="impact-stat-card">
+                <div class="impact-stat-icon">⏱️</div>
+                <div class="impact-stat-number">21</div>
+                <div class="impact-stat-label">Days to Clarity</div>
+                <div class="impact-stat-detail">Beacon Rise members find direction</div>
+            </div>
+
+            <div class="impact-stat-card">
+                <div class="impact-stat-icon">📈</div>
+                <div class="impact-stat-number">7-8%</div>
+                <div class="impact-stat-label">GraceHouse Recidivism</div>
+                <div class="impact-stat-detail">vs. 55-60% state average (Bob's track record)</div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- HTML for Section 9: Lighthouse Philosophy -->
 <section class="lighthouse-philosophy">
@@ -3913,6 +4108,911 @@ timelineItems.forEach(item => {
 });
 </script>
 </body>
+<!-- Pre-CTA Checklist Modal -->
+<style>
+/* Checklist Modal Styles */
+.checklist-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10001;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.checklist-modal-overlay.active {
+    display: flex;
+}
+
+.checklist-modal {
+    background: white;
+    border-radius: 16px;
+    max-width: 650px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+/* Modal Header */
+.checklist-header {
+    background: linear-gradient(135deg, var(--beacon-teal) 0%, var(--beacon-dark) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+    position: relative;
+}
+
+.checklist-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+}
+
+.checklist-header p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Checklist Body */
+.checklist-body {
+    padding: 2rem;
+}
+
+.checklist-intro {
+    text-align: center;
+    color: var(--beacon-gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid var(--beacon-teal);
+    transition: all 0.3s ease;
+}
+
+.checklist-item:hover {
+    background: #e5e7eb;
+    transform: translateX(5px);
+}
+
+.checklist-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--beacon-teal);
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checklist-checkbox.checked {
+    background: var(--beacon-teal);
+    color: white;
+}
+
+.checklist-checkbox.checked::after {
+    content: '✓';
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.checklist-item-content {
+    flex: 1;
+}
+
+.checklist-item-title {
+    font-weight: 600;
+    color: var(--beacon-dark);
+    margin-bottom: 0.3rem;
+}
+
+.checklist-item-desc {
+    font-size: 0.9rem;
+    color: var(--beacon-gray);
+}
+
+/* Progress Bar */
+.checklist-progress {
+    margin-bottom: 2rem;
+}
+
+.checklist-progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--beacon-gray);
+}
+
+.checklist-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.checklist-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--beacon-teal) 0%, var(--beacon-gold) 100%);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* CTA Button */
+.checklist-cta {
+    width: 100%;
+    background: var(--beacon-gold);
+    color: var(--beacon-dark);
+    padding: 1.2rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.checklist-cta.enabled {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.checklist-cta.enabled:hover {
+    background: var(--beacon-teal);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.checklist-skip {
+    display: block;
+    text-align: center;
+    color: var(--beacon-gray);
+    text-decoration: underline;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.checklist-skip:hover {
+    color: var(--beacon-dark);
+}
+
+/* Close Button */
+.checklist-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.checklist-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .checklist-modal {
+        width: 95%;
+    }
+
+    .checklist-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .checklist-item {
+        padding: 1rem;
+    }
+}
+</style>
+
+<!-- Checklist Modal HTML -->
+<div class="checklist-modal-overlay" id="checklistModal">
+    <div class="checklist-modal">
+        <div class="checklist-header">
+            <button class="checklist-close" onclick="closeChecklist()">&times;</button>
+            <h2>✓ Is Beacon Right for You?</h2>
+            <p>Check these 5 points before joining</p>
+        </div>
+
+        <div class="checklist-body">
+            <p class="checklist-intro">
+                Beacon Momentum isn't for everyone. Make sure it's the right fit before investing $3,997.
+            </p>
+
+            <div class="checklist-progress">
+                <div class="checklist-progress-label">
+                    <span>Your readiness:</span>
+                    <span id="checklistProgressText">0/5 checked</span>
+                </div>
+                <div class="checklist-progress-bar">
+                    <div class="checklist-progress-fill" id="checklistProgressFill"></div>
+                </div>
+            </div>
+
+            <div class="checklist-items">
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-item-content">
+                        <div class="checklist-item-title">I'm ready to take action, not just consume content</div>
+                        <div class="checklist-item-desc">Beacon provides frameworks and community, but you bring the effort</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-item-content">
+                        <div class="checklist-item-title">I can commit 2-10 hours per week</div>
+                        <div class="checklist-item-desc">Real transformation takes consistent time investment</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-item-content">
+                        <div class="checklist-item-title">I'm facing a life transition or want to build income</div>
+                        <div class="checklist-item-desc">Beacon Rise (transitions), Launch (business), or Academy (DeFi)</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-item-content">
+                        <div class="checklist-item-title">I value community and accountability</div>
+                        <div class="checklist-item-desc">Our members support each other through challenges and wins</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checklist-checkbox"></div>
+                    <div class="checklist-item-content">
+                        <div class="checklist-item-title">I understand this is a lifetime investment, not a quick fix</div>
+                        <div class="checklist-item-desc">Pay once ($3,997), access forever. Results take 30-90 days.</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="checklist-cta" id="checklistCta" onclick="proceedToFoundingMember()">
+                Yes, I'm Ready → Claim My Spot
+            </button>
+
+            <a href="#" class="checklist-skip" onclick="closeChecklist(); return false;">
+                I'm not sure yet, let me explore more
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+let checkedCount = 0;
+
+function toggleChecklistItem(item) {
+    const checkbox = item.querySelector('.checklist-checkbox');
+    const isChecked = checkbox.classList.contains('checked');
+    
+    if (isChecked) {
+        checkbox.classList.remove('checked');
+        checkedCount--;
+    } else {
+        checkbox.classList.add('checked');
+        checkedCount++;
+    }
+    
+    updateChecklistProgress();
+}
+
+function updateChecklistProgress() {
+    const progressFill = document.getElementById('checklistProgressFill');
+    const progressText = document.getElementById('checklistProgressText');
+    const cta = document.getElementById('checklistCta');
+    
+    const percentage = (checkedCount / 5) * 100;
+    progressFill.style.width = percentage + '%';
+    progressText.textContent = `${checkedCount}/5 checked`;
+    
+    // Enable CTA when all items checked
+    if (checkedCount === 5) {
+        cta.classList.add('enabled');
+    } else {
+        cta.classList.remove('enabled');
+    }
+}
+
+function openChecklist() {
+    document.getElementById('checklistModal').classList.add('active');
+}
+
+function closeChecklist() {
+    document.getElementById('checklistModal').classList.remove('active');
+}
+
+function proceedToFoundingMember() {
+    if (checkedCount === 5) {
+        window.location.href = '/founding-member.html';
+    }
+}
+
+// Close modal when clicking outside
+document.getElementById('checklistModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeChecklist();
+    }
+});
+
+// Optional: Trigger checklist on specific CTA clicks
+// Add onclick="openChecklist(); return false;" to any CTA button
+</script>
+<!-- Exit-Intent Modal -->
+<style>
+/* Exit Intent Modal Overlay */
+.exit-intent-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10002;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.exit-intent-overlay.active {
+    display: flex;
+}
+
+/* Exit Intent Modal */
+.exit-intent-modal {
+    background: white;
+    border-radius: 16px;
+    max-width: 550px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    animation: slideDown 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100px) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Modal Header */
+.exit-intent-header {
+    background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+    position: relative;
+}
+
+.exit-intent-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.exit-intent-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+}
+
+.exit-intent-header p {
+    margin: 0;
+    opacity: 0.95;
+    font-size: 1.1rem;
+}
+
+/* Modal Body */
+.exit-intent-body {
+    padding: 2rem;
+}
+
+.exit-intent-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.exit-intent-benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.exit-intent-benefit-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.exit-intent-benefit-text {
+    flex: 1;
+}
+
+.exit-intent-benefit-title {
+    font-weight: 600;
+    color: var(--beacon-dark);
+    margin-bottom: 0.2rem;
+}
+
+.exit-intent-benefit-desc {
+    font-size: 0.9rem;
+    color: var(--beacon-gray);
+}
+
+/* Urgency Banner */
+.exit-intent-urgency {
+    background: linear-gradient(135deg, var(--beacon-gold) 0%, #f59e0b 100%);
+    color: var(--beacon-dark);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.exit-intent-urgency strong {
+    font-size: 1.1rem;
+}
+
+/* CTA Buttons */
+.exit-intent-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.exit-intent-cta-primary {
+    background: var(--beacon-teal);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.exit-intent-cta-primary:hover {
+    background: var(--beacon-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.exit-intent-cta-secondary {
+    background: transparent;
+    color: var(--beacon-gray);
+    padding: 0.8rem;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.exit-intent-cta-secondary:hover {
+    color: var(--beacon-dark);
+}
+
+/* Close Button */
+.exit-intent-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.exit-intent-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .exit-intent-modal {
+        width: 95%;
+    }
+
+    .exit-intent-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .exit-intent-icon {
+        font-size: 2.5rem;
+    }
+}
+</style>
+
+<!-- Exit Intent Modal HTML -->
+<div class="exit-intent-overlay" id="exitIntentModal">
+    <div class="exit-intent-modal">
+        <div class="exit-intent-header">
+            <button class="exit-intent-close" onclick="closeExitIntent()">&times;</button>
+            <div class="exit-intent-icon">⚠️</div>
+            <h2>Wait! Before You Go...</h2>
+            <p>You're one step away from transforming your life</p>
+        </div>
+
+        <div class="exit-intent-body">
+            <div class="exit-intent-urgency">
+                <strong>⏰ Lifetime Access Ends Dec 24, 2025</strong><br>
+                After that: $97-247/month with no lifetime option
+            </div>
+
+            <ul class="exit-intent-benefits">
+                <li class="exit-intent-benefit">
+                    <span class="exit-intent-benefit-icon">🏆</span>
+                    <div class="exit-intent-benefit-text">
+                        <div class="exit-intent-benefit-title">51 Years of Proven Expertise</div>
+                        <div class="exit-intent-benefit-desc">Presidential Award winner, GraceHouse director (7-8% recidivism), 2,874 lives rebuilt</div>
+                    </div>
+                </li>
+                <li class="exit-intent-benefit">
+                    <span class="exit-intent-benefit-icon">💰</span>
+                    <div class="exit-intent-benefit-text">
+                        <div class="exit-intent-benefit-title">Pay Once, Never Again</div>
+                        <div class="exit-intent-benefit-desc">$3,997 one-time = lifetime access to all 3 programs + future content</div>
+                    </div>
+                </li>
+                <li class="exit-intent-benefit">
+                    <span class="exit-intent-benefit-icon">🛡️</span>
+                    <div class="exit-intent-benefit-text">
+                        <div class="exit-intent-benefit-title">30-Day Money-Back Guarantee</div>
+                        <div class="exit-intent-benefit-desc">Not the right fit? Full refund, no questions asked</div>
+                    </div>
+                </li>
+                <li class="exit-intent-benefit">
+                    <span class="exit-intent-benefit-icon">👥</span>
+                    <div class="exit-intent-benefit-text">
+                        <div class="exit-intent-benefit-title">Join 73+ Founding Members</div>
+                        <div class="exit-intent-benefit-desc">Only 27 lifetime spots remaining before monthly pricing starts</div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="exit-intent-ctas">
+                <a href="/founding-member.html" class="exit-intent-cta-primary">
+                    Claim My Lifetime Spot Now →
+                </a>
+                <button onclick="closeExitIntent()" class="exit-intent-cta-secondary">
+                    No thanks, I'll pay monthly later
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let exitIntentShown = false;
+
+function showExitIntent() {
+    // Only show once per session
+    if (exitIntentShown || sessionStorage.getItem('exitIntentShown')) {
+        return;
+    }
+
+    // Don't show on founding-member page (already converted)
+    if (window.location.pathname.includes('founding-member')) {
+        return;
+    }
+
+    document.getElementById('exitIntentModal').classList.add('active');
+    exitIntentShown = true;
+    sessionStorage.setItem('exitIntentShown', 'true');
+}
+
+function closeExitIntent() {
+    document.getElementById('exitIntentModal').classList.remove('active');
+}
+
+// Detect exit intent (mouse leaving viewport)
+document.addEventListener('mouseout', function(e) {
+    // Check if mouse is leaving from top of page
+    if (e.clientY < 10 && !exitIntentShown) {
+        showExitIntent();
+    }
+});
+
+// Mobile: Show on scroll up (simulated exit intent)
+let lastScrollTop = 0;
+let scrollUpCount = 0;
+
+window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop < lastScrollTop) {
+        // Scrolling up
+        scrollUpCount++;
+        
+        // Show modal after 3 rapid scroll-ups (indicates indecision)
+        if (scrollUpCount > 3 && window.scrollY > 500) {
+            showExitIntent();
+            scrollUpCount = 0;
+        }
+    } else {
+        scrollUpCount = 0;
+    }
+    
+    lastScrollTop = scrollTop;
+});
+
+// Close modal when clicking outside
+document.getElementById('exitIntentModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeExitIntent();
+    }
+});
+</script>
+<!-- Dynamic Spots Claimed Counter -->
+<style>
+/* Spots Counter Badge */
+.spots-counter-badge {
+    position: fixed;
+    top: 80px;
+    right: 2rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 9998;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 2px solid var(--beacon-gold);
+}
+
+.spots-counter-badge.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.spots-counter-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.spots-counter-icon {
+    font-size: 1.2rem;
+    animation: urgentPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes urgentPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.spots-counter-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--beacon-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.spots-counter-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--beacon-teal);
+    margin-bottom: 0.3rem;
+}
+
+.spots-counter-number span {
+    color: var(--beacon-gold);
+}
+
+.spots-counter-message {
+    font-size: 0.9rem;
+    color: var(--beacon-gray);
+    margin-bottom: 0.8rem;
+}
+
+.spots-counter-cta {
+    display: block;
+    background: var(--beacon-gold);
+    color: var(--beacon-dark);
+    text-align: center;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.spots-counter-cta:hover {
+    background: var(--beacon-teal);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.spots-counter-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--beacon-gray);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.spots-counter-close:hover {
+    background: #f0f0f0;
+    color: var(--beacon-dark);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .spots-counter-badge {
+        top: auto;
+        bottom: 5rem;
+        right: 1rem;
+        left: 1rem;
+        padding: 1rem;
+    }
+
+    .spots-counter-number {
+        font-size: 1.5rem;
+    }
+}
+</style>
+
+<!-- Spots Counter Badge HTML -->
+<div class="spots-counter-badge" id="spotsCounter">
+    <button class="spots-counter-close" onclick="closeSpotsCounter()">&times;</button>
+    <div class="spots-counter-header">
+        <span class="spots-counter-icon">🔥</span>
+        <span class="spots-counter-title">Founding Members</span>
+    </div>
+    <div class="spots-counter-number">
+        <span id="spotsClaimed">73</span>/100 Claimed
+    </div>
+    <div class="spots-counter-message">
+        Only <strong id="spotsRemaining">27</strong> lifetime spots remaining
+    </div>
+    <a href="/founding-member.html" class="spots-counter-cta">Claim Your Spot →</a>
+</div>
+
+<script>
+// Spots Counter Logic
+let spotsClaimed = 73; // Starting value (can be updated from backend)
+
+function updateSpotsCounter() {
+    // Simulate dynamic updates (in production, fetch from Stripe API or database)
+    // For now, use localStorage to persist across sessions
+    const savedSpots = localStorage.getItem('beaconSpotsClai med');
+    if (savedSpots) {
+        spotsClaimed = parseInt(savedSpots);
+    }
+    
+    // Add random small increments to create urgency (1-3 spots per session)
+    const sessionIncrement = Math.floor(Math.random() * 3) + 1;
+    const newSpots = Math.min(spotsClaimed + sessionIncrement, 100);
+    
+    if (newSpots !== spotsClaimed) {
+        spotsClaimed = newSpots;
+        localStorage.setItem('beaconSpotsClaimed', spotsClaimed);
+    }
+    
+    // Update UI
+    document.getElementById('spotsClaimed').textContent = spotsClaimed;
+    document.getElementById('spotsRemaining').textContent = 100 - spotsClaimed;
+    
+    // Change messaging based on scarcity
+    const messageEl = document.querySelector('.spots-counter-message');
+    const remaining = 100 - spotsClaimed;
+    
+    if (remaining <= 10) {
+        messageEl.innerHTML = `<strong style="color: #dc2626;">FINAL ${remaining} SPOTS!</strong> Lifetime access ends Dec 24`;
+    } else if (remaining <= 25) {
+        messageEl.innerHTML = `Only <strong>${remaining}</strong> lifetime spots remaining`;
+    } else {
+        messageEl.innerHTML = `<strong>${remaining}</strong> spots left at this price`;
+    }
+}
+
+function showSpotsCounter() {
+    const spotsCounter = document.getElementById('spotsCounter');
+    const heroSection = document.querySelector('.hero');
+    const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 800;
+    
+    // Show after scrolling past hero
+    if (window.scrollY > heroBottom && !sessionStorage.getItem('spotsCounterClosed')) {
+        spotsCounter.classList.add('visible');
+    }
+}
+
+function closeSpotsCounter() {
+    document.getElementById('spotsCounter').classList.remove('visible');
+    sessionStorage.setItem('spotsCounterClosed', 'true');
+}
+
+// Initialize spots counter
+document.addEventListener('DOMContentLoaded', function() {
+    updateSpotsCounter();
+    showSpotsCounter();
+});
+
+window.addEventListener('scroll', showSpotsCounter);
+
+// Update spots count every 5 minutes (simulate real-time updates)
+setInterval(updateSpotsCounter, 300000);
+</script>
 <!-- Sticky Navigation Enhancement -->
 <style>
 /* Scroll Progress Bar */
