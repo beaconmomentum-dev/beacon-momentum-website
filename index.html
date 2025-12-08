@@ -23,25 +23,95 @@
     <meta property="twitter:description" content="Beacon Momentum 3.1: Transforming lives through storytelling, mentorship, and innovative community tools. Powered by Beacon Labs, a Beacon Rise Initiative.">
     <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
     
-    <!-- Structured Data (Schema.org) -->
+    <!-- Enhanced Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "EducationalOrganization",
       "name": "Beacon Momentum",
+      "alternateName": "Beacon Momentum 3.1",
       "url": "https://beaconmomentum.com",
       "logo": "https://beaconmomentum.com/images/beacon-logo-badge.png",
-      "description": "Beacon Momentum empowers rebuilders through transformative programs, mentorship, and community support. We help survivors of trauma, veterans, and those rebuilding their lives achieve financial sovereignty and personal growth.",
-      "foundingDate": "2024",
+      "image": "https://beaconmomentum.com/images/beacon-logo-horizontal.png",
+      "description": "Educational platform and peer learning community offering three pathways: Beacon Rise (life transitions), Beacon Launch (entrepreneurship), and Beacon Academy (DeFi/finance). Founded by Presidential Award winner with 51 years of rebuilding expertise, serving 2,874+ individuals.",
+      "foundingDate": "2022",
+      "founder": {
+        "@type": "Person",
+        "name": "Bob Burr",
+        "jobTitle": "Founder & Mentor",
+        "description": "Presidential Award winner, Navy veteran, GraceHouse director (7-8% recidivism vs 55-60% state average), Digital Grandpa founder. 51 years of rebuilding expertise."
+      },
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Customer Service",
         "email": "support@beaconmomentum.com",
         "url": "https://beaconmomentum.com/contact.html"
       },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
       "sameAs": [
-        "https://beaconmomentum.com"
-      ]
+        "https://beaconmomentum.com",
+        "https://digitalgrandpa.org"
+      ],
+      "offers": [
+        {
+          "@type": "Course",
+          "name": "Beacon Rise",
+          "description": "12-week guided journey for people navigating life transitions. Practical skills, peer support, and purpose mapping.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Beacon Momentum"
+          },
+          "educationalLevel": "Beginner to Intermediate",
+          "courseMode": "Online"
+        },
+        {
+          "@type": "Course",
+          "name": "Beacon Launch",
+          "description": "Comprehensive toolkit for entrepreneurs to build one-person businesses. Business planning, funding, growth strategies.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Beacon Momentum"
+          },
+          "educationalLevel": "Intermediate",
+          "courseMode": "Online"
+        },
+        {
+          "@type": "Course",
+          "name": "Beacon Academy",
+          "description": "Master DeFi and modern finance ethically. Digital assets, stablecoins, decentralized finance fundamentals.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Beacon Momentum"
+          },
+          "educationalLevel": "Beginner to Advanced",
+          "courseMode": "Online"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
+    <!-- Additional Schema: WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Beacon Momentum",
+      "url": "https://beaconmomentum.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://beaconmomentum.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
     
@@ -963,6 +1033,7 @@
                     <a href="/beacon-rise.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Rise</a>
                     <a href="/beacon-launch.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Launch</a>
                     <a href="/beacon-academy.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Academy</a>
+                    <a href="/blog/blog.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Blog</a>
                     <a href="/#pricing" class="text-gray-700 hover:text-beacon-teal transition-colors">Pricing</a>
                     <a href="/founding-member.html" class="text-white font-semibold px-4 py-2 rounded-lg transition-all shadow-md" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">👑 Founding Member</a>
                     <a href="/contact.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Contact</a>
@@ -979,6 +1050,7 @@
                 <a href="/beacon-rise.html">Beacon Rise</a>
                 <a href="/beacon-launch.html">Beacon Launch</a>
                 <a href="/beacon-academy.html">Beacon Academy</a>
+                <a href="/blog/blog.html">Blog</a>
                 <a href="/#pricing">Pricing</a>
                 <a href="/founding-member.html" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; font-weight: 600;">👑 Founding Member</a>
                 <a href="/contact.html">Contact</a>
