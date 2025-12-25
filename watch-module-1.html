@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!-- Beacon Momentum Module 1 - Video Player Page -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Module 1 - Navigate Life's Transitions | Beacon Momentum</title>
+    <meta name="description" content="Watch Module 1 of the Beacon Momentum course and learn the Lighthouse Framework for navigating major life transitions.">
+    <link rel="canonical" href="https://beaconmomentum.com/watch-module-1">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-blue: #1A3A5A;
+            --beacon-orange: #D97757;
+            --beacon-cream: #F4F1EA;
+            --beacon-dark: #1F1F1F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--beacon-dark);
+            background-color: white;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #000;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn-primary {
+            background-color: var(--beacon-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.125rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #c16847;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(217, 119, 87, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--beacon-blue);
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--beacon-blue);
+            cursor: pointer;
+            font-size: 1.125rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--beacon-blue);
+            color: white;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--beacon-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .checkmark {
+            color: var(--beacon-orange);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section with Video -->
+    <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Playfair Display', serif; color: var(--beacon-blue);">
+                    Welcome to Module 1: Acknowledge
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+                    Your journey through the Lighthouse Framework begins here. Take the next 8 minutes for yourself.
+                </p>
+            </div>
+
+            <!-- Video Player -->
+            <div class="video-container mb-8">
+                <video 
+                    id="moduleVideo"
+                    controls 
+                    poster="images/beacon_module1_thumbnail.jpg"
+                    preload="metadata"
+                    controlsList="nodownload"
+                >
+                    <source src="videos/beacon_momentum_phase1_module1_FINAL_CLEAN.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="text-center">
+                <p class="text-sm text-gray-500 mb-6">
+                    Duration: 7 minutes 43 seconds | Module 1 of 12
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Just Learned Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="section-title text-center">
+                What You Just Learned
+            </h2>
+            <div class="space-y-4 mb-12">
+                <div class="flex items-start space-x-3">
+                    <span class="checkmark text-xl">✓</span>
+                    <p class="text-lg">Why acknowledging your current reality is the essential first step in any transition</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <span class="checkmark text-xl">✓</span>
+                    <p class="text-lg">The psychological trap that keeps people stuck in confusion and how to break free</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <span class="checkmark text-xl">✓</span>
+                    <p class="text-lg">How the 4-phase Lighthouse Framework guides you from uncertainty to purposeful action</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <span class="checkmark text-xl">✓</span>
+                    <p class="text-lg">A simple, powerful exercise you can do today to begin charting your new course</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps Section -->
+    <section class="py-16" style="background-color: var(--beacon-cream);">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="section-title">
+                Ready for the Complete Journey?
+            </h2>
+            <p class="text-xl mb-8 text-gray-700 max-w-2xl mx-auto">
+                Module 1 is just the beginning. The full Beacon Momentum course includes 12 comprehensive modules that will guide you through every phase of your transition with clarity, confidence, and community support.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-blue);">Phase 1</h3>
+                    <p class="text-lg font-semibold mb-2">Acknowledge</p>
+                    <p class="text-gray-600">Face your reality with courage and compassion</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-blue);">Phase 2</h3>
+                    <p class="text-lg font-semibold mb-2">Orient</p>
+                    <p class="text-gray-600">Discover your values and clarify your direction</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-blue);">Phase 3</h3>
+                    <p class="text-lg font-semibold mb-2">Chart</p>
+                    <p class="text-gray-600">Create your actionable roadmap forward</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-12 max-w-md mx-auto">
+                <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-blue);">Phase 4</h3>
+                <p class="text-lg font-semibold mb-2">Move</p>
+                <p class="text-gray-600">Take confident action and build momentum</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="https://beaconmomentum.com/pricing.html" class="btn-primary">
+                    ENROLL IN THE FULL COURSE
+                </a>
+                <a href="https://beaconmomentum.com/" class="btn-secondary">
+                    LEARN MORE
+                </a>
+            </div>
+
+            <p class="mt-8 text-gray-600">
+                Questions? <a href="https://beaconmomentum.com/contact.html" class="text-blue-600 hover:underline">Contact us</a> or email <a href="mailto:support@beaconmomentum.com" class="text-blue-600 hover:underline">support@beaconmomentum.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="section-title">
+                Join 2,874+ People Finding Their Way Forward
+            </h2>
+            <p class="text-lg text-gray-700 mb-8">
+                Beacon Momentum has helped thousands navigate life's biggest transitions with confidence and clarity.
+            </p>
+            <div class="flex justify-center items-center space-x-2 text-yellow-500 text-2xl mb-4">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span class="text-gray-700 text-lg ml-2">4.8/5.0 (127 reviews)</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Track video completion
+        const video = document.getElementById('moduleVideo');
+        let videoCompleted = false;
+
+        video.addEventListener('ended', function() {
+            if (!videoCompleted) {
+                videoCompleted = true;
+                // Optional: Send completion event to analytics
+                console.log('Module 1 video completed');
+            }
+        });
+
+        // Track video progress milestones
+        video.addEventListener('timeupdate', function() {
+            const progress = (video.currentTime / video.duration) * 100;
+            
+            // Track 25%, 50%, 75% milestones
+            if (progress >= 25 && !video.dataset.milestone25) {
+                video.dataset.milestone25 = 'true';
+                console.log('Video 25% complete');
+            }
+            if (progress >= 50 && !video.dataset.milestone50) {
+                video.dataset.milestone50 = 'true';
+                console.log('Video 50% complete');
+            }
+            if (progress >= 75 && !video.dataset.milestone75) {
+                video.dataset.milestone75 = 'true';
+                console.log('Video 75% complete');
+            }
+        });
+    </script>
+</body>
+</html>
