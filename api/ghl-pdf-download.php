@@ -102,20 +102,13 @@ $lastName = isset($nameParts[1]) ? $nameParts[1] : '';
 
 // STEP 1: Add contact to GHL
 $ghlData = [
+    'locationId' => GHL_LOCATION_ID,
     'email' => $email,
     'firstName' => $firstName,
     'lastName' => $lastName,
+    'name' => $name,
     'tags' => ['PDF Download', 'Lead Magnet: ' . $guide],
-    'customFields' => [
-        [
-            'key' => 'guide_requested',
-            'value' => $guide
-        ],
-        [
-            'key' => 'source',
-            'value' => 'Beacon Kit Download'
-        ]
-    ]
+    'source' => 'Beacon Kit Download'
 ];
 
 $ghlCh = curl_init('https://services.leadconnectorhq.com/contacts/');
@@ -139,7 +132,12 @@ if ($ghlHttpCode < 200 || $ghlHttpCode >= 300) {
     http_response_code(500);
     echo json_encode([
         'success' => false,
-        'error' => 'Failed to add contact to CRM'
+        'error' => 'Failed to add contact to CRM',
+        'debug' => [
+            'httpCode' => $ghlHttpCode,
+            'response' => $ghlResponse,
+            'curlError' => $ghlError
+        ]
     ]);
     exit();
 }
