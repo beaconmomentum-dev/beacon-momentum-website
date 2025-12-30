@@ -797,6 +797,34 @@
             color: var(--beacon-teal);
         }
 
+        /* Video Controls - Hide all except play button on mobile */
+        @media (max-width: 768px) {
+            /* Hide all video controls on mobile */
+            video::-webkit-media-controls {
+                display: none !important;
+            }
+            video::-webkit-media-controls-enclosure {
+                display: none !important;
+            }
+            
+            /* Show only the play button */
+            video::-webkit-media-controls-play-button {
+                display: block !important;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+            }
+            
+            /* Remove any custom play button overlays */
+            .play-button-overlay,
+            .video-play-button,
+            .custom-play-button {
+                display: none !important;
+            }
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .mobile-menu-toggle {
@@ -1087,7 +1115,7 @@
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
                 aria-label="Beacon Momentum Introduction - Who We Are"
             >
-                <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/YUjcWVKsrVFdGUHt.mp4" type="video/mp4">
+                <source src="videos/video1_welcome_to_beacon.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -1362,7 +1390,7 @@ document.getElementById('beaconKitModal')?.addEventListener('click', function(e)
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); background: #000;">
                 <!-- Digital Grandpa Story Video -->
                 <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="The Digital Grandpa Story - Behind the Scenes">
-                    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/wmsfTrzNucLenhxl.mp4" type="video/mp4">
+                    <source src="videos/video2_digital_grandpa_story.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -2038,7 +2066,7 @@ document.getElementById('beaconKitModal')?.addEventListener('click', function(e)
                     style="width: 100%; height: 100%; border-radius: 12px; object-fit: cover;"
                     aria-label="Bob Burr Founder Story - A Lifetime of Rebuilding Lives"
                 >
-                    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/wanuYZMAQdCDGbtN.mp4" type="video/mp4">
+                    <source src="videos/video4_presidential_award_v2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -2633,7 +2661,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); background: #000;">
                 <!-- Economic Reality Video -->
                 <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="The Economic Reality - Data-Driven Infographic">
-                    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/FzEeFjvPPDTwlkZI.mp4" type="video/mp4">
+                    <source src="videos/video5_economic_reality_v2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -2897,7 +2925,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); background: #000;">
                 <!-- Community Voices Video -->
                 <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="Community Voices - You're Not Alone">
-                    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/adKXWjYNEFYOgSpD.mp4" type="video/mp4">
+                    <source src="videos/video7_community_voices_v2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -3095,19 +3123,19 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         </div>
 
         <!-- VIDEO: Beacon Rise Success Story -->
-        <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.1); border-radius: 12px;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: white; text-align: center;">"I Found My Way Forward"</h3>
-            <p style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.5); border-radius: 12px; border: 2px solid rgba(15, 118, 110, 0.2);">
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #1F1F1F; text-align: center; font-weight: 700;">"I Found My Way Forward"</h3>
+            <p style="font-size: 1rem; color: #4B5563; margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Hear from someone who navigated their life transition with Beacon Rise.
             </p>
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); background: #000;">
                 <!-- Life Transition Success Story Video -->
                 <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="Life Transition Success Story - Member Testimonial">
-                    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/mjRfnqlnxfeiXCBS.mp4" type="video/mp4">
+                    <source src="videos/video8_life_transition_v2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <p style="margin-top: 15px; font-size: 0.85rem; color: rgba(255,255,255,0.8); text-align: center;">
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #6B7280; text-align: center;">
                 ⏱️ 45-60 seconds • 💬 Real Member Story
             </p>
         </div>
@@ -3160,19 +3188,19 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         </div>
 
         <!-- VIDEO: Beacon Launch Success Story -->
-        <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.1); border-radius: 12px;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: white; text-align: center;">"From Idea to $4K/Month"</h3>
-            <p style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.5); border-radius: 12px; border: 2px solid rgba(15, 118, 110, 0.2);">
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #1F1F1F; text-align: center; font-weight: 700;">"From Idea to $4K/Month"</h3>
+            <p style="font-size: 1rem; color: #4B5563; margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Watch how one member built a sustainable one-person business.
             </p>
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); background: #000;">
                 <!-- Solopreneur Success Story Video -->
                 <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="Solopreneur Success Story - From Idea to $4K/Month">
-                    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/ymWEymgOEgzdvoRU.mp4" type="video/mp4">
+                    <source src="videos/video9_solopreneur_v2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <p style="margin-top: 15px; font-size: 0.85rem; color: rgba(255,255,255,0.8); text-align: center;">
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #6B7280; text-align: center;">
                 ⏱️ 45-60 seconds • 💼 Real Business Results
             </p>
         </div>
@@ -3225,19 +3253,19 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         </div>
 
         <!-- VIDEO: DeFi Made Simple -->
-        <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.1); border-radius: 12px;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: white; text-align: center;">"DeFi Made Simple"</h3>
-            <p style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.5); border-radius: 12px; border: 2px solid rgba(15, 118, 110, 0.2);">
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #1F1F1F; text-align: center; font-weight: 700;">"DeFi Made Simple"</h3>
+            <p style="font-size: 1rem; color: #4B5563; margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Demystifying decentralized finance in plain English.
             </p>
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); background: #000;">
                 <!-- DeFi Explainer Video -->
                 <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="DeFi Explainer - Demystifying Decentralized Finance">
-                    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/nPLceeFNwNMpUwLe.mp4" type="video/mp4">
+                    <source src="videos/video6_defi_explainer_v2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <p style="margin-top: 15px; font-size: 0.85rem; color: rgba(255,255,255,0.8); text-align: center;">
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #6B7280; text-align: center;">
                 ⏱️ 30-45 seconds • 🎯 Simple Explanation
             </p>
         </div>
@@ -3307,6 +3335,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         font-weight: 700;
         margin-bottom: 1.5rem;
         line-height: 1.2;
+        color: white;
     }
 
     .founding-headline .gold-text {
@@ -4313,7 +4342,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); background: #000; margin-bottom: 40px;">
             <!-- The Lighthouse is On Video -->
             <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="The Lighthouse is On - Your Journey Begins">
-                <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/TBxXZDiYBFeGHzSB.mp4" type="video/mp4">
+                <source src="videos/video3_lighthouse_is_on.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -4987,16 +5016,50 @@ function submitBeaconKitForm(event) {
     
     const name = document.getElementById('beaconKitName').value;
     const email = document.getElementById('beaconKitEmail').value;
+    const submitButton = event.target.querySelector('button[type="submit"]');
     
-    // In production, send to email service (Mailchimp, ConvertKit, etc.)
-    console.log('Beacon Kit Request:', { name, email, guide: selectedGuide });
+    // Disable button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
     
-    // For now, show success message and close modal
-    alert(`Thank you, ${name}! Check your email for "${selectedGuide}".`);
-    closeBeaconKitModal();
-    
-    // Optional: Redirect to thank you page or trigger download
-    // window.location.href = '/downloads/' + selectedGuide.toLowerCase().replace(/ /g, '-') + '.pdf';
+    // Send to SendGrid API
+    fetch('/api/sendgrid-subscribe.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            guide: selectedGuide
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Success - show message
+            alert(`Thank you, ${name}! Check your email for "${selectedGuide}".`);
+            
+            // Download PDF if available
+            if (data.pdfUrl) {
+                window.location.href = data.pdfUrl;
+            }
+            
+            closeBeaconKitModal();
+        } else {
+            // Error from API
+            alert('Sorry, there was an error. Please try again or contact support.');
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Me the Guide →';
+        }
+    })
+    .catch(error => {
+        // Network error
+        console.error('Error:', error);
+        alert('Network error. Please check your connection and try again.');
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Me the Guide →';
+    });
 }
 
 // Close modal when clicking outside
@@ -5336,13 +5399,13 @@ function toggleAccordion(header) {
             </p>
             <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
                 <p style="margin-top: 0.5rem;">
-                    <a href="terms-of-service.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a> |
-                    <a href="privacy-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
-                    <a href="refund-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Refund Policy</a> |
-                    <a href="accessibility.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Accessibility</a> |
-                    <a href="/cookie-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Cookie Policy</a> |
-                    <a href="disclaimer.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Disclaimer</a> |
-                    <a href="gdpr-ccpa.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">GDPR/CCPA</a>
+                    <a href="terms-of-service.html" style="color: #1a1a1a; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a> |
+                    <a href="privacy-policy.html" style="color: #1a1a1a; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
+                    <a href="refund-policy.html" style="color: #1a1a1a; text-decoration: none; margin: 0 0.5rem;">Refund Policy</a> |
+                    <a href="accessibility.html" style="color: #1a1a1a; text-decoration: none; margin: 0 0.5rem;">Accessibility</a> |
+                    <a href="/cookie-policy.html" style="color: #1a1a1a; text-decoration: none; margin: 0 0.5rem;">Cookie Policy</a> |
+                    <a href="disclaimer.html" style="color: #1a1a1a; text-decoration: none; margin: 0 0.5rem;">Disclaimer</a> |
+                    <a href="gdpr-ccpa.html" style="color: #1a1a1a; text-decoration: none; margin: 0 0.5rem;">GDPR/CCPA</a>
                 </p>
             
             <p class="phoenix-attribution">
