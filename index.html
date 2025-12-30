@@ -4940,8 +4940,8 @@ function submitBeaconKitForm(event) {
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
     
-    // Send to SendGrid API
-    fetch('/api/sendgrid-subscribe.php', {
+    // Send to GHL → SendGrid API
+    fetch('/api/ghl-pdf-download.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
