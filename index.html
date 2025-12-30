@@ -1240,94 +1240,6 @@
   </div>
 </div>
 
-<script>
-// Beacon Kit Modal Functions
-function openBeaconKitModal(pdfSlug) {
-  const modal = document.getElementById('beaconKitModal');
-  const slugInput = document.getElementById('pdfSlug');
-  const title = document.getElementById('modalTitle');
-  const description = document.getElementById('modalDescription');
-  
-  // Set PDF slug
-  slugInput.value = pdfSlug;
-  
-  // Update modal content based on PDF
-  const pdfInfo = {
-    'transition_roadmap': {
-      title: 'Life Transition Roadmap',
-      description: 'Navigate major life changes with proven frameworks from a lifetime of rebuilding expertise.'
-    },
-    'business_blueprint': {
-      title: 'One-Person Business Blueprint',
-      description: 'Build a sustainable solo business that generates $4K+ monthly income.'
-    },
-    'defi_guide': {
-      title: 'DeFi Starter Guide',
-      description: 'Master decentralized finance basics and start building passive income streams.'
-    }
-  };
-  
-  if (pdfInfo[pdfSlug]) {
-    title.textContent = pdfInfo[pdfSlug].title;
-    description.textContent = pdfInfo[pdfSlug].description;
-  }
-  
-  // Show modal
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeBeaconKitModal() {
-  const modal = document.getElementById('beaconKitModal');
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-}
-
-async function submitBeaconKit(event) {
-  event.preventDefault();
-  
-  const form = event.target;
-  const formData = new FormData(form);
-  const data = {
-    email: formData.get('email'),
-    name: formData.get('name'),
-    source: 'beacon_kit',
-    pdfRequested: formData.get('pdfSlug'),
-    ipAddress: '',
-    userAgent: navigator.userAgent
-  };
-  
-  try {
-    // Call backend API
-    const response = await fetch('https://app.beaconmomentum.com/api/trpc/leads.capture', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    });
-    
-    if (response.ok) {
-      // Success! Show thank you message
-      closeBeaconKitModal();
-      alert('✅ Success! Check your email for the download link.');
-      
-      // Mark as captured
-      localStorage.setItem('beaconEmailCaptured', 'true');
-    } else {
-      alert('❌ Something went wrong. Please try again.');
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    alert('❌ Network error. Please check your connection and try again.');
-  }
-}
-
-// Close modal on outside click
-document.getElementById('beaconKitModal')?.addEventListener('click', function(e) {
-  if (e.target === this) {
-    closeBeaconKitModal();
-  }
 });
 </script>
 
@@ -5002,11 +4914,17 @@ let selectedGuide = '';
 function openBeaconKitModal(guideName) {
     selectedGuide = guideName;
     document.getElementById('beaconKitGuideName').textContent = guideName;
-    document.getElementById('beaconKitModal').classList.add('active');
+    const modal = document.getElementById('beaconKitModal');
+    modal.classList.add('active');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 }
 
 function closeBeaconKitModal() {
-    document.getElementById('beaconKitModal').classList.remove('active');
+    const modal = document.getElementById('beaconKitModal');
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
     document.getElementById('beaconKitName').value = '';
     document.getElementById('beaconKitEmail').value = '';
 }
