@@ -4940,8 +4940,24 @@ function submitBeaconKitForm(event) {
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
     
+    // Map guide title to slug
+    const guideSlugMap = {
+        'Life Transition Roadmap': 'life-transition-roadmap',
+        'One-Person Business Blueprint': 'business-blueprint',
+        'DeFi Starter Guide': 'defi-starter-guide'
+    };
+    
+    const pdfSlug = guideSlugMap[selectedGuide] || '';
+    
+    if (!pdfSlug) {
+        alert('Please select a guide to download.');
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Me the Guide →';
+        return;
+    }
+    
     // Send to PDF download API (SendGrid)
-    fetch('/api/pdf-download-simple.php', {
+    fetch('/api/pdf-download.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -4949,7 +4965,7 @@ function submitBeaconKitForm(event) {
         body: JSON.stringify({
             name: name,
             email: email,
-            guide: selectedGuide
+            pdfSlug: pdfSlug
         })
     })
     .then(response => response.json())
