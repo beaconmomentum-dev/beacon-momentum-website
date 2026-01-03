@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lighthouse Keeper - A New Beginning | Beacon Momentum</title>
+    <meta name="description" content="A 1-on-1 mentorship program for people navigating profound life transitions. Find your footing, reclaim your power, and build a life of purpose and meaning.">
+    <link rel="canonical" href="https://beaconmomentum.com/lighthouse-keeper.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beaconmomentum.com/lighthouse-keeper.html">
+    <meta property="og:title" content="Lighthouse Keeper - Personal Mentorship | Beacon Momentum">
+    <meta property="og:description" content="A 1-on-1 mentorship program for people navigating profound life transitions. Find your footing, reclaim your power, and build a life of purpose and meaning.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-rise-hero.jpg">
+    <meta property="og:site_name" content="Beacon Momentum">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beaconmomentum.com/lighthouse-keeper.html">
+    <meta property="twitter:title" content="Lighthouse Keeper - Personal Mentorship | Beacon Momentum">
+    <meta property="twitter:description" content="A 1-on-1 mentorship program for people navigating profound life transitions. Find your footing, reclaim your power, and build a life of purpose and meaning.">
+    <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-rise-hero.jpg">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beacon-teal: #1B7F7A;
+            --beacon-gold: #D4AF37;
+            --beacon-dark: #0f172a;
+            --deep-navy: #1A2B3D;
+            --warm-gray: #6B7280;
+            --light-background: #F8FAFC;
+            --deep-red: #8B1538;
+            --parchment: #F5F1E8;
+        }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .inter { font-family: 'Inter', sans-serif; }
+    
+    .site-footer {
+        background: var(--beacon-dark);
+        color: white;
+        padding: 4rem 0 2rem;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .footer-column h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: var(--beacon-gold);
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+        color: var(--beacon-gold);
+    }
+
+    .footer-description {
+        color: #cbd5e1;
+        line-height: 1.7;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .footer-social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 1.2rem;
+    }
+
+    .footer-social-link:hover {
+        background: var(--beacon-gold);
+        transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    .phoenix-attribution {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: #64748b;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .site-footer {
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+</style>
+</head>
+<body class="inter" style="background-color: var(--light-background);">
+
+
+
+
+    <!-- Navigation (Standardized) -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="/index.html" class="flex items-center space-x-3">
+                    <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum" class="h-16 object-contain">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold playfair" style="color: var(--beacon-teal);">Beacon Momentum</span>
+                        <span class="text-sm italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
+                    </div>
+                </a>
+                <div class="hidden md:flex space-x-6" data-mobile-menu>
+                    <a href="/index.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Home</a>
+                    <a href="/lighthouse-keeper.html" class="text-beacon-teal font-semibold">Beacon Rise</a>
+                    <a href="/beacon-launch.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Launch</a>
+                    <a href="/beacon-academy.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Academy</a>
+                    <a href="/blog/blog.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Blog</a>
+                    <a href="/#pricing" class="text-gray-700 hover:text-beacon-teal transition-colors">Pricing</a>
+                    <a href="/founding-member.html" class="text-white font-semibold px-4 py-2 rounded-lg transition-all shadow-md" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">👑 Founding Member</a>
+                    <a href="/contact.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Contact</a>
+                    <a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn font-medium" style="display: inline-block; padding: 10px 20px; margin-left: 15px; background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: #ffffff !important; font-weight: 600; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3); transition: all 0.3s ease;">Member Login</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-toggle" data-mobile-menu-toggle>
+                    <span class="text-2xl">&#9776;</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu">
+                <a href="/index.html">Home</a>
+                <a href="/lighthouse-keeper.html">Beacon Rise</a>
+                <a href="/beacon-launch.html">Beacon Launch</a>
+                <a href="/beacon-academy.html">Beacon Academy</a>
+                <a href="/blog/blog.html">Blog</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/founding-member.html" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; font-weight: 600;">👑 Founding Member</a>
+                <a href="/contact.html">Contact</a>
+                <a href="https://app.beaconmomentum.com/manual-login">Member Login</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-deep-navy text-white text-center py-20" style="background-image: url('images/beacon-rise-hero-phoenix.png'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 43, 61, 0.85); z-index: 0;"></div>
+        <div class="container mx-auto px-4" style="position: relative; z-index: 1;">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 playfair">Reclaim Your Path After Life's Defining Moments</h1>
+            <p class="text-xl md:text-2xl mb-6">Educational program built from 2,874 real stories of divorce, job loss, and life-altering change. Learn practical skills, find peer support, and chart your next chapter with clarity.</p>
+            <p class="text-lg mb-8 text-gray-300">12 weeks. Real guidance. No false promises.</p>
+            <a href="/pricing.html" class="bg-beacon-gold text-deep-navy px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-yellow-500 transition-colors">Begin Your Beacon Rise Journey</a>
+        </div>
+    </section>
+
+
+    <!-- Hero Video Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-4 playfair" style="color: var(--beacon-teal);">
+                    You're Not Alone: The Beacon Rise Story
+                </h2>
+                <p class="text-center text-gray-600 mb-8">Real stories of people who navigated life's storms and found their way forward.</p>
+                
+                <!-- Video Placeholder -->
+                <div class="relative bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="padding-bottom: 56.25%; position: relative;">
+                    <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="You're Not Alone: The Beacon Rise Story">
+                        <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/KPToqexgLXGaqrcg.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--deep-red);">If You're Here, You've Walked Through Fire.</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                <p class="mb-6">Life has a way of bringing us to our knees. A career implodes. A marriage ends. An identity is lost. You're left standing in the wreckage, wondering, "What now?" The path forward is unclear, and the world you knew is gone. This isn't just a setback; it's a fundamental crisis of meaning.</p>
+                <p>You're not alone in this. Many men face this silent battle, feeling isolated and adrift. But this moment of profound loss is also a moment of profound opportunity. It's the chance to rebuild, not back to who you were, but forward into the person you are meant to become.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- The Solution Section -->
+    <section class="bg-parchment py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">Beacon Rise: The Path Forward</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                <p class="mb-6">Beacon Rise is a 12-week, structured journey designed to give you the tools, community, and guidance to rebuild your life from the ground up. It's not about quick fixes or empty platitudes. It's about doing the real work of healing and growth, surrounded by people who get it because they've lived it.</p>
+                <p>Rooted in the Digital Grandpa philosophy of wisdom, compassion, and practical action, this program will help you find your footing, rediscover your purpose, and build a future that is authentically yours. This is where you stop surviving and start thriving.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- How It Works Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-red);">The 12-Week Journey to a New You</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Week 1-4 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Weeks 1-4: The Foundation</h3>
+                    <p class="text-gray-700">We start by taking stock and building a solid foundation for your new life. This is about radical honesty, self-assessment, and understanding the patterns that have led you to this point.</p>
+                </div>
+                <!-- Week 5-8 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Weeks 5-8: The Rebuilding</h3>
+                    <p class="text-gray-700">With a clear understanding of your past, we move into the rebuilding phase. This is where you'll develop new skills, new habits, and a new mindset. We'll focus on resilience, emotional intelligence, and practical life design.</p>
+                </div>
+                <!-- Week 9-12 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Weeks 9-12: The Launch</h3>
+                    <p class="text-gray-700">In the final phase, we turn our attention to the future. You'll create a personal roadmap, set meaningful goals, and take the first steps into your new life with confidence and a supportive community at your back.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Framework Explainer Video Section -->
+    <section class="bg-parchment py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-4 playfair" style="color: var(--beacon-teal);">
+                    The Lighthouse Framework: Your 4-Phase Journey
+                </h2>
+                <p class="text-center text-gray-600 mb-8">A visual walkthrough of the proven framework that guides your transformation.</p>
+                
+                <!-- Lighthouse Framework Video -->
+                <div class="relative bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="padding-bottom: 56.25%; position: relative;">
+                    <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="The Lighthouse Framework: Your 4-Phase Journey">
+                        <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/ufJQCOallIWRNEUw.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-700">Acknowledge → Orient → Chart → Move: This is your roadmap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Get Section -->
+    <section class="bg-parchment py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">What You'll Get in Beacon Rise</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-lg">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">12 Weekly Modules</h3>
+                    <p>A structured curriculum to guide you through the process of healing and rebuilding.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Weekly Group Coaching Calls</h3>
+                    <p>Live, facilitated sessions to discuss the week's topic, share challenges, and celebrate wins.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Private Community Access</h3>
+                    <p>A 24/7 online community of your peers for support, connection, and accountability.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Actionable Workbooks & Exercises</h3>
+                    <p>Practical tools to help you apply the concepts you're learning to your own life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Why It Works Section -->
+    <section class="bg-parchment py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 playfair" style="color: var(--beacon-teal);">Why Beacon Rise Works</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-xl text-gray-700 mb-8">Because it's built on three timeless pillars:</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">1. Community</h3>
+                        <p class="text-gray-700">You're not doing this alone.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">2. Structure</h3>
+                        <p class="text-gray-700">A clear path you can follow week by week.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">3. Accountability</h3>
+                        <p class="text-gray-700">Support that keeps you grounded, not drifting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Transformation Section -->
+    <section class="text-white py-20" style="background-color: var(--deep-navy);">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 playfair">This Is Where Your New Life Begins</h2>
+            <div class="max-w-3xl mx-auto text-lg leading-relaxed">
+                <p class="mb-6">Imagine waking up in 12 weeks with a renewed sense of purpose. Imagine having a supportive community who have your back, no matter what. Imagine feeling confident, clear, and in control of your destiny. This isn't a fantasy. This is the promise of Beacon Rise.</p>
+                <p>You will emerge from this program not just healed, but transformed. You will have the tools, the mindset, and the community to build a life of meaning, connection, and fulfillment. The next chapter of your story is waiting to be written. Let's write it together.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Transformation Story Section -->
+    <section class="bg-parchment py-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed italic">
+                <p>Men come into this program carrying heavy weight — grief, shame, confusion, responsibility. By week 4, the fog lifts. By week 8, confidence returns. By week 12, they rise.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes This Different Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--deep-red);">What Makes This Different from Other Men's Programs</h2>
+            <div class="max-w-3xl mx-auto text-xl text-gray-700 leading-relaxed">
+                <p class="mb-4">No macho posturing. No empty motivation. No shouting.</p>
+                <p class="font-semibold">Beacon Rise is built on lived wisdom, compassion, community, and structure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Timeline Section -->
+    <section class="bg-parchment py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-red);">Your Transformation Timeline</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <h3 class="text-3xl font-bold mb-4" style="color: var(--beacon-teal);">In 30 Days</h3>
+                    <p class="text-gray-700">More clarity, more stability, first habits forming.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <h3 class="text-3xl font-bold mb-4" style="color: var(--beacon-teal);">In 60 Days</h3>
+                    <p class="text-gray-700">Circles of support, confidence rising.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <h3 class="text-3xl font-bold mb-4" style="color: var(--beacon-teal);">In 90 Days</h3>
+                    <p class="text-gray-700">Identity rebuilt. Goals set. New direction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-red);">What Our peers Are Saying</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <p class="text-lg italic text-gray-700 mb-4">"I was lost. Adrift. Beacon Rise was the lighthouse that guided me back to shore. I not only found my footing, I found a community."
+                    </p>
+                    <p class="font-bold text-right">- J.D., Veteran</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <p class="text-lg italic text-gray-700 mb-4">"This program gave me the tools to rebuild my life, but the community gave me the strength to do it. I am forever grateful."
+                    </p>
+                    <p class="font-bold text-right">- M.R., Entrepreneur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Your Guide Section -->
+    <section class="bg-parchment py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/3 text-center">
+                <img src="/images/bob-burr-portrait.jpg" alt="Bob Burr" class="rounded-full w-64 h-64 mx-auto shadow-lg">
+            </div>
+            <div class="md:w-2/3">
+                <h2 class="text-4xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Your Guide on the Journey: Bob Burr</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">With over 25 years of experience mentoring people in transition, Bob Burr is more than a mentor; he's a man who has walked the path himself. Navy veteran, entrepreneur, and lifelong student of the human condition, Bob has faced his own share of fire and emerged with a deep well of wisdom and compassion. He created Beacon Rise because it's the program he wishes he had during his own transitions.</p>
+                <p class="text-lg text-gray-700 leading-relaxed">With Bob as your guide, you'll get the no-nonsense, compassionate guidance of a man who has dedicated his life to helping others find their strength. He's not here to give you the answers, but to help you find your own.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-red);">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-2">Is this program only for veterans?</h3>
+                    <p class="text-gray-700">No. While Beacon Rise was inspired by the challenges faced by veterans, it is open to anyone who is navigating a significant life transition and is ready to do the work of rebuilding.</p>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-2">What if I can't make a live session?</h3>
+                    <p class="text-gray-700">All live sessions are recorded and will be available to watch at your convenience. You won't miss a thing.</p>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-2">Is this therapy?</h3>
+                    <p class="text-gray-700">Beacon Rise is a peer-support and coaching program, not a substitute for professional therapy. If you are in need of clinical mental health support, we encourage you to seek the help of a licensed therapist.</p>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-2">What is the time commitment?</h3>
+                    <p class="text-gray-700">Expect to spend 3-5 hours per week on the program, including the weekly module, group coaching call, and community interaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonial Video Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-4 playfair" style="color: var(--beacon-teal);">
+                    "I Found Clarity When I Needed It Most"
+                </h2>
+                <p class="text-center text-gray-600 mb-8">Hear from someone who walked this path and found their way forward.</p>
+                
+                <!-- Member Testimonial Video -->
+                <div class="relative bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="padding-bottom: 56.25%; position: relative;">
+                    <video controls preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" aria-label="Member Testimonial: Finding Clarity">
+                        <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/BUOlBWbeOqSJoYzr.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-700 italic">"Beacon Rise gave me hope when I thought I had none left."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="text-white text-center py-20" style="background-color: var(--deep-navy);">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-4 playfair">Your Future Self is Waiting.</h2>
+            <p class="text-xl md:text-2xl mb-4">The decision you make today will determine your tomorrow. Choose to invest in yourself. Choose to rise.</p>
+            <p class="text-xl md:text-2xl mb-8 font-semibold">Don't spend another season surviving. Start rebuilding today.</p>
+            <a href="/pricing.html" class="bg-beacon-gold text-deep-navy px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-yellow-500 transition-colors">Begin Your Beacon Rise Journey</a>
+            <p class="text-sm text-gray-300 mt-8 italic">Beacon Rise has become the go-to path for people navigating transitions after major life upheaval.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <!-- Column 1: About Beacon -->
+            <div class="footer-column">
+                <h3>Beacon Momentum</h3>
+                <p class="footer-description">
+                    A lighthouse for people navigating transitions their lives and creating opportunity where none was given. Military discipline meets entrepreneurial grit.
+                </p>
+                <div class="footer-social">
+                    <a href="https://x.com/BeaconMomentum" class="footer-social-link" aria-label="Twitter">𝕏</a>
+                    <a href="https://www.facebook.com/BeaconMomentum" class="footer-social-link" aria-label="Facebook">f</a>
+                    <a href="https://linkedin.com/company/beaconmomentum" class="footer-social-link" aria-label="LinkedIn">in</a>
+                    <a href="https://youtube.com/@beaconmomentum" class="footer-social-link" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+
+            <!-- Column 2: Product Pathways -->
+            <div class="footer-column">
+                <h3>Pathways</h3>
+                <ul class="footer-links">
+                    <li><a href="/lighthouse-keeper.html">Beacon Rise</a></li>
+                    <li><a href="/beacon-launch.html">Beacon Launch</a></li>
+                    <li><a href="/beacon-academy.html">Beacon Academy</a></li>
+                    <li><a href="/digital-grandpa.html">Mentorship</a></li>
+                    <li><a href="/founding-member.html">Founding Member</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Resources -->
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="/blog/">Blog & Articles</a></li>
+                    <li><a href="/community.html">Community Forum</a></li>
+                    <li><a href="/resources.html">Free Resources</a></li>
+                    <li><a href="/blog/">Success Stories</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact & Support -->
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="mailto:support@beaconmomentum.com">support@beaconmomentum.com</a></li>
+                    <li><a href="tel:+14132580254">(413) 258-0254</a></li>
+                    <li>PO Box 244<br>Cheshire, MA 01225</li>
+                    <li><a href="/contact.html">Help Center</a></li>
+                    <li><a href="/contact.html">Partner With Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Master Disclaimer -->
+        <div style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid rgba(245, 158, 11, 0.3); background-color: rgba(245, 158, 11, 0.1); border-radius: 0.5rem;">
+            <h3 style="margin-bottom: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #f59e0b;">EDUCATIONAL PLATFORM DISCLAIMER</h3>
+            <div style="font-size: 0.75rem; line-height: 1.5; color: #9ca3af;">
+                <p style="margin-bottom: 0.5rem;">
+                    Beacon Momentum is an educational platform providing peer support, skill-building resources, and community connection. We do not provide medical advice, mental health treatment, therapy, counseling, financial advice, or investment recommendations.
+                </p>
+                <p style="margin-bottom: 0.5rem;">
+                    The content, courses, and community support available through this platform are for educational and informational purposes only and are not a substitute for professional medical care, licensed therapy, or financial advisory services.
+                </p>
+                <p style="margin-bottom: 0.5rem;">
+                    If you are experiencing a medical emergency, mental health crisis, or suicidal thoughts, please contact emergency services (911) or a crisis hotline immediately. For ongoing health concerns, consult qualified healthcare professionals.
+                </p>
+                <p>
+                    Results vary by individual. We make no guarantees, warranties, or promises regarding specific outcomes from using this platform.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
+                <p style="margin-top: 0.5rem;">
+                    <a href="/terms-of-service.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a> |
+                    <a href="/privacy-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
+                    <a href="/refund-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Refund Policy</a> |
+                    <a href="/accessibility.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Accessibility</a> |
+                    <a href="/cookie-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Cookie Policy</a> |
+                    <a href="/disclaimer.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Disclaimer</a> |
+                    <a href="/gdpr-ccpa.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">GDPR/CCPA</a>
+                </p>
+
+            <p class="phoenix-attribution">
+                Built by <a href="/labs.html" style="color: var(--beacon-gold);">Beacon Labs</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
