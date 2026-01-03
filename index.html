@@ -966,13 +966,11 @@
     <div class="black-friday-banner" id="blackFridayBanner">
         <div class="black-friday-banner-content">
             <span class="black-friday-banner-text">
-                <img src="/icons/lighthouse-achievement.png" alt="Special Offer" style="width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.5em;"> Founding Members: Pay Once, Never Again - <span id="countdown-desktop" style="font-weight: 700;"></span>
             </span>
         <!-- Mobile version -->
         <span class="black-friday-banner-text-mobile">
             <img src="/icons/lighthouse-achievement.png" alt="Special Offer" style="width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.3em;"> <span id="countdown-mobile" style="font-weight: 700;"></span>
         </span>
-            <a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025" class="black-friday-banner-cta">
                 Claim Lifetime Access →
             </a>
         </div>
@@ -1062,9 +1060,7 @@
                     <a href="/beacon-launch.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Launch</a>
                     <a href="/beacon-academy.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Academy</a>
                     <a href="/blog/blog.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Blog</a>
-                    <a href="/#pricing" class="text-gray-700 hover:text-beacon-teal transition-colors">Pricing</a>
                     <a href="/assessment" class="text-white font-semibold px-4 py-2 rounded-lg transition-all shadow-md" style="background: #F59E0B; color: black !important;">Take the Free Assessment</a>
-                    <a href="/founding-member.html" class="text-white font-semibold px-4 py-2 rounded-lg transition-all shadow-md" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">👑 Founding Member</a>
                     <a href="/contact.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Contact</a>
                     <a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn font-medium" style="display: inline-block; padding: 10px 20px; margin-left: 15px; background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: #ffffff !important; font-weight: 600; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3); transition: all 0.3s ease;">Member Login</a>
                 </div>
@@ -1080,9 +1076,7 @@
                 <a href="/beacon-launch.html">Beacon Launch</a>
                 <a href="/beacon-academy.html">Beacon Academy</a>
                 <a href="/blog/blog.html">Blog</a>
-                <a href="/#pricing">Pricing</a>
                 <a href="/assessment" style="background: #F59E0B; color: black; font-weight: 600;">Take the Free Assessment</a>
-                <a href="/founding-member.html" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; font-weight: 600;">👑 Founding Member</a>
                 <a href="/contact.html">Contact</a>
                 <a href="https://app.beaconmomentum.com/manual-login">Member Login</a>
     </div>
@@ -1571,7 +1565,6 @@
                     <div class="stories-hub-card-avatar">👨‍🦳</div>
                     <div class="stories-hub-card-info">
                         <div class="stories-hub-card-name">Robert K.</div>
-                        <div class="stories-hub-card-program">Founding Member</div>
                     </div>
                 </div>
                 <p class="stories-hub-card-quote">
@@ -1591,7 +1584,6 @@
         </div>
 
         <div class="stories-hub-cta-container">
-            <a href="#" class="stories-hub-cta" onclick="alert('Stories Hub launching soon! Join as a Founding Member to be featured.'); return false;">
                 Read More Stories →
             </a>
             <span class="stories-hub-coming-soon">Coming Q1 2026</span>
@@ -2199,7 +2191,6 @@ document.getElementById('beaconKitModal')?.addEventListener('click', function(e)
             <!-- FAQ 3 -->
             <div class="accordion-item">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="accordion-question">What's included in Founding Member access?</span>
                     <span class="accordion-icon">▼</span>
                 </button>
                 <div class="accordion-content">
@@ -2317,7 +2308,6 @@ function toggleAccordion(header) {
                     <li><a href="#solopreneur-section">Beacon Launch</a></li>
                     <li><a href="#beacon-academy-section">Beacon Academy</a></li>
                     <li><a href="/digital-grandpa/">Mentorship</a></li>
-                    <li><a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025">Founding Member</a></li>
                 </ul>
             </div>
 
@@ -2388,7 +2378,6 @@ function toggleAccordion(header) {
     </div>
 </footer>
 <script>
-// Countdown Timer for Founding Member Offer
 function updateCountdown() {
     const endDate = new Date('2026-01-01T00:01:00-05:00'); // December 24, 2025 at 11:59pm EST
     const now = new Date();
@@ -3057,7 +3046,6 @@ function closeChecklist() {
 
 function proceedToFoundingMember() {
     if (checkedCount === 5) {
-        window.location.href = '/founding-member.html';
     }
 }
 
@@ -3320,14 +3308,12 @@ document.getElementById('checklistModal')?.addEventListener('click', function(e)
                 <li class="exit-intent-benefit">
                     <span class="exit-intent-benefit-icon">👥</span>
                     <div class="exit-intent-benefit-text">
-                        <div class="exit-intent-benefit-title">Join 73+ Founding Members</div>
                         <div class="exit-intent-benefit-desc">Only 27 lifetime spots remaining before monthly pricing starts</div>
                     </div>
                 </li>
             </ul>
 
             <div class="exit-intent-ctas">
-                <a href="/founding-member.html" class="exit-intent-cta-primary">
                     Claim My Lifetime Spot Now →
                 </a>
                 <button onclick="closeExitIntent()" class="exit-intent-cta-secondary">
@@ -3347,8 +3333,6 @@ function showExitIntent() {
         return;
     }
 
-    // Don't show on founding-member page (already converted)
-    if (window.location.pathname.includes('founding-member')) {
         return;
     }
 
@@ -3527,7 +3511,6 @@ document.getElementById('exitIntentModal')?.addEventListener('click', function(e
     <button class="spots-counter-close" onclick="closeSpotsCounter()">&times;</button>
     <div class="spots-counter-header">
         <span class="spots-counter-icon">🔥</span>
-        <span class="spots-counter-title">Founding Members</span>
     </div>
     <div class="spots-counter-number">
         <span id="spotsClaimed">73</span>/100 Claimed
@@ -3535,7 +3518,6 @@ document.getElementById('exitIntentModal')?.addEventListener('click', function(e
     <div class="spots-counter-message">
         Only <strong id="spotsRemaining">27</strong> lifetime spots remaining
     </div>
-    <a href="/founding-member.html" class="spots-counter-cta">Claim Your Spot →</a>
 </div>
 
 <script>
@@ -3703,7 +3685,6 @@ header.scrolled nav a:hover {
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Floating CTA Button -->
-<a href="/founding-member.html" class="floating-cta" id="floatingCta">
     <span class="floating-cta-icon">🚀</span>
     <span>Claim Lifetime Access</span>
 </a>
