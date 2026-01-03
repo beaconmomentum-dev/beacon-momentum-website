@@ -877,6 +877,117 @@
                 width: 95%;
             }
         }
+
+        /* SECTION PAGINATION & SPACING */
+        section {
+            scroll-margin-top: 100px;
+            position: relative;
+        }
+
+        /* Add visual dividers between major sections */
+        section::after {
+            content: '';
+            display: block;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+            margin-top: 4rem;
+        }
+
+        section:last-of-type::after {
+            display: none;
+        }
+
+        /* Increase padding for better visual separation */
+        section[style*="padding"] {
+            padding-top: 5rem !important;
+            padding-bottom: 5rem !important;
+        }
+
+        /* Hero sections get more breathing room */
+        .hero {
+            margin-bottom: 2rem;
+            scroll-margin-top: 120px;
+        }
+
+        /* Stories hub section spacing */
+        .stories-hub-section {
+            margin: 6rem 0;
+            padding: 4rem 0;
+            border-top: 2px solid #f0f0f0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        /* FAQ section spacing */
+        .faq-section {
+            margin: 6rem 0;
+            padding: 4rem 0;
+        }
+
+        /* Beacon Kit section */
+        .beacon-kit-section {
+            margin: 6rem 0;
+            padding: 4rem 0;
+        }
+
+        /* Add visual break between sections on mobile */
+        @media (max-width: 768px) {
+            section {
+                margin-bottom: 3rem;
+                padding: 2rem 0 !important;
+            }
+
+            section::after {
+                margin-top: 2rem;
+            }
+
+            .stories-hub-section,
+            .faq-section,
+            .beacon-kit-section {
+                margin: 3rem 0;
+                padding: 2rem 0;
+            }
+        }
+
+        /* Section headers with better visual hierarchy */
+        section h2 {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        /* Subtle underline for section headers */
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--beacon-teal), var(--beacon-gold));
+            margin: 1rem auto 0;
+        }
+
+        /* Remove underline for specific sections */
+        .hero h2::after,
+        .beacon-kit-hero h2::after {
+            display: none;
+        }
+
+        /* Better spacing for section containers */
+        .container {
+            margin-bottom: 2rem;
+        }
+
+        /* Page break effect on larger screens */
+        @media (min-width: 1024px) {
+            section {
+                min-height: auto;
+                page-break-inside: avoid;
+            }
+
+            section + section {
+                margin-top: 4rem;
+            }
+        }
+
     </style>
 </head>
 <body>
