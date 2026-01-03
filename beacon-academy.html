@@ -157,189 +157,28 @@
 </script>
 </head>
 <body class="inter" style="background-color: var(--light-background);">
-<!-- Black Friday Early Access Banner - V2 (Jarvis-optimized) -->
-<style>
-    .black-friday-banner {
-        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
-        color: white;
-        padding: 0.875rem 0;
-        text-align: center;
-        position: relative;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        z-index: 1000;
-    }
-    
-    .black-friday-banner-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 3rem 0 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-    
-    .black-friday-banner-text {
-        font-size: 1.05rem;
-        font-weight: 600;
-        letter-spacing: 0.3px;
-        line-height: 1.4;
-    }
-    
-    .black-friday-banner-text-mobile {
-        display: none;
-    }
-    
-    .black-friday-banner-cta {
-        background: #F59E0B;
-        color: #1A2B3D;
-        padding: 0.5rem 1.5rem;
-        border-radius: 0.5rem;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        white-space: nowrap;
-    }
-    
-    .black-friday-banner-cta:hover {
-        background: #FFD700;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-    
-    .black-friday-banner-close {
-        position: absolute;
-        right: 0.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255,255,255,0.2);
-        border: none;
-        color: white;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.4rem;
-        line-height: 1;
-        transition: background 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .black-friday-banner-close:hover {
-        background: rgba(255,255,255,0.3);
-    }
-    
-    .black-friday-banner.hidden {
-        display: none;
-    }
-    
-    @media (max-width: 768px) {
-        .black-friday-banner {
-            padding: 0.75rem 0;
-        }
-        
-        .black-friday-banner-content {
-            padding: 0 2.5rem 0 0.75rem;
-            gap: 0.5rem;
-        }
-        
-        .black-friday-banner-text {
-            display: none;
-        }
-        
-        .black-friday-banner-text-mobile {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .black-friday-banner-cta {
-            padding: 0.4rem 1rem;
-            font-size: 0.85rem;
-        }
-        
-        .black-friday-banner-close {
-            right: 0.25rem;
-            width: 1.75rem;
-            height: 1.75rem;
-            font-size: 1.2rem;
-        }
-    }
-</style>
-
-<div class="black-friday-banner" id="blackFridayBanner">
-    <div class="black-friday-banner-content">
-        <!-- Desktop version -->
-        <span class="black-friday-banner-text">
-            🌟 Founding Members: Pay Once, Never Again - Lifetime Access Through Year's End
-        </span>
-        <!-- Mobile version -->
-        <span class="black-friday-banner-text-mobile">
-            🌟 Founding Members - Lifetime Access
-        </span>
-        <a href="/founding-member.html?utm_source=banner&utm_medium=blackfriday&utm_campaign=lifetime2025" class="black-friday-banner-cta">
-            Claim Lifetime Access →
-        </a>
-    </div>
-    <button class="black-friday-banner-close" onclick="dismissBFBanner()" aria-label="Close banner">
-        ×
-    </button>
-</div>
-
-<script>
-    function dismissBFBanner() {
-        const banner = document.getElementById('blackFridayBanner');
-        if (banner) {
-            banner.classList.add('hidden');
-            // Store dismissal in localStorage for 24 hours
-            const dismissedUntil = Date.now() + (24 * 60 * 60 * 1000);
-            localStorage.setItem('blackFridayBannerDismissed', dismissedUntil.toString());
-        }
-    }
-    
-    // Check if banner was previously dismissed
-    window.addEventListener('DOMContentLoaded', function() {
-        const banner = document.getElementById('blackFridayBanner');
-        if (!banner) return;
-        
-        const dismissedUntil = localStorage.getItem('blackFridayBannerDismissed');
-        if (dismissedUntil && Date.now() < parseInt(dismissedUntil)) {
-            banner.classList.add('hidden');
-        }
-        
-        // Auto-remove banner after January 1, 2026 at 12:01 AM EST
-        const expiryDate = new Date('2026-01-01T00:01:00-05:00');
-        const now = new Date();
-        if (now > expiryDate) {
-            banner.classList.add('hidden');
-        }
-    });
-</script>
 
 
-    <!-- Navigation -->
+
+    <!-- Navigation (Standardized) -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <a href="/index.html" class="flex items-center space-x-3">
-                    <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum Lighthouse" class="w-16 h-16 object-contain">
+                    <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum" class="h-16 object-contain">
                     <div class="flex flex-col">
                         <span class="text-xl font-bold playfair" style="color: var(--beacon-teal);">Beacon Momentum</span>
                         <span class="text-sm italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
                     </div>
                 </a>
                 <div class="hidden md:flex space-x-6" data-mobile-menu>
-                    <a href="index.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Home</a>
+                    <a href="/index.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Home</a>
                     <a href="/beacon-rise.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Rise</a>
                     <a href="/beacon-launch.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Launch</a>
                     <a href="/beacon-academy.html" class="text-beacon-teal font-semibold">Beacon Academy</a>
-                    <a href="/labs.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Labs</a>
-                    <a href="/digital-grandpa.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Mentorship</a>
-                    <a href="assess.html" class="text-white bg-gradient-to-r from-yellow-500 to-yellow-600 px-4 py-2 rounded-lg font-semibold hover:from-yellow-600 hover:to-yellow-700 transition-all shadow-md">Take Assessment</a>
+                    <a href="/blog/blog.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Blog</a>
+                    <a href="/#pricing" class="text-gray-700 hover:text-beacon-teal transition-colors">Pricing</a>
+                    <a href="/founding-member.html" class="text-white font-semibold px-4 py-2 rounded-lg transition-all shadow-md" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">👑 Founding Member</a>
                     <a href="/contact.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Contact</a>
                     <a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn font-medium" style="display: inline-block; padding: 10px 20px; margin-left: 15px; background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: #ffffff !important; font-weight: 600; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3); transition: all 0.3s ease;">Member Login</a>
                 </div>
@@ -349,6 +188,17 @@
             </div>
         </div>
     </nav>
+    <div class="mobile-menu">
+                <a href="/index.html">Home</a>
+                <a href="/beacon-rise.html">Beacon Rise</a>
+                <a href="/beacon-launch.html">Beacon Launch</a>
+                <a href="/beacon-academy.html">Beacon Academy</a>
+                <a href="/blog/blog.html">Blog</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/founding-member.html" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; font-weight: 600;">👑 Founding Member</a>
+                <a href="/contact.html">Contact</a>
+                <a href="https://app.beaconmomentum.com/manual-login">Member Login</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="text-white text-center py-24" style="background-image: url('images/beacon-academy-hero.png'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
@@ -375,357 +225,177 @@
                 
                 <!-- Video Placeholder -->
                 <div class="relative bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="padding-bottom: 56.25%; position: relative;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #059669 0%, #0f172a 100%);">
-                        <div class="text-center text-white p-8">
-                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                            </svg>
-                            <p class="text-lg font-semibold mb-2">DeFi Without the Hype</p>
-                            <p class="text-sm opacity-75">60-90 seconds • Coming Soon</p>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <span class="block text-6xl mb-2">▶️</span>
+                            <p class="text-gray-500 font-medium">Intro to Beacon Academy Video</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-6 text-center">
-                    <p class="text-gray-700">Financial education that respects your intelligence and protects your interests.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem / The Solution -->
+    <section class="py-16" style="background-color: var(--light-background);">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 playfair" style="color: var(--beacon-teal);">The Problem with Crypto Education</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 text-xl">✕</span>
+                            <p><strong>It's all hype:</strong> Most "education" is just marketing for risky tokens.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 text-xl">✕</span>
+                            <p><strong>It's too technical:</strong> Jargon-heavy explanations that leave you confused.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 text-xl">✕</span>
+                            <p><strong>It's dangerous:</strong> Encouraging gambling instead of sound financial strategy.</p>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Problem Section -->
-    <section class="bg-white py-24">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">The Financial System Wasn't Built for You</h2>
-            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-                <p class="mb-6">Traditional finance locks out everyday people through complexity, gatekeeping, and opacity. You're told to "invest wisely" but given no real education. You're promised financial freedom but handed products designed to extract fees.</p>
-                <p>Meanwhile, decentralized finance (DeFi) offers an alternative—but it's wrapped in jargon, hype, and risk. Most people don't know where to start, who to trust, or how to navigate this new landscape safely.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Solution Section -->
-    <section class="bg-parchment py-24">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">Beacon Academy: Learn, Apply, Earn</h2>
-            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-                <p class="mb-6">Beacon Academy is an educational platform that teaches you DeFi and modern financial strategies—without the hype, without the complexity, and without leaving you to figure it out alone.</p>
-                <p class="mb-6">But we don't stop at education. Graduates have the opportunity to <strong>apply what they've learned</strong> in real-world joint venture (JV) projects alongside fellow students and faculty. Learn the frameworks, then use them in actual projects where you can earn while you build experience.</p>
-                <p><strong>This is education with application. Theory meets practice. Learning meets earning.</strong></p>
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 playfair" style="color: var(--academy-accent);">The Beacon Academy Way</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3 text-xl">✓</span>
+                            <p><strong>Principles First:</strong> Learn the "why" and "how" before you touch a wallet.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3 text-xl">✓</span>
+                            <p><strong>Safety as Structure:</strong> Security protocols are the foundation of everything we teach.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3 text-xl">✓</span>
+                            <p><strong>Practical Application:</strong> Real-world projects, not just theory.</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Curriculum Overview -->
-    <section class="bg-white py-24">
+    <section class="bg-white py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">What You'll Master</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h2 class="text-3xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">What You Will Learn</h2>
+            <div class="grid md:grid-cols-3 gap-8">
                 <!-- Module 1 -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">DeFi Fundamentals</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Blockchain basics and how it works</li>
-                        <li>• Cryptocurrency fundamentals</li>
-                        <li>• Stablecoins and their role</li>
-                        <li>• Wallets, keys, and security</li>
-                        <li>• Understanding gas fees and transactions</li>
-                    </ul>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm border-t-4" style="border-color: var(--academy-accent);">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold mb-3">DeFi Security & Hygiene</h3>
+                    <p class="text-gray-600">Wallet security, avoiding scams, and the "spine of steel" protocols for digital asset safety.</p>
                 </div>
-
                 <!-- Module 2 -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg></div>
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">DeFi Protocols</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Decentralized exchanges (DEXs)</li>
-                        <li>• Lending and borrowing platforms</li>
-                        <li>• Yield farming strategies</li>
-                        <li>• Liquidity pools explained</li>
-                        <li>• Smart contracts and automation</li>
-                    </ul>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm border-t-4" style="border-color: var(--academy-accent);">
+                    <div class="text-4xl mb-4">🏦</div>
+                    <h3 class="text-xl font-bold mb-3">Stablecoins & Yield</h3>
+                    <p class="text-gray-600">How to use stable assets to generate yield without exposure to volatile market swings.</p>
                 </div>
-
                 <!-- Module 3 -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Risk Management</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Identifying scams and red flags</li>
-                        <li>• Portfolio diversification strategies</li>
-                        <li>• Security best practices</li>
-                        <li>• Understanding impermanent loss</li>
-                        <li>• Position sizing and risk tolerance</li>
-                    </ul>
-                </div>
-
-                <!-- Module 4 -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Real-World Application</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Building a DeFi strategy</li>
-                        <li>• Tax considerations and compliance</li>
-                        <li>• Tracking and reporting</li>
-                        <li>• Case studies from successful users</li>
-                        <li>• Common mistakes to avoid</li>
-                    </ul>
-                </div>
-
-                <!-- Module 5 -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg></div>
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">JV Opportunities</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Joint venture project structure</li>
-                        <li>• Collaborating with fellow students</li>
-                        <li>• Faculty-guided real projects</li>
-                        <li>• Revenue sharing frameworks</li>
-                        <li>• Building your track record</li>
-                    </ul>
-                </div>
-
-                <!-- Module 6 -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <div class="text-4xl mb-4"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Advanced Strategies</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Multi-chain strategies</li>
-                        <li>• Arbitrage opportunities</li>
-                        <li>• Governance and voting</li>
-                        <li>• Building passive income streams</li>
-                        <li>• Scaling your DeFi portfolio</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DeFi Explainer Video Section -->
-    <section class="bg-white py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-4 playfair" style="color: var(--beacon-teal);">
-                    Stablecoins, Wallets, and Smart Contracts: A Plain English Guide
-                </h2>
-                <p class="text-center text-gray-600 mb-8">See how DeFi actually works—no jargon, no hype, just clear explanations.</p>
-                
-                <!-- Video Placeholder -->
-                <div class="relative bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="padding-bottom: 56.25%; position: relative;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #059669 0%, #0f172a 100%);">
-                        <div class="text-center text-white p-8">
-                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                            </svg>
-                            <p class="text-lg font-semibold mb-2">DeFi Basics: Plain English Guide</p>
-                            <p class="text-sm opacity-75">45-60 seconds • Coming Soon</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-6 text-center">
-                    <p class="text-gray-700">Understanding the building blocks of decentralized finance—no crypto bro jargon required.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- JV Program Details -->
-    <section class="bg-parchment py-24">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">The JV Program: Apply What You Learn</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">How It Works</h3>
-                    <div class="space-y-4 text-gray-700">
-                        <p><strong>1. Complete the Core Curriculum:</strong> Master the fundamentals of DeFi through our structured educational program.</p>
-                        <p><strong>2. Apply for JV Projects:</strong> Graduates can apply to join real-world joint venture projects led by faculty and experienced members.</p>
-                        <p><strong>3. Collaborate with Peers:</strong> Work alongside fellow students who share your commitment to learning and applying DeFi strategies.</p>
-                        <p><strong>4. Earn While You Learn:</strong> Participate in revenue-sharing opportunities as you apply your knowledge in actual projects.</p>
-                        <p><strong>5. Build Your Track Record:</strong> Gain documented experience and results you can use to launch your own ventures or partnerships.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">Who This Is For</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li>✓ People who want to understand DeFi without the hype or scams</li>
-                        <li>✓ Those seeking financial education that leads to real opportunities</li>
-                        <li>✓ Individuals ready to learn, apply, and collaborate</li>
-                        <li>✓ Anyone tired of being locked out of financial opportunities</li>
-                        <li>✓ Students who want hands-on experience, not just theory</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Disclaimer Section -->
-    <section class="bg-yellow-50 border-t-4 border-yellow-400 py-12">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h3 class="text-2xl font-bold mb-4 playfair text-yellow-800"><svg class="inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg> Critical Risk Disclosure & Educational Disclaimer</h3>
-                <div class="text-gray-700 space-y-4">
-                    <p class="text-lg font-bold text-red-700">⚠️ IMPORTANT: READ BEFORE ENROLLING</p>
-                    
-                    <p><strong>Beacon Academy is an educational platform providing peer support, skill-building resources, and community connection. We do NOT provide financial advice, investment recommendations, legal advice, tax advice, or professional financial services of any kind.</strong></p>
-                    
-                    <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-                        <p class="font-bold text-red-800 mb-2">CRYPTOCURRENCY & DEFI INVESTMENT RISKS:</p>
-                        <ul class="list-disc pl-6 space-y-2 text-sm">
-                            <li><strong>Total Loss of Capital:</strong> You can lose 100% of your invested funds. Cryptocurrency investments are highly speculative and volatile.</li>
-                            <li><strong>No Guarantees:</strong> Past performance does not predict future results. No investment strategy guarantees profits or prevents losses.</li>
-                            <li><strong>Regulatory Risk:</strong> Cryptocurrency regulations are evolving and uncertain. Future laws may restrict access or impact value.</li>
-                            <li><strong>Technical Risk:</strong> Smart contract bugs, hacks, and protocol failures can result in permanent loss of funds.</li>
-                            <li><strong>Market Volatility:</strong> Crypto markets can experience rapid, extreme price swings (50%+ in days).</li>
-                            <li><strong>Liquidity Risk:</strong> You may not be able to sell assets when needed or at desired prices.</li>
-                        </ul>
-                    </div>
-                    
-                    <p><strong>Your Responsibility:</strong> You must conduct your own independent research, understand the risks, and consult qualified financial, legal, and tax professionals before making any investment decisions. Do not invest money you cannot afford to lose.</p>
-                    
-                    <p><strong>JV Opportunities:</strong> Joint venture projects are educational collaborations for learning purposes. Participation does not guarantee profits, specific outcomes, or return of capital. All participants assume full responsibility for their own risk and investment decisions.</p>
-                    
-                    <p><strong>No Professional Relationship:</strong> Enrollment in Beacon Academy does not create a financial advisor-client, attorney-client, or fiduciary relationship. We are educators, not licensed financial professionals.</p>
-                    
-                    <p class="text-sm italic text-gray-600 mt-4">By enrolling in Beacon Academy, you acknowledge that you have read, understood, and accepted these risks and disclaimers. You agree that Beacon Momentum, its founders, instructors, and affiliates are not liable for any financial losses you may incur.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Security Video Section -->
-    <section class="bg-white py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-4 playfair" style="color: var(--beacon-teal);">
-                    "How to Protect Yourself in the Digital Asset Space"
-                </h2>
-                <p class="text-center text-gray-600 mb-8">Learn the essential security practices that keep your assets safe.</p>
-                
-                <!-- Video Placeholder -->
-                <div class="relative bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="padding-bottom: 56.25%; position: relative;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #059669 0%, #0f172a 100%);">
-                        <div class="text-center text-white p-8">
-                            <svg class="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                            </svg>
-                            <p class="text-lg font-semibold mb-2">Protect Yourself: Security Best Practices</p>
-                            <p class="text-sm opacity-75">30-45 seconds • Coming Soon</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-6 text-center">
-                    <p class="text-gray-700">Security isn't optional—it's foundational. Learn how to protect your digital assets from day one.</p>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm border-t-4" style="border-color: var(--academy-accent);">
+                    <div class="text-4xl mb-4">🌐</div>
+                    <h3 class="text-xl font-bold mb-3">The Future of Finance</h3>
+                    <p class="text-gray-600">Understanding tokenization, smart contracts, and where the global economy is heading.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="text-white text-center py-24" style="background-color: #1A2B3D;">
+    <section class="py-20 text-center text-white" style="background: linear-gradient(135deg, #065f46 0%, #047857 100%);">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-6 playfair">Ready to Master DeFi?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Join Beacon Academy and gain the knowledge, skills, and real-world experience to navigate modern finance with confidence.</p>
-            <a href="https://app.beaconmomentum.com" class="px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-colors inline-block" style="background-color: #059669; color: white;" onmouseover="this.style.backgroundColor='#047857'" onmouseout="this.style.backgroundColor='#059669'">Start Your Journey Today</a>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 playfair">Ready to Master Modern Finance?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join a community of learners building financial resilience through education.</p>
+            <a href="https://app.beaconmomentum.com" class="bg-white text-green-700 px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-gray-100 transition-colors">Enroll in Beacon Academy</a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-grid">
-            <!-- Column 1: About Beacon -->
-            <div class="footer-column">
-                <h3>Beacon Momentum</h3>
-                <p class="footer-description">
-                    A lighthouse for people navigating transitions their lives and creating opportunity where none was given. Military discipline meets entrepreneurial grit.
-                </p>
-                <div class="footer-social">
-                    <a href="https://x.com/BeaconMomentum" class="footer-social-link" aria-label="Twitter">𝕏</a>
-                    <a href="https://www.facebook.com/BeaconMomentum" class="footer-social-link" aria-label="Facebook">f</a>
-                    <a href="https://linkedin.com/company/beaconmomentum" class="footer-social-link" aria-label="LinkedIn">in</a>
-                    <a href="https://youtube.com/@beaconmomentum" class="footer-social-link" aria-label="YouTube">▶</a>
+    <!-- Footer (Standardized) -->
+    <footer class="site-footer" style="background-color: #1a2b3d; color: #ffffff; padding: 4rem 0 2rem; font-family: 'Inter', sans-serif;">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum" style="height: 60px; margin-bottom: 1rem; filter: brightness(0) invert(1);">
+                    <p style="color: #9ca3af; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Lighting the way forward for those navigating life's biggest transitions. Structure as safety. Competence as care.
+                    </p>
+                    <div class="social-links" style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Programs Column -->
+                <div class="footer-col">
+                    <h4 style="color: #f59e0b; font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Programs</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.75rem;"><a href="/beacon-rise.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">Beacon Rise</a></li>
+                        <li style="margin-bottom: 0.75rem;"><a href="/beacon-launch.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">Beacon Launch</a></li>
+                        <li style="margin-bottom: 0.75rem;"><a href="/beacon-academy.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">Beacon Academy</a></li>
+                        <li style="margin-bottom: 0.75rem;"><a href="/digital-grandpa.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">Mentorship</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Column -->
+                <div class="footer-col">
+                    <h4 style="color: #f59e0b; font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Company</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.75rem;"><a href="/about.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">About Us</a></li>
+                        <li style="margin-bottom: 0.75rem;"><a href="/blog/blog.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">Blog</a></li>
+                        <li style="margin-bottom: 0.75rem;"><a href="/labs.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">Beacon Labs</a></li>
+                        <li style="margin-bottom: 0.75rem;"><a href="/founding-member.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">Founding Member</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Column -->
+                <div class="footer-col">
+                    <h4 style="color: #f59e0b; font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Support</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.75rem;"><a href="/contact.html" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">Contact Us</a></li>
+                        <li style="margin-bottom: 0.75rem;"><a href="mailto:support@beaconmomentum.com" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">support@beaconmomentum.com</a></li>
+                        <li style="margin-bottom: 0.75rem;"><a href="tel:+14132580254" style="color: #d1d5db; text-decoration: none; transition: color 0.2s;">(413) 258-0254</a></li>
+                        <li style="margin-bottom: 0.75rem; color: #9ca3af;">PO Box 244<br>Cheshire, MA 01225</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Column 2: Product Pathways -->
-            <div class="footer-column">
-                <h3>Pathways</h3>
-                <ul class="footer-links">
-                    <li><a href="/beacon-rise.html">Beacon Rise</a></li>
-                    <li><a href="/beacon-launch.html">Beacon Launch</a></li>
-                    <li><a href="/beacon-academy.html">Beacon Academy</a></li>
-                    <li><a href="/digital-grandpa.html">Mentorship</a></li>
-                    <li><a href="/founding-member.html">Founding Member</a></li>
-                </ul>
+            <!-- Master Disclaimer -->
+            <div style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid rgba(245, 158, 11, 0.3); background-color: rgba(245, 158, 11, 0.1); border-radius: 0.5rem;">
+                <h3 style="margin-bottom: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #f59e0b;">EDUCATIONAL PLATFORM DISCLAIMER</h3>
+                <div style="font-size: 0.75rem; line-height: 1.5; color: #9ca3af;">
+                    <p style="margin-bottom: 0.5rem;">
+                        Beacon Momentum is an educational platform providing peer support, skill-building resources, and community connection. We do not provide medical advice, mental health treatment, therapy, counseling, financial advice, or investment recommendations.
+                    </p>
+                    <p style="margin-bottom: 0.5rem;">
+                        The content, courses, and community support available through this platform are for educational and informational purposes only and are not a substitute for professional medical care, licensed therapy, or financial advisory services.
+                    </p>
+                    <p>
+                        If you are experiencing a medical emergency, mental health crisis, or suicidal thoughts, please contact emergency services (911) or a crisis hotline immediately.
+                    </p>
+                </div>
             </div>
 
-            <!-- Column 3: Resources -->
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="/blog/">Blog & Articles</a></li>
-                    <li><a href="/community.html">Community Forum</a></li>
-                    <li><a href="/resources.html">Free Resources</a></li>
-                    <li><a href="/blog/">Success Stories</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contact & Support -->
-            <div class="footer-column">
-                <h3>Support</h3>
-                <ul class="footer-links">
-                    <li><a href="/contact.html">Contact Us</a></li>
-                    <li><a href="mailto:support@beaconmomentum.com">support@beaconmomentum.com</a></li>
-                    <li><a href="tel:+14132580254">(413) 258-0254</a></li>
-                    <li>PO Box 244<br>Cheshire, MA 01225</li>
-                    <li><a href="/contact.html">Help Center</a></li>
-                    <li><a href="/contact.html">Partner With Us</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Master Disclaimer -->
-        <div style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid rgba(245, 158, 11, 0.3); background-color: rgba(245, 158, 11, 0.1); border-radius: 0.5rem;">
-            <h3 style="margin-bottom: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #f59e0b;">EDUCATIONAL PLATFORM DISCLAIMER</h3>
-            <div style="font-size: 0.75rem; line-height: 1.5; color: #e5e7eb;">
-                <p style="margin-bottom: 0.5rem;">
-                    Beacon Momentum is an educational platform providing peer support, skill-building resources, and community connection. We do not provide medical advice, mental health treatment, therapy, counseling, financial advice, or investment recommendations.
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: #9ca3af; font-size: 0.9rem;">
+                <p style="margin-bottom: 1rem;">&copy; 2025 Beacon Momentum. All rights reserved.</p>
+                <p style="margin-bottom: 1rem;">
+                    <a href="terms-of-service.html" style="color: #d1d5db; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a> |
+                    <a href="privacy-policy.html" style="color: #d1d5db; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
+                    <a href="refund-policy.html" style="color: #d1d5db; text-decoration: none; margin: 0 0.5rem;">Refund Policy</a> |
+                    <a href="disclaimer.html" style="color: #d1d5db; text-decoration: none; margin: 0 0.5rem;">Disclaimer</a>
                 </p>
-                <p style="margin-bottom: 0.5rem;">
-                    The content, courses, and community support available through this platform are for educational and informational purposes only and are not a substitute for professional medical care, licensed therapy, or financial advisory services.
-                </p>
-                <p style="margin-bottom: 0.5rem;">
-                    If you are experiencing a medical emergency, mental health crisis, or suicidal thoughts, please contact emergency services (911) or a crisis hotline immediately. For ongoing health concerns, consult qualified healthcare professionals.
-                </p>
-                <p>
-                    Results vary by individual. We make no guarantees, warranties, or promises regarding specific outcomes from using this platform.
+                <p class="phoenix-attribution">
+                    Built by <a href="/labs.html" style="color: #f59e0b; text-decoration: none;">Beacon Labs</a>
                 </p>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
-                <p style="margin-top: 0.5rem;">
-                    <a href="/terms-of-service.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a> |
-                    <a href="/privacy-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
-                    <a href="/refund-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Refund Policy</a> |
-                    <a href="/accessibility.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Accessibility</a> |
-                    <a href="/cookie-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Cookie Policy</a> |
-                    <a href="/disclaimer.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Disclaimer</a> |
-                    <a href="/gdpr-ccpa.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">GDPR/CCPA</a>
-                </p>
-
-            <p class="phoenix-attribution">
-                Built by <a href="/labs.html" style="color: var(--beacon-gold);">Beacon Labs</a>
-            </p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
 
