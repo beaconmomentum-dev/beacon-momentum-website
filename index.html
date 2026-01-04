@@ -4886,6 +4886,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         <form class="beacon-kit-modal-form" onsubmit="submitBeaconKitForm(event)">
             <input 
                 type="text" 
+                name="name"
                 class="beacon-kit-modal-input" 
                 placeholder="Your Name" 
                 required 
@@ -4893,6 +4894,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
             />
             <input 
                 type="email" 
+                name="email"
                 class="beacon-kit-modal-input" 
                 placeholder="Your Email" 
                 required 
@@ -4932,8 +4934,9 @@ function closeBeaconKitModal() {
 function submitBeaconKitForm(event) {
     event.preventDefault();
     
-    const name = document.getElementById('beaconKitName').value;
-    const email = document.getElementById('beaconKitEmail').value;
+    const formData = new FormData(event.target);
+    const name = formData.get('name');
+    const email = formData.get('email');
     const submitButton = event.target.querySelector('button[type="submit"]');
     
     // Disable button and show loading state
