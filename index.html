@@ -4947,8 +4947,15 @@ function submitBeaconKitForm(event) {
         'DeFi Starter Guide': 'defi-starter-guide'
     };
     
+    // Fallback: try to get from DOM if variable is lost
+    if (!selectedGuide) {
+        selectedGuide = document.getElementById('beaconKitGuideName').textContent;
+    }
+
     const pdfSlug = guideSlugMap[selectedGuide] || '';
     
+    console.log('Submitting PDF Request:', { name, email, selectedGuide, pdfSlug });
+
     if (!pdfSlug) {
         alert('Please select a guide to download.');
         submitButton.disabled = false;
