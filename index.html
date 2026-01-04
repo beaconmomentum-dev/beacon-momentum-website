@@ -5548,7 +5548,7 @@ timelineItems.forEach(item => {
 
 <script>
 // Exit Intent Detection
-let exitIntentShown = false;
+// let exitIntentShown = false; // Removed duplicate
 
 document.addEventListener('mouseleave', function(e) {
   // Only trigger if mouse leaves from top of page and hasn't been shown yet
@@ -6681,6 +6681,7 @@ function updateScrollProgress() {
 // Sticky Header Enhancement
 function updateStickyHeader() {
     const header = document.querySelector('header');
+    if (!header) return;
     if (window.scrollY > 100) {
         header.classList.add('scrolled');
     } else {
@@ -6691,6 +6692,7 @@ function updateStickyHeader() {
 // Floating CTA Visibility
 function updateFloatingCta() {
     const floatingCta = document.getElementById('floatingCta');
+    if (!floatingCta) return;
     const heroSection = document.querySelector('.hero');
     const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 800;
     
