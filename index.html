@@ -4943,31 +4943,22 @@ function submitBeaconKitForm(event) {
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
     
-    // Map guide title to slug
-    const guideSlugMap = {
-        'Life Transition Roadmap': 'life-transition-roadmap',
-        'One-Person Business Blueprint': 'business-blueprint',
-        'DeFi Starter Guide': 'defi-starter-guide'
-    };
-    
     // Fallback: try to get from DOM if variable is lost
     if (!selectedGuide) {
         selectedGuide = document.getElementById('beaconKitGuideName').textContent;
     }
 
-    const pdfSlug = guideSlugMap[selectedGuide] || '';
-    
-    console.log('Submitting PDF Request:', { name, email, selectedGuide, pdfSlug });
+    console.log('Submitting GHL Request:', { name, email, guide: selectedGuide });
 
-    if (!pdfSlug) {
+    if (!selectedGuide) {
         alert('Please select a guide to download.');
         submitButton.disabled = false;
         submitButton.textContent = 'Send Me the Guide →';
         return;
     }
     
-    // Send to PDF download API (SendGrid)
-    fetch('/api/pdf-download.php', {
+    // Send to GHL -> SendGrid API
+    fetch('/api/ghl-pdf-download.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -4975,7 +4966,7 @@ function submitBeaconKitForm(event) {
         body: JSON.stringify({
             name: name,
             email: email,
-            pdfSlug: pdfSlug
+            guide: selectedGuide
         })
     })
     .then(response => response.json())
