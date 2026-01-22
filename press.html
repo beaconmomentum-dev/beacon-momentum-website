@@ -24,16 +24,15 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-orange: #FF7A00;
-            --beacon-dark: #1F1F1F;
-            --beacon-cream: #F8F5F1;
-            --beacon-gold: #D97706;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
-            --beacon-teal: #0F766E;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -45,7 +44,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
@@ -75,17 +74,17 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
         }
 
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background: linear-gradient(135deg, #0F172A, #F59E0B);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -102,7 +101,7 @@
         }
 
         .nav-links a {
-            color: var(--beacon-dark);
+            color: #020617;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -110,19 +109,19 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--beacon-dark), var(--beacon-teal));
+            background: linear-gradient(135deg, #020617, #0F172A);
             color: white;
             padding: 6rem 0;
             text-align: center;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -155,9 +154,9 @@
         }
 
         .contact-card h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.5rem;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 1rem;
         }
 
@@ -167,7 +166,7 @@
         }
 
         .contact-card a {
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
             font-weight: 500;
         }
@@ -178,16 +177,16 @@
 
         /* About Section */
         .about-section {
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             padding: 5rem 0;
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.8rem;
             text-align: center;
             margin-bottom: 1rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .section-subtitle {
@@ -217,7 +216,7 @@
         }
 
         .about-content strong {
-            color: var(--beacon-dark);
+            color: #020617;
             font-weight: 600;
         }
 
@@ -233,13 +232,13 @@
             background: var(--beacon-light);
             padding: 3rem;
             border-radius: 12px;
-            border-left: 4px solid var(--beacon-gold);
+            border-left: 4px solid #F59E0B;
         }
 
         .founder-card h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
             margin-bottom: 1rem;
         }
 
@@ -258,14 +257,14 @@
 
         /* Download Section */
         .download-section {
-            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background: linear-gradient(135deg, #0F172A, #F59E0B);
             color: white;
             padding: 5rem 0;
             text-align: center;
         }
 
         .download-box h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
@@ -278,7 +277,7 @@
 
         .download-btn {
             background: white;
-            color: var(--beacon-teal);
+            color: #0F172A;
             padding: 1rem 2.5rem;
             border: none;
             border-radius: 8px;
@@ -291,7 +290,7 @@
         }
 
         .download-btn:hover {
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
@@ -319,7 +318,7 @@
         }
 
         .stat-number {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3rem;
             font-weight: 700;
             color: var(--beacon-orange);
@@ -333,7 +332,7 @@
 
         /* Footer */
         .footer {
-            background: var(--beacon-dark);
+            background: #020617;
             color: white;
             padding: 3rem 0 1.5rem;
         }
@@ -346,10 +345,10 @@
         }
 
         .footer-section h4 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .footer-section ul {
@@ -579,7 +578,7 @@
                 <div class="logo-icon">B</div>
                 <div style="display: flex; flex-direction: column; line-height: 1.2;">
                     <span>Beacon Momentum</span>
-                    <span style="font-size: 0.5em; font-style: italic; color: var(--beacon-gold);">Lighting the Way Forward</span>
+                    <span style="font-size: 0.5em; font-style: italic; color: #F59E0B;">Lighting the Way Forward</span>
                 </div>
             </a>
                             <ul class="nav-links">
@@ -746,7 +745,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Beacon Momentum. All rights reserved. | Built by <a href="/labs.html" style="color: var(--beacon-gold);">Beacon Labs</a></p>
+                <p>&copy; 2025 Beacon Momentum. All rights reserved. | Built by <a href="/labs.html" style="color: #F59E0B;">Beacon Labs</a></p>
                 <p style="margin-top: 0.5rem;"><a href="privacy-policy.html">Privacy Policy</a> | 
                 <a href="terms-of-service.html">Terms of Service</a> | 
                 <a href="refund-policy.html">Refund Policy</a></p>

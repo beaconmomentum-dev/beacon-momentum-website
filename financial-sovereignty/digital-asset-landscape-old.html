@@ -6,21 +6,23 @@
     <title>Understanding the Digital Asset Landscape | Financial Sovereignty | Beacon Momentum</title>
     <meta name="description" content="Empowerment through knowledge. Learn how the digital asset landscape works, why it matters, and understand both risks and opportunities.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-dark: #1A2B3D;
-            --beacon-gray: #6B7280;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
         
-        .beacon-teal { color: var(--beacon-teal); }
-        .beacon-gold { color: var(--beacon-gold); }
-        .bg-beacon-teal { background-color: var(--beacon-teal); }
-        .bg-beacon-gold { background-color: var(--beacon-gold); }
-        .border-beacon-gold { border-color: var(--beacon-gold); }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .beacon-teal { color: #0F172A; }
+        .beacon-gold { color: #F59E0B; }
+        .bg-beacon-teal { background-color: #0F172A; }
+        .bg-beacon-gold { background-color: #F59E0B; }
+        .border-beacon-gold { border-color: #F59E0B; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
         
         .hero-gradient { 
@@ -41,8 +43,8 @@
                 <a href="../index.html" class="flex items-center gap-3">
                     <img src="../images/beacon-logo-icon.png" alt="Beacon Momentum" style="width: 40px; height: 40px; object-fit: contain;">
                     <div class="flex flex-col leading-tight">
-                        <span class="text-xl font-bold" style="color: var(--beacon-dark);">Beacon Momentum</span>
-                        <span class="text-xs font-medium italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
+                        <span class="text-xl font-bold" style="color: #020617;">Beacon Momentum</span>
+                        <span class="text-xs font-medium italic" style="color: #F59E0B;">Lighting the Way Forward</span>
                     </div>
                 </a>
                 <ul class="hidden md:flex items-center gap-6">
@@ -66,7 +68,7 @@
                 </div>
                 
                 <div class="mb-4">
-                    <p class="text-lg md:text-xl font-semibold" style="color: var(--beacon-gold); text-shadow: 1px 1px 4px rgba(0,0,0,0.7); letter-spacing: 2px;">FINANCIAL SOVEREIGNTY</p>
+                    <p class="text-lg md:text-xl font-semibold" style="color: #F59E0B; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); letter-spacing: 2px;">FINANCIAL SOVEREIGNTY</p>
                 </div>
                 
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
@@ -93,11 +95,11 @@
     <section id="overview" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-8 playfair text-center" style="color: var(--beacon-teal);">The Evolving Financial Landscape</h2>
-                <p class="text-xl leading-relaxed mb-6" style="color: var(--beacon-dark);">
+                <h2 class="text-4xl font-bold mb-8 playfair text-center" style="color: #0F172A;">The Evolving Financial Landscape</h2>
+                <p class="text-xl leading-relaxed mb-6" style="color: #020617;">
                     The financial world is undergoing a fundamental transformation. Digital assets, blockchain technology, and decentralized systems represent new ways of storing, transferring, and managing value.
                 </p>
-                <p class="text-xl leading-relaxed mb-6" style="color: var(--beacon-dark);">
+                <p class="text-xl leading-relaxed mb-6" style="color: #020617;">
                     This isn't about hype or speculation—it's about understanding how these systems work, what problems they solve, and what new challenges they create. Knowledge removes fear and enables informed decision-making.
                 </p>
                 <div class="bg-gray-50 border-l-4 border-beacon-gold p-6 my-8">
@@ -113,11 +115,11 @@
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: var(--beacon-teal);">Core Concepts to Understand</h2>
+                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: #0F172A;">Core Concepts to Understand</h2>
                 
                 <div class="space-y-8">
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-dark);">What Are Digital Assets?</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #020617;">What Are Digital Assets?</h3>
                         <p class="text-gray-700 leading-relaxed mb-4">
                             Digital assets are representations of value that exist in electronic form. They can include cryptocurrencies, tokenized real-world assets, digital collectibles, and programmable financial instruments.
                         </p>
@@ -127,7 +129,7 @@
                     </div>
 
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-dark);">How Blockchain Technology Works</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #020617;">How Blockchain Technology Works</h3>
                         <p class="text-gray-700 leading-relaxed mb-4">
                             Blockchain is a distributed ledger technology that records transactions across many computers. No single entity controls the entire system, making it resistant to censorship and single points of failure.
                         </p>
@@ -137,7 +139,7 @@
                     </div>
 
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-dark);">Decentralized Finance (DeFi)</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #020617;">Decentralized Finance (DeFi)</h3>
                         <p class="text-gray-700 leading-relaxed mb-4">
                             DeFi refers to financial services built on blockchain technology that operate without traditional intermediaries like banks. These systems use smart contracts—self-executing code—to automate financial functions.
                         </p>
@@ -147,7 +149,7 @@
                     </div>
 
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-dark);">Smart Contracts & Programmable Money</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #020617;">Smart Contracts & Programmable Money</h3>
                         <p class="text-gray-700 leading-relaxed mb-4">
                             Smart contracts are programs that automatically execute when certain conditions are met. They enable money to be "programmable"—following rules without human intervention.
                         </p>
@@ -157,7 +159,7 @@
                     </div>
 
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-dark);">Custody & Self-Sovereignty</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #020617;">Custody & Self-Sovereignty</h3>
                         <p class="text-gray-700 leading-relaxed mb-4">
                             In traditional finance, banks and institutions hold your assets. In digital asset systems, you can hold your own assets directly through cryptographic keys.
                         </p>
@@ -174,32 +176,32 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: var(--beacon-teal);">Why This Landscape Matters</h2>
+                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: #0F172A;">Why This Landscape Matters</h2>
                 
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="border-l-4 border-beacon-gold pl-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-dark);">Financial Inclusion</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #020617;">Financial Inclusion</h3>
                         <p class="text-gray-700 leading-relaxed">
                             Digital assets can provide financial services to people who lack access to traditional banking, enabling global participation in economic systems.
                         </p>
                     </div>
 
                     <div class="border-l-4 border-beacon-gold pl-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-dark);">Transparency</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #020617;">Transparency</h3>
                         <p class="text-gray-700 leading-relaxed">
                             Blockchain systems create public, auditable records of transactions, reducing opacity and enabling verification without trusting intermediaries.
                         </p>
                     </div>
 
                     <div class="border-l-4 border-beacon-gold pl-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-dark);">Innovation</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #020617;">Innovation</h3>
                         <p class="text-gray-700 leading-relaxed">
                             Programmable money and smart contracts enable new financial products and services that weren't possible with traditional systems.
                         </p>
                     </div>
 
                     <div class="border-l-4 border-beacon-gold pl-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-dark);">Individual Sovereignty</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #020617;">Individual Sovereignty</h3>
                         <p class="text-gray-700 leading-relaxed">
                             The ability to hold and control your own assets without intermediaries represents a fundamental shift in financial autonomy.
                         </p>
@@ -213,7 +215,7 @@
     <section id="risks" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: var(--beacon-teal);">Understanding the Risks</h2>
+                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: #0F172A;">Understanding the Risks</h2>
                 
                 <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
                     <p class="text-lg font-semibold text-red-900 mb-2">⚠️ Critical Understanding Required</p>
@@ -280,7 +282,7 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: var(--beacon-teal);">Potential Opportunities</h2>
+                <h2 class="text-4xl font-bold mb-12 playfair text-center" style="color: #0F172A;">Potential Opportunities</h2>
                 
                 <p class="text-xl mb-8 text-center" style="color: var(--beacon-gray);">
                     With proper understanding and risk management, the digital asset landscape offers various possibilities:
@@ -289,7 +291,7 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-gray-50 p-6 rounded-lg">
                         <div class="text-3xl mb-3">🌍</div>
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-dark);">Global Access</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #020617;">Global Access</h3>
                         <p class="text-gray-700">
                             Participate in global financial systems without geographic restrictions or traditional banking requirements.
                         </p>
@@ -297,7 +299,7 @@
 
                     <div class="bg-gray-50 p-6 rounded-lg">
                         <div class="text-3xl mb-3">⚡</div>
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-dark);">24/7 Markets</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #020617;">24/7 Markets</h3>
                         <p class="text-gray-700">
                             Digital asset markets operate continuously, enabling transactions and activities at any time.
                         </p>
@@ -305,7 +307,7 @@
 
                     <div class="bg-gray-50 p-6 rounded-lg">
                         <div class="text-3xl mb-3">🔧</div>
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-dark);">Programmability</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #020617;">Programmability</h3>
                         <p class="text-gray-700">
                             Create custom financial arrangements and automated systems tailored to specific needs.
                         </p>
@@ -313,7 +315,7 @@
 
                     <div class="bg-gray-50 p-6 rounded-lg">
                         <div class="text-3xl mb-3">🤝</div>
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-dark);">Peer-to-Peer</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #020617;">Peer-to-Peer</h3>
                         <p class="text-gray-700">
                             Transact directly with others without intermediaries taking fees or imposing restrictions.
                         </p>
@@ -334,20 +336,20 @@
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">Continue Your Education</h2>
+                <h2 class="text-4xl font-bold mb-8 playfair" style="color: #0F172A;">Continue Your Education</h2>
                 <p class="text-xl mb-12" style="color: var(--beacon-gray);">
                     Build comprehensive understanding across all pillars of Financial Sovereignty.
                 </p>
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <a href="modern-wealth-navigation.html" class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition border-t-4 border-beacon-teal text-left">
-                        <h3 class="text-2xl font-bold mb-3 playfair" style="color: var(--beacon-dark);">Modern Wealth Navigation</h3>
+                        <h3 class="text-2xl font-bold mb-3 playfair" style="color: #020617;">Modern Wealth Navigation</h3>
                         <p class="text-gray-700 mb-4">Develop personal financial autonomy and decision clarity through foundational principles.</p>
                         <span class="text-beacon-teal font-semibold">Learn Foundations →</span>
                     </a>
 
                     <a href="financial-resilience.html" class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition border-t-4 border-beacon-gold text-left">
-                        <h3 class="text-2xl font-bold mb-3 playfair" style="color: var(--beacon-dark);">Building Resilience Through Financial Skills</h3>
+                        <h3 class="text-2xl font-bold mb-3 playfair" style="color: #020617;">Building Resilience Through Financial Skills</h3>
                         <p class="text-gray-700 mb-4">Connect financial autonomy to personal transformation and build lasting self-reliance.</p>
                         <span class="beacon-gold font-semibold">Build Skills →</span>
                     </a>

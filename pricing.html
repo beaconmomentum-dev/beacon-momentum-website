@@ -23,14 +23,17 @@
     
     <title>Pricing | Beacon Momentum</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%); }
         
@@ -59,7 +62,7 @@
         }
         .founding-banner-cta {
             background: #D4AF37;
-            color: #1F1F1F;
+            color: #020617;
             padding: 0.5rem 1.5rem;
             border-radius: 0.375rem;
             font-weight: 700;
@@ -128,13 +131,13 @@ if (new Date() >= expirationDate) {
         <a href="/index.html" class="flex items-center space-x-2">
             <img src="/images/favicon.png" alt="Beacon" class="h-10 w-10">
             <div>
-                <div class="font-bold text-xl playfair" style="color: var(--beacon-teal);">Beacon Momentum</div>
-                <div class="text-xs" style="color: var(--beacon-gold);">Lighting the Way Forward</div>
+                <div class="font-bold text-xl playfair" style="color: #0F172A;">Beacon Momentum</div>
+                <div class="text-xs" style="color: #F59E0B;">Lighting the Way Forward</div>
             </div>
         </a>
         <div class="flex items-center space-x-6">
             <a href="index.html" class="text-gray-700 hover:text-gray-900">Home</a>
-            <a href="login.html" class="text-white px-4 py-2 rounded-lg" style="background-color: var(--beacon-teal);">Login</a>
+            <a href="login.html" class="text-white px-4 py-2 rounded-lg" style="background-color: #0F172A;">Login</a>
         </div>
     </nav>
 </header>
@@ -144,7 +147,7 @@ if (new Date() >= expirationDate) {
         <h1 class="text-4xl md:text-5xl font-bold mb-4 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
             Find Your Path Forward
         </h1>
-        <p class="text-lg max-w-2xl mx-auto" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: var(--beacon-gold);">
+        <p class="text-lg max-w-2xl mx-auto" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: #F59E0B;">
             Choose the plan that fits your journey. All plans include our proven transformation framework.
         </p>
     </div>
@@ -156,7 +159,7 @@ if (new Date() >= expirationDate) {
         <!-- Pricing Toggle -->
         <div class="flex justify-center mb-12">
             <div class="bg-gray-200 rounded-lg p-1 inline-flex">
-                <button onclick="showMonthly()" id="monthlyBtn" class="px-6 py-2 rounded-md font-semibold transition" style="background-color: var(--beacon-teal); color: white;">
+                <button onclick="showMonthly()" id="monthlyBtn" class="px-6 py-2 rounded-md font-semibold transition" style="background-color: #0F172A; color: white;">
                     Monthly
                 </button>
                 <button onclick="showAnnual()" id="annualBtn" class="px-6 py-2 rounded-md font-semibold text-gray-700 transition">
@@ -170,84 +173,84 @@ if (new Date() >= expirationDate) {
             <!-- Member Monthly -->
             <div class="bg-white rounded-lg shadow-lg p-8 border-2 border-gray-200">
                 <div class="text-center mb-6">
-                    <h3 class="text-2xl font-bold mb-2" style="color: var(--beacon-teal);">Member</h3>
+                    <h3 class="text-2xl font-bold mb-2" style="color: #0F172A;">Member</h3>
                     <div class="text-5xl font-bold mb-2">$147</div>
                     <p class="text-gray-600">per month</p>
                 </div>
                 <ul class="space-y-3 mb-8">
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-teal);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #0F172A;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Beacon Rise (12-week program)</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-teal);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #0F172A;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Community forum access</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-teal);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #0F172A;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Basic educational resources</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-teal);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #0F172A;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Progress tracking</span>
                     </li>
                 </ul>
-                <a href="https://buy.stripe.com/bJe6oH2k46eucGB45m" class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition" style="background-color: var(--beacon-teal); color: white;">
+                <a href="https://buy.stripe.com/bJe6oH2k46eucGB45m" class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition" style="background-color: #0F172A; color: white;">
                     Start Member Plan
                 </a>
             </div>
 
             <!-- Mentor Monthly -->
-            <div class="bg-white rounded-lg shadow-xl p-8 border-2 relative" style="border-color: var(--beacon-gold);">
+            <div class="bg-white rounded-lg shadow-xl p-8 border-2 relative" style="border-color: #F59E0B;">
                 <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <span class="bg-yellow-400 text-gray-900 text-xs font-bold px-4 py-1 rounded-full">POPULAR</span>
                 </div>
                 <div class="text-center mb-6">
-                    <h3 class="text-2xl font-bold mb-2" style="color: var(--beacon-gold);">Mentor</h3>
+                    <h3 class="text-2xl font-bold mb-2" style="color: #F59E0B;">Mentor</h3>
                     <div class="text-5xl font-bold mb-2">$297</div>
                     <p class="text-gray-600">per month</p>
                 </div>
                 <ul class="space-y-3 mb-8">
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700"><strong>All Member features</strong></span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Beacon Launch (business pathway)</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Beacon Academy (5 modules)</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Monthly Q&A sessions</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Priority email support</span>
                     </li>
                 </ul>
-                <a href="#" class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition text-gray-900" style="background-color: var(--beacon-gold);">
+                <a href="#" class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition text-gray-900" style="background-color: #F59E0B;">
                     Start Mentor Plan
                 </a>
             </div>
@@ -258,86 +261,86 @@ if (new Date() >= expirationDate) {
             <!-- Member Annual -->
             <div class="bg-white rounded-lg shadow-lg p-8 border-2 border-gray-200">
                 <div class="text-center mb-6">
-                    <h3 class="text-2xl font-bold mb-2" style="color: var(--beacon-teal);">Member</h3>
+                    <h3 class="text-2xl font-bold mb-2" style="color: #0F172A;">Member</h3>
                     <div class="text-5xl font-bold mb-2">$1,470</div>
                     <p class="text-gray-600">per year</p>
-                    <p class="text-sm mt-2" style="color: var(--beacon-teal);"><strong>Save $294/year</strong></p>
+                    <p class="text-sm mt-2" style="color: #0F172A;"><strong>Save $294/year</strong></p>
                 </div>
                 <ul class="space-y-3 mb-8">
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-teal);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #0F172A;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Beacon Rise (12-week program)</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-teal);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #0F172A;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Community forum access</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-teal);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #0F172A;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Basic educational resources</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-teal);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #0F172A;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Progress tracking</span>
                     </li>
                 </ul>
-                <a href="https://buy.stripe.com/bJe6oH2k46eucGB45m" class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition" style="background-color: var(--beacon-teal); color: white;">
+                <a href="https://buy.stripe.com/bJe6oH2k46eucGB45m" class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition" style="background-color: #0F172A; color: white;">
                     Start Member Plan
                 </a>
             </div>
 
             <!-- Mentor Annual -->
-            <div class="bg-white rounded-lg shadow-xl p-8 border-2 relative" style="border-color: var(--beacon-gold);">
+            <div class="bg-white rounded-lg shadow-xl p-8 border-2 relative" style="border-color: #F59E0B;">
                 <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <span class="bg-yellow-400 text-gray-900 text-xs font-bold px-4 py-1 rounded-full">POPULAR</span>
                 </div>
                 <div class="text-center mb-6">
-                    <h3 class="text-2xl font-bold mb-2" style="color: var(--beacon-gold);">Mentor</h3>
+                    <h3 class="text-2xl font-bold mb-2" style="color: #F59E0B;">Mentor</h3>
                     <div class="text-5xl font-bold mb-2">$2,970</div>
                     <p class="text-gray-600">per year</p>
-                    <p class="text-sm mt-2" style="color: var(--beacon-gold);"><strong>Save $594/year</strong></p>
+                    <p class="text-sm mt-2" style="color: #F59E0B;"><strong>Save $594/year</strong></p>
                 </div>
                 <ul class="space-y-3 mb-8">
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700"><strong>All Member features</strong></span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Beacon Launch (business pathway)</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Beacon Academy (5 modules)</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Monthly Q&A sessions</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-gray-700">Priority email support</span>
                     </li>
                 </ul>
-                <a href="#" class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition text-gray-900" style="background-color: var(--beacon-gold);">
+                <a href="#" class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition text-gray-900" style="background-color: #F59E0B;">
                     Start Mentor Plan
                 </a>
             </div>
@@ -353,42 +356,42 @@ if (new Date() >= expirationDate) {
                         <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">LIMITED TIME</span>
                     </div>
                     <div class="mb-6">
-                        <div class="text-6xl md:text-7xl font-bold mb-2" style="color: var(--beacon-gold);">$3,997</div>
+                        <div class="text-6xl md:text-7xl font-bold mb-2" style="color: #F59E0B;">$3,997</div>
                         <p class="text-xl">One-time payment • Lifetime access • Available through December 31, 2025</p>
                     </div>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
                             <span class="text-lg"><strong>All Mentor features — forever</strong></span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
                             <span class="text-lg">Founding member badge & recognition</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
                             <span class="text-lg">Early access to all future content</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
                             <span class="text-lg">No renewals, no recurring fees, ever</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-6 h-6 mr-3 mt-0.5 flex-shrink-0" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
                             <span class="text-lg">Financing options available at checkout (if qualified)</span>
                         </li>
                     </ul>
-                    <a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f" class="inline-block text-center py-4 px-10 rounded-lg font-bold text-xl transition transform hover:scale-105" style="background-color: var(--beacon-gold); color: #1F1F1F;">
+                    <a href="https://buy.stripe.com/bJe3cv6AkdGW21X0Ta2400f" class="inline-block text-center py-4 px-10 rounded-lg font-bold text-xl transition transform hover:scale-105" style="background-color: #F59E0B; color: #020617;">
                         Claim Lifetime Access →
                     </a>
                     <p class="mt-4 text-sm opacity-90">✓ Secure checkout • ✓ BNPL financing available through Affirm, Afterpay & Klarna</p>
@@ -444,7 +447,7 @@ if (new Date() >= expirationDate) {
 function showMonthly() {
     document.getElementById('monthlyPricing').classList.remove('hidden');
     document.getElementById('annualPricing').classList.add('hidden');
-    document.getElementById('monthlyBtn').style.backgroundColor = 'var(--beacon-teal)';
+    document.getElementById('monthlyBtn').style.backgroundColor = '#0F172A';
     document.getElementById('monthlyBtn').style.color = 'white';
     document.getElementById('annualBtn').style.backgroundColor = 'transparent';
     document.getElementById('annualBtn').style.color = '#374151';
@@ -453,7 +456,7 @@ function showMonthly() {
 function showAnnual() {
     document.getElementById('monthlyPricing').classList.add('hidden');
     document.getElementById('annualPricing').classList.remove('hidden');
-    document.getElementById('annualBtn').style.backgroundColor = 'var(--beacon-teal)';
+    document.getElementById('annualBtn').style.backgroundColor = '#0F172A';
     document.getElementById('annualBtn').style.color = 'white';
     document.getElementById('monthlyBtn').style.backgroundColor = 'transparent';
     document.getElementById('monthlyBtn').style.color = '#374151';

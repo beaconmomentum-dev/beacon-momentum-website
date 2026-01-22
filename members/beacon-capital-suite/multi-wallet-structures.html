@@ -6,14 +6,17 @@
     <title>Multi-Wallet Structures & Capital Protection | Beacon Beacon Academy</title>
     <meta name="robots" content="noindex, nofollow">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%); }
     </style>
@@ -26,11 +29,11 @@
                     <img src="../../images/beacon-logo-icon.png" alt="Beacon" style="width: 40px; height: 40px;">
                     <div class="flex flex-col leading-tight">
                         <span class="text-xl font-bold">Beacon Beacon Academy</span>
-                        <span class="text-xs italic" style="color: var(--beacon-gold);">Member-Only Education</span>
+                        <span class="text-xs italic" style="color: #F59E0B;">Member-Only Education</span>
                     </div>
                 </a>
                 <div class="flex items-center gap-4">
-                    <span class="text-sm" style="color: var(--beacon-gold);">🔒 Member Access</span>
+                    <span class="text-sm" style="color: #F59E0B;">🔒 Member Access</span>
                     <a href="/member-dashboard.html" class="text-sm hover:opacity-80">Dashboard</a>
                     <button onclick="logout()" class="text-sm hover:opacity-80">Logout</button>
                 </div>
@@ -42,11 +45,11 @@
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
                 <div class="text-6xl mb-6">🔐</div>
-                <p class="text-sm uppercase tracking-wider mb-4" style="color: var(--beacon-gold);">Module 3 of 5</p>
+                <p class="text-sm uppercase tracking-wider mb-4" style="color: #F59E0B;">Module 3 of 5</p>
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                     Multi-Wallet Structures & Capital Protection
                 </h1>
-                <p class="text-2xl md:text-3xl italic mb-8" style="color: var(--beacon-gold); text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+                <p class="text-2xl md:text-3xl italic mb-8" style="color: #F59E0B; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
                     "Don't put your future in a single point of failure."
                 </p>
                 <p class="text-xl max-w-3xl mx-auto" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
@@ -59,11 +62,11 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">Members Learn</h2>
+                <h2 class="text-4xl font-bold mb-8 playfair" style="color: #0F172A;">Members Learn</h2>
                 
                 <div class="space-y-6 mb-12">
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Multi-Wallet Organization Strategies</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Multi-Wallet Organization Strategies</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Professional operators don't use a single wallet for everything. They organize their digital assets across multiple wallets, each with a specific purpose and risk profile. This isn't paranoia—it's operational discipline.
                         </p>
@@ -73,7 +76,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Separation of Roles: Hot, Warm, Cold, Deep-Cold</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Separation of Roles: Hot, Warm, Cold, Deep-Cold</h3>
                         <p class="text-lg text-gray-700 leading-relaxed mb-4">
                             Different wallets serve different purposes. Understanding the hierarchy of wallet types is essential for capital protection:
                         </p>
@@ -89,7 +92,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Structuring Transaction Flows</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Structuring Transaction Flows</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Every transaction leaves a trail. Professional operators structure their transaction flows to minimize exposure, maintain privacy, and reduce risk. This means understanding how to move assets between wallets, when to use intermediary addresses, and how to avoid creating patterns that can be exploited.
                         </p>
@@ -99,7 +102,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Operational Security and Hygiene</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Operational Security and Hygiene</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Security isn't just about wallets—it's about behavior. Operational security (OpSec) includes:
                         </p>
@@ -118,7 +121,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Identity Isolation</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Identity Isolation</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Your on-chain identity is permanent. Every transaction you make is recorded forever. Professional operators use identity isolation to separate their public persona from their financial operations. This doesn't mean deception—it means protecting your privacy and security in a transparent system.
                         </p>
@@ -128,7 +131,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Layered Risk Segmentation</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Layered Risk Segmentation</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Not all assets carry the same risk. Not all activities require the same security level. Layered risk segmentation means matching your security measures to the risk profile of each activity:
                         </p>
@@ -144,7 +147,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Practical Vaulting Methods</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Practical Vaulting Methods</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Vaulting isn't just about hardware wallets—it's about creating secure, recoverable, and resilient storage systems. You'll learn practical methods for:
                         </p>
@@ -161,7 +164,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Avoiding Chain Analysis Traps</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Avoiding Chain Analysis Traps</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Blockchain analysis firms can trace transactions, identify patterns, and link wallets to real-world identities. While you're not doing anything wrong, you don't want your entire financial history exposed to anyone with analytics tools.
                         </p>
@@ -185,22 +188,22 @@
 
                 <div class="grid md:grid-cols-2 gap-6 mb-12">
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Build a Personal Security Architecture</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Build a Personal Security Architecture</h3>
                         <p class="text-gray-700">Design and implement a multi-wallet system tailored to your specific needs, risk tolerance, and operational requirements.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Maintain Sovereignty Without Paranoia</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Maintain Sovereignty Without Paranoia</h3>
                         <p class="text-gray-700">Balance security with usability. Protect your assets without making every transaction a stressful ordeal.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Prevent Catastrophic Single-Wallet Failures</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Prevent Catastrophic Single-Wallet Failures</h3>
                         <p class="text-gray-700">Eliminate single points of failure. If one wallet is compromised, your entire financial life doesn't collapse.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Operate Like a Disciplined Financial Steward</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Operate Like a Disciplined Financial Steward</h3>
                         <p class="text-gray-700">Not a casual user. You'll have the habits, systems, and mindset of a professional operator.</p>
                     </div>
                 </div>
@@ -243,14 +246,14 @@
                         </div>
                         <div class="bg-white p-6 rounded-lg text-center">
                             <p class="text-3xl mb-2">✨</p>
-                            <p class="font-bold mb-2" style="color: var(--beacon-gold);">Soaring</p>
+                            <p class="font-bold mb-2" style="color: #F59E0B;">Soaring</p>
                             <p class="text-sm text-gray-600">Operate with confidence, discipline, and resilience</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600 mb-12">
-                    <h3 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">💡 Key Takeaway</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #0F172A;">💡 Key Takeaway</h3>
                     <p class="text-lg text-gray-700">
                         Capital protection isn't about fear—it's about discipline. Multi-wallet structures give you the operational security to participate in DeFi confidently, knowing that no single mistake or exploit can destroy everything you've built. This is how professionals protect their future.
                     </p>

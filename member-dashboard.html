@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Dashboard | Beacon Momentum</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%); }
     </style>
@@ -189,11 +192,11 @@
                     <img src="/images/beacon-logo-icon.png" alt="Beacon" style="width: 40px; height: 40px;">
                     <div class="flex flex-col leading-tight">
                         <span class="text-xl font-bold">Beacon Momentum</span>
-                        <span class="text-xs italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
+                        <span class="text-xs italic" style="color: #F59E0B;">Lighting the Way Forward</span>
                     </div>
                 </a>
                 <div class="flex items-center gap-4">
-                    <span id="user-email" class="text-sm" style="color: var(--beacon-gold);"></span>
+                    <span id="user-email" class="text-sm" style="color: #F59E0B;"></span>
                     <button id="logout-btn" class="text-sm hover:opacity-80">Logout</button>
                 </div>
             </nav>
@@ -207,7 +210,7 @@
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                     Welcome, <span id="user-name">Member</span>
                 </h1>
-                <p class="text-xl" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: var(--beacon-gold);">
+                <p class="text-xl" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: #F59E0B;">
                     Your sovereignty journey begins here
                 </p>
             </div>
@@ -217,7 +220,7 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">Your Learning Paths</h2>
+                <h2 class="text-4xl font-bold mb-8 playfair" style="color: #0F172A;">Your Learning Paths</h2>
                 
                 <!-- Quick Access Links -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
@@ -243,7 +246,7 @@
                     <!-- Beacon Beacon Academy -->
                     <div class="bg-gradient-to-br from-teal-50 to-blue-50 p-8 rounded-lg border-2 border-teal-600 shadow-lg">
                         <div class="text-5xl mb-4">💎</div>
-                        <h3 class="text-3xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Beacon Beacon Academy</h3>
+                        <h3 class="text-3xl font-bold mb-4 playfair" style="color: #0F172A;">Beacon Beacon Academy</h3>
                         <p class="text-lg text-gray-700 mb-6">
                             Master DeFi investment banking fundamentals through our comprehensive 5-module curriculum.
                         </p>
@@ -302,7 +305,7 @@
                 </div>
 
                 <div class="bg-gradient-to-r from-gray-50 to-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
-                    <h3 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">🎓 Your Progress</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #0F172A;">🎓 Your Progress</h3>
                     <p class="text-lg text-gray-700 mb-4">
                         You have access to all Beacon Beacon Academy modules. Start with Module 1 and progress through the complete curriculum at your own pace.
                     </p>
@@ -321,12 +324,12 @@
                 
                 <div class="grid md:grid-cols-3 gap-6">
                     <a href="/members/beacon-capital-suite/index.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">📚 Beacon Beacon Academy</h3>
+                        <h3 class="text-xl font-bold mb-2" style="color: #0F172A;">📚 Beacon Beacon Academy</h3>
                         <p class="text-gray-600">Access all 5 educational modules</p>
                     </a>
 
                     <a href="/my-progress.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-gold);">📊 My Progress</h3>
+                        <h3 class="text-xl font-bold mb-2" style="color: #F59E0B;">📊 My Progress</h3>
                         <p class="text-gray-600">Track your learning journey</p>
                     </a>
 
@@ -336,17 +339,17 @@
                     </a>
 
                     <a href="/messages.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">✉️ Messages</h3>
+                        <h3 class="text-xl font-bold mb-2" style="color: #0F172A;">✉️ Messages</h3>
                         <p class="text-gray-600">Private member conversations</p>
                     </a>
 
                     <a href="/pricing.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-gold);">💎 Upgrade</h3>
+                        <h3 class="text-xl font-bold mb-2" style="color: #F59E0B;">💎 Upgrade</h3>
                         <p class="text-gray-600">Unlock premium features</p>
                     </a>
 
                     <a href="/contact.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--beacon-teal);">📧 Contact Support</h3>
+                        <h3 class="text-xl font-bold mb-2" style="color: #0F172A;">📧 Contact Support</h3>
                         <p class="text-gray-600">Get help or ask questions</p>
                     </a>
                 </div>

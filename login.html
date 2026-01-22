@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Login | Beacon Momentum</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%); }
     </style>
@@ -189,11 +192,11 @@
                     <img src="/images/beacon-logo-icon.png" alt="Beacon" style="width: 40px; height: 40px;">
                     <div class="flex flex-col leading-tight">
                         <span class="text-xl font-bold">Beacon Momentum</span>
-                        <span class="text-xs italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
+                        <span class="text-xs italic" style="color: #F59E0B;">Lighting the Way Forward</span>
                     </div>
                 </a>
                 <div class="flex items-center gap-4">
-                    <a href="register.html" class="text-sm hover:opacity-80" style="color: var(--beacon-gold);">Create Account</a>
+                    <a href="register.html" class="text-sm hover:opacity-80" style="color: #F59E0B;">Create Account</a>
                     <a href="index.html" class="text-sm hover:opacity-80">Home</a>
                 </div>
             </nav>
@@ -207,7 +210,7 @@
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                     Member Login
                 </h1>
-                <p class="text-lg" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: var(--beacon-gold);">
+                <p class="text-lg" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: #F59E0B;">
                     Access your Beacon Beacon Academy
                 </p>
             </div>
@@ -232,7 +235,7 @@
                                 required
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
                                 placeholder="your@email.com"
-                             style="color: #1F1F1F !important;">
+                             style="color: #020617 !important;">
                         </div>
 
                         <div>
@@ -244,7 +247,7 @@
                                 required
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
                                 placeholder="Enter your password"
-                             style="color: #1F1F1F !important;">
+                             style="color: #020617 !important;">
                         </div>
 
                         <div class="text-right">
@@ -263,14 +266,14 @@
                     <div class="mt-6 text-center">
                         <p class="text-gray-600 text-sm">
                             Don't have an account? 
-                            <a href="register.html" class="font-semibold hover:opacity-80" style="color: var(--beacon-teal);">Create one here</a>
+                            <a href="register.html" class="font-semibold hover:opacity-80" style="color: #0F172A;">Create one here</a>
                         </p>
                     </div>
                 </div>
 
                 <div class="mt-8 text-center">
                     <p class="text-gray-500 text-sm">
-                        Need help? <a href="/contact.html" class="hover:opacity-80" style="color: var(--beacon-teal);">Contact Support</a>
+                        Need help? <a href="/contact.html" class="hover:opacity-80" style="color: #0F172A;">Contact Support</a>
                     </p>
                 </div>
             </div>
@@ -281,7 +284,7 @@
         <div class="container mx-auto px-4 text-center">
             <p class="text-gray-400 text-sm">&copy; 2025 Beacon Momentum. All rights reserved.</p>
                 <p style="margin-top: 0.5rem;">
-                    <a href="terms-of-service.html" style="color: #1F1F1F; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a> |
+                    <a href="terms-of-service.html" style="color: #020617; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a> |
                     <a href="privacy-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
                     <a href="refund-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Refund Policy</a> |
                     <a href="accessibility.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Accessibility</a> |

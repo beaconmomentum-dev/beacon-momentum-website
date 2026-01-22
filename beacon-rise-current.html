@@ -24,18 +24,17 @@
     <meta property="twitter:image" content="https://beaconmomentum.com/images/beacon-rise-hero.jpg">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --deep-navy: #1A2B3D;
-            --warm-gray: #6B7280;
-            --light-background: #F8FAFC;
-            --deep-red: #8B1538;
-            --parchment: #F5F1E8;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
     </style>
 <!-- Google Analytics 4 -->
@@ -222,12 +221,12 @@
                 <div class="flex items-center space-x-3">
                     <a href="index.html"><img src="/images/beacon-logo-icon.png" alt="Beacon Momentum Lighthouse" class="w-16 h-16 object-contain"></a>
                     <div>
-                        <h1 class="text-xl font-bold playfair" style="color: var(--beacon-teal);">Beacon Momentum</h1>
+                        <h1 class="text-xl font-bold playfair" style="color: #0F172A;">Beacon Momentum</h1>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="index.html" class="font-medium" style="color: var(--warm-gray);">Home</a>
-                    <a href="/beacon-rise.html" class="font-medium" style="color: var(--beacon-teal); font-weight: 600;">Beacon Rise</a>
+                    <a href="/beacon-rise.html" class="font-medium" style="color: #0F172A; font-weight: 600;">Beacon Rise</a>
                     <a href="/beacon-launch.html" class="font-medium" style="color: var(--warm-gray);">Beacon Launch</a>
                     <a href="/beacon-academy.html" class="font-medium" style="color: var(--warm-gray);">Beacon Academy</a>
                     <a href="/labs.html" class="font-medium" style="color: var(--warm-gray);">Beacon Labs</a>
@@ -272,7 +271,7 @@
     <!-- The Solution Section -->
     <section class="bg-parchment py-20">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">Beacon Rise: The Path Forward</h2>
+            <h2 class="text-4xl font-bold mb-8 playfair" style="color: #0F172A;">Beacon Rise: The Path Forward</h2>
             <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
                 <p class="mb-6">Beacon Rise is a 12-week, structured journey designed to give you the tools, community, and guidance to rebuild your life from the ground up. It's not about quick fixes or empty platitudes. It's about doing the real work of healing and growth, surrounded by people who get it because they've lived it.</p>
                 <p>Rooted in the Digital Grandpa philosophy of wisdom, compassion, and practical action, this program will help you find your footing, rediscover your purpose, and build a future that is authentically yours. This is where you stop surviving and start thriving.</p>
@@ -288,17 +287,17 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Week 1-4 -->
                 <div class="bg-gray-50 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Weeks 1-4: The Foundation</h3>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: #0F172A;">Weeks 1-4: The Foundation</h3>
                     <p class="text-gray-700">We start by taking stock and building a solid foundation for your new life. This is about radical honesty, self-assessment, and understanding the patterns that have led you to this point.</p>
                 </div>
                 <!-- Week 5-8 -->
                 <div class="bg-gray-50 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Weeks 5-8: The Rebuilding</h3>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: #0F172A;">Weeks 5-8: The Rebuilding</h3>
                     <p class="text-gray-700">With a clear understanding of your past, we move into the rebuilding phase. This is where you'll develop new skills, new habits, and a new mindset. We'll focus on resilience, emotional intelligence, and practical life design.</p>
                 </div>
                 <!-- Week 9-12 -->
                 <div class="bg-gray-50 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Weeks 9-12: The Launch</h3>
+                    <h3 class="text-2xl font-bold mb-4 playfair" style="color: #0F172A;">Weeks 9-12: The Launch</h3>
                     <p class="text-gray-700">In the final phase, we turn our attention to the future. You'll create a personal roadmap, set meaningful goals, and take the first steps into your new life with confidence and a supportive community at your back.</p>
                 </div>
             </div>
@@ -309,7 +308,7 @@
     <!-- What You'll Get Section -->
     <section class="bg-parchment py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">What You'll Get in Beacon Rise</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: #0F172A;">What You'll Get in Beacon Rise</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-lg">
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-bold mb-2">12 Weekly Modules</h3>
@@ -335,20 +334,20 @@
     <!-- Why It Works Section -->
     <section class="bg-parchment py-20">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-12 playfair" style="color: var(--beacon-teal);">Why Beacon Rise Works</h2>
+            <h2 class="text-4xl font-bold mb-12 playfair" style="color: #0F172A;">Why Beacon Rise Works</h2>
             <div class="max-w-4xl mx-auto">
                 <p class="text-xl text-gray-700 mb-8">Because it's built on three timeless pillars:</p>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">1. Community</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #0F172A;">1. Community</h3>
                         <p class="text-gray-700">You're not doing this alone.</p>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">2. Structure</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #0F172A;">2. Structure</h3>
                         <p class="text-gray-700">A clear path you can follow week by week.</p>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">3. Accountability</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #0F172A;">3. Accountability</h3>
                         <p class="text-gray-700">Support that keeps you grounded, not drifting.</p>
                     </div>
                 </div>
@@ -394,15 +393,15 @@
             <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--deep-red);">Your Transformation Timeline</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-lg shadow-md text-center">
-                    <h3 class="text-3xl font-bold mb-4" style="color: var(--beacon-teal);">In 30 Days</h3>
+                    <h3 class="text-3xl font-bold mb-4" style="color: #0F172A;">In 30 Days</h3>
                     <p class="text-gray-700">More clarity, more stability, first habits forming.</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-md text-center">
-                    <h3 class="text-3xl font-bold mb-4" style="color: var(--beacon-teal);">In 60 Days</h3>
+                    <h3 class="text-3xl font-bold mb-4" style="color: #0F172A;">In 60 Days</h3>
                     <p class="text-gray-700">Circles of support, confidence rising.</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-md text-center">
-                    <h3 class="text-3xl font-bold mb-4" style="color: var(--beacon-teal);">In 90 Days</h3>
+                    <h3 class="text-3xl font-bold mb-4" style="color: #0F172A;">In 90 Days</h3>
                     <p class="text-gray-700">Identity rebuilt. Goals set. New direction.</p>
                 </div>
             </div>
@@ -436,7 +435,7 @@
                 <img src="/images/bob-burr-portrait.jpg" alt="Bob Burr" class="rounded-full w-64 h-64 mx-auto shadow-lg">
             </div>
             <div class="md:w-2/3">
-                <h2 class="text-4xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Your Guide on the Journey: Bob Burr</h2>
+                <h2 class="text-4xl font-bold mb-4 playfair" style="color: #0F172A;">Your Guide on the Journey: Bob Burr</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-4">With over 25 years of experience mentoring people in transition, Bob Burr is more than a mentor; they're a man who has walked the path himself. Bob Burr has walked through fire and emerged with frameworks that work. Navy veteran. Self-made millionaire by 30. Lost everything. Spent 15 years serving as Chaplain, Educator, and Mentor inside Federal/State prisons. He created Beacon Rise because it's the program he wishes he had during his own transitions.</p>
                 <p class="text-lg text-gray-700 leading-relaxed">With Bob as your guide, you'll get the no-nonsense, compassionate guidance of a man who has dedicated their life to helping others find their strength. they're not here to give you the answers, but to help you find your own.</p>
             </div>
@@ -486,11 +485,11 @@
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">Beacon Momentum</h3>
+                    <h3 class="text-xl font-bold mb-4 playfair" style="color: #F59E0B;">Beacon Momentum</h3>
                     <p class="text-gray-600">Three pathways. One mission. Real transformation through peer-driven systems, transparent opportunities, and merit-based advancement.</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">Our Programs</h3>
+                    <h3 class="text-xl font-bold mb-4 playfair" style="color: #F59E0B;">Our Programs</h3>
                     <ul class="space-y-2 text-gray-600">
                         <li><a href="/beacon-rise.html" class="hover:text-white">Beacon Rise</a></li>
                         <li><a href="/beacon-launch.html" class="hover:text-white">Beacon Launch</a></li>
@@ -501,7 +500,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">Connect</h3>
+                    <h3 class="text-xl font-bold mb-4 playfair" style="color: #F59E0B;">Connect</h3>
                     <ul class="space-y-2 text-gray-600">
                         <li><a href="/contact.html" class="hover:text-white">Contact Us</a></li>
                         <li>Email: <a href="mailto:support@beaconmomentum.com" class="hover:text-white">support@beaconmomentum.com</a></li>

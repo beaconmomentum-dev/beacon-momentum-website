@@ -7,12 +7,15 @@
     <title>Admin Dashboard | Beacon Momentum</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
         body { font-family: 'Inter', sans-serif; }
         .stat-card { transition: transform 0.2s; }
@@ -197,7 +200,7 @@
                 </div>
                 <div class="flex items-center gap-4">
                     <a href="member-dashboard.html" class="text-sm hover:opacity-80">Member Dashboard</a>
-                    <button onclick="logout()" class="text-sm hover:opacity-80" style="color: var(--beacon-gold);">Logout</button>
+                    <button onclick="logout()" class="text-sm hover:opacity-80" style="color: #F59E0B;">Logout</button>
                 </div>
             </div>
         </div>
@@ -219,7 +222,7 @@
                         <p class="text-3xl font-bold text-gray-900" id="total-users">--</p>
                     </div>
                     <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(27, 127, 122, 0.1);">
-                        <svg class="w-6 h-6" style="color: var(--beacon-teal);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" style="color: #0F172A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
                     </div>
@@ -236,7 +239,7 @@
                         <p class="text-3xl font-bold text-gray-900" id="active-users">--</p>
                     </div>
                     <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(212, 175, 55, 0.1);">
-                        <svg class="w-6 h-6" style="color: var(--beacon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" style="color: #F59E0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
@@ -330,8 +333,8 @@
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold">User Management</h2>
                     <div class="flex items-center gap-2">
-                        <input type="text" id="search-users" placeholder="Search users..." class="px-4 py-2 border rounded-lg text-sm" style="color: #1F1F1F !important;">
-                        <button onclick="loadUsers()" class="px-4 py-2 rounded-lg text-sm font-medium text-white" style="background-color: var(--beacon-teal);">
+                        <input type="text" id="search-users" placeholder="Search users..." class="px-4 py-2 border rounded-lg text-sm" style="color: #020617 !important;">
+                        <button onclick="loadUsers()" class="px-4 py-2 rounded-lg text-sm font-medium text-white" style="background-color: #0F172A;">
                             Refresh
                         </button>
                     </div>

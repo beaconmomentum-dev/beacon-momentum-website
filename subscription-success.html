@@ -6,14 +6,17 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Subscription Success | Beacon Momentum</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
     </style>
 </head>
@@ -190,7 +193,7 @@
                 </svg>
             </div>
 
-            <h1 class="text-4xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">
+            <h1 class="text-4xl font-bold mb-4 playfair" style="color: #0F172A;">
                 Welcome to Beacon!
             </h1>
 
@@ -202,25 +205,25 @@
                 <h2 class="text-lg font-semibold mb-3">🎉 What's Next?</h2>
                 <ul class="text-left space-y-2 text-gray-700">
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span>Access your member dashboard to explore all features</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span>Start with Module 1: DeFi Investment Banking Foundations</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span>Check your email for your welcome message and next steps</span>
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 mr-2 mt-0.5" style="color: var(--beacon-gold);" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2 mt-0.5" style="color: #F59E0B;" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         <span>Join our community forum to connect with other members</span>
@@ -229,17 +232,17 @@
             </div>
 
             <div class="space-y-4">
-                <a href="/member-dashboard.html" class="block w-full py-3 px-6 rounded-lg font-semibold transition text-white" style="background-color: var(--beacon-teal);">
+                <a href="/member-dashboard.html" class="block w-full py-3 px-6 rounded-lg font-semibold transition text-white" style="background-color: #0F172A;">
                     Go to Dashboard
                 </a>
 
-                <a href="/members/beacon-capital-suite/" class="block w-full py-3 px-6 rounded-lg font-semibold transition border-2" style="border-color: var(--beacon-teal); color: var(--beacon-teal);">
+                <a href="/members/beacon-capital-suite/" class="block w-full py-3 px-6 rounded-lg font-semibold transition border-2" style="border-color: #0F172A; color: #0F172A;">
                     Start Learning
                 </a>
             </div>
 
             <p class="text-sm text-gray-500 mt-8">
-                Need help? <a href="mailto:support@beaconmomentum.com" style="color: var(--beacon-teal);">Contact Support</a>
+                Need help? <a href="mailto:support@beaconmomentum.com" style="color: #0F172A;">Contact Support</a>
             </p>
         </div>
     </div>

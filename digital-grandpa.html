@@ -25,22 +25,21 @@
     
     <link rel="icon" type="image/png" href="images/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --deep-navy: #1A2B3D;
-            --warm-gray: #6B7280;
-            --light-background: #F8FAFC;
-            --deep-red: #8B1538;
-            --parchment: #F5F1E8;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
     
     .site-footer {
-        background: var(--beacon-dark);
+        background: #020617;
         color: white;
         padding: 4rem 0 2rem;
     }
@@ -59,10 +58,10 @@
     }
 
     .footer-column h3 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .footer-links {
@@ -82,7 +81,7 @@
     }
 
     .footer-links a:hover {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .footer-description {
@@ -113,7 +112,7 @@
     }
 
     .footer-social-link:hover {
-        background: var(--beacon-gold);
+        background: #F59E0B;
         transform: translateY(-3px);
     }
 
@@ -318,8 +317,8 @@
                 <div class="flex items-center space-x-3">
                     <a href="/"><img src="/images/beacon-logo-icon.png" alt="Beacon Momentum" class="w-16 h-16 object-contain"></a>
                     <div>
-                        <h1 class="text-xl font-bold playfair" style="color: var(--beacon-teal);">Beacon Momentum</h1>
-                        <p class="text-xs italic" style="color: var(--beacon-gold);">Lighting the Way Forward</p>
+                        <h1 class="text-xl font-bold playfair" style="color: #0F172A;">Beacon Momentum</h1>
+                        <p class="text-xs italic" style="color: #F59E0B;">Lighting the Way Forward</p>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
@@ -328,7 +327,7 @@
                     <a href="/beacon-launch.html" class="font-medium" style="color: var(--warm-gray);">Beacon Launch</a>
                     <a href="/beacon-academy.html" class="font-medium" style="color: var(--warm-gray);">Beacon Academy</a>
                     <a href="/labs.html" class="font-medium" style="color: var(--warm-gray);">Beacon Labs</a>
-                    <a href="/digital-grandpa.html" class="font-medium" style="color: var(--beacon-teal); font-weight: 600;">Mentorship</a>
+                    <a href="/digital-grandpa.html" class="font-medium" style="color: #0F172A; font-weight: 600;">Mentorship</a>
                     <a href="assess.html" class="text-white bg-gradient-to-r from-yellow-500 to-yellow-600 px-4 py-2 rounded-lg font-semibold hover:from-yellow-600 hover:to-yellow-700 transition-all shadow-md">Take Assessment</a>
                     <a href="/contact.html" class="font-medium" style="color: var(--warm-gray);">Contact</a>
                     <a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn font-medium" style="display: inline-block; padding: 10px 20px; margin-left: 15px; background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: #ffffff !important; font-weight: 600; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3); transition: all 0.3s ease;">Member Login</a>
@@ -437,7 +436,7 @@
     <!-- What to Expect Section -->
     <section class="bg-parchment py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">What to Expect from Mentorship</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: #0F172A;">What to Expect from Mentorship</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-lg">
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-bold mb-2">Personalized Guidance</h3>
@@ -463,7 +462,7 @@
     <!-- Mentorship Structure Chart -->
     <section class="bg-white py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: var(--beacon-teal);">Your Mentorship Includes</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 playfair" style="color: #0F172A;">Your Mentorship Includes</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
                 <div class="flex items-start bg-gray-50 p-6 rounded-lg">
                     <span class="text-beacon-gold text-3xl mr-4">&#10003;</span>
@@ -560,7 +559,7 @@
                 <img src="/images/bob-burr-portrait.jpg" alt="Bob Burr" class="rounded-full w-64 h-64 mx-auto shadow-lg">
             </div>
             <div class="md:w-2/3">
-                <h2 class="text-4xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">About Your Mentor: Bob Burr</h2>
+                <h2 class="text-4xl font-bold mb-4 playfair" style="color: #0F172A;">About Your Mentor: Bob Burr</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-4">With over 25 years of experience mentoring people in transition, Bob Burr is the heart and soul of the Digital Grandpa philosophy. His life has been a testament to the power of resilience, the importance of community, and the transformative potential of mentorship. Bob Burr has walked through fire and emerged with frameworks that work. Navy veteran. Self-made millionaire by 30. Lost everything. Spent 15 years serving as Chaplain, Educator, and Mentor inside Federal/State prisons. Founded GraceHouse and achieved a 7-8% recidivism rate (92-93% success) while the state averaged 55-60% failure. Bob's wisdom is not theoretical—it's forged in the fires of real-life experience.</p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">Bob doesn't offer easy answers or quick fixes. Instead, he offers something far more valuable: a listening ear, a compassionate heart, and the unwavering belief that you have the strength to navigate your own path. He's the mentor he wishes he had, and he's here to walk alongside you as you find your way.</p>
                 <p class="text-lg text-gray-600 italic">If you want guidance from someone who's earned their wisdom the hard way, mentorship may be the next step.</p>
@@ -600,7 +599,7 @@
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
                     <!-- Base Tier -->
                     <div class="bg-white text-gray-900 p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-teal);">Base Tier</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #0F172A;">Base Tier</h3>
                         <p class="text-4xl font-bold mb-4">$497</p>
                         <p class="text-gray-600 mb-6">Per month</p>
                         <ul class="text-left text-gray-700 mb-6 space-y-2">
@@ -614,7 +613,7 @@
                     
                     <!-- Premium Tier -->
                     <div class="bg-white text-gray-900 p-8 rounded-lg shadow-lg border-4 border-beacon-gold">
-                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: var(--beacon-gold);">Premium Tier</h3>
+                        <h3 class="text-2xl font-bold mb-4 playfair" style="color: #F59E0B;">Premium Tier</h3>
                         <p class="text-4xl font-bold mb-4">$997</p>
                         <p class="text-gray-600 mb-6">Per month</p>
                         <ul class="text-left text-gray-700 mb-6 space-y-2">
@@ -775,7 +774,7 @@
                 </p>
 
             <p class="phoenix-attribution">
-                Built by <a href="/labs.html" style="color: var(--beacon-gold);">Beacon Labs</a>
+                Built by <a href="/labs.html" style="color: #F59E0B;">Beacon Labs</a>
             </p>
         </div>
     </div>

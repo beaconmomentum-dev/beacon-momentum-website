@@ -8,19 +8,15 @@
     <link rel="icon" type="image/png" href="images/beacon-logo-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-navy: #0A4F4B;
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #F59E0B;
-            --beacon-orange: #F97316;
-            --beacon-purple: #9333EA;
-            --text-dark: #1F2937;
-            --text-gray: #4B5563;
-            --text-light: #9CA3AF;
-            --white: #FFFFFF;
-            --bg-cream: #FFF7ED;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -69,10 +65,10 @@
         }
 
         .logo-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.75rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--beacon-navy) 0%, var(--beacon-teal) 100%);
+            background: linear-gradient(135deg, var(--beacon-navy) 0%, #0F172A 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -80,7 +76,7 @@
 
         .tagline {
             font-size: 0.875rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
             font-weight: 600;
             letter-spacing: 0.5px;
             margin-top: -0.25rem;
@@ -120,7 +116,7 @@
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
@@ -155,7 +151,7 @@
             border-radius: 1.5rem;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
-            border: 3px solid var(--beacon-gold);
+            border: 3px solid #F59E0B;
         }
 
         .lead-capture-header {
@@ -169,7 +165,7 @@
         }
 
         .lead-capture h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.25rem;
             color: var(--beacon-navy);
             margin-bottom: 0.75rem;
@@ -206,7 +202,7 @@
 
         .form-input:focus {
             outline: none;
-            border-color: var(--beacon-gold);
+            border-color: #F59E0B;
             background: white;
             box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
         }
@@ -224,7 +220,7 @@
         }
 
         .privacy-note a {
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
             font-weight: 600;
         }
@@ -253,7 +249,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--beacon-gold) 0%, var(--beacon-orange) 100%);
+            background: linear-gradient(90deg, #F59E0B 0%, var(--beacon-orange) 100%);
             border-radius: 10px;
             transition: width 0.4s ease;
             box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
@@ -288,14 +284,14 @@
         .question-number {
             font-size: 0.875rem;
             font-weight: 700;
-            color: var(--beacon-gold);
+            color: #F59E0B;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 1rem;
         }
 
         .question-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2rem;
             color: var(--beacon-navy);
             margin-bottom: 2rem;
@@ -318,14 +314,14 @@
         }
 
         .option:hover {
-            border-color: var(--beacon-gold);
+            border-color: #F59E0B;
             background: white;
             transform: translateX(8px);
             box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
         }
 
         .option.selected {
-            border-color: var(--beacon-gold);
+            border-color: #F59E0B;
             background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
             box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
         }
@@ -366,7 +362,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--beacon-gold) 0%, var(--beacon-orange) 100%);
+            background: linear-gradient(135deg, #F59E0B 0%, var(--beacon-orange) 100%);
             color: white;
             box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
         }
@@ -407,7 +403,7 @@
             border-radius: 1.5rem;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             text-align: center;
-            border: 4px solid var(--beacon-gold);
+            border: 4px solid #F59E0B;
         }
 
         .result-icon {
@@ -417,9 +413,9 @@
         }
 
         .result-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3rem;
-            background: linear-gradient(135deg, var(--beacon-navy) 0%, var(--beacon-teal) 100%);
+            background: linear-gradient(135deg, var(--beacon-navy) 0%, #0F172A 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -428,7 +424,7 @@
 
         .result-subtitle {
             font-size: 1.5rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
             margin-bottom: 2rem;
             font-weight: 600;
         }
@@ -446,7 +442,7 @@
         .result-cta {
             display: inline-block;
             padding: 1.5rem 3.5rem;
-            background: linear-gradient(135deg, var(--beacon-gold) 0%, var(--beacon-orange) 100%);
+            background: linear-gradient(135deg, #F59E0B 0%, var(--beacon-orange) 100%);
             color: white;
             text-decoration: none;
             border-radius: 0.75rem;

@@ -19,13 +19,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-blue: #1A3A5A;
-            --beacon-orange: #D97757;
-            --beacon-cream: #F4F1EA;
-            --beacon-dark: #1F1F1F;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -37,7 +39,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
@@ -90,7 +92,7 @@
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--beacon-blue);
@@ -108,7 +110,7 @@
     <!-- Hero Section -->
     <section class="hero-gradient text-white py-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6" style="font-family: 'Space Grotesk', serif;">
                 Feeling Lost in a Major Life Transition?
             </h1>
             <p class="text-2xl md:text-3xl mb-8 opacity-90">
@@ -157,7 +159,7 @@
     </section>
 
     <!-- The Solution Section -->
-    <section class="py-16" style="background-color: var(--beacon-cream);">
+    <section class="py-16" style="background-color: #F8FAFC;">
         <div class="max-w-4xl mx-auto px-6">
             <h2 class="section-title text-center">
                 Your Guiding Light Through the Fog.
@@ -212,7 +214,7 @@
     <section id="get-access" class="py-20" style="background: linear-gradient(135deg, var(--beacon-blue) 0%, #2d5a7b 100%);">
         <div class="max-w-2xl mx-auto px-6">
             <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-                <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--beacon-blue); font-family: 'Playfair Display', serif;">
+                <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--beacon-blue); font-family: 'Space Grotesk', serif;">
                     Ready to Take the First Step?
                 </h2>
                 <p class="text-xl text-center mb-8 text-gray-600">

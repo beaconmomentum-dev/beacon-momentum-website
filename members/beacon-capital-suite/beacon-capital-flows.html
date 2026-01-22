@@ -6,14 +6,17 @@
     <title>Beacon Internal Capital Flows Overview | Beacon Beacon Academy</title>
     <meta name="robots" content="noindex, nofollow">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%); }
     </style>
@@ -26,11 +29,11 @@
                     <img src="../../images/beacon-logo-icon.png" alt="Beacon" style="width: 40px; height: 40px;">
                     <div class="flex flex-col leading-tight">
                         <span class="text-xl font-bold">Beacon Beacon Academy</span>
-                        <span class="text-xs italic" style="color: var(--beacon-gold);">Member-Only Education</span>
+                        <span class="text-xs italic" style="color: #F59E0B;">Member-Only Education</span>
                     </div>
                 </a>
                 <div class="flex items-center gap-4">
-                    <span class="text-sm" style="color: var(--beacon-gold);">🔒 Member Access</span>
+                    <span class="text-sm" style="color: #F59E0B;">🔒 Member Access</span>
                     <a href="/member-dashboard.html" class="text-sm hover:opacity-80">Dashboard</a>
                     <button onclick="logout()" class="text-sm hover:opacity-80">Logout</button>
                 </div>
@@ -42,17 +45,17 @@
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
                 <div class="text-6xl mb-6">🌊</div>
-                <p class="text-sm uppercase tracking-wider mb-4" style="color: var(--beacon-gold);">Module 4 of 5</p>
+                <p class="text-sm uppercase tracking-wider mb-4" style="color: #F59E0B;">Module 4 of 5</p>
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                     Beacon Internal Capital Flows Overview
                 </h1>
-                <p class="text-2xl md:text-3xl italic mb-8" style="color: var(--beacon-gold); text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+                <p class="text-2xl md:text-3xl italic mb-8" style="color: #F59E0B; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
                     "Know the map before you walk the terrain."
                 </p>
                 <p class="text-xl max-w-3xl mx-auto mb-6" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
                     This module explains—purely educationally—the internal architecture of how institutional-style capital flow works inside decentralized systems.
                 </p>
-                <p class="text-lg max-w-2xl mx-auto" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: var(--beacon-gold);">
+                <p class="text-lg max-w-2xl mx-auto" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7); color: #F59E0B;">
                     No promises. No offers. No yields. Just clarity.
                 </p>
             </div>
@@ -62,11 +65,11 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">Members Learn</h2>
+                <h2 class="text-4xl font-bold mb-8 playfair" style="color: #0F172A;">Members Learn</h2>
                 
                 <div class="space-y-6 mb-12">
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">The Concept of Capital Rotation</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">The Concept of Capital Rotation</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Capital doesn't sit still. It moves—constantly—seeking efficiency, opportunity, and safety. Capital rotation is the process by which money flows between different assets, protocols, and strategies based on changing conditions.
                         </p>
@@ -79,7 +82,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Liquidity Cycles</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Liquidity Cycles</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Markets move in cycles. Liquidity expands and contracts. Understanding these cycles is essential for timing, positioning, and risk management.
                         </p>
@@ -101,7 +104,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Ecosystem Health Indicators</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Ecosystem Health Indicators</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             How do you know if a DeFi ecosystem is healthy or dying? Professional operators use specific indicators:
                         </p>
@@ -120,7 +123,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Why Timing and Discipline Matter</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Why Timing and Discipline Matter</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Most people lose money in DeFi not because they don't understand the technology, but because they don't understand timing. They enter at peaks and exit at troughs. They chase hype and panic during corrections.
                         </p>
@@ -140,7 +143,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How Professional Operators Think in Seasons, Not Days</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">How Professional Operators Think in Seasons, Not Days</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Retail participants obsess over daily price movements. Professional operators think in seasons:
                         </p>
@@ -156,7 +159,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How Capital Moves Between Sectors and Protocols</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">How Capital Moves Between Sectors and Protocols</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Capital doesn't move randomly—it follows narratives, incentives, and opportunities. You'll learn to track capital migration:
                         </p>
@@ -172,7 +175,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">What External Factors Influence Capital Migration</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">What External Factors Influence Capital Migration</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             DeFi doesn't exist in a vacuum. External factors drive capital flows:
                         </p>
@@ -212,22 +215,22 @@
 
                 <div class="grid md:grid-cols-2 gap-6 mb-12">
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">See the Forest, Not Just the Trees</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">See the Forest, Not Just the Trees</h3>
                         <p class="text-gray-700">Stop obsessing over individual price movements. Understand the systemic forces driving the entire market.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Position Ahead of the Crowd</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Position Ahead of the Crowd</h3>
                         <p class="text-gray-700">Recognize capital rotation patterns early and position yourself before the crowd catches on.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Avoid Emotional Decision-Making</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Avoid Emotional Decision-Making</h3>
                         <p class="text-gray-700">When you understand capital cycles, you don't panic during downturns or chase during euphoria.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Think Like an Institution</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Think Like an Institution</h3>
                         <p class="text-gray-700">Professional operators use capital flow analysis to make strategic decisions. Now you can too.</p>
                     </div>
                 </div>
@@ -261,14 +264,14 @@
                         </div>
                         <div class="bg-white p-6 rounded-lg text-center">
                             <p class="text-3xl mb-2">✨</p>
-                            <p class="font-bold mb-2" style="color: var(--beacon-gold);">Soaring</p>
+                            <p class="font-bold mb-2" style="color: #F59E0B;">Soaring</p>
                             <p class="text-sm text-gray-600">Navigate with strategic foresight and discipline</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600 mb-12">
-                    <h3 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">💡 Key Takeaway</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #0F172A;">💡 Key Takeaway</h3>
                     <p class="text-lg text-gray-700">
                         Capital flows are the invisible currents that drive every market. By understanding how capital rotates, where it's moving, and why, you gain a strategic advantage that most participants never develop. You'll see the bigger picture, make better decisions, and avoid the emotional traps that destroy wealth.
                     </p>

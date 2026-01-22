@@ -26,16 +26,15 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-orange: #FF7A00;
-            --beacon-dark: #1F1F1F;
-            --beacon-cream: #F8F5F1;
-            --beacon-gold: #D97706;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
-            --beacon-teal: #0F766E;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -47,12 +46,12 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
         .playfair {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
         }
 
         .container {
@@ -80,7 +79,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
         }
 
@@ -92,7 +91,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--beacon-dark);
+            color: #020617;
             font-weight: 500;
             transition: color 0.3s;
         }
@@ -103,7 +102,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--beacon-teal) 0%, #065F46 100%);
+            background: linear-gradient(135deg, #0F172A 0%, #065F46 100%);
             color: white;
             padding: 6rem 0 4rem;
             text-align: center;
@@ -128,20 +127,20 @@
         }
 
         .content-section:nth-child(even) {
-            background-color: var(--beacon-cream);
+            background-color: #F8FAFC;
         }
 
         .content-section h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         .content-section p {
             font-size: 1.125rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .content-section .lead {
@@ -167,7 +166,7 @@
         }
 
         .promise-card h3 {
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
@@ -220,7 +219,7 @@
         }
 
         .btn-primary:hover {
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             transform: translateY(-2px);
         }
 
@@ -238,7 +237,7 @@
 
         /* Footer */
         .footer {
-            background: var(--beacon-dark);
+            background: #020617;
             color: white;
             padding: 3rem 0 1rem;
         }
@@ -280,7 +279,7 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         @media (max-width: 768px) {
@@ -514,9 +513,9 @@
     </section>
 
     <!-- Credibility Anchor -->
-    <section class="content-section" style="padding: 2rem 0; background-color: var(--beacon-cream);">
+    <section class="content-section" style="padding: 2rem 0; background-color: #F8FAFC;">
         <div class="container">
-            <p style="text-align: center; font-size: 1.25rem; font-weight: 600; color: var(--beacon-teal); font-style: italic;">From one mentor helping people navigate divorce and job loss (2022) to an educational platform serving 2,874 souls (2025). Built from lived experience. Shaped by real storms. Designed for honest guidance.</p>
+            <p style="text-align: center; font-size: 1.25rem; font-weight: 600; color: #0F172A; font-style: italic;">From one mentor helping people navigate divorce and job loss (2022) to an educational platform serving 2,874 souls (2025). Built from lived experience. Shaped by real storms. Designed for honest guidance.</p>
         </div>
     </section>
 
@@ -679,7 +678,7 @@ If you're ready to rise — at your pace, in your way, with support that doesn't
                     <a href="disclaimer.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Disclaimer</a> |
                     <a href="gdpr-ccpa.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">GDPR/CCPA</a>
                 </p>
-                <p style="margin-top: 10px;">Questions? Email us at <a href="mailto:support@beaconmomentum.com" style="color: var(--beacon-gold);">support@beaconmomentum.com</a></p>
+                <p style="margin-top: 10px;">Questions? Email us at <a href="mailto:support@beaconmomentum.com" style="color: #F59E0B;">support@beaconmomentum.com</a></p>
             </div>
         </div>
     </footer>

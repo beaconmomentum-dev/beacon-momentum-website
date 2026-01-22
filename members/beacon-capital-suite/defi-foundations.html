@@ -6,14 +6,17 @@
     <title>DeFi Investment Banking Foundations | Beacon Beacon Academy</title>
     <meta name="robots" content="noindex, nofollow">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%); }
     </style>
@@ -26,11 +29,11 @@
                     <img src="../../images/beacon-logo-icon.png" alt="Beacon" style="width: 40px; height: 40px;">
                     <div class="flex flex-col leading-tight">
                         <span class="text-xl font-bold">Beacon Beacon Academy</span>
-                        <span class="text-xs italic" style="color: var(--beacon-gold);">Member-Only Education</span>
+                        <span class="text-xs italic" style="color: #F59E0B;">Member-Only Education</span>
                     </div>
                 </a>
                 <div class="flex items-center gap-4">
-                    <span class="text-sm" style="color: var(--beacon-gold);">🔒 Member Access</span>
+                    <span class="text-sm" style="color: #F59E0B;">🔒 Member Access</span>
                     <a href="/member-dashboard.html" class="text-sm hover:opacity-80">Dashboard</a>
                     <button onclick="logout()" class="text-sm hover:opacity-80">Logout</button>
                 </div>
@@ -42,11 +45,11 @@
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
                 <div class="text-6xl mb-6">🏦</div>
-                <p class="text-sm uppercase tracking-wider mb-4" style="color: var(--beacon-gold);">Module 1 of 5</p>
+                <p class="text-sm uppercase tracking-wider mb-4" style="color: #F59E0B;">Module 1 of 5</p>
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                     DeFi Investment Banking Foundations
                 </h1>
-                <p class="text-2xl md:text-3xl italic mb-8" style="color: var(--beacon-gold); text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+                <p class="text-2xl md:text-3xl italic mb-8" style="color: #F59E0B; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
                     "Understand the engine before you ever step on the accelerator."
                 </p>
                 <p class="text-xl max-w-3xl mx-auto" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
@@ -59,53 +62,53 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-8 playfair" style="color: var(--beacon-teal);">What This Module Covers</h2>
+                <h2 class="text-4xl font-bold mb-8 playfair" style="color: #0F172A;">What This Module Covers</h2>
                 
                 <div class="space-y-6 mb-12">
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">The Architecture of Decentralized Financial Systems</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">The Architecture of Decentralized Financial Systems</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Before you can navigate DeFi intelligently, you need to understand how it's built. We'll explore the foundational layers: blockchain infrastructure, smart contracts, protocols, and how they interact to create a parallel financial system that operates without traditional intermediaries.
                         </p>
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How Value is Moved, Stored, Collateralized, and Structured</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">How Value is Moved, Stored, Collateralized, and Structured</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             In traditional finance, banks handle these functions. In DeFi, protocols do. You'll learn how value flows through smart contracts, how collateral secures positions, and how financial instruments are structured in a decentralized environment—without relying on trust in institutions.
                         </p>
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Institutional Behaviors vs. Individual Behaviors</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Institutional Behaviors vs. Individual Behaviors</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Professional operators think differently than retail participants. They focus on risk management, capital efficiency, and long-term positioning. This section teaches you to recognize the difference between smart money moves and emotional reactions—and which behaviors lead to sustainable success.
                         </p>
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How Decentralized Protocols Mimic Traditional Banking Functions</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">How Decentralized Protocols Mimic Traditional Banking Functions</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Lending, borrowing, trading, custody—these aren't new concepts. DeFi reimagines them through code. You'll see how protocols like Aave, Compound, and Uniswap perform banking functions without banks, and what that means for risk, opportunity, and control.
                         </p>
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">Roles Inside a Healthy DeFi Ecosystem</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">Roles Inside a Healthy DeFi Ecosystem</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Every ecosystem has participants with different roles: liquidity providers, arbitrageurs, validators, builders, and users. Understanding these roles helps you see where value is created, where risks emerge, and how the system maintains equilibrium—or doesn't.
                         </p>
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How Risk Moves Through the System</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">How Risk Moves Through the System</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Risk doesn't disappear in DeFi—it just takes different forms. Smart contract risk, oracle risk, liquidity risk, governance risk. You'll learn to identify where risk concentrates, how it cascades during stress events, and how professionals protect themselves.
                         </p>
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-teal-600">
-                        <h3 class="text-2xl font-bold mb-3" style="color: var(--beacon-teal);">How to Evaluate Platforms Without Relying on Influencers or Advertising</h3>
+                        <h3 class="text-2xl font-bold mb-3" style="color: #0F172A;">How to Evaluate Platforms Without Relying on Influencers or Advertising</h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
                             Most people choose protocols based on hype, promises, or social media buzz. You'll learn to evaluate platforms based on fundamentals: code audits, total value locked, governance structure, team transparency, and historical behavior. This is how you separate signal from noise.
                         </p>
@@ -126,32 +129,32 @@
 
                 <div class="grid md:grid-cols-2 gap-6 mb-12">
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">How the System Works</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">How the System Works</h3>
                         <p class="text-gray-700">Rather than what's "hot" or trending, you'll understand the underlying mechanics that make DeFi function.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Why Decentralized Finance Exists</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Why Decentralized Finance Exists</h3>
                         <p class="text-gray-700">The philosophical and practical reasons for DeFi's emergence—and why it matters for financial sovereignty.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Where Real Opportunities and Risks Sit</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Where Real Opportunities and Risks Sit</h3>
                         <p class="text-gray-700">Not surface-level price movements, but structural opportunities and systemic risks that professionals focus on.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">How to Analyze Structures</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">How to Analyze Structures</h3>
                         <p class="text-gray-700">Instead of prices, you'll learn to evaluate protocols, governance, incentives, and sustainability.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Mental Models for Safe Navigation</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Mental Models for Safe Navigation</h3>
                         <p class="text-gray-700">The frameworks required to navigate DeFi safely and intelligently, without following the crowd.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--beacon-teal);">Sovereign Operator Mindset</h3>
+                        <h3 class="text-xl font-bold mb-3" style="color: #0F172A;">Sovereign Operator Mindset</h3>
                         <p class="text-gray-700">Think like a professional, not a follower. Make decisions based on analysis, not emotion.</p>
                     </div>
                 </div>
@@ -194,14 +197,14 @@
                         </div>
                         <div class="bg-white p-6 rounded-lg text-center">
                             <p class="text-3xl mb-2">✨</p>
-                            <p class="font-bold mb-2" style="color: var(--beacon-gold);">Soaring</p>
+                            <p class="font-bold mb-2" style="color: #F59E0B;">Soaring</p>
                             <p class="text-sm text-gray-600">Operate as a sovereign actor with clarity and confidence</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600 mb-12">
-                    <h3 class="text-2xl font-bold mb-4" style="color: var(--beacon-teal);">💡 Key Takeaway</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #0F172A;">💡 Key Takeaway</h3>
                     <p class="text-lg text-gray-700">
                         Understanding DeFi at a banking level means you're no longer dependent on influencers, hype cycles, or promises. You can evaluate opportunities, recognize risks, and make informed decisions based on structure and fundamentals—not excitement.
                     </p>

@@ -6,14 +6,17 @@
     <title>{{TITLE}} | Beacon Beacon Academy</title>
     <meta name="robots" content="noindex, nofollow">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #3D0A1C 0%, #2A0714 50%, #3D0A1C 100%); }
     </style>
@@ -26,11 +29,11 @@
                     <img src="../../images/beacon-logo-icon.png" alt="Beacon" style="width: 40px; height: 40px;">
                     <div class="flex flex-col leading-tight">
                         <span class="text-xl font-bold">Beacon Beacon Academy</span>
-                        <span class="text-xs italic" style="color: var(--beacon-gold);">Member-Only Education</span>
+                        <span class="text-xs italic" style="color: #F59E0B;">Member-Only Education</span>
                     </div>
                 </a>
                 <div class="flex items-center gap-4">
-                    <span class="text-sm" style="color: var(--beacon-gold);">🔒 Member Access</span>
+                    <span class="text-sm" style="color: #F59E0B;">🔒 Member Access</span>
                     <a href="index.html" class="text-sm hover:opacity-80">← Suite Home</a>
                 </div>
             </nav>

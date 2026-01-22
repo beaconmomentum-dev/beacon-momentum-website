@@ -9,14 +9,15 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #0F766E;
-            --beacon-gold: #F59E0B;
-            --beacon-dark: #1A2B3D;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -28,7 +29,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.8;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
@@ -39,23 +40,23 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
-            color: var(--beacon-teal);
+            color: #0F172A;
             margin-bottom: 1rem;
         }
 
         h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.8rem;
-            color: var(--beacon-teal);
+            color: #0F172A;
             margin-top: 2.5rem;
             margin-bottom: 1rem;
         }
 
         h3 {
             font-size: 1.3rem;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
             font-weight: 600;
@@ -74,7 +75,7 @@
         .intro {
             background: var(--beacon-light);
             padding: 1.5rem;
-            border-left: 4px solid var(--beacon-teal);
+            border-left: 4px solid #0F172A;
             margin-bottom: 2rem;
         }
 
@@ -88,7 +89,7 @@
         }
 
         strong {
-            color: var(--beacon-dark);
+            color: #020617;
             font-weight: 600;
         }
 
@@ -100,7 +101,7 @@
         }
 
         a {
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
         }
 
@@ -111,7 +112,7 @@
         .back-link {
             display: inline-block;
             margin-bottom: 2rem;
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-weight: 500;
         }
     </style>

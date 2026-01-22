@@ -9,17 +9,15 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-orange: #FF7A00;
-            --beacon-dark: #1F1F1F;
-            --beacon-cream: #F8F5F1;
-            --beacon-gold: #D97706;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
-            /* Legacy color compatibility */
-            --beacon-teal: #0F766E;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -31,7 +29,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
@@ -61,17 +59,17 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
         }
 
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background: linear-gradient(135deg, #0F172A, #F59E0B);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -88,26 +86,26 @@
         }
 
         .nav-links a {
-            color: var(--beacon-dark);
+            color: #020617;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background: linear-gradient(135deg, #0F172A, #F59E0B);
             color: white;
             padding: 4rem 0;
             text-align: center;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -125,7 +123,7 @@
 
         .cta-button {
             background: white;
-            color: var(--beacon-teal);
+            color: #0F172A;
             padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
@@ -145,7 +143,7 @@
         /* Beacon Narrative Section */
         .beacon-narrative {
             position: relative;
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             padding: 5rem 0;
             text-align: center;
             overflow: hidden;
@@ -175,10 +173,10 @@
         }
 
         .narrative-headline {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3rem;
             font-weight: 700;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
@@ -198,7 +196,7 @@
 
         .narrative-subheadline {
             font-size: 1.4rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
             font-weight: 600;
             margin-bottom: 2.5rem;
             margin-top: 1.5rem;
@@ -208,7 +206,7 @@
         .narrative-body {
             font-size: 1.15rem;
             line-height: 1.9;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 2.5rem;
             text-align: left;
             max-width: 800px;
@@ -223,7 +221,7 @@
         .narrative-body p:first-child {
             font-size: 1.25rem;
             font-weight: 500;
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         .narrative-body strong {
@@ -234,7 +232,7 @@
         .narrative-closing {
             font-size: 1.3rem;
             font-style: italic;
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-weight: 500;
             margin-top: 2rem;
             margin-bottom: 2.5rem;
@@ -257,7 +255,7 @@
         }
 
         .narrative-cta:hover {
-            background: var(--beacon-gold);
+            background: #F59E0B;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
         }
@@ -269,11 +267,11 @@
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .divisions-grid {
@@ -315,15 +313,15 @@
         }
 
         .division-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .division-subtitle {
-            color: var(--beacon-gold);
+            color: #F59E0B;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.9rem;
@@ -344,7 +342,7 @@
 
         .benefits-list li {
             padding: 0.5rem 0;
-            color: var(--beacon-dark);
+            color: #020617;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -352,21 +350,21 @@
 
         .benefits-list li::before {
             content: "✓";
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-weight: bold;
         }
 
         .how-to-join {
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
         }
 
         .how-to-join h4 {
-            color: var(--beacon-teal);
+            color: #0F172A;
             margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
         }
 
         .join-steps {
@@ -375,14 +373,14 @@
 
         .join-steps li {
             padding: 0.3rem 0;
-            color: var(--beacon-dark);
+            color: #020617;
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
         }
 
         .step-number {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             width: 20px;
             height: 20px;
@@ -397,7 +395,7 @@
         }
 
         .division-cta {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             padding: 0.8rem 1.5rem;
             border: none;
@@ -423,12 +421,12 @@
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--beacon-gold);
+            border: 3px solid #F59E0B;
             margin-bottom: 1rem;
         }
 
         .founder-badge {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
@@ -475,12 +473,12 @@
         }
 
         .close:hover {
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .modal h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--beacon-teal);
+            font-family: 'Space Grotesk', serif;
+            color: #0F172A;
             margin-bottom: 1.5rem;
             padding-right: 2rem;
         }
@@ -493,7 +491,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .form-group input,
@@ -511,7 +509,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--beacon-teal);
+            border-color: #0F172A;
         }
 
         .form-group textarea {
@@ -520,7 +518,7 @@
         }
 
         .submit-btn {
-            background: var(--beacon-teal); color: #1F1F1F;
+            background: #0F172A; color: #020617;
             padding: 1rem 2rem;
             border: none;
             border-radius: 6px;
@@ -554,10 +552,10 @@
         }
 
         .stat-number {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             display: block;
         }
 
@@ -569,7 +567,7 @@
 
         /* Footer */
         .footer {
-            background: var(--beacon-dark); color: #1F1F1F;
+            background: #020617; color: #020617;
             padding: 3rem 0 1rem;
         }
 
@@ -581,9 +579,9 @@
         }
 
         .footer-section h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             margin-bottom: 1rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .footer-section a {
@@ -595,7 +593,7 @@
         }
 
         .footer-section a:hover {
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .footer-bottom {
@@ -829,7 +827,7 @@
                     <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum" style="width: 40px; height: 40px; object-fit: contain;">
                     <div style="display: flex; flex-direction: column; line-height: 1.2;">
                         <span style="font-size: 1.25rem; font-weight: 700;">Beacon Momentum</span>
-                        <span style="font-size: 0.75rem; font-weight: 500; color: var(--beacon-gold); font-style: italic;">Lighting the Way Forward</span>
+                        <span style="font-size: 0.75rem; font-weight: 500; color: #F59E0B; font-style: italic;">Lighting the Way Forward</span>
                     </div>
                 </a>
                 <ul class="nav-links">

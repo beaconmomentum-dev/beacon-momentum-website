@@ -8,15 +8,15 @@
     <link rel="icon" type="image/png" href="images/beacon-logo-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #F59E0B;
-            --text-gray: #2D3748;
-            --light-gray: #718096;
-            --white: #FFFFFF;
-            --bg-light: #F7FAFC;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -62,7 +62,7 @@
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         /* Hero */
@@ -74,7 +74,7 @@
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3.5rem;
             margin-bottom: 1rem;
             line-height: 1.2;
@@ -101,7 +101,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .stat-label {
@@ -120,9 +120,9 @@
         }
 
         .story-content h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
-            color: var(--beacon-teal);
+            color: #0F172A;
             margin: 3rem 0 1.5rem 0;
             padding-top: 2rem;
             border-top: 2px solid var(--bg-light);
@@ -148,7 +148,7 @@
         }
 
         .story-content strong {
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-weight: 600;
         }
 
@@ -163,7 +163,7 @@
 
         .pullquote {
             background: rgba(27, 127, 122, 0.1);
-            border-left: 4px solid var(--beacon-teal);
+            border-left: 4px solid #0F172A;
             padding: 2rem;
             margin: 2rem 0;
             font-size: 1.25rem;
@@ -186,7 +186,7 @@
 
         .timeline-year {
             font-weight: 700;
-            color: var(--beacon-gold);
+            color: #F59E0B;
             min-width: 100px;
         }
 
@@ -195,7 +195,7 @@
         }
 
         .cta-section {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             padding: 4rem 0;
             text-align: center;
@@ -203,7 +203,7 @@
         }
 
         .cta-section h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
@@ -217,7 +217,7 @@
         .cta-button {
             display: inline-block;
             padding: 1.25rem 3rem;
-            background: var(--beacon-gold);
+            background: #F59E0B;
             color: var(--text-gray);
             text-decoration: none;
             border-radius: 0.5rem;

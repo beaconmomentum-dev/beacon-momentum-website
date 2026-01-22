@@ -119,17 +119,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-orange: #FF7A00;
-            --beacon-dark: #1F1F1F;
-            --beacon-cream: #F8F5F1;
-            --beacon-gold: #D97706;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
-            /* Legacy color compatibility */
-            --beacon-teal: #0F766E;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -141,7 +139,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
@@ -171,17 +169,17 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
         }
 
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background: linear-gradient(135deg, #0F172A, #F59E0B);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -198,14 +196,14 @@
         }
 
         .nav-links a {
-            color: var(--beacon-dark);
+            color: #020617;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         /* Hero Section */
@@ -238,7 +236,7 @@
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -256,7 +254,7 @@
 
         .cta-button {
             background: white;
-            color: var(--beacon-teal);
+            color: #0F172A;
             padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
@@ -276,7 +274,7 @@
         /* Beacon Narrative Section */
         .beacon-narrative {
             position: relative;
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             padding: 5rem 0;
             text-align: center;
             overflow: hidden;
@@ -306,10 +304,10 @@
         }
 
         .narrative-headline {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3rem;
             font-weight: 700;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
@@ -329,7 +327,7 @@
 
         .narrative-subheadline {
             font-size: 1.4rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
             font-weight: 600;
             margin-bottom: 2.5rem;
             margin-top: 1.5rem;
@@ -339,7 +337,7 @@
         .narrative-body {
             font-size: 1.15rem;
             line-height: 1.9;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 2.5rem;
             text-align: left;
             max-width: 800px;
@@ -354,7 +352,7 @@
         .narrative-body p:first-child {
             font-size: 1.25rem;
             font-weight: 500;
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         .narrative-body strong {
@@ -365,7 +363,7 @@
         .narrative-closing {
             font-size: 1.3rem;
             font-style: italic;
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-weight: 500;
             margin-top: 2rem;
             margin-bottom: 2.5rem;
@@ -388,7 +386,7 @@
         }
 
         .narrative-cta:hover {
-            background: var(--beacon-gold);
+            background: #F59E0B;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
         }
@@ -400,11 +398,11 @@
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .divisions-grid {
@@ -446,15 +444,15 @@
         }
 
         .division-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .division-subtitle {
-            color: var(--beacon-gold);
+            color: #F59E0B;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.9rem;
@@ -475,7 +473,7 @@
 
         .benefits-list li {
             padding: 0.5rem 0;
-            color: var(--beacon-dark);
+            color: #020617;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -483,21 +481,21 @@
 
         .benefits-list li::before {
             content: "✓";
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-weight: bold;
         }
 
         .how-to-join {
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
         }
 
         .how-to-join h4 {
-            color: var(--beacon-teal);
+            color: #0F172A;
             margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
         }
 
         .join-steps {
@@ -506,14 +504,14 @@
 
         .join-steps li {
             padding: 0.3rem 0;
-            color: var(--beacon-dark);
+            color: #020617;
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
         }
 
         .step-number {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             width: 20px;
             height: 20px;
@@ -528,7 +526,7 @@
         }
 
         .division-cta {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             padding: 0.8rem 1.5rem;
             border: none;
@@ -554,12 +552,12 @@
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--beacon-gold);
+            border: 3px solid #F59E0B;
             margin-bottom: 1rem;
         }
 
         .founder-badge {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
@@ -606,12 +604,12 @@
         }
 
         .close:hover {
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .modal h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--beacon-teal);
+            font-family: 'Space Grotesk', serif;
+            color: #0F172A;
             margin-bottom: 1.5rem;
             padding-right: 2rem;
         }
@@ -624,7 +622,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .form-group input,
@@ -642,7 +640,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--beacon-teal);
+            border-color: #0F172A;
         }
 
         .form-group textarea {
@@ -651,7 +649,7 @@
         }
 
         .submit-btn {
-            background: var(--beacon-teal); color: #1F1F1F;
+            background: #0F172A; color: #020617;
             padding: 1rem 2rem;
             border: none;
             border-radius: 6px;
@@ -685,10 +683,10 @@
         }
 
         .stat-number {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             display: block;
         }
 
@@ -700,7 +698,7 @@
 
         /* Footer */
         .footer {
-            background: var(--beacon-dark); color: #1F1F1F;
+            background: #020617; color: #020617;
             padding: 3rem 0 1rem;
         }
 
@@ -712,9 +710,9 @@
         }
 
         .footer-section h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             margin-bottom: 1rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .footer-section a {
@@ -726,7 +724,7 @@
         }
 
         .footer-section a:hover {
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .footer-bottom {
@@ -750,7 +748,7 @@
         .mobile-menu-toggle span {
             width: 25px;
             height: 3px;
-            background-color: var(--beacon-dark);
+            background-color: #020617;
             transition: all 0.3s;
             border-radius: 2px;
         }
@@ -785,7 +783,7 @@
 
         .mobile-menu a {
             padding: 1rem 20px;
-            color: var(--beacon-dark);
+            color: #020617;
             text-decoration: none;
             font-weight: 500;
             border-bottom: 1px solid var(--beacon-light);
@@ -794,7 +792,7 @@
 
         .mobile-menu a:hover {
             background-color: var(--beacon-light);
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         /* Video Controls - Hide all except play button on mobile */
@@ -1052,8 +1050,8 @@
                 <a href="/index.html" class="flex items-center space-x-3">
                     <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum" class="h-16 object-contain">
                     <div class="flex flex-col">
-                        <span class="text-xl font-bold playfair" style="color: var(--beacon-teal);">Beacon Momentum</span>
-                        <span class="text-sm italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
+                        <span class="text-xl font-bold playfair" style="color: #0F172A;">Beacon Momentum</span>
+                        <span class="text-sm italic" style="color: #F59E0B;">Lighting the Way Forward</span>
                     </div>
                 </a>
                 <div class="hidden md:flex space-x-6" data-mobile-menu>
@@ -1063,7 +1061,7 @@
                     <a href="/beacon-academy.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Academy</a>
                     <a href="blog/blog.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Blog</a>
                     <a href="/#pricing" class="text-gray-700 hover:text-beacon-teal transition-colors">Pricing</a>
-                    <a href="/founding-member.html" class="text-white font-semibold px-4 py-2 rounded-lg transition-all shadow-md" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">👑 Founding Member</a>
+                    <a href="/founding-member.html" class="text-white font-semibold px-4 py-2 rounded-lg transition-all shadow-md" style="background: linear-gradient(135deg, #f59e0b 0%, #F59E0B 100%);">👑 Founding Member</a>
                     <a href="/contact.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Contact</a>
                     <a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn font-medium" style="display: inline-block; padding: 10px 20px; margin-left: 15px; background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: #ffffff !important; font-weight: 600; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3); transition: all 0.3s ease;">Member Login</a>
                 </div>
@@ -1080,7 +1078,7 @@
                 <a href="/beacon-academy.html">Beacon Academy</a>
                 <a href="blog/blog.html">Blog</a>
                 <a href="/#pricing">Pricing</a>
-                <a href="/founding-member.html" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; font-weight: 600;">👑 Founding Member</a>
+                <a href="/founding-member.html" style="background: linear-gradient(135deg, #f59e0b 0%, #F59E0B 100%); color: white; font-weight: 600;">👑 Founding Member</a>
                 <a href="/contact.html">Contact</a>
                 <a href="https://app.beaconmomentum.com/manual-login">Member Login</a>
     </div>
@@ -1091,7 +1089,7 @@
             <h1>A Lifetime of Rebuilding Lives. 2,874 Souls Found Their Way.<br>The Lighthouse is On.</h1>
             <p>Presidential Award winner. Navy veteran. GraceHouse director (7-8% recidivism vs. 55-60% state). Digital Grandpa founder. A lifetime of proven frameworks, now scaled globally through Beacon Momentum.</p>
             <div class="hero-cta-group" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <button onclick="openQuiz()" class="cta-button" style="background: var(--beacon-gold); color: var(--beacon-dark); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">🧭 Find Your Path</button>
+                <button onclick="openQuiz()" class="cta-button" style="background: #F59E0B; color: #020617; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">🧭 Find Your Path</button>
                 <a href="assessment.html" class="cta-button">Take the Free Assessment</a>
                 <a href="/founding-member.html" class="cta-button" style="background: transparent; border: 2px solid white; color: white;">Start Your Journey Today</a>
             </div>
@@ -1102,7 +1100,7 @@
 <section style="background: #f8fafc; padding: 80px 20px; text-align: center;">
     <div style="max-width: 900px; margin: 0 auto;">
         <span style="display: inline-block; background: var(--beacon-orange); color: white; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 20px;">🎥 Welcome to Beacon</span>
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--beacon-dark);">Who We Are</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #020617;">Who We Are</h2>
         <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
             Discover the mission, vision, and heart behind Beacon Momentum in 48 seconds.
         </p>
@@ -1295,7 +1293,7 @@
     <!-- VIDEO: The Digital Grandpa Story -->
     <section style="background-color: #f8f9fa; padding: 60px 20px;">
         <div class="video-container" style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--beacon-teal);">The Digital Grandpa Story</h2>
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: #0F172A;">The Digital Grandpa Story</h2>
             <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
                 See where it all began. One mentor, one conversation at a time, building the foundation for what would become Beacon Momentum.
             </p>
@@ -1315,7 +1313,7 @@
     <!-- Animated Counter Section -->
     <style>
         .stats-section {
-            background: linear-gradient(135deg, var(--beacon-teal) 0%, #14B8A6 100%);
+            background: linear-gradient(135deg, #0F172A 0%, #14B8A6 100%);
             padding: 5rem 0;
             text-align: center;
             color: white;
@@ -1345,7 +1343,7 @@
         }
 
         .stats-headline {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.3rem;
             font-weight: 400;
             margin-bottom: 1rem;
@@ -1354,7 +1352,7 @@
         }
 
         .stats-counter {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 5rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -1423,11 +1421,11 @@
         }
         
         .what-we-are-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.8rem;
             text-align: center;
             margin-bottom: 1rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
         
         .what-we-are-subtitle {
@@ -1454,7 +1452,7 @@
         }
         
         .what-we-are-column.is {
-            border-left: 4px solid var(--beacon-teal);
+            border-left: 4px solid #0F172A;
         }
         
         .what-we-are-column.isnt {
@@ -1471,7 +1469,7 @@
         }
         
         .what-we-are-column.is .what-we-are-column-title {
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
         
         .what-we-are-column.isnt .what-we-are-column-title {
@@ -1506,7 +1504,7 @@
         }
         
         .what-we-are-column.is .what-we-are-icon {
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
         
         .what-we-are-column.isnt .what-we-are-icon {
@@ -1591,47 +1589,47 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="programs" class="content-section" style="background-color: var(--beacon-cream); padding: 5rem 0;">
+    <section id="programs" class="content-section" style="background-color: #F8FAFC; padding: 5rem 0;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <h2 class="playfair" style="text-align: center; font-size: 3rem; color: var(--beacon-teal); margin-bottom: 1rem;">Find Your Path Forward</h2>
+            <h2 class="playfair" style="text-align: center; font-size: 3rem; color: #0F172A; margin-bottom: 1rem;">Find Your Path Forward</h2>
             <p style="text-align: center; font-size: 1.25rem; color: #666; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">Whether you're navigating a transition, launching your own venture, or seeking wise guidance, we have a path designed for where you are right now.</p>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
                 
                 <!-- Beacon Rise -->
                 <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
-                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Beacon Rise</h3>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: #0F172A; margin-bottom: 0.5rem;">Beacon Rise</h3>
                     <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For People in Transition</p>
                     <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">A 12-week guided journey for people navigating profound life changes. This isn't about "bouncing back"—it's about rising stronger, with purpose and a community that understands the journey.</p>
                     <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Built on lived wisdom, compassion, community, and structure.</p>
-                    <a href="/beacon-rise.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Beacon Rise</a>
+                    <a href="/beacon-rise.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: #0F172A; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Beacon Rise</a>
                 </div>
                 
                 <!-- Beacon Launch & Beacon Academy -->
                 <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
-                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Beacon Launch</h3>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: #0F172A; margin-bottom: 0.5rem;">Beacon Launch</h3>
                     <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For the Builder</p>
                     <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">A comprehensive toolkit for entrepreneurs ready to build their own table. Learn to launch, fund, and grow your venture with practical guidance, financial literacy, and the wisdom to avoid common pitfalls.</p>
                     <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Built from real-world experience — so you don't have to learn the hard way.</p>
-                    <a href="/beacon-launch.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Explore the Beacon Launch</a>
+                    <a href="/beacon-launch.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: #0F172A; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Explore the Beacon Launch</a>
                 </div>
                 
                 <!-- Beacon Academy -->
                 <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
-                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Beacon Academy</h3>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: #0F172A; margin-bottom: 0.5rem;">Beacon Academy</h3>
                     <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For the Future Builder</p>
                     <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">Navigate digital assets, stablecoins, and decentralized finance without the hype or complexity. Learn to build wealth and create opportunity in the new financial system—ethically and transparently.</p>
                     <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Master DeFi and modern finance with practical, honest guidance.</p>
-                    <a href="/beacon-academy.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Explore Beacon Academy</a>
+                    <a href="/beacon-academy.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: #0F172A; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Explore Beacon Academy</a>
                 </div>
                 
                 <!-- Digital Grandpa Mentorship -->
                 <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
-                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Mentorship with Digital Grandpa</h3>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: #0F172A; margin-bottom: 0.5rem;">Mentorship with Digital Grandpa</h3>
                     <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For the Leader Seeking Wisdom</p>
                     <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">Ongoing mentorship providing hope, wisdom, and direction with love and compassion. Get the steady hand of experience when you need it most—no judgment, just genuine care and guidance.</p>
                     <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Most people who reach out aren't lost — they're just tired of walking alone.</p>
-                    <a href="/digital-grandpa.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Mentorship</a>
+                    <a href="/digital-grandpa.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: #0F172A; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Mentorship</a>
                 </div>
                 
             </div>
@@ -1654,7 +1652,7 @@
     }
     
     .dg-wisdom-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         margin-bottom: 1rem;
         color: #14FFEC;
@@ -1769,7 +1767,7 @@
 /* Founder Video Section */
 .founder-video-section {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--beacon-dark) 0%, #1a2b3d 100%);
+    background: linear-gradient(135deg, #020617 0%, #1a2b3d 100%);
     color: white;
 }
 
@@ -1798,7 +1796,7 @@
 .founder-video-placeholder {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    background: linear-gradient(135deg, #1a2b3d 0%, var(--beacon-teal) 100%);
+    background: linear-gradient(135deg, #1a2b3d 0%, #0F172A 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1836,7 +1834,7 @@
 .founder-video-play-icon {
     width: 0;
     height: 0;
-    border-left: 25px solid var(--beacon-teal);
+    border-left: 25px solid #0F172A;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
     margin-left: 5px;
@@ -1861,8 +1859,8 @@
 
 .founder-video-badge {
     display: inline-block;
-    background: var(--beacon-gold);
-    color: var(--beacon-dark);
+    background: #F59E0B;
+    color: #020617;
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -1899,7 +1897,7 @@
     padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    border-left: 3px solid var(--beacon-gold);
+    border-left: 3px solid #F59E0B;
 }
 
 .founder-video-highlight-icon {
@@ -1923,8 +1921,8 @@
 
 .founder-video-cta {
     display: inline-block;
-    background: var(--beacon-gold);
-    color: var(--beacon-dark);
+    background: #F59E0B;
+    color: #020617;
     padding: 1rem 2rem;
     border-radius: 8px;
     text-decoration: none;
@@ -2051,11 +2049,11 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .timeline-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.8rem;
         text-align: center;
         margin-bottom: 1rem;
-        color: var(--beacon-dark);
+        color: #020617;
     }
 
     .timeline-subtitle {
@@ -2080,7 +2078,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         top: 0;
         bottom: 0;
         width: 4px;
-        background: linear-gradient(180deg, var(--beacon-teal) 0%, var(--beacon-orange) 50%, var(--beacon-gold) 100%);
+        background: linear-gradient(180deg, #0F172A 0%, var(--beacon-orange) 50%, #F59E0B 100%);
         transform: translateX(-50%);
         box-shadow: 0 0 20px rgba(15, 118, 110, 0.3);
     }
@@ -2150,7 +2148,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         height: 80px;
         border-radius: 50%;
         background: white;
-        border: 4px solid var(--beacon-teal);
+        border: 4px solid #0F172A;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2168,12 +2166,12 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .timeline-item:nth-child(3) .timeline-marker {
-        border-color: var(--beacon-gold);
+        border-color: #F59E0B;
         box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
     }
 
     .timeline-item:nth-child(4) .timeline-marker {
-        border-color: var(--beacon-teal);
+        border-color: #0F172A;
         box-shadow: 0 4px 20px rgba(15, 118, 110, 0.3);
         animation: pulse 2s ease-in-out infinite;
     }
@@ -2190,10 +2188,10 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .timeline-year {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 1.8rem;
         font-weight: 700;
-        color: var(--beacon-teal);
+        color: #0F172A;
         margin-bottom: 0.5rem;
     }
 
@@ -2202,7 +2200,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .timeline-item:nth-child(3) .timeline-year {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .timeline-label {
@@ -2217,7 +2215,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     .timeline-title-text {
         font-size: 1.4rem;
         font-weight: 700;
-        color: var(--beacon-dark);
+        color: #020617;
         margin-bottom: 0.75rem;
     }
 
@@ -2229,7 +2227,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .timeline-stat {
         display: inline-block;
-        background: var(--beacon-teal);
+        background: #0F172A;
         color: white;
         padding: 0.5rem 1rem;
         border-radius: 20px;
@@ -2243,7 +2241,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .timeline-item:nth-child(3) .timeline-stat {
-        background: var(--beacon-gold);
+        background: #F59E0B;
     }
 
     @media (max-width: 768px) {
@@ -2359,7 +2357,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 <!-- Milestone Badges Section -->
 <style>
     .milestones-section {
-        background: var(--beacon-dark);
+        background: #020617;
         padding: 4rem 0;
         color: white;
     }
@@ -2397,10 +2395,10 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .milestone-number {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         font-weight: 700;
-        color: var(--beacon-gold);
+        color: #F59E0B;
         margin-bottom: 0.5rem;
     }
 
@@ -2412,7 +2410,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
 <section class="milestones-section">
     <div class="milestones-container">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">By The Numbers</h2>
+        <h2 style="font-family: 'Space Grotesk', serif; font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">By The Numbers</h2>
         <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">A lifetime of rebuilding expertise. Presidential Award winner. GraceHouse director. Navy veteran.</p>
 
         <div class="milestones-grid">
@@ -2448,7 +2446,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     /* Why Beacon Exists Section */
     .why-beacon-exists {
         padding: 5rem 0;
-        background: linear-gradient(135deg, #FEF3C7 0%, #F8F5F1 100%);
+        background: linear-gradient(135deg, #FEF3C7 0%, #F8FAFC 100%);
     }
 
     .why-beacon-container {
@@ -2458,10 +2456,10 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .why-beacon-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
-        color: var(--beacon-dark);
+        color: #020617;
         text-align: left;
     }
 
@@ -2482,7 +2480,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         padding: 1.2rem 0;
         padding-left: 3rem;
         position: relative;
-        color: var(--beacon-dark);
+        color: #020617;
         font-size: 1.1rem;
         line-height: 1.7;
         border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -2507,7 +2505,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .why-beacon-divider {
         height: 2px;
-        background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold), var(--beacon-orange));
+        background: linear-gradient(90deg, #0F172A, #F59E0B, var(--beacon-orange));
         margin: 3rem 0;
         border: none;
     }
@@ -2533,7 +2531,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .why-beacon-cta-button:hover {
-        background: var(--beacon-gold);
+        background: #F59E0B;
         transform: translateY(-3px);
         box-shadow: 0 6px 25px rgba(217, 119, 6, 0.4);
     }
@@ -2625,11 +2623,11 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .who-we-serve-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         text-align: center;
         margin-bottom: 3rem;
-        color: var(--beacon-dark);
+        color: #020617;
     }
 
     .audience-grid {
@@ -2652,12 +2650,12 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .audience-box-rebuilders {
-        background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+        background: linear-gradient(135deg, #0F172A 0%, #14B8A6 100%);
         color: white;
     }
 
     .audience-box-nextgen {
-        background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+        background: linear-gradient(135deg, #F59E0B 0%, #F59E0B 100%);
         color: white;
     }
 
@@ -2686,7 +2684,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .audience-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 1rem;
@@ -2732,7 +2730,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .audience-cta {
         background: white;
-        color: var(--beacon-dark);
+        color: #020617;
         padding: 1rem 2rem;
         border: none;
         border-radius: 8px;
@@ -2830,7 +2828,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
         <!-- VIDEO: You're Not Alone Community Montage -->
         <div style="max-width: 900px; margin: 60px auto 0; text-align: center;">
-            <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--beacon-teal);">You're Not Alone</h3>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #0F172A;">You're Not Alone</h3>
             <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
                 Hear from members across all walks of life who found their way forward with Beacon.
             </p>
@@ -2866,7 +2864,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     /* Beacon Rise Styling */
     .program-block-rise {
-        background: linear-gradient(135deg, #F8F5F1 0%, #FEF3C7 100%);
+        background: linear-gradient(135deg, #F8FAFC 0%, #FEF3C7 100%);
     }
 
     /* Beacon Launch Styling */
@@ -2893,11 +2891,11 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .program-block-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.8rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
-        color: var(--beacon-dark);
+        color: #020617;
         line-height: 1.2;
     }
 
@@ -2938,7 +2936,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .program-feature-text {
         font-size: 1rem;
-        color: var(--beacon-dark);
+        color: #020617;
         line-height: 1.6;
     }
 
@@ -2946,11 +2944,11 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         display: block;
         font-weight: 600;
         margin-bottom: 0.3rem;
-        color: var(--beacon-teal);
+        color: #0F172A;
     }
 
     .program-block-cta {
-        background: var(--beacon-teal);
+        background: #0F172A;
         color: white;
         padding: 1.2rem 2.8rem;
         border: none;
@@ -3036,7 +3034,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
         <!-- VIDEO: Beacon Rise Success Story -->
         <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.5); border-radius: 12px; border: 2px solid rgba(15, 118, 110, 0.2);">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #1F1F1F; text-align: center; font-weight: 700;">"I Found My Way Forward"</h3>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #020617; text-align: center; font-weight: 700;">"I Found My Way Forward"</h3>
             <p style="font-size: 1rem; color: #4B5563; margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Hear from someone who navigated their life transition with Beacon Rise.
             </p>
@@ -3101,7 +3099,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
         <!-- VIDEO: Beacon Launch Success Story -->
         <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.5); border-radius: 12px; border: 2px solid rgba(15, 118, 110, 0.2);">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #1F1F1F; text-align: center; font-weight: 700;">"From Idea to $4K/Month"</h3>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #020617; text-align: center; font-weight: 700;">"From Idea to $4K/Month"</h3>
             <p style="font-size: 1rem; color: #4B5563; margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Watch how one member built a sustainable one-person business.
             </p>
@@ -3163,7 +3161,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
         <!-- VIDEO: DeFi Made Simple -->
         <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.5); border-radius: 12px; border: 2px solid rgba(15, 118, 110, 0.2);">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #1F1F1F; text-align: center; font-weight: 700;">"DeFi Made Simple"</h3>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #020617; text-align: center; font-weight: 700;">"DeFi Made Simple"</h3>
             <p style="font-size: 1rem; color: #4B5563; margin-bottom: 30px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Demystifying decentralized finance in plain English.
             </p>
@@ -3187,7 +3185,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     /* Founding Member Offer Section */
     .founding-member-offer {
         padding: 6rem 0;
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #1F1F1F;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #020617;
         position: relative;
         overflow: hidden;
     }
@@ -3214,7 +3212,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .founding-badge {
         display: inline-block;
-        background: linear-gradient(135deg, var(--beacon-gold), var(--beacon-orange));
+        background: linear-gradient(135deg, #F59E0B, var(--beacon-orange));
         color: white;
         padding: 0.8rem 2rem;
         border-radius: 30px;
@@ -3239,7 +3237,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .founding-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 3rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
@@ -3248,7 +3246,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .founding-headline .gold-text {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .founding-subheadline {
@@ -3276,7 +3274,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .founding-benefit-item:hover {
         background: rgba(255, 255, 255, 0.08);
-        border-color: var(--beacon-gold);
+        border-color: #F59E0B;
         transform: translateY(-3px);
     }
 
@@ -3299,7 +3297,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         font-weight: 700;
         font-size: 1.1rem;
         margin-bottom: 0.5rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .founding-benefit-description {
@@ -3310,7 +3308,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .founding-price-box {
         background: rgba(255, 255, 255, 0.08);
-        border: 2px solid var(--beacon-gold);
+        border: 2px solid #F59E0B;
         border-radius: 16px;
         padding: 2.5rem;
         margin: 3rem 0;
@@ -3320,7 +3318,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     .founding-price {
         font-size: 3.5rem;
         font-weight: 700;
-        color: var(--beacon-gold);
+        color: #F59E0B;
         margin-bottom: 0.5rem;
     }
 
@@ -3337,7 +3335,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .founding-cta-primary {
-        background: linear-gradient(135deg, var(--beacon-gold), var(--beacon-orange));
+        background: linear-gradient(135deg, #F59E0B, var(--beacon-orange));
         color: white;
         padding: 1.5rem 3.5rem;
         border: none;
@@ -3502,11 +3500,11 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .testimonials-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         text-align: center;
         margin-bottom: 1rem;
-        color: var(--beacon-dark);
+        color: #020617;
     }
 
     .testimonials-subtitle {
@@ -3554,7 +3552,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        background: linear-gradient(135deg, #0F172A, #F59E0B);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -3568,7 +3566,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .testimonial-name {
         font-weight: 600;
-        color: var(--beacon-dark);
+        color: #020617;
         margin-bottom: 0.2rem;
     }
 
@@ -3598,7 +3596,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     /* Lighthouse Philosophy Section */
     .lighthouse-philosophy {
         padding: 6rem 0;
-        background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+        background: linear-gradient(135deg, #0F172A 0%, #14B8A6 100%);
         color: white;
         position: relative;
         overflow: hidden;
@@ -3642,7 +3640,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .lighthouse-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.8rem;
         font-weight: 700;
         margin-bottom: 2rem;
@@ -3661,7 +3659,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
         font-style: italic;
         font-weight: 600;
         margin-top: 2rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     /* Mobile Responsive */
@@ -3849,7 +3847,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 }
 
 .impact-stats-header h2 {
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 0.5rem;
 }
 
@@ -3896,7 +3894,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 }
 
 .impact-stat-detail {
-    color: var(--beacon-dark);
+    color: #020617;
     font-size: 0.85rem;
     margin-top: 0.5rem;
     font-weight: 600;
@@ -3995,7 +3993,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     /* Final CTA Section */
     .final-cta-section {
         padding: 6rem 0;
-        background: linear-gradient(135deg, #FEF3C7 0%, #F8F5F1 100%);
+        background: linear-gradient(135deg, #FEF3C7 0%, #F8FAFC 100%);
         text-align: center;
     }
 
@@ -4006,11 +4004,11 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .final-cta-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 3rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
-        color: var(--beacon-dark);
+        color: #020617;
         line-height: 1.2;
     }
 
@@ -4029,7 +4027,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .final-cta-primary {
-        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        background: linear-gradient(135deg, #0F172A, #F59E0B);
         color: white;
         padding: 1.5rem 3rem;
         border: none;
@@ -4050,9 +4048,9 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
     .final-cta-secondary {
         background: white;
-        color: var(--beacon-teal);
+        color: #0F172A;
         padding: 1.5rem 3rem;
-        border: 2px solid var(--beacon-teal);
+        border: 2px solid #0F172A;
         border-radius: 12px;
         font-weight: 600;
         font-size: 1.1rem;
@@ -4063,7 +4061,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .final-cta-secondary:hover {
-        background: var(--beacon-teal);
+        background: #0F172A;
         color: white;
         transform: translateY(-3px);
     }
@@ -4099,7 +4097,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 <style>
     /* Footer Section */
     .site-footer {
-        background: var(--beacon-dark);
+        background: #020617;
         color: white;
         padding: 4rem 0 2rem;
     }
@@ -4118,10 +4116,10 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .footer-column h3 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .footer-links {
@@ -4141,7 +4139,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .footer-links a:hover {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .footer-description {
@@ -4172,7 +4170,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .footer-social-link:hover {
-        background: var(--beacon-gold);
+        background: #F59E0B;
         transform: translateY(-3px);
     }
 
@@ -4199,7 +4197,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     }
 
     .footer-bottom-links a:hover {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .phoenix-attribution {
@@ -4271,7 +4269,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 /* Stories Hub Section */
 .stories-hub-section {
     padding: 5rem 0;
-    background: linear-gradient(135deg, #1a2b3d 0%, var(--beacon-dark) 100%);
+    background: linear-gradient(135deg, #1a2b3d 0%, #020617 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -4304,7 +4302,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 .stories-hub-badge {
     display: inline-block;
     background: rgba(212, 175, 55, 0.2);
-    color: var(--beacon-gold);
+    color: #F59E0B;
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -4312,7 +4310,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 1rem;
-    border: 1px solid var(--beacon-gold);
+    border: 1px solid #F59E0B;
 }
 
 .stories-hub-title {
@@ -4347,7 +4345,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 .stories-hub-card:hover {
     background: rgba(255, 255, 255, 0.08);
     transform: translateY(-4px);
-    border-color: var(--beacon-gold);
+    border-color: #F59E0B;
 }
 
 .stories-hub-card-header {
@@ -4361,7 +4359,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--beacon-teal) 0%, var(--beacon-gold) 100%);
+    background: linear-gradient(135deg, #0F172A 0%, #F59E0B 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4405,7 +4403,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 .stories-hub-card-stat-number {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--beacon-gold);
+    color: #F59E0B;
 }
 
 .stories-hub-card-stat-label {
@@ -4420,8 +4418,8 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
 .stories-hub-cta {
     display: inline-block;
-    background: var(--beacon-gold);
-    color: var(--beacon-dark);
+    background: #F59E0B;
+    color: #020617;
     padding: 1.2rem 2.5rem;
     border-radius: 8px;
     text-decoration: none;
@@ -4580,8 +4578,8 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
 .beacon-kit-badge {
     display: inline-block;
-    background: var(--beacon-gold);
-    color: var(--beacon-dark);
+    background: #F59E0B;
+    color: #020617;
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -4593,7 +4591,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
 .beacon-kit-title {
     font-size: 2.5rem;
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 1rem;
 }
 
@@ -4624,7 +4622,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 .beacon-kit-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    border-color: var(--beacon-teal);
+    border-color: #0F172A;
 }
 
 .beacon-kit-card-icon {
@@ -4635,7 +4633,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 .beacon-kit-card-title {
     font-size: 1.4rem;
     font-weight: 600;
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 0.8rem;
 }
 
@@ -4657,18 +4655,18 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
     gap: 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    color: var(--beacon-dark);
+    color: #020617;
 }
 
 .beacon-kit-card-feature::before {
     content: '✓';
-    color: var(--beacon-teal);
+    color: #0F172A;
     font-weight: 700;
 }
 
 .beacon-kit-card-button {
     width: 100%;
-    background: var(--beacon-teal);
+    background: #0F172A;
     color: white;
     padding: 0.8rem 1.5rem;
     border: none;
@@ -4680,7 +4678,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 }
 
 .beacon-kit-card-button:hover {
-    background: var(--beacon-dark);
+    background: #020617;
     transform: translateY(-2px);
 }
 
@@ -4734,13 +4732,13 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
 .beacon-kit-modal-close:hover {
     background: #f0f0f0;
-    color: var(--beacon-dark);
+    color: #020617;
 }
 
 .beacon-kit-modal-title {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: var(--beacon-dark);
+    color: #020617;
 }
 
 .beacon-kit-modal-desc {
@@ -4765,11 +4763,11 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 
 .beacon-kit-modal-input:focus {
     outline: none;
-    border-color: var(--beacon-teal);
+    border-color: #0F172A;
 }
 
 .beacon-kit-modal-submit {
-    background: var(--beacon-teal);
+    background: #0F172A;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -4781,7 +4779,7 @@ document.querySelector('.founder-video-play-button')?.addEventListener('click', 
 }
 
 .beacon-kit-modal-submit:hover {
-    background: var(--beacon-dark);
+    background: #020617;
     transform: translateY(-2px);
 }
 
@@ -5021,7 +5019,7 @@ document.getElementById('beaconKitModal')?.addEventListener('click', function(e)
 
 .faq-header h2 {
     font-size: 2.5rem;
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 1rem;
 }
 
@@ -5070,13 +5068,13 @@ document.getElementById('beaconKitModal')?.addEventListener('click', function(e)
 .accordion-question {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--beacon-dark);
+    color: #020617;
     flex: 1;
 }
 
 .accordion-icon {
     font-size: 1.5rem;
-    color: var(--beacon-teal);
+    color: #0F172A;
     transition: transform 0.3s ease;
     flex-shrink: 0;
 }
@@ -5102,7 +5100,7 @@ document.getElementById('beaconKitModal')?.addEventListener('click', function(e)
 }
 
 .accordion-answer strong {
-    color: var(--beacon-dark);
+    color: #020617;
 }
 
 /* Mobile Responsive */
@@ -5341,7 +5339,7 @@ function toggleAccordion(header) {
                 </p>
             
             <p class="phoenix-attribution">
-                Built by <a href="/labs.html" style="color: var(--beacon-gold);">Beacon Labs</a>
+                Built by <a href="/labs.html" style="color: #F59E0B;">Beacon Labs</a>
             </p>
         </div>
     </div>
@@ -5691,7 +5689,7 @@ function getSessionId() {
 
 /* Modal Header */
 .checklist-header {
-    background: linear-gradient(135deg, var(--beacon-teal) 0%, var(--beacon-dark) 100%);
+    background: linear-gradient(135deg, #0F172A 0%, #020617 100%);
     color: white;
     padding: 2rem;
     border-radius: 16px 16px 0 0;
@@ -5735,7 +5733,7 @@ function getSessionId() {
     padding: 1.2rem;
     background: #f8f9fa;
     border-radius: 12px;
-    border-left: 4px solid var(--beacon-teal);
+    border-left: 4px solid #0F172A;
     transition: all 0.3s ease;
 }
 
@@ -5747,7 +5745,7 @@ function getSessionId() {
 .checklist-checkbox {
     width: 24px;
     height: 24px;
-    border: 2px solid var(--beacon-teal);
+    border: 2px solid #0F172A;
     border-radius: 6px;
     flex-shrink: 0;
     display: flex;
@@ -5759,7 +5757,7 @@ function getSessionId() {
 }
 
 .checklist-checkbox.checked {
-    background: var(--beacon-teal);
+    background: #0F172A;
     color: white;
 }
 
@@ -5775,7 +5773,7 @@ function getSessionId() {
 
 .checklist-item-title {
     font-weight: 600;
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 0.3rem;
 }
 
@@ -5807,7 +5805,7 @@ function getSessionId() {
 
 .checklist-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--beacon-teal) 0%, var(--beacon-gold) 100%);
+    background: linear-gradient(90deg, #0F172A 0%, #F59E0B 100%);
     width: 0%;
     transition: width 0.5s ease;
 }
@@ -5815,8 +5813,8 @@ function getSessionId() {
 /* CTA Button */
 .checklist-cta {
     width: 100%;
-    background: var(--beacon-gold);
-    color: var(--beacon-dark);
+    background: #F59E0B;
+    color: #020617;
     padding: 1.2rem 2rem;
     border: none;
     border-radius: 8px;
@@ -5834,7 +5832,7 @@ function getSessionId() {
 }
 
 .checklist-cta.enabled:hover {
-    background: var(--beacon-teal);
+    background: #0F172A;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -5851,7 +5849,7 @@ function getSessionId() {
 }
 
 .checklist-skip:hover {
-    color: var(--beacon-dark);
+    color: #020617;
 }
 
 /* Close Button */
@@ -6134,7 +6132,7 @@ document.getElementById('checklistModal')?.addEventListener('click', function(e)
 
 .exit-intent-benefit-title {
     font-weight: 600;
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 0.2rem;
 }
 
@@ -6145,8 +6143,8 @@ document.getElementById('checklistModal')?.addEventListener('click', function(e)
 
 /* Urgency Banner */
 .exit-intent-urgency {
-    background: linear-gradient(135deg, var(--beacon-gold) 0%, #f59e0b 100%);
-    color: var(--beacon-dark);
+    background: linear-gradient(135deg, #F59E0B 0%, #f59e0b 100%);
+    color: #020617;
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
@@ -6166,7 +6164,7 @@ document.getElementById('checklistModal')?.addEventListener('click', function(e)
 }
 
 .exit-intent-cta-primary {
-    background: var(--beacon-teal);
+    background: #0F172A;
     color: white;
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -6178,7 +6176,7 @@ document.getElementById('checklistModal')?.addEventListener('click', function(e)
 }
 
 .exit-intent-cta-primary:hover {
-    background: var(--beacon-dark);
+    background: #020617;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -6195,7 +6193,7 @@ document.getElementById('checklistModal')?.addEventListener('click', function(e)
 }
 
 .exit-intent-cta-secondary:hover {
-    color: var(--beacon-dark);
+    color: #020617;
 }
 
 /* Close Button */
@@ -6373,7 +6371,7 @@ document.getElementById('exitIntentModal')?.addEventListener('click', function(e
     opacity: 0;
     transform: translateX(400px);
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border: 2px solid var(--beacon-gold);
+    border: 2px solid #F59E0B;
 }
 
 .spots-counter-badge.visible {
@@ -6401,7 +6399,7 @@ document.getElementById('exitIntentModal')?.addEventListener('click', function(e
 .spots-counter-title {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--beacon-dark);
+    color: #020617;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -6409,12 +6407,12 @@ document.getElementById('exitIntentModal')?.addEventListener('click', function(e
 .spots-counter-number {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--beacon-teal);
+    color: #0F172A;
     margin-bottom: 0.3rem;
 }
 
 .spots-counter-number span {
-    color: var(--beacon-gold);
+    color: #F59E0B;
 }
 
 .spots-counter-message {
@@ -6425,8 +6423,8 @@ document.getElementById('exitIntentModal')?.addEventListener('click', function(e
 
 .spots-counter-cta {
     display: block;
-    background: var(--beacon-gold);
-    color: var(--beacon-dark);
+    background: #F59E0B;
+    color: #020617;
     text-align: center;
     padding: 0.6rem 1rem;
     border-radius: 6px;
@@ -6437,7 +6435,7 @@ document.getElementById('exitIntentModal')?.addEventListener('click', function(e
 }
 
 .spots-counter-cta:hover {
-    background: var(--beacon-teal);
+    background: #0F172A;
     color: white;
     transform: translateY(-2px);
 }
@@ -6462,7 +6460,7 @@ document.getElementById('exitIntentModal')?.addEventListener('click', function(e
 
 .spots-counter-close:hover {
     background: #f0f0f0;
-    color: var(--beacon-dark);
+    color: #020617;
 }
 
 /* Mobile Responsive */
@@ -6571,7 +6569,7 @@ setInterval(updateSpotsCounter, 300000);
     left: 0;
     width: 0%;
     height: 4px;
-    background: linear-gradient(90deg, var(--beacon-teal) 0%, var(--beacon-gold) 100%);
+    background: linear-gradient(90deg, #0F172A 0%, #F59E0B 100%);
     z-index: 10001;
     transition: width 0.1s ease-out;
     box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
@@ -6593,11 +6591,11 @@ header.scrolled .logo {
 }
 
 header.scrolled nav a {
-    color: var(--beacon-dark);
+    color: #020617;
 }
 
 header.scrolled nav a:hover {
-    color: var(--beacon-teal);
+    color: #0F172A;
 }
 
 /* Floating CTA Button (appears on scroll) */
@@ -6605,8 +6603,8 @@ header.scrolled nav a:hover {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: var(--beacon-gold);
-    color: var(--beacon-dark);
+    background: #F59E0B;
+    color: #020617;
     padding: 1rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
@@ -6627,7 +6625,7 @@ header.scrolled nav a:hover {
 }
 
 .floating-cta:hover {
-    background: var(--beacon-teal);
+    background: #0F172A;
     color: white;
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(15, 118, 110, 0.4);
@@ -6760,7 +6758,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Quiz Header */
 .quiz-header {
-    background: linear-gradient(135deg, var(--beacon-teal) 0%, var(--beacon-dark) 100%);
+    background: linear-gradient(135deg, #0F172A 0%, #020617 100%);
     color: white;
     padding: 2rem;
     border-radius: 16px 16px 0 0;
@@ -6799,7 +6797,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .quiz-question h3 {
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
 }
@@ -6825,7 +6823,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .quiz-option:hover {
     background: #fff;
-    border-color: var(--beacon-teal);
+    border-color: #0F172A;
     transform: translateX(5px);
     box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2);
 }
@@ -6841,7 +6839,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .quiz-option-title {
     font-weight: 600;
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 0.3rem;
 }
 
@@ -6866,7 +6864,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .quiz-progress-dot.active {
-    background: var(--beacon-teal);
+    background: #0F172A;
 }
 
 /* Quiz Result */
@@ -6886,7 +6884,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .quiz-result h3 {
-    color: var(--beacon-dark);
+    color: #020617;
     margin-bottom: 1rem;
     font-size: 1.8rem;
 }
@@ -6899,7 +6897,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .quiz-result-cta {
     display: inline-block;
-    background: var(--beacon-teal);
+    background: #0F172A;
     color: white;
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -6909,7 +6907,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .quiz-result-cta:hover {
-    background: var(--beacon-dark);
+    background: #020617;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -7292,7 +7290,7 @@ document.getElementById('pathFinderQuiz')?.addEventListener('click', function(e)
 </script>
 
 <!-- Quiz Trigger Button (add to hero section or prominent location) -->
-<button onclick="openQuiz()" style="background: var(--beacon-gold); color: var(--beacon-dark); border: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
+<button onclick="openQuiz()" style="background: #F59E0B; color: #020617; border: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
     🧭 Find Your Path
 </button>
 </html>

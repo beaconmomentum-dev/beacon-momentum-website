@@ -48,17 +48,15 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-orange: #FF7A00;
-            --beacon-dark: #1F1F1F;
-            --beacon-cream: #F8F5F1;
-            --beacon-gold: #FDB022;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
-            /* Legacy color compatibility */
-            --beacon-teal: #0F766E;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -70,7 +68,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
@@ -100,17 +98,17 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
         }
 
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background: linear-gradient(135deg, #0F172A, #F59E0B);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -127,14 +125,14 @@
         }
 
         .nav-links a {
-            color: var(--beacon-dark);
+            color: #020617;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         /* Hero Section */
@@ -167,7 +165,7 @@
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -185,7 +183,7 @@
 
         .cta-button {
             background: white;
-            color: var(--beacon-teal);
+            color: #0F172A;
             padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
@@ -205,7 +203,7 @@
         /* Beacon Narrative Section */
         .beacon-narrative {
             position: relative;
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             padding: 5rem 0;
             text-align: center;
             overflow: hidden;
@@ -235,10 +233,10 @@
         }
 
         .narrative-headline {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3rem;
             font-weight: 700;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
@@ -258,7 +256,7 @@
 
         .narrative-subheadline {
             font-size: 1.4rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
             font-weight: 600;
             margin-bottom: 2.5rem;
             margin-top: 1.5rem;
@@ -268,7 +266,7 @@
         .narrative-body {
             font-size: 1.15rem;
             line-height: 1.9;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 2.5rem;
             text-align: left;
             max-width: 800px;
@@ -283,7 +281,7 @@
         .narrative-body p:first-child {
             font-size: 1.25rem;
             font-weight: 500;
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         .narrative-body strong {
@@ -294,7 +292,7 @@
         .narrative-closing {
             font-size: 1.3rem;
             font-style: italic;
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-weight: 500;
             margin-top: 2rem;
             margin-bottom: 2.5rem;
@@ -317,7 +315,7 @@
         }
 
         .narrative-cta:hover {
-            background: var(--beacon-gold);
+            background: #F59E0B;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
         }
@@ -329,11 +327,11 @@
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .divisions-grid {
@@ -375,15 +373,15 @@
         }
 
         .division-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .division-subtitle {
-            color: var(--beacon-gold);
+            color: #F59E0B;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.9rem;
@@ -404,7 +402,7 @@
 
         .benefits-list li {
             padding: 0.5rem 0;
-            color: var(--beacon-dark);
+            color: #020617;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -412,21 +410,21 @@
 
         .benefits-list li::before {
             content: "✓";
-            color: var(--beacon-teal);
+            color: #0F172A;
             font-weight: bold;
         }
 
         .how-to-join {
-            background: var(--beacon-cream);
+            background: #F8FAFC;
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
         }
 
         .how-to-join h4 {
-            color: var(--beacon-teal);
+            color: #0F172A;
             margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
         }
 
         .join-steps {
@@ -435,14 +433,14 @@
 
         .join-steps li {
             padding: 0.3rem 0;
-            color: var(--beacon-dark);
+            color: #020617;
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
         }
 
         .step-number {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             width: 20px;
             height: 20px;
@@ -457,7 +455,7 @@
         }
 
         .division-cta {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             padding: 0.8rem 1.5rem;
             border: none;
@@ -483,12 +481,12 @@
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--beacon-gold);
+            border: 3px solid #F59E0B;
             margin-bottom: 1rem;
         }
 
         .founder-badge {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
@@ -535,12 +533,12 @@
         }
 
         .close:hover {
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .modal h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--beacon-teal);
+            font-family: 'Space Grotesk', serif;
+            color: #0F172A;
             margin-bottom: 1.5rem;
             padding-right: 2rem;
         }
@@ -553,7 +551,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .form-group input,
@@ -571,7 +569,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--beacon-teal);
+            border-color: #0F172A;
         }
 
         .form-group textarea {
@@ -580,7 +578,7 @@
         }
 
         .submit-btn {
-            background: var(--beacon-teal);
+            background: #0F172A;
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -615,10 +613,10 @@
         }
 
         .stat-number {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             display: block;
         }
 
@@ -630,7 +628,7 @@
 
         /* Footer */
         .footer {
-            background: var(--beacon-dark);
+            background: #020617;
             color: white;
             padding: 3rem 0 1rem;
         }
@@ -643,9 +641,9 @@
         }
 
         .footer-section h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             margin-bottom: 1rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .footer-section a {
@@ -657,7 +655,7 @@
         }
 
         .footer-section a:hover {
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .footer-bottom {
@@ -681,7 +679,7 @@
         .mobile-menu-toggle span {
             width: 25px;
             height: 3px;
-            background-color: var(--beacon-dark);
+            background-color: #020617;
             transition: all 0.3s;
             border-radius: 2px;
         }
@@ -716,7 +714,7 @@
 
         .mobile-menu a {
             padding: 1rem 20px;
-            color: var(--beacon-dark);
+            color: #020617;
             text-decoration: none;
             font-weight: 500;
             border-bottom: 1px solid var(--beacon-light);
@@ -725,7 +723,7 @@
 
         .mobile-menu a:hover {
             background-color: var(--beacon-light);
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         /* Responsive Design */
@@ -1024,38 +1022,38 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="programs" class="content-section" style="background-color: var(--beacon-cream); padding: 5rem 0;">
+    <section id="programs" class="content-section" style="background-color: #F8FAFC; padding: 5rem 0;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <h2 class="playfair" style="text-align: center; font-size: 3rem; color: var(--beacon-teal); margin-bottom: 1rem;">Find Your Path Forward</h2>
+            <h2 class="playfair" style="text-align: center; font-size: 3rem; color: #0F172A; margin-bottom: 1rem;">Find Your Path Forward</h2>
             <p style="text-align: center; font-size: 1.25rem; color: #666; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">Whether you're rebuilding from the ground up, launching your own venture, or seeking wise guidance, we have a path designed for where you are right now.</p>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
                 
                 <!-- Beacon Rise -->
                 <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
-                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Beacon Rise</h3>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: #0F172A; margin-bottom: 0.5rem;">Beacon Rise</h3>
                     <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For People in Transition</p>
                     <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">A 12-week guided journey for people navigating profound life changes. This isn't about "bouncing back"—it's about rising stronger, with purpose and a community that understands the journey.</p>
                     <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Built on lived wisdom, compassion, community, and structure.</p>
-                    <a href="/beacon-rise.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Beacon Rise</a>
+                    <a href="/beacon-rise.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: #0F172A; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Beacon Rise</a>
                 </div>
                 
                 <!-- Beacon Launch & Beacon Academy -->
                 <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
-                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Beacon Launch</h3>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: #0F172A; margin-bottom: 0.5rem;">Beacon Launch</h3>
                     <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For the Builder</p>
                     <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">A comprehensive toolkit for entrepreneurs ready to build their own table. Learn to launch, fund, and grow your venture with practical guidance, financial literacy, and the wisdom to avoid common pitfalls.</p>
                     <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Built from real-world experience — so you don't have to learn the hard way.</p>
-                    <a href="/beacon-launch.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Explore the Beacon Launch</a>
+                    <a href="/beacon-launch.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: #0F172A; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Explore the Beacon Launch</a>
                 </div>
                 
                 <!-- Digital Grandpa Mentorship -->
                 <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';">
-                    <h3 class="playfair" style="font-size: 1.75rem; color: var(--beacon-teal); margin-bottom: 0.5rem;">Digital Grandpa</h3>
+                    <h3 class="playfair" style="font-size: 1.75rem; color: #0F172A; margin-bottom: 0.5rem;">Digital Grandpa</h3>
                     <p style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1.5rem;">For the Leader Seeking Wisdom</p>
                     <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">Ongoing mentorship providing hope, wisdom, and direction with love and compassion. Get the steady hand of experience when you need it most—no judgment, just genuine care and guidance.</p>
                     <p style="color: #777; font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Most people who reach out aren't lost — they're just tired of walking alone.</p>
-                    <a href="/digital-grandpa.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: var(--beacon-teal); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Mentorship</a>
+                    <a href="/digital-grandpa.html" class="btn btn-primary" style="display: inline-block; padding: 0.875rem 2rem; background-color: #0F172A; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background-color 0.3s ease;">Learn About Mentorship</a>
                 </div>
                 
             </div>
@@ -1078,7 +1076,7 @@
     }
     
     .dg-wisdom-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         margin-bottom: 1rem;
         color: #14FFEC;
@@ -1204,11 +1202,11 @@
     }
 
     .pathway-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         text-align: center;
         margin-bottom: 1rem;
-        color: var(--beacon-dark);
+        color: #020617;
     }
 
     .pathway-subtitle {
@@ -1246,7 +1244,7 @@
         left: 0;
         right: 0;
         height: 4px;
-        background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold));
+        background: linear-gradient(90deg, #0F172A, #F59E0B);
         transform: scaleX(0);
         transition: transform 0.3s ease;
     }
@@ -1264,7 +1262,7 @@
     .pathway-card-icon {
         width: 60px;
         height: 60px;
-        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        background: linear-gradient(135deg, #0F172A, #F59E0B);
         border-radius: 12px;
         display: flex;
         align-items: center;
@@ -1274,16 +1272,16 @@
     }
 
     .pathway-card-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 1.8rem;
         font-weight: 600;
         margin-bottom: 1rem;
-        color: var(--beacon-dark);
+        color: #020617;
     }
 
     .pathway-card-tagline {
         font-size: 1.1rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
         font-weight: 600;
         margin-bottom: 1rem;
         font-style: italic;
@@ -1296,7 +1294,7 @@
     }
 
     .pathway-card-cta {
-        background: var(--beacon-teal);
+        background: #0F172A;
         color: white;
         padding: 0.9rem 1.8rem;
         border: none;
@@ -1395,7 +1393,7 @@
     /* Why Beacon Exists Section */
     .why-beacon-exists {
         padding: 5rem 0;
-        background: linear-gradient(135deg, #FEF3C7 0%, #F8F5F1 100%);
+        background: linear-gradient(135deg, #FEF3C7 0%, #F8FAFC 100%);
     }
 
     .why-beacon-container {
@@ -1405,10 +1403,10 @@
     }
 
     .why-beacon-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
-        color: var(--beacon-dark);
+        color: #020617;
         text-align: left;
     }
 
@@ -1429,7 +1427,7 @@
         padding: 1.2rem 0;
         padding-left: 3rem;
         position: relative;
-        color: var(--beacon-dark);
+        color: #020617;
         font-size: 1.1rem;
         line-height: 1.7;
         border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -1454,7 +1452,7 @@
 
     .why-beacon-divider {
         height: 2px;
-        background: linear-gradient(90deg, var(--beacon-teal), var(--beacon-gold), var(--beacon-orange));
+        background: linear-gradient(90deg, #0F172A, #F59E0B, var(--beacon-orange));
         margin: 3rem 0;
         border: none;
     }
@@ -1480,7 +1478,7 @@
     }
 
     .why-beacon-cta-button:hover {
-        background: var(--beacon-gold);
+        background: #F59E0B;
         transform: translateY(-3px);
         box-shadow: 0 6px 25px rgba(217, 119, 6, 0.4);
     }
@@ -1558,11 +1556,11 @@
     }
 
     .who-we-serve-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         text-align: center;
         margin-bottom: 3rem;
-        color: var(--beacon-dark);
+        color: #020617;
     }
 
     .audience-grid {
@@ -1585,7 +1583,7 @@
     }
 
     .audience-box-rebuilders {
-        background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+        background: linear-gradient(135deg, #0F172A 0%, #14B8A6 100%);
         color: white;
     }
 
@@ -1610,7 +1608,7 @@
     }
 
     .audience-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 1rem;
@@ -1656,7 +1654,7 @@
 
     .audience-cta {
         background: white;
-        color: var(--beacon-dark);
+        color: #020617;
         padding: 1rem 2rem;
         border: none;
         border-radius: 8px;
@@ -1772,7 +1770,7 @@
 
     /* Beacon Rise Styling */
     .program-block-rise {
-        background: linear-gradient(135deg, #F8F5F1 0%, #FEF3C7 100%);
+        background: linear-gradient(135deg, #F8FAFC 0%, #FEF3C7 100%);
     }
 
     /* Beacon Launch Styling */
@@ -1799,11 +1797,11 @@
     }
 
     .program-block-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.8rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
-        color: var(--beacon-dark);
+        color: #020617;
         line-height: 1.2;
     }
 
@@ -1835,7 +1833,7 @@
 
     .program-feature-text {
         font-size: 1rem;
-        color: var(--beacon-dark);
+        color: #020617;
         line-height: 1.6;
     }
 
@@ -1843,11 +1841,11 @@
         display: block;
         font-weight: 600;
         margin-bottom: 0.3rem;
-        color: var(--beacon-teal);
+        color: #0F172A;
     }
 
     .program-block-cta {
-        background: var(--beacon-teal);
+        background: #0F172A;
         color: white;
         padding: 1.2rem 2.8rem;
         border: none;
@@ -2061,7 +2059,7 @@
 
     .founding-badge {
         display: inline-block;
-        background: linear-gradient(135deg, var(--beacon-gold), var(--beacon-orange));
+        background: linear-gradient(135deg, #F59E0B, var(--beacon-orange));
         color: white;
         padding: 0.8rem 2rem;
         border-radius: 30px;
@@ -2086,7 +2084,7 @@
     }
 
     .founding-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 3rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
@@ -2094,7 +2092,7 @@
     }
 
     .founding-headline .gold-text {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .founding-subheadline {
@@ -2122,7 +2120,7 @@
 
     .founding-benefit-item:hover {
         background: rgba(255, 255, 255, 0.08);
-        border-color: var(--beacon-gold);
+        border-color: #F59E0B;
         transform: translateY(-3px);
     }
 
@@ -2136,7 +2134,7 @@
         font-weight: 700;
         font-size: 1.1rem;
         margin-bottom: 0.5rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .founding-benefit-description {
@@ -2147,7 +2145,7 @@
 
     .founding-price-box {
         background: rgba(255, 255, 255, 0.08);
-        border: 2px solid var(--beacon-gold);
+        border: 2px solid #F59E0B;
         border-radius: 16px;
         padding: 2.5rem;
         margin: 3rem 0;
@@ -2157,7 +2155,7 @@
     .founding-price {
         font-size: 3.5rem;
         font-weight: 700;
-        color: var(--beacon-gold);
+        color: #F59E0B;
         margin-bottom: 0.5rem;
     }
 
@@ -2174,7 +2172,7 @@
     }
 
     .founding-cta-primary {
-        background: linear-gradient(135deg, var(--beacon-gold), var(--beacon-orange));
+        background: linear-gradient(135deg, #F59E0B, var(--beacon-orange));
         color: white;
         padding: 1.5rem 3.5rem;
         border: none;
@@ -2339,11 +2337,11 @@
     }
 
     .testimonials-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.5rem;
         text-align: center;
         margin-bottom: 1rem;
-        color: var(--beacon-dark);
+        color: #020617;
     }
 
     .testimonials-subtitle {
@@ -2391,7 +2389,7 @@
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        background: linear-gradient(135deg, #0F172A, #F59E0B);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2405,7 +2403,7 @@
 
     .testimonial-name {
         font-weight: 600;
-        color: var(--beacon-dark);
+        color: #020617;
         margin-bottom: 0.2rem;
     }
 
@@ -2435,7 +2433,7 @@
     /* Lighthouse Philosophy Section */
     .lighthouse-philosophy {
         padding: 6rem 0;
-        background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+        background: linear-gradient(135deg, #0F172A 0%, #14B8A6 100%);
         color: white;
         position: relative;
         overflow: hidden;
@@ -2479,7 +2477,7 @@
     }
 
     .lighthouse-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 2.8rem;
         font-weight: 700;
         margin-bottom: 2rem;
@@ -2498,7 +2496,7 @@
         font-style: italic;
         font-weight: 600;
         margin-top: 2rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     /* Mobile Responsive */
@@ -2646,7 +2644,7 @@
     /* Final CTA Section */
     .final-cta-section {
         padding: 6rem 0;
-        background: linear-gradient(135deg, #FEF3C7 0%, #F8F5F1 100%);
+        background: linear-gradient(135deg, #FEF3C7 0%, #F8FAFC 100%);
         text-align: center;
     }
 
@@ -2657,11 +2655,11 @@
     }
 
     .final-cta-headline {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 3rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
-        color: var(--beacon-dark);
+        color: #020617;
         line-height: 1.2;
     }
 
@@ -2680,7 +2678,7 @@
     }
 
     .final-cta-primary {
-        background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+        background: linear-gradient(135deg, #0F172A, #F59E0B);
         color: white;
         padding: 1.5rem 3rem;
         border: none;
@@ -2701,9 +2699,9 @@
 
     .final-cta-secondary {
         background: white;
-        color: var(--beacon-teal);
+        color: #0F172A;
         padding: 1.5rem 3rem;
-        border: 2px solid var(--beacon-teal);
+        border: 2px solid #0F172A;
         border-radius: 12px;
         font-weight: 600;
         font-size: 1.1rem;
@@ -2714,7 +2712,7 @@
     }
 
     .final-cta-secondary:hover {
-        background: var(--beacon-teal);
+        background: #0F172A;
         color: white;
         transform: translateY(-3px);
     }
@@ -2750,7 +2748,7 @@
 <style>
     /* Footer Section */
     .site-footer {
-        background: var(--beacon-dark);
+        background: #020617;
         color: white;
         padding: 4rem 0 2rem;
     }
@@ -2769,10 +2767,10 @@
     }
 
     .footer-column h3 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .footer-links {
@@ -2792,7 +2790,7 @@
     }
 
     .footer-links a:hover {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .footer-description {
@@ -2823,7 +2821,7 @@
     }
 
     .footer-social-link:hover {
-        background: var(--beacon-gold);
+        background: #F59E0B;
         transform: translateY(-3px);
     }
 
@@ -2850,7 +2848,7 @@
     }
 
     .footer-bottom-links a:hover {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .phoenix-attribution {
@@ -2982,7 +2980,7 @@
             </div>
 
             <p class="phoenix-attribution">
-                Built by <a href="/labs.html" style="color: var(--beacon-gold);">Beacon Labs</a>
+                Built by <a href="/labs.html" style="color: #F59E0B;">Beacon Labs</a>
             </p>
         </div>
     </div>

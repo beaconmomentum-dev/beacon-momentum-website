@@ -9,15 +9,15 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rise-purple: #8B5CF6;
-            --rise-pink: #EC4899;
-            --beacon-dark: #1F2937;
-            --beacon-cream: #F8F5F1;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -29,7 +29,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background: linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 100%);
             min-height: 100vh;
             display: flex;
@@ -59,7 +59,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--rise-purple);
@@ -125,9 +125,9 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 1rem;
         }
 
@@ -148,14 +148,14 @@
         }
 
         .courage-message h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             color: var(--rise-purple);
             margin-bottom: 0.75rem;
             font-size: 1.3rem;
         }
 
         .courage-message p {
-            color: var(--beacon-dark);
+            color: #020617;
             line-height: 1.8;
             margin-bottom: 0.5rem;
         }
@@ -170,7 +170,7 @@
         }
 
         .info-box h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             color: var(--rise-pink);
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
@@ -210,14 +210,14 @@
         }
 
         .crisis-resources h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             color: #DC2626;
             margin-bottom: 0.75rem;
             font-size: 1.1rem;
         }
 
         .crisis-resources p {
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
         }
@@ -231,8 +231,8 @@
         }
 
         .cta-section h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--beacon-dark);
+            font-family: 'Space Grotesk', serif;
+            color: #020617;
             margin-bottom: 1.5rem;
             font-size: 1.3rem;
         }
@@ -278,7 +278,7 @@
 
         /* Footer */
         .footer {
-            background: var(--beacon-dark);
+            background: #020617;
             color: white;
             padding: 2rem 0 1rem;
             margin-top: auto;

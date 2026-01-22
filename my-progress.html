@@ -7,14 +7,17 @@
     <title>My Progress | Beacon Momentum</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --beacon-teal: #1B7F7A;
-            --beacon-gold: #D4AF37;
-            --beacon-blue: #8B1538;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
-        .playfair { font-family: 'Playfair Display', serif; }
+        .playfair { font-family: 'Space Grotesk', serif; }
         .inter { font-family: 'Inter', sans-serif; }
     </style>
 </head>
@@ -192,7 +195,7 @@
                 <div class="flex items-center gap-4">
                     <a href="member-dashboard.html" class="text-sm hover:opacity-80">Dashboard</a>
                     <a href="members/beacon-capital-suite/" class="text-sm hover:opacity-80">Modules</a>
-                    <button onclick="logout()" class="text-sm hover:opacity-80" style="color: var(--beacon-gold);">Logout</button>
+                    <button onclick="logout()" class="text-sm hover:opacity-80" style="color: #F59E0B;">Logout</button>
                 </div>
             </nav>
         </div>
@@ -212,7 +215,7 @@
                     <p class="text-gray-600">Beacon Beacon Academy Completion</p>
                 </div>
                 <div class="text-right">
-                    <div class="text-5xl font-bold" style="color: var(--beacon-teal);" id="overall-percent">0%</div>
+                    <div class="text-5xl font-bold" style="color: #0F172A;" id="overall-percent">0%</div>
                     <p class="text-sm text-gray-600">
                         <span id="completed-count">0</span> of <span id="total-count">5</span> modules complete
                     </p>
@@ -220,14 +223,14 @@
             </div>
 
             <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-                <div class="h-4 rounded-full transition-all duration-500" style="background-color: var(--beacon-teal); width: 0%;" id="overall-bar"></div>
+                <div class="h-4 rounded-full transition-all duration-500" style="background-color: #0F172A; width: 0%;" id="overall-bar"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                 <div class="bg-gray-50 rounded-lg p-4">
                     <div class="flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(27, 127, 122, 0.1);">
-                            <svg class="w-6 h-6" style="color: var(--beacon-teal);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6" style="color: #0F172A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
@@ -241,7 +244,7 @@
                 <div class="bg-gray-50 rounded-lg p-4">
                     <div class="flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(212, 175, 55, 0.1);">
-                            <svg class="w-6 h-6" style="color: var(--beacon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6" style="color: #F59E0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
@@ -354,7 +357,7 @@
                         moduleCard.innerHTML = `
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background-color: var(--beacon-teal);">
+                                    <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background-color: #0F172A;">
                                         ${index + 1}
                                     </div>
                                     <div>
@@ -368,13 +371,13 @@
                                             ✓ Completed
                                         </span>
                                     ` : ''}
-                                    <a href="${module.url}" class="px-4 py-2 rounded-lg text-sm font-medium text-white" style="background-color: var(--beacon-teal);">
+                                    <a href="${module.url}" class="px-4 py-2 rounded-lg text-sm font-medium text-white" style="background-color: #0F172A;">
                                         ${moduleProgress.progress_percent > 0 ? 'Continue' : 'Start'}
                                     </a>
                                 </div>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="h-2 rounded-full" style="background-color: var(--beacon-teal); width: ${moduleProgress.progress_percent}%;"></div>
+                                <div class="h-2 rounded-full" style="background-color: #0F172A; width: ${moduleProgress.progress_percent}%;"></div>
                             </div>
                         `;
                         modulesContainer.appendChild(moduleCard);
@@ -456,7 +459,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center gap-2">
                                     <div class="w-20 bg-gray-200 rounded-full h-2">
-                                        <div class="h-2 rounded-full" style="background-color: var(--beacon-teal); width: ${user.avg_progress}%;"></div>
+                                        <div class="h-2 rounded-full" style="background-color: #0F172A; width: ${user.avg_progress}%;"></div>
                                     </div>
                                     <span class="text-sm text-gray-600">${Math.round(user.avg_progress)}%</span>
                                 </div>

@@ -31,17 +31,15 @@
     
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigi    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigi    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>        :root {
-            --beacon-orange: #FF7A00;
-            --beacon-dark: #1F1F1F;
-            --beacon-cream: #F8F5F1;
-            --beacon-gold: #D97706;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
-            /* Legacy color compatibility */
-            --beacon-teal: #0F766E;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -53,7 +51,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
@@ -83,17 +81,17 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--beacon-teal);
+            color: #0F172A;
             text-decoration: none;
         }
 
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background: linear-gradient(135deg, #0F172A, #F59E0B);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -110,7 +108,7 @@
         }
 
         .nav-links a {
-            color: var(--beacon-dark);
+            color: #020617;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -118,19 +116,19 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--beacon-teal);
+            color: #0F172A;
         }
 
         /* Page Header */
         .page-header {
-            background: linear-gradient(135deg, var(--beacon-teal), var(--beacon-gold));
+            background: linear-gradient(135deg, #0F172A, #F59E0B);
             color: white;
             padding: 4rem 0 3rem;
             text-align: center;
         }
 
         .page-header h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3rem;
             margin-bottom: 1rem;
         }
@@ -155,8 +153,8 @@
         }
 
         .contact-intro h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--beacon-teal);
+            font-family: 'Space Grotesk', serif;
+            color: #0F172A;
             font-size: 2rem;
             margin-bottom: 1rem;
         }
@@ -195,7 +193,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--beacon-dark);
+            color: #020617;
             font-weight: 500;
             font-size: 0.95rem;
         }
@@ -249,7 +247,7 @@
         .submit-btn {
             width: 100%;
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--beacon-orange) 0%, var(--beacon-gold) 100%); color: #1F1F1F;
+            background: linear-gradient(135deg, var(--beacon-orange) 0%, #F59E0B 100%); color: #020617;
             border: none;
             border-radius: 8px;
             font-size: 1.1rem;
@@ -289,7 +287,7 @@
 
         /* Footer */
         .footer {
-            background: var(--beacon-dark); color: #1F1F1F;
+            background: #020617; color: #020617;
             padding: 3rem 0 1rem;
         }
 
@@ -301,12 +299,12 @@
         }
 
         .footer-section h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             margin-bottom: 1rem;
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
-        .footer-section a { color: #1F1F1F; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        .footer-section a { color: #020617; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
             text-decoration: none;
             display: block;
             margin-bottom: 0.5rem;
@@ -314,7 +312,7 @@
         }
 
         .footer-section a:hover {
-            color: var(--beacon-gold);
+            color: #F59E0B;
         }
 
         .footer-bottom {
@@ -349,7 +347,7 @@
         }
     
     .site-footer {
-        background: var(--beacon-dark);
+        background: #020617;
         color: white;
         padding: 4rem 0 2rem;
     }
@@ -368,10 +366,10 @@
     }
 
     .footer-column h3 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Space Grotesk', serif;
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .footer-links {
@@ -391,7 +389,7 @@
     }
 
     .footer-links a:hover {
-        color: var(--beacon-gold);
+        color: #F59E0B;
     }
 
     .footer-description {
@@ -422,7 +420,7 @@
     }
 
     .footer-social-link:hover {
-        background: var(--beacon-gold);
+        background: #F59E0B;
         transform: translateY(-3px);
     }
 
@@ -467,8 +465,8 @@
                 <a href="/index.html" class="flex items-center space-x-3">
                     <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum Lighthouse" class="w-16 h-16 object-contain">
                     <div class="flex flex-col">
-                        <span class="text-xl font-bold playfair" style="color: var(--beacon-teal);">Beacon Momentum</span>
-                        <span class="text-sm italic" style="color: var(--beacon-gold);">Lighting the Way Forward</span>
+                        <span class="text-xl font-bold playfair" style="color: #0F172A;">Beacon Momentum</span>
+                        <span class="text-sm italic" style="color: #F59E0B;">Lighting the Way Forward</span>
                     </div>
                 </a>
                 <div class="hidden md:flex space-x-6" data-mobile-menu>
@@ -510,29 +508,29 @@
             <div class="form-container">
                 <form id="contactForm" action="https://api.leadconnectorhq.com/hooks/forms/submit" method="POST" class="contact-form">
                     <!-- Hidden fields for GHL routing -->
-                    <input type="hidden" name="location_id" value="YOUR_GHL_LOCATION_ID" style="color: #1F1F1F !important;">
-                    <input type="hidden" name="form_id" value="beacon_contact_form" style="color: #1F1F1F !important;">
-                    <input type="hidden" name="tags" value="contact,general-inquiry" style="color: #1F1F1F !important;">
+                    <input type="hidden" name="location_id" value="YOUR_GHL_LOCATION_ID" style="color: #020617 !important;">
+                    <input type="hidden" name="form_id" value="beacon_contact_form" style="color: #020617 !important;">
+                    <input type="hidden" name="tags" value="contact,general-inquiry" style="color: #020617 !important;">
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="first_name">First Name *</label>
-                            <input type="text" id="first_name" name="first_name" required style="color: #1F1F1F !important;">
+                            <input type="text" id="first_name" name="first_name" required style="color: #020617 !important;">
                         </div>
                         <div class="form-group">
                             <label for="last_name">Last Name *</label>
-                            <input type="text" id="last_name" name="last_name" required style="color: #1F1F1F !important;">
+                            <input type="text" id="last_name" name="last_name" required style="color: #020617 !important;">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required style="color: #1F1F1F !important;">
+                        <input type="email" id="email" name="email" required style="color: #020617 !important;">
                     </div>
                     
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" style="color: #1F1F1F !important;">
+                        <input type="tel" id="phone" name="phone" style="color: #020617 !important;">
                     </div>
                     
                     <div class="form-group">
@@ -551,12 +549,12 @@
                     
                     <div class="form-group">
                         <label for="message">Your Message *</label>
-                        <textarea id="message" name="message" rows="6" required style="color: #1F1F1F !important;"></textarea>
+                        <textarea id="message" name="message" rows="6" required style="color: #020617 !important;"></textarea>
                     </div>
                     
                     <div class="form-group checkbox-group">
                         <label>
-                            <input type="checkbox" name="newsletter" value="yes" style="color: #1F1F1F !important;">
+                            <input type="checkbox" name="newsletter" value="yes" style="color: #020617 !important;">
                             <span>I'd like to receive updates and insights from Beacon Momentum</span>
                         </label>
                     </div>
@@ -657,7 +655,7 @@
                 </p>
 
             <p class="phoenix-attribution">
-                Built by <a href="/labs.html" style="color: var(--beacon-gold);">Beacon Labs</a>
+                Built by <a href="/labs.html" style="color: #F59E0B;">Beacon Labs</a>
             </p>
         </div>
     </div>

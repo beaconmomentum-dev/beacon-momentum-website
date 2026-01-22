@@ -71,17 +71,16 @@
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --beacon-orange: #FF7A00;
-            --beacon-dark: #1F1F1F;
-            --beacon-cream: #F8F5F1;
-            --beacon-gold: #D97706;
-            --beacon-gray: #6B7280;
-            --beacon-light: #F9FAFB;
-            --beacon-teal: #0F766E;
+            --beacon-primary: #0F172A; /* Deep Ocean */
+            --beacon-accent: #F59E0B; /* Lighthouse Gold */
+            --beacon-background: #F8FAFC; /* Slate 50 */
+            --beacon-foreground: #020617; /* Slate 950 */
+            --beacon-glass: rgba(255, 255, 255, 0.1);
+            --beacon-border: rgba(255, 255, 255, 0.15);
         }
 
         * {
@@ -93,7 +92,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--beacon-dark);
+            color: #020617;
             background-color: white;
         }
 
@@ -120,7 +119,7 @@
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .logo img {
@@ -141,7 +140,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--beacon-dark);
+            color: #020617;
             font-weight: 500;
             transition: color 0.3s;
         }
@@ -152,14 +151,14 @@
 
         /* Hero Section */
         .blog-hero {
-            background: linear-gradient(135deg, var(--beacon-orange) 0%, var(--beacon-gold) 100%);
+            background: linear-gradient(135deg, var(--beacon-orange) 0%, #F59E0B 100%);
             color: white;
             padding: 80px 20px;
             text-align: center;
         }
 
         .blog-hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 3rem;
             margin-bottom: 20px;
             line-height: 1.2;
@@ -185,9 +184,9 @@
         }
 
         .section-header h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 15px;
         }
 
@@ -248,16 +247,16 @@
         }
 
         .blog-card-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 1.8rem;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 15px;
             line-height: 1.3;
         }
 
         .blog-card-title a {
             text-decoration: none;
-            color: var(--beacon-dark);
+            color: #020617;
             transition: color 0.3s;
         }
 
@@ -300,7 +299,7 @@
 
         .author-name {
             font-weight: 600;
-            color: var(--beacon-dark);
+            color: #020617;
         }
 
         .author-title {
@@ -365,7 +364,7 @@
         .category-name {
             font-size: 1.3rem;
             font-weight: 600;
-            color: var(--beacon-dark);
+            color: #020617;
             margin-bottom: 10px;
         }
 
@@ -376,7 +375,7 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--beacon-orange) 0%, var(--beacon-gold) 100%);
+            background: linear-gradient(135deg, var(--beacon-orange) 0%, #F59E0B 100%);
             color: white;
             padding: 80px 20px;
             text-align: center;
@@ -384,7 +383,7 @@
         }
 
         .cta-section h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
@@ -414,7 +413,7 @@
 
         /* Newsletter Section */
         .newsletter-section {
-            background: var(--beacon-dark);
+            background: #020617;
             color: white;
             padding: 60px 20px;
         }
@@ -426,7 +425,7 @@
         }
 
         .newsletter-section h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', serif;
             font-size: 2rem;
             margin-bottom: 15px;
         }
@@ -464,12 +463,12 @@
         }
 
         .newsletter-button:hover {
-            background: var(--beacon-gold);
+            background: #F59E0B;
         }
 
         /* Footer */
         .footer {
-            background: var(--beacon-dark);
+            background: #020617;
             color: white;
             padding: 40px 20px;
             text-align: center;
