@@ -3,961 +3,737 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Your Pathway | Beacon Momentum - Lighting The Way Forward</title>
-    <meta name="description" content="Take our free assessment to discover which Beacon pathway is right for you. Navigate life's challenges and transform them into opportunities.">
-    <link rel="icon" type="image/png" href="images/beacon-logo-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Find Your Path Assessment | Beacon Momentum</title>
     <style>
         :root {
-            --beacon-primary: #0F172A; /* Deep Ocean */
-            --beacon-accent: #F59E0B; /* Lighthouse Gold */
-            --beacon-background: #F8FAFC; /* Slate 50 */
-            --beacon-foreground: #020617; /* Slate 950 */
-            --beacon-glass: rgba(255, 255, 255, 0.1);
-            --beacon-border: rgba(255, 255, 255, 0.15);
+            --navy: #1a2744;
+            --navy-light: #2a3a5c;
+            --gold: #c9a227;
+            --gold-light: #e8c547;
+            --teal: #1a5f5f;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background: linear-gradient(135deg, #FFF7ED 0%, #FFFBEB 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
             min-height: 100vh;
+            color: var(--white);
         }
-
+        
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px 20px;
         }
-
-        /* Header */
+        
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            padding: 1.25rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            width: 70px;
-            height: 70px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-        }
-
-        .logo-text {
-            font-family: 'Space Grotesk', serif;
-            font-size: 1.75rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--beacon-navy) 0%, #0F172A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .tagline {
-            font-size: 0.875rem;
-            color: #F59E0B;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-top: -0.25rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0A4F4B 0%, #1B7F7A 50%, #0D2A28 100%);
-            color: white;
-            padding: 5rem 0 4rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 40px;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat bottom;
-            background-size: cover;
-            opacity: 0.3;
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--gold);
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
-
-        .hero-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.4));
-        }
-
-        .hero h1 {
-            font-family: 'Space Grotesk', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto 1.5rem;
-            font-weight: 500;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            opacity: 0.85;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 4rem 0;
-        }
-
-        /* Lead Capture Form */
-        .lead-capture {
-            background: white;
-            padding: 3rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            border: 3px solid #F59E0B;
-        }
-
-        .lead-capture-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .lead-capture-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .lead-capture h2 {
-            font-family: 'Space Grotesk', serif;
-            font-size: 2.25rem;
-            color: var(--beacon-navy);
-            margin-bottom: 0.75rem;
-        }
-
-        .lead-capture-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            border: 2px solid #E5E7EB;
-            border-radius: 0.75rem;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-            background: #F9FAFB;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #F59E0B;
-            background: white;
-            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
-        }
-
-        .form-input::placeholder {
-            color: var(--text-light);
-        }
-
-        .privacy-note {
-            font-size: 0.875rem;
-            color: var(--text-gray);
-            text-align: center;
-            margin-top: 1rem;
-            line-height: 1.6;
-        }
-
-        .privacy-note a {
-            color: #0F172A;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            margin-bottom: 3rem;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
+        
         .progress-bar {
-            height: 12px;
-            background: rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.1);
             border-radius: 10px;
+            height: 8px;
+            margin-bottom: 30px;
             overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
-
+        
         .progress-fill {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
             height: 100%;
-            background: linear-gradient(90deg, #F59E0B 0%, var(--beacon-orange) 100%);
+            width: 0%;
+            transition: width 0.5s ease;
             border-radius: 10px;
-            transition: width 0.4s ease;
-            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
         }
-
-        /* Question Card */
-        .question-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
+        
+        .step {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
-
-        .question-card.active {
+        
+        .step.active {
             display: block;
-            animation: fadeInUp 0.4s ease;
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
+        
+        .question-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
         .question-number {
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: #F59E0B;
+            color: var(--gold);
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
         }
-
+        
         .question-text {
-            font-family: 'Space Grotesk', serif;
-            font-size: 2rem;
-            color: var(--beacon-navy);
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
             line-height: 1.4;
         }
-
+        
         .options {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 15px;
         }
-
+        
         .option {
-            padding: 1.75rem 2rem;
-            border: 3px solid #E5E7EB;
-            border-radius: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: #F9FAFB;
         }
-
+        
         .option:hover {
-            border-color: #F59E0B;
-            background: white;
-            transform: translateX(8px);
-            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+            background: rgba(201, 162, 39, 0.1);
+            border-color: var(--gold);
         }
-
+        
         .option.selected {
-            border-color: #F59E0B;
-            background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
-            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+            background: rgba(201, 162, 39, 0.2);
+            border-color: var(--gold);
         }
-
-        .option-title {
-            font-weight: 700;
-            font-size: 1.125rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .option-desc {
-            color: var(--text-gray);
-            font-size: 0.9375rem;
-            line-height: 1.6;
-        }
-
-        /* Navigation Buttons */
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: space-between;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1.125rem 2.5rem;
-            border: none;
-            border-radius: 0.75rem;
-            font-size: 1.0625rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #F59E0B 0%, var(--beacon-orange) 100%);
-            color: white;
-            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
-        }
-
-        .btn-secondary {
-            background: #F3F4F6;
-            color: var(--text-dark);
-        }
-
-        .btn-secondary:hover:not(:disabled) {
-            background: #E5E7EB;
-        }
-
-        .btn:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-
-        /* Results Section */
-        .results {
+        
+        .option input {
             display: none;
-            padding: 2rem 0 4rem;
         }
-
-        .results.active {
-            display: block;
-            animation: fadeInUp 0.6s ease;
-        }
-
-        .result-card {
-            background: white;
-            padding: 4rem 3rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            border: 4px solid #F59E0B;
-        }
-
-        .result-icon {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.3));
-        }
-
-        .result-title {
-            font-family: 'Space Grotesk', serif;
-            font-size: 3rem;
-            background: linear-gradient(135deg, var(--beacon-navy) 0%, #0F172A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .result-subtitle {
-            font-size: 1.5rem;
-            color: #F59E0B;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .result-description {
-            font-size: 1.1875rem;
-            line-height: 1.9;
-            margin-bottom: 2.5rem;
-            color: var(--text-gray);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .result-cta {
-            display: inline-block;
-            padding: 1.5rem 3.5rem;
-            background: linear-gradient(135deg, #F59E0B 0%, var(--beacon-orange) 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.75rem;
-            font-weight: 700;
-            font-size: 1.1875rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
-        }
-
-        .result-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(245, 158, 11, 0.4);
-        }
-
-        .result-features {
-            margin: 3rem 0;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .result-feature {
+        
+        .option-label {
             display: flex;
-            align-items: start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1.25rem;
-            background: #F9FAFB;
-            border-radius: 0.75rem;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
         }
-
-        .result-feature-icon {
-            font-size: 1.75rem;
+        
+        .option-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
         }
-
-        .result-feature-text {
+        
+        .option.selected .option-icon::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border-radius: 8px;
             font-size: 1rem;
-            color: var(--text-dark);
-            line-height: 1.7;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        
+        .btn-back {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--white);
+        }
+        
+        .btn-back:hover {
+            border-color: var(--white);
+        }
+        
+        .btn-next {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--navy);
+        }
+        
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+        }
+        
+        .btn-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Contact Form Step */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* Results Step */
+        .results-card {
+            text-align: center;
+        }
+        
+        .pathway-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--navy);
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .results-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .results-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--navy);
+            padding: 20px 50px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 162, 39, 0.4);
+        }
+        
+        .lighthouse-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8rem;
             }
-
-            .hero-subtitle {
-                font-size: 1.25rem;
-            }
-
+            
             .question-text {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
-
-            .lead-capture,
-            .question-card,
-            .result-card {
-                padding: 2rem 1.5rem;
+            
+            .question-card {
+                padding: 25px;
             }
-
-            .nav-buttons {
-                flex-direction: column-reverse;
-            }
-
+            
             .btn {
-                width: 100%;
-                justify-content: center;
+                padding: 12px 25px;
+                font-size: 0.9rem;
             }
-        }
-
-        .hidden {
-            display: none !important;
         }
     </style>
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GPGQ5841NL"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-GPGQ5841NL');
-    </script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo-container">
-                <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum Lighthouse" class="logo-img">
-                <div>
-                    <div class="logo-text">Beacon Momentum</div>
-                    <div class="tagline">Lighting The Way Forward</div>
-                </div>
-            </a>
+    <div class="container">
+        <div class="header">
+            <h1>Find Your Path</h1>
+            <p>A 5-minute assessment to discover your ideal pathway</p>
         </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-icon">🏮</div>
-                <h1>Discover Your Pathway</h1>
-                <p class="hero-subtitle">Navigate Life's Challenges, Transform Into Opportunities</p>
-                <p class="hero-description">Take our free assessment to find which Beacon pathway is right for you: Rise, Launch, or Academy.</p>
-            </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <section class="main-content">
-        <div class="container">
-            <!-- Lead Capture Form -->
-            <div id="leadCaptureSection" class="lead-capture">
-                <div class="lead-capture-header">
-                    <div class="lead-capture-icon">✨</div>
-                    <h2>Get Your Personalized Results</h2>
-                    <p class="lead-capture-subtitle">Enter your information below to receive your customized pathway recommendation and next steps.</p>
-                </div>
-                <form id="leadCaptureForm">
-                    <div class="form-group">
-                        <label class="form-label" for="firstName">First Name *</label>
-                        <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Enter your first name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="lastName">Last Name *</label>
-                        <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Enter your last name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="phone">Phone Number (Optional)</label>
-                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                        Start Assessment →
-                    </button>
-                    <p class="privacy-note">
-                        🔒 Your information is safe with us. We'll only use it to send you your results and helpful resources. 
-                        View our <a href="#">Privacy Policy</a>.
-                    </p>
-                </form>
-            </div>
-
-            <!-- Assessment Section -->
-            <div id="assessmentSection" class="hidden">
-                <div class="progress-container">
-                    <div class="progress-label">
-                        <span id="progressText">Question 1 of 12</span>
-                        <span id="progressPercent">8%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill" style="width: 8%"></div>
-                    </div>
-                </div>
-
-                <div id="questionsContainer">
-                    <!-- Questions will be dynamically inserted here -->
-                </div>
-
-                <div class="nav-buttons">
-                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
-                        ← Previous
-                    </button>
-                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
-                        Next →
-                    </button>
+        
+        <!-- Step 1: Storm Type -->
+        <div class="step active" data-step="1">
+            <div class="question-card">
+                <div class="question-number">Question 1 of 5</div>
+                <div class="question-text">What best describes the challenge you're currently facing?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="storm_type" value="life_transition">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            I'm navigating a major life transition (divorce, job loss, health crisis, retirement)
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="storm_type" value="business">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            I want to start or grow my own business
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="storm_type" value="financial">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            I need to improve my financial literacy and build wealth
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="storm_type" value="multiple">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            I'm dealing with multiple challenges at once
+                        </span>
+                    </label>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Results -->
-    <section class="results" id="results">
-        <div class="container">
-            <div class="result-card" id="resultCard">
-                <!-- Result will be dynamically inserted here -->
+            <div class="navigation">
+                <div></div>
+                <button class="btn btn-next" id="next1" disabled>Continue</button>
             </div>
         </div>
-    </section>
-
+        
+        <!-- Step 2: Urgency -->
+        <div class="step" data-step="2">
+            <div class="question-card">
+                <div class="question-number">Question 2 of 5</div>
+                <div class="question-text">How urgent is your need for guidance right now?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="urgency" value="crisis">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            I'm in crisis mode — I need help immediately
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="urgency" value="soon">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            I need to make changes soon, within the next few months
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="urgency" value="planning">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            I'm planning ahead for the future
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="urgency" value="exploring">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            I'm just exploring my options right now
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn btn-back" id="back2">Back</button>
+                <button class="btn btn-next" id="next2" disabled>Continue</button>
+            </div>
+        </div>
+        
+        <!-- Step 3: Support Style -->
+        <div class="step" data-step="3">
+            <div class="question-card">
+                <div class="question-number">Question 3 of 5</div>
+                <div class="question-text">What kind of support resonates most with you?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="support_style" value="structured">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            Structured programs with clear steps and milestones
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="support_style" value="community">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            Community support from others on similar journeys
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="support_style" value="mentorship">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            One-on-one mentorship and personalized guidance
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="support_style" value="self_paced">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            Self-paced learning I can do on my own schedule
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn btn-back" id="back3">Back</button>
+                <button class="btn btn-next" id="next3" disabled>Continue</button>
+            </div>
+        </div>
+        
+        <!-- Step 4: Primary Goal -->
+        <div class="step" data-step="4">
+            <div class="question-card">
+                <div class="question-number">Question 4 of 5</div>
+                <div class="question-text">What's your primary goal for the next 12 months?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="primary_goal" value="stability">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            Find stability and peace after a major life change
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="primary_goal" value="income">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            Create a new income stream or build a business
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="primary_goal" value="wealth">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            Build long-term wealth and financial security
+                        </span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="primary_goal" value="purpose">
+                        <span class="option-label">
+                            <span class="option-icon"></span>
+                            Discover my purpose and what's next for my life
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn btn-back" id="back4">Back</button>
+                <button class="btn btn-next" id="next4" disabled>Continue</button>
+            </div>
+        </div>
+        
+        <!-- Step 5: Contact Info -->
+        <div class="step" data-step="5">
+            <div class="question-card">
+                <div class="question-number">Final Step</div>
+                <div class="question-text">Where should we send your personalized results?</div>
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Enter your last name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone (Optional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn btn-back" id="back5">Back</button>
+                <button class="btn btn-next" id="submitBtn">See My Results</button>
+            </div>
+        </div>
+        
+        <!-- Results Step -->
+        <div class="step" data-step="results">
+            <div class="question-card results-card">
+                <div class="lighthouse-icon">🏠</div>
+                <div class="pathway-badge" id="pathwayBadge">BEACON RISE</div>
+                <h2 class="results-title" id="resultsTitle">Your Path Has Been Illuminated</h2>
+                <p class="results-description" id="resultsDescription">
+                    Based on your responses, Beacon Rise is your ideal pathway. This 12-week guided program is designed specifically for people navigating major life transitions.
+                </p>
+                <a href="/pricing.html" class="cta-button">Explore Your Pathway</a>
+            </div>
+        </div>
+    </div>
+    
     <script>
-        // Lead capture data
-        let userData = {};
-
-        // Handle lead capture form submission
-        document.getElementById('leadCaptureForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Capture user data
-            userData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value
-            };
-
-            // Send to analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'lead_capture', {
-                    'event_category': 'Assessment',
-                    'event_label': 'Lead Captured',
-                    'value': userData.email
-                });
+        // Assessment state
+        const state = {
+            currentStep: 1,
+            totalSteps: 5,
+            answers: {},
+            score: 0
+        };
+        
+        // Pathway descriptions
+        const pathways = {
+            rise: {
+                name: 'BEACON RISE',
+                title: 'Your Path Through the Storm',
+                description: 'Based on your responses, Beacon Rise is your ideal pathway. This 12-week guided program is designed specifically for people navigating major life transitions. You\'ll learn the Lighthouse Framework, connect with others on similar journeys, and find your way to calmer waters.'
+            },
+            launch: {
+                name: 'BEACON LAUNCH',
+                title: 'Your Entrepreneurial Journey Begins',
+                description: 'Based on your responses, Beacon Launch is your ideal pathway. This comprehensive business-building program will guide you from idea to income, with practical frameworks, mentorship, and a community of fellow entrepreneurs. Your business dream is closer than you think.'
+            },
+            academy: {
+                name: 'BEACON ACADEMY',
+                title: 'Master Your Financial Future',
+                description: 'Based on your responses, Beacon Academy is your ideal pathway. Our 5-module financial literacy program covers everything from budgeting basics to wealth building. You\'ll gain the knowledge and confidence to take control of your financial future.'
             }
-
-            // Hide lead capture, show assessment
-            document.getElementById('leadCaptureSection').classList.add('hidden');
-            document.getElementById('assessmentSection').classList.remove('hidden');
-            
-            // Scroll to assessment
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Start assessment
-            renderQuestion(0);
-        });
-
-        const questions = [
-            {
-                number: 1,
-                text: "Where are you in your journey right now?",
-                options: [
-                    { title: "Rebuilding after a major life transition", desc: "Divorce, job loss, career change, or other significant life event", value: "rise" },
-                    { title: "Ready to start or grow my business", desc: "Want to build a one-person business or scale existing venture", value: "launch" },
-                    { title: "Teaching or building institutions", desc: "Educator, coach, or building programs for others", value: "academy" }
-                ]
-            },
-            {
-                number: 2,
-                text: "What's your primary goal?",
-                options: [
-                    { title: "Reclaim my independence and purpose", desc: "Get back on my feet and rebuild my life", value: "rise" },
-                    { title: "Build sustainable income streams", desc: "Create financial freedom through entrepreneurship", value: "launch" },
-                    { title: "Master modern finance and teach others", desc: "Understand DeFi and help others learn", value: "academy" }
-                ]
-            },
-            {
-                number: 3,
-                text: "What's your current age range?",
-                options: [
-                    { title: "40-70 years old", desc: "Experienced, rebuilding or transitioning", value: "rise" },
-                    { title: "25-45 years old", desc: "Building my first or next venture", value: "launch" },
-                    { title: "Any age, focused on education", desc: "Age doesn't matter, I'm here to learn and teach", value: "academy" }
-                ]
-            },
-            {
-                number: 4,
-                text: "What type of support do you need most?",
-                options: [
-                    { title: "Emotional support and community", desc: "People who understand what I'm going through", value: "rise" },
-                    { title: "Business frameworks and infrastructure", desc: "Practical tools to build and scale", value: "launch" },
-                    { title: "Educational content and resources", desc: "Deep learning about modern finance", value: "academy" }
-                ]
-            },
-            {
-                number: 5,
-                text: "How would you describe your current situation?",
-                options: [
-                    { title: "Starting over", desc: "Major life change, need to rebuild foundation", value: "rise" },
-                    { title: "Building momentum", desc: "Have some traction, ready to scale", value: "launch" },
-                    { title: "Seeking knowledge", desc: "Want to understand and master new financial systems", value: "academy" }
-                ]
-            },
-            {
-                number: 6,
-                text: "What's your relationship with technology?",
-                options: [
-                    { title: "Learning as I go", desc: "Technology is new but I'm willing to learn", value: "rise" },
-                    { title: "Comfortable and ready to leverage it", desc: "Ready to use tech to build my business", value: "launch" },
-                    { title: "Want to master cutting-edge finance tech", desc: "Interested in DeFi, crypto, and modern systems", value: "academy" }
-                ]
-            },
-            {
-                number: 7,
-                text: "What's your timeline?",
-                options: [
-                    { title: "Taking it one day at a time", desc: "Focused on stability first", value: "rise" },
-                    { title: "6-12 months to launch/scale", desc: "Ready to move quickly", value: "launch" },
-                    { title: "Long-term learning journey", desc: "Building deep expertise over time", value: "academy" }
-                ]
-            },
-            {
-                number: 8,
-                text: "What's your current income situation?",
-                options: [
-                    { title: "Need to establish stable income", desc: "Starting from scratch or rebuilding", value: "rise" },
-                    { title: "Have income, want to scale it", desc: "Ready to grow what I have", value: "launch" },
-                    { title: "Income is stable, seeking knowledge", desc: "Can invest in learning", value: "academy" }
-                ]
-            },
-            {
-                number: 9,
-                text: "What's your biggest challenge?",
-                options: [
-                    { title: "Emotional recovery and direction", desc: "Need clarity and support", value: "rise" },
-                    { title: "Business strategy and execution", desc: "Know what to do, need help doing it", value: "launch" },
-                    { title: "Understanding complex financial systems", desc: "Want to master DeFi and modern finance", value: "academy" }
-                ]
-            },
-            {
-                number: 10,
-                text: "What type of community do you want?",
-                options: [
-                    { title: "People rebuilding their lives", desc: "Shared experience and mutual support", value: "rise" },
-                    { title: "Entrepreneurs and builders", desc: "Action-takers building businesses", value: "launch" },
-                    { title: "Learners and educators", desc: "People passionate about financial education", value: "academy" }
-                ]
-            },
-            {
-                number: 11,
-                text: "What's your learning style?",
-                options: [
-                    { title: "Practical, step-by-step guidance", desc: "Show me what to do next", value: "rise" },
-                    { title: "Frameworks I can implement", desc: "Give me the system, I'll execute", value: "launch" },
-                    { title: "Deep dives and comprehensive education", desc: "I want to truly understand", value: "academy" }
-                ]
-            },
-            {
-                number: 12,
-                text: "What does success look like for you?",
-                options: [
-                    { title: "Independence and peace of mind", desc: "Stable life, clear purpose, supportive community", value: "rise" },
-                    { title: "Profitable business and freedom", desc: "Income, impact, and lifestyle flexibility", value: "launch" },
-                    { title: "Mastery and ability to teach others", desc: "Deep knowledge and helping others learn", value: "academy" }
-                ]
-            }
-        ];
-
-        let currentQuestion = 0;
-        let answers = [];
-
-        function renderQuestion(index) {
-            const container = document.getElementById('questionsContainer');
-            const question = questions[index];
-            
-            container.innerHTML = `
-                <div class="question-card active">
-                    <div class="question-number">Question ${question.number} of ${questions.length}</div>
-                    <h2 class="question-text">${question.text}</h2>
-                    <div class="options">
-                        ${question.options.map((opt, i) => `
-                            <div class="option" onclick="selectOption(${i}, '${opt.value}')">
-                                <div class="option-title">${opt.title}</div>
-                                <div class="option-desc">${opt.desc}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-
+        };
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
             updateProgress();
-            updateButtons();
-        }
-
-        function selectOption(optionIndex, value) {
-            answers[currentQuestion] = value;
-            
-            // Visual feedback
-            const options = document.querySelectorAll('.option');
-            options.forEach((opt, i) => {
-                opt.classList.toggle('selected', i === optionIndex);
+            setupEventListeners();
+        });
+        
+        function setupEventListeners() {
+            // Option selection
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const step = this.closest('.step');
+                    step.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    this.querySelector('input').checked = true;
+                    
+                    const name = this.querySelector('input').name;
+                    const value = this.querySelector('input').value;
+                    state.answers[name] = value;
+                    
+                    // Enable next button
+                    const nextBtn = step.querySelector('.btn-next');
+                    if (nextBtn) nextBtn.disabled = false;
+                });
             });
-
-            // Enable next button
-            document.getElementById('nextBtn').disabled = false;
-
-            // Track selection
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'question_answered', {
-                    'event_category': 'Assessment',
-                    'event_label': `Question ${currentQuestion + 1}`,
-                    'value': value
-                });
-            }
+            
+            // Navigation buttons
+            document.getElementById('next1').addEventListener('click', () => goToStep(2));
+            document.getElementById('back2').addEventListener('click', () => goToStep(1));
+            document.getElementById('next2').addEventListener('click', () => goToStep(3));
+            document.getElementById('back3').addEventListener('click', () => goToStep(2));
+            document.getElementById('next3').addEventListener('click', () => goToStep(4));
+            document.getElementById('back4').addEventListener('click', () => goToStep(3));
+            document.getElementById('next4').addEventListener('click', () => goToStep(5));
+            document.getElementById('back5').addEventListener('click', () => goToStep(4));
+            document.getElementById('submitBtn').addEventListener('click', submitAssessment);
         }
-
-        function nextQuestion() {
-            if (currentQuestion < questions.length - 1) {
-                currentQuestion++;
-                renderQuestion(currentQuestion);
-                window.scrollTo({ top: document.getElementById('assessmentSection').offsetTop - 100, behavior: 'smooth' });
-            } else {
-                showResults();
-            }
+        
+        function goToStep(stepNum) {
+            document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+            document.querySelector(`[data-step="${stepNum}"]`).classList.add('active');
+            state.currentStep = stepNum;
+            updateProgress();
         }
-
-        function previousQuestion() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                renderQuestion(currentQuestion);
-                window.scrollTo({ top: document.getElementById('assessmentSection').offsetTop - 100, behavior: 'smooth' });
-            }
-        }
-
+        
         function updateProgress() {
-            const progress = ((currentQuestion + 1) / questions.length) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-            document.getElementById('progressText').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
-            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+            const progress = (state.currentStep / state.totalSteps) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
         }
-
-        function updateButtons() {
-            document.getElementById('prevBtn').disabled = currentQuestion === 0;
-            document.getElementById('nextBtn').disabled = !answers[currentQuestion];
+        
+        function calculatePathway() {
+            const { storm_type, urgency, support_style, primary_goal } = state.answers;
             
-            if (currentQuestion === questions.length - 1) {
-                document.getElementById('nextBtn').innerHTML = 'See Results →';
-            } else {
-                document.getElementById('nextBtn').innerHTML = 'Next →';
+            // Score calculation
+            let riseScore = 0;
+            let launchScore = 0;
+            let academyScore = 0;
+            
+            // Storm type scoring
+            if (storm_type === 'life_transition') riseScore += 30;
+            if (storm_type === 'business') launchScore += 30;
+            if (storm_type === 'financial') academyScore += 30;
+            if (storm_type === 'multiple') {
+                riseScore += 15;
+                academyScore += 15;
             }
+            
+            // Urgency scoring
+            if (urgency === 'crisis') riseScore += 20;
+            if (urgency === 'soon') {
+                launchScore += 10;
+                riseScore += 10;
+            }
+            if (urgency === 'planning') academyScore += 15;
+            if (urgency === 'exploring') academyScore += 10;
+            
+            // Support style scoring
+            if (support_style === 'structured') {
+                academyScore += 15;
+                launchScore += 10;
+            }
+            if (support_style === 'community') riseScore += 15;
+            if (support_style === 'mentorship') {
+                riseScore += 10;
+                launchScore += 15;
+            }
+            if (support_style === 'self_paced') academyScore += 20;
+            
+            // Primary goal scoring
+            if (primary_goal === 'stability') riseScore += 25;
+            if (primary_goal === 'income') launchScore += 25;
+            if (primary_goal === 'wealth') academyScore += 25;
+            if (primary_goal === 'purpose') {
+                riseScore += 15;
+                launchScore += 10;
+            }
+            
+            // Determine pathway
+            const scores = { rise: riseScore, launch: launchScore, academy: academyScore };
+            const maxScore = Math.max(riseScore, launchScore, academyScore);
+            state.score = maxScore;
+            
+            if (riseScore === maxScore) return 'rise';
+            if (launchScore === maxScore) return 'launch';
+            return 'academy';
         }
-
-        function showResults() {
-            // Count pathway votes
-            const counts = { rise: 0, launch: 0, academy: 0 };
-            answers.forEach(answer => counts[answer]++);
+        
+        async function submitAssessment() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
             
-            // Determine recommended pathway
-            const pathway = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+            if (!firstName || !email) {
+                alert('Please enter your name and email to see your results.');
+                return;
+            }
             
-            // Pathway data
-            const pathways = {
-                rise: {
-                    icon: '🌅',
-                    title: 'Beacon Rise',
-                    subtitle: 'Your Pathway to Rebuilding & Renewal',
-                    description: `Welcome, ${userData.firstName}! Based on your responses, Beacon Rise is your ideal pathway. You're navigating a significant life transition, and we're here to help you rebuild with purpose, stability, and community support.`,
-                    features: [
-                        { icon: '🤝', text: 'Join a supportive community of people rebuilding their lives' },
-                        { icon: '📚', text: 'Access step-by-step guidance for personal development' },
-                        { icon: '💪', text: 'Build emotional resilience and financial stability' },
-                        { icon: '🎯', text: 'Discover your purpose and create a clear path forward' }
-                    ],
-                    cta: 'Explore Beacon Rise',
-                    link: 'beacon-rise.html'
+            // Calculate pathway
+            const pathway = calculatePathway();
+            const pathwayData = pathways[pathway];
+            
+            // Prepare data for webhook
+            const assessmentData = {
+                contact: {
+                    firstName: firstName,
+                    lastName: document.getElementById('lastName').value.trim(),
+                    email: email,
+                    phone: document.getElementById('phone').value.trim()
                 },
-                launch: {
-                    icon: '🚀',
-                    title: 'Beacon Launch',
-                    subtitle: 'Your Pathway to Business Success',
-                    description: `Congratulations, ${userData.firstName}! Beacon Launch is perfect for you. You're ready to build or scale your business, and we'll provide the frameworks, tools, and community to help you succeed.`,
-                    features: [
-                        { icon: '💼', text: 'Access proven business frameworks and systems' },
-                        { icon: '📈', text: 'Learn to build sustainable income streams' },
-                        { icon: '🌐', text: 'Connect with fellow entrepreneurs and builders' },
-                        { icon: '⚡', text: 'Get practical tools to launch and scale quickly' }
-                    ],
-                    cta: 'Explore Beacon Launch',
-                    link: 'beacon-launch.html'
+                assessment: {
+                    answers: state.answers,
+                    score: state.score,
+                    pathway: pathway,
+                    stormType: state.answers.storm_type
                 },
-                academy: {
-                    icon: '🎓',
-                    title: 'Beacon Academy',
-                    subtitle: 'Your Pathway to Mastery & Teaching',
-                    description: `Excellent choice, ${userData.firstName}! Beacon Academy is your pathway. You're committed to deep learning about modern finance and helping others understand these transformative systems.`,
-                    features: [
-                        { icon: '📖', text: 'Master DeFi, crypto, and modern financial systems' },
-                        { icon: '👨‍🏫', text: 'Learn to teach and build educational programs' },
-                        { icon: '🔬', text: 'Access comprehensive educational resources' },
-                        { icon: '🌟', text: 'Join a community of learners and educators' }
-                    ],
-                    cta: 'Explore Beacon Academy',
-                    link: 'beacon-academy.html'
-                }
+                source: 'assessment',
+                timestamp: new Date().toISOString()
             };
-
-            const result = pathways[pathway];
             
-            // Render results
-            document.getElementById('resultCard').innerHTML = `
-                <div class="result-icon">${result.icon}</div>
-                <h2 class="result-title">${result.title}</h2>
-                <p class="result-subtitle">${result.subtitle}</p>
-                <p class="result-description">${result.description}</p>
-                <div class="result-features">
-                    ${result.features.map(feature => `
-                        <div class="result-feature">
-                            <div class="result-feature-icon">${feature.icon}</div>
-                            <div class="result-feature-text">${feature.text}</div>
-                        </div>
-                    `).join('')}
-                </div>
-                <a href="${result.link}" class="result-cta">${result.cta}</a>
-            `;
-
-            // Hide assessment, show results
-            document.getElementById('assessmentSection').classList.add('hidden');
-            document.getElementById('results').classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Track completion
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'assessment_completed', {
-                    'event_category': 'Assessment',
-                    'event_label': pathway,
-                    'value': userData.email
+            // Send to n8n webhook
+            try {
+                await fetch('https://n8n.beaconlabs.ai/webhook/dg-lead-capture', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(assessmentData)
                 });
+            } catch (error) {
+                console.error('Webhook error:', error);
             }
-
-            // Send results to backend (implement your own endpoint)
-            // fetch('/api/assessment-results', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({
-            //         ...userData,
-            //         pathway: pathway,
-            //         answers: answers,
-            //         timestamp: new Date().toISOString()
-            //     })
-            // });
+            
+            // Also send to GHL
+            try {
+                await fetch('https://services.leadconnectorhq.com/hooks/forms/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        locationId: 'vvhkYM6iySBVh5kOcFGM',
+                        formId: 'dg-assessment',
+                        firstName: firstName,
+                        lastName: document.getElementById('lastName').value.trim(),
+                        email: email,
+                        phone: document.getElementById('phone').value.trim(),
+                        customFields: {
+                            dg_assessment_score: state.score,
+                            dg_pathway: pathway,
+                            dg_storm_type: state.answers.storm_type,
+                            dg_lead_source: 'Assessment'
+                        }
+                    })
+                });
+            } catch (error) {
+                console.error('GHL error:', error);
+            }
+            
+            // Update results display
+            document.getElementById('pathwayBadge').textContent = pathwayData.name;
+            document.getElementById('resultsTitle').textContent = pathwayData.title;
+            document.getElementById('resultsDescription').textContent = pathwayData.description;
+            
+            // Show results
+            document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+            document.querySelector('[data-step="results"]').classList.add('active');
+            document.getElementById('progressFill').style.width = '100%';
         }
     </script>
 </body>
