@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const stripeService = require('../services/stripe_enhanced');
+const { sendSubscribeEvent } = require('../services/meta-capi');
 
 /**
  * Stripe Webhook Handler
@@ -116,6 +117,22 @@ async function handleCheckoutCompleted(session) {
         }
     );
     
+    // Server-side CAPI Subscribe event for attribution accuracy
+    try {
+        await sendSubscribeEvent({
+            eventId: `sub_${session.id}`,
+            value: amount,
+            currency: 'USD',
+            email: user.email,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            eventSourceUrl: 'https://beaconmomentum.com/labs',
+            subscriptionId: subscriptionId
+        });
+    } catch (capiErr) {
+        console.error('[CAPI] Subscribe event failed (non-fatal):', capiErr.message);
+    }
+
     console.log(`✅ Checkout processed for user ${user.email}`);
 }
 
@@ -164,6 +181,22 @@ async function handlePaymentSucceeded(invoice) {
         }
     );
     
+    // Server-side CAPI Subscribe event for recurring payment attribution
+    try {
+        await sendSubscribeEvent({
+            eventId: `inv_${invoice.id}`,
+            value: amount,
+            currency: 'USD',
+            email: user.email,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            eventSourceUrl: 'https://beaconmomentum.com/labs',
+            subscriptionId: subscriptionId
+        });
+    } catch (capiErr) {
+        console.error('[CAPI] Subscribe event failed (non-fatal):', capiErr.message);
+    }
+
     console.log(`✅ Recurring payment processed for user ${user.email}`);
 }
 
