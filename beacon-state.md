@@ -18,6 +18,7 @@ This document is the single source of truth for the Beacon Momentum ecosystem. I
 | **Process Manager** | PM2 / systemd | `active` |
 | **CI/CD** | GitHub Webhook (`deploy-webhook.js` on port 9000) | `active` |
 | **Database** | MySQL | `active` |
+| **DNS & Caching** | Cloudflare | `active` |
 
 ## 2. Brand & Asset Registry
 
@@ -32,6 +33,7 @@ This table maps every brand to its domain, GitHub repository, and live status.
 | **Vitality** | `vitalyears.fitness` | (Not in CI/CD map) | `/var/www/vitalyearsfitness.com` | `Live` (WordPress) |
 | **Hollow Threads** | `hollowthreads.store` | `hollow-threads-store` | `/var/www/hollowthreads` | `In Dev` |
 | **Cask & Cuisine** | `caskandcuisine.com` | `cask-cuisine-store` | `/var/www/caskcuisine` | `In Dev` |
+| **The Void** | `discord.gg/thevoid` | (N/A) | (N/A) | `Live` (Discord) |
 
 ## 3. Services & Automation Pipelines
 
@@ -74,7 +76,27 @@ This section details the status of all known automated workflows.
 *   **Service:** `deploy-webhook.service` (Node.js app at `/opt/deploy-webhook.js`)
 *   **Status:** `ACTIVE`. The webhook listener is running and correctly mapped in Nginx. It automatically pulls changes from GitHub for all mapped repositories.
 
-## 4. Open Items & Session Handoff
+## 4. Key People & Personas
+
+| Name | Role | Avatar/Voice Details |
+|---|---|---|
+| **Bob Burr** | Founder, Host | Primary avatar for intros, outros, and milestones. |
+| **Marcus Cole** | Mentor (Beacon Rise) | Avatar: `Brandon_expressive_public`, Voice: `nPczCjzI2devNBz1zQrb` |
+| **Elena Voss** | Mentor (Beacon Academy) | Avatar: `Caroline_expressive2_public`, Voice: `Xb7hH8MSUJpSbSDYk0k2` |
+| **Dante Rivera** | Mentor (Beacon Launch) | Avatar: `Armando_Suit_Front_public`, Voice: `cjVigY5qzO86Huf0OWal` |
+| **Digital Grandpa** | Persona | Cartoon image/persona for lip-sync and video generation. |
+| **Phoenix** | Agentic AI Assistant | User's preferred name for their personal AI assistant. |
+
+## 5. Core Workflows & Preferences
+
+*   **GitHub Protocol:** All changes must be committed to GitHub and deployed via the CI/CD pipeline. No direct edits on the server.
+*   **Website Congruence:** All websites must have a unified look and feel (headers, footers, logos, etc.) to present a single, cohesive brand identity.
+*   **Video Content:** Use a variety of appearances for the user's avatar. Prioritize Vimeo for private content.
+*   **Task Estimation:** Provide granular, truthful time estimates in minutes. No padding.
+*   **Troubleshooting:** Do not repeat suggestions the user has already tried. Pivot to deeper diagnosis.
+*   **Lead Capture:** Forms must be hosted in-house, require name/email, and use webhooks for data collection.
+
+## 6. Open Items & Session Handoff
 
 *This section is updated at the end of each Manus session.*
 
@@ -83,4 +105,5 @@ This section details the status of all known automated workflows.
     1.  Audited all known skills, repos, and live server configurations.
     2.  Identified discrepancies between expected state (Bosun running) and actual state (Bosun inactive).
     3.  Drafted this `beacon-state.md` document to serve as the ground truth.
-*   **Next Action:** Deploy this file to the droplet and expose it via a read endpoint for persistent access.
+    4.  Deployed the state file to the droplet and exposed it via a read endpoint.
+*   **Next Action:** Write a session-start prompt for Manus to use at the beginning of every session.
