@@ -1,8 +1,7 @@
 # Beacon Ecosystem: Project State & Ground Truth
 
-**Last Updated:** 2026-02-12
+**Last Updated:** 2026-02-27
 **Updated By:** Manus AI
-**Session:** Accessing Second Account for Context Consolidation
 
 ---
 
@@ -10,120 +9,118 @@ This document is the single source of truth for the Beacon Momentum ecosystem. I
 
 ## 1. Core Infrastructure
 
-### 1.1. Server Architecture
-
-The Beacon ecosystem runs across **three** DigitalOcean droplets. Manus must always deploy to the correct server.
-
-| Server | IP Address | Nickname | Purpose / Brands Hosted | SSH Access |
-|---|---|---|---|---|
-| **Beacon-Web-Production** | `143.198.23.240` | Primary / Web Production | Main marketing websites, CI/CD webhook | `ssh -i ~/.ssh/id_ed25519 root@143.198.23.240` |
-| **Beacon-Brands-Hub** | `159.203.81.39` | Brands / E-Commerce | n8n, Graduate Stores (Hollow Threads, Cask & Cuisine, Forge Caps, Vitality) | `ssh -i ~/.ssh/id_ed25519 root@159.203.81.39` |
-| **Beacon-Bosun-AI** | `143.198.20.188` | Bosun / AI Engine | Bosun AI service, PM2 | `ssh -i ~/.ssh/id_ed25519 root@143.198.20.188` |
-
-### 1.2. Shared Infrastructure
-
-| Component | Detail | Status |
-|---|---|---|
-| **Web Server** | Nginx (on all servers) | `active` |
-| **Process Manager** | PM2 / systemd | `active` |
-| **CI/CD** | GitHub Webhook (`deploy-webhook.js` on port 9000) | `active` (143.198.23.240) |
-| **Database** | MySQL | `active` (143.198.23.240) |
-| **DNS & Caching** | Cloudflare (manages all domains) | `active` |
+| Component | Detail | IP Address | Status |
+|---|---|---|---|
+| **Primary Server** | DigitalOcean Droplet | `143.198.23.240` | `active` |
+| **Hollow Threads Server** | DigitalOcean Droplet | `159.203.81.39` | `active` |
+| **Primary User** | `root` | (N/A) | `active` |
+| **Web Server** | Nginx | (N/A) | `active` |
+| **Process Manager** | PM2 / systemd | (N/A) | `active` |
+| **CI/CD** | GitHub Webhook (`deploy-webhook.js` on port 9000) | (N/A) | `active` |
+| **Database** | MySQL | (N/A) | `active` |
+| **DNS & Caching** | Cloudflare | (N/A) | `active` |
 
 ## 2. Brand & Asset Registry
 
-This table maps every brand to its domain, GitHub repository, server, and live status.
+This table maps every brand to its domain, GitHub repository, and live status.
 
-| Brand | Domain(s) | GitHub Repo | Server IP | Live Directory | Status |
-|---|---|---|---|---|---|
-| **Beacon Momentum** | `beaconmomentum.com` | `beacon-momentum-website` | `143.198.23.240` | `/var/www/beaconmomentum.com` | `Live` (Static HTML) |
-| **Beacon Labs** | `beaconlabs.ai` | `beaconlabs-ai` | `143.198.23.240` | `/var/www/beaconlabs.ai` | `Live` (Vite/React App) |
-| **Beacon Dashboard** | `app.beaconmomentum.com` | `beacon-2026-dashboard` | `143.198.23.240` | `/var/www/beacon-2026-dashboard` | `Live` (Node.js App) |
-| **Digital Grandpa** | `digitalgrandpa.org` | `digitalgrandpa-org` | `143.198.23.240` | `/var/www/digitalgrandpa.org` | `Live` (Static HTML) |
-| **Hollow Threads** | `hollowthreads.store` | `hollow-threads-store` | `159.203.81.39` | `/var/www/hollowthreads` | `Live` (No sales) |
-| **Cask & Cuisine** | `caskandcuisine.com` | `cask-cuisine-store` | `159.203.81.39` | `/var/www/caskcuisine` | `In Dev` |
-| **Forge Caps** | `forgecaps.store` | (TBD) | `159.203.81.39` | (TBD) | `In Dev` |
-| **Vitality** | `vitalitywellness.com` | (Not in CI/CD map) | `159.203.81.39` | `/var/www/vitalyearsfitness.com` | `Live` (WordPress) |
-| **The Void** | `discord.gg/thevoid` | (N/A) | (N/A) | (N/A) | `Live` (Discord) |
+| Brand | Domain(s) | GitHub Repo | Live Directory | Status |
+|---|---|---|---|---|
+| **Beacon Momentum** | `beaconmomentum.com` | `beacon-momentum-website` | `/var/www/beaconmomentum.com` | `Live` (Static HTML) |
+| **Beacon Labs** | `beaconlabs.ai` | `beaconlabs-ai` | `/var/www/beaconlabs.ai` | `Live` (Vite/React App) |
+| **Beacon Dashboard** | `app.beaconmomentum.com` | `beacon-2026-dashboard` | `/var/www/beacon-2026-dashboard` | `Live` (Node.js App) |
+| **Digital Grandpa** | `digitalgrandpa.org` | `digitalgrandpa-org` | `/var/www/digitalgrandpa.org` | `Live` (Static HTML) |
+| **Vitality** | `vitalyears.fitness` | (Not in CI/CD map) | `/var/www/vitalyearsfitness.com` | `Live` (WordPress) |
+| **Hollow Threads** | `hollowthreads.store` | `hollow-threads-store` | `/var/www/hollowthreads` | `Live` (Node/React App) |
+| **Cask & Cuisine** | `caskandcuisine.com` | `cask-cuisine-store` | `/var/www/caskcuisine` | `In Dev` |
+| **The Void** | `discord.gg/thevoid` | (N/A) | (N/A) | `Live` (Discord) |
 
-## 3. Services & Automation Pipelines
+## 3. Brand Details
 
-### 3.1. API Integrations & Credentials
+### 3.1. Hollow Threads
 
-| Service | Status | Credential Location / Notes |
-|---|---|---|
-| **GoHighLevel (GHL)** | `ACTIVE` | Agency API Key confirmed. Stored in Manus env. |
-| **Printful** | `ACTIVE` | API Key confirmed. Stored in Manus env. |
-| **ElevenLabs** | `ACTIVE` | API Key confirmed. Stored in Manus env. |
-| **Stripe** | `ACTIVE` | Public Key (`pk_live_...`) confirmed. Secret key (`sk_live_...`) required for full access. MCP enabled for next session. |
-| **PayPal** | `PENDING` | MCP enabled for next session. |
-| **Slack** | `AUTH_ERROR` | MCP enabled for next session, but requires re-authentication. |
-| **HeyGen** | `ACTIVE` | Connected via MCP. |
-| **Cloudflare** | `ACTIVE` | Connected via MCP. |
-| **GitHub** | `ACTIVE` | Connected via MCP. UUID: `bbb0df76-66bd-4a24-ae4f-2aac4750d90b`. |
+*   **Concept:** A dark, gothic, and emo-inspired apparel brand.
+*   **Products:** 24 core designs available on 6 garment types (Classic Tee, Heavy Tee, Crop Top, Long Sleeve, Crewneck, Hoodie) and as a sticker accessory.
+*   **Fulfillment:** Print-on-demand via Printful.
+*   **Unique Feature:** "Scan the Skull" icon is hidden in every design. Customers who find it on their physical garment can earn a co-design opportunity and lifetime revenue share on a future design.
 
-### 3.2. Social Media Scheduling (Publer)
+## 4. Services & Automation Pipelines
 
-*   **Status:** `ACTIVE`. Publer is the social media scheduling tool for the ecosystem, accessed via the "Bosun Automation" workspace.
-*   **Connected Accounts:**
-    *   **Beacon Momentum:** Facebook, LinkedIn, Twitter/X
-    *   **Hollow Threads:** Facebook, Instagram, TikTok, Pinterest
-*   **Gaps:** No accounts connected for Forge Caps, Cask & Cuisine, or Vital Years. No Instagram for Beacon Momentum.
+This section details the status of all known automated workflows.
 
-### 3.3. Bosun AI
+### 4.1. Bosun Voice AI
 
-*   **Repo:** `bosun-openclaw-appplatform`
-*   **Live Directory:** `/opt/bosun` on `143.198.20.188`
-*   **Status:** `CRITICAL - DOWN`. The core service is down due to a corrupted `llm.js` file. Manual SSH intervention is required to repair.
+*   **Status:** `INACTIVE`. The `bosun.service` file is missing on the primary server and the service is not running.
 
-### 3.4. n8n Automation
+### 4.2. GoHighLevel (GHL) Integration
 
-*   **Location:** Hosted on `159.203.81.39` (Beacon-Brands-Hub).
-*   **Status:** `ACTIVE`, but key workflows are not yet built.
-*   **Priority Workflow:** GHL-to-Printful order routing needs to be built and tested.
+*   **Status:** `PARTIALLY ACTIVE`.
+    *   **Beacon Labs Form -> GHL:** `ACTIVE`. The `beaconlabs-form.service` correctly creates contacts and opportunities.
+    *   **Voice/Stripe -> GHL:** `INACTIVE`. Dependent on the Bosun service being live.
 
-## 4. Key People & Personas
+### 4.3. Stripe Integration
+
+*   **Status:** `INACTIVE`. Dependent on the Bosun service being live.
+
+### 4.4. CI/CD Auto-Deploy
+
+*   **Status:** `ACTIVE`. The webhook listener at `/opt/deploy-webhook.js` automatically deploys changes from GitHub for all mapped repositories.
+
+### 4.5. Hollow Threads AI Virtual Try-On
+
+*   **Status:** `ACTIVE`
+*   **Endpoint:** `POST /api/tryon/generate` on `hollowthreads.store`.
+*   **Technology:** Replicate IDM-VTON model (`cuuupid/idm-vton`).
+*   **API Key:** `REPLICATE_API_TOKEN` stored in `.env` on the Hollow Threads server.
+*   **Core Logic:** `tryon-api.js` and `garment-image-generator.js` in the `hollow-threads-store` repo.
+*   **Features:** On-the-fly garment image generation, email gate for lead capture, rate limiting.
+
+### 4.6. Hollow Threads Skull Hunt Giveaway
+
+*   **Status:** `ACTIVE`
+*   **Concept:** An ongoing viral marketing campaign combining a $100/week cash giveaway with a "Where's Waldo" style hunt for hidden skull icons.
+*   **Core Logic:** `giveaway-api.js` and `src/components/SkullHuntSidebar.tsx` in the `hollow-threads-store` repo.
+*   **Features:** Homepage sidebar widget for registration, social sharing for extra entries, unique codes hidden in images for bonus entries, and a separate reward track for customers who find the skull on physical garments.
+
+## 5. External Service Integrations
+
+| Service | Brand | Purpose | Status |
+|---|---|---|---|
+| **Printful** | Hollow Threads | Print-on-demand fulfillment | `Active` |
+| **Replicate** | Hollow Threads | AI Virtual Try-On (IDM-VTON) | `Active` |
+| **Publer** | All Brands | Social media scheduling (managed by Bosun) | `Active` |
+| **Google Drive** | All Brands | Asset storage and sharing | `Active` |
+
+## 6. Key People & Personas
 
 | Name | Role | Avatar/Voice Details |
 |---|---|---|
-| **Bob Burr** | Founder, Host | Primary avatar for intros/outros. Placeholder: `Mido-pro-greysweater-20221209` + Brian voice. |
-| **Shannon** | Founder, Forge Caps | His personal story is the core brand asset. |
-| **Mubashira Amanat** | VA / Ops Manager | Transitioning to oversee Graduate Store automation. |
-| **Domenic, John, Michael**| Founders | Vital Years, Cask & Cuisine. |
-| **Marcus Cole** | Mentor (Beacon Rise) | Avatar: `Brandon_expressive_public`, Voice: `nPczCjzI2devNBz1zQrb` (Brian) |
-| **Elena Voss** | Mentor (Beacon Academy) | Avatar: `Caroline_expressive2_public`, Voice: `Xb7hH8MSUJpSbSDYk0k2` (Alice) |
-| **Dante Rivera** | Mentor (Beacon Launch) | Avatar: `Armando_Suit_Front_public`, Voice: `cjVigY5qzO86Huf0OWal` (Eric) |
-| **James Harlow** | Mentor | Avatar: `Bryce_public_1`, Voice: `JBFqnCBsd6RMkjVDRZzb` (George) |
-| **Ava Chen** | Mentor | Avatar: `Annie_expressive_public`, Voice: `XrExE9yKIg1WjnnlVkGX` (Matilda) |
-| **Sophie Laurent**| Mentor | Avatar: `Bahar_Business_Front_public`, Voice: `hpp4J3VqNfWAUOO0d1Us` (Bella) |
-| **Nate Calloway** | Mentor | Avatar: `Byron_Casual_Front_public`, Voice: `iP95p4xoKVk53GoZ742B` (Chris) |
-| **Priya Sharma** | Mentor | Avatar: `Candace_Beige_Dress_Front`, Voice: `cgSgspJ2msm6clMCkdW9` (Jessica) |
-| **Digital Grandpa**| Persona | Cartoon image/persona for lip-sync and video generation. |
+| **Bob Burr** | Founder, Host | Primary avatar for intros, outros, and milestones. |
+| **Bosun** | Social Media Manager | Executes content schedules via Publer. |
+| **Marcus Cole** | Mentor (Beacon Rise) | Avatar: `Brandon_expressive_public`, Voice: `nPczCjzI2devNBz1zQrb` |
+| **Elena Voss** | Mentor (Beacon Academy) | Avatar: `Caroline_expressive2_public`, Voice: `Xb7hH8MSUJpSbSDYk0k2` |
+| **Dante Rivera** | Mentor (Beacon Launch) | Avatar: `Armando_Suit_Front_public`, Voice: `cjVigY5qzO86Huf0OWal` |
+| **Digital Grandpa** | Persona | Cartoon image/persona for lip-sync and video generation. |
 | **Phoenix** | Agentic AI Assistant | User's preferred name for their personal AI assistant. |
 
-## 5. Core Workflows & Preferences
+## 7. Core Workflows & Preferences
 
-*   **Pricing:** Product price is **$297**. Never $247 or $147.
-*   **Personal Time:** Never promise Bob Burr's personal time or direct interaction.
-*   **Messaging Theme:** Maintain the "team approach" and "watch" theme: "The Lighthouse Is Lit. Join Us at the Watch."
-*   **GitHub Protocol:** All changes must be committed to GitHub and deployed via the CI/CD pipeline. GitHub is the source of truth.
-*   **Server Awareness:** Always confirm which server a domain lives on before deploying.
-*   **Website Congruence:** All websites must have a unified look and feel.
-*   **White-Label Philosophy:** Never expose backend providers on client-facing sites.
+*   **GitHub Protocol:** All changes must be committed to GitHub and deployed via the CI/CD pipeline. No direct edits on the server.
+*   **Website Congruence:** All websites must have a unified look and feel (headers, footers, logos, etc.).
+*   **Task Estimation:** Provide granular, truthful time estimates in minutes.
+*   **Troubleshooting:** Do not repeat suggestions the user has already tried. Pivot to deeper diagnosis.
+*   **Lead Capture:** Forms must be hosted in-house, require name/email, and use webhooks for data collection.
+*   **AI Judgment:** User trusts AI's judgment on implementation details when specified (e.g., "whatever you believe works best").
 
-## 6. Strategic Imperatives & Open Items
+## 8. Open Items & Session Handoff
 
-*   **Primary Goal:** Pivot from infrastructure building to revenue generation. The ecosystem has a ~$200K investment with **zero revenue** to date.
-*   **Immediate Priority:** Make **Forge Caps** profitable. This involves completing the GHL store setup, which is the #1 blocker.
-*   **Go-to-Market Strategy:** Aggressive affiliate and influencer marketing, paying commission-only.
-*   **Sales Tactic:** "Results in Advance" — create value for prospects before the first contact.
+*This section is updated at the end of each Manus session.*
 
-### 6.1. Open / Carry-Forward Items
-
-1.  **Repair Bosun AI:** SSH into `143.198.20.188` and fix the corrupted `llm.js` file.
-2.  **Build Forge Caps Store:** Use the GHL Agency API to programmatically build the store.
-3.  **Build n8n Workflow:** Create the GHL -> Stripe -> Printful order fulfillment workflow.
-4.  **End-to-End Test:** Test the entire order flow for Forge Caps.
-5.  **Deploy Social Content:** Schedule the 120+ existing social media posts via Publer.
-6.  **Connect Social Accounts:** Add Forge Caps, Vital Years, and Cask & Cuisine accounts to Publer.
-7.  **B2B Materials:** Determine the status of the B2B sales materials.
+*   **Last Session Goal:** Review session, extract meaningful data, and update this ground truth file.
+*   **Completed Actions (This Session):**
+    1.  Implemented a full-featured **AI Virtual Try-On** for Hollow Threads using the Replicate API.
+    2.  Fixed a bug in the sticker mockup generation process, regenerating all 27 sticker images with proper transparent backgrounds and kiss-cut borders.
+    3.  Designed and deployed the **"Skull Hunt" viral giveaway campaign**, including a homepage sidebar widget, server-side API for entry tracking, a content calendar for Bosun, and all required image assets.
+    4.  Fixed the **Printful outside label tag** by creating a transparent background version to resolve a production hold.
+    5.  Updated this ground truth file with all new infrastructure, code, and campaign details.
+*   **Next Action (User):** The user needs to log into Printful, upload the new transparent label file (`outside-label-square-transparent.png`) to the appropriate product template, and remove the hold on order #PF146342309.
