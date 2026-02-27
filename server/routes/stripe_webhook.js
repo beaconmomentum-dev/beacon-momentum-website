@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const stripeService = require('../services/stripe_enhanced');
 const { sendSubscribeEvent } = require('../services/meta-capi');
+const { syncNewMember } = require('../services/ghl');
 
 /**
  * Stripe Webhook Handler
@@ -133,9 +134,22 @@ async function handleCheckoutCompleted(session) {
         console.error('[CAPI] Subscribe event failed (non-fatal):', capiErr.message);
     }
 
+     // Sync new member to GHL CRM
+    try {
+        await syncNewMember({
+            email: user.email,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            membershipTier: product.type || 'beacon-momentum',
+            planType: product.period || 'monthly',
+            stripeCustomerId: customerId,
+            stripeSubId: subscriptionId,
+        });
+    } catch (ghlErr) {
+        console.error('[GHL] syncNewMember failed (non-fatal):', ghlErr.message);
+    }
     console.log(`✅ Checkout processed for user ${user.email}`);
 }
-
 /**
  * Handle successful payment (recurring subscription payment)
  */
