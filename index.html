@@ -208,6 +208,7 @@
 
         /* Hero Section */
         .hero {
+            background-color: #0F172A; /* Solid dark fallback — always visible if image fails to load */
             background-image: url('images/hero-bg-option2-clean.png');
             background-size: cover;
             background-position: center center;
@@ -649,7 +650,8 @@
         }
 
         .submit-btn {
-            background: #0F172A; color: #020617;
+            background: #0F172A;
+            color: #ffffff; /* Fixed: was #020617 — text was invisible on dark button */
             padding: 1rem 2rem;
             border: none;
             border-radius: 6px;
@@ -698,7 +700,8 @@
 
         /* Footer */
         .footer {
-            background: #020617; color: #020617;
+            background: #020617;
+            color: #e2e8f0; /* Fixed: was #020617 — text was invisible on dark background */
             padding: 3rem 0 1rem;
         }
 

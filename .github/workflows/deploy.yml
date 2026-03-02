@@ -1,0 +1,58 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    name: Deploy to beaconmomentum.com
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PRODUCTION_SERVER_IP }}
+          username: root
+          key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          script: |
+            set -e
+            echo "=== Beacon Momentum — Production Deploy ==="
+            echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+
+            DEPLOY_DIR="/var/www/beaconmomentum"
+
+            # Pull latest code
+            cd $DEPLOY_DIR
+            git fetch origin
+            git reset --hard origin/main || git reset --hard origin/master
+            echo "✓ Code updated"
+
+            # Ensure images directory has correct permissions
+            chmod -R 755 $DEPLOY_DIR/images/
+            echo "✓ Image permissions set"
+
+            # Restart Node.js server if running
+            if command -v pm2 &> /dev/null; then
+              pm2 restart beacon-auth 2>/dev/null || echo "PM2 process not running (OK for static sites)"
+              pm2 save 2>/dev/null || true
+            fi
+            echo "✓ Server restarted"
+
+            echo "=== Deploy complete ==="
+
+# ── Setup Instructions ────────────────────────────────────────────────────────
+# Add these secrets to GitHub → Settings → Secrets and variables → Actions:
+#
+#   PRODUCTION_SERVER_IP  = 143.198.23.240
+#   PRODUCTION_SSH_KEY    = (contents of manus_agent_beacon_ed25519 private key)
+#
+# The public key (manus_agent_beacon_ed25519_20260302.pub) must be added to
+# /root/.ssh/authorized_keys on the production server first.
+# ─────────────────────────────────────────────────────────────────────────────
