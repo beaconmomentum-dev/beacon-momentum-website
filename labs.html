@@ -3,938 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beacon Labs - Infrastructure for Equitable Communities | Beacon Momentum</title>
-    <meta name="description" content="Building transparent revenue-sharing systems and impact tracking tools that power equitable joint ventures and community transformation.">
-    
-    <!-- Open Graph / Facebook -->
+    <title>Beacon Labs - AI Consulting &amp; Autonomous Business Stack | Beacon Momentum</title>
+    <meta name="description" content="Beacon Labs delivers AI implementation consulting for mid-market businesses and nonprofits. NemoClaw security, MiroFish audience simulation, and the Autonomous Business Stack.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://beaconmomentum.com/labs">
-    <meta property="og:title" content="Beacon Labs - Infrastructure for Equitable Communities">
-    <meta property="og:description" content="The engine room powering transparent joint ventures, automated revenue sharing, and measurable social impact.">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://beaconmomentum.com/labs">
-    <meta property="twitter:title" content="Beacon Labs - Infrastructure for Equitable Communities">
-    <meta property="twitter:description" content="Building transparent revenue-sharing systems and impact tracking tools that power equitable joint ventures.">
-    
-    <!-- Structured Data (Schema.org) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Beacon Labs",
-      "applicationCategory": "BusinessApplication",
-      "description": "Infrastructure for equitable communities. Transparent revenue-sharing systems, automated impact tracking, and tools that power equitable joint ventures and community transformation.",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "provider": {
-        "@type": "Organization",
-        "name": "Beacon Momentum",
-        "url": "https://beaconmomentum.com"
-      },
-      "featureList": [
-        "AI-Powered Member Assistant (Jarvis)",
-        "Learning Management System",
-        "DeFi Education Platform (Beacon Beacon Academy)",
-        "Automated Revenue-Sharing System",
-        "Impact Dashboards & Analytics",
-        "Community Governance Tools",
-        "Community Forum & Networking",
-        "Payment & Subscription Management",
-        "Enterprise Authentication & Security"
-      ]
-    }
-    </script>
-    
+    <meta property="og:title" content="Beacon Labs - AI Consulting &amp; Autonomous Business Stack">
+    <meta property="og:description" content="Enterprise-grade AI implementation for the mid-market. Built on the same infrastructure powering Beacon Momentum.">
+    <meta property="og:image" content="https://beaconmomentum.com/images/beacon-logo-horizontal.png">
     <link rel="canonical" href="https://beaconmomentum.com/labs">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
-        :root {
-            --beacon-primary: #0F172A; /* Deep Ocean */
-            --beacon-accent: #F59E0B; /* Lighthouse Gold */
-            --beacon-background: #F8FAFC; /* Slate 50 */
-            --beacon-foreground: #020617; /* Slate 950 */
-            --beacon-glass: rgba(255, 255, 255, 0.1);
-            --beacon-border: rgba(255, 255, 255, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-gray);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        .nav {
-            background: var(--white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Space Grotesk', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0F172A;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-gray);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #0F172A;
-        }
-
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #0F172A;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0A4F4B 0%, #0D2A28 100%);
-            background-image: url('images/hero-bg-option3-clean.png');
-            background-size: cover;
-            background-position: left center;
-            background-repeat: no-repeat;
-            color: var(--white);
-            padding: 8rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 700px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(10, 79, 75, 0.4);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-family: 'Space Grotesk', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 3rem;
-            opacity: 1;
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: #F59E0B;
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: #B8941F;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: #0F172A;
-        }
-
-        /* Section Styling */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-alt {
-            background: var(--bg-gray);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Space Grotesk', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #0F172A;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--light-gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Platform Overview */
-        .platform-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .platform-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border-top: 4px solid #F59E0B;
-        }
-
-        .platform-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .platform-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #0F172A, #F59E0B);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            font-size: 1.5rem;
-        }
-
-        .platform-card h3 {
-            font-family: 'Space Grotesk', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #0F172A;
-            margin-bottom: 1rem;
-        }
-
-        .platform-card p {
-            color: var(--light-gray);
-            line-height: 1.7;
-        }
-
-        /* Use Cases */
-        .use-cases {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .use-case {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .use-case-icon {
-            width: 80px;
-            height: 80px;
-            background: #0F172A;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--white);
-            font-size: 2rem;
-        }
-
-        .use-case h3 {
-            font-family: 'Space Grotesk', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #0F172A;
-            margin-bottom: 1rem;
-        }
-
-        .use-case ul {
-            list-style: none;
-            color: var(--light-gray);
-        }
-
-        .use-case li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .use-case li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #F59E0B;
-            font-weight: bold;
-        }
-
-        /* Roadmap */
-        .roadmap {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .roadmap-item {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            position: relative;
-        }
-
-        .roadmap-item.live {
-            border-top: 4px solid #10B981;
-        }
-
-        .roadmap-item.development {
-            border-top: 4px solid #F59E0B;
-        }
-
-        .roadmap-item.coming-soon {
-            border-top: 4px solid var(--light-gray);
-        }
-
-        .roadmap-status {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .status-live {
-            background: #D1FAE5;
-            color: #065F46;
-        }
-
-        .status-development {
-            background: #FEF3C7;
-            color: #92400E;
-        }
-
-        .status-coming {
-            background: #F3F4F6;
-            color: var(--light-gray);
-        }
-
-        .roadmap-item h3 {
-            font-family: 'Space Grotesk', serif;
-            color: #0F172A;
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #0A4F4B 0%, #0D2A28 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta-section h2 {
-            font-family: 'Space Grotesk', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-gray);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-family: 'Space Grotesk', serif;
-            margin-bottom: 1rem;
-            color: #F59E0B;
-        }
-
-        .footer-section a {
-            color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #F59E0B;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #4B5563;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9CA3AF;
-        }
-
-        /* Responsive Design */
+        :root { --beacon-primary: #0F172A; --beacon-accent: #F59E0B; --beacon-teal: #0F766E; --beacon-bg: #F8FAFC; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #020617; background: white; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a { color: #020617; text-decoration: none; font-weight: 500; transition: color 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--beacon-teal); }
+        .member-login-btn { background: var(--beacon-primary); color: white !important; padding: 0.5rem 1rem; border-radius: 6px; }
+        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+        .mobile-menu-toggle span { display: block; width: 25px; height: 2px; background: #0F172A; }
+        .mobile-menu { display: none; }
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.125rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .platform-grid,
-            .use-cases,
-            .roadmap {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .mobile-menu.open { display: block; padding: 1rem 0; border-top: 1px solid #e2e8f0; }
+            .mobile-menu ul { list-style: none; }
+            .mobile-menu ul li a { display: block; padding: 0.75rem 0; color: #020617; text-decoration: none; font-weight: 500; }
+            .two-col { grid-template-columns: 1fr !important; }
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Form Styling */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-gray);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #E5E7EB;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0F172A;
-        }
-
-        .demo-form {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            max-width: 500px;
-            margin: 2rem auto;
-        }
-    
-    .site-footer {
-        background: #020617;
-        color: white;
-        padding: 4rem 0 2rem;
-    }
-
-    .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .footer-column h3 {
-        font-family: 'Space Grotesk', serif;
-        font-size: 1.3rem;
-        margin-bottom: 1.5rem;
-        color: #F59E0B;
-    }
-
-    .footer-links {
-        list-style: none;
-        padding: 0;
-    }
-
-    .footer-links li {
-        margin-bottom: 0.8rem;
-    }
-
-    .footer-links a {
-        color: #cbd5e1;
-        text-decoration: none;
-        transition: color 0.3s;
-        font-size: 0.95rem;
-    }
-
-    .footer-links a:hover {
-        color: #F59E0B;
-    }
-
-    .footer-description {
-        color: #cbd5e1;
-        line-height: 1.7;
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .footer-social {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .footer-social-link {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-decoration: none;
-        transition: all 0.3s;
-        font-size: 1.2rem;
-    }
-
-    .footer-social-link:hover {
-        background: #F59E0B;
-        transform: translateY(-3px);
-    }
-
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 2rem;
-        text-align: center;
-        color: #94a3b8;
-        font-size: 0.9rem;
-    }
-
-    .phoenix-attribution {
-        margin-top: 1rem;
-        font-size: 0.85rem;
-        color: #64748b;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-        .site-footer {
-            padding: 3rem 0 1.5rem;
-        }
-
-        .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-    }
-
-</style>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2728401540849226');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=2728401540849226&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
+        .labs-hero { background: linear-gradient(135deg, #0F172A 0%, #1e3a5f 50%, #0F766E 100%); color: white; padding: 100px 20px 80px; text-align: center; }
+        .labs-badge { display: inline-block; background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.5); color: #F59E0B; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .labs-hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; margin-bottom: 1.25rem; line-height: 1.15; }
+        .labs-hero p { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 700px; margin: 0 auto 2.5rem; }
+        .hero-cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: #F59E0B; color: #0F172A; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: all 0.3s; display: inline-block; }
+        .btn-primary:hover { background: #D97706; transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: white; padding: 14px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; display: inline-block; }
+        .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+        .section { padding: 80px 20px; }
+        .section-alt { background: var(--beacon-bg); }
+        .section-dark { background: var(--beacon-primary); color: white; }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #0F172A; margin-bottom: 0.75rem; }
+        .section-dark .section-header h2 { color: white; }
+        .section-header p { font-size: 1.1rem; color: #475569; max-width: 650px; margin: 0 auto; }
+        .section-dark .section-header p { color: rgba(255,255,255,0.75); }
+        .eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--beacon-teal); margin-bottom: 0.5rem; }
+        .section-dark .eyebrow { color: #F59E0B; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .service-card { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.07); border-top: 4px solid var(--beacon-teal); transition: transform 0.3s, box-shadow 0.3s; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+        .service-card.gold { border-top-color: #F59E0B; }
+        .service-card.navy { border-top-color: #1e3a5f; }
+        .service-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: #0F172A; margin-bottom: 0.75rem; }
+        .service-card p { color: #475569; line-height: 1.7; margin-bottom: 1.25rem; }
+        .service-price { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--beacon-teal); font-weight: 600; margin-top: 1.25rem; }
+        .service-card.gold .service-price { color: #D97706; }
+        .service-features { list-style: none; margin-top: 1rem; }
+        .service-features li { padding: 0.4rem 0; color: #475569; font-size: 0.9rem; border-bottom: 1px solid #f1f5f9; }
+        .service-features li:last-child { border-bottom: none; }
+        .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .stack-tier { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 1.75rem; }
+        .stack-tier h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+        .stack-tier .tier-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F59E0B; margin-bottom: 1rem; }
+        .stack-tier p { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; }
+        .partner-card { background: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 8px 40px rgba(0,0,0,0.1); max-width: 900px; margin: 0 auto; border: 2px solid #F59E0B; }
+        .partner-card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: #0F172A; margin-bottom: 1rem; }
+        .partner-card p { color: #475569; line-height: 1.8; margin-bottom: 1.25rem; }
+        .partner-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .partner-step { text-align: center; }
+        .step-number { width: 48px; height: 48px; border-radius: 50%; background: var(--beacon-primary); color: #F59E0B; font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; }
+        .partner-step h4 { font-weight: 700; color: #0F172A; margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .partner-step p { color: #64748b; font-size: 0.85rem; }
+        .labs-cta { background: linear-gradient(135deg, #0F172A, #0F766E); padding: 80px 20px; text-align: center; color: white; }
+        .labs-cta h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem; }
+        .labs-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 2rem; }
+        .site-footer { background: #0F172A; color: rgba(255,255,255,0.7); padding: 60px 20px 30px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-column h3 { color: white; font-weight: 700; margin-bottom: 1rem; font-size: 1rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: #F59E0B; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+        .footer-description { font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
+        .footer-social { display: flex; gap: 0.75rem; }
+        .footer-social-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 1rem; transition: color 0.3s; }
+        .footer-social-link:hover { color: #F59E0B; }
+    </style>
 </head>
 <body>
 
-
-    <!-- Navigation -->
-    <!-- Header -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="/index.html" class="flex items-center space-x-3">
-                    <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum Lighthouse" class="w-16 h-16 object-contain">
-                    <div class="flex flex-col">
-                        <span class="text-xl font-bold playfair" style="color: #0F172A;">Beacon Momentum</span>
-                        <span class="text-sm italic" style="color: #F59E0B;">Lighting the Way Forward</span>
-                    </div>
-                </a>
-                <div class="hidden md:flex space-x-6" data-mobile-menu>
-                    <a href="index.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Home</a>
-                    <a href="/beacon-rise.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Rise</a>
-                    <a href="/beacon-launch.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Launch</a>
-                    <a href="/beacon-academy.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Academy</a>
-                    <a href="/labs.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Beacon Labs</a>
-                    <a href="/digital-grandpa.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Mentorship</a>
-                    <a href="assess.html" class="text-white bg-gradient-to-r from-yellow-500 to-yellow-600 px-4 py-2 rounded-lg font-semibold hover:from-yellow-600 hover:to-yellow-700 transition-all shadow-md">Take Assessment</a>
-                    <a href="/contact.html" class="text-gray-700 hover:text-beacon-teal transition-colors">Contact</a>
-                    <a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn font-medium" style="display: inline-block; padding: 10px 20px; margin-left: 15px; background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: #ffffff !important; font-weight: 600; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3); transition: all 0.3s ease;">Member Login</a>
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="/images/beacon-logo-icon.png" alt="Beacon Momentum" style="width: 70px; height: 70px; object-fit: contain;">
+                <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                    <span style="font-size: 1.1rem; font-weight: 700; color: #0F172A;">Beacon Momentum</span>
+                    <span style="font-size: 0.75rem; color: #64748b; font-weight: 500;">Beacon Labs</span>
                 </div>
-                <button class="md:hidden text-gray-700" id="mobile-menu-toggle" data-mobile-menu-toggle>
-                    <span class="text-2xl">&#9776;</span>
-                </button>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/beacon-rise.html">Beacon Rise</a></li>
+                <li><a href="/beacon-launch.html">Beacon Launch</a></li>
+                <li><a href="/beacon-academy.html">Beacon Academy</a></li>
+                <li><a href="/labs.html" style="color: #0F766E; font-weight: 700;">Beacon Labs</a></li>
+                <li><a href="/digital-grandpa.html">Mentorship</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="https://app.beaconmomentum.com/manual-login" class="member-login-btn">Member Login</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/beacon-rise.html">Beacon Rise</a></li>
+                <li><a href="/beacon-launch.html">Beacon Launch</a></li>
+                <li><a href="/beacon-academy.html">Beacon Academy</a></li>
+                <li><a href="/labs.html">Beacon Labs</a></li>
+                <li><a href="/digital-grandpa.html">Mentorship</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="https://app.beaconmomentum.com/manual-login">Member Login</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<section class="labs-hero">
+    <div class="container">
+        <div class="labs-badge">Beacon Labs &mdash; AI Implementation Division</div>
+        <h1>The AI Workforce Is Here.<br>We Help You Deploy It Safely.</h1>
+        <p>Enterprise-grade AI agent implementation for mid-market businesses, nonprofits, and veteran-serving organizations. Built on the same infrastructure powering the Beacon Momentum ecosystem.</p>
+        <div class="hero-cta-group">
+            <a href="/contact.html?ref=labs&amp;service=consultation" class="btn-primary">Request a Discovery Call</a>
+            <a href="#partner-program" class="btn-secondary">VSO Partner Program</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <div class="eyebrow">The Gap We Fill</div>
+            <h2>Fortune 500 Companies Have Accenture.<br>Mid-Market Businesses Have Beacon Labs.</h2>
+            <p>AI agents are automating work at a scale that was unimaginable two years ago. The bottleneck is no longer the technology &mdash; it is implementation, security, and governance. Large enterprises hire global consultancies. The law firm, the real estate office, the veteran service organization &mdash; they have no one. That is the gap Beacon Labs fills.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+            <div style="background: white; border-radius: 10px; padding: 1.75rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center;">
+                <div style="font-size: 2rem; font-weight: 800; color: #0F766E; font-family: 'Space Grotesk', sans-serif;">$200B</div>
+                <div style="font-weight: 600; color: #0F172A; margin-bottom: 0.4rem;">Net New Demand</div>
+                <div style="font-size: 0.85rem; color: #64748b;">BCG projects $200 billion in new tech services demand from agentic AI over five years. Most of it is mid-market.</div>
+            </div>
+            <div style="background: white; border-radius: 10px; padding: 1.75rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center;">
+                <div style="font-size: 2rem; font-weight: 800; color: #0F766E; font-family: 'Space Grotesk', sans-serif;">60%</div>
+                <div style="font-weight: 600; color: #0F172A; margin-bottom: 0.4rem;">Unreached Veterans</div>
+                <div style="font-size: 0.85rem; color: #64748b;">60% of veterans who die by suicide were not in VA care in the two years prior. Digital-first peer support reaches them.</div>
+            </div>
+            <div style="background: white; border-radius: 10px; padding: 1.75rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center;">
+                <div style="font-size: 2rem; font-weight: 800; color: #0F766E; font-family: 'Space Grotesk', sans-serif;">256GB</div>
+                <div style="font-weight: 600; color: #0F172A; margin-bottom: 0.4rem;">Local AI Compute</div>
+                <div style="font-size: 0.85rem; color: #64748b;">Our Mac Studio M3 Ultra runs 70B parameter models locally. Client data never leaves our secure infrastructure.</div>
             </div>
         </div>
-    </nav>
-    <div class="mobile-menu">
-                <a href="index.html">Home</a>
-                <a href="/beacon-rise.html">Beacon Rise</a>
-                <a href="/beacon-launch.html">Beacon Launch</a>
-                <a href="/beacon-academy.html">Beacon Academy</a>
-                <a href="/labs.html">Beacon Labs</a>
-                <a href="/digital-grandpa.html">Mentorship</a>
-                <a href="assess.html">Take Assessment</a>
-                <a href="/contact.html">Contact</a>
-                <a href="https://app.beaconmomentum.com/manual-login">Member Login</a>
-    </div><!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content fade-in-up">
-                <h1>Supporting Opportunity for the Communities We Serve</h1>
-                <p class="hero-subtitle">The engine room powering transparent joint ventures, automated revenue sharing, and measurable social impact across the Beacon ecosystem.</p>
-                <div class="cta-buttons">
-                    <a href="request-demo.html" class="btn btn-primary">Request a Demo →</a>
-                    <a href="/contact.html" class="btn btn-secondary">Join the Beta</a>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-header">
+            <div class="eyebrow">Our Services</div>
+            <h2>Three Ways Beacon Labs Serves You</h2>
+            <p>Each service is designed to deliver measurable results within 30 days of engagement, not 18-month transformation roadmaps.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>The Autonomous Business Stack</h3>
+                <p>A complete AI agent workforce deployed into your existing business operations. We identify your three highest-ROI automation opportunities, build the agents, secure them with NemoClaw governance protocols, and hand you the keys.</p>
+                <ul class="service-features">
+                    <li>Workflow audit and automation opportunity mapping</li>
+                    <li>Custom AI agent build (n8n + LangChain)</li>
+                    <li>NemoClaw security and audit trail setup</li>
+                    <li>30-day onboarding and optimization support</li>
+                    <li>Staff training and handoff documentation</li>
+                </ul>
+                <div class="service-price">Starting at $3,500 &mdash; 30-day delivery</div>
+            </div>
+            <div class="service-card gold">
+                <h3>Scenario Rehearsal</h3>
+                <p>Before you launch a campaign, announce a price change, or introduce a new program, we run a multi-agent simulation of how your specific audience will react. Powered by our MiroFish-based simulation engine, trained on your brand voice and customer data.</p>
+                <ul class="service-features">
+                    <li>Audience persona modeling (up to 8 segments)</li>
+                    <li>Multi-round reaction simulation (20+ rounds)</li>
+                    <li>Objection identification and messaging refinement</li>
+                    <li>Written intelligence report with actionable copy</li>
+                    <li>Ideal for product launches, pricing changes, and grant narratives</li>
+                </ul>
+                <div class="service-price" style="color: #D97706;">Starting at $1,200 per scenario</div>
+            </div>
+            <div class="service-card navy">
+                <h3>Beacon Signal Check</h3>
+                <p>A comprehensive AI-powered audit of your organization's digital marketing posture. We scan your website, social presence, paid advertising, SEO footprint, and competitive landscape, then deliver a scored report with a prioritized action plan.</p>
+                <ul class="service-features">
+                    <li>Website conversion and messaging audit</li>
+                    <li>Social media authority and consistency review</li>
+                    <li>AI recommendation engine visibility score</li>
+                    <li>Competitive landscape analysis</li>
+                    <li>Prioritized 90-day action roadmap</li>
+                </ul>
+                <div class="service-price">$497 &mdash; Delivered in 72 hours</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-dark" id="stack">
+    <div class="container">
+        <div class="section-header">
+            <div class="eyebrow">The Technology</div>
+            <h2>The Autonomous Business Stack</h2>
+            <p>Four layers of technology, working together. Each layer is production-tested inside the Beacon Momentum ecosystem before we deploy it for clients.</p>
+        </div>
+        <div class="stack-grid">
+            <div class="stack-tier">
+                <div class="tier-label">Layer 1 &mdash; Orchestration</div>
+                <h3>n8n Workflow Engine</h3>
+                <p>The backbone of every automation. Connects your existing tools (CRM, email, Slack, databases) and routes tasks between AI agents without requiring code changes to your current systems.</p>
+            </div>
+            <div class="stack-tier">
+                <div class="tier-label">Layer 2 &mdash; Reasoning</div>
+                <h3>LangChain / CrewAI Agents</h3>
+                <p>Where the intelligence lives. Agents that can reason through multi-step problems, delegate to sub-agents, and adapt to new information &mdash; not just follow rigid if-then rules.</p>
+            </div>
+            <div class="stack-tier">
+                <div class="tier-label">Layer 3 &mdash; Security</div>
+                <h3>NemoClaw Governance</h3>
+                <p>NVIDIA's enterprise security wrapper for AI agents. Role-based access controls, sandboxed execution, and full audit logs. Every agent action is logged, attributable, and reversible.</p>
+            </div>
+            <div class="stack-tier">
+                <div class="tier-label">Layer 4 &mdash; Delivery</div>
+                <h3>Cloudflare AI Gateway</h3>
+                <p>Secure, cost-controlled routing for all AI API calls. Rate limiting, data governance, and cost monitoring ensure client data never touches unauthorized infrastructure.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="/contact.html?ref=labs&amp;service=stack" class="btn-primary">Schedule a Stack Walkthrough</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt" id="partner-program">
+    <div class="container">
+        <div class="section-header">
+            <div class="eyebrow">For Veteran Service Organizations</div>
+            <h2>The VSO Technology Partner Program</h2>
+            <p>Beacon Labs is actively seeking 501(c)(3) veteran service organizations to partner with on VA-funded grant programs. We provide the technology and peer-support delivery platform; you provide the grant management infrastructure.</p>
+        </div>
+        <div class="partner-card">
+            <h2>Why Partner With Beacon Labs?</h2>
+            <p>The VA's SSG Fox Suicide Prevention Grant Program explicitly prioritizes "nontraditional and innovative approaches" to reaching veterans who are not currently in VA care. That is exactly what Beacon Labs delivers &mdash; a digital-first, AI-enhanced peer support and economic stabilization platform that reaches the 60% of at-risk veterans who never walk through a VA door.</p>
+            <p>We are a Wyoming LLC actively seeking a 501(c)(3) fiscal sponsor for the <strong>June 12, 2026 Fox Grant application</strong> ($100,000&ndash;$750,000 award range). The partnership model is straightforward: you manage grant compliance and receive a standard administrative fee; Beacon Labs delivers the program and the technology.</p>
+            <div class="partner-steps">
+                <div class="partner-step">
+                    <div class="step-number">1</div>
+                    <h4>Discovery Call</h4>
+                    <p>30-minute conversation to confirm mission alignment and grant eligibility.</p>
+                </div>
+                <div class="partner-step">
+                    <div class="step-number">2</div>
+                    <h4>MOU Execution</h4>
+                    <p>Simple Memorandum of Understanding defining the financial split and responsibilities.</p>
+                </div>
+                <div class="partner-step">
+                    <div class="step-number">3</div>
+                    <h4>Joint Application</h4>
+                    <p>We write the program narrative; you submit as the primary applicant before June 12.</p>
+                </div>
+                <div class="partner-step">
+                    <div class="step-number">4</div>
+                    <h4>Program Delivery</h4>
+                    <p>Beacon Labs deploys the platform and delivers measurable outcomes for your reporting.</p>
+                </div>
+            </div>
+            <div style="background: #F8FAFC; border-radius: 8px; padding: 1.5rem; margin-top: 1rem;">
+                <p style="font-weight: 700; color: #0F172A; margin-bottom: 0.5rem;">Ideal Partner Profile</p>
+                <p style="color: #475569; font-size: 0.95rem;">Current or previous Fox Grant recipient &bull; Mission focused on veteran suicide prevention, transition support, or economic stabilization &bull; Serving populations not currently engaged with VA healthcare &bull; Open to technology-enhanced delivery models</p>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/contact.html?ref=labs&amp;service=vso_partner" class="btn-primary">Inquire About Partnership</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 0 auto;" class="two-col">
+            <div>
+                <div class="eyebrow">Our Foundation</div>
+                <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: #0F172A; margin-bottom: 1.25rem; line-height: 1.2;">Built From the Inside Out</h2>
+                <p style="color: #475569; line-height: 1.8; margin-bottom: 1rem;">Beacon Labs is not a consulting firm that learned about AI from a YouTube course. Every tool, every workflow, and every security protocol we offer clients is production-tested inside the Beacon Momentum ecosystem first.</p>
+                <p style="color: #475569; line-height: 1.8; margin-bottom: 1rem;">Our founder, Bob Burr, is a Navy veteran, Presidential Award recipient, and the founder of GraceHouse &mdash; a transitional housing program that achieved a 7-8% recidivism rate against a 55-60% state average. That track record of measurable, real-world transformation is the standard we hold our technology to.</p>
+                <p style="color: #475569; line-height: 1.8;">We do not sell technology. We sell outcomes. The technology is just how we get there.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: var(--beacon-bg); border-radius: 10px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #0F766E; font-family: 'Space Grotesk', sans-serif;">2,874+</div>
+                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Lives Transformed</div>
+                </div>
+                <div style="background: var(--beacon-bg); border-radius: 10px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #0F766E; font-family: 'Space Grotesk', sans-serif;">7-8%</div>
+                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Recidivism Rate</div>
+                </div>
+                <div style="background: var(--beacon-bg); border-radius: 10px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #0F766E; font-family: 'Space Grotesk', sans-serif;">256GB</div>
+                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Local AI Compute</div>
+                </div>
+                <div style="background: var(--beacon-bg); border-radius: 10px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #0F766E; font-family: 'Space Grotesk', sans-serif;">5+</div>
+                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Live AI Workflows</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- What We Build Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>What We Build</h2>
-                <p>Comprehensive technology infrastructure powering the entire Beacon Momentum ecosystem—from member education to community governance.</p>
-            </div>
-            <div class="platform-grid">
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">🤖</div>
-                    <h3>AI-Powered Assistant (Jarvis)</h3>
-                    <p>Intelligent support system providing 24/7 member assistance, course guidance, and personalized learning pathways. Integrated across the platform to enhance member experience and accelerate transformation.</p>
-                </div>
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">🎓</div>
-                    <h3>Member Platform & LMS</h3>
-                    <p>Full-featured learning management system with course delivery, progress tracking, community forums, and member dashboards. Hosts Beacon Rise, Beacon Beacon Academy, and all educational content.</p>
-                </div>
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">💎</div>
-                    <h3>DeFi Education Platform</h3>
-                    <p>Comprehensive cryptocurrency and decentralized finance curriculum (Beacon Beacon Academy) with interactive lessons, real-world scenarios, and compliance-integrated educational content.</p>
-                </div>
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">💰</div>
-                    <h3>Automated Revenue-Sharing System</h3>
-                    <p>Configurable percentage splits with real-time payment processing and distribution. Transparent transaction logging ensures every stakeholder knows exactly how revenue flows through the community.</p>
-                </div>
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">📊</div>
-                    <h3>Impact Dashboards & Analytics</h3>
-                    <p>Comprehensive tracking of membership growth, engagement metrics, and social outcomes. Revenue distribution monitoring across all partners with clear visualization of community transformation.</p>
-                </div>
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">🗳️</div>
-                    <h3>Community Governance Tools</h3>
-                    <p>Transparent decision-making frameworks with integrated voting systems. Stakeholder communication and coordination tools that ensure every voice is heard in community initiatives.</p>
-                </div>
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">👥</div>
-                    <h3>Community Forum & Networking</h3>
-                    <p>Secure member-to-member communication, discussion boards, peer support groups, and networking opportunities. Built-in moderation tools ensure a safe, respectful environment.</p>
-                </div>
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">💳</div>
-                    <h3>Payment & Subscription Management</h3>
-                    <p>Integrated Stripe payment processing with flexible subscription tiers, upgrade pathways, and automated billing. Supports one-time payments, monthly subscriptions, and lifetime access.</p>
-                </div>
-                <div class="platform-card fade-in-up">
-                    <div class="platform-icon">🔐</div>
-                    <h3>Authentication & Security</h3>
-                    <p>Enterprise-grade OAuth authentication, role-based access control, and data encryption. Ensures member privacy and platform security across all touchpoints.</p>
-                </div>
-            </div>
+<section class="labs-cta">
+    <div class="container">
+        <h2>The Lighthouse is Lit.<br>Let's Build What's Next.</h2>
+        <p>Whether you are a business owner ready to deploy your first AI workforce, a VSO seeking a technology partner for a federal grant, or an organization that needs to understand how your audience will respond before you act &mdash; Beacon Labs is ready.</p>
+        <div class="hero-cta-group">
+            <a href="/contact.html?ref=labs&amp;service=consultation" class="btn-primary">Request a Discovery Call</a>
+            <a href="#services" class="btn-secondary">View All Services</a>
         </div>
-    </section>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.5);">No obligation. No sales pressure. Just an honest conversation about what AI can actually do for your organization.</p>
+    </div>
+</section>
 
-    <!-- Use Cases Section -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>Built for Every Stakeholder</h2>
-                <p>Beacon Labs serves the entire ecosystem with tools designed for transparency, efficiency, and equitable outcomes.</p>
-            </div>
-            <div class="use-cases">
-                <div class="use-case fade-in-up">
-                    <div class="use-case-icon">🤝</div>
-                    <h3>For JV Partners</h3>
-                    <ul>
-                        <li>Seamless onboarding with automated contracts</li>
-                        <li>Real-time revenue transparency and tracking</li>
-                        <li>Simplified compliance and reporting tools</li>
-                        <li>Automated payment processing and distribution</li>
-                    </ul>
-                </div>
-                <div class="use-case fade-in-up">
-                    <div class="use-case-icon">👥</div>
-                    <h3>For Community Leaders</h3>
-                    <ul>
-                        <li>Comprehensive analytics and insights</li>
-                        <li>Automated compliance monitoring</li>
-                        <li>Resource allocation optimization</li>
-                        <li>Impact measurement and reporting</li>
-                    </ul>
-                </div>
-                <div class="use-case fade-in-up">
-                    <div class="use-case-icon">🎯</div>
-                    <h3>For Members</h3>
-                    <ul>
-                        <li>Automated payment processing</li>
-                        <li>Progress tracking and milestones</li>
-                        <li>Community engagement tools</li>
-                        <li>Transparent feedback systems</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Development Roadmap</h2>
-                <p>Building the future of equitable community infrastructure through iterative development and community feedback.</p>
-            </div>
-            <div class="roadmap">
-                <div class="roadmap-item live fade-in-up">
-                    <span class="roadmap-status status-live">Live Now</span>
-                    <h3>Foundation Platform</h3>
-                    <p>Basic revenue-sharing automation, core impact tracking dashboard, and partner onboarding system are operational and serving our initial community partners.</p>
-                </div>
-                <div class="roadmap-item development fade-in-up">
-                    <span class="roadmap-status status-development">In Development</span>
-                    <h3>Advanced Integration</h3>
-                    <p>Enhanced API integrations, mobile dashboard applications, and advanced governance tools with voting systems are currently in active development.</p>
-                </div>
-                <div class="roadmap-item coming-soon fade-in-up">
-                    <span class="roadmap-status status-coming">Coming Soon</span>
-                    <h3>AI-Powered Insights</h3>
-                    <p>AI-powered impact prediction, cross-platform integration with Beacon Rise, and advanced compliance automation will launch in the coming months.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="demo">
-        <div class="container">
-            <h2>Ready to Build Equitable Communities?</h2>
-            <p>Join us in creating transparent, fair, and impactful joint ventures that transform communities.</p>
-            
-            <div class="demo-form" id="beta">
-                <h3 style="margin-bottom: 1.5rem; color: #0F172A;">Request Demo or Join Beta</h3>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required style="color: #020617 !important;">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required style="color: #020617 !important;">
-                    </div>
-                    <div class="form-group">
-                        <label for="organization">Organization</label>
-                        <input type="text" id="organization" name="organization" style="color: #020617 !important;">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">Interest</label>
-                        <select id="interest" name="interest" style="width: 100%; padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 8px;">
-                            <option value="demo">Request a Demo</option>
-                            <option value="beta">Join the Beta</option>
-                            <option value="partnership">Partnership Inquiry</option>
-                            <option value="general">General Information</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your community or organization and how Beacon Labs might help..." style="color: #020617 !important;"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Request →</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer">
+<footer class="site-footer">
     <div class="footer-container">
         <div class="footer-grid">
-            <!-- Column 1: About Beacon -->
             <div class="footer-column">
                 <h3>Beacon Momentum</h3>
-                <p class="footer-description">
-                    A lighthouse for people rebuilding their lives and creating opportunity where none was given. Military discipline meets entrepreneurial grit.
-                </p>
+                <p class="footer-description">Three pathways. One mission. Real transformation through peer-driven systems, transparent opportunities, and merit-based advancement.</p>
                 <div class="footer-social">
-                    <a href="https://x.com/BeaconMomentum" class="footer-social-link" aria-label="Twitter">𝕏</a>
+                    <a href="https://x.com/BeaconMomentum" class="footer-social-link" aria-label="X">&#120143;</a>
                     <a href="https://www.facebook.com/BeaconMomentum" class="footer-social-link" aria-label="Facebook">f</a>
                     <a href="https://linkedin.com/company/beaconmomentum" class="footer-social-link" aria-label="LinkedIn">in</a>
-                    <a href="https://youtube.com/@beaconmomentum" class="footer-social-link" aria-label="YouTube">▶</a>
                 </div>
             </div>
-
-            <!-- Column 2: Product Pathways -->
             <div class="footer-column">
                 <h3>Pathways</h3>
                 <ul class="footer-links">
@@ -945,142 +374,31 @@
                     <li><a href="/founding-member.html">Founding Member</a></li>
                 </ul>
             </div>
-
-            <!-- Column 3: Resources -->
             <div class="footer-column">
-                <h3>Resources</h3>
+                <h3>Beacon Labs</h3>
                 <ul class="footer-links">
-                    <li><a href="/blog/">Blog & Articles</a></li>
-                    <li><a href="/community.html">Community Forum</a></li>
-                    <li><a href="/resources.html">Free Resources</a></li>
-                    <li><a href="/blog/">Success Stories</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="/labs.html#services">Our Services</a></li>
+                    <li><a href="/labs.html#stack">The Technology Stack</a></li>
+                    <li><a href="/labs.html#partner-program">VSO Partner Program</a></li>
+                    <li><a href="/contact.html?ref=labs">Request a Call</a></li>
                 </ul>
             </div>
-
-            <!-- Column 4: Contact & Support -->
             <div class="footer-column">
-                <h3>Support</h3>
+                <h3>Company</h3>
                 <ul class="footer-links">
-                    <li><a href="/contact.html">Contact Us</a></li>
-                    <li><a href="mailto:support@beaconmomentum.com">support@beaconmomentum.com</a></li>
-                    <li><a href="tel:+14132580254">(413) 258-0254</a></li>
-                    <li>PO Box 244<br>Cheshire, MA 01225</li>
-                    <li><a href="/contact.html">Help Center</a></li>
-                    <li><a href="/contact.html">Partner With Us</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/story.html">Bob's Story</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
-
-        <!-- Master Disclaimer -->
-        <div style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid rgba(245, 158, 11, 0.3); background-color: rgba(245, 158, 11, 0.1); border-radius: 0.5rem;">
-            <h3 style="margin-bottom: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #f59e0b;">EDUCATIONAL PLATFORM DISCLAIMER</h3>
-            <div style="font-size: 0.75rem; line-height: 1.5; color: #9ca3af;">
-                <p style="margin-bottom: 0.5rem;">
-                    Beacon Momentum is an educational platform providing peer support, skill-building resources, and community connection. We do not provide medical advice, mental health treatment, therapy, counseling, financial advice, or investment recommendations.
-                </p>
-                <p style="margin-bottom: 0.5rem;">
-                    The content, courses, and community support available through this platform are for educational and informational purposes only and are not a substitute for professional medical care, licensed therapy, or financial advisory services.
-                </p>
-                <p style="margin-bottom: 0.5rem;">
-                    If you are experiencing a medical emergency, mental health crisis, or suicidal thoughts, please contact emergency services (911) or a crisis hotline immediately. For ongoing health concerns, consult qualified healthcare professionals.
-                </p>
-                <p>
-                    Results vary by individual. We make no guarantees, warranties, or promises regarding specific outcomes from using this platform.
-                </p>
-            </div>
-        </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2025 Beacon Momentum. All rights reserved.</p>
-                <p style="margin-top: 0.5rem;">
-                    <a href="/terms-of-service.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a> |
-                    <a href="/privacy-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
-                    <a href="/refund-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Refund Policy</a> |
-                    <a href="/accessibility.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Accessibility</a> |
-                    <a href="/cookie-policy.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Cookie Policy</a> |
-                    <a href="/disclaimer.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">Disclaimer</a> |
-                    <a href="/gdpr-ccpa.html" style="color: white; text-decoration: none; margin: 0 0.5rem;">GDPR/CCPA</a>
-                </p>
-
-            <p class="phoenix-attribution">
-                Built by <a href="/labs.html" style="color: #F59E0B;">Beacon Labs</a>
-            </p>
+            <p>&copy; 2026 Beacon Momentum, LLC. All rights reserved. &bull; Wyoming LLC &bull; The Lighthouse is Lit.</p>
         </div>
     </div>
 </footer>
 
-
-
-    <script>
-        // Simple form handling
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Track conversion
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_submission', {
-                    'event_category': 'Beacon Labs',
-                    'event_label': 'Labs Inquiry Form'
-                });
-            }
-
-            // Meta Pixel Lead event
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead', {
-                    content_name: 'Beacon Labs Inquiry',
-                    content_category: 'Beacon Labs',
-                });
-            }
-            
-            // Show brief success message then redirect
-            alert('Thank you for your interest! Redirecting...');
-            
-            // Redirect to thank you page
-            setTimeout(function() {
-                window.location.href = 'thank-you-beacon-labs.html';
-            }, 500);
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
-
