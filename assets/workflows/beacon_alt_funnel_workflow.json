@@ -1,0 +1,209 @@
+{
+  "id": "beacon-alt-funnel-001",
+  "name": "Beacon: ALT Funnel — Next Right Step Audit",
+  "active": true,
+  "nodes": [
+    {
+      "id": "webhook-alt-001",
+      "name": "Receive Audit Submission",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "beacon-alt-audit",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "beacon-next-right-step-audit",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "code-alt-001",
+      "name": "Parse & Validate Submission",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "parameters": {
+        "jsCode": "const raw = $input.first().json;\nconst body = raw.body || raw;\n\nconst firstName = (body.firstName || body.first_name || '').trim();\nconst lastName = (body.lastName || body.last_name || '').trim();\nconst email = (body.email || '').trim().toLowerCase();\nconst phone = (body.phone || '').trim();\n\n// Diagnostic answers\nconst q1_situation = body.q1_situation || ''; // primary challenge\nconst q2_timeline = body.q2_timeline || ''; // how long in current situation\nconst q3_tried = body.q3_tried || ''; // what they've tried\nconst q4_goal = body.q4_goal || ''; // what success looks like in 90 days\nconst q5_commitment = body.q5_commitment || ''; // readiness level 1-5\nconst q6_pathway = body.q6_pathway || ''; // which resonates: Rise, Launch, or Academy\n\n// Validation\nif (!firstName || !email) {\n  return [{ json: { valid: false, error: 'Name and email are required.' } }];\n}\n\nconst emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\nif (!emailRegex.test(email)) {\n  return [{ json: { valid: false, error: 'Please provide a valid email address.' } }];\n}\n\n// Pathway scoring logic\nlet recommendedPathway = 'Rise & Reclaim';\nlet pathwayTag = 'pathway-rise';\nlet pathwayUrl = 'https://beaconmomentum.com/rise';\nlet pathwayMessage = 'Your answers point to a foundation-first approach. The Rise & Reclaim pathway is designed for exactly where you are — building clarity, stability, and momentum before anything else.';\n\nif (q6_pathway === 'Launch' || q1_situation.toLowerCase().includes('business') || q1_situation.toLowerCase().includes('income') || q1_situation.toLowerCase().includes('solopreneur')) {\n  recommendedPathway = 'Solopreneur Launchpad';\n  pathwayTag = 'pathway-launch';\n  pathwayUrl = 'https://beaconmomentum.com/launch';\n  pathwayMessage = 'Your answers show you are ready to build. The Solopreneur Launchpad pathway gives you the tools, community, and accountability to launch and grow your own income stream — on your terms.';\n} else if (q6_pathway === 'Academy' || q1_situation.toLowerCase().includes('financial') || q1_situation.toLowerCase().includes('wealth') || q1_situation.toLowerCase().includes('invest')) {\n  recommendedPathway = 'Beacon Academy';\n  pathwayTag = 'pathway-academy';\n  pathwayUrl = 'https://beaconmomentum.com/academy';\n  pathwayMessage = 'Your answers show a readiness to build long-term wealth. The Beacon Academy pathway covers ethical wealth building, financial literacy, and the tools to create lasting financial independence.';\n}\n\n// Commitment scoring\nconst commitmentScore = parseInt(q5_commitment) || 3;\nlet urgencyTag = 'commitment-medium';\nif (commitmentScore >= 4) urgencyTag = 'commitment-high';\nif (commitmentScore <= 2) urgencyTag = 'commitment-low';\n\nconst timestamp = new Date().toLocaleString('en-US', {\n  timeZone: 'America/New_York',\n  dateStyle: 'medium',\n  timeStyle: 'short'\n});\n\nreturn [{\n  json: {\n    valid: true,\n    firstName,\n    lastName,\n    fullName: `${firstName} ${lastName}`.trim(),\n    email,\n    phone,\n    q1_situation,\n    q2_timeline,\n    q3_tried,\n    q4_goal,\n    q5_commitment: commitmentScore,\n    q6_pathway,\n    recommendedPathway,\n    pathwayTag,\n    pathwayUrl,\n    pathwayMessage,\n    urgencyTag,\n    timestamp\n  }\n}];"
+      }
+    },
+    {
+      "id": "if-alt-001",
+      "name": "Valid Submission?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond-valid",
+              "leftValue": "={{ $json.valid }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "equal" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "http-ghl-contact",
+      "name": "GHL: Create or Update Contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 200],
+      "parameters": {
+        "method": "POST",
+        "url": "https://rest.gohighlevel.com/v1/contacts/upsert/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headers": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "body": {
+          "mode": "json",
+          "jsonBody": "={\n  \"firstName\": \"{{ $json.firstName }}\",\n  \"lastName\": \"{{ $json.lastName }}\",\n  \"email\": \"{{ $json.email }}\",\n  \"phone\": \"{{ $json.phone }}\",\n  \"source\": \"Next Right Step Audit\",\n  \"tags\": [\"alt-funnel-audit\", \"{{ $json.pathwayTag }}\", \"{{ $json.urgencyTag }}\"],\n  \"customField\": {\n    \"recommended_pathway\": \"{{ $json.recommendedPathway }}\",\n    \"audit_situation\": \"{{ $json.q1_situation }}\",\n    \"audit_goal\": \"{{ $json.q4_goal }}\",\n    \"audit_commitment\": \"{{ $json.q5_commitment }}\",\n    \"audit_date\": \"{{ $json.timestamp }}\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "id": "http-ghl-workflow",
+      "name": "GHL: Trigger Pathway Workflow",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 200],
+      "parameters": {
+        "method": "POST",
+        "url": "https://rest.gohighlevel.com/v1/contacts/{{ $('GHL: Create or Update Contact').item.json.contact.id }}/workflow/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headers": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "body": {
+          "mode": "json",
+          "jsonBody": "={\n  \"workflowId\": \"beacon-alt-funnel-{{ $('Parse & Validate Submission').item.json.pathwayTag }}\"\n}"
+        }
+      }
+    },
+    {
+      "id": "code-alt-email",
+      "name": "Build Personalized Result Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 380],
+      "parameters": {
+        "jsCode": "const d = $('Parse & Validate Submission').item.json;\n\nconst subject = `${d.firstName}, here is your Next Right Step`;\n\nconst htmlBody = `\n<!DOCTYPE html>\n<html>\n<head><meta charset=\"UTF-8\"><style>\n  body { font-family: Georgia, serif; background: #0d1117; color: #e8e0d0; margin: 0; padding: 0; }\n  .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }\n  .header { border-bottom: 2px solid #c9a84c; padding-bottom: 20px; margin-bottom: 30px; }\n  .logo { font-size: 22px; font-weight: bold; color: #c9a84c; letter-spacing: 2px; }\n  .tagline { font-size: 12px; color: #8a9bb0; margin-top: 4px; }\n  h1 { color: #c9a84c; font-size: 24px; margin-bottom: 8px; }\n  .pathway-box { background: #1a2332; border-left: 4px solid #c9a84c; padding: 20px; margin: 24px 0; border-radius: 4px; }\n  .pathway-name { font-size: 20px; font-weight: bold; color: #c9a84c; margin-bottom: 8px; }\n  .pathway-desc { font-size: 15px; line-height: 1.7; color: #c8d8e8; }\n  .cta-button { display: inline-block; background: #c9a84c; color: #0d1117; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 16px; margin: 24px 0; }\n  .footer { border-top: 1px solid #2a3a4a; padding-top: 20px; margin-top: 40px; font-size: 12px; color: #5a6a7a; }\n  .watch { font-style: italic; color: #c9a84c; font-size: 14px; margin-top: 16px; }\n</style></head>\n<body>\n<div class=\"container\">\n  <div class=\"header\">\n    <div class=\"logo\">BEACON MOMENTUM</div>\n    <div class=\"tagline\">The Lighthouse is Lit</div>\n  </div>\n  \n  <h1>${d.firstName}, your Next Right Step is clear.</h1>\n  \n  <p>Thank you for taking the time to complete the audit. What you shared matters, and it tells a clear story about where you are and where you are headed.</p>\n  \n  <div class=\"pathway-box\">\n    <div class=\"pathway-name\">Your Recommended Pathway: ${d.recommendedPathway}</div>\n    <div class=\"pathway-desc\">${d.pathwayMessage}</div>\n  </div>\n  \n  <p>The $297 Beacon Momentum membership gives you full access to the ${d.recommendedPathway} pathway — including the community, the curriculum, the tools, and the accountability structure that makes the difference between knowing what to do and actually doing it.</p>\n  \n  <p>There is no pressure here. But if you are ready to take the next right step, the door is open.</p>\n  \n  <a href=\"${d.pathwayUrl}\" class=\"cta-button\">Begin the ${d.recommendedPathway} Pathway</a>\n  \n  <p style=\"font-size: 14px; color: #8a9bb0;\">If you have questions before joining, simply reply to this email. A real person reads every response.</p>\n  \n  <div class=\"watch\">The lighthouse is lit. The Watch continues. — Beacon Momentum</div>\n  \n  <div class=\"footer\">\n    <p>You received this because you completed the Next Right Step Audit at beaconmomentum.com.</p>\n    <p>Beacon Momentum, LLC | Wyoming, USA | <a href=\"https://beaconmomentum.com/unsubscribe\" style=\"color: #5a6a7a;\">Unsubscribe</a></p>\n  </div>\n</div>\n</body>\n</html>\n`;\n\nreturn [{ json: { subject, htmlBody, toEmail: d.email, toName: d.fullName } }];"
+      }
+    },
+    {
+      "id": "http-send-email",
+      "name": "Send Personalized Result Email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 380],
+      "parameters": {
+        "method": "POST",
+        "url": "https://rest.gohighlevel.com/v1/conversations/messages/outbound",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headers": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "body": {
+          "mode": "json",
+          "jsonBody": "={\n  \"type\": \"Email\",\n  \"contactId\": \"{{ $('GHL: Create or Update Contact').item.json.contact.id }}\",\n  \"subject\": \"{{ $json.subject }}\",\n  \"html\": \"{{ $json.htmlBody }}\",\n  \"from\": \"robert@beaconmomentum.com\",\n  \"fromName\": \"Robert at Beacon Momentum\"\n}"
+        }
+      }
+    },
+    {
+      "id": "slack-alt-001",
+      "name": "Slack: Notify Beacon Ops",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1340, 200],
+      "credentials": {
+        "slackApi": {
+          "id": "MZOtqPINLkzoIT7f",
+          "name": "Slack account"
+        }
+      },
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#beacon-ops",
+          "mode": "name"
+        },
+        "text": "=*New ALT Funnel Lead*\n*Name:* {{ $('Parse & Validate Submission').item.json.fullName }}\n*Email:* {{ $('Parse & Validate Submission').item.json.email }}\n*Recommended Pathway:* {{ $('Parse & Validate Submission').item.json.recommendedPathway }}\n*Commitment Score:* {{ $('Parse & Validate Submission').item.json.q5_commitment }}/5\n*Urgency:* {{ $('Parse & Validate Submission').item.json.urgencyTag }}\n*Situation:* {{ $('Parse & Validate Submission').item.json.q1_situation }}\n*Goal:* {{ $('Parse & Validate Submission').item.json.q4_goal }}\n*Time:* {{ $('Parse & Validate Submission').item.json.timestamp }}",
+        "otherOptions": {}
+      }
+    },
+    {
+      "id": "respond-success",
+      "name": "Return Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1560, 300],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"pathway\": \"{{ $('Parse & Validate Submission').item.json.recommendedPathway }}\", \"message\": \"{{ $('Parse & Validate Submission').item.json.pathwayMessage }}\", \"pathwayUrl\": \"{{ $('Parse & Validate Submission').item.json.pathwayUrl }}\" }",
+        "options": { "responseCode": 200 }
+      }
+    },
+    {
+      "id": "respond-error",
+      "name": "Return Validation Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [900, 420],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": false, \"error\": \"{{ $('Parse & Validate Submission').item.json.error }}\" }",
+        "options": { "responseCode": 400 }
+      }
+    }
+  ],
+  "connections": {
+    "Receive Audit Submission": {
+      "main": [[{ "node": "Parse & Validate Submission", "type": "main", "index": 0 }]]
+    },
+    "Parse & Validate Submission": {
+      "main": [[{ "node": "Valid Submission?", "type": "main", "index": 0 }]]
+    },
+    "Valid Submission?": {
+      "main": [
+        [{ "node": "GHL: Create or Update Contact", "type": "main", "index": 0 }],
+        [{ "node": "Return Validation Error", "type": "main", "index": 0 }]
+      ]
+    },
+    "GHL: Create or Update Contact": {
+      "main": [[
+        { "node": "GHL: Trigger Pathway Workflow", "type": "main", "index": 0 },
+        { "node": "Build Personalized Result Email", "type": "main", "index": 0 },
+        { "node": "Slack: Notify Beacon Ops", "type": "main", "index": 0 }
+      ]]
+    },
+    "Build Personalized Result Email": {
+      "main": [[{ "node": "Send Personalized Result Email", "type": "main", "index": 0 }]]
+    },
+    "Send Personalized Result Email": {
+      "main": [[{ "node": "Return Success Response", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "tags": ["beacon-momentum", "alt-funnel", "lead-generation"]
+}

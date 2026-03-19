@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Next Right Step Audit | Beacon Momentum</title>
+  <meta name="description" content="Answer 6 questions and discover your recommended pathway inside Beacon Momentum. Takes 3 minutes. Completely free.">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .audit-hero {
+      background: linear-gradient(135deg, #0d1117 0%, #1a2332 100%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      border-bottom: 1px solid #2a3a4a;
+    }
+    .audit-hero .eyebrow {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #c9a84c;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .audit-hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      color: #e8e0d0;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .audit-hero h1 span { color: #c9a84c; }
+    .audit-hero p {
+      font-size: 18px;
+      color: #8a9bb0;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .audit-meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #5a7a8a;
+    }
+    .audit-meta span::before { content: "— "; color: #c9a84c; }
+
+    .audit-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 20px 80px;
+    }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      background: #1a2332;
+      border-radius: 4px;
+      height: 4px;
+      margin-bottom: 40px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #c9a84c;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* Step cards */
+    .audit-step {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .audit-step.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .step-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #c9a84c;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .step-question {
+      font-size: clamp(20px, 3.5vw, 26px);
+      color: #e8e0d0;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .step-sub {
+      font-size: 14px;
+      color: #5a7a8a;
+      margin-bottom: 28px;
+    }
+
+    /* Input styles */
+    .audit-input, .audit-textarea, .audit-select {
+      width: 100%;
+      background: #1a2332;
+      border: 1px solid #2a3a4a;
+      border-radius: 6px;
+      color: #e8e0d0;
+      font-size: 16px;
+      padding: 14px 16px;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+      font-family: inherit;
+    }
+    .audit-input:focus, .audit-textarea:focus, .audit-select:focus {
+      outline: none;
+      border-color: #c9a84c;
+    }
+    .audit-textarea { min-height: 100px; resize: vertical; }
+    .audit-select { appearance: none; cursor: pointer; }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 480px) { .input-row { grid-template-columns: 1fr; } }
+
+    /* Option buttons */
+    .option-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 480px) { .option-grid { grid-template-columns: 1fr; } }
+
+    .option-btn {
+      background: #1a2332;
+      border: 1px solid #2a3a4a;
+      border-radius: 6px;
+      color: #c8d8e8;
+      font-size: 15px;
+      padding: 16px 20px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      font-family: inherit;
+      line-height: 1.4;
+    }
+    .option-btn:hover { border-color: #c9a84c; color: #e8e0d0; }
+    .option-btn.selected { border-color: #c9a84c; background: #1f2d1a; color: #c9a84c; }
+
+    /* Commitment slider */
+    .commitment-slider {
+      width: 100%;
+      accent-color: #c9a84c;
+      margin: 16px 0 8px;
+      cursor: pointer;
+    }
+    .commitment-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #5a7a8a;
+    }
+    .commitment-display {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #c9a84c;
+      margin: 8px 0;
+    }
+
+    /* Navigation */
+    .audit-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      gap: 16px;
+    }
+    .btn-back {
+      background: transparent;
+      border: 1px solid #2a3a4a;
+      color: #5a7a8a;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { border-color: #8a9bb0; color: #8a9bb0; }
+    .btn-next {
+      background: #c9a84c;
+      border: none;
+      color: #0d1117;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      flex: 1;
+      max-width: 280px;
+    }
+    .btn-next:hover { background: #e0c060; }
+    .btn-next:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* Result panel */
+    #result-panel {
+      display: none;
+      text-align: center;
+      padding: 40px 0;
+    }
+    .result-icon { font-size: 48px; margin-bottom: 16px; }
+    .result-pathway {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: #c9a84c;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .result-title {
+      font-size: clamp(24px, 4vw, 36px);
+      color: #e8e0d0;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .result-message {
+      font-size: 17px;
+      color: #8a9bb0;
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+    .result-cta {
+      display: inline-block;
+      background: #c9a84c;
+      color: #0d1117;
+      padding: 16px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      transition: background 0.2s;
+    }
+    .result-cta:hover { background: #e0c060; }
+    .result-note {
+      font-size: 13px;
+      color: #3a5a6a;
+      margin-top: 16px;
+    }
+    .watch-line {
+      font-style: italic;
+      color: #c9a84c;
+      font-size: 14px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #2a3a4a;
+    }
+
+    /* Error state */
+    .field-error { border-color: #c94c4c !important; }
+    .error-msg { color: #c94c4c; font-size: 13px; margin-top: 6px; display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV (matches site template) -->
+  <nav class="dg-nav" id="mainNav">
+    <div class="dg-nav-inner">
+      <a href="/" class="dg-logo">
+        <img src="assets/images/beacon-logo.png" alt="Beacon Momentum" style="height:40px;">
+      </a>
+      <div class="dg-nav-links">
+        <a href="/pathways.html">Pathways</a>
+        <a href="/community.html">Community</a>
+        <a href="https://beaconlabs.ai">Beacon Labs</a>
+        <a href="/join.html" class="dg-nav-cta">Join Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="audit-hero">
+    <div class="eyebrow">3-Minute Assessment</div>
+    <h1>Find Your <span>Next Right Step</span></h1>
+    <p>Answer 6 honest questions. We will identify the exact Beacon Momentum pathway built for where you are right now — and send your personalized results immediately.</p>
+    <div class="audit-meta">
+      <span>No obligation</span>
+      <span>No spam</span>
+      <span>Immediate results</span>
+    </div>
+  </section>
+
+  <!-- AUDIT FORM -->
+  <div class="audit-container">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+
+    <form id="auditForm" novalidate>
+
+      <!-- Step 0: Name & Email -->
+      <div class="audit-step active" data-step="0">
+        <div class="step-label">Step 1 of 6</div>
+        <div class="step-question">Let's start with the basics.</div>
+        <div class="step-sub">Your results will be sent to this email address.</div>
+        <div class="input-row">
+          <input type="text" class="audit-input" id="firstName" placeholder="First Name" required>
+          <input type="text" class="audit-input" id="lastName" placeholder="Last Name">
+        </div>
+        <input type="email" class="audit-input" id="email" placeholder="Email Address" required style="margin-bottom:12px;">
+        <div class="error-msg" id="step0-error">Please enter your first name and a valid email address.</div>
+        <input type="tel" class="audit-input" id="phone" placeholder="Phone (optional)" style="margin-top:12px;">
+      </div>
+
+      <!-- Step 1: Primary challenge -->
+      <div class="audit-step" data-step="1">
+        <div class="step-label">Step 2 of 6</div>
+        <div class="step-question">What is the primary challenge you are facing right now?</div>
+        <div class="step-sub">Choose the one that resonates most.</div>
+        <div class="option-grid">
+          <button type="button" class="option-btn" data-field="q1_situation" data-value="I am rebuilding after a major life transition">Rebuilding after a major life transition</button>
+          <button type="button" class="option-btn" data-field="q1_situation" data-value="I need to create my own income stream">Creating my own income stream</button>
+          <button type="button" class="option-btn" data-field="q1_situation" data-value="I am struggling with financial stability and planning">Financial stability and planning</button>
+          <button type="button" class="option-btn" data-field="q1_situation" data-value="I feel stuck and lack clarity on my direction">Feeling stuck, lacking direction</button>
+          <button type="button" class="option-btn" data-field="q1_situation" data-value="I am a veteran transitioning to civilian life">Veteran transitioning to civilian life</button>
+          <button type="button" class="option-btn" data-field="q1_situation" data-value="I want to build something meaningful and lasting">Building something meaningful and lasting</button>
+        </div>
+        <div class="error-msg" id="step1-error">Please select an option to continue.</div>
+      </div>
+
+      <!-- Step 2: Timeline -->
+      <div class="audit-step" data-step="2">
+        <div class="step-label">Step 3 of 6</div>
+        <div class="step-question">How long have you been in this situation?</div>
+        <div class="step-sub">Honesty here helps us give you the most accurate recommendation.</div>
+        <div class="option-grid">
+          <button type="button" class="option-btn" data-field="q2_timeline" data-value="Less than 3 months">Less than 3 months</button>
+          <button type="button" class="option-btn" data-field="q2_timeline" data-value="3 to 12 months">3 to 12 months</button>
+          <button type="button" class="option-btn" data-field="q2_timeline" data-value="1 to 3 years">1 to 3 years</button>
+          <button type="button" class="option-btn" data-field="q2_timeline" data-value="More than 3 years">More than 3 years</button>
+        </div>
+        <div class="error-msg" id="step2-error">Please select an option to continue.</div>
+      </div>
+
+      <!-- Step 3: What they've tried -->
+      <div class="audit-step" data-step="3">
+        <div class="step-label">Step 4 of 6</div>
+        <div class="step-question">What have you already tried?</div>
+        <div class="step-sub">This helps us avoid recommending something you have already been through.</div>
+        <textarea class="audit-textarea" id="q3_tried" placeholder="For example: online courses, therapy, other programs, self-help books, starting a business on my own..."></textarea>
+      </div>
+
+      <!-- Step 4: Goal -->
+      <div class="audit-step" data-step="4">
+        <div class="step-label">Step 5 of 6</div>
+        <div class="step-question">What does success look like for you 90 days from now?</div>
+        <div class="step-sub">Be specific. The clearer you are, the more useful your results will be.</div>
+        <textarea class="audit-textarea" id="q4_goal" placeholder="For example: I have a consistent income of $3,000/month from my own business, I feel grounded and clear about my direction, I have a financial plan I actually understand..."></textarea>
+        <div class="error-msg" id="step4-error">Please share your 90-day goal to continue.</div>
+      </div>
+
+      <!-- Step 5: Commitment + Pathway -->
+      <div class="audit-step" data-step="5">
+        <div class="step-label">Step 6 of 6</div>
+        <div class="step-question">Two final questions.</div>
+        <div class="step-sub">Your honest answers give us the most accurate picture.</div>
+
+        <p style="color:#c8d8e8; font-size:15px; margin-bottom:8px;">On a scale of 1 to 5, how ready are you to make a real change right now?</p>
+        <div class="commitment-display" id="commitmentDisplay">3</div>
+        <input type="range" class="commitment-slider" id="q5_commitment" min="1" max="5" value="3"
+          oninput="document.getElementById('commitmentDisplay').textContent = this.value">
+        <div class="commitment-labels"><span>Just exploring</span><span>Fully committed</span></div>
+
+        <p style="color:#c8d8e8; font-size:15px; margin: 28px 0 12px;">Which of these resonates most with where you want to go?</p>
+        <div class="option-grid">
+          <button type="button" class="option-btn" data-field="q6_pathway" data-value="Rise">Rise & Reclaim — Rebuild my foundation and reclaim my direction</button>
+          <button type="button" class="option-btn" data-field="q6_pathway" data-value="Launch">Solopreneur Launchpad — Build my own income and business</button>
+          <button type="button" class="option-btn" data-field="q6_pathway" data-value="Academy">Beacon Academy — Build long-term financial independence</button>
+        </div>
+        <div class="error-msg" id="step5-error">Please select a pathway to continue.</div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="audit-nav" id="auditNav">
+        <button type="button" class="btn-back" id="btnBack" style="display:none;" onclick="navigate(-1)">Back</button>
+        <button type="button" class="btn-next" id="btnNext" onclick="navigate(1)">Continue</button>
+      </div>
+
+    </form>
+
+    <!-- Result Panel -->
+    <div id="result-panel">
+      <div class="result-icon">&#9651;</div>
+      <div class="result-pathway" id="resultPathwayLabel">Your Pathway</div>
+      <div class="result-title" id="resultTitle">Your Next Right Step is Clear</div>
+      <div class="result-message" id="resultMessage"></div>
+      <a href="#" class="result-cta" id="resultCTA">Begin Your Pathway</a>
+      <div class="result-note">Your personalized results have been sent to your email.</div>
+      <div class="watch-line">The lighthouse is lit. The Watch continues. — Beacon Momentum</div>
+    </div>
+
+  </div>
+
+  <script>
+    const N8N_WEBHOOK = 'https://n8n.beaconmomentum.com/webhook/beacon-next-right-step-audit';
+    const TOTAL_STEPS = 6;
+    let currentStep = 0;
+    const formData = {};
+
+    function updateProgress() {
+      const pct = (currentStep / TOTAL_STEPS) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+    }
+
+    function showStep(step) {
+      document.querySelectorAll('.audit-step').forEach(el => el.classList.remove('active'));
+      const target = document.querySelector(`[data-step="${step}"]`);
+      if (target) target.classList.add('active');
+      document.getElementById('btnBack').style.display = step > 0 ? 'inline-block' : 'none';
+      const btnNext = document.getElementById('btnNext');
+      btnNext.textContent = step === TOTAL_STEPS - 1 ? 'Get My Results' : 'Continue';
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validate(step) {
+      if (step === 0) {
+        const fn = document.getElementById('firstName').value.trim();
+        const em = document.getElementById('email').value.trim();
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+        if (!fn || !emailOk) {
+          document.getElementById('step0-error').style.display = 'block';
+          return false;
+        }
+        document.getElementById('step0-error').style.display = 'none';
+        formData.firstName = fn;
+        formData.lastName = document.getElementById('lastName').value.trim();
+        formData.email = em;
+        formData.phone = document.getElementById('phone').value.trim();
+        return true;
+      }
+      if (step === 1) {
+        if (!formData.q1_situation) { document.getElementById('step1-error').style.display = 'block'; return false; }
+        document.getElementById('step1-error').style.display = 'none'; return true;
+      }
+      if (step === 2) {
+        if (!formData.q2_timeline) { document.getElementById('step2-error').style.display = 'block'; return false; }
+        document.getElementById('step2-error').style.display = 'none'; return true;
+      }
+      if (step === 3) {
+        formData.q3_tried = document.getElementById('q3_tried').value.trim();
+        return true;
+      }
+      if (step === 4) {
+        const goal = document.getElementById('q4_goal').value.trim();
+        if (!goal) { document.getElementById('step4-error').style.display = 'block'; return false; }
+        document.getElementById('step4-error').style.display = 'none';
+        formData.q4_goal = goal; return true;
+      }
+      if (step === 5) {
+        formData.q5_commitment = document.getElementById('q5_commitment').value;
+        if (!formData.q6_pathway) { document.getElementById('step5-error').style.display = 'block'; return false; }
+        document.getElementById('step5-error').style.display = 'none'; return true;
+      }
+      return true;
+    }
+
+    function navigate(dir) {
+      if (dir === 1 && !validate(currentStep)) return;
+      if (dir === 1 && currentStep === TOTAL_STEPS - 1) { submitAudit(); return; }
+      currentStep = Math.max(0, Math.min(TOTAL_STEPS - 1, currentStep + dir));
+      showStep(currentStep);
+    }
+
+    // Option button selection
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const field = this.dataset.field;
+        document.querySelectorAll(`[data-field="${field}"]`).forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+        formData[field] = this.dataset.value;
+        // Auto-advance for single-choice steps
+        if (['q1_situation','q2_timeline'].includes(field)) {
+          setTimeout(() => navigate(1), 300);
+        }
+      });
+    });
+
+    async function submitAudit() {
+      const btnNext = document.getElementById('btnNext');
+      btnNext.disabled = true;
+      btnNext.textContent = 'Analyzing your answers...';
+
+      try {
+        const response = await fetch(N8N_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          showResults(result);
+        } else {
+          btnNext.disabled = false;
+          btnNext.textContent = 'Get My Results';
+          alert('Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        // Fallback: show result based on local scoring
+        const pathway = formData.q6_pathway || 'Rise';
+        const pathwayMap = {
+          'Rise': { name: 'Rise & Reclaim', url: 'https://beaconmomentum.com/rise', msg: 'Your answers point to a foundation-first approach. The Rise & Reclaim pathway is designed for exactly where you are — building clarity, stability, and momentum before anything else.' },
+          'Launch': { name: 'Solopreneur Launchpad', url: 'https://beaconmomentum.com/launch', msg: 'Your answers show you are ready to build. The Solopreneur Launchpad gives you the tools, community, and accountability to launch your own income stream — on your terms.' },
+          'Academy': { name: 'Beacon Academy', url: 'https://beaconmomentum.com/academy', msg: 'Your answers show a readiness to build long-term wealth. The Beacon Academy covers ethical wealth building, financial literacy, and the tools to create lasting financial independence.' }
+        };
+        const p = pathwayMap[pathway] || pathwayMap['Rise'];
+        showResults({ success: true, pathway: p.name, message: p.msg, pathwayUrl: p.url });
+      }
+    }
+
+    function showResults(result) {
+      document.getElementById('auditForm').style.display = 'none';
+      document.getElementById('auditNav').style.display = 'none';
+      document.getElementById('progressFill').style.width = '100%';
+
+      document.getElementById('resultPathwayLabel').textContent = 'Your Recommended Pathway';
+      document.getElementById('resultTitle').textContent = result.pathway;
+      document.getElementById('resultMessage').textContent = result.message;
+      document.getElementById('resultCTA').href = result.pathwayUrl;
+      document.getElementById('resultCTA').textContent = `Begin the ${result.pathway} Pathway`;
+
+      document.getElementById('result-panel').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Init
+    updateProgress();
+  </script>
+
+</body>
+</html>
