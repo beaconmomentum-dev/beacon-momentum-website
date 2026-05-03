@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- Beacon Momentum company information page. Design philosophy for this file: secondary legal/contact disclosure that stays calm, restrained, and congruent with the parent lighthouse identity while keeping operational details out of the homepage hero. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Information | Beacon Momentum</title>
+    <meta name="description" content="Legal entity and general contact information for Beacon Momentum, LLC, the parent company behind Beacon Community and Beacon Labs.">
+    <link rel="canonical" href="https://beaconmomentum.com/company-information.html">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,750&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-950: #07111f;
+            --navy-900: #0b1727;
+            --gold-400: #ffd36a;
+            --gold-500: #f5b942;
+            --teal-300: #9be4db;
+            --mist-100: #eff6f5;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background:
+                radial-gradient(circle at 16% 14%, rgba(245, 185, 66, 0.14), transparent 24rem),
+                radial-gradient(circle at 88% 22%, rgba(85, 199, 189, 0.11), transparent 25rem),
+                linear-gradient(180deg, var(--navy-950), var(--navy-900));
+            color: var(--mist-100);
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 1040px;
+            padding: 0 1.4rem;
+        }
+
+        header {
+            border-bottom: 1px solid rgba(255,255,255,0.11);
+            padding: 1.15rem 0;
+        }
+
+        nav {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand, nav a {
+            color: var(--mist-100);
+            text-decoration: none;
+        }
+
+        .brand {
+            align-items: center;
+            display: inline-flex;
+            gap: 0.8rem;
+        }
+
+        .brand img {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,211,106,0.3);
+            border-radius: 999px;
+            height: 46px;
+            padding: 0.32rem;
+            width: 46px;
+        }
+
+        .brand strong {
+            display: block;
+            font-family: "Fraunces", Georgia, serif;
+            font-size: 1.18rem;
+            line-height: 1;
+        }
+
+        .brand span {
+            color: var(--gold-400);
+            display: block;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.67rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .back-link {
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 999px;
+            color: var(--gold-400);
+            font-weight: 700;
+            padding: 0.6rem 0.9rem;
+        }
+
+        main {
+            padding: 5rem 0;
+        }
+
+        .eyebrow {
+            color: var(--teal-300);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1, h2 {
+            color: var(--white);
+            font-family: "Fraunces", Georgia, serif;
+            letter-spacing: -0.035em;
+            line-height: 1;
+        }
+
+        h1 {
+            font-size: clamp(2.7rem, 7vw, 5rem);
+            max-width: 760px;
+        }
+
+        .intro {
+            color: rgba(239,246,245,0.78);
+            font-size: 1.12rem;
+            margin-top: 1.1rem;
+            max-width: 760px;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 28px;
+            box-shadow: 0 22px 70px rgba(0,0,0,0.28);
+            margin-top: 2.6rem;
+            overflow: hidden;
+        }
+
+        .info-row {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 240px 1fr;
+            padding: 1.15rem 1.4rem;
+        }
+
+        .info-row + .info-row {
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-row dt {
+            color: var(--gold-400);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .info-row dd {
+            color: rgba(239,246,245,0.84);
+        }
+
+        .info-row a {
+            color: var(--teal-300);
+        }
+
+        .note {
+            color: rgba(239,246,245,0.68);
+            margin-top: 1.2rem;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(239,246,245,0.68);
+            padding: 1.4rem 0 2rem;
+        }
+
+        @media (max-width: 720px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            main {
+                padding: 3.4rem 0;
+            }
+
+            .info-row {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav aria-label="Company information navigation">
+                <a class="brand" href="/">
+                    <img src="images/beacon-logo-icon.png" alt="" aria-hidden="true">
+                    <span><strong>Beacon Momentum</strong><span>Company Information</span></span>
+                </a>
+                <a class="back-link" href="/">Back to homepage</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="eyebrow">Formal disclosure</div>
+            <h1>Company information for Beacon Momentum, LLC.</h1>
+            <p class="intro">This page keeps operational company details available without making the homepage feel like an administrative dashboard. For general routing, start with the homepage or email the address below.</p>
+
+            <dl class="info-card">
+                <div class="info-row">
+                    <dt>Legal entity</dt>
+                    <dd>Beacon Momentum, LLC</dd>
+                </div>
+                <div class="info-row">
+                    <dt>General contact</dt>
+                    <dd><a href="mailto:info@beaconmomentum.com">info@beaconmomentum.com</a></dd>
+                </div>
+                <div class="info-row">
+                    <dt>Divisions</dt>
+                    <dd><a href="https://beaconcommunity.net">Beacon Community</a> and <a href="https://beaconlabs.ai">Beacon Labs</a></dd>
+                </div>
+                <div class="info-row">
+                    <dt>Primary domain</dt>
+                    <dd><a href="https://beaconmomentum.com">beaconmomentum.com</a></dd>
+                </div>
+                <div class="info-row">
+                    <dt>Operating note</dt>
+                    <dd>Beacon Momentum serves as the parent-company front door and routing layer for people-focused support through Beacon Community and organization-focused systems work through Beacon Labs.</dd>
+                </div>
+            </dl>
+
+            <p class="note">If additional regulatory identifiers, mailing addresses, or vendor-specific records need to be published, they can be added here or linked from this page without changing the homepage positioning.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">&copy; 2026 Beacon Momentum, LLC. All rights reserved.</div>
+    </footer>
+</body>
+</html>
