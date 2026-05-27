@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Command Center — Beacon Momentum</title>
+<style>
+  /* ── Design: Dark ops terminal meets executive war room ── */
+  :root {
+    --bg: #0a0b0d;
+    --surface: #111318;
+    --surface2: #181c24;
+    --border: #1e2430;
+    --accent: #f97316;
+    --accent2: #3b82f6;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #475569;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Top Bar ── */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 56px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-left { display: flex; align-items: center; gap: 12px; }
+  .logo {
+    width: 32px; height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; color: #000;
+  }
+  .topbar h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.05em; }
+  .topbar h1 span { color: var(--accent); }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .topbar-right { display: flex; align-items: center; gap: 16px; }
+  .timestamp { font-family: var(--font-mono); font-size: 12px; color: var(--text3); }
+  .refresh-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Layout ── */
+  .main {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0;
+    height: calc(100vh - 56px);
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    grid-row: 1 / -1;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 20px 0;
+    overflow-y: auto;
+  }
+  .sidebar-section { margin-bottom: 28px; }
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--text3);
+    text-transform: uppercase;
+    padding: 0 20px;
+    margin-bottom: 8px;
+  }
+
+  /* Agent cards in sidebar */
+  .agent-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .agent-card:hover { background: var(--surface2); }
+  .agent-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .agent-dot.idle { background: var(--green); }
+  .agent-dot.working { background: var(--accent); animation: pulse 1s infinite; }
+  .agent-dot.error { background: var(--red); }
+  .agent-dot.offline { background: var(--text3); }
+  .agent-info { flex: 1; min-width: 0; }
+  .agent-name { font-size: 13px; font-weight: 500; }
+  .agent-status { font-size: 11px; color: var(--text3); margin-top: 1px; }
+
+  /* Sprint summary in sidebar */
+  .sprint-card {
+    margin: 0 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .sprint-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .sprint-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .sprint-stat-label { font-size: 11px; color: var(--text3); }
+  .sprint-stat-value { font-size: 12px; font-weight: 600; font-family: var(--font-mono); }
+  .sprint-stat-value.green { color: var(--green); }
+  .sprint-stat-value.orange { color: var(--accent); }
+
+  /* Nav links */
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 20px;
+    font-size: 13px;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+    border-left: 2px solid transparent;
+  }
+  .nav-link:hover { color: var(--text); background: var(--surface2); }
+  .nav-link.active { color: var(--accent); border-left-color: var(--accent); background: rgba(249,115,22,0.05); }
+  .nav-icon { font-size: 15px; width: 20px; text-align: center; }
+
+  /* ── Content Area ── */
+  .content {
+    overflow-y: auto;
+    padding: 24px;
+    background: var(--bg);
+    height: calc(100vh - 56px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  #section-dashboard,
+  #section-tasks,
+  #section-conversations,
+  #section-brands,
+  #section-architecture {
+    flex: 1;
+    overflow-y: auto;
+  }
+  #section-clawbot {
+    flex: 1;
+    display: none;
+    flex-direction: column;
+    min-height: 0;
+  }
+  #section-clawbot.active-section {
+    display: flex;
+  }
+
+  /* ── Metric Cards ── */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .metric-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+  .metric-card.blue::before { background: var(--accent2); }
+  .metric-card.green::before { background: var(--green); }
+  .metric-card.yellow::before { background: var(--yellow); }
+  .metric-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .metric-value { font-size: 28px; font-weight: 700; font-family: var(--font-mono); }
+  .metric-value.orange { color: var(--accent); }
+  .metric-value.blue { color: var(--accent2); }
+  .metric-value.green { color: var(--green); }
+  .metric-value.yellow { color: var(--yellow); }
+  .metric-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+
+
+  /* ── Local Swarm Status ── */
+  .swarm-panel {
+    background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(59,130,246,0.05));
+    border: 1px solid rgba(249,115,22,0.22);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 24px;
+  }
+  .swarm-panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 14px;
+  }
+  .swarm-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 6px;
+  }
+  .swarm-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+  .swarm-copy {
+    color: var(--text2);
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 840px;
+  }
+  .swarm-summary {
+    min-width: 190px;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text3);
+  }
+  .swarm-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 7px;
+  }
+  .swarm-pill.ok { color: var(--green); border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.08); }
+  .swarm-pill.warning, .swarm-pill.degraded { color: var(--yellow); border-color: rgba(234,179,8,0.35); background: rgba(234,179,8,0.08); }
+  .swarm-pill.error { color: var(--red); border-color: rgba(239,68,68,0.35); background: rgba(239,68,68,0.08); }
+  .swarm-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  .swarm-service {
+    background: rgba(17,19,24,0.92);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    min-height: 122px;
+    position: relative;
+  }
+  .swarm-service::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text3);
+    border-radius: 12px 12px 0 0;
+  }
+  .swarm-service.ok::before { background: var(--green); }
+  .swarm-service.loading::before { background: var(--yellow); }
+  .swarm-service.stopped::before { background: var(--text3); }
+  .swarm-service.error::before { background: var(--red); }
+  .swarm-service-name { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
+  .swarm-service-port { font-family: var(--font-mono); font-size: 10px; color: var(--text3); margin-bottom: 8px; }
+  .swarm-service-state { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .swarm-service.ok .swarm-service-state { color: var(--green); }
+  .swarm-service.loading .swarm-service-state { color: var(--yellow); }
+  .swarm-service.stopped .swarm-service-state { color: var(--text3); }
+  .swarm-service.error .swarm-service-state { color: var(--red); }
+  .swarm-service-meta { font-size: 10px; color: var(--text3); line-height: 1.45; }
+  .swarm-guidance {
+    margin-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 12px;
+    color: var(--text2);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* ── Section Headers ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text2);
+  }
+  .section-action {
+    font-size: 12px;
+    color: var(--accent);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+  }
+  .section-action:hover { text-decoration: underline; }
+
+  /* ── Kanban Board ── */
+  .kanban {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kanban-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    min-height: 200px;
+  }
+  .kanban-col-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .kanban-col-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+  }
+  .kanban-count {
+    background: var(--surface2);
+    color: var(--text3);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+  .task-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .task-card:hover { border-color: var(--accent); }
+  .task-title { font-size: 12px; font-weight: 500; margin-bottom: 6px; line-height: 1.4; }
+  .task-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .task-agent {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .task-agent.bosun { background: rgba(59,130,246,0.15); color: var(--accent2); }
+  .task-agent.clawbot { background: rgba(249,115,22,0.15); color: var(--accent); }
+  .task-agent.helm { background: rgba(34,197,94,0.15); color: var(--green); }
+  .task-agent.picket { background: rgba(234,179,8,0.15); color: var(--yellow); }
+  .task-agent.unassigned { background: rgba(148,163,184,0.1); color: var(--text3); }
+  .task-priority {
+    font-size: 10px;
+    color: var(--text3);
+  }
+  .task-priority.high { color: var(--red); }
+  .task-priority.critical { color: var(--red); font-weight: 700; }
+  .empty-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    color: var(--text3);
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  /* ── Architecture Review ── */
+  .arch-gate-wrap { max-width: 420px; margin: 60px auto; }
+  .arch-gate { background: var(--surface); border: 1px solid rgba(139,92,246,0.3); border-radius: 12px; padding: 32px; text-align: center; }
+  .arch-gate-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .arch-gate-sub { color: var(--text2); font-size: 13px; margin-bottom: 24px; }
+  .arch-gate-label { font-size: 10px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+  .arch-gate-input { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 10px 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 14px; outline: none; margin-bottom: 12px; }
+  .arch-gate-input:focus { border-color: #8B5CF6; }
+  .arch-gate-input.error { border-color: var(--red); }
+  .arch-gate-error { color: var(--red); font-size: 12px; margin-bottom: 10px; display: none; }
+  .arch-gate-btn { width: 100%; background: linear-gradient(135deg, rgba(139,92,246,0.8), rgba(139,92,246,0.5)); border: none; color: #fff; padding: 10px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; letter-spacing: 0.04em; }
+  .arch-gate-btn:hover { opacity: 0.9; }
+  .arch-content { display: none; }
+  .arch-content.unlocked { display: block; }
+  .arch-topbar { display: flex; align-items: center; justify-content: space-between; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.2); border-radius: 10px; padding: 12px 16px; margin-bottom: 24px; }
+  .arch-topbar-title { font-weight: 700; font-size: 14px; color: #C9A84C; }
+  .arch-badge { font-size: 10px; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.05em; }
+  .arch-section { margin-bottom: 40px; }
+  .arch-section-badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .arch-section-title { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+  .arch-section-body { color: var(--text2); font-size: 14px; line-height: 1.75; max-width: 720px; margin-bottom: 12px; }
+  .arch-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 24px 0; }
+  .arch-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  .arch-stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .arch-stat-label { font-size: 10px; color: var(--text3); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+  .arch-stat-value { font-size: 24px; font-weight: 700; color: #C9A84C; margin-bottom: 4px; }
+  .arch-stat-sub { font-size: 11px; color: var(--text3); }
+  .arch-org-wrap { background: #0A0A14; border: 1px solid rgba(139,92,246,0.2); border-radius: 12px; padding: 20px; }
+  .arch-org-img { width: 100%; border-radius: 8px; display: block; }
+  .arch-agent-card { background: var(--surface); border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+  .arch-agent-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .arch-agent-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .arch-agent-title { font-weight: 700; font-size: 14px; }
+  .arch-agent-body { color: var(--text); font-size: 13px; line-height: 1.65; }
+  .arch-agent-constraint { color: var(--text2); font-size: 12px; margin-top: 8px; font-style: italic; }
+  .arch-agent-reports { color: var(--text3); font-size: 11px; margin-top: 6px; font-family: var(--font-mono); }
+  .arch-agents-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .arch-infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .arch-infra-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .arch-infra-title { font-weight: 700; margin-bottom: 8px; font-size: 13px; }
+  .arch-infra-body { color: var(--text2); font-size: 12px; line-height: 1.65; }
+  .arch-container-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .arch-container-item { background: var(--bg); border-radius: 6px; padding: 8px 10px; }
+  .arch-container-name { font-family: var(--font-mono); font-size: 10px; font-weight: 500; margin-bottom: 2px; }
+  .arch-container-host { font-family: var(--font-mono); font-size: 10px; color: var(--text3); }
+  .arch-trust-row { display: flex; gap: 10px; }
+  .arch-trust-step { flex: 1; background: var(--surface); border-radius: 8px; padding: 14px 10px; text-align: center; }
+  .arch-trust-num { font-family: var(--font-mono); font-weight: 700; font-size: 18px; margin-bottom: 6px; }
+  .arch-trust-label { font-weight: 600; font-size: 11px; color: var(--text); margin-bottom: 6px; }
+  .arch-trust-desc { font-size: 11px; color: var(--text2); line-height: 1.5; }
+  .arch-phase-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+  .arch-phase-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .arch-phase-title { font-weight: 600; font-size: 14px; color: var(--text); }
+  .arch-phase-list { padding-left: 18px; }
+  .arch-phase-list li { color: var(--text2); font-size: 13px; line-height: 1.7; margin-bottom: 3px; }
+  .arch-commercial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .arch-commercial-card { background: var(--surface); border: 1px solid rgba(201,168,76,0.2); border-radius: 8px; padding: 16px 20px; }
+  .arch-commercial-title { font-weight: 700; font-size: 14px; color: #C9A84C; margin-bottom: 4px; }
+  .arch-commercial-price { font-family: var(--font-mono); font-size: 11px; color: #059669; margin-bottom: 8px; }
+  .arch-commercial-body { color: var(--text2); font-size: 12px; line-height: 1.65; }
+  .arch-footer { border-top: 1px solid var(--border); padding-top: 20px; text-align: center; margin-top: 40px; }
+  .arch-footer p { font-family: var(--font-mono); font-size: 11px; color: var(--text3); }
+
+  /* ── Conversation Feed ── */
+  .feed-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .feed-msg {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .feed-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .feed-avatar.user { background: rgba(59,130,246,0.2); color: var(--accent2); }
+  .feed-avatar.phoenix { background: rgba(249,115,22,0.2); color: var(--accent); }
+  .feed-body { flex: 1; min-width: 0; }
+  .feed-meta { font-size: 10px; color: var(--text3); margin-bottom: 4px; }
+  .feed-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--surface2);
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .feed-text.phoenix-msg {
+    border-left: 2px solid var(--accent);
+  }
+
+  /* ── Clawbot Chat ── */
+  .chat-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+    border-radius: 12px 12px 0 0;
+    flex-shrink: 0;
+  }
+  .chat-header-avatar {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: #000;
+    flex-shrink: 0;
+  }
+  .chat-header-info { flex: 1; }
+  .chat-header-name { font-size: 14px; font-weight: 700; letter-spacing: 0.03em; }
+  .chat-header-sub { font-size: 11px; color: var(--text3); margin-top: 1px; font-family: var(--font-mono); }
+  .chat-status-pill {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.25);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 11px; color: var(--green); font-family: var(--font-mono);
+  }
+  .chat-status-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .chat-msg {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    animation: fadeInUp 0.2s ease;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .chat-msg.user { flex-direction: row-reverse; }
+  .chat-msg-avatar {
+    width: 30px; height: 30px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+  }
+  .chat-msg.phoenix .chat-msg-avatar { background: rgba(249,115,22,0.2); color: var(--accent); }
+  .chat-msg.user .chat-msg-avatar { background: rgba(59,130,246,0.2); color: var(--accent2); }
+  .chat-msg-body { max-width: 75%; }
+  .chat-msg-meta { font-size: 10px; color: var(--text3); margin-bottom: 4px; font-family: var(--font-mono); }
+  .chat-msg.user .chat-msg-meta { text-align: right; }
+  .chat-msg-text {
+    font-size: 13px; line-height: 1.6;
+    padding: 10px 14px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .chat-msg.phoenix .chat-msg-text {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    color: var(--text);
+  }
+  .chat-msg.user .chat-msg-text {
+    background: rgba(59,130,246,0.12);
+    border: 1px solid rgba(59,130,246,0.25);
+    color: var(--text);
+    text-align: left;
+  }
+  .chat-typing {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    width: fit-content;
+    font-size: 12px; color: var(--text3); font-family: var(--font-mono);
+  }
+  .chat-typing.show { display: flex; }
+  .typing-dots span {
+    display: inline-block;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent);
+    margin: 0 1px;
+    animation: typingBounce 1.2s infinite;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+  .chat-input-bar {
+    display: flex;
+    gap: 10px;
+    padding: 14px 18px;
+    border-top: 1px solid var(--border);
+    background: var(--surface2);
+    border-radius: 0 0 12px 12px;
+    flex-shrink: 0;
+  }
+  .chat-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    min-height: 42px;
+    max-height: 120px;
+    line-height: 1.5;
+    transition: border-color 0.15s;
+  }
+  .chat-input:focus { border-color: var(--accent); }
+  .chat-input::placeholder { color: var(--text3); }
+  .chat-send-btn {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+    align-self: flex-end;
+  }
+  .chat-send-btn:hover { opacity: 0.85; }
+  .chat-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .chat-empty {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    height: 100%;
+    color: var(--text3);
+    gap: 10px;
+  }
+  .chat-empty-icon { font-size: 36px; opacity: 0.4; }
+  .chat-empty-text { font-size: 13px; font-family: var(--font-mono); }
+
+  /* ── Add Task Form ── */
+  .add-task-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  .form-row { display: flex; gap: 12px; margin-bottom: 12px; }
+  .form-input, .form-select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .form-input:focus, .form-select:focus { border-color: var(--accent); }
+  .form-input { flex: 1; }
+  .form-select option { background: var(--surface2); }
+  .submit-btn {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .submit-btn:hover { opacity: 0.85; }
+
+  /* ── Loading ── */
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--text3);
+    font-size: 13px;
+    gap: 8px;
+  }
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Error banner ── */
+  .error-banner {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: var(--red);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  .error-banner.show { display: block; }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+  @media (max-width: 1024px) {
+    .main { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .metrics-row { grid-template-columns: repeat(2, 1fr); }
+    .kanban { grid-template-columns: repeat(2, 1fr); }
+    .swarm-grid { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
+    .swarm-panel-header { flex-direction: column; }
+    .swarm-summary { text-align: left; }
+  }
+
+  @media (max-width: 640px) {
+    .metrics-row { grid-template-columns: 1fr; }
+    .kanban { grid-template-columns: 1fr; }
+    .swarm-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Phoenix Governed Command Center Additions ── */
+  .command-brief {
+    background: linear-gradient(135deg, rgba(201,168,76,0.14), rgba(59,130,246,0.08));
+    border: 1px solid rgba(201,168,76,0.32);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+  }
+  .brief-kicker { color: var(--accent); font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+  .brief-title { font-size: 24px; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+  .brief-copy { color: var(--text2); font-size: 13px; line-height: 1.6; max-width: 980px; }
+  .brief-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+  .brief-card { background: rgba(15,23,42,.72); border: 1px solid var(--border); border-radius: 12px; padding: 14px; min-height: 120px; }
+  .brief-card-label { color: var(--text3); font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+  .brief-card-value { color: var(--text); font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+  .brief-card-copy { color: var(--text2); font-size: 12px; line-height: 1.45; }
+  .ops-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .ops-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+  .ops-panel.wide { grid-column: 1 / -1; }
+  .ops-panel-title { display:flex; align-items:center; justify-content:space-between; gap:12px; color: var(--text); font-weight: 800; font-size: 15px; margin-bottom: 12px; }
+  .ops-panel-sub { color: var(--text3); font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+  .ops-list { display: grid; gap: 10px; }
+  .ops-item { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; align-items:start; padding: 10px 0; border-top: 1px solid rgba(148,163,184,.14); }
+  .ops-item:first-child { border-top: 0; padding-top: 0; }
+  .ops-title { color: var(--text); font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .ops-copy { color: var(--text2); font-size: 12px; line-height: 1.45; }
+  .pill { display:inline-flex; align-items:center; gap:6px; border-radius: 999px; padding: 4px 9px; font-family: var(--font-mono); font-size: 10px; font-weight: 800; text-transform: uppercase; white-space: nowrap; }
+  .pill.green { background: rgba(34,197,94,.12); color: var(--green); border: 1px solid rgba(34,197,94,.24); }
+  .pill.yellow { background: rgba(234,179,8,.12); color: var(--yellow); border: 1px solid rgba(234,179,8,.26); }
+  .pill.red { background: rgba(239,68,68,.12); color: var(--red); border: 1px solid rgba(239,68,68,.26); }
+  .pill.blue { background: rgba(59,130,246,.12); color: var(--blue); border: 1px solid rgba(59,130,246,.26); }
+  .pill.gold { background: rgba(201,168,76,.14); color: var(--accent); border: 1px solid rgba(201,168,76,.28); }
+  .crew-grid, .connector-grid, .knowledge-grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .mini-card { background: rgba(15,23,42,.62); border: 1px solid rgba(148,163,184,.16); border-radius: 12px; padding: 12px; }
+  .mini-title { color: var(--text); font-size: 12px; font-weight: 800; margin-bottom: 5px; }
+  .mini-copy { color: var(--text2); font-size: 11px; line-height: 1.45; }
+  .doctrine-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(201,168,76,.18); }
+  .task-card .task-purpose { color: var(--text2); font-size: 11px; line-height: 1.35; margin-top: 6px; }
+  .chat-disclaimer { padding: 10px 18px; background: rgba(201,168,76,.08); border-bottom: 1px solid rgba(201,168,76,.18); color: var(--text2); font-size: 12px; line-height: 1.45; }
+  @media (max-width: 1024px) { .brief-grid, .ops-grid { grid-template-columns: 1fr; } .crew-grid, .connector-grid, .knowledge-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .crew-grid, .connector-grid, .knowledge-grid { grid-template-columns: 1fr; } .brief-title { font-size:20px; } }
+
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="logo">🔥</div>
+    <h1><span>Phoenix</span> Command Center</h1>
+    <div class="status-dot" id="statusDot"></div>
+  </div>
+  <div class="topbar-right">
+    <span class="timestamp" id="clockDisplay">--:-- UTC</span>
+    <button class="refresh-btn" onclick="loadAll()">↻ Refresh</button>
+  </div>
+</div>
+
+<!-- Main Layout -->
+<div class="main">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Navigation</div>
+      <div class="nav-link active" onclick="showSection('dashboard')">
+        <span class="nav-icon">⚡</span> Today's Watch
+      </div>
+      <div class="nav-link" onclick="showSection('tasks')">
+        <span class="nav-icon">📋</span> Work Orders
+      </div>
+      <div class="nav-link" onclick="showSection('conversations')">
+        <span class="nav-icon">💬</span> Continuity Log
+      </div>
+      <div class="nav-link" data-section="brands" onclick="showSection('brands')">
+        <span class="nav-icon">🏷</span> Beacon Labs
+      </div>
+      <div class="nav-link" onclick="showSection('clawbot')">
+        <span class="nav-icon">🤖</span> Command Console
+      </div>
+      <div class="nav-link" data-section="architecture" onclick="showSection('architecture')" style="border-top:1px solid var(--border); margin-top:8px; padding-top:12px;">
+        <span class="nav-icon">🏛</span> Architecture
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Governed AI Crew</div>
+      <div id="agentList">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Beacon Operating Pulse</div>
+      <div class="sprint-card" id="sprintCard">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <main class="content" id="mainContent">
+    <div id="errorBanner" class="error-banner"></div>
+
+    <!-- Dashboard Section -->
+    <div id="section-dashboard">
+
+      <div class="command-brief">
+        <div class="brief-kicker">Governed AI Crew · Beacon Momentum · Beacon Labs</div>
+        <div class="brief-title">Today's Watch</div>
+        <div class="brief-copy">Phoenix is the operating backbone that turns scattered activity into accountable work orders, approval packets, delivery queues, connector controls, and audit-ready memory. The dashboard is organized around the decisions Bob needs to make, the risks Sentinel must verify, and the technical edges John should secure before production impact.</div>
+        <div class="brief-grid">
+          <div class="brief-card">
+            <div class="brief-card-label">Operating Focus</div>
+            <div class="brief-card-value">Command Center First</div>
+            <div class="brief-card-copy">Surface active work, blockers, approvals, client delivery, and launch readiness before technical telemetry.</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-card-label">Approval Doctrine</div>
+            <div class="brief-card-value">Yellow/Red Governed</div>
+            <div class="brief-card-copy">Money, reputation, clients, public publishing, contracts, and production systems require human approval.</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-card-label">Beacon Labs</div>
+            <div class="brief-card-value">Delivery Engine</div>
+            <div class="brief-card-copy">Signal Check, AI workflow audits, command-center installs, content engines, and retainers are tracked as Phoenix-backed workflows.</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-card-label">Operating Formula</div>
+            <div class="brief-card-value">Prepare · Verify · Approve</div>
+            <div class="brief-card-copy">AI prepares. Sentinel verifies. Bob approves. John secures. Phoenix logs. Beacon learns.</div>
+          </div>
+        </div>
+        <div class="doctrine-strip">
+          <span class="pill green">Green: internal execution</span>
+          <span class="pill yellow">Yellow: staged for Bob</span>
+          <span class="pill red">Red: Bob + John gate</span>
+          <span class="pill gold">Audit required</span>
+        </div>
+      </div>
+
+      <div class="swarm-panel" id="swarmPanel">
+        <div class="swarm-panel-header">
+          <div>
+            <div class="swarm-eyebrow">Local Swarm Runtime</div>
+            <div class="swarm-title">Phoenix Local Swarm</div>
+            <div class="swarm-copy">Live read-only status for ports 8080–8085. Core services stay persistent; 32B specialists are on-demand and should run one at a time.</div>
+          </div>
+          <div class="swarm-summary">
+            <div class="swarm-pill degraded" id="swarmOverall">Checking</div>
+            <div id="swarmCheckedAt">Last check pending</div>
+          </div>
+        </div>
+        <div class="swarm-grid" id="swarmGrid">
+          <div class="loading" style="grid-column:1/-1"><div class="spinner"></div> Checking local swarm...</div>
+        </div>
+        <div class="swarm-guidance" id="swarmGuidance">Waiting for first local swarm probe.</div>
+      </div>
+
+      <div class="metrics-row" id="metricsRow">
+        <div class="loading" style="grid-column: 1/-1"><div class="spinner"></div> Loading...</div>
+      </div>
+
+      <div class="ops-grid">
+        <div class="ops-panel">
+          <div class="ops-panel-title">Approval Queue <span class="ops-panel-sub">Bob / John Gates</span></div>
+          <div class="ops-list">
+            <div class="ops-item"><div><div class="ops-title">Beacon Labs launch kit and public claims</div><div class="ops-copy">Scribe and Sentinel prepare the language; Bob approves before publishing or outreach.</div></div><span class="pill yellow">Bob</span></div>
+            <div class="ops-item"><div><div class="ops-title">Connector expansion and credential access</div><div class="ops-copy">Forge inventories systems; technical red actions route to John before production change.</div></div><span class="pill red">John</span></div>
+            <div class="ops-item"><div><div class="ops-title">Payment, contract, refund, and subscription actions</div><div class="ops-copy">No autonomous financial action. Phoenix may draft packets and summarize options only.</div></div><span class="pill red">Bob</span></div>
+          </div>
+        </div>
+        <div class="ops-panel">
+          <div class="ops-panel-title">Beacon Labs Delivery Board <span class="ops-panel-sub">Revenue Workflows</span></div>
+          <div class="ops-list">
+            <div class="ops-item"><div><div class="ops-title">Signal Check reports</div><div class="ops-copy">Scout gathers evidence, Ledger reviews metrics, Scribe writes, Sentinel validates.</div></div><span class="pill green">Ready</span></div>
+            <div class="ops-item"><div><div class="ops-title">AI Workflow Audit and Command Center Install</div><div class="ops-copy">Bosun maps the workflow; Forge designs safe automations and connector controls.</div></div><span class="pill yellow">Template</span></div>
+            <div class="ops-item"><div><div class="ops-title">Monthly Local Signal Engine / Retainer</div><div class="ops-copy">Herald, Scout, Ledger, Steward, and Sentinel form the recurring delivery loop.</div></div><span class="pill blue">Pipeline</span></div>
+          </div>
+        </div>
+        <div class="ops-panel">
+          <div class="ops-panel-title">Content and Campaign Queue <span class="ops-panel-sub">Market-Facing Work</span></div>
+          <div class="ops-list">
+            <div class="ops-item"><div><div class="ops-title">Drafts and research briefs</div><div class="ops-copy">Scribe and Scout create source-backed drafts before public use.</div></div><span class="pill green">Draft</span></div>
+            <div class="ops-item"><div><div class="ops-title">Sentinel quality-control lane</div><div class="ops-copy">Compliance, claim support, tone, and brand congruence must pass before approval.</div></div><span class="pill yellow">Review</span></div>
+            <div class="ops-item"><div><div class="ops-title">Publishing and outreach</div><div class="ops-copy">Herald stages assets, but public publishing remains Bob-approved unless explicitly whitelisted.</div></div><span class="pill red">Approval</span></div>
+          </div>
+        </div>
+        <div class="ops-panel">
+          <div class="ops-panel-title">Incident and Lessons Log <span class="ops-panel-sub">System Learning</span></div>
+          <div class="ops-list">
+            <div class="ops-item"><div><div class="ops-title">Runtime degradation</div><div class="ops-copy">Swarm status is monitored below; specialists should stay on-demand unless a work order requires them.</div></div><span class="pill yellow">Watch</span></div>
+            <div class="ops-item"><div><div class="ops-title">Source-of-truth gap</div><div class="ops-copy">Live HTML matched local repair artifact; repository and CI/CD ownership must be preserved before future live updates.</div></div><span class="pill red">Fix</span></div>
+            <div class="ops-item"><div><div class="ops-title">SOP updates</div><div class="ops-copy">Archivist records incidents, final decisions, and template changes so Beacon continuity improves over time.</div></div><span class="pill gold">Archive</span></div>
+          </div>
+        </div>
+        <div class="ops-panel wide">
+          <div class="ops-panel-title">Connector Registry <span class="ops-panel-sub">Capability Is Not Permission</span></div>
+          <div class="connector-grid">
+            <div class="mini-card"><div class="mini-title">Slack / Telegram</div><div class="mini-copy">Command intake and alerts. Draft-only or approval-routed for external messages.</div></div>
+            <div class="mini-card"><div class="mini-title">Gmail / CRM</div><div class="mini-copy">Client and prospect follow-up must be staged before send unless explicitly whitelisted.</div></div>
+            <div class="mini-card"><div class="mini-title">Drive / GitHub</div><div class="mini-copy">Canonical files, source notes, version history, and deployment records.</div></div>
+            <div class="mini-card"><div class="mini-title">Stripe / PayPal</div><div class="mini-copy">Financial controls are red-class actions requiring Bob approval.</div></div>
+            <div class="mini-card"><div class="mini-title">Meta / Instagram</div><div class="mini-copy">Campaign work requires source-backed claims, budget controls, and approval packets.</div></div>
+            <div class="mini-card"><div class="mini-title">Cloudflare / Web</div><div class="mini-copy">Infrastructure and production changes route through John when technical risk is material.</div></div>
+          </div>
+        </div>
+        <div class="ops-panel wide">
+          <div class="ops-panel-title">Canonical Knowledge Index <span class="ops-panel-sub">Continuity Layer</span></div>
+          <div class="knowledge-grid">
+            <div class="mini-card"><div class="mini-title">Phoenix Doctrine</div><div class="mini-copy">Crew charter, autonomy model, permission rules, escalation paths.</div></div>
+            <div class="mini-card"><div class="mini-title">Beacon Labs Offers</div><div class="mini-copy">Signal Check, Visibility Sprint, AI Workflow Audit, Command Center Install, retainers.</div></div>
+            <div class="mini-card"><div class="mini-title">Templates</div><div class="mini-copy">Work orders, approval packets, QA rubrics, intake forms, report formats.</div></div>
+            <div class="mini-card"><div class="mini-title">Source Notes</div><div class="mini-copy">Evidence behind reports, campaigns, claims, and strategic recommendations.</div></div>
+            <div class="mini-card"><div class="mini-title">SOP Library</div><div class="mini-copy">Repeatable delivery steps for internal operations and client fulfillment.</div></div>
+            <div class="mini-card"><div class="mini-title">Audit Archive</div><div class="mini-copy">Decisions, approvals, incidents, deployments, and lessons learned.</div></div>
+          </div>
+        </div>
+        <div class="ops-panel wide">
+          <div class="ops-panel-title">Governed AI Crew <span class="ops-panel-sub">Role-Based Execution</span></div>
+          <div class="crew-grid">
+            <div class="mini-card"><div class="mini-title">Scribe</div><div class="mini-copy">Copy, briefs, reports, source-backed narrative.</div></div>
+            <div class="mini-card"><div class="mini-title">Bosun</div><div class="mini-copy">Operations, routing, cadence, work-order coordination.</div></div>
+            <div class="mini-card"><div class="mini-title">Scout</div><div class="mini-copy">Research, monitoring, competitive and local signal gathering.</div></div>
+            <div class="mini-card"><div class="mini-title">Ledger</div><div class="mini-copy">Metrics, finance-adjacent reporting, budget visibility.</div></div>
+            <div class="mini-card"><div class="mini-title">Sentinel</div><div class="mini-copy">Quality control, risk classification, approval readiness.</div></div>
+            <div class="mini-card"><div class="mini-title">Forge</div><div class="mini-copy">Build, browser execution, connector and automation design.</div></div>
+            <div class="mini-card"><div class="mini-title">Steward</div><div class="mini-copy">Client continuity, service experience, retention support.</div></div>
+            <div class="mini-card"><div class="mini-title">Herald</div><div class="mini-copy">Publishing preparation, campaigns, announcements, follow-up staging.</div></div>
+            <div class="mini-card"><div class="mini-title">Archivist</div><div class="mini-copy">Canonical memory, SOPs, audit archive, continuity records.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">Active Work Orders</span>
+        <button class="section-action" onclick="showSection('tasks')">View all →</button>
+      </div>
+      <div class="kanban" id="kanbanBoard">
+        <div class="loading" style="grid-column: 1/-1"><div class="spinner"></div> Loading tasks...</div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">Recent Continuity Log</span>
+        <button class="section-action" onclick="showSection('conversations')">View all →</button>
+      </div>
+      <div class="feed-container" id="feedContainer">
+        <div class="loading"><div class="spinner"></div> Loading feed...</div>
+      </div>
+    </div>
+
+    <!-- Tasks Section -->
+    <div id="section-tasks" style="display:none">
+      <div class="section-header">
+        <span class="section-title">Create Work Order</span>
+      </div>
+      <div class="add-task-form">
+        <div class="form-row">
+          <input class="form-input" id="taskTitle" placeholder="Work order title..." />
+          <select class="form-select" id="taskAgent">
+            <option value="">Unassigned</option>
+            <option value="bosun">Bosun</option>
+            <option value="scribe">Scribe</option>
+            <option value="scout">Scout</option>
+            <option value="ledger">Ledger</option>
+            <option value="sentinel">Sentinel</option>
+            <option value="forge">Forge</option>
+            <option value="steward">Steward</option>
+            <option value="herald">Herald</option>
+            <option value="archivist">Archivist</option>
+          </select>
+          <select class="form-select" id="taskPriority">
+            <option value="normal">Green / Internal</option>
+            <option value="high">Yellow / Bob Approval</option>
+            <option value="critical">Red / Bob + John</option>
+            <option value="low">Low / Backlog</option>
+          </select>
+          <button class="submit-btn" onclick="createTask()">+ Add Work Order</button>
+        </div>
+        <div class="form-row">
+          <input class="form-input" id="taskDesc" placeholder="Business purpose, expected output, approval need, due state..." />
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">All Work Orders</span>
+      </div>
+      <div class="kanban" id="kanbanFull">
+        <div class="loading" style="grid-column: 1/-1"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- Conversations Section -->
+    <div id="section-conversations" style="display:none">
+      <div class="section-header">
+        <span class="section-title">Continuity Log</span>
+      </div>
+      <div class="feed-container" style="max-height: calc(100vh - 200px)" id="feedFull">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- Clawbot Chat Section -->
+    <div id="section-clawbot">
+      <div class="chat-panel">
+        <div class="chat-header">
+          <div class="chat-header-avatar">P</div>
+          <div class="chat-header-info">
+            <div class="chat-header-name">Phoenix Command Console</div>
+            <div class="chat-header-sub">Governed execution console · Forge-capable · approval-routed</div>
+          </div>
+          <div class="chat-status-pill">
+            <div class="chat-status-dot"></div>
+            ONLINE
+          </div>
+        </div>
+        <div class="chat-disclaimer">Phoenix may prepare, organize, research, draft, and stage actions. Consequential external actions remain governed by Sentinel review, Bob approval, and John escalation where technical risk is material.</div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-empty" id="chatEmpty">
+            <div class="chat-empty-icon">🔥</div>
+            <div class="chat-empty-text">Phoenix is standing by. Stage work, ask for a brief, or prepare an approval packet.</div>
+          </div>
+        </div>
+        <div class="chat-input-bar">
+          <textarea class="chat-input" id="chatInput" placeholder="Message Phoenix Command Center..." rows="1"
+            onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); sendChat(); }"
+            oninput="this.style.height='auto'; this.style.height=Math.min(this.scrollHeight,120)+'px';"></textarea>
+          <button class="chat-send-btn" id="chatSendBtn" onclick="sendChat()">Send ↑</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brands Section -->
+    <div id="section-brands" style="display:none">
+      <div class="section-header">
+        <span class="section-title">Beacon Labs and Ecosystem Portfolio</span>
+      </div>
+      <div class="ops-panel" style="margin-bottom:16px"><div class="ops-panel-title">Beacon Labs Service Lines <span class="ops-panel-sub">Phoenix-Backed Fulfillment</span></div><div class="connector-grid"><div class="mini-card"><div class="mini-title">Signal Check</div><div class="mini-copy">Evidence-backed visibility audit and opportunity map.</div></div><div class="mini-card"><div class="mini-title">AI Workflow Audit</div><div class="mini-copy">Workflow, data hygiene, and automation-risk diagnosis.</div></div><div class="mini-card"><div class="mini-title">Command Center Install</div><div class="mini-copy">Lightweight operating dashboard for client work orders.</div></div><div class="mini-card"><div class="mini-title">Local Signal Engine</div><div class="mini-copy">Recurring content, reporting, reputation, and follow-up loop.</div></div><div class="mini-card"><div class="mini-title">Phoenix-Backed Retainer</div><div class="mini-copy">Ongoing governed AI operations support.</div></div><div class="mini-card"><div class="mini-title">Visibility Sprint</div><div class="mini-copy">Rapid diagnosis and asset production for momentum.</div></div></div></div>
+      <div id="brandsGrid" style="display:grid; grid-template-columns: repeat(2,1fr); gap:16px">
+        <div class="loading" style="grid-column:1/-1"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- Architecture Review Section -->
+    <div id="section-architecture" style="display:none">
+      <div id="arch-gate-wrap">
+        <div style="text-align:center; margin-bottom:24px;">
+          <div style="font-size:32px; margin-bottom:12px;">🏛</div>
+          <div style="font-size:20px; font-weight:700; margin-bottom:6px;">Phoenix Architecture Review</div>
+          <div style="color:var(--text2); font-size:13px;">Beacon Momentum — Confidential</div>
+        </div>
+        <div class="arch-gate">
+          <div class="arch-gate-label">Enter Access Code</div>
+          <input type="password" class="arch-gate-input" id="archCodeInput" placeholder="••••••••••••••••" onkeydown="if(event.key==='Enter') archUnlock()" />
+          <div class="arch-gate-error" id="archGateError">Incorrect access code. Please try again.</div>
+          <button class="arch-gate-btn" onclick="archUnlock()">ACCESS SYSTEM</button>
+          <div style="color:var(--text3); font-size:11px; margin-top:16px; font-family:var(--font-mono);">Authorized personnel only · Beacon Momentum · 2026</div>
+        </div>
+      </div>
+
+      <div id="arch-content-wrap" class="arch-content">
+        <div class="arch-topbar">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:18px;">🔥</span>
+            <span class="arch-topbar-title">Phoenix Architecture Review</span>
+            <span class="arch-badge" style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); color:#C9A84C;">CONFIDENTIAL</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="width:8px; height:8px; border-radius:50%; background:#059669; display:inline-block;"></span>
+            <span style="font-family:var(--font-mono); font-size:11px; color:#059669;">SYSTEM ACTIVE</span>
+          </div>
+        </div>
+
+        <!-- 01 Overview -->
+        <div class="arch-section">
+          <div class="arch-section-badge" style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); color:#C9A84C;">01 · OVERVIEW</div>
+          <div class="arch-section-title">The Phoenix Multi-Agent Architecture</div>
+          <p class="arch-section-body">Phoenix is the autonomous AI operating system for the Beacon Momentum ecosystem. It is not a single chatbot or a simple automation script. It is a structured organization of specialized AI agents — each with a defined role, defined authority, and defined limits — designed to run the day-to-day operations of a multi-brand digital enterprise with minimal human intervention.</p>
+          <p class="arch-section-body">The architecture is modeled on the same organizational principles that govern any well-run enterprise: a visionary at the top who sets direction, a director who translates vision into operational tasks, domain managers who own functional areas, and a swarm of specialist workers who execute. A dedicated maintenance agent watches the entire fleet and self-heals when components fail.</p>
+          <div class="arch-divider"></div>
+          <div class="arch-stats">
+            <div class="arch-stat"><div class="arch-stat-label">Active Brands</div><div class="arch-stat-value">4</div><div class="arch-stat-sub">HT · Beacon AI · Beacon Momentum · Cask &amp; Cuisine</div></div>
+            <div class="arch-stat"><div class="arch-stat-label">Agent Tiers</div><div class="arch-stat-value">3</div><div class="arch-stat-sub">Director · Managers · Doers + Specialists</div></div>
+            <div class="arch-stat"><div class="arch-stat-label">Infrastructure</div><div class="arch-stat-value" style="font-size:18px;">Docker</div><div class="arch-stat-sub">Mac Studio + DigitalOcean · Kubernetes-ready</div></div>
+          </div>
+        </div>
+
+        <!-- 02 Org Chart -->
+        <div class="arch-section">
+          <div class="arch-section-badge" style="background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3); color:#8B5CF6;">02 · ORG CHART</div>
+          <div class="arch-section-title">Full Organizational Hierarchy</div>
+          <div class="arch-org-wrap">
+            <img class="arch-org-img" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/PTrnxNaxeBNvU9ZXBafuMF/phoenix_org_chart_a738dc86.png" alt="Phoenix Org Chart" />
+          </div>
+          <p style="color:var(--text3); font-size:11px; margin-top:10px; font-family:var(--font-mono); text-align:center;">Phoenix Architecture v2.0 · Beacon Momentum · Confidential · 2026</p>
+        </div>
+
+        <!-- 03 Agent Roster -->
+        <div class="arch-section">
+          <div class="arch-section-badge" style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:#3b82f6;">03 · AGENT ROSTER</div>
+          <div class="arch-section-title">Every Agent, Defined</div>
+          <p class="arch-section-body">Each agent has a single domain of authority. They cannot exceed it. The Trust Ladder (Section 05) governs how much autonomy each agent is granted over time.</p>
+          <div class="arch-agent-card" style="border:1px solid rgba(201,168,76,0.3); border-left:3px solid #C9A84C;">
+            <div class="arch-agent-header"><div class="arch-agent-dot" style="background:#C9A84C; box-shadow:0 0 8px #C9A84C;"></div><span class="arch-agent-title" style="color:#C9A84C;">BOB — THE VISIONARY</span><span class="arch-badge" style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); color:#C9A84C;">TIER 0</span><span class="arch-badge" style="background:rgba(148,163,184,0.1); border:1px solid rgba(148,163,184,0.2); color:var(--text3);">Human Principal</span></div>
+            <div class="arch-agent-body">The only human in the chain. Communicates exclusively with Phoenix via Telegram or voice memo. Sets strategic direction. Approves all financial actions above the defined threshold. Never manages individual agents directly.</div>
+          </div>
+          <div class="arch-agent-card" style="border:1px solid rgba(139,92,246,0.3); border-left:3px solid #8B5CF6;">
+            <div class="arch-agent-header"><div class="arch-agent-dot" style="background:#8B5CF6; box-shadow:0 0 8px #8B5CF6;"></div><span class="arch-agent-title" style="color:#8B5CF6;">PHOENIX — THE DIRECTOR</span><span class="arch-badge" style="background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3); color:#8B5CF6;">TIER 1</span></div>
+            <div class="arch-agent-body">Chief of Staff. The only agent with cross-container network visibility. Receives commands from Bob, breaks them into projects, delegates to domain managers, monitors quality, and escalates to Bob only when a decision requires human authority. Runs on Claude Opus.</div>
+            <div class="arch-agent-reports">Reports to → Bob (human)</div>
+          </div>
+          <div class="arch-agents-grid" style="margin-top:12px;">
+            <div class="arch-agent-card" style="border:1px solid rgba(37,99,235,0.3); border-left:3px solid #3b82f6;"><div class="arch-agent-header"><div class="arch-agent-dot" style="background:#3b82f6;"></div><span class="arch-agent-title" style="color:#3b82f6;">BOSUN</span><span class="arch-badge" style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:#3b82f6;">TIER 2</span></div><div class="arch-agent-body">Owns all social content and community management across all four brands. Posts on a defined cron schedule.</div><div class="arch-agent-reports">Reports to → Phoenix</div></div>
+            <div class="arch-agent-card" style="border:1px solid rgba(37,99,235,0.3); border-left:3px solid #3b82f6;"><div class="arch-agent-header"><div class="arch-agent-dot" style="background:#3b82f6;"></div><span class="arch-agent-title" style="color:#3b82f6;">PICKET</span><span class="arch-badge" style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:#3b82f6;">TIER 2</span></div><div class="arch-agent-body">Owns all paid media operations — Meta Ads, campaign builds, creative uploads, budget monitoring, and performance reporting.</div><div class="arch-agent-reports">Reports to → Phoenix</div></div>
+            <div class="arch-agent-card" style="border:1px solid rgba(37,99,235,0.3); border-left:3px solid #3b82f6;"><div class="arch-agent-header"><div class="arch-agent-dot" style="background:#3b82f6;"></div><span class="arch-agent-title" style="color:#3b82f6;">HELM</span><span class="arch-badge" style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:#3b82f6;">TIER 2</span></div><div class="arch-agent-body">Data, reporting, and intelligence. Reads all platform analytics, generates daily briefings, and detects anomalies. Read-only — never writes, posts, or spends.</div><div class="arch-agent-reports">Reports to → Phoenix</div></div>
+            <div class="arch-agent-card" style="border:1px solid rgba(37,99,235,0.3); border-left:3px solid #3b82f6;"><div class="arch-agent-header"><div class="arch-agent-dot" style="background:#3b82f6;"></div><span class="arch-agent-title" style="color:#3b82f6;">THE ARCHITECT</span><span class="arch-badge" style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:#3b82f6;">TIER 2</span></div><div class="arch-agent-body">Owns all build, code, and GoHighLevel CRM operations. Responsible for funnel deployments, landing page builds, and automation workflows.</div><div class="arch-agent-reports">Reports to → Phoenix</div></div>
+            <div class="arch-agent-card" style="border:1px solid rgba(37,99,235,0.3); border-left:3px solid #3b82f6;"><div class="arch-agent-header"><div class="arch-agent-dot" style="background:#3b82f6;"></div><span class="arch-agent-title" style="color:#3b82f6;">THE STEWARD</span><span class="arch-badge" style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:#3b82f6;">TIER 2</span></div><div class="arch-agent-body">Capital and financial oversight. Never moves capital without explicit Bob approval — every financial action requires a human trigger.</div><div class="arch-agent-reports">Reports to → Phoenix</div></div>
+          </div>
+          <div class="arch-agent-card" style="border:1px solid rgba(217,119,6,0.3); border-left:3px solid #D97706; margin-top:12px;">
+            <div class="arch-agent-header"><div class="arch-agent-dot" style="background:#D97706; box-shadow:0 0 8px #D97706;"></div><span class="arch-agent-title" style="color:#D97706;">THE ALCHEMIST</span><span class="arch-badge" style="background:rgba(217,119,6,0.15); border:1px solid rgba(217,119,6,0.3); color:#D97706;">TIER 2 SPECIALIST</span></div>
+            <div class="arch-agent-body">PhD-level DeFi analyst. Monitors protocol mechanics, yield strategies, liquidity pool dynamics, on-chain risk signals, governance proposals, and smart money wallet movements. Synthesizes findings into plain-English briefings with risk ratings.</div>
+            <div class="arch-agent-constraint">⚠ Analyst only. Does not execute trades. Does not connect to any wallet. Does not move capital. Every output is a recommendation, never an action.</div>
+            <div class="arch-agent-reports">Reports to → The Steward</div>
+          </div>
+          <div class="arch-agent-card" style="border:1px solid rgba(220,38,38,0.3); border-left:3px solid var(--red); margin-top:12px;">
+            <div class="arch-agent-header"><div class="arch-agent-dot" style="background:var(--red); box-shadow:0 0 8px var(--red);"></div><span class="arch-agent-title" style="color:var(--red);">THE MEDIC</span><span class="arch-badge" style="background:rgba(220,38,38,0.15); border:1px solid rgba(220,38,38,0.3); color:var(--red);">CROSS-TIER</span></div>
+            <div class="arch-agent-body">Runs continuously in the background. Pings every active agent on a cron schedule. Monitors all container logs for failed tasks, crashed processes, or API errors. Attempts automated recovery before escalating.</div>
+            <div class="arch-agent-constraint">⚠ Read access to all container logs. Write access only to its own repair queue. Cannot modify any other container's code or configuration.</div>
+            <div class="arch-agent-reports">Reports to → Phoenix (escalation only)</div>
+          </div>
+          <div style="background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:16px 20px; margin-top:12px;">
+            <div style="font-family:var(--font-mono); font-size:10px; color:var(--text3); margin-bottom:8px; letter-spacing:0.05em;">TIER 3 — THE SWARM (DOERS)</div>
+            <p style="color:var(--text2); font-size:13px; line-height:1.65; margin:0;">Ten specialist Doer agents, each performing exactly one task type: Copy, Image, Creative, Budget, Analytics, Alerts, GHL Builder, Code, Grant, and Report. Doers receive a task, complete it, attach a deliverable, and shut down. They hold no persistent context. They run on Tier 3 local models at zero token cost.</p>
+          </div>
+        </div>
+
+        <!-- 04 Infrastructure -->
+        <div class="arch-section">
+          <div class="arch-section-badge" style="background:rgba(5,150,105,0.15); border:1px solid rgba(5,150,105,0.3); color:#059669;">04 · INFRASTRUCTURE</div>
+          <div class="arch-section-title">Container Architecture &amp; Hardware</div>
+          <p class="arch-section-body">The current implementation uses Docker Compose for container orchestration. The architecture is designed to be Kubernetes-ready — clean container boundaries, single-responsibility services, and stateless Doers that can be horizontally scaled without refactoring.</p>
+          <div class="arch-infra-grid">
+            <div class="arch-infra-card"><div class="arch-infra-title" style="color:#059669;">Mac Studio (Local)</div><div class="arch-infra-body">Hosts Bosun, Picket, and Tier 3 Doer agents running local open-source models (Qwen, Llama 3). Apple Silicon unified memory architecture allows multiple models to run simultaneously. Token cost for Tier 3 workloads: <strong style="color:#059669;">$0.00</strong>.</div></div>
+            <div class="arch-infra-card"><div class="arch-infra-title" style="color:#3b82f6;">DigitalOcean Droplet (Always-On)</div><div class="arch-infra-body">Hosts Phoenix, Helm, and the Medic. Runs 24/7 independent of the Mac Studio's sleep state. Docker Compose auto-restarts all containers on reboot. This is the always-on backbone of the fleet.</div></div>
+          </div>
+          <div style="background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:16px 20px;">
+            <div style="font-family:var(--font-mono); font-size:10px; color:var(--text3); margin-bottom:14px; letter-spacing:0.06em;">CONTAINER MANIFEST</div>
+            <div class="arch-container-grid">
+              <div class="arch-container-item" style="border:1px solid rgba(139,92,246,0.2);"><div class="arch-container-name" style="color:#8B5CF6;">phoenix-core</div><div class="arch-container-host">DigitalOcean</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(37,99,235,0.2);"><div class="arch-container-name" style="color:#3b82f6;">bosun-engine</div><div class="arch-container-host">Mac Studio</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(37,99,235,0.2);"><div class="arch-container-name" style="color:#3b82f6;">picket-engine</div><div class="arch-container-host">Mac Studio</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(37,99,235,0.2);"><div class="arch-container-name" style="color:#3b82f6;">helm-engine</div><div class="arch-container-host">DigitalOcean</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(37,99,235,0.2);"><div class="arch-container-name" style="color:#3b82f6;">architect-engine</div><div class="arch-container-host">Mac Studio</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(37,99,235,0.2);"><div class="arch-container-name" style="color:#3b82f6;">steward-engine</div><div class="arch-container-host">Mac Studio</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(217,119,6,0.2);"><div class="arch-container-name" style="color:#D97706;">alchemist-engine</div><div class="arch-container-host">Mac Studio</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(220,38,38,0.2);"><div class="arch-container-name" style="color:var(--red);">medic-engine</div><div class="arch-container-host">DigitalOcean</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(201,168,76,0.2);"><div class="arch-container-name" style="color:#C9A84C;">mission-control</div><div class="arch-container-host">DigitalOcean</div></div>
+              <div class="arch-container-item" style="border:1px solid rgba(5,150,105,0.2);"><div class="arch-container-name" style="color:#059669;">doer-pool</div><div class="arch-container-host">Mac Studio</div></div>
+            </div>
+          </div>
+          <div style="margin-top:16px; background:var(--surface); border:1px solid rgba(201,168,76,0.2); border-radius:8px; padding:14px 18px;">
+            <div style="color:#C9A84C; font-weight:600; font-size:13px; margin-bottom:6px;">Note on Kubernetes Migration Path</div>
+            <p style="color:var(--text2); font-size:12px; line-height:1.65; margin:0;">The current Docker Compose implementation is intentionally designed for clean Kubernetes migration. When the fleet reaches sustained capacity above 80%, migration to a managed Kubernetes cluster (GKE or EKS) is the defined next step. Container boundaries are already clean, services are stateless where possible, and the Doer pool is designed for horizontal scaling.</p>
+          </div>
+        </div>
+
+        <!-- 05 Trust Ladder -->
+        <div class="arch-section">
+          <div class="arch-section-badge" style="background:rgba(217,119,6,0.15); border:1px solid rgba(217,119,6,0.3); color:#D97706;">05 · TRUST LADDER</div>
+          <div class="arch-section-title">How Autonomy Is Earned</div>
+          <p class="arch-section-body">No agent is granted full autonomy on day one. Every agent begins at Step 1 and advances only after demonstrating reliable, accurate behavior at the current step. Financial actions are permanently gated at Step 4 — human approval is always required.</p>
+          <div class="arch-trust-row">
+            <div class="arch-trust-step" style="border:1px solid rgba(75,85,99,0.4); border-top:3px solid var(--text3);"><div class="arch-trust-num" style="color:var(--text3);">01</div><div class="arch-trust-label">Read-Only Access</div><div class="arch-trust-desc">Agent can observe and report. Cannot write, post, or spend.</div></div>
+            <div class="arch-trust-step" style="border:1px solid rgba(37,99,235,0.3); border-top:3px solid #3b82f6;"><div class="arch-trust-num" style="color:#3b82f6;">02</div><div class="arch-trust-label">Draft &amp; Approve</div><div class="arch-trust-desc">Agent produces output for human review before publishing.</div></div>
+            <div class="arch-trust-step" style="border:1px solid rgba(5,150,105,0.3); border-top:3px solid #059669;"><div class="arch-trust-num" style="color:#059669;">03</div><div class="arch-trust-label">Auto-Execute (Low Risk)</div><div class="arch-trust-desc">Agent executes pre-approved action types autonomously.</div></div>
+            <div class="arch-trust-step" style="border:1px solid rgba(201,168,76,0.3); border-top:3px solid #C9A84C;"><div class="arch-trust-num" style="color:#C9A84C;">04</div><div class="arch-trust-label">Full Autonomy</div><div class="arch-trust-desc">Agent operates independently within defined domain boundaries.</div></div>
+            <div class="arch-trust-step" style="border:1px solid rgba(220,38,38,0.3); border-top:3px solid var(--red);"><div class="arch-trust-num" style="color:var(--red);">⚠</div><div class="arch-trust-label">NEVER — Financial w/o Approval</div><div class="arch-trust-desc">Capital movement always requires explicit Bob authorization.</div></div>
+          </div>
+        </div>
+
+        <!-- 06 Roadmap -->
+        <div class="arch-section">
+          <div class="arch-section-badge" style="background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3); color:#8B5CF6;">06 · ROADMAP</div>
+          <div class="arch-section-title">Implementation Phases</div>
+          <div class="arch-phase-card"><div class="arch-phase-header"><span class="arch-badge" style="background:rgba(5,150,105,0.15); border:1px solid rgba(5,150,105,0.3); color:#059669;">Phase 1</span><span class="arch-badge" style="background:rgba(5,150,105,0.15); border:1px solid rgba(5,150,105,0.3); color:#059669;">IN PROGRESS</span><span class="arch-phase-title">Foundation &amp; Existing Agent Formalization</span></div><ul class="arch-phase-list"><li>Formalize Bosun, Picket, and Helm instruction files</li><li>Build Phoenix orchestrator with Telegram command interface ✓</li><li>Deploy Docker Compose configuration for all existing agents</li><li>Establish Mission Control dashboard (read-only Kanban view) ✓</li><li>Implement Medic health-check cron for existing containers</li></ul></div>
+          <div class="arch-phase-card"><div class="arch-phase-header"><span class="arch-badge" style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:#3b82f6;">Phase 2</span><span class="arch-badge" style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); color:#3b82f6;">PLANNED</span><span class="arch-phase-title">Expansion — New Agents &amp; Capital Layer</span></div><ul class="arch-phase-list"><li>Deploy The Architect (GHL Builder + Code Doer)</li><li>Deploy The Steward (Grant Doer + Report Doer)</li><li>Deploy The Alchemist (DeFi Intelligence)</li><li>Integrate Beacon Entrepreneur Fund capital pool monitoring</li><li>Expand Mission Control to full Kanban with agent-to-agent task routing</li></ul></div>
+          <div class="arch-phase-card"><div class="arch-phase-header"><span class="arch-badge" style="background:rgba(75,85,99,0.15); border:1px solid rgba(75,85,99,0.3); color:var(--text3);">Phase 3</span><span class="arch-badge" style="background:rgba(75,85,99,0.15); border:1px solid rgba(75,85,99,0.3); color:var(--text3);">FUTURE</span><span class="arch-phase-title">Kubernetes Migration &amp; Beacon Labs Commercialization</span></div><ul class="arch-phase-list"><li>Evaluate Kubernetes migration trigger (sustained &gt;80% capacity)</li><li>Migrate to managed Kubernetes cluster (GKE or EKS)</li><li>Package Phoenix architecture as Beacon Labs commercial product</li><li>Launch Done-For-You agent builds for Solopreneur Launchpad clients</li><li>Deploy multi-tenant agent fleet for Beacon Labs retainer clients</li></ul></div>
+        </div>
+
+        <!-- 07 Beacon Labs -->
+        <div class="arch-section">
+          <div class="arch-section-badge" style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); color:#C9A84C;">07 · BEACON LABS</div>
+          <div class="arch-section-title">Commercial Opportunity</div>
+          <p class="arch-section-body">95% of businesses want the result of an AI agent fleet but will never build one themselves. Beacon Labs packages the Phoenix architecture into four commercial models.</p>
+          <div class="arch-commercial-grid">
+            <div class="arch-commercial-card"><div class="arch-commercial-title">Done-For-You Custom Builds</div><div class="arch-commercial-price">$2k–$10k setup</div><div class="arch-commercial-body">Full Phoenix architecture deployment for established businesses. Custom agent roster, brand-specific instruction files, Docker configuration, and 30-day onboarding support.</div></div>
+            <div class="arch-commercial-card"><div class="arch-commercial-title">Preconfigured Packages</div><div class="arch-commercial-price">$500–$2k setup</div><div class="arch-commercial-body">Niche-specific templates pre-built for common business types (e-commerce, coaching, community). Plug-and-play with minimal customization required.</div></div>
+            <div class="arch-commercial-card"><div class="arch-commercial-title">Productized Services</div><div class="arch-commercial-price">$1,500/mo retainer</div><div class="arch-commercial-body">Fixed-outcome recurring service: community management, content production, and paid ads oversight. Delivered by the Phoenix fleet, supervised by Beacon.</div></div>
+            <div class="arch-commercial-card"><div class="arch-commercial-title">The Alchemist — DeFi Intelligence</div><div class="arch-commercial-price">Premium add-on</div><div class="arch-commercial-body">Standalone DeFi Intelligence Agent for Solopreneur Launchpad members managing business treasury capital. Briefings, risk ratings, and yield strategy analysis — no execution authority.</div></div>
+          </div>
+        </div>
+
+        <div class="arch-footer"><p>Phoenix Architecture · Beacon Momentum · Confidential · 2026 · Prepared for John Sanborn</p></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const API_BASE = '/api';
+const TOKEN = 'beacon-phoenix-2026';
+
+const headers = { 'X-Phoenix-Token': TOKEN, 'Content-Type': 'application/json' };
+
+async function apiFetch(path) {
+  const r = await fetch(API_BASE + path, { headers });
+  if (!r.ok) throw new Error(`API error ${r.status}`);
+  return r.json();
+}
+
+async function apiPost(path, body) {
+  const r = await fetch(API_BASE + path, { method: 'POST', headers, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error(`API error ${r.status}`);
+  return r.json();
+}
+
+async function apiPatch(path, body) {
+  const r = await fetch(API_BASE + path, { method: 'PATCH', headers, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error(`API error ${r.status}`);
+  return r.json();
+}
+
+function showError(msg) {
+  const el = document.getElementById('errorBanner');
+  el.textContent = '⚠ ' + msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 5000);
+}
+
+// Chat history loaded flag
+let _chatLoaded = false;
+
+function showSection(name) {
+  // Hide all standard sections
+  ['dashboard','tasks','conversations','brands','architecture'].forEach(s => {
+    document.getElementById('section-' + s).style.display = s === name ? '' : 'none';
+  });
+  // Handle clawbot section with flex class
+  const clawbotEl = document.getElementById('section-clawbot');
+  if (name === 'clawbot') {
+    clawbotEl.classList.add('active-section');
+    // Also hide all others explicitly
+    ['dashboard','tasks','conversations','brands','architecture'].forEach(s => {
+      document.getElementById('section-' + s).style.display = 'none';
+    });
+  } else {
+    clawbotEl.classList.remove('active-section');
+  }
+  // Update nav active state
+  document.querySelectorAll('.nav-link').forEach((el) => {
+    const isActive = el.onclick && el.onclick.toString().includes("'" + name + "'");
+    el.classList.remove('active');
+  });
+  // Set active on clicked nav item
+  document.querySelectorAll('.nav-link').forEach((el) => {
+    if (el.getAttribute('onclick') && el.getAttribute('onclick').includes("'" + name + "'")) {
+      el.classList.add('active');
+    }
+  });
+  if (name === 'conversations') loadConversationsFull();
+  if (name === 'brands') loadBrands();
+  if (name === 'tasks') loadKanbanFull();
+  if (name === 'architecture') checkArchAccess();
+  if (name === 'clawbot' && !_chatLoaded) {
+    _chatLoaded = true;
+    loadChatHistory();
+    setTimeout(() => { const inp = document.getElementById('chatInput'); if(inp) inp.focus(); }, 150);
+  }
+}
+
+// ── Architecture Gate ──
+const ARCH_CODE = 'BeaconPhoenix2026';
+const ARCH_SESSION_KEY = 'phoenix_arch_access';
+function checkArchAccess() {
+  if (sessionStorage.getItem(ARCH_SESSION_KEY) === 'granted') {
+    document.getElementById('arch-gate-wrap').style.display = 'none';
+    document.getElementById('arch-content-wrap').classList.add('unlocked');
+  }
+}
+function archUnlock() {
+  const val = document.getElementById('archCodeInput').value;
+  if (val === ARCH_CODE) {
+    sessionStorage.setItem(ARCH_SESSION_KEY, 'granted');
+    document.getElementById('arch-gate-wrap').style.display = 'none';
+    document.getElementById('arch-content-wrap').classList.add('unlocked');
+  } else {
+    document.getElementById('archCodeInput').classList.add('error');
+    document.getElementById('archGateError').style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('archCodeInput').classList.remove('error');
+    }, 600);
+  }
+}
+
+// ── Clock ──
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clockDisplay').textContent =
+    now.toISOString().replace('T', ' ').substring(0, 16) + ' UTC';
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ── Agents ──
+async function loadAgents(agents) {
+  const el = document.getElementById('agentList');
+  if (!agents) return;
+  const agentDefs = {
+    bosun: { icon: '📢', desc: 'Social & Content' },
+    clawbot: { icon: '🤖', desc: 'Browser Automation' },
+    helm: { icon: '📊', desc: 'Data & Reporting' },
+    picket: { icon: '📣', desc: 'Meta Ads API' },
+  };
+  el.innerHTML = Object.entries(agents).map(([name, state]) => {
+    const def = agentDefs[name] || { icon: '⚙', desc: 'Agent' };
+    const statusClass = state.status === 'idle' ? 'idle' : state.status === 'working' ? 'working' : 'error';
+    return `<div class="agent-card">
+      <div class="agent-dot ${statusClass}"></div>
+      <div class="agent-info">
+        <div class="agent-name">${def.icon} ${name.charAt(0).toUpperCase() + name.slice(1)}</div>
+        <div class="agent-status">${state.status} · ${def.desc}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Sprint ──
+function loadSprint(sprint) {
+  const el = document.getElementById('sprintCard');
+  if (!sprint) return;
+  el.innerHTML = `
+    <div class="sprint-name">${sprint.name || 'Sprint 6'}</div>
+    <div class="sprint-stat">
+      <span class="sprint-stat-label">Active Ads</span>
+      <span class="sprint-stat-value green">${sprint.active_ads ?? '—'}</span>
+    </div>
+    <div class="sprint-stat">
+      <span class="sprint-stat-label">Daily Budget</span>
+      <span class="sprint-stat-value orange">$${sprint.daily_budget ?? '—'}</span>
+    </div>
+    <div class="sprint-stat">
+      <span class="sprint-stat-label">Next Review</span>
+      <span class="sprint-stat-value">${sprint.next_review ?? '—'}</span>
+    </div>
+  `;
+}
+
+// ── Metrics ──
+function loadMetrics(data) {
+  const el = document.getElementById('metricsRow');
+  const active = data.task_counts?.active ?? 0;
+  const pending = data.task_counts?.pending ?? 0;
+  const online = Object.values(data.agents || {}).filter(a => a.status !== 'offline').length;
+  el.innerHTML = `
+    <div class="metric-card green">
+      <div class="metric-label">Active Work Orders</div>
+      <div class="metric-value green">${active}</div>
+      <div class="metric-sub">${pending} staged or pending</div>
+    </div>
+    <div class="metric-card yellow">
+      <div class="metric-label">Approval Queue</div>
+      <div class="metric-value yellow">3</div>
+      <div class="metric-sub">Bob / John gates visible</div>
+    </div>
+    <div class="metric-card blue">
+      <div class="metric-label">Beacon Labs Lines</div>
+      <div class="metric-value blue">6</div>
+      <div class="metric-sub">Phoenix-backed workflows</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Crew Coverage</div>
+      <div class="metric-value orange">9</div>
+      <div class="metric-sub">governed roles · ${online} runtime signals</div>
+    </div>
+  `;
+}
+
+// ── Kanban ──
+function renderKanban(tasks, containerId) {
+  const el = document.getElementById(containerId);
+  const cols = {
+    pending: { title: 'Staged', tasks: [] },
+    active: { title: 'Executing', tasks: [] },
+    done: { title: 'Logged', tasks: [] },
+    blocked: { title: 'Blocked / Approval', tasks: [] },
+  };
+  tasks.forEach(t => {
+    const col = cols[t.status] || cols.pending;
+    col.tasks.push(t);
+  });
+
+  el.innerHTML = Object.entries(cols).map(([status, col]) => `
+    <div class="kanban-col">
+      <div class="kanban-col-header">
+        <span class="kanban-col-title">${col.title}</span>
+        <span class="kanban-count">${col.tasks.length}</span>
+      </div>
+      ${col.tasks.length === 0
+        ? '<div class="empty-col">Empty</div>'
+        : col.tasks.map(t => `
+          <div class="task-card" onclick="cycleTaskStatus(${t.id}, '${t.status}')">
+            <div class="task-title">${escHtml(t.title)}</div>
+            <div class="task-meta">
+              <span class="task-agent ${t.assigned_to || 'unassigned'}">${crewLabel(t.assigned_to || 'unassigned')}</span>
+              <span class="task-priority ${t.priority}">${riskLabel(t.priority)}</span>
+            </div>
+            <div class="task-purpose">${approvalLabel(t.priority)}</div>
+          </div>`).join('')
+      }
+    </div>
+  `).join('');
+}
+
+async function loadKanban() {
+  try {
+    const data = await apiFetch('/tasks');
+    renderKanban(data.tasks, 'kanbanBoard');
+  } catch(e) { showError('Failed to load tasks: ' + e.message); }
+}
+
+async function loadKanbanFull() {
+  try {
+    const data = await apiFetch('/tasks');
+    renderKanban(data.tasks, 'kanbanFull');
+  } catch(e) { showError('Failed to load tasks: ' + e.message); }
+}
+
+async function cycleTaskStatus(id, current) {
+  const next = { pending: 'active', active: 'done', done: 'pending', blocked: 'active' };
+  try {
+    await apiPatch('/tasks/' + id, { status: next[current] || 'active' });
+    loadAll();
+  } catch(e) { showError('Failed to update task'); }
+}
+
+async function createTask() {
+  const title = document.getElementById('taskTitle').value.trim();
+  if (!title) return;
+  try {
+    await apiPost('/tasks', {
+      title,
+      description: document.getElementById('taskDesc').value,
+      assigned_to: document.getElementById('taskAgent').value || null,
+      priority: document.getElementById('taskPriority').value,
+    });
+    document.getElementById('taskTitle').value = '';
+    document.getElementById('taskDesc').value = '';
+    loadAll();
+  } catch(e) { showError('Failed to create task: ' + e.message); }
+}
+
+// ── Conversations ──
+function renderFeed(conversations, containerId, limit) {
+  const el = document.getElementById(containerId);
+  const msgs = limit ? conversations.slice(-limit) : conversations;
+  if (!msgs.length) {
+    el.innerHTML = '<div class="loading">No continuity events yet. Use Phoenix to capture decisions, approvals, source notes, and follow-up obligations.</div>';
+    return;
+  }
+  el.innerHTML = msgs.map(msg => `
+    <div class="feed-msg">
+      <div class="feed-avatar ${msg.role === 'user' ? 'user' : 'phoenix'}">
+        ${msg.role === 'user' ? 'B' : '🔥'}
+      </div>
+      <div class="feed-body">
+        <div class="feed-meta">${msg.role === 'user' ? 'Bob' : 'Phoenix'} · ${(msg.ts || '').substring(0,16).replace('T',' ')} UTC</div>
+        <div class="feed-text ${msg.role === 'phoenix' ? 'phoenix-msg' : ''}">${escHtml(msg.content)}</div>
+      </div>
+    </div>
+  `).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+async function loadConversations() {
+  try {
+    const data = await apiFetch('/conversations?limit=10');
+    renderFeed(data.conversations, 'feedContainer', 8);
+  } catch(e) { showError('Failed to load conversations'); }
+}
+
+async function loadConversationsFull() {
+  try {
+    const data = await apiFetch('/conversations?limit=100');
+    renderFeed(data.conversations, 'feedFull');
+  } catch(e) { showError('Failed to load conversations'); }
+}
+
+// ── Brands ──
+async function loadBrands() {
+  try {
+    const data = await apiFetch('/brands');
+    const el = document.getElementById('brandsGrid');
+    const brands = data.brands || {};
+    el.innerHTML = Object.entries(brands).map(([key, b]) => `
+      <div class="metric-card" style="border-radius:12px">
+        <div class="metric-label">${key.replace(/_/g,' ').toUpperCase()}</div>
+        <div style="font-size:16px; font-weight:700; margin:8px 0">${b.name}</div>
+        <div style="font-size:12px; color:var(--accent); margin-bottom:6px">
+          <a href="${b.url}" target="_blank" style="color:inherit">${b.url}</a>
+        </div>
+        <div style="font-size:12px; color:var(--text2); line-height:1.5">${b.niche}</div>
+      </div>
+    `).join('');
+  } catch(e) { showError('Failed to load brands'); }
+}
+
+
+
+function swarmStateLabel(state) {
+  const labels = { ok: 'Ready', loading: 'Loading', stopped: 'Stopped', error: 'Error', unknown: 'Unknown' };
+  return labels[state] || state || 'Unknown';
+}
+
+function renderSwarmStatus(data) {
+  const overall = document.getElementById('swarmOverall');
+  const checkedAt = document.getElementById('swarmCheckedAt');
+  const grid = document.getElementById('swarmGrid');
+  const guidance = document.getElementById('swarmGuidance');
+  if (!overall || !checkedAt || !grid || !guidance) return;
+
+  const status = data.status || 'unknown';
+  overall.className = 'swarm-pill ' + (status === 'ok' ? 'ok' : status === 'warning' ? 'warning' : status === 'degraded' ? 'degraded' : 'error');
+  overall.textContent = status === 'ok' ? 'Operational' : status === 'warning' ? 'Watch' : status === 'degraded' ? 'Degraded' : 'Unknown';
+  checkedAt.textContent = data.timestamp ? 'Last checked ' + new Date(data.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : 'Last check unavailable';
+
+  const services = data.services || [];
+  grid.innerHTML = services.map((svc) => {
+    const health = svc.health || 'unknown';
+    const mode = svc.startup_mode === 'on_demand' ? 'On-demand' : 'Persistent';
+    const latency = typeof svc.latency_ms === 'number' ? `${svc.latency_ms} ms` : 'No response';
+    return `<div class="swarm-service ${escHtml(health)}" title="${escHtml(svc.recommended_action || '')}">
+      <div class="swarm-service-name">${escHtml(svc.label || svc.role)}</div>
+      <div class="swarm-service-port">:${escHtml(svc.port)} · ${escHtml(mode)}</div>
+      <div class="swarm-service-state">${escHtml(swarmStateLabel(health))}</div>
+      <div class="swarm-service-meta">${escHtml(svc.model || '')}<br>${escHtml(latency)}</div>
+    </div>`;
+  }).join('') || '<div class="loading" style="grid-column:1/-1">No swarm services returned.</div>';
+
+  guidance.textContent = data.summary?.guidance || 'Core services should remain online. Specialists are on-demand and should run one at a time.';
+}
+
+async function loadSwarmStatus() {
+  try {
+    const data = await apiFetch('/swarm/status');
+    renderSwarmStatus(data);
+  } catch(e) {
+    const overall = document.getElementById('swarmOverall');
+    const grid = document.getElementById('swarmGrid');
+    const guidance = document.getElementById('swarmGuidance');
+    if (overall) {
+      overall.className = 'swarm-pill error';
+      overall.textContent = 'Unavailable';
+    }
+    if (grid) grid.innerHTML = '<div class="loading" style="grid-column:1/-1">Swarm status endpoint is unavailable.</div>';
+    if (guidance) guidance.textContent = 'Phoenix dashboard can still load, but the local swarm probe could not be reached: ' + e.message;
+  }
+}
+
+// ── Main Load ──
+async function loadAll() {
+  try {
+    const data = await apiFetch('/status');
+    loadAgents(data.agents);
+    loadSprint(data.sprint);
+    loadMetrics(data);
+    document.getElementById('statusDot').style.background = 'var(--green)';
+  } catch(e) {
+    document.getElementById('statusDot').style.background = 'var(--red)';
+    showError('Cannot reach Phoenix API: ' + e.message);
+  }
+  loadSwarmStatus();
+  loadKanban();
+  loadConversations();
+}
+
+function crewLabel(agent) {
+  const map = { clawbot: 'Forge', helm: 'Ledger', picket: 'Sentinel' };
+  const v = map[agent] || agent || 'unassigned';
+  return String(v).charAt(0).toUpperCase() + String(v).slice(1);
+}
+
+function riskLabel(priority) {
+  return { low: 'Low', normal: 'Green', high: 'Yellow', critical: 'Red' }[priority] || priority || 'Green';
+}
+
+function approvalLabel(priority) {
+  return { low: 'Backlog or reference item', normal: 'Internal execution allowed when scoped', high: 'Stage packet for Bob approval', critical: 'Bob + John gate before consequence' }[priority] || 'Governance class pending';
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Clawbot Chat ──
+let chatHistory = [];
+
+function appendChatMsg(role, text, ts) {
+  const el = document.getElementById('chatEmpty');
+  if (el) el.style.display = 'none';
+  const container = document.getElementById('chatMessages');
+  const isUser = role === 'user';
+  const avatarLabel = isUser ? 'B' : 'P';
+  const timeStr = ts ? new Date(ts).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + (isUser ? 'user' : 'phoenix');
+  div.innerHTML = `
+    <div class="chat-msg-avatar">${escHtml(avatarLabel)}</div>
+    <div class="chat-msg-body">
+      <div class="chat-msg-meta">${isUser ? 'Bob' : 'Phoenix'} · ${escHtml(timeStr)}</div>
+      <div class="chat-msg-text">${escHtml(text)}</div>
+    </div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function setTyping(show) {
+  let t = document.getElementById('chatTyping');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'chatTyping';
+    t.className = 'chat-msg phoenix';
+    t.innerHTML = `<div class="chat-msg-avatar">P</div><div class="chat-msg-body"><div class="chat-typing show" id="chatTypingInner"><span style="font-family:var(--font-mono);font-size:11px;color:var(--text3)">Phoenix is thinking</span><div class="typing-dots"><span></span><span></span><span></span></div></div></div>`;
+    document.getElementById('chatMessages').appendChild(t);
+  }
+  t.style.display = show ? 'flex' : 'none';
+  if (show) document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+}
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const btn = document.getElementById('chatSendBtn');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  input.style.height = 'auto';
+  btn.disabled = true;
+  appendChatMsg('user', msg);
+  setTyping(true);
+  try {
+    const r = await fetch(API_BASE + '/chat', {
+      method: 'POST',
+      headers: { ...headers, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
+    });
+    const data = await r.json();
+    setTyping(false);
+    if (data.response) {
+      appendChatMsg('phoenix', data.response, data.timestamp);
+    } else {
+      appendChatMsg('phoenix', '⚠ Phoenix returned an empty response.');
+    }
+  } catch(e) {
+    setTyping(false);
+    appendChatMsg('phoenix', '⚠ Could not reach Phoenix Core: ' + e.message);
+  }
+  btn.disabled = false;
+  input.focus();
+}
+
+async function loadChatHistory() {
+  try {
+    const data = await apiFetch('/conversations?limit=20');
+    const msgs = (data.conversations || []).slice().reverse();
+    if (msgs.length > 0) {
+      document.getElementById('chatEmpty').style.display = 'none';
+      msgs.forEach(m => appendChatMsg(m.role, m.content, m.timestamp));
+      const c = document.getElementById('chatMessages');
+      c.scrollTop = c.scrollHeight;
+    }
+  } catch(e) { /* silent */ }
+}
+
+// Auto-refresh every 30 seconds
+setInterval(loadAll, 30000);
+loadAll();
+</script>
+</body>
+</html>
