@@ -842,8 +842,57 @@
   .doctrine-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(201,168,76,.18); }
   .task-card .task-purpose { color: var(--text2); font-size: 11px; line-height: 1.35; margin-top: 6px; }
   .chat-disclaimer { padding: 10px 18px; background: rgba(201,168,76,.08); border-bottom: 1px solid rgba(201,168,76,.18); color: var(--text2); font-size: 12px; line-height: 1.45; }
-  @media (max-width: 1024px) { .brief-grid, .ops-grid { grid-template-columns: 1fr; } .crew-grid, .connector-grid, .knowledge-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 640px) { .crew-grid, .connector-grid, .knowledge-grid { grid-template-columns: 1fr; } .brief-title { font-size:20px; } }
+
+  /* ── Beacon Publisher Overseer ── */
+  .publisher-panel {
+    background: linear-gradient(135deg, rgba(201,168,76,0.18), rgba(15,23,42,0.94) 44%, rgba(59,130,246,0.10));
+    border: 1px solid rgba(201,168,76,0.34);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+  }
+  .publisher-header { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom: 16px; }
+  .publisher-eyebrow { color: var(--accent); font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 7px; }
+  .publisher-title { color: var(--text); font-size: 20px; line-height: 1.25; font-weight: 900; margin-bottom: 7px; }
+  .publisher-copy { color: var(--text2); font-size: 13px; line-height: 1.6; max-width: 840px; }
+  .publisher-summary { min-width: 210px; text-align:right; color: var(--text3); font-family: var(--font-mono); font-size: 11px; }
+  .publisher-pill { display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding: 7px 12px; margin-bottom: 7px; font-family: var(--font-mono); font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .05em; }
+  .publisher-pill.normal { background: rgba(34,197,94,.14); color: var(--green); border: 1px solid rgba(34,197,94,.28); }
+  .publisher-pill.watch { background: rgba(234,179,8,.14); color: var(--yellow); border: 1px solid rgba(234,179,8,.28); }
+  .publisher-pill.degraded, .publisher-pill.blocked, .publisher-pill.incident { background: rgba(239,68,68,.14); color: var(--red); border: 1px solid rgba(239,68,68,.28); }
+  .publisher-grid { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .publisher-status-card { background: rgba(15,23,42,.74); border: 1px solid rgba(148,163,184,.16); border-radius: 12px; padding: 12px; min-height: 120px; }
+  .publisher-status-card.watch { border-color: rgba(234,179,8,.30); background: rgba(234,179,8,.06); }
+  .publisher-status-card.degraded, .publisher-status-card.blocked, .publisher-status-card.incident { border-color: rgba(239,68,68,.30); background: rgba(239,68,68,.06); }
+  .publisher-status-label { color: var(--text3); font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 7px; }
+  .publisher-status-value { color: var(--text); font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+  .publisher-status-copy { color: var(--text2); font-size: 11px; line-height: 1.45; }
+  .publisher-handoff { display:grid; grid-template-columns: 1.05fr 1.35fr; gap: 12px; align-items:stretch; }
+  .publisher-flow, .publisher-escalation { background: rgba(15,23,42,.58); border: 1px solid rgba(201,168,76,.18); border-radius: 12px; padding: 13px; }
+  .publisher-flow-title, .publisher-escalation-title { color: var(--text); font-size: 12px; font-weight: 900; margin-bottom: 8px; }
+  .publisher-flow-copy, .publisher-escalation-copy { color: var(--text2); font-size: 11px; line-height: 1.55; }
+  .publisher-arrow { color: var(--accent); font-family: var(--font-mono); font-weight: 900; }
+
+  @media (max-width: 1024px) { .brief-grid, .ops-grid, .publisher-handoff { grid-template-columns: 1fr; } .publisher-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .publisher-header { flex-direction: column; } .publisher-summary { text-align: left; } .crew-grid, .connector-grid, .knowledge-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) {
+    .topbar { padding: 0 12px; gap: 10px; }
+    .topbar h1 { font-size: 14px; line-height: 1.2; }
+    .topbar-right { gap: 8px; }
+    .timestamp { font-size: 10px; }
+    .refresh-btn { padding: 5px 8px; font-size: 11px; }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+    .main { display: block; width: 100%; max-width: 100vw; min-width: 0; height: auto; min-height: calc(100vh - 56px); overflow-x: hidden; }
+    .sidebar { display: none; }
+    .content { width: 100%; max-width: 100vw; min-width: 0; height: auto; min-height: calc(100vh - 56px); padding: 16px; overflow: visible; }
+    #section-dashboard, #section-tasks, #section-conversations, #section-brands, #section-architecture { overflow: visible; max-width: 100%; }
+    .command-brief, .publisher-panel, .swarm-panel, .ops-panel { width: 100%; max-width: 100%; overflow: hidden; }
+    .command-brief *, .publisher-panel *, .swarm-panel *, .ops-panel * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; word-break: normal; }
+    .brief-grid, .publisher-grid, .crew-grid, .connector-grid, .knowledge-grid, .metrics-row { grid-template-columns: minmax(0, 1fr); }
+    .ops-item { grid-template-columns: 1fr; }
+    .pill { white-space: normal; }
+    .brief-title, .publisher-title { font-size:20px; }
+  }
 
 </style>
 </head>
@@ -914,7 +963,7 @@
       <div class="command-brief">
         <div class="brief-kicker">Governed AI Crew · Beacon Momentum · Beacon Labs</div>
         <div class="brief-title">Today's Watch</div>
-        <div class="brief-copy">Phoenix is the operating backbone that turns scattered activity into accountable work orders, approval packets, delivery queues, connector controls, and audit-ready memory. The dashboard is organized around the decisions Bob needs to make, the risks Sentinel must verify, and the technical edges John should secure before production impact.</div>
+        <div class="brief-copy">Phoenix is the operating backbone that turns scattered activity into accountable work orders, approval packets, delivery queues, connector controls, and audit-ready memory. Beacon Publisher now sits as the 24/7 publication-control and SANE monitoring overseer between Phoenix and public-facing execution. The dashboard is organized around the decisions Bob needs to make, the risks Sentinel must verify, and the technical edges John should secure before production impact.</div>
         <div class="brief-grid">
           <div class="brief-card">
             <div class="brief-card-label">Operating Focus</div>
@@ -934,14 +983,42 @@
           <div class="brief-card">
             <div class="brief-card-label">Operating Formula</div>
             <div class="brief-card-value">Prepare · Verify · Approve</div>
-            <div class="brief-card-copy">AI prepares. Sentinel verifies. Bob approves. John secures. Phoenix logs. Beacon learns.</div>
+            <div class="brief-card-copy">AI prepares. Beacon Publisher watches. Sentinel verifies. Bob approves. John secures. Phoenix logs. Beacon learns.</div>
           </div>
         </div>
         <div class="doctrine-strip">
           <span class="pill green">Green: internal execution</span>
           <span class="pill yellow">Yellow: staged for Bob</span>
           <span class="pill red">Red: Bob + John gate</span>
-          <span class="pill gold">Audit required</span>
+          <span class="pill gold">Publisher watch active</span>
+          <span class="pill blue">SANE: Signal · Account · Network · Execution</span>
+        </div>
+      </div>
+
+      <div class="publisher-panel" id="publisherPanel">
+        <div class="publisher-header">
+          <div>
+            <div class="publisher-eyebrow">Beacon Publisher · 24/7 Publication Control · SANE Watch</div>
+            <div class="publisher-title">Publication-Control Overseer Between Phoenix and the Publishing Agents</div>
+            <div class="publisher-copy">Beacon Publisher is the Beacon-native watch officer for public-facing momentum. Phoenix remains strategic command; Beacon Publisher controls readiness, SANE monitoring, escalation, and handoff discipline across Bosun, Picket, Helm, Medic, Scheduler, and Ledger before public publishing or paid promotion moves forward.</div>
+          </div>
+          <div class="publisher-summary">
+            <div class="publisher-pill watch" id="publisherOverall">Watch</div>
+            <div id="publisherLastCycle">Last watch cycle pending</div>
+          </div>
+        </div>
+        <div class="publisher-grid" id="publisherSaneGrid">
+          <div class="loading" style="grid-column:1/-1"><div class="spinner"></div> Preparing Publisher watch...</div>
+        </div>
+        <div class="publisher-handoff">
+          <div class="publisher-flow">
+            <div class="publisher-flow-title">Overseer Layer</div>
+            <div class="publisher-flow-copy">Phoenix <span class="publisher-arrow">→</span> Beacon Publisher <span class="publisher-arrow">→</span> Bosun organic queue, Picket paid ads, Helm/Ledger reporting, Medic health checks, Scheduler execution windows.</div>
+          </div>
+          <div class="publisher-escalation">
+            <div class="publisher-escalation-title">Escalation Doctrine</div>
+            <div class="publisher-escalation-copy" id="publisherEscalation">Normal items stay in the operating loop. Watch items require same-day review. Degraded, blocked, incident, money, account-access, public-claim, or production-risk items route to Bob and John before consequence.</div>
+          </div>
         </div>
       </div>
 
@@ -989,13 +1066,13 @@
           <div class="ops-list">
             <div class="ops-item"><div><div class="ops-title">Drafts and research briefs</div><div class="ops-copy">Scribe and Scout create source-backed drafts before public use.</div></div><span class="pill green">Draft</span></div>
             <div class="ops-item"><div><div class="ops-title">Sentinel quality-control lane</div><div class="ops-copy">Compliance, claim support, tone, and brand congruence must pass before approval.</div></div><span class="pill yellow">Review</span></div>
-            <div class="ops-item"><div><div class="ops-title">Publishing and outreach</div><div class="ops-copy">Herald stages assets, but public publishing remains Bob-approved unless explicitly whitelisted.</div></div><span class="pill red">Approval</span></div>
+            <div class="ops-item"><div><div class="ops-title">Publishing and outreach</div><div class="ops-copy">Beacon Publisher controls readiness and SANE state; Herald/Bosun/Picket stage assets, but public publishing remains Bob-approved unless explicitly whitelisted.</div></div><span class="pill red">Approval</span></div>
           </div>
         </div>
         <div class="ops-panel">
           <div class="ops-panel-title">Incident and Lessons Log <span class="ops-panel-sub">System Learning</span></div>
           <div class="ops-list">
-            <div class="ops-item"><div><div class="ops-title">Runtime degradation</div><div class="ops-copy">Swarm status is monitored below; specialists should stay on-demand unless a work order requires them.</div></div><span class="pill yellow">Watch</span></div>
+            <div class="ops-item"><div><div class="ops-title">Runtime or publication degradation</div><div class="ops-copy">Swarm status and SANE status stay visible; Beacon Publisher escalates missed jobs, account flags, route failures, and public-risk publishing blockers.</div></div><span class="pill yellow">Watch</span></div>
             <div class="ops-item"><div><div class="ops-title">Source-of-truth gap</div><div class="ops-copy">Live HTML matched local repair artifact; repository and CI/CD ownership must be preserved before future live updates.</div></div><span class="pill red">Fix</span></div>
             <div class="ops-item"><div><div class="ops-title">SOP updates</div><div class="ops-copy">Archivist records incidents, final decisions, and template changes so Beacon continuity improves over time.</div></div><span class="pill gold">Archive</span></div>
           </div>
@@ -1007,7 +1084,7 @@
             <div class="mini-card"><div class="mini-title">Gmail / CRM</div><div class="mini-copy">Client and prospect follow-up must be staged before send unless explicitly whitelisted.</div></div>
             <div class="mini-card"><div class="mini-title">Drive / GitHub</div><div class="mini-copy">Canonical files, source notes, version history, and deployment records.</div></div>
             <div class="mini-card"><div class="mini-title">Stripe / PayPal</div><div class="mini-copy">Financial controls are red-class actions requiring Bob approval.</div></div>
-            <div class="mini-card"><div class="mini-title">Meta / Instagram</div><div class="mini-copy">Campaign work requires source-backed claims, budget controls, and approval packets.</div></div>
+            <div class="mini-card"><div class="mini-title">Meta / Instagram</div><div class="mini-copy">Campaign work requires source-backed claims, budget controls, SANE visibility, and Publisher approval packets.</div></div>
             <div class="mini-card"><div class="mini-title">Cloudflare / Web</div><div class="mini-copy">Infrastructure and production changes route through John when technical risk is material.</div></div>
           </div>
         </div>
@@ -1025,6 +1102,7 @@
         <div class="ops-panel wide">
           <div class="ops-panel-title">Governed AI Crew <span class="ops-panel-sub">Role-Based Execution</span></div>
           <div class="crew-grid">
+            <div class="mini-card"><div class="mini-title">Beacon Publisher</div><div class="mini-copy">24/7 publication-control overseer, SANE monitor, escalation router, and readiness gate between Phoenix and public-facing agents.</div></div>
             <div class="mini-card"><div class="mini-title">Scribe</div><div class="mini-copy">Copy, briefs, reports, source-backed narrative.</div></div>
             <div class="mini-card"><div class="mini-title">Bosun</div><div class="mini-copy">Operations, routing, cadence, work-order coordination.</div></div>
             <div class="mini-card"><div class="mini-title">Scout</div><div class="mini-copy">Research, monitoring, competitive and local signal gathering.</div></div>
@@ -1065,6 +1143,7 @@
           <input class="form-input" id="taskTitle" placeholder="Work order title..." />
           <select class="form-select" id="taskAgent">
             <option value="">Unassigned</option>
+            <option value="publisher">Beacon Publisher</option>
             <option value="bosun">Bosun</option>
             <option value="scribe">Scribe</option>
             <option value="scout">Scout</option>
@@ -1423,19 +1502,29 @@ async function loadAgents(agents) {
   const el = document.getElementById('agentList');
   if (!agents) return;
   const agentDefs = {
-    bosun: { icon: '📢', desc: 'Social & Content' },
-    clawbot: { icon: '🤖', desc: 'Browser Automation' },
-    helm: { icon: '📊', desc: 'Data & Reporting' },
-    picket: { icon: '📣', desc: 'Meta Ads API' },
+    publisher: { icon: '📡', label: 'Beacon Publisher', desc: '24/7 Publication Control & SANE Monitor' },
+    bosun: { icon: '📢', label: 'Bosun', desc: 'Organic Publishing Queue' },
+    clawbot: { icon: '🤖', label: 'Forge', desc: 'Browser Automation' },
+    helm: { icon: '📊', label: 'Ledger', desc: 'Data & Reporting' },
+    picket: { icon: '📣', label: 'Sentinel', desc: 'Meta Ads API' },
+    medic: { icon: '🩺', label: 'Medic', desc: 'Health Checks' },
+    scheduler: { icon: '⏱', label: 'Scheduler', desc: 'Timed Jobs' },
+    ledger: { icon: '📒', label: 'Ledger', desc: 'Audit & Metrics' },
   };
-  el.innerHTML = Object.entries(agents).map(([name, state]) => {
-    const def = agentDefs[name] || { icon: '⚙', desc: 'Agent' };
-    const statusClass = state.status === 'idle' ? 'idle' : state.status === 'working' ? 'working' : 'error';
-    return `<div class="agent-card">
+  const normalizedAgents = { publisher: { status: 'watch' }, ...(agents || {}) };
+  const order = ['publisher', 'bosun', 'picket', 'helm', 'ledger', 'medic', 'scheduler', 'clawbot'];
+  el.innerHTML = Object.entries(normalizedAgents).sort(([a], [b]) => {
+    const ai = order.indexOf(a);
+    const bi = order.indexOf(b);
+    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+  }).map(([name, state]) => {
+    const def = agentDefs[name] || { icon: '⚙', label: name.charAt(0).toUpperCase() + name.slice(1), desc: 'Agent' };
+    const statusClass = state.status === 'idle' || state.status === 'watch' ? 'idle' : state.status === 'working' ? 'working' : 'error';
+    return `<div class="agent-card ${name === 'publisher' ? 'publisher-agent' : ''}">
       <div class="agent-dot ${statusClass}"></div>
       <div class="agent-info">
-        <div class="agent-name">${def.icon} ${name.charAt(0).toUpperCase() + name.slice(1)}</div>
-        <div class="agent-status">${state.status} · ${def.desc}</div>
+        <div class="agent-name">${def.icon} ${def.label}</div>
+        <div class="agent-status">${state.status || 'watch'} · ${def.desc}</div>
       </div>
     </div>`;
   }).join('');
@@ -1486,7 +1575,7 @@ function loadMetrics(data) {
     </div>
     <div class="metric-card">
       <div class="metric-label">Crew Coverage</div>
-      <div class="metric-value orange">9</div>
+      <div class="metric-value orange">10</div>
       <div class="metric-sub">governed roles · ${online} runtime signals</div>
     </div>
   `;
@@ -1623,6 +1712,75 @@ async function loadBrands() {
 
 
 
+
+function saneStatusClass(value) {
+  const v = String(value || 'watch').toLowerCase();
+  if (['normal', 'ready', 'green', 'ok'].includes(v)) return 'normal';
+  if (['degraded', 'blocked', 'incident', 'red', 'critical'].includes(v)) return v === 'red' || v === 'critical' ? 'incident' : v;
+  return 'watch';
+}
+
+function saneStatusLabel(value) {
+  const cls = saneStatusClass(value);
+  return { normal: 'Normal', watch: 'Watch', degraded: 'Degraded', blocked: 'Blocked', incident: 'Incident' }[cls] || 'Watch';
+}
+
+function renderPublisherWatch(data = {}) {
+  const overall = document.getElementById('publisherOverall');
+  const lastCycle = document.getElementById('publisherLastCycle');
+  const grid = document.getElementById('publisherSaneGrid');
+  const escalation = document.getElementById('publisherEscalation');
+  if (!overall || !lastCycle || !grid) return;
+
+  const publisher = data.publisher || data.publication_sane || data.sane || {};
+  const overallStatus = saneStatusClass(publisher.status || publisher.overall_status || 'watch');
+  overall.className = 'publisher-pill ' + overallStatus;
+  overall.textContent = saneStatusLabel(publisher.status || publisher.overall_status || 'watch');
+
+  const ts = publisher.last_cycle || publisher.last_watch_cycle || publisher.timestamp || new Date().toISOString();
+  lastCycle.textContent = ts ? 'Last watch cycle ' + new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : 'Last watch cycle pending';
+
+  const cards = [
+    {
+      label: 'Signal · Organic / Social',
+      value: publisher.organic_approval_state || 'Bosun staged · approval-gated',
+      status: publisher.signal_status || publisher.organic_status || 'watch',
+      copy: 'Scheduled posts pending Publisher readiness check, Sentinel-quality review, and Bob approval when public claims or reputation risk are present.'
+    },
+    {
+      label: 'Account · Ads / Flags',
+      value: publisher.paid_ad_health || 'Picket watch · budget guarded',
+      status: publisher.account_status || publisher.ads_status || 'watch',
+      copy: 'Paid-ad health, account access, spend caps, pixel/CAPI signals, and Meta anomaly flags stay visible before any campaign escalation.'
+    },
+    {
+      label: 'Network · Newsletter / Email',
+      value: publisher.newsletter_email_status || 'Routes ready · send gated',
+      status: publisher.network_status || publisher.email_status || 'watch',
+      copy: 'Newsletter, Gmail, CRM, Slack, GHL, and publication-route health are checked before handoff or scheduled delivery.'
+    },
+    {
+      label: 'Execution · Scheduler / Medic',
+      value: publisher.escalation_alert_state || 'No incident · heartbeat required',
+      status: publisher.execution_status || publisher.escalation_status || 'normal',
+      copy: 'Medic health checks, Scheduler windows, missed-job flags, Phoenix heartbeat, and escalation alerts form the active publication-control watch.'
+    }
+  ];
+
+  grid.innerHTML = cards.map((card) => {
+    const cls = saneStatusClass(card.status);
+    return `<div class="publisher-status-card ${cls}">
+      <div class="publisher-status-label">${escHtml(card.label)}</div>
+      <div class="publisher-status-value">${escHtml(card.value)}</div>
+      <div class="publisher-status-copy">${escHtml(card.copy)}</div>
+    </div>`;
+  }).join('');
+
+  if (escalation && publisher.escalation_alert_state) {
+    escalation.textContent = publisher.escalation_alert_state;
+  }
+}
+
 function swarmStateLabel(state) {
   const labels = { ok: 'Ready', loading: 'Loading', stopped: 'Stopped', error: 'Error', unknown: 'Unknown' };
   return labels[state] || state || 'Unknown';
@@ -1680,10 +1838,12 @@ async function loadAll() {
     loadAgents(data.agents);
     loadSprint(data.sprint);
     loadMetrics(data);
+    renderPublisherWatch(data);
     document.getElementById('statusDot').style.background = 'var(--green)';
   } catch(e) {
     document.getElementById('statusDot').style.background = 'var(--red)';
     showError('Cannot reach Phoenix API: ' + e.message);
+    renderPublisherWatch({});
   }
   loadSwarmStatus();
   loadKanban();
@@ -1691,7 +1851,7 @@ async function loadAll() {
 }
 
 function crewLabel(agent) {
-  const map = { clawbot: 'Forge', helm: 'Ledger', picket: 'Sentinel' };
+  const map = { publisher: 'Publisher', clawbot: 'Forge', helm: 'Ledger', picket: 'Sentinel' };
   const v = map[agent] || agent || 'unassigned';
   return String(v).charAt(0).toUpperCase() + String(v).slice(1);
 }
