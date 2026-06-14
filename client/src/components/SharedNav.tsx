@@ -39,6 +39,7 @@ export default function SharedNav({ dark = false }: SharedNavProps) {
 
   const NAV_LINKS = [
     { label: "The Five Pillars", href: "/#pillars" },
+    { label: "The Watch", href: "/the-watch" },
     { label: "Assessment", href: "/assessment" },
     { label: "Resources", href: "/resources" },
     { label: "Blog", href: "/blog" },

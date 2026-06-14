@@ -219,3 +219,14 @@
 @media (max-width: 768px) {
   .dg-two-col { grid-template-columns: 1fr !important; }
 }
+
+/* ─── The Watch Page ─────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .watch-doctrine-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+  .tiers-grid { grid-template-columns: 1fr !important; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .proof-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 500px) {
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+}

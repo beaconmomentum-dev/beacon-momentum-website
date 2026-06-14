@@ -16,7 +16,7 @@ export default function SharedFooter() {
     { label: "Beacon Venture", href: "/pillar/venture" },
     { label: "Beacon Systems", href: "/pillar/systems" },
     { label: "Beacon Trading", href: "/beacon-trading" },
-    { label: "The Watch (Community)", href: "/#watch" },
+    { label: "The Watch (Community)", href: "/the-watch" },
   ];
 
   const RESOURCES = [
