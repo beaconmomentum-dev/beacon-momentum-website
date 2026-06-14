@@ -16,6 +16,7 @@
 import { useState, useRef, useEffect } from "react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
+import { useLocation } from "wouter";
 import { submitToGHL } from "@/lib/ghl";
 
 // ─── Asset URLs ───────────────────────────────────────────────────────────────
@@ -1019,18 +1020,16 @@ function FAQ() {
 
 // ─── 6. Join CTA Form ─────────────────────────────────────────────────────────
 function JoinForm({ selectedTier }: { selectedTier: Tier | null }) {
+  const [, navigate] = useLocation();
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [tier, setTier] = useState<string>(selectedTier?.id || "navigator");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
   // Sync tier when selectedTier prop changes
   useEffect(() => {
     if (selectedTier) setTier(selectedTier.id);
   }, [selectedTier]);
-
   const selectedTierData = TIERS.find((t) => t.id === tier) || TIERS[1];
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
@@ -1041,6 +1040,17 @@ function JoinForm({ selectedTier }: { selectedTier: Tier | null }) {
       tags: ["BM_Watch_Join", selectedTierData.ghlTag, "BM_Community"],
       source: "beaconmomentum.com/the-watch",
     });
+    if (ok) {
+      // Store member info for the intake page
+      sessionStorage.setItem("watch_intake_email", email);
+      sessionStorage.setItem("watch_intake_tier", tier);
+      if (firstName) sessionStorage.setItem("watch_intake_name", firstName);
+      // Navigator and Quartermaster go to intake; Sentinel gets success message
+      if (tier === "navigator" || tier === "quartermaster") {
+        navigate("/the-watch/intake");
+        return;
+      }
+    }
     setStatus(ok ? "success" : "error");
   }
 

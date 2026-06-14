@@ -23,6 +23,7 @@ import DigitalGrandpaLibraryPage from "@/pages/DigitalGrandpaLibraryPage";
 import DigitalGrandpaPage from "@/pages/DigitalGrandpaPage";
 import BlogPage from "@/pages/BlogPage";
 import TheWatchPage from "@/pages/TheWatchPage";
+import TheWatchIntakePage from "@/pages/TheWatchIntakePage";
 function Router() {
   return (
     <Switch>
@@ -43,6 +44,7 @@ function Router() {
       <Route path="/digital-grandpa" component={DigitalGrandpaPage} />
       <Route path="/blog" component={BlogPage} />
       <Route path="/the-watch" component={TheWatchPage} />
+      <Route path="/the-watch/intake" component={TheWatchIntakePage} />
       <Route path="/digital-grandpa/library" component={DigitalGrandpaLibraryPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
