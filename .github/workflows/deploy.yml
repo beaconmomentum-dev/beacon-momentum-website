@@ -4,55 +4,92 @@ on:
   push:
     branches:
       - main
-      - master
 
 jobs:
-  deploy:
-    name: Deploy to beaconmomentum.com
+  build-and-deploy:
+    name: Build & Deploy to beaconmomentum.com
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          host: ${{ secrets.PRODUCTION_SERVER_IP }}
-          username: root
-          key: ${{ secrets.PRODUCTION_SSH_KEY }}
-          script: |
-            set -e
-            echo "=== Beacon Momentum — Production Deploy ==="
-            echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          node-version: '22'
 
-            DEPLOY_DIR="/var/www/beaconmomentum"
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
-            # Pull latest code
-            cd $DEPLOY_DIR
-            git fetch origin
-            git reset --hard origin/main || git reset --hard origin/master
-            echo "✓ Code updated"
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-            # Ensure images directory has correct permissions
-            chmod -R 755 $DEPLOY_DIR/images/
-            echo "✓ Image permissions set"
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-            # Restart Node.js server if running
-            if command -v pm2 &> /dev/null; then
-              pm2 restart beacon-auth 2>/dev/null || echo "PM2 process not running (OK for static sites)"
-              pm2 save 2>/dev/null || true
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build production bundle
+        run: pnpm run build:client
+        env:
+          VITE_GHL_API_KEY: ${{ secrets.VITE_GHL_API_KEY }}
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s' "${{ secrets.PRODUCTION_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy via rsync
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
+            dist/public/ \
+            root@${{ secrets.PRODUCTION_SERVER_IP }}:/var/www/beaconmomentum/
+
+      - name: Fix Nginx SPA routing and reload
+        env:
+          SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${SERVER_IP} bash -s << 'REMOTE'
+          set -e
+          for conf in /etc/nginx/sites-available/beaconmomentum \
+                      /etc/nginx/sites-available/default \
+                      /etc/nginx/conf.d/beaconmomentum.conf; do
+            if [ -f "$conf" ] && grep -q '=404' "$conf"; then
+              sed -i 's|try_files $uri $uri/ =404;|try_files $uri $uri/ /index.html;|g' "$conf"
+              echo "Fixed SPA fallback in $conf"
             fi
-            echo "✓ Server restarted"
+          done
+          nginx -t && systemctl reload nginx
+          echo "Nginx reloaded OK"
+          REMOTE
 
-            echo "=== Deploy complete ==="
+      - name: Verify deployment
+        run: |
+          echo "=== Beacon Momentum Deploy Complete ==="
+          echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "Commit: ${{ github.sha }}"
+          echo "Branch: ${{ github.ref_name }}"
 
-# ── Setup Instructions ────────────────────────────────────────────────────────
-# Add these secrets to GitHub → Settings → Secrets and variables → Actions:
+# ── Required GitHub Secrets ───────────────────────────────────────────────────
+# Set these at: Settings → Secrets and variables → Actions → New repository secret
 #
 #   PRODUCTION_SERVER_IP  = 143.198.23.240
-#   PRODUCTION_SSH_KEY    = (contents of manus_agent_beacon_ed25519 private key)
+#   PRODUCTION_SSH_KEY    = (full contents of beacon_deploy_cicd_ed25519 private key)
+#   VITE_GHL_API_KEY      = pit-9b89cad3-73d0-4406-8ac9-f5065bea9c3f
 #
-# The public key (manus_agent_beacon_ed25519_20260302.pub) must be added to
-# /root/.ssh/authorized_keys on the production server first.
+# The public key (beacon_deploy_cicd_ed25519.pub) must be in
+# /root/.ssh/authorized_keys on the production server.
 # ─────────────────────────────────────────────────────────────────────────────

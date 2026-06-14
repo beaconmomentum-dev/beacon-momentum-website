@@ -1,0 +1,216 @@
+/*
+ * BEACON MOMENTUM — GLOBAL STYLES
+ * Design Philosophy: Deep Water Editorial / Quiet Authority
+ * ─────────────────────────────────────────────────────────
+ * Color Philosophy: Warm parchment ground (#FAF8F4), deep coastal teal (#1A5C6B),
+ *   amber signal (#C8860A), charcoal text (#1C1C1E). Pillar accents are distinct.
+ * Typography: Cormorant Garamond (display) + Lora (body) + Outfit (UI/mono)
+ * Layout: Wide-margin editorial, asymmetric, not grid-centered
+ * Signature Elements: Lighthouse beam motif, coastline dividers, tidal-pool reflections
+ * Animation: Slow, deliberate entrances. Nothing snaps. Everything breathes.
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Brand Palette */
+  --beacon-parchment: #FAF8F4;
+  --beacon-parchment-dark: #F0EDE6;
+  --beacon-charcoal: #1C1C1E;
+  --beacon-charcoal-mid: #3A3A3C;
+  --beacon-teal: #1A5C6B;
+  --beacon-teal-light: #2A7A8C;
+  --beacon-teal-pale: #E8F4F7;
+  --beacon-amber: #C8860A;
+  --beacon-amber-light: #E8A020;
+  --beacon-amber-pale: #FDF4E3;
+  --beacon-cream: #F5F0E8;
+
+  /* Pillar Accent Colors */
+  --pillar-life: #2E7D6B;       /* Deep sage-teal — personal resilience */
+  --pillar-work: #1A5C6B;       /* Coastal teal — professional adaptation */
+  --pillar-venture: #8B5E3C;    /* Warm cedar — entrepreneurial warmth */
+  --pillar-systems: #3D4F6B;    /* Deep navy — operational trust */
+  --pillar-labs: #5C3D6B;       /* Deep plum — research and proof */
+
+  /* Semantic tokens */
+  --background: oklch(0.98 0.006 80);
+  --foreground: oklch(0.13 0.005 285);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.13 0.005 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.13 0.005 285);
+  --primary: oklch(0.38 0.07 210);
+  --primary-foreground: oklch(0.98 0.006 80);
+  --secondary: oklch(0.95 0.008 80);
+  --secondary-foreground: oklch(0.3 0.01 285);
+  --muted: oklch(0.94 0.006 80);
+  --muted-foreground: oklch(0.52 0.015 285);
+  --accent: oklch(0.62 0.12 60);
+  --accent-foreground: oklch(0.13 0.005 285);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.008 80);
+  --input: oklch(0.88 0.008 80);
+  --ring: oklch(0.38 0.07 210);
+  --chart-1: oklch(0.38 0.07 210);
+  --chart-2: oklch(0.62 0.12 60);
+  --chart-3: oklch(0.45 0.08 160);
+  --chart-4: oklch(0.35 0.06 250);
+  --chart-5: oklch(0.42 0.07 300);
+  --sidebar: oklch(0.96 0.006 80);
+  --sidebar-foreground: oklch(0.13 0.005 285);
+  --sidebar-primary: oklch(0.38 0.07 210);
+  --sidebar-primary-foreground: oklch(0.98 0.006 80);
+  --sidebar-accent: oklch(0.94 0.006 80);
+  --sidebar-accent-foreground: oklch(0.13 0.005 285);
+  --sidebar-border: oklch(0.88 0.008 80);
+  --sidebar-ring: oklch(0.38 0.07 210);
+
+  /* Easings */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lora', Georgia, serif;
+    background-color: var(--beacon-parchment);
+    color: var(--beacon-charcoal);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container { padding-left: 2rem; padding-right: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .container { padding-left: 3rem; padding-right: 3rem; max-width: 1320px; }
+  }
+  .flex { min-height: 0; min-width: 0; }
+
+  /* Typography utilities */
+  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .font-body { font-family: 'Lora', Georgia, serif; }
+  .font-ui { font-family: 'Outfit', system-ui, sans-serif; }
+
+  /* Beacon brand utilities */
+  .text-beacon-teal { color: var(--beacon-teal); }
+  .text-beacon-amber { color: var(--beacon-amber); }
+  .text-beacon-charcoal { color: var(--beacon-charcoal); }
+  .bg-beacon-parchment { background-color: var(--beacon-parchment); }
+  .bg-beacon-teal { background-color: var(--beacon-teal); }
+  .bg-beacon-charcoal { background-color: var(--beacon-charcoal); }
+  .border-beacon-teal { border-color: var(--beacon-teal); }
+  .border-beacon-amber { border-color: var(--beacon-amber); }
+
+  /* Pillar accent utilities */
+  .pillar-life { --pillar-color: var(--pillar-life); }
+  .pillar-work { --pillar-color: var(--pillar-work); }
+  .pillar-venture { --pillar-color: var(--pillar-venture); }
+  .pillar-systems { --pillar-color: var(--pillar-systems); }
+  .pillar-labs { --pillar-color: var(--pillar-labs); }
+
+  /* Lighthouse beam divider */
+  .beam-divider {
+    width: 3rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--beacon-amber), transparent);
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Editorial section rule */
+  .section-rule {
+    border: none;
+    border-top: 1px solid oklch(0.85 0.008 80);
+    margin: 0;
+  }
+
+  /* Fade-up animation for scroll reveal */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .stagger > * { transition-delay: calc(var(--i, 0) * 80ms); }
+
+  /* Button press feel */
+  .btn-press:active { transform: scale(0.97); transition: transform 160ms var(--ease-out); }
+}

@@ -1,0 +1,12 @@
+name = "beacon-og-injector"
+main = "cloudflare-og-worker.js"
+compatibility_date = "2024-01-01"
+
+# Uncomment and update with your domain once deployed:
+# [[routes]]
+# pattern = "beaconmomentum.com/path/*"
+# zone_name = "beaconmomentum.com"
+#
+# [[routes]]
+# pattern = "beaconmomentum.com/assessment"
+# zone_name = "beaconmomentum.com"
