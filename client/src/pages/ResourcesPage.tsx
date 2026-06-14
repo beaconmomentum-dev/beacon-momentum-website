@@ -7,6 +7,10 @@
 
 import { Link } from "wouter";
 import { ArrowUpRight, BookOpen, Video, FileText, Compass, FlaskConical, TrendingUp, Shield, Globe } from "lucide-react";
+import SharedNav from "@/components/SharedNav";
+import SharedFooter from "@/components/SharedFooter";
+
+const RESOURCES_HERO_IMG = "/manus-storage/beacon_resources_editorial_f4e411d8.png";
 
 const RESOURCES = [
   {
@@ -74,71 +78,25 @@ const RESOURCES = [
 export default function ResourcesPage() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--beacon-parchment)" }}>
-      {/* Nav */}
-      <nav style={{
-        position: "sticky", top: 0, zIndex: 100,
-        background: "rgba(250,248,244,0.97)",
-        borderBottom: "1px solid var(--beacon-parchment-dark)",
-        backdropFilter: "blur(8px)",
-      }}>
-        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
-          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
-            <span style={{
-              width: "1.5rem", height: "1.5rem",
-              background: "var(--beacon-teal)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "0.9rem", color: "#FAF8F4",
-            }}>◈</span>
-            <span style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontWeight: 600, fontSize: "1.05rem",
-              color: "var(--beacon-charcoal)", letterSpacing: "-0.01em",
-            }}>Beacon Momentum</span>
-          </Link>
-          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-            <Link href="/assessment" style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 400, fontSize: "0.8rem",
-              letterSpacing: "0.06em", textTransform: "uppercase",
-              color: "var(--beacon-charcoal-mid)", textDecoration: "none",
-            }}>Assessment</Link>
-            <Link href="/" style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 400, fontSize: "0.8rem",
-              color: "var(--beacon-charcoal-mid)", textDecoration: "none",
-            }}>← Home</Link>
-          </div>
-        </div>
-      </nav>
+      <SharedNav />
 
-      {/* Hero */}
-      <section style={{ padding: "7rem 0 4rem" }}>
-        <div className="container" style={{ maxWidth: "760px" }}>
-          <span style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 400, fontSize: "0.75rem",
-            letterSpacing: "0.18em", textTransform: "uppercase",
-            color: "var(--beacon-amber)",
-            display: "flex", alignItems: "center", gap: "0.75rem",
-            marginBottom: "1.5rem",
-          }}>
-            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber)", display: "inline-block" }} />
+      {/* Hero — editorial image with overlay */}
+      <section style={{ position: "relative", minHeight: "360px", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
+        <img
+          src={RESOURCES_HERO_IMG}
+          alt="Beacon Momentum Resources — editorial flat-lay"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
+        />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(28,22,14,0.92) 25%, rgba(28,22,14,0.4) 70%, rgba(28,22,14,0.05) 100%)" }} />
+        <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: "4rem", paddingTop: "7rem" }}>
+          <span style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C4A882", display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+            <span style={{ width: "2rem", height: "1px", background: "#C4A882", display: "inline-block" }} />
             Free Resources
           </span>
-          <h1 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 600, fontSize: "clamp(2.25rem, 5vw, 3.5rem)",
-            lineHeight: 1.1, letterSpacing: "-0.025em",
-            color: "var(--beacon-charcoal)", marginBottom: "1.5rem",
-          }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(2.25rem, 5vw, 3.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em", color: "#FAF8F4", marginBottom: "1.5rem" }}>
             Everything Beacon publishes<br />is free before it's sold.
           </h1>
-          <p style={{
-            fontFamily: "'Lora', Georgia, serif",
-            fontWeight: 400, fontSize: "1.05rem",
-            lineHeight: 1.8, color: "var(--beacon-charcoal-mid)",
-            maxWidth: "580px",
-          }}>
+          <p style={{ fontFamily: "'Lora', Georgia, serif", fontWeight: 400, fontSize: "1.05rem", lineHeight: 1.8, color: "rgba(250,248,244,0.7)", maxWidth: "580px" }}>
             Beacon does not buy its way to relevance. We build public usefulness through video education, transparent research, and documented proof — and we amplify only what the market has already shown it wants.
           </p>
         </div>
@@ -499,29 +457,7 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{ background: "var(--beacon-charcoal)", padding: "2.5rem 0" }}>
-        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <p style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 300, fontSize: "0.75rem",
-            color: "rgba(250,248,244,0.3)", letterSpacing: "0.04em",
-          }}>
-            © {new Date().getFullYear()} Beacon Momentum. All rights reserved.
-          </p>
-          <div style={{ display: "flex", gap: "1.5rem" }}>
-            <Link href="/privacy" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.75rem", color: "rgba(250,248,244,0.3)", textDecoration: "none" }}>Privacy</Link>
-            <Link href="/terms" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.75rem", color: "rgba(250,248,244,0.3)", textDecoration: "none" }}>Terms</Link>
-          </div>
-          <p style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 300, fontSize: "0.75rem",
-            color: "rgba(250,248,244,0.2)", letterSpacing: "0.04em",
-          }}>
-            Earn · Prove · Amplify
-          </p>
-        </div>
-      </footer>
+      <SharedFooter />
     </div>
   );
 }

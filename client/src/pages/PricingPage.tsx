@@ -17,6 +17,10 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight, Zap } from "lucide-react";
+import SharedNav from "@/components/SharedNav";
+import SharedFooter from "@/components/SharedFooter";
+
+const PRICING_BG_IMG = "/manus-storage/beacon_pricing_bg_06879c01.png";
 
 type BillingCycle = "monthly" | "annual";
 
@@ -315,36 +319,16 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-[#FAF8F4] font-body">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F4]/95 backdrop-blur-sm border-b border-[#E8E4DC]">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-7 h-7 rounded-sm bg-[#1A5C6B] flex items-center justify-center">
-              <span className="text-white" style={{fontSize:"0.9rem"}}>◈</span>
-            </div>
-            <span className="font-display text-[#2C2416] text-lg tracking-tight">
-              Beacon Momentum
-            </span>
-          </Link>
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm font-ui text-[#6B5E4E] hover:text-[#2C2416] tracking-wide transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="text-sm font-ui text-[#6B5E4E] hover:text-[#2C2416] tracking-wide transition-colors">
-              About
-            </Link>
-          </div>
-          <Link
-            href="/assessment"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-ui tracking-widest uppercase text-white bg-[#1A5C6B] rounded-sm transition-colors hover:bg-[#154F5C]"
-          >
-            Find Your Path
-          </Link>
-        </div>
-      </nav>
+      <SharedNav />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 px-6">
+      {/* Hero — nautical chart texture background */}
+      <section className="pt-32 pb-16 px-6" style={{ position: "relative", overflow: "hidden" }}>
+        <img
+          src={PRICING_BG_IMG}
+          alt=""
+          aria-hidden="true"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", opacity: 0.06, pointerEvents: "none" }}
+        />
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -494,6 +478,8 @@ export default function PricingPage() {
           </Link>
         </div>
       </section>
+
+      <SharedFooter />
     </div>
   );
 }

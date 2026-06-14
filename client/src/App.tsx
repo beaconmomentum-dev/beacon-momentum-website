@@ -21,6 +21,7 @@ import PillarSharePage from "@/pages/PillarSharePage";
 import ContactPage from "@/pages/ContactPage";
 import DigitalGrandpaLibraryPage from "@/pages/DigitalGrandpaLibraryPage";
 import DigitalGrandpaPage from "@/pages/DigitalGrandpaPage";
+import BlogPage from "@/pages/BlogPage";
 function Router() {
   return (
     <Switch>
@@ -39,6 +40,7 @@ function Router() {
       <Route path={"/path/:pillar"} component={PillarSharePage} />
       <Route path={"/contact"} component={ContactPage} />
       <Route path="/digital-grandpa" component={DigitalGrandpaPage} />
+      <Route path="/blog" component={BlogPage} />
       <Route path="/digital-grandpa/library" component={DigitalGrandpaLibraryPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

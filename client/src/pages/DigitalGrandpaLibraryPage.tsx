@@ -7,9 +7,11 @@
 
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, BookOpen, Clock, Star, ChevronRight, Check } from "lucide-react";
+import { BookOpen, Clock, Star, ChevronRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import SharedNav from "@/components/SharedNav";
+import SharedFooter from "@/components/SharedFooter";
 
 const BOOKS = [
   {
@@ -133,22 +135,7 @@ export default function DigitalGrandpaLibraryPage() {
       className="min-h-screen"
       style={{ background: "linear-gradient(160deg, #0d1b2a 0%, #1a2f45 60%, #0d1b2a 100%)" }}
     >
-      {/* Nav */}
-      <nav className="border-b border-white/10 px-6 py-4">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <Link href="/">
-            <a className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm">
-              <ArrowLeft size={16} />
-              Beacon Momentum
-            </a>
-          </Link>
-          <Link href="/digital-grandpa">
-            <a className="text-amber-400/80 hover:text-amber-400 text-sm transition-colors">
-              About Digital Grandpa
-            </a>
-          </Link>
-        </div>
-      </nav>
+      <SharedNav />
 
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
@@ -352,33 +339,17 @@ export default function DigitalGrandpaLibraryPage() {
           Beacon pillar — that fits where you are right now.
         </p>
         <Link href="/assessment">
-          <a>
-            <Button
-              className="font-semibold px-8 py-3 text-base"
-              style={{ background: "#c8a96e", color: "#0d1b2a" }}
-            >
-              Take the Free Assessment
-              <ChevronRight size={18} className="ml-2" />
-            </Button>
-          </a>
+          <Button
+            className="font-semibold px-8 py-3 text-base"
+            style={{ background: "#c8a96e", color: "#0d1b2a" }}
+          >
+            Take the Free Assessment
+            <ChevronRight size={18} className="ml-2" />
+          </Button>
         </Link>
       </section>
 
-      {/* Footer */}
-      <footer
-        className="border-t border-white/10 py-8 px-6 text-center"
-        style={{ background: "rgba(0,0,0,0.2)" }}
-      >
-        <p className="text-white/30 text-xs">
-          Digital Grandpa is part of the{" "}
-          <Link href="/">
-            <a className="hover:text-white/60 transition-colors underline underline-offset-2">
-              Beacon Momentum
-            </a>
-          </Link>{" "}
-          ecosystem. &copy; {new Date().getFullYear()} Beacon Momentum. All rights reserved.
-        </p>
-      </footer>
+      <SharedFooter />
     </div>
   );
 }

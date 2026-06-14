@@ -1,11 +1,16 @@
 /**
  * Beacon Momentum — About Page (/about)
  * Design: Deep Water Editorial / Quiet Authority
- * Full Beacon narrative: 12-month origin story, five-pillar evolution,
- * operating doctrine, ecosystem overview, and founding philosophy.
+ * Full Beacon narrative: origin story, five-pillar architecture,
+ * operating doctrine, ecosystem overview, Watch manifesto.
+ * Uses SharedNav and SharedFooter for brand congruence.
  */
 
 import { Link } from "wouter";
+import SharedNav from "@/components/SharedNav";
+import SharedFooter from "@/components/SharedFooter";
+
+const ABOUT_HERO_IMG = "/manus-storage/beacon_about_hero_3f574393.png";
 
 const TIMELINE = [
   {
@@ -35,68 +40,61 @@ const TIMELINE = [
 ];
 
 const PILLARS = [
-  { id: "life",     name: "Beacon Life",     color: "#2A7F6F", description: "Rebuilds personal capacity, confidence, identity, and resilience in a world changing faster than most people can absorb." },
-  { id: "work",     name: "Beacon Work",     color: "#1A5C6B", description: "Helps people adapt their skills, workflows, and professional value for AI-era employment — augmentation, repositioning, and survival with dignity." },
-  { id: "venture",  name: "Beacon Venture",  color: "#B8860B", description: "Creates resilient income through solopreneurship, digital products, and practical ventures — including the Beacon Trading financial sovereignty track." },
-  { id: "systems",  name: "Beacon Systems",  color: "#4A3728", description: "Installs private, trusted, AI-enabled operations for founders and small organizations — including Phoenix, Odysseus, and the full Beacon infrastructure stack." },
-  { id: "labs",     name: "Beacon Labs",     color: "#5C3A6B", description: "Tests, documents, and proves the tools, methods, and case studies that power the ecosystem. The Signal Check, research layer, and public proof surface." },
+  { id: "life",    name: "Beacon Life",    color: "#2A7F6F", description: "Rebuilds personal capacity, confidence, identity, and resilience in a world changing faster than most people can absorb." },
+  { id: "work",    name: "Beacon Work",    color: "#1A5C6B", description: "Helps people adapt their skills, workflows, and professional value for AI-era employment — augmentation, repositioning, and survival with dignity." },
+  { id: "venture", name: "Beacon Venture", color: "#B8860B", description: "Creates resilient income through solopreneurship, digital products, and practical ventures — including the Beacon Trading financial sovereignty track." },
+  { id: "systems", name: "Beacon Systems", color: "#4A3728", description: "Installs private, trusted, AI-enabled operations for founders and small organizations — including Phoenix, Odysseus, and the full Beacon infrastructure stack." },
+  { id: "labs",    name: "Beacon Labs",    color: "#5C3A6B", description: "Tests, documents, and proves the tools, methods, and case studies that power the ecosystem. The Signal Check, research layer, and public proof surface." },
 ];
 
 const ECOSYSTEM = [
-  { name: "Beacon Momentum",  domain: "beaconmomentum.com",         role: "Umbrella brand and five-pillar education hub" },
-  { name: "Beacon Labs",      domain: "beaconlabs.ai",              role: "Signal Check, AI audit, and research delivery" },
-  { name: "Beacon Trading",   domain: "beacontrading.ai",           role: "Financial sovereignty and market literacy academy" },
-  { name: "Phoenix",          domain: "phoenix.beaconmomentum.com", role: "Internal AI operations command center" },
+  { name: "Beacon Momentum",  domain: "beaconmomentum.com",          role: "Umbrella brand and five-pillar education hub" },
+  { name: "Beacon Labs",      domain: "beaconlabs.ai",               role: "Signal Check, AI audit, and research delivery" },
+  { name: "Beacon Trading",   domain: "beacontrading.ai",            role: "Financial sovereignty and market literacy academy" },
+  { name: "Phoenix",          domain: "phoenix.beaconmomentum.com",  role: "Internal AI operations command center" },
   { name: "Digital Grandpa",  domain: "digitalgrandpa.com",          role: "AI literacy for older adults and families" },
-  { name: "Hollow Threads",   domain: "holothreads.com",            role: "Organic-first creative commerce lab" },
-  { name: "Cask & Cuisine",   domain: "caskandcuisine.com",         role: "Food, drink, and lifestyle content brand" },
-  { name: "Vitality",         domain: "vitalyears.com",             role: "Health and longevity content for the AI era" },
-  { name: "The Void",         domain: "Discord community",          role: "Private Beacon community and accountability space" },
+  { name: "Hollow Threads",   domain: "holothreads.com",             role: "Organic-first creative commerce lab" },
+  { name: "Cask & Cuisine",   domain: "caskandcuisine.com",          role: "Food, drink, and lifestyle content brand" },
+  { name: "Vitality",         domain: "vitalyears.com",              role: "Health and longevity content for the AI era" },
+  { name: "The Void",         domain: "Discord community",           role: "Private Beacon community and accountability space" },
 ];
-
-function Nav() {
-  return (
-    <nav style={{
-      position: "sticky", top: 0, zIndex: 100,
-      background: "rgba(250,248,244,0.97)",
-      borderBottom: "1px solid #E8E4DC",
-      backdropFilter: "blur(8px)",
-    }}>
-      <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
-          <span style={{ width: "1.5rem", height: "1.5rem", background: "#1A5C6B", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.9rem", color: "#FAF8F4" }}>◈</span>
-          <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "1.05rem", color: "#2C2416", letterSpacing: "-0.01em" }}>Beacon Momentum</span>
-        </Link>
-        <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-          <Link href="/#pillars" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.8rem", letterSpacing: "0.06em", textTransform: "uppercase", color: "#6B5E4E", textDecoration: "none" }}>
-            The Five Pillars
-          </Link>
-          <Link href="/assessment" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500, fontSize: "0.8rem", letterSpacing: "0.04em", padding: "0.5rem 1.25rem", background: "#1A5C6B", color: "#FAF8F4", textDecoration: "none" }}>
-            Find Your Path
-          </Link>
-        </div>
-      </div>
-    </nav>
-  );
-}
 
 export default function AboutPage() {
   return (
     <div style={{ minHeight: "100vh", background: "#FAF8F4", fontFamily: "'Lora', Georgia, serif" }}>
-      <Nav />
+      <SharedNav />
 
-      {/* Hero */}
-      <section style={{ background: "#2C2416", padding: "7rem 0 5rem" }}>
-        <div className="container" style={{ maxWidth: "900px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2rem" }}>
+      {/* Hero — lighthouse image with dark overlay */}
+      <section style={{ position: "relative", minHeight: "480px", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
+        <img
+          src={ABOUT_HERO_IMG}
+          alt="Beacon Momentum — lighthouse at golden hour"
+          style={{
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%",
+            objectFit: "cover", objectPosition: "center 30%",
+          }}
+        />
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to top, rgba(28,22,14,0.92) 30%, rgba(28,22,14,0.4) 80%, rgba(28,22,14,0.15) 100%)",
+        }} />
+        <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: "5rem", paddingTop: "8rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
             <span style={{ width: "2rem", height: "1px", background: "#C4A882", display: "inline-block" }} />
             <span style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C4A882" }}>The Beacon Story</span>
           </div>
-          <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(2.8rem, 6vw, 5rem)", lineHeight: 1.05, letterSpacing: "-0.03em", color: "#FAF8F4", marginBottom: "1.5rem" }}>
+          <h1 style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 600, fontSize: "clamp(2.8rem, 6vw, 5rem)",
+            lineHeight: 1.05, letterSpacing: "-0.03em",
+            color: "#FAF8F4", marginBottom: "1.5rem",
+            maxWidth: "700px",
+          }}>
             Built in the storm.
             <span style={{ display: "block", color: "#C4A882", fontStyle: "italic", marginTop: "0.25rem" }}>For the people still in it.</span>
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "#A89880", maxWidth: "640px", lineHeight: 1.8 }}>
+          <p style={{ fontSize: "1.05rem", color: "rgba(250,248,244,0.72)", maxWidth: "580px", lineHeight: 1.8 }}>
             Beacon Momentum is the AI-era human capability and operations company. We help people and small organizations remain human, capable, economically active, and sovereign through the AI transition — without hype, shame, spam, or guru dependency.
           </p>
         </div>
@@ -106,13 +104,48 @@ export default function AboutPage() {
       <section style={{ background: "#F5F1EA", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <blockquote style={{ borderLeft: "4px solid #1A5C6B", paddingLeft: "2rem", margin: 0 }}>
-            <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(1.5rem, 3vw, 2.25rem)", color: "#2C2416", lineHeight: 1.5, fontStyle: "italic", marginBottom: "1.25rem" }}>
+            <p style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontWeight: 600, fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+              color: "#2C2416", lineHeight: 1.5, fontStyle: "italic", marginBottom: "1.25rem",
+            }}>
               "Beacon exists to help people and small organizations remain human, capable, economically active, and sovereign through the AI transition."
             </p>
             <footer style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#6B5E4E" }}>
               Beacon Momentum Mission Statement
             </footer>
           </blockquote>
+        </div>
+      </section>
+
+      {/* The Watch Manifesto */}
+      <section style={{ background: "#0A1628", padding: "5rem 0" }}>
+        <div className="container" style={{ maxWidth: "760px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber, #C8860A)", display: "inline-block" }} />
+            <span style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--beacon-amber, #C8860A)" }}>The Watch</span>
+          </div>
+          <h2 style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)",
+            color: "#FAF8F4", marginBottom: "2rem", letterSpacing: "-0.02em",
+          }}>
+            The Lighthouse Is Lit.<br />
+            <em style={{ fontStyle: "italic", color: "rgba(250,248,244,0.72)" }}>Join Us at the Watch.</em>
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            {[
+              "Beacon is not a course platform. It is a team on watch — a collective of people who have decided to navigate the AI transition together, with clear eyes and practical tools.",
+              "We do not promise transformation. We build the conditions for it. The lighthouse does not move the ship. It shows the rocks. You do the sailing.",
+              "Every member, every mentor, every piece of content we publish is part of the same operating premise: that the people who stay human, stay capable, and stay economically alive through this transition will be the ones who chose to navigate it deliberately — not the ones who waited for it to pass.",
+            ].map((para, i) => (
+              <p key={i} style={{
+                fontFamily: "'Lora', Georgia, serif",
+                fontWeight: 400, fontSize: "1rem",
+                lineHeight: 1.85, color: "rgba(250,248,244,0.65)",
+              }}>{para}</p>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -126,7 +159,6 @@ export default function AboutPage() {
           <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2416", marginBottom: "3.5rem", letterSpacing: "-0.02em" }}>
             Twelve months of building toward this moment
           </h2>
-
           <div style={{ position: "relative" }}>
             {TIMELINE.map((item, i) => (
               <div key={item.period} style={{ display: "flex", gap: "2rem", paddingBottom: i < TIMELINE.length - 1 ? "3.5rem" : "0", position: "relative" }}>
@@ -163,17 +195,11 @@ export default function AboutPage() {
           <p style={{ color: "#A89880", marginBottom: "3rem", maxWidth: "560px", lineHeight: 1.75, fontSize: "0.95rem" }}>
             Each pillar is an answer to a real question from a real person navigating a real transition.
           </p>
-
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1.25rem" }}>
             {PILLARS.map((pillar) => (
               <Link key={pillar.id} href={`/pillar/${pillar.id}`} style={{ textDecoration: "none" }}>
-                <div style={{
-                  padding: "1.75rem",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  transition: "border-color 0.25s",
-                  cursor: "pointer",
-                  height: "100%",
-                }}
+                <div
+                  style={{ padding: "1.75rem", border: "1px solid rgba(255,255,255,0.1)", transition: "border-color 0.25s", cursor: "pointer", height: "100%" }}
                   onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)")}
                   onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
                 >
@@ -200,7 +226,6 @@ export default function AboutPage() {
           <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2416", marginBottom: "3rem", letterSpacing: "-0.02em" }}>
             How Beacon grows
           </h2>
-
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "1.5rem", marginBottom: "3rem" }}>
             {[
               { word: "Earn", body: "Build trust through public usefulness before asking for money. Education, proof, and demonstrated competence come before any transaction." },
@@ -213,7 +238,6 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-
           <blockquote style={{ borderLeft: "4px solid #B8860B", paddingLeft: "2rem", margin: 0 }}>
             <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)", color: "#2C2416", lineHeight: 1.55, fontStyle: "italic" }}>
               "We will not buy our way out of unclear positioning. We will earn trust through public usefulness, then amplify what the market has already proven it wants."
@@ -235,7 +259,6 @@ export default function AboutPage() {
           <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2416", marginBottom: "2.5rem", letterSpacing: "-0.02em" }}>
             Every property. One mission.
           </h2>
-
           <div style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "'Lora', Georgia, serif" }}>
               <thead>
@@ -288,30 +311,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{ background: "#2C2416", padding: "2.5rem 0", borderTop: "1px solid #3A3020" }}>
-        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
-            <span style={{ width: "1.5rem", height: "1.5rem", background: "#1A5C6B", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.9rem", color: "#FAF8F4" }}>◈</span>
-            <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "1rem", color: "#FAF8F4" }}>Beacon Momentum</span>
-          </div>
-          <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-            {[
-              { label: "Home", href: "/" },
-              { label: "Assessment", href: "/assessment" },
-              { label: "Beacon Trading", href: "/beacon-trading" },
-              { label: "Privacy", href: "/privacy" },
-            ].map((l) => (
-              <Link key={l.label} href={l.href} style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.75rem", color: "rgba(250,248,244,0.45)", textDecoration: "none", letterSpacing: "0.04em" }}>
-                {l.label}
-              </Link>
-            ))}
-          </div>
-          <p style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.72rem", color: "rgba(250,248,244,0.25)", letterSpacing: "0.04em" }}>
-            Earn · Prove · Amplify
-          </p>
-        </div>
-      </footer>
+      <SharedFooter />
     </div>
   );
 }

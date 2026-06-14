@@ -15,12 +15,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
+import SharedNav from "@/components/SharedNav";
+import SharedFooter from "@/components/SharedFooter";
 
 // ─── Asset URLs ────────────────────────────────────────────────────────────────
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_hero_v2-cshWgeWfiqEDwxDKjqHLXG.webp";
 const PATHFINDER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_pathfinder_v2-igUG5mPRhxMoS7mNZQ5f2G.webp";
 const PILLARS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_five_pillars_v2-nGFvV6xqcrFg4PJvHKNSUe.webp";
 const TRUST_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_trust_engine_v2-mB5K6zGCp7jxRuVa69zs9B.webp";
+const WATCH_IMG = "/manus-storage/beacon_watch_community_c3645886.png";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 interface Pillar {
@@ -1276,6 +1279,106 @@ function TrustEngine() {
   );
 }
 
+// ─── The Watch ────────────────────────────────────────────────────────────────
+function TheWatch() {
+  const ref = useFadeUp();
+  return (
+    <section style={{ position: "relative", overflow: "hidden", padding: "0" }}>
+      {/* Full-bleed image */}
+      <div style={{
+        position: "relative",
+        minHeight: "520px",
+        display: "flex", alignItems: "center",
+        background: "#0A1628",
+      }}>
+        <img
+          src={WATCH_IMG}
+          alt="The Watch — Beacon Momentum community"
+          style={{
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            opacity: 0.55,
+          }}
+        />
+        {/* Gradient overlay */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to right, rgba(10,22,40,0.92) 40%, rgba(10,22,40,0.3) 100%)",
+        }} />
+        {/* Content */}
+        <div className="container" style={{ position: "relative", zIndex: 2, padding: "6rem 0" }}>
+          <div ref={ref} className="fade-up" style={{ maxWidth: "580px" }}>
+            <span style={{
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontWeight: 400, fontSize: "0.7rem",
+              letterSpacing: "0.2em", textTransform: "uppercase",
+              color: "var(--beacon-amber-light)",
+              display: "flex", alignItems: "center", gap: "0.75rem",
+              marginBottom: "1.5rem",
+            }}>
+              <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
+              The Watch
+            </span>
+            <h2 style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontWeight: 600, fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
+              lineHeight: 1.1, letterSpacing: "-0.025em",
+              color: "#FAF8F4",
+              marginBottom: "1.5rem",
+            }}>
+              The Lighthouse Is Lit.<br />
+              <em style={{ fontStyle: "italic", color: "rgba(250,248,244,0.82)" }}>Join Us at the Watch.</em>
+            </h2>
+            <p style={{
+              fontFamily: "'Lora', Georgia, serif",
+              fontWeight: 400, fontSize: "1rem",
+              lineHeight: 1.8, color: "rgba(250,248,244,0.72)",
+              marginBottom: "2.5rem",
+            }}>
+              Beacon is not a course platform. It is a team on watch — a collective of people who have decided to navigate the AI transition together, with clear eyes and practical tools. We do not promise transformation. We build the conditions for it.
+            </p>
+            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+              <a
+                href="/assessment"
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 500, fontSize: "0.85rem",
+                  letterSpacing: "0.04em",
+                  padding: "0.875rem 2rem",
+                  background: "var(--beacon-amber)",
+                  color: "#FAF8F4",
+                  textDecoration: "none",
+                  transition: "background 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--beacon-amber-light)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "var(--beacon-amber)")}
+              >
+                Find Your Path
+              </a>
+              <a
+                href="/about"
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 400, fontSize: "0.8rem",
+                  letterSpacing: "0.06em", textTransform: "uppercase",
+                  color: "rgba(250,248,244,0.65)",
+                  textDecoration: "none",
+                  borderBottom: "1px solid rgba(250,248,244,0.25)",
+                  paddingBottom: "2px",
+                }}
+              >
+                Our Doctrine →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Beacon Labs Signal ────────────────────────────────────────────────────────
 function LabsSignal() {
   const ref = useFadeUp();
@@ -1597,16 +1700,17 @@ export default function Home() {
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--beacon-parchment)" }}>
-      <Nav />
+      <SharedNav />
       <Hero />
       <Mission />
       <FivePillars />
       <WhoItIsFor />
       <PathfinderAssessment />
       <TrustEngine />
+      <TheWatch />
       <LabsSignal />
       <Newsletter />
-      <Footer />
+      <SharedFooter />
     </div>
   );
 }

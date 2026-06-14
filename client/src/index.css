@@ -214,3 +214,8 @@
   /* Button press feel */
   .btn-press:active { transform: scale(0.97); transition: transform 160ms var(--ease-out); }
 }
+
+/* ─── Digital Grandpa Page ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .dg-two-col { grid-template-columns: 1fr !important; }
+}
