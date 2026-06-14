@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -83,13 +84,5 @@ jobs:
           echo "Commit: ${{ github.sha }}"
           echo "Branch: ${{ github.ref_name }}"
 
-# ── Required GitHub Secrets ───────────────────────────────────────────────────
-# Set these at: Settings → Secrets and variables → Actions → New repository secret
-#
-#   PRODUCTION_SERVER_IP  = 143.198.23.240
-#   PRODUCTION_SSH_KEY    = (full contents of beacon_deploy_cicd_ed25519 private key)
-#   VITE_GHL_API_KEY      = pit-9b89cad3-73d0-4406-8ac9-f5065bea9c3f
-#
-# The public key (beacon_deploy_cicd_ed25519.pub) must be in
-# /root/.ssh/authorized_keys on the production server.
-# ─────────────────────────────────────────────────────────────────────────────
+# Required GitHub Secrets:
+#   PRODUCTION_SERVER_IP, PRODUCTION_SSH_KEY, VITE_GHL_API_KEY
