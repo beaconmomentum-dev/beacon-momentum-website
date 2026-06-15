@@ -1,88 +1,36 @@
 name: Deploy to Production
-
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-
 jobs:
-  build-and-deploy:
-    name: Build & Deploy to beaconmomentum.com
+  deploy:
+    name: Deploy to beaconmomentum.com
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.4.1
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Cache pnpm store
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
-
-      - name: Build production bundle
-        run: pnpm run build:client
-        env:
-          VITE_GHL_API_KEY: ${{ secrets.VITE_GHL_API_KEY }}
-
       - name: Setup SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
+          echo "${{ secrets.DO_SSH_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh-keyscan -H ${{ secrets.DO_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Deploy via rsync
+      - name: Deploy via SSH
         run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
-            dist/public/ \
-            root@${{ secrets.PRODUCTION_SERVER_IP }}:/var/www/beaconmomentum/
-
-      - name: Fix Nginx SPA routing and reload
-        env:
-          SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
-        run: |
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${SERVER_IP} bash -s << 'REMOTE'
-          set -e
-          for conf in /etc/nginx/sites-available/beaconmomentum \
-                      /etc/nginx/sites-available/default \
-                      /etc/nginx/conf.d/beaconmomentum.conf; do
-            if [ -f "$conf" ] && grep -q '=404' "$conf"; then
-              sed -i 's|try_files $uri $uri/ =404;|try_files $uri $uri/ /index.html;|g' "$conf"
-              echo "Fixed SPA fallback in $conf"
-            fi
-          done
-          nginx -t && systemctl reload nginx
-          echo "Nginx reloaded OK"
-          REMOTE
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.DO_HOST }} \
+            /usr/local/bin/deploy-beacon-www.sh
 
       - name: Verify deployment
         run: |
+          sleep 5
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://beaconmomentum.com/)
           echo "=== Beacon Momentum Deploy Complete ==="
           echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           echo "Commit: ${{ github.sha }}"
-          echo "Branch: ${{ github.ref_name }}"
+          echo "HTTP Status: $HTTP_CODE"
+          [ "$HTTP_CODE" = "200" ] || exit 1
 
 # Required GitHub Secrets:
-#   PRODUCTION_SERVER_IP, PRODUCTION_SSH_KEY, VITE_GHL_API_KEY
+#   DO_HOST    - DigitalOcean droplet IP (159.203.81.39)
+#   DO_SSH_KEY - Private SSH key for root@DO_HOST (plain text, not base64)
