@@ -24,6 +24,7 @@ import { Link, useLocation } from "wouter";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import { submitToGHL } from "@/lib/ghl";
+import { trpc } from "@/lib/trpc";
 
 // ─── Design tokens ─────────────────────────────────────────────────────────────
 const C = {
@@ -443,6 +444,9 @@ export default function TheWatchIntakePage() {
   const totalSteps = QUESTIONS.length;
   const currentQ = QUESTIONS[step - 1];
 
+  // Persist intake to DB for the cohort lead dashboard
+  const submitIntakeMutation = trpc.cohort.submitIntake.useMutation();
+
   // Compute recommended track whenever answers change (for step 7)
   useEffect(() => {
     if (step === 7) {
@@ -504,6 +508,17 @@ export default function TheWatchIntakePage() {
         { id: WATCH_FIELD_IDS.watch_intake_answers, field_value: JSON.stringify(answers) },
       ],
     });
+
+    // Also persist to DB for cohort lead dashboard (fire-and-forget, non-blocking)
+    if (email) {
+      submitIntakeMutation.mutate({
+        email,
+        firstName,
+        tier,
+        track,
+        intakeAnswers: answers,
+      });
+    }
 
     setSubmitStatus(ok ? "success" : "error");
   }

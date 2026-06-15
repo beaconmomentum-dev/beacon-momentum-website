@@ -23,7 +23,7 @@ const TIMELINE = [
     period: "The Lesson",
     date: "Mid 2025",
     headline: "What $20,000 in Meta ads taught us",
-    body: "Hollow Threads, the creative commerce brand built for family, spent over $20,000 in Meta advertising without selling a single shirt. That experience became one of the most important strategic inputs in Beacon's history. It confirmed what the data already showed: paid attention is not earned trust. Cold traffic does not convert belief. The next Beacon growth engine would be built on education, proof, and public usefulness — not on ad spend. That lesson is now embedded in the Beacon operating doctrine.",
+    body: "Hollow Threads, the alternative lifestyle apparel brand built for family, spent over $20,000 in Meta advertising without selling a single shirt. That experience became one of the most important strategic inputs in Beacon's history. It confirmed what the data already showed: paid attention is not earned trust. Cold traffic does not convert belief. The next Beacon growth engine would be built on education, proof, and public usefulness — not on ad spend. That lesson is now embedded in the Beacon operating doctrine.",
   },
   {
     period: "The Architecture",
@@ -51,12 +51,11 @@ const ECOSYSTEM = [
   { name: "Beacon Momentum",  domain: "beaconmomentum.com",          role: "Umbrella brand and five-pillar education hub" },
   { name: "Beacon Labs",      domain: "beaconlabs.ai",               role: "Signal Check, AI audit, and research delivery" },
   { name: "Beacon Trading",   domain: "beacontrading.ai",            role: "Financial sovereignty and market literacy academy" },
-  { name: "Phoenix",          domain: "phoenix.beaconmomentum.com",  role: "Internal AI operations command center" },
-  { name: "Digital Grandpa",  domain: "digitalgrandpa.com",          role: "AI literacy for older adults and families" },
-  { name: "Hollow Threads",   domain: "holothreads.com",             role: "Organic-first creative commerce lab" },
+  { name: "Digital Grandpa",  domain: "digitalgrandpa.com",          role: "AI literacy platform for older adults and families — helping the people who raised us navigate the digital world with confidence" },
+  { name: "Hollow Threads",   domain: "hollowthreads.store",         role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex" },
   { name: "Cask & Cuisine",   domain: "caskandcuisine.com",          role: "Food, drink, and lifestyle content brand" },
   { name: "Vitality",         domain: "vitalyears.com",              role: "Health and longevity content for the AI era" },
-  { name: "The Void",         domain: "Discord community",           role: "Private Beacon community and accountability space" },
+  { name: "The Void",         domain: "hollowthreads.store/discord", role: "Hollow Threads' Discord community — the home of the brand's alt-lifestyle audience" },
 ];
 
 export default function AboutPage() {

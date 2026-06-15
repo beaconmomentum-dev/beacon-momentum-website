@@ -24,7 +24,9 @@ import DigitalGrandpaPage from "@/pages/DigitalGrandpaPage";
 import BlogPage from "@/pages/BlogPage";
 import TheWatchPage from "@/pages/TheWatchPage";
 import TheWatchIntakePage from "@/pages/TheWatchIntakePage";
+import CohortDashboardPage from "@/pages/CohortDashboardPage";
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
@@ -45,6 +47,7 @@ function Router() {
       <Route path="/blog" component={BlogPage} />
       <Route path="/the-watch" component={TheWatchPage} />
       <Route path="/the-watch/intake" component={TheWatchIntakePage} />
+      <Route path="/the-watch/cohort" component={CohortDashboardPage} />
       <Route path="/digital-grandpa/library" component={DigitalGrandpaLibraryPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

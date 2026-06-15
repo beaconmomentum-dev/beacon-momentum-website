@@ -13,6 +13,10 @@ import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
 
+// ─── Hero image ────────────────────────────────────────────────────────────────
+const BLOG_HERO_IMG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_hero_v2-cshWgeWfiqEDwxDKjqHLXG.webp";
+
 type Pillar = "All" | "Life" | "Work" | "Venture" | "Systems" | "Trading" | "Digital Grandpa";
 
 interface Article {
@@ -133,6 +137,7 @@ const PILLAR_COLORS: Record<Pillar, string> = {
   "Digital Grandpa": "#c8a96e",
 };
 
+// ─── Article Card ──────────────────────────────────────────────────────────────
 function ArticleCard({ article, index }: { article: Article; index: number }) {
   return (
     <motion.article
@@ -141,8 +146,8 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
       transition={{ duration: 0.4, delay: index * 0.06, ease: [0.23, 1, 0.32, 1] }}
       className="group"
       style={{
-        background: "#fff",
-        border: "1px solid #E8E4DC",
+        background: "var(--beacon-parchment)",
+        border: "1px solid var(--beacon-parchment-dark)",
         padding: "1.75rem",
         display: "flex",
         flexDirection: "column",
@@ -155,11 +160,11 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         e.currentTarget.style.boxShadow = `0 4px 24px rgba(0,0,0,0.06)`;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "#E8E4DC";
+        e.currentTarget.style.borderColor = "var(--beacon-parchment-dark)";
         e.currentTarget.style.boxShadow = "none";
       }}
     >
-      {/* Pillar tag */}
+      {/* Pillar tag + meta */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem" }}>
         <span style={{
           fontFamily: "'Outfit', system-ui, sans-serif",
@@ -171,18 +176,22 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         </span>
         <span style={{
           fontFamily: "'Outfit', system-ui, sans-serif",
-          fontSize: "0.7rem", color: "#9B8E7E",
+          fontSize: "0.7rem", color: "var(--beacon-charcoal-mid)",
+          opacity: 0.6,
         }}>
           {article.readTime} read · {article.date}
         </span>
       </div>
+
+      {/* Pillar accent rule */}
+      <div style={{ width: "2rem", height: "2px", background: article.pillarColor, opacity: 0.5 }} />
 
       {/* Title */}
       <h3 style={{
         fontFamily: "'Cormorant Garamond', Georgia, serif",
         fontWeight: 600, fontSize: "1.2rem",
         lineHeight: 1.3, letterSpacing: "-0.01em",
-        color: "#2C2416",
+        color: "var(--beacon-charcoal)",
         margin: 0,
       }}>
         {article.title}
@@ -192,7 +201,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
       <p style={{
         fontFamily: "'Lora', Georgia, serif",
         fontSize: "0.875rem", lineHeight: 1.7,
-        color: "#6B5E4E", margin: 0, flex: 1,
+        color: "var(--beacon-charcoal-mid)", margin: 0, flex: 1,
       }}>
         {article.excerpt}
       </p>
@@ -205,15 +214,14 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         letterSpacing: "0.1em", textTransform: "uppercase",
         color: article.pillarColor,
         transition: "gap 0.18s",
-      }}
-        className="group-hover:gap-2"
-      >
+      }}>
         Read article <ArrowRight size={13} />
       </div>
     </motion.article>
   );
 }
 
+// ─── Featured Article ──────────────────────────────────────────────────────────
 function FeaturedArticle({ article }: { article: Article }) {
   return (
     <motion.article
@@ -221,8 +229,8 @@ function FeaturedArticle({ article }: { article: Article }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
       style={{
-        background: "#fff",
-        border: "1px solid #E8E4DC",
+        background: "var(--beacon-parchment)",
+        border: "1px solid var(--beacon-parchment-dark)",
         borderLeft: `4px solid ${article.pillarColor}`,
         padding: "2.5rem",
         display: "grid",
@@ -231,10 +239,10 @@ function FeaturedArticle({ article }: { article: Article }) {
         cursor: "pointer",
         transition: "box-shadow 0.2s",
       }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; }}
+      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.07)"; }}
       onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
         <span style={{
           fontFamily: "'Outfit', system-ui, sans-serif",
           fontWeight: 500, fontSize: "0.7rem",
@@ -243,10 +251,10 @@ function FeaturedArticle({ article }: { article: Article }) {
         }}>
           {article.pillar === "Digital Grandpa" ? "Digital Grandpa" : `Beacon ${article.pillar}`}
         </span>
-        <span style={{ width: "1px", height: "12px", background: "#E8E4DC" }} />
+        <span style={{ width: "1px", height: "12px", background: "var(--beacon-parchment-dark)" }} />
         <span style={{
           fontFamily: "'Outfit', system-ui, sans-serif",
-          fontSize: "0.7rem", color: "#9B8E7E",
+          fontSize: "0.7rem", color: "var(--beacon-charcoal-mid)", opacity: 0.6,
         }}>
           {article.readTime} read · {article.date}
         </span>
@@ -264,14 +272,14 @@ function FeaturedArticle({ article }: { article: Article }) {
         fontFamily: "'Cormorant Garamond', Georgia, serif",
         fontWeight: 600, fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
         lineHeight: 1.25, letterSpacing: "-0.02em",
-        color: "#2C2416", margin: 0,
+        color: "var(--beacon-charcoal)", margin: 0,
       }}>
         {article.title}
       </h2>
       <p style={{
         fontFamily: "'Lora', Georgia, serif",
         fontSize: "0.95rem", lineHeight: 1.75,
-        color: "#6B5E4E", margin: 0,
+        color: "var(--beacon-charcoal-mid)", margin: 0,
         maxWidth: "680px",
       }}>
         {article.excerpt}
@@ -289,6 +297,7 @@ function FeaturedArticle({ article }: { article: Article }) {
   );
 }
 
+// ─── Beacon Brief Strip ────────────────────────────────────────────────────────
 function BeaconBriefStrip() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -309,35 +318,33 @@ function BeaconBriefStrip() {
   };
 
   return (
-    <section style={{
-      background: "var(--beacon-charcoal)",
-      padding: "4rem 0",
-    }}>
+    <section style={{ background: "var(--beacon-charcoal)", padding: "5rem 0" }}>
       <div className="container">
         <div style={{ maxWidth: "640px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "1rem" }}>
-            <Mail size={16} color="var(--beacon-teal-light)" />
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
+            <Mail size={14} color="var(--beacon-amber-light)" />
             <span style={{
               fontFamily: "'Outfit', system-ui, sans-serif",
               fontWeight: 400, fontSize: "0.75rem",
               letterSpacing: "0.18em", textTransform: "uppercase",
-              color: "var(--beacon-teal-light)",
+              color: "var(--beacon-amber-light)",
             }}>
               The Beacon Brief
             </span>
           </div>
           <h3 style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 600, fontSize: "clamp(1.5rem, 3vw, 2rem)",
+            fontWeight: 600, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
             lineHeight: 1.2, letterSpacing: "-0.02em",
-            color: "#FAF8F4", marginBottom: "0.75rem",
+            color: "#FAF8F4", marginBottom: "0.875rem",
           }}>
             One weekly signal. No noise.
           </h3>
           <p style={{
             fontFamily: "'Lora', Georgia, serif",
-            fontSize: "0.9rem", lineHeight: 1.75,
-            color: "rgba(250,248,244,0.6)", marginBottom: "1.75rem",
+            fontSize: "0.9rem", lineHeight: 1.8,
+            color: "rgba(250,248,244,0.6)", marginBottom: "2rem",
           }}>
             The Beacon Brief summarizes the week's most important AI transition developments, Beacon Labs experiments, and practical actions — in five minutes or less. Every article on this page started as a Brief.
           </p>
@@ -364,16 +371,16 @@ function BeaconBriefStrip() {
                 style={{
                   flex: 1,
                   padding: "0.875rem 1.25rem",
-                  border: "1.5px solid rgba(250,248,244,0.15)",
+                  border: "1.5px solid rgba(250,248,244,0.12)",
                   borderRight: "none",
-                  background: "rgba(250,248,244,0.06)",
+                  background: "rgba(250,248,244,0.05)",
                   fontFamily: "'Lora', Georgia, serif",
                   fontSize: "0.875rem",
                   color: "#FAF8F4",
                   outline: "none",
                 }}
-                onFocus={(e) => { e.currentTarget.style.borderColor = "var(--beacon-teal-light)"; }}
-                onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(250,248,244,0.15)"; }}
+                onFocus={(e) => { e.currentTarget.style.borderColor = "var(--beacon-teal)"; }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(250,248,244,0.12)"; }}
               />
               <button
                 type="submit"
@@ -384,14 +391,14 @@ function BeaconBriefStrip() {
                   color: "#FAF8F4",
                   border: "none",
                   fontFamily: "'Outfit', system-ui, sans-serif",
-                  fontWeight: 500, fontSize: "0.78rem",
+                  fontWeight: 500, fontSize: "0.8rem",
                   letterSpacing: "0.08em", textTransform: "uppercase",
                   cursor: loading ? "not-allowed" : "pointer",
                   opacity: loading ? 0.7 : 1,
                   transition: "background 0.18s",
                   whiteSpace: "nowrap",
                 }}
-                onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = "var(--beacon-teal-light)"; }}
+                onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = "var(--beacon-teal-light, #2E7D6B)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "var(--beacon-teal)"; }}
               >
                 {loading ? "Joining…" : "Join the Brief"}
@@ -411,47 +418,71 @@ function BeaconBriefStrip() {
   );
 }
 
+// ─── Page ──────────────────────────────────────────────────────────────────────
 export default function BlogPage() {
   const [activeFilter, setActiveFilter] = useState<Pillar>("All");
 
   const featured = ARTICLES.filter((a) => a.featured);
-  const filtered = activeFilter === "All"
-    ? ARTICLES.filter((a) => !a.featured)
-    : ARTICLES.filter((a) => a.pillar === activeFilter && !a.featured);
+  const filtered =
+    activeFilter === "All"
+      ? ARTICLES.filter((a) => !a.featured)
+      : ARTICLES.filter((a) => a.pillar === activeFilter && !a.featured);
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--beacon-parchment)", fontFamily: "'Lora', Georgia, serif" }}>
+    <div style={{ minHeight: "100vh", background: "var(--beacon-parchment)" }}>
       <SharedNav />
 
       <main id="main-content">
-        {/* Page header */}
-        <section style={{ padding: "5rem 0 3rem", borderBottom: "1px solid #E8E4DC" }}>
-          <div className="container">
+        {/* ── Hero band ── */}
+        <section style={{ position: "relative", minHeight: "340px", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
+          {/* Background image */}
+          <div style={{
+            position: "absolute", inset: 0,
+            backgroundImage: `url(${BLOG_HERO_IMG})`,
+            backgroundSize: "cover", backgroundPosition: "center 25%",
+          }} />
+          {/* Dark overlay — heavier at bottom for text legibility */}
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to bottom, rgba(28,28,30,0.45) 0%, rgba(28,28,30,0.72) 60%, rgba(28,28,30,0.92) 100%)",
+          }} />
+
+          {/* Content */}
+          <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: "4rem", paddingTop: "8rem" }}>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+              transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
             >
-              <span style={{
+              {/* Eyebrow */}
+              <div style={{
                 fontFamily: "'Outfit', system-ui, sans-serif",
                 fontWeight: 400, fontSize: "0.75rem",
                 letterSpacing: "0.18em", textTransform: "uppercase",
-                color: "var(--beacon-teal)", display: "block", marginBottom: "1rem",
+                color: "var(--beacon-amber-light)",
+                display: "flex", alignItems: "center", gap: "0.75rem",
+                marginBottom: "1rem",
               }}>
+                <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
                 Beacon Momentum — The Signal
-              </span>
+              </div>
+
+              {/* Headline */}
               <h1 style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontWeight: 600, fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                fontWeight: 600, fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
                 lineHeight: 1.1, letterSpacing: "-0.03em",
-                color: "#2C2416", marginBottom: "1rem",
+                color: "#FAF8F4", marginBottom: "1rem",
               }}>
                 Ideas worth acting on.
               </h1>
+
+              {/* Sub-headline */}
               <p style={{
                 fontFamily: "'Lora', Georgia, serif",
-                fontSize: "1rem", lineHeight: 1.75,
-                color: "#6B5E4E", maxWidth: "560px",
+                fontWeight: 400, fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
+                lineHeight: 1.75, color: "rgba(250,248,244,0.72)",
+                maxWidth: "560px",
               }}>
                 Practical thinking on AI transitions, career reinvention, solopreneurship, financial literacy, and the wisdom that only comes from having lived through hard things.
               </p>
@@ -459,16 +490,19 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Featured articles */}
+        {/* ── Featured articles ── */}
         {activeFilter === "All" && featured.length > 0 && (
-          <section style={{ padding: "3rem 0", borderBottom: "1px solid #E8E4DC" }}>
+          <section style={{ padding: "3.5rem 0", borderBottom: "1px solid var(--beacon-parchment-dark)" }}>
             <div className="container">
               <div style={{
                 fontFamily: "'Outfit', system-ui, sans-serif",
                 fontWeight: 400, fontSize: "0.7rem",
                 letterSpacing: "0.18em", textTransform: "uppercase",
-                color: "#9B8E7E", marginBottom: "1.5rem",
+                color: "var(--beacon-charcoal-mid)", opacity: 0.6,
+                marginBottom: "1.5rem",
+                display: "flex", alignItems: "center", gap: "0.75rem",
               }}>
+                <span style={{ width: "1.5rem", height: "1px", background: "currentColor", display: "inline-block" }} />
                 Featured this week
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 520px), 1fr))", gap: "1.5rem" }}>
@@ -480,25 +514,35 @@ export default function BlogPage() {
           </section>
         )}
 
-        {/* Filter bar */}
-        <section style={{ padding: "2rem 0 0", borderBottom: "1px solid #E8E4DC", background: "#fff" }}>
+        {/* ── Filter bar ── */}
+        <section style={{
+          padding: "0",
+          borderBottom: "1px solid var(--beacon-parchment-dark)",
+          background: "var(--beacon-cream, #F5F0E8)",
+          position: "sticky", top: "64px", zIndex: 10,
+        }}>
           <div className="container">
-            <div style={{ display: "flex", gap: "0", overflowX: "auto", paddingBottom: "0" }}>
+            <div style={{ display: "flex", gap: "0", overflowX: "auto" }}>
               {PILLARS.map((p) => (
                 <button
                   key={p}
                   onClick={() => setActiveFilter(p)}
                   style={{
-                    padding: "0.75rem 1.25rem",
+                    padding: "1rem 1.25rem",
                     fontFamily: "'Outfit', system-ui, sans-serif",
                     fontWeight: 400, fontSize: "0.78rem",
                     letterSpacing: "0.08em", textTransform: "uppercase",
                     background: "none", border: "none",
-                    borderBottom: activeFilter === p ? `2px solid ${PILLAR_COLORS[p]}` : "2px solid transparent",
-                    color: activeFilter === p ? PILLAR_COLORS[p] : "#9B8E7E",
+                    borderBottom: activeFilter === p
+                      ? `2px solid ${PILLAR_COLORS[p]}`
+                      : "2px solid transparent",
+                    color: activeFilter === p
+                      ? PILLAR_COLORS[p]
+                      : "var(--beacon-charcoal-mid)",
                     cursor: "pointer",
                     transition: "color 0.18s, border-color 0.18s",
                     whiteSpace: "nowrap",
+                    opacity: activeFilter === p ? 1 : 0.65,
                   }}
                 >
                   {p}
@@ -508,13 +552,21 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Article grid */}
-        <section style={{ padding: "3rem 0 5rem" }}>
+        {/* ── Article grid ── */}
+        <section style={{ padding: "3.5rem 0 6rem", background: "var(--beacon-parchment)" }}>
           <div className="container">
             {filtered.length === 0 ? (
-              <div style={{ textAlign: "center", padding: "4rem 0", color: "#9B8E7E" }}>
-                <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "1rem" }}>
-                  No articles in this category yet. Check back soon — or{" "}
+              <div style={{ textAlign: "center", padding: "5rem 0" }}>
+                <div style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 400, fontStyle: "italic",
+                  fontSize: "1.5rem", color: "var(--beacon-charcoal)",
+                  marginBottom: "1rem",
+                }}>
+                  No articles in this category yet.
+                </div>
+                <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", color: "var(--beacon-charcoal-mid)" }}>
+                  Check back soon — or{" "}
                   <Link href="/assessment" style={{ color: "var(--beacon-teal)", textDecoration: "underline" }}>
                     take the assessment
                   </Link>{" "}
@@ -522,7 +574,11 @@ export default function BlogPage() {
                 </p>
               </div>
             ) : (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 360px), 1fr))", gap: "1.5rem" }}>
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 360px), 1fr))",
+                gap: "1.5rem",
+              }}>
                 {filtered.map((a, i) => (
                   <ArticleCard key={a.id} article={a} index={i} />
                 ))}
