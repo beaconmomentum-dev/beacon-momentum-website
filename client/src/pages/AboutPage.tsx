@@ -15,6 +15,24 @@ const ABOUT_HERO_IMG = "/manus-storage/beacon_about_hero_3f574393.png";
 
 const TIMELINE = [
   {
+    period: "The Origin",
+    date: "Decades before the brand",
+    headline: "A life lived in the fire",
+    body: "Beacon Momentum did not begin in a boardroom or a business school. It began in the Navy, in the years that followed, in the setbacks and rebuilds that most people never talk about publicly. Fourteen years behind the wire. A self-made fortune built, lost, and rebuilt. A Presidential 1000 Points of Light Award for service to veterans, formerly incarcerated individuals, and at-risk youth. The foundation of Beacon is not a framework — it is a life. That is the only reason any of this is worth listening to.",
+  },
+  {
+    period: "The Persona",
+    date: "2022",
+    headline: "Digital Grandpa: wisdom before strategy",
+    body: "Before there was a company, there was a voice. Digital Grandpa began as a personal brand built on a simple premise: sometimes you don't need a guru. You need a grandpa. Non-judgmental, direct, grounded in lived experience. Over 1,200 lives touched — veterans, formerly incarcerated individuals, at-risk youth. People who needed someone who had actually been through something to tell them the truth with love. That audience, and the trust built with them, is the proof of concept that everything Beacon is now built on.",
+  },
+  {
+    period: "The Community",
+    date: "2023 – 2024",
+    headline: "Rise & Reclaim: the mission takes form",
+    body: "Digital Grandpa grew into Rise & Reclaim — a structured community built on real curriculum, real transformation, and the conviction that every setback is a setup for a comeback. The membership model, the curriculum architecture, the community dynamics — all of it was tested here, with real people, before a single line of Beacon code was written. Rise & Reclaim is now retired into Beacon Momentum, but its members and its lessons are the living foundation of The Watch.",
+  },
+  {
     period: "The Foundation",
     date: "Early 2025",
     headline: "Building infrastructure before brand",
@@ -52,7 +70,6 @@ const ECOSYSTEM = [
   { name: "Beacon Momentum",  domain: "beaconmomentum.com",          role: "Umbrella brand and five-pillar education hub" },
   { name: "Beacon Labs",      domain: "beaconlabs.ai",               role: "Signal Check, AI audit, and research delivery" },
   { name: "Beacon Trading",   domain: "beacontrading.ai",            role: "Financial sovereignty and market literacy academy" },
-  { name: "Digital Grandpa",  domain: "digitalgrandpa.org",          role: "AI literacy platform for older adults and families — helping the people who raised us navigate the digital world with confidence" },
   { name: "Hollow Threads",   domain: "hollowthread.store",          role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex" },
   { name: "The Void",         domain: "hollowthread.store/discord",  role: "Hollow Threads' Discord community — the home of the brand's alt-lifestyle audience" },
 ];
@@ -155,7 +172,7 @@ export default function AboutPage() {
             <span style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#1A5C6B" }}>The Journey</span>
           </div>
           <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2416", marginBottom: "3.5rem", letterSpacing: "-0.02em" }}>
-            Twelve months of building toward this moment
+            Years of living. Months of building.
           </h2>
           <div style={{ position: "relative" }}>
             {TIMELINE.map((item, i) => (
