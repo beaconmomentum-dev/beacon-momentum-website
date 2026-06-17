@@ -17,6 +17,7 @@ import { Link } from "wouter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
+import PillarIcon from "@/components/PillarIcon";
 
 // ─── Asset URLs ────────────────────────────────────────────────────────────────
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_hero_v2-cshWgeWfiqEDwxDKjqHLXG.webp";
@@ -34,7 +35,7 @@ interface Pillar {
   accent: string;
   accentBg: string;
   accentBorder: string;
-  icon: string;
+  icon: string; // kept for legacy uses
 }
 
 // ─── Data ──────────────────────────────────────────────────────────────────────
@@ -48,7 +49,7 @@ const PILLARS: Pillar[] = [
     accent: "#2E7D6B",
     accentBg: "rgba(46,125,107,0.07)",
     accentBorder: "rgba(46,125,107,0.25)",
-    icon: "◈",
+    icon: "life",
   },
   {
     id: "work",
@@ -59,7 +60,7 @@ const PILLARS: Pillar[] = [
     accent: "#1A5C6B",
     accentBg: "rgba(26,92,107,0.07)",
     accentBorder: "rgba(26,92,107,0.25)",
-    icon: "◇",
+    icon: "work",
   },
   {
     id: "venture",
@@ -70,7 +71,7 @@ const PILLARS: Pillar[] = [
     accent: "#8B5E3C",
     accentBg: "rgba(139,94,60,0.07)",
     accentBorder: "rgba(139,94,60,0.25)",
-    icon: "◉",
+    icon: "venture",
   },
   {
     id: "systems",
@@ -81,7 +82,7 @@ const PILLARS: Pillar[] = [
     accent: "#3D4F6B",
     accentBg: "rgba(61,79,107,0.07)",
     accentBorder: "rgba(61,79,107,0.25)",
-    icon: "◎",
+    icon: "systems",
   },
   {
     id: "labs",
@@ -92,7 +93,7 @@ const PILLARS: Pillar[] = [
     accent: "#5C3D6B",
     accentBg: "rgba(92,61,107,0.07)",
     accentBorder: "rgba(92,61,107,0.25)",
-    icon: "◐",
+    icon: "labs",
   },
 ];
 
@@ -593,15 +594,8 @@ function FivePillars() {
                   display: "flex", alignItems: "center", gap: "1rem",
                 }}
               >
-                <span style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontSize: "1.25rem",
-                  color: activePillar === pillar.id ? pillar.accent : "var(--beacon-charcoal-mid)",
-                  transition: "color 0.25s",
-                  lineHeight: 1,
-                  flexShrink: 0,
-                }}>
-                  {pillar.icon}
+                <span style={{ flexShrink: 0, opacity: activePillar === pillar.id ? 1 : 0.45, transition: "opacity 0.25s" }}>
+                  <PillarIcon pillarId={pillar.id} size={28} />
                 </span>
                 <div>
                   <div style={{
@@ -891,28 +885,28 @@ function WhoItIsFor() {
   const ref = useFadeUp();
   const personas = [
     {
-      icon: "⚓",
+      icon: "life",
       label: "Veterans & Caregivers in Transition",
       desc: "You served, sacrificed, or gave years to someone else's needs. Now the world has changed and your skills feel invisible. Beacon Life and Beacon Work were built around your reality.",
       accent: "#2E7D6B",
       path: "life",
     },
     {
-      icon: "◇",
+      icon: "work",
       label: "Mid-Career Professionals Feeling the Shift",
       desc: "Your job is not gone yet — but you can feel the ground moving. You need to understand what AI actually means for your career, not the hype version. Beacon Work gives you that clarity.",
       accent: "#1A5C6B",
       path: "work",
     },
     {
-      icon: "◉",
+      icon: "venture",
       label: "Solopreneurs & Creators Without a Budget",
       desc: "You have a skill, an idea, or just the determination to build something real. You have probably already learned that paid ads are not the answer. Beacon Venture is the organic-first alternative.",
       accent: "#8B5E3C",
       path: "venture",
     },
     {
-      icon: "◎",
+      icon: "systems",
       label: "Small Business Owners & Operators",
       desc: "You run a real organization with real people and real complexity. You need AI that works for you — not platforms that harvest your data or consultants who disappear after the invoice. Beacon Systems.",
       accent: "#3D4F6B",
@@ -975,14 +969,8 @@ function WhoItIsFor() {
                   (e.currentTarget as HTMLElement).style.boxShadow = "none";
                 }}
               >
-                <div style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontSize: "1.75rem",
-                  color: p.accent,
-                  marginBottom: "1rem",
-                  lineHeight: 1,
-                }}>
-                  {p.icon}
+                <div style={{ marginBottom: "1rem" }}>
+                  <PillarIcon pillarId={p.icon} size={40} />
                 </div>
                 <div style={{
                   fontFamily: "'Outfit', system-ui, sans-serif",
