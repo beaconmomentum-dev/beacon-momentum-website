@@ -4,6 +4,7 @@
  * Consistent footer used across ALL pages.
  * Dark charcoal background, four-column layout.
  * Tagline: "The Lighthouse Is Lit. Join Us at the Watch."
+ * Matches sandbox redesign (beaconredesign-6hqukxcf.manus.space) exactly.
  */
 import { Link } from "wouter";
 
@@ -15,7 +16,7 @@ export default function SharedFooter() {
     { label: "Beacon Work", href: "/pillar/work" },
     { label: "Beacon Venture", href: "/pillar/venture" },
     { label: "Beacon Systems", href: "/pillar/systems" },
-    { label: "Beacon Trading", href: "/beacon-trading" },
+    { label: "Beacon Labs", href: "/pillar/labs" },
     { label: "The Watch (Community)", href: "/the-watch" },
   ];
 
@@ -29,12 +30,10 @@ export default function SharedFooter() {
   ];
 
   const PROPERTIES = [
-    { label: "Digital Grandpa", href: "/digital-grandpa" },
-    { label: "Beacon Trading", href: "https://beacontrading.ai", external: true },
-    { label: "Beacon Labs", href: "https://beaconlabs.ai", external: true },
-    { label: "Hollow Threads", href: "https://holothreads.com", external: true },
-    { label: "Cask & Cuisine", href: "https://caskandcuisine.com", external: true },
-    { label: "Vitality", href: "https://vitalyears.com", external: true },
+    { label: "Digital Grandpa", sublabel: "digitalgrandpa.org", href: "https://digitalgrandpa.org", external: true },
+    { label: "Beacon Trading", sublabel: "beacontrading.ai", href: "https://beacontrading.ai", external: true },
+    { label: "Beacon Labs", sublabel: "beaconlabs.ai", href: "https://beaconlabs.ai", external: true },
+    { label: "Hollow Threads", sublabel: "hollowthreads.store", href: "https://hollowthreads.store", external: true },
   ];
 
   const COMPANY = [
@@ -71,36 +70,80 @@ export default function SharedFooter() {
     transition: "color 0.18s",
   };
 
-  function NavLink({ href, label, external }: { href: string; label: string; external?: boolean }) {
-    const props = {
-      style: linkStyle,
-      onMouseEnter: (e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "#FAF8F4"),
-      onMouseLeave: (e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "rgba(250,248,244,0.5)"),
-    };
+  const sublabelStyle: React.CSSProperties = {
+    fontFamily: "'Outfit', system-ui, sans-serif",
+    fontWeight: 300, fontSize: "0.7rem",
+    color: "rgba(250,248,244,0.22)",
+    letterSpacing: "0.03em",
+    display: "block",
+    marginTop: "-0.25rem",
+    marginBottom: "0.5rem",
+  };
+
+  function NavLink({ href, label, sublabel, external }: { href: string; label: string; sublabel?: string; external?: boolean }) {
+    const hoverEnter = (e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.querySelector(".link-label")! as HTMLElement).style.color = "#FAF8F4";
+    const hoverLeave = (e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.querySelector(".link-label")! as HTMLElement).style.color = "rgba(250,248,244,0.5)";
+
+    const inner = (
+      <>
+        <span className="link-label" style={linkStyle}>{label}</span>
+        {sublabel && <span style={sublabelStyle}>{sublabel}</span>}
+      </>
+    );
+
     if (external) {
-      return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{label}</a>;
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer"
+          style={{ textDecoration: "none", display: "block" }}
+          onMouseEnter={hoverEnter} onMouseLeave={hoverLeave}>
+          {inner}
+        </a>
+      );
     }
-    return <Link href={href} {...props}>{label}</Link>;
+    return (
+      <Link href={href}
+        style={{ textDecoration: "none", display: "block" }}
+        onMouseEnter={hoverEnter} onMouseLeave={hoverLeave}>
+        {inner}
+      </Link>
+    );
   }
 
   return (
     <footer style={{ background: "var(--beacon-charcoal)", paddingTop: "5rem", paddingBottom: "2.5rem" }}>
       <div className="container">
-        {/* Top: wordmark + tagline */}
+        {/* Top: logo image + wordmark + LLC + tagline */}
         <div style={{ marginBottom: "3.5rem", paddingBottom: "3rem", borderBottom: "1px solid rgba(250,248,244,0.08)" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-            <span style={{
-              width: "2rem", height: "2rem",
-              background: "var(--beacon-teal)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "0.9rem", color: "#FAF8F4",
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-            }}>◈</span>
-            <span style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontWeight: 600, fontSize: "1.25rem",
-              color: "#FAF8F4", letterSpacing: "-0.01em",
-            }}>Beacon Momentum</span>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.35rem" }}>
+            <img
+              src="/icons/beacon-logo.webp"
+              alt="Beacon Momentum"
+              style={{ width: "3rem", height: "3rem", objectFit: "contain" }}
+              onError={(e) => {
+                // Fallback to teal square with ◈ if logo not found
+                const el = e.currentTarget;
+                el.style.display = "none";
+                const fallback = document.createElement("span");
+                fallback.style.cssText = "width:2rem;height:2rem;background:var(--beacon-teal);display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#FAF8F4;font-family:'Cormorant Garamond',Georgia,serif;";
+                fallback.textContent = "◈";
+                el.parentNode!.insertBefore(fallback, el);
+              }}
+            />
+            <div>
+              <div style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontWeight: 600, fontSize: "1.25rem",
+                color: "#FAF8F4", letterSpacing: "-0.01em",
+                lineHeight: 1.1,
+              }}>Beacon Momentum</div>
+              <div style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 300, fontSize: "0.72rem",
+                color: "rgba(250,248,244,0.3)",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+              }}>LLC</div>
+            </div>
           </div>
           <p style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -109,6 +152,7 @@ export default function SharedFooter() {
             color: "rgba(250,248,244,0.45)",
             letterSpacing: "0.02em",
             maxWidth: "400px",
+            marginTop: "0.75rem",
           }}>
             The Lighthouse Is Lit. Join Us at the Watch.
           </p>
@@ -131,7 +175,9 @@ export default function SharedFooter() {
           </div>
           <div style={colStyle}>
             <div style={colHeadStyle}>Beacon Properties</div>
-            {PROPERTIES.map((l) => <NavLink key={l.label} href={l.href} label={l.label} external={l.external} />)}
+            {PROPERTIES.map((l) => (
+              <NavLink key={l.label} href={l.href} label={l.label} sublabel={l.sublabel} external={l.external} />
+            ))}
           </div>
           <div style={colStyle}>
             <div style={colHeadStyle}>Company</div>

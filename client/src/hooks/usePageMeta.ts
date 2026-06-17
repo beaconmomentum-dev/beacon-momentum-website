@@ -26,7 +26,7 @@ export interface PageMetaOptions {
 }
 
 const SITE_NAME = "Beacon Momentum";
-const DEFAULT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon-og-default.webp";
+const DEFAULT_IMAGE = "/images/beacon_hero.webp";
 const SITE_URL = "https://beaconmomentum.com";
 
 function setMeta(property: string, content: string, attr: "name" | "property" = "property") {

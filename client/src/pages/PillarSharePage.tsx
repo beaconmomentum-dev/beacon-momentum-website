@@ -96,11 +96,11 @@ const PILLAR_WHAT_YOU_GET: Record<string, string[]> = {
 };
 
 const PILLAR_OG_IMAGES: Record<string, string> = {
-  life:    "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/og-life-FQ3ey9FaPNfc5rqouPSmNL.png",
-  work:    "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/og-work-dD6Uvk4JAuvTq3c5vVyjBB.png",
-  venture: "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/og-venture-kWSMizJFcoHyUqpMxRmQtT.png",
-  systems: "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/og-systems-TQ2tMDehgW88pfL2k2RCDe.png",
-  labs:    "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/og-labs-bLbmwGXypqawxuCgyHLx8H.png",
+  life:    "/images/og-life.png",
+  work:    "/images/og-work.png",
+  venture: "/images/og-venture.png",
+  systems: "/images/og-systems.png",
+  labs:    "/images/og-labs.png",
 };
 
 const PILLAR_OG_DESCRIPTIONS: Record<string, string> = {

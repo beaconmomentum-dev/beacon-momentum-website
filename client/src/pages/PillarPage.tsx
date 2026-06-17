@@ -17,11 +17,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle2, ExternalLink } from "lucide-react";
 
 const MENTOR_PHOTOS: Record<string, string> = {
-  life:    "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/mentor-marcus-cole-QbdHfUYHGGVNLFfS6BKCQi.webp",
-  work:    "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/mentor-elena-voss-UzHEMu7HGqWbYJ8jo8kX8h.webp",
-  venture: "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/mentor-dante-rivera-Rm4PQNWQXVLxPHHhTimc8A.webp",
-  systems: "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/mentor-systems-ai-4AaLUDfqpngXhrESUgLqBE.webp",
-  labs:    "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/mentor-labs-team-3f8oTyTAX7DSpiJwGSZ4Vj.webp",
+  life:    "/images/mentor-life.webp",
+  work:    "/images/mentor-work.webp",
+  venture: "/images/mentor-venture.webp",
+  systems: "/images/mentor-systems.webp",
+  labs:    "/images/mentor-labs.webp",
 };
 
 const PILLARS: Record<string, PillarData> = {

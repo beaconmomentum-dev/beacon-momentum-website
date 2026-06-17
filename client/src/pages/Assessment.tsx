@@ -44,7 +44,7 @@ const sans  = "'Outfit', system-ui, sans-serif";
 const body  = "'Lora', Georgia, serif";
 
 // ─── Hero image (same lighthouse used across Beacon pages) ────────────────────
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_hero_v2-cshWgeWfiqEDwxDKjqHLXG.webp";
+const HERO_IMG = "/images/beacon_hero.webp";
 
 interface SavedProgress {
   step: "intro" | "quiz" | "result";

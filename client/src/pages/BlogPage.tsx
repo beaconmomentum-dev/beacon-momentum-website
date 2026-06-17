@@ -15,7 +15,7 @@ import { subscribeToBeaconBrief } from "@/lib/ghl";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
 const BLOG_HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_hero_v2-cshWgeWfiqEDwxDKjqHLXG.webp";
+  "/images/beacon_hero.webp";
 
 type Pillar = "All" | "Life" | "Work" | "Venture" | "Systems" | "Trading" | "Digital Grandpa";
 

@@ -8,14 +8,19 @@ import { useState } from "react";
 import { Link } from "wouter";
 
 const LOGO_MARK = (
-  <span style={{
-    width: "1.75rem", height: "1.75rem",
-    background: "var(--beacon-teal)",
-    display: "flex", alignItems: "center", justifyContent: "center",
-    fontSize: "0.8rem", color: "#FAF8F4",
-    fontFamily: "'Cormorant Garamond', Georgia, serif",
-    flexShrink: 0,
-  }}>◈</span>
+  <img
+    src="/icons/beacon-logo.webp"
+    alt="Beacon Momentum"
+    style={{ width: "1.75rem", height: "1.75rem", objectFit: "contain", flexShrink: 0 }}
+    onError={(e) => {
+      const el = e.currentTarget as HTMLImageElement;
+      el.style.display = "none";
+      const fallback = document.createElement("span");
+      fallback.style.cssText = "width:1.75rem;height:1.75rem;background:var(--beacon-teal);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:#FAF8F4;font-family:'Cormorant Garamond',Georgia,serif;flex-shrink:0;";
+      fallback.textContent = "◈";
+      el.parentNode!.insertBefore(fallback, el);
+    }}
+  />
 );
 
 interface SharedNavProps {

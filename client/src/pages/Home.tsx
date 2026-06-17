@@ -20,10 +20,10 @@ import SharedFooter from "@/components/SharedFooter";
 import PillarIcon from "@/components/PillarIcon";
 
 // ─── Asset URLs ────────────────────────────────────────────────────────────────
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_hero_v2-cshWgeWfiqEDwxDKjqHLXG.webp";
-const PATHFINDER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_pathfinder_v2-igUG5mPRhxMoS7mNZQ5f2G.webp";
-const PILLARS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_five_pillars_v2-nGFvV6xqcrFg4PJvHKNSUe.webp";
-const TRUST_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663026807979/6HQukXCFG84Vf5HioWLpsZ/beacon_trust_engine_v2-mB5K6zGCp7jxRuVa69zs9B.webp";
+const HERO_IMG = "/images/beacon_hero.webp";
+const PATHFINDER_IMG = "/images/beacon_pathfinder.webp";
+const PILLARS_IMG = "/images/beacon_five_pillars.webp";
+const TRUST_IMG = "/images/beacon_trust_engine.webp";
 const WATCH_IMG = "/manus-storage/beacon_watch_community_c3645886.png";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
