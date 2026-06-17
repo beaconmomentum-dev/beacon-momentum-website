@@ -19,6 +19,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
+import PillarIcon from "@/components/PillarIcon";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
 const HERO_IMG =
@@ -42,7 +43,7 @@ interface Product {
   annualExtras: string[];
   ctaLink: string;
   pillarLink?: string;
-  icon: string;
+  icon: string; // pillarId for PillarIcon or unicode fallback
 }
 
 const PRODUCTS: Product[] = [
@@ -57,7 +58,7 @@ const PRODUCTS: Product[] = [
     annual: 2497,
     annualMonthly: 208,
     savings: 1067,
-    icon: "◈",
+    icon: "life",
     features: [
       "Full curriculum access",
       "Weekly live mentor sessions",
@@ -80,7 +81,7 @@ const PRODUCTS: Product[] = [
     annual: 2497,
     annualMonthly: 208,
     savings: 1067,
-    icon: "◇",
+    icon: "work",
     features: [
       "Full curriculum access",
       "Weekly live mentor sessions",
@@ -103,7 +104,7 @@ const PRODUCTS: Product[] = [
     annual: 2497,
     annualMonthly: 208,
     savings: 1067,
-    icon: "◉",
+    icon: "venture",
     features: [
       "Full curriculum access",
       "Weekly live mentor sessions",
@@ -126,7 +127,7 @@ const PRODUCTS: Product[] = [
     annual: 2497,
     annualMonthly: 208,
     savings: 1067,
-    icon: "◎",
+    icon: "systems",
     features: [
       "Full curriculum access",
       "Weekly live mentor sessions",
@@ -149,7 +150,7 @@ const PRODUCTS: Product[] = [
     annual: 2497,
     annualMonthly: 208,
     savings: 1067,
-    icon: "◐",
+    icon: "labs",
     features: [
       "Full curriculum access",
       "Weekly live mentor sessions",
@@ -173,7 +174,7 @@ const PRODUCTS: Product[] = [
     annualMonthly: 66,
     savings: 367,
     entryPoint: true,
-    icon: "◆",
+    icon: "trading",
     features: [
       "Full AI trading curriculum",
       "Real-time pricing support",
@@ -256,14 +257,7 @@ function PricingCard({
       }}>
         {/* Icon + short name */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "0.75rem" }}>
-          <span style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "1.25rem",
-            color: product.color,
-            lineHeight: 1,
-          }}>
-            {product.icon}
-          </span>
+          <PillarIcon pillarId={product.icon} size={28} />
           <span style={{
             fontFamily: "'Outfit', system-ui, sans-serif",
             fontWeight: 500, fontSize: "0.7rem",
