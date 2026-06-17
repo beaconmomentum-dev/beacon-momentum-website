@@ -33,7 +33,7 @@ export default function SharedFooter() {
     { label: "Digital Grandpa", sublabel: "digitalgrandpa.org", href: "https://digitalgrandpa.org", external: true },
     { label: "Beacon Trading", sublabel: "beacontrading.ai", href: "https://beacontrading.ai", external: true },
     { label: "Beacon Labs", sublabel: "beaconlabs.ai", href: "https://beaconlabs.ai", external: true },
-    { label: "Hollow Threads", sublabel: "hollowthreads.store", href: "https://hollowthreads.store", external: true },
+    { label: "Hollow Threads", sublabel: "hollowthread.store", href: "https://hollowthread.store", external: true },
   ];
 
   const COMPANY = [

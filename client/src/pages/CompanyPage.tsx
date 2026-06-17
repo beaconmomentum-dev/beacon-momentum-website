@@ -8,12 +8,11 @@ import { Link } from "wouter";
 import { Mail, Globe, Building2, ArrowUpRight } from "lucide-react";
 
 const AFFILIATED = [
-  { name: "Beacon Labs", domain: "beaconlabs.ai", role: "AI visibility intelligence, Signal Check, and research delivery", href: "https://beaconlabs.ai" },
-  { name: "Beacon Trading", domain: "beacontrading.ai", role: "Financial sovereignty and market literacy academy", href: "https://beacontrading.ai" },
-  { name: "Hollow Threads", domain: "holothreads.com", role: "Organic-first creative commerce lab", href: "https://holothreads.com" },
-  { name: "Cask & Cuisine", domain: "caskandcuisine.com", role: "Food, drink, and lifestyle content brand", href: "https://caskandcuisine.com" },
-  { name: "Vitality", domain: "vitalyears.com", role: "Health and longevity content for the AI era", href: "https://vitalyears.com" },
-  { name: "Digital Grandpa", domain: "digitalgrandpa.com", role: "AI literacy for older adults and families", href: "https://digitalgrandpa.com" },
+  { name: "Beacon Labs",     domain: "beaconlabs.ai",              role: "Signal Check, AI audit, and research delivery",                                                                                    href: "https://beaconlabs.ai" },
+  { name: "Beacon Trading", domain: "beacontrading.ai",            role: "Financial sovereignty and market literacy academy",                                                                               href: "https://beacontrading.ai" },
+  { name: "Digital Grandpa",domain: "digitalgrandpa.org",          role: "AI literacy platform for older adults and families — helping the people who raised us navigate the digital world with confidence",  href: "https://digitalgrandpa.org" },
+  { name: "Hollow Threads", domain: "hollowthread.store",          role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex",                          href: "https://hollowthread.store" },
+  { name: "The Void",       domain: "hollowthread.store/discord",  role: "Hollow Threads\u2019 Discord community \u2014 the home of the brand\u2019s alt-lifestyle audience",                                href: "https://hollowthread.store/discord" },
 ];
 
 export default function CompanyPage() {
@@ -28,13 +27,11 @@ export default function CompanyPage() {
       }}>
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
-            <span style={{
-              width: "1.5rem", height: "1.5rem",
-              background: "var(--beacon-teal)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "0.7rem", color: "#FAF8F4",
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-            }}>◈</span>
+            <img
+              src="/icons/beacon-logo.webp"
+              alt="Beacon Momentum"
+              style={{ width: "1.75rem", height: "1.75rem", objectFit: "contain", flexShrink: 0 }}
+            />
             <span style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               fontWeight: 600, fontSize: "1.05rem",

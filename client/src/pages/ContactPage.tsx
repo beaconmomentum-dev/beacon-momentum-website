@@ -139,20 +139,11 @@ export default function ContactPage() {
             textDecoration: "none",
           }}
         >
-          <div
-            style={{
-              width: 32,
-              height: 32,
-              background: "linear-gradient(135deg, #c9a84c, #e8c96d)",
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "1rem",
-            }}
-          >
-            ◈
-          </div>
+          <img
+            src="/icons/beacon-logo.webp"
+            alt="Beacon Momentum"
+            style={{ width: 32, height: 32, objectFit: "contain", flexShrink: 0 }}
+          />
           <span
             style={{
               fontFamily: "'Georgia', serif",

@@ -5,7 +5,7 @@ function SimpleNav() {
     <nav style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(250,248,244,0.97)", borderBottom: "1px solid var(--beacon-parchment-dark)", backdropFilter: "blur(8px)" }}>
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
-          <span style={{ width: "1.25rem", height: "1.25rem", background: "var(--beacon-teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.65rem", color: "#FAF8F4" }}>◈</span>
+          <img src="/icons/beacon-logo.webp" alt="Beacon Momentum" style={{ width: "1.75rem", height: "1.75rem", objectFit: "contain", flexShrink: 0 }} />
           <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "1.05rem", color: "var(--beacon-charcoal)", letterSpacing: "-0.01em" }}>Beacon Momentum</span>
         </Link>
         <Link href="/" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.8rem", color: "var(--beacon-charcoal-mid)", textDecoration: "none" }}>← Home</Link>

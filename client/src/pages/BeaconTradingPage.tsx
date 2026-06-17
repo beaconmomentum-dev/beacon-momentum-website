@@ -135,9 +135,12 @@ export default function BeaconTradingPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F4]/95 backdrop-blur-sm border-b border-[#E8E4DC]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-7 h-7 rounded-sm bg-[#1A5C6B] flex items-center justify-center">
-              <span className="text-white" style={{fontSize:"0.9rem"}}>◈</span>
-            </div>
+            <img
+              src="/icons/beacon-logo.webp"
+              alt="Beacon Momentum"
+              className="w-7 h-7"
+              style={{ objectFit: "contain", flexShrink: 0 }}
+            />
             <span className="font-display text-[#2C2416] text-lg tracking-tight">Beacon Momentum</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
@@ -639,9 +642,12 @@ export default function BeaconTradingPage() {
       <footer className="py-12 px-6 bg-[#2C2416] border-t border-[#3A3020]">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-sm bg-[#1A5C6B] flex items-center justify-center">
-              <span className="text-white" style={{fontSize:"0.9rem"}}>◈</span>
-            </div>
+            <img
+              src="/icons/beacon-logo.webp"
+              alt="Beacon Momentum"
+              className="w-7 h-7"
+              style={{ objectFit: "contain", flexShrink: 0 }}
+            />
             <span className="font-display text-white text-lg tracking-tight">Beacon Momentum</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[#8A7E6E]">

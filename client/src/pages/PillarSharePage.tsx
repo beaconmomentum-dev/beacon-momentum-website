@@ -156,9 +156,12 @@ export default function PillarSharePage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F4]/95 backdrop-blur-sm border-b border-[#E8E4DC]">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-7 h-7 rounded-sm bg-[#1A5C6B] flex items-center justify-center">
-              <span className="text-white" style={{ fontSize: "0.9rem" }}>◈</span>
-            </div>
+            <img
+              src="/icons/beacon-logo.webp"
+              alt="Beacon Momentum"
+              className="w-7 h-7"
+              style={{ objectFit: "contain", flexShrink: 0 }}
+            />
             <span className="font-display text-[#2C2416] text-lg tracking-tight">Beacon Momentum</span>
           </Link>
           <Link href="/assessment" className="text-sm text-[#6B5E4E] hover:text-[#1A5C6B] transition-colors">
