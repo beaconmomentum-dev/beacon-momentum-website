@@ -23,6 +23,7 @@ import { submitToGHL } from "@/lib/ghl";
 const HERO_IMG = "/manus-storage/watch_hero_dark_9a2a9426.png";
 const SENTINEL_IMG = "/manus-storage/watch_tier_sentinel_f4390658.png";
 const NAVIGATOR_IMG = "/manus-storage/watch_tier_navigator_e8fd42fe.png";
+const QUARTERMASTER_IMG = "/images/watch_tier_quartermaster.webp";
 const PROOF_IMG = "/manus-storage/watch_community_proof_b82d4c7d.png";
 
 // ─── Design tokens (mirrors index.css) ────────────────────────────────────────
@@ -433,7 +434,7 @@ const TIERS: Tier[] = [
     subtitle: "The founding crew.",
     price: "$247",
     period: "/ month",
-    image: NAVIGATOR_IMG,
+    image: QUARTERMASTER_IMG,
     highlight: false,
     badge: "Limited — 40 seats",
     features: [
