@@ -32,6 +32,17 @@ interface Article {
 
 const ARTICLES: Article[] = [
   {
+    id: "follow-the-dollar-ai-ipo-wave",
+    title: "Follow the Dollar: What the AI IPO Wave Is Really Telling You",
+    excerpt:
+      "Within a 60-day window this spring, SpaceX, OpenAI, and Anthropic moved toward public markets simultaneously — combined implied valuation: $4.5 trillion. The convergence is not coincidental. Private investors who entered at earlier valuations are seeking a liquidity event. The question worth asking is who the exit is for, and what it means for anyone building a business or managing a portfolio right now.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "11 min",
+    date: "Jun 2026",
+    featured: true,
+  },
+  {
     id: "ai-transition-not-replacement",
     title: "The AI Transition Is Not a Replacement Story — It Is a Redistribution Story",
     excerpt:
