@@ -9,6 +9,7 @@
 import { Link } from "wouter";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
+import PillarIcon from "@/components/PillarIcon";
 
 const ABOUT_HERO_IMG = "/manus-storage/beacon_about_hero_3f574393.png";
 
@@ -51,11 +52,9 @@ const ECOSYSTEM = [
   { name: "Beacon Momentum",  domain: "beaconmomentum.com",          role: "Umbrella brand and five-pillar education hub" },
   { name: "Beacon Labs",      domain: "beaconlabs.ai",               role: "Signal Check, AI audit, and research delivery" },
   { name: "Beacon Trading",   domain: "beacontrading.ai",            role: "Financial sovereignty and market literacy academy" },
-  { name: "Digital Grandpa",  domain: "digitalgrandpa.com",          role: "AI literacy platform for older adults and families — helping the people who raised us navigate the digital world with confidence" },
-  { name: "Hollow Threads",   domain: "hollowthreads.store",         role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex" },
-  { name: "Cask & Cuisine",   domain: "caskandcuisine.com",          role: "Food, drink, and lifestyle content brand" },
-  { name: "Vitality",         domain: "vitalyears.com",              role: "Health and longevity content for the AI era" },
-  { name: "The Void",         domain: "hollowthreads.store/discord", role: "Hollow Threads' Discord community — the home of the brand's alt-lifestyle audience" },
+  { name: "Digital Grandpa",  domain: "digitalgrandpa.org",          role: "AI literacy platform for older adults and families — helping the people who raised us navigate the digital world with confidence" },
+  { name: "Hollow Threads",   domain: "hollowthread.store",          role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex" },
+  { name: "The Void",         domain: "hollowthread.store/discord",  role: "Hollow Threads' Discord community — the home of the brand's alt-lifestyle audience" },
 ];
 
 export default function AboutPage() {
@@ -202,7 +201,7 @@ export default function AboutPage() {
                   onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)")}
                   onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
                 >
-                  <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: pillar.color, marginBottom: "1.25rem" }} />
+                  <div style={{ marginBottom: "1.25rem" }}><PillarIcon pillarId={pillar.id} size={40} /></div>
                   <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "1.25rem", color: "#FAF8F4", marginBottom: "0.75rem" }}>{pillar.name}</h3>
                   <p style={{ color: "#8A8070", fontSize: "0.85rem", lineHeight: 1.7 }}>{pillar.description}</p>
                   <div style={{ marginTop: "1.25rem", fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase", color: pillar.color }}>
