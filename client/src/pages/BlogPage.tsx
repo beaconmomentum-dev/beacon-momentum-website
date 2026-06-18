@@ -17,7 +17,7 @@ import { subscribeToBeaconBrief } from "@/lib/ghl";
 const BLOG_HERO_IMG =
   "/images/beacon_hero.webp";
 
-type Pillar = "All" | "Life" | "Work" | "Venture" | "Systems" | "Trading" | "Digital Grandpa";
+type Pillar = "All" | "Life" | "Work" | "Venture" | "Systems" | "Trading";
 
 interface Article {
   id: string;
@@ -89,8 +89,8 @@ const ARTICLES: Article[] = [
     title: "Why Wisdom Matters More Than Information in the Age of AI",
     excerpt:
       "Information is now free and infinite. Wisdom — the ability to know what to do with information — has never been more scarce or more valuable. The Digital Grandpa thesis is simple: the people who have lived through hard things have something AI cannot replicate.",
-    pillar: "Digital Grandpa",
-    pillarColor: "#c8a96e",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
     readTime: "5 min",
     date: "May 2026",
   },
@@ -136,7 +136,7 @@ const ARTICLES: Article[] = [
   },
 ];
 
-const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading", "Digital Grandpa"];
+const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];
 
 const PILLAR_COLORS: Record<Pillar, string> = {
   All: "#1A5C6B",
@@ -145,7 +145,6 @@ const PILLAR_COLORS: Record<Pillar, string> = {
   Venture: "#7C4F2A",
   Systems: "#3D5A80",
   Trading: "#B8860B",
-  "Digital Grandpa": "#c8a96e",
 };
 
 // ─── Article Card ──────────────────────────────────────────────────────────────
@@ -183,7 +182,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
           letterSpacing: "0.14em", textTransform: "uppercase",
           color: article.pillarColor,
         }}>
-          {article.pillar === "Digital Grandpa" ? "Digital Grandpa" : `Beacon ${article.pillar}`}
+          {`Beacon ${article.pillar}`}
         </span>
         <span style={{
           fontFamily: "'Outfit', system-ui, sans-serif",
@@ -260,7 +259,7 @@ function FeaturedArticle({ article }: { article: Article }) {
           letterSpacing: "0.14em", textTransform: "uppercase",
           color: article.pillarColor,
         }}>
-          {article.pillar === "Digital Grandpa" ? "Digital Grandpa" : `Beacon ${article.pillar}`}
+          {`Beacon ${article.pillar}`}
         </span>
         <span style={{ width: "1px", height: "12px", background: "var(--beacon-parchment-dark)" }} />
         <span style={{
