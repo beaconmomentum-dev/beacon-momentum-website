@@ -1,16 +1,9 @@
 /**
  * Beacon Momentum — /pricing
  * Design: Deep Water Editorial / Quiet Authority
- * Shows all six Beacon products side by side in a single-page comparison.
- * Pattern: Reforge / Maven / altMBA — premium education pricing page.
- *
- * Products:
- * - Beacon Life     $297/mo  $2,497/yr  — Life transitions
- * - Beacon Work     $297/mo  $2,497/yr  — Career & income
- * - Beacon Venture  $297/mo  $2,497/yr  — Solopreneur / digital products
- * - Beacon Systems  $297/mo  $2,497/yr  — AI operations
- * - Beacon Labs     $297/mo  $2,497/yr  — AI consulting (pillar)
- * - Beacon Trading  $97/mo   $797/yr    — Financial education (entry point)
+ * Model: Single membership — $297/month or $2,497/year (30% savings)
+ * Progression: Sentinel → Navigator → Quartermaster (beginner → intermediate → master's)
+ * All Five Pillar pathways included. No free trials.
  */
 
 import { useState } from "react";
@@ -19,620 +12,587 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
-import PillarIcon from "@/components/PillarIcon";
 
-// ─── Hero image ────────────────────────────────────────────────────────────────
-const HERO_IMG =
-  "/images/beacon_hero.webp";
+const HERO_IMG = "/images/beacon_hero.webp";
 
-type BillingCycle = "monthly" | "annual";
-
-interface Product {
-  id: string;
-  name: string;
-  shortName: string;
-  tagline: string;
-  color: string;
-  accentBg: string;
-  monthly: number;
-  annual: number;
-  annualMonthly: number;
-  savings: number;
-  entryPoint?: boolean;
-  features: string[];
-  annualExtras: string[];
-  ctaLink: string;
-  pillarLink?: string;
-  icon: string; // pillarId for PillarIcon or unicode fallback
-}
-
-const PRODUCTS: Product[] = [
+// ─── Progression stages ────────────────────────────────────────────────────────
+const STAGES = [
   {
-    id: "life",
-    name: "Beacon Life",
-    shortName: "Life",
-    tagline: "Rebuild capacity, confidence, and direction.",
-    color: "#2A7F6F",
-    accentBg: "rgba(42,127,111,0.06)",
-    monthly: 297,
-    annual: 2497,
-    annualMonthly: 208,
-    savings: 1067,
-    icon: "life",
-    features: [
-      "Full curriculum access",
-      "Weekly live mentor sessions",
-      "Private member community",
-      "AI tools and templates",
-      "Monthly cohort check-ins",
-    ],
-    annualExtras: ["Priority mentor scheduling", "Annual member retreat access"],
-    ctaLink: "/assessment",
-    pillarLink: "/pillar/life",
-  },
-  {
-    id: "work",
-    name: "Beacon Work",
-    shortName: "Work",
-    tagline: "Navigate the AI-era job market with clarity.",
+    id: "sentinel",
+    rank: "STAGE ONE",
+    name: "Sentinel",
+    tagline: "You have arrived. You are standing watch. The first commitment is made.",
     color: "#1A5C6B",
-    accentBg: "rgba(26,92,107,0.06)",
-    monthly: 297,
-    annual: 2497,
-    annualMonthly: 208,
-    savings: 1067,
-    icon: "work",
-    features: [
-      "Full curriculum access",
-      "Weekly live mentor sessions",
-      "Private member community",
-      "AI tools and templates",
-      "Monthly cohort check-ins",
-    ],
-    annualExtras: ["Priority mentor scheduling", "Annual member retreat access"],
-    ctaLink: "/assessment",
-    pillarLink: "/pillar/work",
+    description:
+      "Every member begins here. The Sentinel stage orients you to the community, the doctrine, and the Five Pillar framework. You choose your first pathway and begin the curriculum at a pace that fits your life.",
   },
   {
-    id: "venture",
-    name: "Beacon Venture",
-    shortName: "Venture",
-    tagline: "Build income that does not depend on an employer.",
+    id: "navigator",
+    rank: "STAGE TWO",
+    name: "Navigator",
+    tagline: "You know the charts. You are actively plotting your course.",
+    color: "#2A7F6F",
+    description:
+      "Navigators have completed their first pathway and are moving through the curriculum with intention. Small-group cohort accountability activates at this stage — you are no longer working alone.",
+  },
+  {
+    id: "quartermaster",
+    rank: "STAGE THREE",
+    name: "Quartermaster",
+    tagline: "You sustain the ship. You help others find their bearing.",
     color: "#7C4F2A",
-    accentBg: "rgba(124,79,42,0.06)",
-    monthly: 297,
-    annual: 2497,
-    annualMonthly: 208,
-    savings: 1067,
-    icon: "venture",
-    features: [
-      "Full curriculum access",
-      "Weekly live mentor sessions",
-      "Private member community",
-      "AI tools and templates",
-      "Monthly cohort check-ins",
-    ],
-    annualExtras: ["Priority mentor scheduling", "Annual member retreat access"],
-    ctaLink: "/assessment",
-    pillarLink: "/pillar/venture",
-  },
-  {
-    id: "systems",
-    name: "Beacon Systems",
-    shortName: "Systems",
-    tagline: "Automate operations. Deploy AI that works.",
-    color: "#3D5A80",
-    accentBg: "rgba(61,90,128,0.06)",
-    monthly: 297,
-    annual: 2497,
-    annualMonthly: 208,
-    savings: 1067,
-    icon: "systems",
-    features: [
-      "Full curriculum access",
-      "Weekly live mentor sessions",
-      "Private member community",
-      "AI tools and templates",
-      "Monthly cohort check-ins",
-    ],
-    annualExtras: ["Priority mentor scheduling", "Annual member retreat access"],
-    ctaLink: "/assessment",
-    pillarLink: "/pillar/systems",
-  },
-  {
-    id: "labs",
-    name: "Beacon Labs",
-    shortName: "Labs",
-    tagline: "AI consulting, signal checks, and custom builds.",
-    color: "#5A3E8A",
-    accentBg: "rgba(90,62,138,0.06)",
-    monthly: 297,
-    annual: 2497,
-    annualMonthly: 208,
-    savings: 1067,
-    icon: "labs",
-    features: [
-      "Full curriculum access",
-      "Weekly live mentor sessions",
-      "Private member community",
-      "AI tools and templates",
-      "Monthly cohort check-ins",
-    ],
-    annualExtras: ["Priority mentor scheduling", "Annual member retreat access"],
-    ctaLink: "/assessment",
-    pillarLink: "/pillar/labs",
-  },
-  {
-    id: "trading",
-    name: "Beacon Trading",
-    shortName: "Trading",
-    tagline: "AI-powered financial education. Your entry point.",
-    color: "#B8860B",
-    accentBg: "rgba(184,134,11,0.06)",
-    monthly: 97,
-    annual: 797,
-    annualMonthly: 66,
-    savings: 367,
-    entryPoint: true,
-    icon: "trading",
-    features: [
-      "Full AI trading curriculum",
-      "Real-time pricing support",
-      "Weekly market newsletter",
-      "Private member community",
-      "AI tools and templates",
-    ],
-    annualExtras: ["Priority support", "Advanced strategy modules"],
-    ctaLink: "/beacon-trading",
-    pillarLink: "/beacon-trading",
+    description:
+      "Quartermasters have completed multiple pathways and are operating at master's level. They contribute to curriculum direction, mentor newer members, and hold the standards of the community.",
   },
 ];
 
-// ─── Pricing Card ──────────────────────────────────────────────────────────────
-function PricingCard({
-  product,
-  billing,
-  index,
-}: {
-  product: Product;
-  billing: BillingCycle;
-  index: number;
-}) {
-  const price = billing === "monthly" ? product.monthly : product.annual;
-  const period = billing === "monthly" ? "/month" : "/year";
-  const subline =
-    billing === "annual"
-      ? `~$${product.annualMonthly}/month · save $${product.savings}`
-      : "Cancel anytime";
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.06, ease: [0.23, 1, 0.32, 1] }}
-      style={{
-        position: "relative",
-        border: product.entryPoint
-          ? `1.5px solid ${product.color}40`
-          : "1px solid var(--beacon-parchment-dark)",
-        background: "var(--beacon-parchment)",
-        display: "flex",
-        flexDirection: "column",
-        transition: "box-shadow 0.2s, border-color 0.2s",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = product.color;
-        e.currentTarget.style.boxShadow = `0 8px 32px ${product.color}18`;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = product.entryPoint
-          ? `${product.color}40`
-          : "var(--beacon-parchment-dark)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
-    >
-      {/* Entry point badge */}
-      {product.entryPoint && (
-        <div style={{
-          position: "absolute", top: "-14px", left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex", alignItems: "center", gap: "0.375rem",
-          padding: "0.25rem 0.875rem",
-          background: product.color,
-          fontFamily: "'Outfit', system-ui, sans-serif",
-          fontWeight: 500, fontSize: "0.65rem",
-          letterSpacing: "0.14em", textTransform: "uppercase",
-          color: "#FAF8F4",
-          whiteSpace: "nowrap",
-        }}>
-          ◆ Start Here
-        </div>
-      )}
-
-      {/* Header */}
-      <div style={{
-        padding: "1.75rem 1.75rem 1.25rem",
-        borderBottom: "1px solid var(--beacon-parchment-dark)",
-        background: product.accentBg,
-      }}>
-        {/* Icon + short name */}
-        <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "0.75rem" }}>
-          <PillarIcon pillarId={product.icon} size={28} />
-          <span style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 500, fontSize: "0.7rem",
-            letterSpacing: "0.14em", textTransform: "uppercase",
-            color: product.color,
-          }}>
-            {product.shortName}
-          </span>
-        </div>
-        {/* Name */}
-        <h3 style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontWeight: 600, fontSize: "1.25rem",
-          lineHeight: 1.2, letterSpacing: "-0.01em",
-          color: "var(--beacon-charcoal)",
-          marginBottom: "0.375rem",
-        }}>
-          {product.name}
-        </h3>
-        {/* Tagline */}
-        <p style={{
-          fontFamily: "'Lora', Georgia, serif",
-          fontSize: "0.8rem", lineHeight: 1.5,
-          color: "var(--beacon-charcoal-mid)",
-        }}>
-          {product.tagline}
-        </p>
-      </div>
-
-      {/* Price */}
-      <div style={{
-        padding: "1.25rem 1.75rem",
-        borderBottom: "1px solid var(--beacon-parchment-dark)",
-      }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: "0.25rem" }}>
-          <span style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 600, fontSize: "2.5rem",
-            color: "var(--beacon-charcoal)",
-            lineHeight: 1,
-          }}>
-            ${price.toLocaleString()}
-          </span>
-          <span style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontSize: "0.8rem",
-            color: "var(--beacon-charcoal-mid)",
-          }}>
-            {period}
-          </span>
-        </div>
-        <p style={{
-          fontFamily: "'Outfit', system-ui, sans-serif",
-          fontSize: "0.75rem", marginTop: "0.25rem",
-          color: billing === "annual" ? product.color : "var(--beacon-charcoal-mid)",
-          opacity: billing === "annual" ? 1 : 0.6,
-        }}>
-          {subline}
-        </p>
-      </div>
-
-      {/* Features */}
-      <div style={{ padding: "1.25rem 1.75rem", flex: 1 }}>
-        <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-          {product.features.map((f) => (
-            <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem" }}>
-              <CheckCircle2
-                style={{ width: "0.875rem", height: "0.875rem", marginTop: "2px", flexShrink: 0, color: product.color }}
-              />
-              <span style={{
-                fontFamily: "'Lora', Georgia, serif",
-                fontSize: "0.85rem", lineHeight: 1.5,
-                color: "var(--beacon-charcoal-mid)",
-              }}>
-                {f}
-              </span>
-            </li>
-          ))}
-          {billing === "annual" &&
-            product.annualExtras.map((f) => (
-              <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem" }}>
-                <CheckCircle2
-                  style={{ width: "0.875rem", height: "0.875rem", marginTop: "2px", flexShrink: 0, color: product.color }}
-                />
-                <span style={{
-                  fontFamily: "'Lora', Georgia, serif",
-                  fontSize: "0.85rem", lineHeight: 1.5,
-                  color: "var(--beacon-charcoal-mid)",
-                }}>
-                  {f}{" "}
-                  <span style={{
-                    fontFamily: "'Outfit', system-ui, sans-serif",
-                    fontSize: "0.7rem", letterSpacing: "0.06em",
-                    color: product.color,
-                  }}>
-                    (annual)
-                  </span>
-                </span>
-              </li>
-            ))}
-        </ul>
-      </div>
-
-      {/* CTA */}
-      <div style={{ padding: "1rem 1.75rem 1.75rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-        <a
-          href={product.ctaLink}
-          className="btn-press"
-          style={{
-            display: "block", textAlign: "center",
-            padding: "0.875rem 1.25rem",
-            background: product.color,
-            color: "#FAF8F4",
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 500, fontSize: "0.8rem",
-            letterSpacing: "0.08em", textTransform: "uppercase",
-            textDecoration: "none",
-            transition: "opacity 0.18s",
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.88"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
-        >
-          Reserve Your Spot
-        </a>
-        <p style={{
-          textAlign: "center",
-          fontFamily: "'Outfit', system-ui, sans-serif",
-          fontSize: "0.68rem", letterSpacing: "0.04em",
-          color: "var(--beacon-charcoal-mid)", opacity: 0.55,
-          lineHeight: 1.4,
-        }}>
-          Enrollment opens soon. Take the assessment to reserve your place.
-        </p>
-        {product.pillarLink && product.pillarLink !== product.ctaLink && (
-          <Link
-            href={product.pillarLink}
-            style={{
-              display: "block", textAlign: "center",
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontSize: "0.75rem", fontWeight: 500,
-              letterSpacing: "0.08em", textTransform: "uppercase",
-              color: product.color, textDecoration: "none",
-              padding: "0.375rem 0",
-              borderBottom: `1px solid ${product.color}30`,
-              transition: "border-color 0.18s",
-            }}
-          >
-            Learn more →
-          </Link>
-        )}
-      </div>
-    </motion.div>
-  );
-}
+// ─── What's included ───────────────────────────────────────────────────────────
+const INCLUDED = [
+  "Access to all Five Pillar pathways — Life, Work, Venture, Systems, Trading",
+  "Progress through pathways at your own pace, in any order",
+  "Weekly Watch Brief — curated AI-era intelligence",
+  "Monthly live Q&A with Beacon faculty",
+  "Small-group cohort accountability (activates at Navigator stage)",
+  "Full community access — all channels, all cohorts",
+  "Beacon Pathfinder Assessment — find your entry pathway",
+  "Member resource library — tools, templates, frameworks",
+  "Beacon Brief newsletter (premium edition)",
+  "Access to all future Beacon properties at no additional cost",
+];
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function PricingPage() {
-  const [billing, setBilling] = useState<BillingCycle>("monthly");
+  const [annual, setAnnual] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const mainProducts = PRODUCTS.filter((p) => !p.entryPoint);
-  const entryProduct = PRODUCTS.find((p) => p.entryPoint)!;
+  const monthlyPrice = 297;
+  const annualPrice = 2497;
+  const annualMonthly = Math.round(annualPrice / 12);
+  const annualSavings = monthlyPrice * 12 - annualPrice;
+
+  const FAQS = [
+    {
+      q: "Why no free trial?",
+      a: "Free trials attract the wrong energy. The Watch is built on committed members — people who have decided, not people who are deciding. A paid commitment signals intent. The community is better because of it.",
+    },
+    {
+      q: "What are the progression stages?",
+      a: "Every member begins as a Sentinel — oriented to the community and their first pathway. As you complete pathways and deepen your practice, you advance to Navigator (small-group cohort accountability activates here) and eventually to Quartermaster (master's level — curriculum input, mentorship, community leadership). Progression is earned through completion, not time.",
+    },
+    {
+      q: "Which pathway do I start with?",
+      a: "Take the Pathfinder Assessment — it maps your current situation to the pathway most likely to move the needle fastest. If you already know where you want to start, you can choose directly at enrollment. You can move to any other pathway after completing your first one.",
+    },
+    {
+      q: "Can I switch pathways?",
+      a: "Yes. Once you complete a pathway, you move to the next one of your choosing. All five pathways are included in your membership — the goal is to work through as many as have value for you, in the order that makes sense for your life.",
+    },
+    {
+      q: "What is the difference between monthly and annual?",
+      a: `Annual membership is $2,497/year — a saving of $${annualSavings} compared to paying month-to-month. Annual members also receive founding-rate lock status: if pricing increases, annual members renewing before their anniversary date keep their current rate. Monthly members pay the current rate at each renewal.`,
+    },
+    {
+      q: "Is there a refund policy?",
+      a: "Memberships can be cancelled before the next billing date. There are no refunds for partial months or partial years. Annual members who cancel mid-year do not receive a prorated refund.",
+    },
+    {
+      q: "What is Beacon Trading?",
+      a: "Beacon Trading is the fifth pathway within The Watch — AI-powered curriculum covering market fundamentals, portfolio thinking, and financial decision-making. It is not a trading platform or investment advisory service. It is education — the kind that changes how you think about money.",
+    },
+    {
+      q: "Not sure if The Watch is right for you?",
+      a: "Take the Pathfinder Assessment. Five minutes. No sales call. No obligation. It will tell you honestly whether The Watch is the right next step — and if it is, which pathway to start with.",
+    },
+  ];
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--beacon-parchment)" }}>
       <SharedNav />
 
       {/* ── Hero band ── */}
-      <section style={{ position: "relative", minHeight: "380px", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-        {/* Background image */}
+      <section style={{ position: "relative", minHeight: "340px", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
         <div style={{
           position: "absolute", inset: 0,
           backgroundImage: `url(${HERO_IMG})`,
           backgroundSize: "cover", backgroundPosition: "center 30%",
         }} />
-        {/* Overlay */}
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(to bottom, rgba(28,28,30,0.4) 0%, rgba(28,28,30,0.7) 55%, rgba(28,28,30,0.92) 100%)",
+          background: "linear-gradient(to top, rgba(28,28,30,0.92) 0%, rgba(28,28,30,0.55) 60%, rgba(28,28,30,0.2) 100%)",
         }} />
-
-        <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: "4.5rem", paddingTop: "8rem" }}>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingBottom: "4rem" }}>
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
-            style={{ maxWidth: "680px" }}
+            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
           >
-            {/* Eyebrow */}
             <div style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 400, fontSize: "0.75rem",
-              letterSpacing: "0.18em", textTransform: "uppercase",
-              color: "var(--beacon-amber-light)",
               display: "flex", alignItems: "center", gap: "0.75rem",
               marginBottom: "1rem",
             }}>
               <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
-              Membership Pricing
+              <span style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 400, fontSize: "0.75rem",
+                letterSpacing: "0.18em", textTransform: "uppercase",
+                color: "var(--beacon-amber-light)",
+              }}>
+                Membership · Beacon Momentum
+              </span>
             </div>
-
-            {/* Headline */}
             <h1 style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               fontWeight: 600, fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
-              lineHeight: 1.1, letterSpacing: "-0.03em",
+              lineHeight: 1.05, letterSpacing: "-0.025em",
               color: "#FAF8F4", marginBottom: "1rem",
+              maxWidth: "680px",
             }}>
-              One price. Full access.<br />
-              <em style={{ fontStyle: "italic", color: "rgba(250,248,244,0.85)" }}>No hidden tiers.</em>
+              One Membership. Every Path.
             </h1>
-
-            {/* Sub-headline */}
             <p style={{
               fontFamily: "'Lora', Georgia, serif",
-              fontWeight: 400, fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
-              lineHeight: 1.75, color: "rgba(250,248,244,0.72)",
-              maxWidth: "560px", marginBottom: "2rem",
+              fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)",
+              lineHeight: 1.75, color: "rgba(250,248,244,0.7)",
+              maxWidth: "560px",
             }}>
-              Every Beacon membership includes the full curriculum, live mentor sessions, the private community, and all AI tools. Choose the pillar that matches where you are right now.
+              All five pathways. One standing crew. You choose where to start — and you keep going for as long as the work has value.
             </p>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Billing toggle */}
+      {/* ── Membership card ── */}
+      <section style={{ padding: "6rem 0 4rem", background: "var(--beacon-parchment)" }}>
+        <div className="container">
+
+          {/* Billing toggle */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem",
+            marginBottom: "3.5rem",
+          }}>
+            <button
+              onClick={() => setAnnual(false)}
+              style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: annual ? 400 : 600,
+                fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase",
+                color: annual ? "var(--beacon-charcoal-mid)" : "var(--beacon-charcoal)",
+                background: "none", border: "none", cursor: "pointer",
+                padding: "0.375rem 0.75rem",
+                borderBottom: annual ? "none" : "2px solid var(--beacon-teal)",
+                transition: "all 0.18s",
+              }}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setAnnual(true)}
+              style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: annual ? 600 : 400,
+                fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase",
+                color: annual ? "var(--beacon-charcoal)" : "var(--beacon-charcoal-mid)",
+                background: "none", border: "none", cursor: "pointer",
+                padding: "0.375rem 0.75rem",
+                borderBottom: annual ? "2px solid var(--beacon-teal)" : "none",
+                transition: "all 0.18s",
+                display: "flex", alignItems: "center", gap: "0.5rem",
+              }}
+            >
+              Annual
+              <span style={{
+                padding: "0.125rem 0.5rem",
+                background: "var(--beacon-teal)",
+                color: "#FAF8F4",
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 500, fontSize: "0.6rem",
+                letterSpacing: "0.1em", textTransform: "uppercase",
+              }}>
+                SAVE ${annualSavings}
+              </span>
+            </button>
+          </div>
+
+          {/* Single membership card */}
+          <motion.div
+            key={annual ? "annual" : "monthly"}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+            style={{
+              maxWidth: "820px", margin: "0 auto",
+              border: "1.5px solid rgba(26,92,107,0.35)",
+              background: "var(--beacon-parchment)",
+              overflow: "hidden",
+            }}
+          >
+            {/* Card header */}
             <div style={{
-              display: "inline-flex", alignItems: "center", gap: "2px",
-              padding: "3px",
-              border: "1px solid rgba(250,248,244,0.2)",
-              background: "rgba(28,28,30,0.4)",
-              backdropFilter: "blur(8px)",
+              padding: "2.5rem 2.5rem 2rem",
+              background: "rgba(26,92,107,0.04)",
+              borderBottom: "1px solid var(--beacon-parchment-dark)",
+              display: "grid",
+              gridTemplateColumns: "1fr auto",
+              gap: "2rem",
+              alignItems: "start",
             }}>
-              {(["monthly", "annual"] as BillingCycle[]).map((cycle) => (
-                <button
-                  key={cycle}
-                  onClick={() => setBilling(cycle)}
-                  style={{
-                    padding: "0.5rem 1.25rem",
+              <div>
+                <div style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 500, fontSize: "0.65rem",
+                  letterSpacing: "0.18em", textTransform: "uppercase",
+                  color: "var(--beacon-teal)", marginBottom: "0.5rem",
+                }}>
+                  The Watch · Full Membership
+                </div>
+                <h2 style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 600, fontSize: "2rem",
+                  lineHeight: 1.1, letterSpacing: "-0.02em",
+                  color: "var(--beacon-charcoal)", marginBottom: "0.5rem",
+                }}>
+                  All five pathways. One standing crew.
+                </h2>
+                <p style={{
+                  fontFamily: "'Lora', Georgia, serif",
+                  fontSize: "0.875rem", lineHeight: 1.7,
+                  color: "var(--beacon-charcoal-mid)",
+                  maxWidth: "480px",
+                }}>
+                  Complete any pathway. Move to the next. Progress through Sentinel → Navigator → Quartermaster as your practice deepens. No ceiling. No graduation date.
+                </p>
+              </div>
+
+              {/* Price block */}
+              <div style={{ textAlign: "right", minWidth: "160px" }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: "0.25rem", justifyContent: "flex-end" }}>
+                  <span style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    fontWeight: 600, fontSize: "3rem",
+                    color: "var(--beacon-charcoal)", lineHeight: 1,
+                  }}>
+                    ${annual ? annualMonthly : monthlyPrice}
+                  </span>
+                  <span style={{
                     fontFamily: "'Outfit', system-ui, sans-serif",
-                    fontWeight: 400, fontSize: "0.78rem",
-                    letterSpacing: "0.1em", textTransform: "uppercase",
-                    border: "none",
-                    background: billing === cycle ? "var(--beacon-teal)" : "transparent",
-                    color: billing === cycle ? "#FAF8F4" : "rgba(250,248,244,0.6)",
-                    cursor: "pointer",
-                    transition: "background 0.2s, color 0.2s",
-                    display: "flex", alignItems: "center", gap: "0.5rem",
-                  }}
-                >
-                  {cycle === "annual" ? "Annual" : "Monthly"}
-                  {cycle === "annual" && (
+                    fontSize: "0.8rem", color: "var(--beacon-charcoal-mid)",
+                  }}>
+                    / month
+                  </span>
+                </div>
+                {annual && (
+                  <p style={{
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontSize: "0.72rem", color: "var(--beacon-charcoal-mid)",
+                    marginTop: "0.25rem", opacity: 0.7,
+                  }}>
+                    Billed annually — ${annualPrice}/year
+                  </p>
+                )}
+                <p style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontSize: "0.68rem", marginTop: "0.375rem",
+                  color: "var(--beacon-charcoal-mid)", opacity: 0.5,
+                }}>
+                  No free trial. Commitment signals intent.
+                </p>
+              </div>
+            </div>
+
+            {/* What's included */}
+            <div style={{
+              padding: "2rem 2.5rem",
+              borderBottom: "1px solid var(--beacon-parchment-dark)",
+            }}>
+              <div style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 500, fontSize: "0.65rem",
+                letterSpacing: "0.14em", textTransform: "uppercase",
+                color: "var(--beacon-charcoal-mid)", marginBottom: "1.25rem",
+              }}>
+                What's Included
+              </div>
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 340px), 1fr))",
+                gap: "0.625rem 2rem",
+              }}>
+                {INCLUDED.map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem" }}>
+                    <CheckCircle2 style={{ width: "0.875rem", height: "0.875rem", marginTop: "2px", flexShrink: 0, color: "var(--beacon-teal)" }} />
                     <span style={{
-                      fontFamily: "'Outfit', system-ui, sans-serif",
-                      fontSize: "0.65rem", letterSpacing: "0.06em",
-                      padding: "0.15rem 0.4rem",
-                      background: billing === "annual" ? "rgba(255,255,255,0.2)" : "rgba(46,125,107,0.25)",
-                      color: billing === "annual" ? "#FAF8F4" : "var(--beacon-teal-light, #2E7D6B)",
+                      fontFamily: "'Lora', Georgia, serif",
+                      fontSize: "0.85rem", lineHeight: 1.5,
+                      color: "var(--beacon-charcoal-mid)",
                     }}>
-                      Save 30%
+                      {item}
                     </span>
-                  )}
-                </button>
-              ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div style={{
+              padding: "1.75rem 2.5rem",
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              gap: "1.5rem", flexWrap: "wrap",
+            }}>
+              <p style={{
+                fontFamily: "'Lora', Georgia, serif",
+                fontSize: "0.85rem", lineHeight: 1.6,
+                color: "var(--beacon-charcoal-mid)",
+                maxWidth: "400px", margin: 0,
+              }}>
+                Membership is open to anyone who meets the commitment standard — regardless of background, industry, or starting point.
+              </p>
+              <a
+                href="/the-watch"
+                className="btn-press"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                  padding: "0.875rem 2rem",
+                  background: "var(--beacon-teal)",
+                  color: "#FAF8F4",
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 500, fontSize: "0.8rem",
+                  letterSpacing: "0.08em", textTransform: "uppercase",
+                  textDecoration: "none",
+                  transition: "opacity 0.18s",
+                  flexShrink: 0,
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.88"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+              >
+                Join The Watch
+                <ArrowRight size={14} />
+              </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── Five Pillars grid ── */}
-      <section style={{ padding: "5rem 0 3rem", background: "var(--beacon-parchment)" }}>
+      {/* ── Progression stages ── */}
+      <section style={{ padding: "2rem 0 6rem", background: "var(--beacon-parchment)" }}>
         <div className="container">
           <div style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 400, fontSize: "0.7rem",
-            letterSpacing: "0.18em", textTransform: "uppercase",
-            color: "var(--beacon-charcoal-mid)", opacity: 0.55,
-            marginBottom: "2rem", textAlign: "center",
             display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem",
+            marginBottom: "3rem",
           }}>
-            <span style={{ width: "2rem", height: "1px", background: "currentColor", display: "inline-block" }} />
-            The Five Pillars
-            <span style={{ width: "2rem", height: "1px", background: "currentColor", display: "inline-block" }} />
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-charcoal-mid)", opacity: 0.3, display: "inline-block" }} />
+            <span style={{
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontWeight: 400, fontSize: "0.7rem",
+              letterSpacing: "0.18em", textTransform: "uppercase",
+              color: "var(--beacon-charcoal-mid)", opacity: 0.55,
+            }}>
+              The Watch · Progression
+            </span>
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-charcoal-mid)", opacity: 0.3, display: "inline-block" }} />
           </div>
+
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 220px), 1fr))",
-            gap: "1.25rem",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 1fr))",
+            gap: "1.5rem",
+            maxWidth: "900px", margin: "0 auto",
           }}>
-            {mainProducts.map((product, i) => (
-              <PricingCard key={product.id} product={product} billing={billing} index={i} />
+            {STAGES.map((stage, i) => (
+              <motion.div
+                key={stage.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4, delay: i * 0.08, ease: [0.23, 1, 0.32, 1] }}
+                style={{
+                  border: "1px solid var(--beacon-parchment-dark)",
+                  background: "var(--beacon-parchment)",
+                  padding: "2rem",
+                  position: "relative",
+                }}
+              >
+                {/* Stage number */}
+                <div style={{
+                  position: "absolute", top: "1.5rem", right: "1.5rem",
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 600, fontSize: "3rem",
+                  color: stage.color, opacity: 0.08, lineHeight: 1,
+                }}>
+                  {i + 1}
+                </div>
+
+                <div style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 500, fontSize: "0.6rem",
+                  letterSpacing: "0.18em", textTransform: "uppercase",
+                  color: stage.color, marginBottom: "0.5rem",
+                }}>
+                  {stage.rank}
+                </div>
+                <h3 style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 600, fontSize: "1.6rem",
+                  lineHeight: 1.1, letterSpacing: "-0.02em",
+                  color: "var(--beacon-charcoal)", marginBottom: "0.5rem",
+                }}>
+                  {stage.name}
+                </h3>
+                <p style={{
+                  fontFamily: "'Lora', Georgia, serif",
+                  fontSize: "0.78rem", lineHeight: 1.55,
+                  color: stage.color, fontStyle: "italic",
+                  marginBottom: "0.875rem",
+                }}>
+                  {stage.tagline}
+                </p>
+                <p style={{
+                  fontFamily: "'Lora', Georgia, serif",
+                  fontSize: "0.82rem", lineHeight: 1.65,
+                  color: "var(--beacon-charcoal-mid)",
+                }}>
+                  {stage.description}
+                </p>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── Entry point — Beacon Trading ── */}
-      <section style={{ padding: "0 0 5rem", background: "var(--beacon-parchment)" }}>
-        <div className="container">
-          <div style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 400, fontSize: "0.7rem",
-            letterSpacing: "0.18em", textTransform: "uppercase",
-            color: "var(--beacon-charcoal-mid)", opacity: 0.55,
-            marginBottom: "2rem", textAlign: "center",
-            display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem",
-          }}>
-            <span style={{ width: "2rem", height: "1px", background: "currentColor", display: "inline-block" }} />
-            Start Here
-            <span style={{ width: "2rem", height: "1px", background: "currentColor", display: "inline-block" }} />
-          </div>
-          <div style={{ maxWidth: "360px", margin: "0 auto" }}>
-            <PricingCard product={entryProduct} billing={billing} index={mainProducts.length} />
-          </div>
           <p style={{
             textAlign: "center",
             fontFamily: "'Lora', Georgia, serif",
             fontSize: "0.875rem", lineHeight: 1.75,
             color: "var(--beacon-charcoal-mid)",
-            marginTop: "1.5rem",
-            maxWidth: "520px", margin: "1.5rem auto 0",
+            marginTop: "2.5rem",
+            maxWidth: "560px", margin: "2.5rem auto 0",
           }}>
-            Beacon Trading is the recommended entry point for members who want to build financial literacy before committing to a full pillar. At $97/month, it is designed to be accessible while you find your path.
+            Progression is earned through completion — not time served, not tier upgrades, not additional fees. Your membership price never changes as you advance.
           </p>
+        </div>
+      </section>
+
+      {/* ── Beacon Trading note ── */}
+      <section style={{ padding: "2rem 0 5rem", background: "var(--beacon-parchment)" }}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+            style={{
+              maxWidth: "680px", margin: "0 auto",
+              border: "1px solid rgba(184,134,11,0.3)",
+              background: "rgba(184,134,11,0.03)",
+              padding: "2.5rem",
+              display: "flex", flexDirection: "column", gap: "1rem",
+            }}
+          >
+            <div style={{
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontWeight: 500, fontSize: "0.65rem",
+              letterSpacing: "0.18em", textTransform: "uppercase",
+              color: "#B8860B",
+            }}>
+              Beacon Trading · Fifth Pathway
+            </div>
+            <h3 style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontWeight: 600, fontSize: "1.5rem",
+              lineHeight: 1.15, letterSpacing: "-0.02em",
+              color: "var(--beacon-charcoal)",
+            }}>
+              Financial literacy for the AI era is included.
+            </h3>
+            <p style={{
+              fontFamily: "'Lora', Georgia, serif",
+              fontSize: "0.875rem", lineHeight: 1.75,
+              color: "var(--beacon-charcoal-mid)",
+            }}>
+              Beacon Trading is the fifth pillar pathway — AI-powered curriculum covering market fundamentals, portfolio thinking, and financial decision-making. It is not a trading platform. It is not investment advice. It is education that changes how you think about money. Included in your Watch membership at no additional cost.
+            </p>
+            <a
+              href="/beacon-trading"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "0.375rem",
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 500, fontSize: "0.75rem",
+                letterSpacing: "0.08em", textTransform: "uppercase",
+                color: "#B8860B", textDecoration: "none",
+                transition: "opacity 0.18s",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+            >
+              Learn more about Beacon Trading
+              <ArrowRight size={13} />
+            </a>
+          </motion.div>
         </div>
       </section>
 
       {/* ── FAQ strip ── */}
       <section style={{ padding: "5rem 0", borderTop: "1px solid var(--beacon-parchment-dark)", background: "var(--beacon-cream, #F5F0E8)" }}>
-        <div className="container" style={{ maxWidth: "900px" }}>
+        <div className="container" style={{ maxWidth: "760px" }}>
           <div style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontWeight: 400, fontSize: "0.7rem",
-            letterSpacing: "0.18em", textTransform: "uppercase",
-            color: "var(--beacon-charcoal-mid)", opacity: 0.55,
-            marginBottom: "3rem", textAlign: "center",
             display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem",
+            marginBottom: "3rem",
           }}>
-            <span style={{ width: "2rem", height: "1px", background: "currentColor", display: "inline-block" }} />
-            Common Questions
-            <span style={{ width: "2rem", height: "1px", background: "currentColor", display: "inline-block" }} />
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-charcoal-mid)", opacity: 0.3, display: "inline-block" }} />
+            <span style={{
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontWeight: 400, fontSize: "0.7rem",
+              letterSpacing: "0.18em", textTransform: "uppercase",
+              color: "var(--beacon-charcoal-mid)", opacity: 0.55,
+            }}>
+              Answered Plainly
+            </span>
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-charcoal-mid)", opacity: 0.3, display: "inline-block" }} />
           </div>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
-            gap: "3rem",
-          }}>
-            {[
-              {
-                q: "Can I switch pillars?",
-                a: "Yes. Members can move between pillars at any time. Your billing cycle resets to the new pillar's rate on your next billing date.",
-              },
-              {
-                q: "Is there a refund policy?",
-                a: "Monthly memberships can be cancelled before the next billing date. Annual memberships include a 30-day satisfaction guarantee from the start date.",
-              },
-              {
-                q: "Not sure where to start?",
-                a: "Take the Pathfinder Assessment. It takes about 5 minutes and maps your current situation to the pillar most likely to move the needle fastest.",
-              },
-            ].map(({ q, a }) => (
-              <div key={q}>
-                <div style={{ width: "1.5rem", height: "2px", background: "var(--beacon-teal)", marginBottom: "1rem" }} />
-                <h3 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontWeight: 600, fontSize: "1.2rem",
-                  lineHeight: 1.3, letterSpacing: "-0.01em",
-                  color: "var(--beacon-charcoal)",
-                  marginBottom: "0.75rem",
-                }}>
-                  {q}
-                </h3>
-                <p style={{
-                  fontFamily: "'Lora', Georgia, serif",
-                  fontSize: "0.875rem", lineHeight: 1.75,
-                  color: "var(--beacon-charcoal-mid)",
-                }}>
-                  {a}
-                </p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+            {FAQS.map((faq, i) => (
+              <div
+                key={i}
+                style={{
+                  borderTop: i === 0 ? "1px solid var(--beacon-parchment-dark)" : "none",
+                  borderBottom: "1px solid var(--beacon-parchment-dark)",
+                }}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  style={{
+                    width: "100%", textAlign: "left",
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "1.25rem 0",
+                    background: "none", border: "none", cursor: "pointer",
+                    gap: "1rem",
+                  }}
+                >
+                  <span style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    fontWeight: 600, fontSize: "1.1rem",
+                    lineHeight: 1.3, letterSpacing: "-0.01em",
+                    color: "var(--beacon-charcoal)",
+                  }}>
+                    {faq.q}
+                  </span>
+                  <span style={{
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontSize: "1.1rem", color: "var(--beacon-teal)",
+                    flexShrink: 0, lineHeight: 1,
+                  }}>
+                    {openFaq === i ? "−" : "+"}
+                  </span>
+                </button>
+                {openFaq === i && (
+                  <div style={{ paddingBottom: "1.25rem" }}>
+                    <p style={{
+                      fontFamily: "'Lora', Georgia, serif",
+                      fontSize: "0.875rem", lineHeight: 1.8,
+                      color: "var(--beacon-charcoal-mid)", margin: 0,
+                    }}>
+                      {faq.a}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -648,7 +608,6 @@ export default function PricingPage() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
           >
-            {/* Eyebrow */}
             <div style={{
               fontFamily: "'Outfit', system-ui, sans-serif",
               fontWeight: 400, fontSize: "0.75rem",
@@ -658,7 +617,7 @@ export default function PricingPage() {
               marginBottom: "1.25rem",
             }}>
               <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
-              The Pathfinder Assessment
+              Not Sure Where to Start
               <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
             </div>
 
@@ -668,7 +627,7 @@ export default function PricingPage() {
               lineHeight: 1.1, letterSpacing: "-0.025em",
               color: "#FAF8F4", marginBottom: "1rem",
             }}>
-              Not sure which path is right?
+              Take the Pathfinder Assessment.
             </h2>
             <p style={{
               fontFamily: "'Lora', Georgia, serif",
@@ -676,7 +635,7 @@ export default function PricingPage() {
               lineHeight: 1.75, color: "rgba(250,248,244,0.65)",
               marginBottom: "2.5rem",
             }}>
-              The Pathfinder Assessment takes about 5 minutes and tells you exactly where to start — without a sales call, a commitment, or an obligation.
+              Five minutes. No sales call. No obligation. It maps your current situation to the pathway most likely to move the needle fastest — then you decide.
             </p>
             <Link
               href="/assessment"
@@ -695,7 +654,7 @@ export default function PricingPage() {
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--beacon-amber-light)"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--beacon-amber)"; }}
             >
-              Take the Assessment
+              Find Your Path
               <ArrowRight size={15} />
             </Link>
           </motion.div>
