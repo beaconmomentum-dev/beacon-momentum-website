@@ -60,7 +60,7 @@ const TIMELINE = [
     period: "The Foundation",
     date: "Early 2025",
     headline: "Building infrastructure before brand.",
-    body: "Beacon Momentum began not as a brand but as a set of operational questions: How do you build a private AI operations layer for a small organization? How do you help people navigate a transition that no one is explaining honestly? The first year was infrastructure — Phoenix, the command center, the GHL CRM architecture, the Digital Ocean droplets, the GitHub repositories. The brand came second. The systems came first.",
+    body: "Beacon Momentum began not as a brand but as a set of operational questions: How do you build a private AI operations layer for a small organization? How do you help people navigate a transition that no one is explaining honestly? The company operated initially under the name Phoenix Collective — an AI-powered transformation technology firm built for the same communities it had always served. The infrastructure came first: Phoenix, the command center, the GHL CRM architecture, the Digital Ocean droplets, the GitHub repositories. The Beacon Momentum identity emerged from that foundation. The brand came second. The systems came first.",
   },
   {
     period: "The Lesson",
