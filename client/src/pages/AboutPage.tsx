@@ -134,7 +134,7 @@ export default function AboutPage() {
             <span style={{ display: "block", color: "#C4A882", fontStyle: "italic", marginTop: "0.25rem" }}>For the people still in it.</span>
           </h1>
           <p style={{ fontSize: "1.05rem", color: "rgba(250,248,244,0.72)", maxWidth: "580px", lineHeight: 1.8 }}>
-            Beacon Momentum is the AI-era human capability and operations company. We help people and small organizations remain human, capable, economically active, and sovereign through the AI transition — without hype, shame, spam, or guru dependency.
+            Beacon Momentum is the AI-era human capability and operations company. Practical, not theoretical. Built for people who have been through something real and need tools that work in the actual world — not a stage-managed version of it.
           </p>
         </div>
       </section>
@@ -154,6 +154,62 @@ export default function AboutPage() {
               Beacon Momentum Mission Statement
             </footer>
           </blockquote>
+        </div>
+      </section>
+
+      {/* Who We Serve */}
+      <section style={{ background: "#FAF8F4", padding: "5rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
+            <span style={{ width: "2rem", height: "1px", background: "#1A5C6B", display: "inline-block" }} />
+            <span style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#1A5C6B" }}>Who We Serve</span>
+          </div>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2416", marginBottom: "1rem", letterSpacing: "-0.02em" }}>
+            Built for people navigating real transitions.
+          </h2>
+          <p style={{ color: "#6B5E4E", lineHeight: 1.8, fontSize: "1rem", maxWidth: "680px", marginBottom: "3rem" }}>
+            Beacon was not built for people who have it figured out. It was built for people in the middle of a transition — career disruption, life rebuild, financial reset, or the quiet crisis of watching the world change faster than anyone can absorb. If you have been through something hard and are still standing, you are exactly who this is for.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1.5rem" }}>
+            {[
+              {
+                label: "Veterans & Service Members",
+                body: "You served with discipline and purpose. The civilian world does not always know what to do with that. Beacon does. We translate military-grade capability into AI-era economic power.",
+                accent: "#1A5C6B",
+              },
+              {
+                label: "People Rebuilding After Setback",
+                body: "Incarceration, financial collapse, health crisis, or any of the hundred ways life can take the floor out from under you. Beacon is not a sympathy platform. It is a rebuild platform. There is a difference.",
+                accent: "#2A7F6F",
+              },
+              {
+                label: "Founders & Solopreneurs",
+                body: "You are building something real with limited resources and no corporate safety net. Beacon Systems and Beacon Venture exist specifically for you — AI-enabled operations without enterprise overhead.",
+                accent: "#B8860B",
+              },
+              {
+                label: "Professionals in Transition",
+                body: "Your industry is changing. Your role may not exist in five years. Beacon Work and Beacon Life help you adapt, reposition, and remain economically active — on your terms, not your employer's.",
+                accent: "#4A3728",
+              },
+              {
+                label: "Small Organizations",
+                body: "Nonprofits, ministries, community organizations, and small businesses that need AI-enabled operations but cannot afford enterprise solutions. Beacon Systems was built for exactly this gap.",
+                accent: "#5C3A6B",
+              },
+              {
+                label: "Anyone Who Needs Real Over Polished",
+                body: "If you are tired of gurus who have never lost anything telling you how to win, you are in the right place. Beacon's credibility is built on lived experience, not a highlight reel.",
+                accent: "#1A5C6B",
+              },
+            ].map((item) => (
+              <div key={item.label} style={{ padding: "1.75rem", border: "1px solid #E8E4DC", background: "#FFFFFF" }}>
+                <div style={{ width: "3px", height: "2rem", background: item.accent, marginBottom: "1.25rem" }} />
+                <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "1.2rem", color: "#2C2416", marginBottom: "0.75rem" }}>{item.label}</h3>
+                <p style={{ color: "#6B5E4E", fontSize: "0.875rem", lineHeight: 1.75 }}>{item.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -255,8 +311,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Operating Doctrine */}
+      {/* Practical Not Theoretical */}
       <section style={{ background: "#F5F1EA", padding: "5rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
+            <span style={{ width: "2rem", height: "1px", background: "#B8860B", display: "inline-block" }} />
+            <span style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#B8860B" }}>The Beacon Difference</span>
+          </div>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#2C2416", marginBottom: "2.5rem", letterSpacing: "-0.02em" }}>
+            Practical. Not theoretical.
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "start" }}>
+            <div>
+              <p style={{ color: "#6B5E4E", lineHeight: 1.85, fontSize: "1rem", marginBottom: "1.5rem" }}>
+                Every tool, curriculum, and framework in Beacon has been tested in conditions that matter — not in a lab, not in a mastermind, but in the actual lives of people navigating real transitions with real stakes.
+              </p>
+              <p style={{ color: "#6B5E4E", lineHeight: 1.85, fontSize: "1rem", marginBottom: "1.5rem" }}>
+                The founder spent 14 years behind the wire teaching, counseling, and learning what actually helps people rebuild. GraceHouse picked people up at prison gates and walked them back into the world. Digital Grandpa reached thousands with non-judgmental, grounded wisdom. Rise & Reclaim tested the community and curriculum model before a single line of Beacon code was written.
+              </p>
+              <p style={{ color: "#6B5E4E", lineHeight: 1.85, fontSize: "1rem" }}>
+                That is not a backstory. That is a quality control process. Beacon's methods work because they have been proven in the hardest possible conditions — not the easiest.
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+              {[
+                { stat: "Lifetime", label: "of experience in human transformation" },
+                { stat: "1,200+", label: "lives touched before Beacon was built" },
+                { stat: "Presidential", label: "1000 Points of Light Award recipient" },
+                { stat: "Zero", label: "theoretical frameworks untested in the real world" },
+              ].map((item) => (
+                <div key={item.stat} style={{ display: "flex", alignItems: "center", gap: "1.25rem", padding: "1.25rem", background: "#FAF8F4", border: "1px solid #E8E4DC" }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 700, fontSize: "1.75rem", color: "#B8860B", minWidth: "120px", lineHeight: 1 }}>{item.stat}</div>
+                  <div style={{ color: "#6B5E4E", fontSize: "0.875rem", lineHeight: 1.5 }}>{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Operating Doctrine */}
+      <section style={{ background: "#FAF8F4", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "900px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
             <span style={{ width: "2rem", height: "1px", background: "#B8860B", display: "inline-block" }} />
@@ -289,7 +384,7 @@ export default function AboutPage() {
       </section>
 
       {/* Ecosystem Table */}
-      <section style={{ background: "#FAF8F4", padding: "5rem 0" }}>
+      <section style={{ background: "#F5F1EA", padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "900px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
             <span style={{ width: "2rem", height: "1px", background: "#1A5C6B", display: "inline-block" }} />
