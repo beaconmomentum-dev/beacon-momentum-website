@@ -391,8 +391,8 @@ const TIERS: Tier[] = [
   {
     id: "sentinel",
     name: "Sentinel",
-    subtitle: "The entry post.",
-    price: "$47",
+    subtitle: "Where every member begins.",
+    price: "$297",
     period: "/ month",
     image: SENTINEL_IMG,
     highlight: false,
@@ -404,39 +404,38 @@ const TIERS: Tier[] = [
       "Beacon Brief newsletter (premium edition)",
       "Member resource library — tools, templates, frameworks",
     ],
-    cta: "Join as Sentinel",
+    cta: "Join The Watch",
     ghlTag: "BM_Watch_Sentinel",
   },
   {
     id: "navigator",
     name: "Navigator",
-    subtitle: "The working crew.",
-    price: "$97",
+    subtitle: "Earned through consistent action.",
+    price: "$297",
     period: "/ month",
     image: NAVIGATOR_IMG,
     highlight: true,
-    badge: "Most Chosen",
+    badge: "Active Stage",
     features: [
       "Everything in Sentinel",
       "Weekly small-group accountability cohort (max 8 members)",
       "Direct access to all Five Pillar curriculum tracks",
-      "Monthly 1:1 check-in with a Beacon guide",
       "Priority access to live workshops and intensives",
-      "Digital Grandpa mentorship sessions (2× / month)",
       "Early access to new Beacon tools and frameworks",
+      "Cohort leadership opportunities as you progress",
     ],
-    cta: "Join as Navigator",
+    cta: "Join The Watch",
     ghlTag: "BM_Watch_Navigator",
   },
   {
     id: "quartermaster",
     name: "Quartermaster",
     subtitle: "The founding crew.",
-    price: "$247",
+    price: "$297",
     period: "/ month",
     image: QUARTERMASTER_IMG,
     highlight: false,
-    badge: "Limited — 40 seats",
+    badge: "Founding Stage",
     features: [
       "Everything in Navigator",
       "Founding member status — permanent recognition",
@@ -451,7 +450,7 @@ const TIERS: Tier[] = [
   },
 ];
 
-function TierCard({ tier, onSelect }: { tier: Tier; onSelect: (t: Tier) => void }) {
+function TierCard({ tier, onSelect }: { tier: Tier; onSelect: () => void }) {
   const ref = useFadeUp();
   return (
     <div
@@ -613,7 +612,7 @@ function TierCard({ tier, onSelect }: { tier: Tier; onSelect: (t: Tier) => void 
         </ul>
         {/* CTA */}
         <button
-          onClick={() => onSelect(tier)}
+          onClick={() => onSelect()}
           style={{
             fontFamily: sans,
             fontWeight: 500,
@@ -652,7 +651,7 @@ function TierCard({ tier, onSelect }: { tier: Tier; onSelect: (t: Tier) => void 
   );
 }
 
-function MembershipTiers({ onTierSelect }: { onTierSelect: (t: Tier) => void }) {
+function MembershipTiers({ onTierSelect }: { onTierSelect: () => void }) {
   return (
     <section
       id="tiers"
@@ -664,7 +663,7 @@ function MembershipTiers({ onTierSelect }: { onTierSelect: (t: Tier) => void }) 
     >
       <div className="container">
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <SectionLabel>Membership Tiers</SectionLabel>
+          <SectionLabel>Membership · Progression Stages</SectionLabel>
           <h2
             style={{
               fontFamily: serif,
@@ -676,7 +675,7 @@ function MembershipTiers({ onTierSelect }: { onTierSelect: (t: Tier) => void }) 
               marginBottom: "1rem",
             }}
           >
-            Choose Your Post.
+            One Membership. Three Stages.
           </h2>
           <p
             style={{
@@ -684,12 +683,14 @@ function MembershipTiers({ onTierSelect }: { onTierSelect: (t: Tier) => void }) 
               fontSize: "1rem",
               lineHeight: 1.8,
               color: C.muted,
-              maxWidth: "520px",
+              maxWidth: "560px",
               margin: "0 auto",
             }}
           >
-            Every tier is a commitment, not a subscription. No free trials.
-            No casual access. The Watch is for people who have decided.
+            The Watch is a single membership at $297/month. Sentinel,
+            Navigator, and Quartermaster are progression stages — earned
+            through consistent action, not purchased separately. No free
+            trials. No casual access. The Watch is for people who have decided.
           </p>
         </div>
         <div
@@ -710,32 +711,19 @@ function MembershipTiers({ onTierSelect }: { onTierSelect: (t: Tier) => void }) 
   );
 }
 
-// ─── 4. Community Proof ───────────────────────────────────────────────────────
-const STATS = [
-  { value: "340+", label: "Members on Watch" },
-  { value: "94%", label: "Still active at 6 months" },
-  { value: "5", label: "Countries represented" },
-  { value: "3", label: "Cohort tracks running" },
-];
-
-const VOICES = [
+// ─── 4. Community Foundation ──────────────────────────────────────────────────
+const PILLARS = [
   {
-    quote:
-      "I've been in a dozen online communities. The Watch is the first one where I actually changed how I work. The accountability structure is real.",
-    name: "M.T.",
-    role: "Navigator member, 8 months",
+    title: "Accountability by Design",
+    body: "The Watch is structured around small cohorts — 6 to 8 people at a similar stage, meeting weekly. Accountability is not optional. It is the architecture.",
   },
   {
-    quote:
-      "The weekly cohort calls are the most useful hour of my week. Eight people, all in different transitions, all holding each other to the same standard.",
-    name: "R.K.",
-    role: "Navigator member, 5 months",
+    title: "Action Over Information",
+    body: "The AI era does not reward people who consume the most content. It rewards people who act with clarity and consistency. Every Watch structure is built around doing, not watching.",
   },
   {
-    quote:
-      "I joined as a Quartermaster because I wanted to be part of building something that lasts. The founding crew energy is different. It's serious.",
-    name: "D.A.",
-    role: "Quartermaster member, founding cohort",
+    title: "A Community That Outlasts Its Founders",
+    body: "The Watch is not built around any single person's personality or platform. The doctrine, the systems, and the culture are designed to exist long after any individual — including its founders.",
   },
 ];
 
@@ -750,64 +738,19 @@ function CommunityProof() {
       }}
     >
       <div className="container">
-        {/* Stats row */}
+        {/* Two-column layout: image left, pillars right */}
         <div
           ref={ref}
-          className="fade-up"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "2rem",
-            marginBottom: "5rem",
-          }}
-        >
-          {STATS.map((s) => (
-            <div key={s.label} style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  fontFamily: serif,
-                  fontWeight: 600,
-                  fontSize: "clamp(2.25rem, 4vw, 3.5rem)",
-                  color: C.amberLight,
-                  lineHeight: 1,
-                  marginBottom: "0.5rem",
-                }}
-              >
-                {s.value}
-              </div>
-              <div
-                style={{
-                  fontFamily: sans,
-                  fontWeight: 400,
-                  fontSize: "0.75rem",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: C.muted,
-                }}
-              >
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Proof image + voices */}
-        <div
+          className="fade-up proof-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "4rem",
             alignItems: "center",
           }}
-          className="proof-grid"
         >
           {/* Image */}
-          <div
-            style={{
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
+          <div style={{ position: "relative", overflow: "hidden" }}>
             <img
               src={PROOF_IMG}
               alt="Watch members collaborating over a nautical map"
@@ -844,41 +787,41 @@ function CommunityProof() {
             </div>
           </div>
 
-          {/* Member voices */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-            <SectionLabel>Member Voices</SectionLabel>
-            {VOICES.map((v) => (
-              <blockquote
-                key={v.name}
+          {/* Foundation pillars */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "2.25rem" }}>
+            <SectionLabel>What Makes The Watch Different</SectionLabel>
+            {PILLARS.map((p) => (
+              <div
+                key={p.title}
                 style={{
-                  margin: 0,
                   borderLeft: `2px solid rgba(200,146,42,0.35)`,
                   paddingLeft: "1.5rem",
                 }}
               >
+                <div
+                  style={{
+                    fontFamily: sans,
+                    fontWeight: 600,
+                    fontSize: "0.85rem",
+                    letterSpacing: "0.04em",
+                    color: C.amberLight,
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  {p.title}
+                </div>
                 <p
                   style={{
                     fontFamily: body,
-                    fontStyle: "italic",
-                    fontSize: "0.95rem",
+                    fontSize: "0.9rem",
                     lineHeight: 1.8,
-                    color: "rgba(250,248,244,0.8)",
-                    marginBottom: "0.75rem",
+                    color: "rgba(250,248,244,0.75)",
+                    margin: 0,
                   }}
                 >
-                  "{v.quote}"
+                  {p.body}
                 </p>
-                <footer
-                  style={{
-                    fontFamily: sans,
-                    fontSize: "0.75rem",
-                    letterSpacing: "0.08em",
-                    color: C.muted,
-                  }}
-                >
-                  — {v.name}, <span style={{ color: C.amberLight }}>{v.role}</span>
-                </footer>
-              </blockquote>
+              </div>
             ))}
           </div>
         </div>
@@ -894,8 +837,8 @@ const FAQS = [
     a: "Free trials attract the wrong energy. The Watch is built on committed members — people who have decided, not people who are deciding. A paid commitment signals intent. The community is better because of it.",
   },
   {
-    q: "Can I change tiers after joining?",
-    a: "Yes. You can upgrade at any time. Downgrades take effect at the next billing cycle. Quartermasters who downgrade lose their founding rate and founding status permanently.",
+    q: "How do I advance from Sentinel to Navigator or Quartermaster?",
+    a: "Progression is earned, not purchased. Sentinel members who demonstrate consistent engagement, complete their Pathfinder Assessment, and are placed in an active cohort advance to Navigator. Quartermaster status is extended to founding members who have shown sustained commitment and community contribution. Your guide will initiate the conversation — you don't apply for it.",
   },
   {
     q: "What is a 'cohort' and how does it work?",
@@ -908,10 +851,6 @@ const FAQS = [
   {
     q: "What happens if I cancel?",
     a: "You retain access through the end of your paid period. There are no refunds for partial months. Quartermasters who cancel lose their founding rate and cannot reclaim it.",
-  },
-  {
-    q: "What does 'Digital Grandpa mentorship' mean?",
-    a: "Digital Grandpa is a Beacon Momentum property — a mentorship program connecting members with experienced guides who have navigated major transitions. Navigator members get 2 sessions per month. Learn more at /digital-grandpa.",
   },
 ];
 
@@ -1020,17 +959,11 @@ function FAQ() {
 }
 
 // ─── 6. Join CTA Form ─────────────────────────────────────────────────────────
-function JoinForm({ selectedTier }: { selectedTier: Tier | null }) {
+function JoinForm() {
   const [, navigate] = useLocation();
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
-  const [tier, setTier] = useState<string>(selectedTier?.id || "navigator");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  // Sync tier when selectedTier prop changes
-  useEffect(() => {
-    if (selectedTier) setTier(selectedTier.id);
-  }, [selectedTier]);
-  const selectedTierData = TIERS.find((t) => t.id === tier) || TIERS[1];
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
@@ -1038,19 +971,16 @@ function JoinForm({ selectedTier }: { selectedTier: Tier | null }) {
     const ok = await submitToGHL({
       email,
       firstName: firstName || undefined,
-      tags: ["BM_Watch_Join", selectedTierData.ghlTag, "BM_Community"],
+      tags: ["BM_Watch_Join", "BM_Watch_Sentinel", "BM_Community"],
       source: "beaconmomentum.com/the-watch",
     });
     if (ok) {
       // Store member info for the intake page
       sessionStorage.setItem("watch_intake_email", email);
-      sessionStorage.setItem("watch_intake_tier", tier);
+      sessionStorage.setItem("watch_intake_tier", "sentinel");
       if (firstName) sessionStorage.setItem("watch_intake_name", firstName);
-      // Navigator and Quartermaster go to intake; Sentinel gets success message
-      if (tier === "navigator" || tier === "quartermaster") {
-        navigate("/the-watch/intake");
-        return;
-      }
+      navigate("/the-watch/intake");
+      return;
     }
     setStatus(ok ? "success" : "error");
   }
@@ -1088,9 +1018,10 @@ function JoinForm({ selectedTier }: { selectedTier: Tier | null }) {
             marginBottom: "2.5rem",
           }}
         >
-          Enter your details below. A member of the Beacon team will reach out
-          within 24 hours with your onboarding link and cohort placement
-          information.
+          The Watch is $297/month. Enter your details below and a member of the
+          Beacon team will reach out within 24 hours with your onboarding link
+          and cohort placement information. All members begin at Sentinel and
+          progress from there.
         </p>
 
         {status === "success" ? (
@@ -1127,56 +1058,6 @@ function JoinForm({ selectedTier }: { selectedTier: Tier | null }) {
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-            {/* Tier selector */}
-            <div>
-              <label
-                style={{
-                  fontFamily: sans,
-                  fontSize: "0.72rem",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  color: C.muted,
-                  display: "block",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Membership Tier
-              </label>
-              <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-                {TIERS.map((t) => (
-                  <button
-                    key={t.id}
-                    type="button"
-                    onClick={() => setTier(t.id)}
-                    style={{
-                      fontFamily: sans,
-                      fontWeight: 500,
-                      fontSize: "0.8rem",
-                      letterSpacing: "0.04em",
-                      padding: "0.6rem 1.25rem",
-                      background: tier === t.id ? C.amber : "transparent",
-                      color: tier === t.id ? C.cream : C.muted,
-                      border: tier === t.id ? "none" : "1px solid rgba(250,248,244,0.2)",
-                      cursor: "pointer",
-                      transition: "all 0.2s",
-                    }}
-                  >
-                    {t.name}
-                  </button>
-                ))}
-              </div>
-              <div
-                style={{
-                  fontFamily: body,
-                  fontSize: "0.8rem",
-                  color: C.amberLight,
-                  marginTop: "0.5rem",
-                }}
-              >
-                {selectedTierData.price}{selectedTierData.period} — {selectedTierData.subtitle}
-              </div>
-            </div>
-
             {/* Name */}
             <div>
               <label
@@ -1289,7 +1170,7 @@ function JoinForm({ selectedTier }: { selectedTier: Tier | null }) {
                 (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
               }}
             >
-              {status === "submitting" ? "Sending..." : `Join as ${selectedTierData.name} →`}
+              {status === "submitting" ? "Sending..." : "Join The Watch →"}
             </button>
 
             {status === "error" && (
@@ -1329,10 +1210,7 @@ function JoinForm({ selectedTier }: { selectedTier: Tier | null }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function TheWatchPage() {
-  const [selectedTier, setSelectedTier] = useState<Tier | null>(null);
-
-  function handleTierSelect(tier: Tier) {
-    setSelectedTier(tier);
+  function handleTierSelect() {
     // Smooth scroll to join form
     setTimeout(() => {
       document.getElementById("join")?.scrollIntoView({ behavior: "smooth" });
@@ -1347,7 +1225,7 @@ export default function TheWatchPage() {
       <MembershipTiers onTierSelect={handleTierSelect} />
       <CommunityProof />
       <FAQ />
-      <JoinForm selectedTier={selectedTier} />
+      <JoinForm />
       <SharedFooter />
     </div>
   );
