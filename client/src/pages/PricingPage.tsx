@@ -1,7 +1,7 @@
 /**
  * Beacon Momentum — /pricing
  * Design: Deep Water Editorial / Quiet Authority
- * Model: Single membership — $297/month or $2,497/year (30% savings)
+ * Model: Single membership — $497/year (annual only)
  * Progression: Sentinel → Navigator → Quartermaster (beginner → intermediate → master's)
  * All Five Pillar pathways included. No free trials.
  */
@@ -62,13 +62,9 @@ const INCLUDED = [
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function PricingPage() {
-  const [annual, setAnnual] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const monthlyPrice = 297;
-  const annualPrice = 2497;
-  const annualMonthly = Math.round(annualPrice / 12);
-  const annualSavings = monthlyPrice * 12 - annualPrice;
+  const annualPrice = 497;
 
   const FAQS = [
     {
@@ -88,8 +84,8 @@ export default function PricingPage() {
       a: "Yes. Once you complete a pathway, you move to the next one of your choosing. All five pathways are included in your membership — the goal is to work through as many as have value for you, in the order that makes sense for your life.",
     },
     {
-      q: "What is the difference between monthly and annual?",
-      a: `Annual membership is $2,497/year — a saving of $${annualSavings} compared to paying month-to-month. Annual members also receive founding-rate lock status: if pricing increases, annual members renewing before their anniversary date keep their current rate. Monthly members pay the current rate at each renewal.`,
+      q: "Is there a monthly option?",
+      a: "The Watch is annual-only. Annual membership is $497/year — less than $42/month. Annual billing is the foundation of a committed community: it filters out casual browsers and ensures every member is invested in the long-term work. You can cancel before your renewal date at any time.",
     },
     {
       q: "Is there a refund policy?",
@@ -165,57 +161,26 @@ export default function PricingPage() {
       <section style={{ padding: "6rem 0 4rem", background: "var(--beacon-parchment)" }}>
         <div className="container">
 
-          {/* Billing toggle */}
+          {/* Annual-only badge */}
           <div style={{
-            display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem",
+            display: "flex", alignItems: "center", justifyContent: "center",
             marginBottom: "3.5rem",
           }}>
-            <button
-              onClick={() => setAnnual(false)}
-              style={{
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                fontWeight: annual ? 400 : 600,
-                fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase",
-                color: annual ? "var(--beacon-charcoal-mid)" : "var(--beacon-charcoal)",
-                background: "none", border: "none", cursor: "pointer",
-                padding: "0.375rem 0.75rem",
-                borderBottom: annual ? "none" : "2px solid var(--beacon-teal)",
-                transition: "all 0.18s",
-              }}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setAnnual(true)}
-              style={{
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                fontWeight: annual ? 600 : 400,
-                fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase",
-                color: annual ? "var(--beacon-charcoal)" : "var(--beacon-charcoal-mid)",
-                background: "none", border: "none", cursor: "pointer",
-                padding: "0.375rem 0.75rem",
-                borderBottom: annual ? "2px solid var(--beacon-teal)" : "none",
-                transition: "all 0.18s",
-                display: "flex", alignItems: "center", gap: "0.5rem",
-              }}
-            >
-              Annual
-              <span style={{
-                padding: "0.125rem 0.5rem",
-                background: "var(--beacon-teal)",
-                color: "#FAF8F4",
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                fontWeight: 500, fontSize: "0.6rem",
-                letterSpacing: "0.1em", textTransform: "uppercase",
-              }}>
-                SAVE ${annualSavings}
-              </span>
-            </button>
+            <span style={{
+              padding: "0.25rem 1rem",
+              background: "var(--beacon-teal)",
+              color: "#FAF8F4",
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontWeight: 500, fontSize: "0.65rem",
+              letterSpacing: "0.14em", textTransform: "uppercase",
+            }}>
+              Annual Membership Only
+            </span>
           </div>
 
           {/* Single membership card */}
           <motion.div
-            key={annual ? "annual" : "monthly"}
+            key="annual"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
@@ -271,24 +236,22 @@ export default function PricingPage() {
                     fontWeight: 600, fontSize: "3rem",
                     color: "var(--beacon-charcoal)", lineHeight: 1,
                   }}>
-                    ${annual ? annualMonthly : monthlyPrice}
+                    ${annualPrice}
                   </span>
                   <span style={{
                     fontFamily: "'Outfit', system-ui, sans-serif",
                     fontSize: "0.8rem", color: "var(--beacon-charcoal-mid)",
                   }}>
-                    / month
+                    / year
                   </span>
                 </div>
-                {annual && (
-                  <p style={{
-                    fontFamily: "'Outfit', system-ui, sans-serif",
-                    fontSize: "0.72rem", color: "var(--beacon-charcoal-mid)",
-                    marginTop: "0.25rem", opacity: 0.7,
-                  }}>
-                    Billed annually — ${annualPrice}/year
-                  </p>
-                )}
+                <p style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontSize: "0.72rem", color: "var(--beacon-charcoal-mid)",
+                  marginTop: "0.25rem", opacity: 0.7,
+                }}>
+                  Less than $42/month — cancel anytime
+                </p>
                 <p style={{
                   fontFamily: "'Outfit', system-ui, sans-serif",
                   fontSize: "0.68rem", marginTop: "0.375rem",

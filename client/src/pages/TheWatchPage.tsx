@@ -687,7 +687,7 @@ function MembershipTiers({ onTierSelect }: { onTierSelect: () => void }) {
               margin: "0 auto",
             }}
           >
-            The Watch is a single membership at $297/month. Sentinel,
+            The Watch is a single annual membership at $497/year — less than $42/month. Sentinel,
             Navigator, and Quartermaster are progression stages — earned
             through consistent action, not purchased separately. No free
             trials. No casual access. The Watch is for people who have decided.
@@ -1018,7 +1018,7 @@ function JoinForm() {
             marginBottom: "2.5rem",
           }}
         >
-          The Watch is $297/month. Enter your details below and a member of the
+          The Watch is $497/year — less than $42/month, annual billing only. Enter your details below and a member of the
           Beacon team will reach out within 24 hours with your onboarding link
           and cohort placement information. All members begin at Sentinel and
           progress from there.

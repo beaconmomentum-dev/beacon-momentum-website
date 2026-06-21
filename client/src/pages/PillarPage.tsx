@@ -433,62 +433,27 @@ export default function PillarPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Monthly */}
-            <div className="border border-[#E8E4DC] rounded-sm p-8 bg-white">
-              <div className="text-xs font-ui tracking-widest uppercase text-[#9B8E7E] mb-4">Monthly</div>
-              <div className="flex items-baseline gap-1 mb-2">
-                <span className="font-display text-5xl text-[#2C2416]">$297</span>
-                <span className="text-[#9B8E7E] font-ui">/month</span>
-              </div>
-              <p className="text-sm text-[#6B5E4E] mb-6">Cancel anytime. Full access from day one.</p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Full curriculum access",
-                  "Weekly live mentor sessions",
-                  "Private member community",
-                  "AI tools and templates",
-                  "Monthly cohort check-ins",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-[#6B5E4E]">
-                    <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: pillar.color }} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={pillar.ctaLink}
-                className="block text-center py-3 px-6 rounded-sm font-ui text-sm tracking-widest uppercase text-white transition-all duration-200 active:scale-[0.97]"
-                style={{ backgroundColor: pillar.color }}
-              >
-                Reserve Monthly Spot
-              </a>
-              <p className="text-center text-[10px] text-[#9B8E7E] font-ui tracking-wide mt-2 leading-snug">
-                Enrollment opens soon. Assessment required.
-              </p>
-            </div>
-
-            {/* Annual */}
+          <div className="max-w-xl mx-auto">
+            {/* Annual-only card */}
             <div
-              className="border-2 rounded-sm p-8 relative"
+              className="border-2 rounded-sm p-10 relative"
               style={{ borderColor: pillar.color, backgroundColor: pillar.lightBg }}
             >
               <div
                 className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-ui tracking-widest uppercase text-white rounded-sm"
                 style={{ backgroundColor: pillar.color }}
               >
-                Best Value
+                Annual Membership
               </div>
-              <div className="text-xs font-ui tracking-widest uppercase text-[#9B8E7E] mb-4">Annual</div>
               <div className="flex items-baseline gap-1 mb-1">
-                <span className="font-display text-5xl text-[#2C2416]">$2,497</span>
+                <span className="font-display text-6xl text-[#2C2416]">$497</span>
                 <span className="text-[#9B8E7E] font-ui">/year</span>
               </div>
               <p className="text-sm mb-1" style={{ color: pillar.color }}>
-                ~$208/month — save $1,067 annually
+                Less than $42/month — cancel anytime
               </p>
-              <p className="text-sm text-[#6B5E4E] mb-6">Everything in monthly, plus priority access.</p>
-              <ul className="space-y-3 mb-8">
+              <p className="text-sm text-[#6B5E4E] mb-8">Full access from day one. No upsells. No hidden tiers.</p>
+              <ul className="space-y-3 mb-10">
                 {[
                   "Full curriculum access",
                   "Weekly live mentor sessions",
@@ -509,7 +474,7 @@ export default function PillarPage() {
                 className="block text-center py-3 px-6 rounded-sm font-ui text-sm tracking-widest uppercase text-white transition-all duration-200 active:scale-[0.97]"
                 style={{ backgroundColor: pillar.color }}
               >
-                Reserve Annual Spot
+                Reserve Your Spot
               </a>
               <p className="text-center text-[10px] text-[#9B8E7E] font-ui tracking-wide mt-2 leading-snug">
                 Enrollment opens soon. Assessment required.
