@@ -195,7 +195,7 @@ function Nav() {
         {/* Desktop nav */}
         <div style={{ display: "flex", alignItems: "center", gap: "2rem" }} className="hidden-mobile">
           {([
-            { label: "The Five Pillars", href: "#pillars" },
+            { label: "Our Pathways", href: "#pillars" },
             { label: "Beacon Labs", href: "https://beaconlabs.ai" },
             { label: "Signal Check", href: "https://beaconlabs.ai/signal-check" },
             { label: "About", href: "/about" },
@@ -264,7 +264,7 @@ function Nav() {
           display: "flex", flexDirection: "column", gap: "1.25rem",
         }}>
           {([
-            { label: "The Five Pillars", href: "#pillars" },
+            { label: "Our Pathways", href: "#pillars" },
             { label: "Beacon Labs", href: "https://beaconlabs.ai" },
             { label: "Signal Check", href: "https://beaconlabs.ai/signal-check" },
             { label: "About", href: "/about" },
@@ -433,7 +433,7 @@ function Hero() {
               onMouseEnter={(e) => { e.currentTarget.style.color = "#FAF8F4"; e.currentTarget.style.borderColor = "#FAF8F4"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(250,248,244,0.75)"; e.currentTarget.style.borderColor = "rgba(250,248,244,0.3)"; }}
             >
-              Explore the Five Pillars
+              Explore Our Pathways
             </a>
           </div>
         </div>
@@ -535,11 +535,59 @@ function Mission() {
   );
 }
 
-// ─── Five Pillars ──────────────────────────────────────────────────────────────
-function FivePillars() {
-  const [activePillar, setActivePillar] = useState<string>("life");
+// ─── Three Pillars ─────────────────────────────────────────────────────────────
+const THREE_PILLARS = [
+  {
+    id: "reclaim",
+    roman: "I",
+    label: "Reclaim Your Life",
+    tagline: "Steady ground when everything is moving",
+    description: "For adults navigating burnout, overwhelm, and the kind of exhaustion that willpower alone can't fix. Beacon Circle is a small, careful community with steady systems, honest language, and room to breathe — without the hustle culture or toxic positivity.",
+    accent: "#2E7D6B",
+    accentBg: "rgba(46,125,107,0.07)",
+    accentBorder: "rgba(46,125,107,0.25)",
+    cta: "Join Beacon Circle — $297/yr",
+    href: "https://beaconcommunity.net/upgrade",
+    secondaryCta: "Explore free lessons",
+    secondaryHref: "https://beaconcommunity.net/lessons",
+    status: "live",
+  },
+  {
+    id: "build",
+    roman: "II",
+    label: "Build Your Business",
+    tagline: "Income that doesn't depend on paid ads",
+    description: "For founders and builders who want sustainable income built on organic trust — not cold traffic or platform dependency. The Execution Engine is a step-by-step framework for digital products, creator commerce, and solopreneurship that lasts.",
+    accent: "#1A5C6B",
+    accentBg: "rgba(26,92,107,0.07)",
+    accentBorder: "rgba(26,92,107,0.25)",
+    cta: "Get the Execution Engine — $197",
+    href: "https://beaconcommunity.net/enroll",
+    secondaryCta: "Preview the course",
+    secondaryHref: "https://beaconcommunity.net/course",
+    status: "live",
+  },
+  {
+    id: "finance",
+    roman: "III",
+    label: "Master Modern Finance",
+    tagline: "Wealth built outside the traditional system",
+    description: "For those ready to understand how money actually works in the modern economy — sovereign finance, digital assets, and building lasting wealth without depending on institutions that were never designed to serve you.",
+    accent: "#5C3D6B",
+    accentBg: "rgba(92,61,107,0.07)",
+    accentBorder: "rgba(92,61,107,0.25)",
+    cta: "Coming Soon",
+    href: "#",
+    secondaryCta: "Join the Watch for early access",
+    secondaryHref: "#pathfinder",
+    status: "coming-soon",
+  },
+];
+
+function ThreePillars() {
+  const [activePillar, setActivePillar] = useState<string>("reclaim");
   const ref = useFadeUp();
-  const active = PILLARS.find((p) => p.id === activePillar)!;
+  const active = THREE_PILLARS.find((p) => p.id === activePillar)!
 
   return (
     <section id="pillars" style={{ background: "var(--beacon-parchment)", padding: "7rem 0" }}>
@@ -555,7 +603,7 @@ function FivePillars() {
             marginBottom: "1rem",
           }}>
             <span style={{ width: "2rem", height: "1px", background: "var(--beacon-teal)", display: "inline-block" }} />
-            The Five Pillars
+            Three Pathways
           </span>
           <h2 style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -564,11 +612,11 @@ function FivePillars() {
             color: "var(--beacon-charcoal)",
             maxWidth: "600px",
           }}>
-            Five ways Beacon keeps the light on.
+            Three pathways. One lighthouse.
           </h2>
         </div>
 
-        {/* Pillars layout: tabs left, detail right */}
+        {/* Three Pillars layout: tabs left, detail right */}
         <div style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
@@ -579,7 +627,7 @@ function FivePillars() {
         >
           {/* Left: pillar list */}
           <div style={{ borderRight: "1px solid var(--beacon-parchment-dark)" }}>
-            {PILLARS.map((pillar, i) => (
+            {THREE_PILLARS.map((pillar, i) => (
               <button
                 key={pillar.id}
                 onClick={() => setActivePillar(pillar.id)}
@@ -588,15 +636,26 @@ function FivePillars() {
                   padding: "1.75rem 2rem",
                   background: activePillar === pillar.id ? pillar.accentBg : "transparent",
                   borderLeft: activePillar === pillar.id ? `3px solid ${pillar.accent}` : "3px solid transparent",
-                  borderBottom: i < PILLARS.length - 1 ? "1px solid var(--beacon-parchment-dark)" : "none",
+                  borderBottom: i < THREE_PILLARS.length - 1 ? "1px solid var(--beacon-parchment-dark)" : "none",
                   cursor: "pointer",
                   transition: "background 0.25s, border-color 0.25s",
                   display: "flex", alignItems: "center", gap: "1rem",
                 }}
               >
-                <span style={{ flexShrink: 0, opacity: activePillar === pillar.id ? 1 : 0.45, transition: "opacity 0.25s" }}>
-                  <PillarIcon pillarId={pillar.id} size={28} />
-                </span>
+                <div style={{
+                  flexShrink: 0,
+                  width: "32px", height: "32px",
+                  borderRadius: "50%",
+                  background: activePillar === pillar.id ? pillar.accentBg : "var(--beacon-parchment-dark)",
+                  border: `1px solid ${activePillar === pillar.id ? pillar.accent : "transparent"}`,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 600, fontSize: "0.85rem",
+                  color: activePillar === pillar.id ? pillar.accent : "var(--beacon-charcoal-mid)",
+                  transition: "all 0.25s",
+                }}>
+                  {pillar.roman}
+                </div>
                 <div>
                   <div style={{
                     fontFamily: "'Outfit', system-ui, sans-serif",
@@ -607,6 +666,9 @@ function FivePillars() {
                     marginBottom: "0.2rem",
                   }}>
                     {pillar.label}
+                    {pillar.status === "coming-soon" && (
+                      <span style={{ marginLeft: "0.5rem", fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--beacon-charcoal-mid)", opacity: 0.6 }}>Coming Soon</span>
+                    )}
                   </div>
                   <div style={{
                     fontFamily: "'Lora', Georgia, serif",
@@ -635,7 +697,10 @@ function FivePillars() {
               letterSpacing: "0.16em", textTransform: "uppercase",
               color: active.accent,
               marginBottom: "1rem",
+              display: "flex", alignItems: "center", gap: "0.5rem",
             }}>
+              <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "0.9rem", fontWeight: 600 }}>Pillar {active.roman}</span>
+              <span style={{ width: "1.5rem", height: "1px", background: active.accent, display: "inline-block" }} />
               {active.label}
             </div>
             <h3 style={{
@@ -655,31 +720,64 @@ function FivePillars() {
             }}>
               {active.description}
             </p>
-            <Link
-              href={`/pillar/${active.id}`}
-              style={{
+            {active.status === "live" ? (
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                <a
+                  href={active.href}
+                  style={{
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontWeight: 600, fontSize: "0.85rem",
+                    letterSpacing: "0.04em",
+                    color: "white",
+                    textDecoration: "none",
+                    background: active.accent,
+                    padding: "0.75rem 1.5rem",
+                    borderRadius: "4px",
+                    display: "inline-block",
+                    width: "fit-content",
+                    transition: "opacity 0.2s",
+                  }}
+                >
+                  {active.cta} →
+                </a>
+                <a
+                  href={active.secondaryHref}
+                  style={{
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontWeight: 400, fontSize: "0.8rem",
+                    letterSpacing: "0.06em",
+                    color: active.accent,
+                    textDecoration: "none",
+                    borderBottom: `1px solid ${active.accentBorder}`,
+                    paddingBottom: "2px",
+                    display: "inline-block",
+                    width: "fit-content",
+                  }}
+                >
+                  {active.secondaryCta}
+                </a>
+              </div>
+            ) : (
+              <div style={{
                 fontFamily: "'Outfit', system-ui, sans-serif",
-                fontWeight: 500, fontSize: "0.8rem",
-                letterSpacing: "0.06em", textTransform: "uppercase",
+                fontWeight: 400, fontSize: "0.8rem",
+                letterSpacing: "0.06em",
                 color: active.accent,
-                textDecoration: "none",
-                borderBottom: `1px solid ${active.accentBorder}`,
-                paddingBottom: "2px",
-                display: "inline-block",
-                width: "fit-content",
-                transition: "border-color 0.2s",
-              }}
-            >
-              Explore {active.label} in depth →
-            </Link>
+                opacity: 0.7,
+                borderTop: `1px solid ${active.accentBorder}`,
+                paddingTop: "1rem",
+              }}>
+                Join the Watch below to receive early access when this pathway opens.
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Five pillars aerial image */}
+        {/* Three pillars quote image */}
         <div style={{ marginTop: "4rem", position: "relative", overflow: "hidden" }}>
           <img
             src={PILLARS_IMG}
-            alt="Five lighthouse towers representing the five Beacon pillars"
+            alt="Three lighthouse beams representing the three Beacon pathways"
             style={{ width: "100%", height: "320px", objectFit: "cover", objectPosition: "center 40%", display: "block" }}
           />
           <div style={{
@@ -699,7 +797,7 @@ function FivePillars() {
               maxWidth: "600px",
               lineHeight: 1.4,
             }}>
-              Five lights. One mission. Every path leads to the same shore.
+              Three lights. One mission. Every path leads to the same shore.
             </p>
           </div>
         </div>
@@ -1691,7 +1789,7 @@ export default function Home() {
       <SharedNav />
       <Hero />
       <Mission />
-      <FivePillars />
+      <ThreePillars />
       <WhoItIsFor />
       <PathfinderAssessment />
       <TrustEngine />
