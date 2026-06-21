@@ -1027,9 +1027,9 @@ function JoinForm() {
         {status === "success" ? (
           <div
             style={{
-              background: "rgba(200,146,42,0.12)",
+              background: "rgba(200,146,42,0.08)",
               border: `1px solid ${C.amber}`,
-              padding: "2rem",
+              padding: "2.5rem 2rem",
               textAlign: "center",
             }}
           >
@@ -1049,12 +1049,75 @@ function JoinForm() {
                 fontSize: "0.9rem",
                 lineHeight: 1.8,
                 color: C.muted,
-                margin: 0,
+                marginBottom: "2rem",
               }}
             >
               We'll be in touch within 24 hours with your onboarding details.
               Welcome to The Watch.
             </p>
+            {/* Bridge to Beacon Circle */}
+            <div
+              style={{
+                borderTop: `1px solid rgba(200,146,42,0.25)`,
+                paddingTop: "2rem",
+                marginTop: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: sans,
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: C.amberLight,
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Ready to start now?
+              </p>
+              <p
+                style={{
+                  fontFamily: body,
+                  fontSize: "0.9rem",
+                  lineHeight: 1.75,
+                  color: C.muted,
+                  marginBottom: "1.5rem",
+                }}
+              >
+                Don't wait for the 24-hour follow-up. Join Beacon Circle directly
+                and get immediate access to the community, the course library, and
+                the Safe Harbor Coach.
+              </p>
+              <a
+                href="https://beaconcommunity.net/upgrade"
+                style={{
+                  display: "inline-block",
+                  fontFamily: sans,
+                  fontWeight: 600,
+                  fontSize: "0.9rem",
+                  letterSpacing: "0.04em",
+                  padding: "0.9rem 2.25rem",
+                  background: C.amber,
+                  color: C.cream,
+                  textDecoration: "none",
+                  transition: "background 0.2s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = C.amberLight; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = C.amber; }}
+              >
+                Join Beacon Circle — $497/year →
+              </a>
+              <p
+                style={{
+                  fontFamily: body,
+                  fontSize: "0.72rem",
+                  color: "rgba(250,248,244,0.35)",
+                  marginTop: "0.75rem",
+                }}
+              >
+                Less than $42/month · Annual billing · Cancel anytime
+              </p>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>

@@ -452,7 +452,7 @@ export default function ResourcesPage() {
             color: "rgba(250,248,244,0.2)", letterSpacing: "0.04em",
             marginTop: "2rem",
           }}>
-            These modules are public-facing orientation content. Member-area curriculum (Beacon Academy, advanced modules) is available through the Beacon Momentum membership.
+            These are public orientation modules — the front door to the Beacon Trading pathway. The full curriculum, cohort accountability, and progression system are inside The Watch membership.
           </p>
         </div>
       </section>
