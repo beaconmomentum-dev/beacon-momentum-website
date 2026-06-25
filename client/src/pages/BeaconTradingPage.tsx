@@ -193,7 +193,7 @@ export default function BeaconTradingPage() {
             className="font-display text-5xl md:text-7xl text-white leading-[1.05] mb-6"
           >
             Beacon Trading
-            <span className="block text-[#B8860B] italic mt-1">Academy</span>
+            <span className="block text-[#B8860B] italic mt-1">· Simulation Academy</span>
           </motion.h1>
 
           <motion.p

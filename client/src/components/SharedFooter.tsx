@@ -30,10 +30,11 @@ export default function SharedFooter() {
   ];
 
   const PROPERTIES = [
-    { label: "Digital Grandpa", sublabel: "digitalgrandpa.org", href: "https://digitalgrandpa.org", external: true },
-    { label: "Beacon Trading", sublabel: "beacontrading.ai", href: "https://beacontrading.ai", external: true },
     { label: "Beacon Labs", sublabel: "beaconlabs.ai", href: "https://beaconlabs.ai", external: true },
-    { label: "Hollow Threads", sublabel: "hollowthread.store", href: "https://hollowthread.store", external: true },
+    { label: "Beacon Trading · Simulation Academy", sublabel: "beacontrading.ai", href: "https://beacontrading.ai", external: true },
+    { label: "Beacon Community", sublabel: "beaconcommunity.net", href: "https://beaconcommunity.net", external: true },
+    { label: "Hollow Threads", sublabel: "hollowthreads.store", href: "https://hollowthreads.store", external: true },
+    { label: "Digital Grandpa", sublabel: "digitalgrandpa.org", href: "https://digitalgrandpa.org", external: true },
   ];
 
   const COMPANY = [

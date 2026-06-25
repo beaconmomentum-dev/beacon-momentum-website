@@ -8,10 +8,11 @@ import { Link } from "wouter";
 import { Mail, Globe, Building2, ArrowUpRight } from "lucide-react";
 
 const AFFILIATED = [
-  { name: "Beacon Labs",     domain: "beaconlabs.ai",              role: "Signal Check, AI audit, and research delivery",                                                                                    href: "https://beaconlabs.ai" },
-  { name: "Beacon Trading", domain: "beacontrading.ai",            role: "Financial sovereignty and market literacy academy",                                                                               href: "https://beacontrading.ai" },
-  { name: "Hollow Threads", domain: "hollowthread.store",          role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex",                          href: "https://hollowthread.store" },
-  { name: "The Void",       domain: "hollowthread.store/discord",  role: "Hollow Threads\u2019 Discord community \u2014 the home of the brand\u2019s alt-lifestyle audience",                                href: "https://hollowthread.store/discord" },
+  { name: "Beacon Labs",                        domain: "beaconlabs.ai",              role: "Signal Check, AI audit, and research delivery",                                                                                    href: "https://beaconlabs.ai" },
+  { name: "Beacon Trading \u00b7 Simulation Academy", domain: "beacontrading.ai",            role: "Financial sovereignty and market literacy academy",                                                                               href: "https://beacontrading.ai" },
+  { name: "Beacon Community",                   domain: "beaconcommunity.net",         role: "The Lighthouse Platform — calm, ND-friendly support community for Navigators and the people who walk beside them",                    href: "https://beaconcommunity.net" },
+  { name: "Hollow Threads",                     domain: "hollowthreads.store",         role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex",                          href: "https://hollowthreads.store" },
+  { name: "Digital Grandpa",                    domain: "digitalgrandpa.org",          role: "Tech literacy and digital confidence for older adults navigating the AI era",                                                         href: "https://digitalgrandpa.org" },
 ];
 
 export default function CompanyPage() {
