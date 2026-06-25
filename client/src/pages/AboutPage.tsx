@@ -94,8 +94,8 @@ const ECOSYSTEM = [
   { name: "Beacon Momentum",  domain: "beaconmomentum.com",          role: "Umbrella brand and five-pillar education hub" },
   { name: "Beacon Labs",      domain: "beaconlabs.ai",               role: "Signal Check, AI audit, and research delivery" },
   { name: "Beacon Trading",   domain: "beacontrading.ai",            role: "Financial sovereignty and market literacy academy" },
-  { name: "Hollow Threads",   domain: "hollowthread.store",          role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex" },
-  { name: "The Void",         domain: "hollowthread.store/discord",  role: "Hollow Threads' Discord community — the home of the brand's alt-lifestyle audience" },
+  { name: "Hollow Threads",   domain: "hollowthreads.store",          role: "Alternative lifestyle apparel brand — dark-aesthetic, made-to-order fashion for the beautifully complex" },
+  { name: "The Void",         domain: "hollowthreads.store/discord",  role: "Hollow Threads' Discord community — the home of the brand's alt-lifestyle audience" },
 ];
 
 export default function AboutPage() {
