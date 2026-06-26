@@ -228,7 +228,7 @@ export default function AboutPage() {
           {[
             "For fifty years, the tools that create leverage — reach, distribution, production, analysis — were concentrated in the hands of the few. Not because ordinary people couldn't use them. Because the price of admission was set deliberately beyond their reach.",
             "That is ending.",
-            "The AI generation is not a tech story. It is a power story. For the first time in modern history, the tools that used to require a team of fifty and a seven-figure budget are available to anyone willing to learn to use them. One person with the right knowledge can now multiply their effort a hundred-thousand-fold. Not metaphorically. Literally.",
+            "The AI generation is not a tech story. It is a power story. For the first time in modern history, the tools that used to require a team of fifty and a seven-figure budget are available to anyone willing to learn to use them. One person with the right knowledge can now multiply their effort a thousandfold. Not metaphorically. Literally.",
             "The people who held the leverage know this. They are moving fast to capture these tools too — to wrap them in subscriptions, lock them behind enterprise contracts, and make the learning curve steep enough that most people quit before they start.",
           ].map((para, i) => (
             <p key={i} style={{
