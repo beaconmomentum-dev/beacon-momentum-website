@@ -346,7 +346,7 @@ function Hero() {
             display: "flex", alignItems: "center", gap: "0.75rem",
           }}>
             <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
-            The AI-Era Human Capability Company
+            For the ones the system forgot to count
           </div>
 
           {/* Headline */}
@@ -358,8 +358,8 @@ function Hero() {
             marginBottom: "1.75rem",
             maxWidth: "640px",
           }}>
-            You know what to do.<br />
-            <em style={{ fontStyle: "italic", fontSize: "clamp(2.2rem, 4.8vw, 4.2rem)", color: "rgba(250,248,244,0.88)" }}>You just can't make yourself do it consistently.</em>
+            You are not invisible.
+            <span style={{ display: "block", color: "rgba(250,248,244,0.88)", fontStyle: "italic", marginTop: "0.25rem" }}>The leverage has arrived.</span>
           </h1>
 
           {/* Reframe line */}
@@ -371,7 +371,7 @@ function Hero() {
             marginBottom: "1.5rem",
             paddingLeft: "0",
           }}>
-            That is not a character flaw. That is what we solve.
+            The tools that used to belong to the few now belong to anyone willing to learn to use them.
           </div>
 
           {/* Closing promise */}
@@ -394,7 +394,7 @@ function Hero() {
             maxWidth: "560px",
             marginBottom: "2.5rem",
           }}>
-            Beacon closes the gap between knowing and doing — with practical systems, structured accountability, and guidance built for people navigating real transitions: career change, military service, life disruption, or the AI era arriving faster than expected.
+            Beacon Momentum is the AI-era capability and operations company built for people who have been through something real. We put the tools of this moment — the same ones the powerful are racing to lock up — into the hands of the people who need them most. Practical. Proven. Built for the actual world.
           </p>
 
           {/* CTAs */}
@@ -416,10 +416,10 @@ function Hero() {
               onMouseEnter={(e) => (e.currentTarget.style.background = "var(--beacon-amber-light)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "var(--beacon-amber)")}
             >
-              Find Your Beacon Path
+              Find Your Beacon Path →
             </a>
             <a
-              href="#pillars"
+              href="/about"
               style={{
                 fontFamily: "'Outfit', system-ui, sans-serif",
                 fontWeight: 400, fontSize: "0.85rem",
@@ -433,7 +433,7 @@ function Hero() {
               onMouseEnter={(e) => { e.currentTarget.style.color = "#FAF8F4"; e.currentTarget.style.borderColor = "#FAF8F4"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(250,248,244,0.75)"; e.currentTarget.style.borderColor = "rgba(250,248,244,0.3)"; }}
             >
-              Explore Our Pathways
+              Read Why Beacon Exists
             </a>
           </div>
         </div>
@@ -477,7 +477,7 @@ function Mission() {
             marginBottom: "2rem",
             fontStyle: "italic",
           }}>
-            "Most people do not fail for lack of information. They fail for lack of implementation. Beacon is built for that gap."
+            "The door is open. The tools are real. The knowledge of how to use them is the only thing that ever stood between you and the leverage you were told was not for you."
           </h2>
           <p style={{
             fontFamily: "'Outfit', system-ui, sans-serif",
@@ -485,7 +485,7 @@ function Mission() {
             letterSpacing: "0.1em", textTransform: "uppercase",
             color: "rgba(250,248,244,0.45)",
           }}>
-            Beacon Momentum · Founded on Earned Trust
+            Bob, Founder — Beacon Momentum
           </p>
         </div>
 
@@ -498,9 +498,9 @@ function Mission() {
           borderTop: "1px solid rgba(250,248,244,0.08)",
         }}>
           {[
-            { rule: "The gap is real — and fixable.", sub: "Knowing what to do and consistently doing it are two completely different skills. We teach the second one." },
-            { rule: "Systems over willpower.", sub: "Motivation is unreliable. Structure is not. Every Beacon method is built around that fact." },
-            { rule: "Earned trust, not borrowed authority.", sub: "We document what works, what fails, and why — before we ask for a sale." },
+            { rule: "The leverage has shifted.", sub: "For the first time in modern history, the tools that required a team of fifty and a seven-figure budget are available to anyone willing to learn to use them." },
+            { rule: "Knowledge is the only barrier left.", sub: "The systems, the infrastructure, the AI — it is all accessible. What most people lack is not access. It is the knowledge of how to use what is already there." },
+            { rule: "Earned trust, not borrowed authority.", sub: "Beacon's credibility is built on lived experience — not a highlight reel, not a mastermind, not a course built by someone who has never lost anything." },
           ].map((p, i) => (
             <div
               key={i}
@@ -984,10 +984,31 @@ function WhoItIsFor() {
   const personas = [
     {
       icon: "life",
-      label: "Veterans & Caregivers in Transition",
-      desc: "You served, sacrificed, or gave years to someone else's needs. Now the world has changed and your skills feel invisible. Beacon Life and Beacon Work were built around your reality.",
+      label: "Veterans & Service Members",
+      desc: "You served with discipline and purpose. The civilian world does not always know what to do with that. Beacon does. We translate military-grade capability into AI-era economic power.",
       accent: "#2E7D6B",
       path: "life",
+    },
+    {
+      icon: "work",
+      label: "People Rebuilding After Setback",
+      desc: "Incarceration, financial collapse, health crisis, or any of the hundred ways life can take the floor out from under you. Beacon is not a sympathy platform. It is a rebuild platform. There is a difference.",
+      accent: "#1A5C6B",
+      path: "life",
+    },
+    {
+      icon: "venture",
+      label: "Founders & Solopreneurs Starting Over",
+      desc: "You have a skill, an idea, or just the determination to build something real. You have learned that paid ads are not the answer. Beacon Venture is the organic-first, AI-powered alternative.",
+      accent: "#8B5E3C",
+      path: "venture",
+    },
+    {
+      icon: "systems",
+      label: "Small Business Owners & Operators",
+      desc: "You run a real organization with real complexity. You need AI that works for you — not platforms that harvest your data or consultants who disappear after the invoice. Beacon Systems.",
+      accent: "#3D4F6B",
+      path: "systems",
     },
     {
       icon: "work",
@@ -997,18 +1018,11 @@ function WhoItIsFor() {
       path: "work",
     },
     {
-      icon: "venture",
-      label: "Solopreneurs & Creators Without a Budget",
-      desc: "You have a skill, an idea, or just the determination to build something real. You have probably already learned that paid ads are not the answer. Beacon Venture is the organic-first alternative.",
-      accent: "#8B5E3C",
-      path: "venture",
-    },
-    {
-      icon: "systems",
-      label: "Small Business Owners & Operators",
-      desc: "You run a real organization with real people and real complexity. You need AI that works for you — not platforms that harvest your data or consultants who disappear after the invoice. Beacon Systems.",
-      accent: "#3D4F6B",
-      path: "systems",
+      icon: "life",
+      label: "Parents Building for the Next Generation",
+      desc: "You want to leave your children something the system cannot take away. Not just money — knowledge, capability, and the tools to build their own future. That is what Beacon is for.",
+      accent: "#2A7F6F",
+      path: "life",
     },
   ];
 
@@ -1032,9 +1046,10 @@ function WhoItIsFor() {
             fontWeight: 600, fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
             lineHeight: 1.1, letterSpacing: "-0.025em",
             color: "var(--beacon-charcoal)",
-            maxWidth: "560px",
+            maxWidth: "600px",
           }}>
-            If you recognize yourself here, you are in the right place.
+            If you have been through something real and are still standing,
+            <em style={{ fontStyle: "italic", display: "block" }}>you are exactly who this is for.</em>
           </h2>
         </div>
 
