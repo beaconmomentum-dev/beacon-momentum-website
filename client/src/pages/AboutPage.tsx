@@ -159,6 +159,14 @@ export default function AboutPage() {
       {/* ── 2. FOUNDER'S STATEMENT — "Why Beacon Exists" ────────────────────── */}
       <section style={{ background: "#F5F1EA", padding: "6rem 0" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
+          {/* Lighthouse hero icon */}
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
+            <img
+              src="/icons/beacon-logo-hero.webp"
+              alt="Beacon Momentum lighthouse"
+              style={{ width: "clamp(180px, 28vw, 320px)", height: "auto", display: "block" }}
+            />
+          </div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2rem" }}>
             <span style={{ width: "2rem", height: "1px", background: teal, display: "inline-block" }} />
             <span style={{ fontFamily: sans, fontWeight: 400, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: teal }}>Founder's Statement</span>
