@@ -22,6 +22,7 @@ import ContactPage from "@/pages/ContactPage";
 import DigitalGrandpaLibraryPage from "@/pages/DigitalGrandpaLibraryPage";
 import DigitalGrandpaPage from "@/pages/DigitalGrandpaPage";
 import BlogPage from "@/pages/BlogPage";
+import BlogArticlePage from "@/pages/BlogArticlePage";
 import TheWatchPage from "@/pages/TheWatchPage";
 import TheWatchIntakePage from "@/pages/TheWatchIntakePage";
 import CohortDashboardPage from "@/pages/CohortDashboardPage";
@@ -45,6 +46,7 @@ function Router() {
       <Route path={"/contact"} component={ContactPage} />
       <Route path="/digital-grandpa" component={DigitalGrandpaPage} />
       <Route path="/blog" component={BlogPage} />
+      <Route path="/blog/:slug" component={BlogArticlePage} />
       <Route path="/the-watch" component={TheWatchPage} />
       <Route path="/the-watch/intake" component={TheWatchIntakePage} />
       <Route path="/the-watch/cohort" component={CohortDashboardPage} />

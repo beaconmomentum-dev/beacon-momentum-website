@@ -32,6 +32,28 @@ interface Article {
 
 const ARTICLES: Article[] = [
   {
+    id: "ai-roi-reckoning",
+    title: "Beacon Watch Brief: The AI ROI Reckoning",
+    excerpt:
+      "The enterprise AI narrative has collapsed. 95% of projects delivered zero measurable ROI. Here is what the data actually shows — and what it means for operators building real systems.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "9 min",
+    date: "Jun 2026",
+    featured: true,
+  },
+  {
+    id: "frontier-models-in-motion",
+    title: "Beacon Watch Brief: Frontier Models in Motion",
+    excerpt:
+      "Claude Opus 5 is returning, Grok 5 is in training, and AI is deciphering a 5,000-year-old script. Here is what each development means for Beacon operators right now.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "8 min",
+    date: "Jun 2026",
+    featured: true,
+  },
+  {
     id: "follow-the-dollar-ai-ipo-wave",
     title: "Follow the Dollar: What the AI IPO Wave Is Really Telling You",
     excerpt:
@@ -150,6 +172,7 @@ const PILLAR_COLORS: Record<Pillar, string> = {
 // ─── Article Card ──────────────────────────────────────────────────────────────
 function ArticleCard({ article, index }: { article: Article; index: number }) {
   return (
+    <Link href={`/blog/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
     <motion.article
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
@@ -228,12 +251,14 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         Read article <ArrowRight size={13} />
       </div>
     </motion.article>
+    </Link>
   );
 }
 
 // ─── Featured Article ──────────────────────────────────────────────────────────
 function FeaturedArticle({ article }: { article: Article }) {
   return (
+    <Link href={`/blog/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -304,6 +329,7 @@ function FeaturedArticle({ article }: { article: Article }) {
         Read article <ArrowRight size={13} />
       </div>
     </motion.article>
+    </Link>
   );
 }
 
