@@ -20,6 +20,7 @@ interface ArticleContent {
   readTime: string;
   date: string;
   featured?: boolean;
+  heroImage?: string; // optional hero image shown below the article header
   body: string; // HTML string for article body
 }
 
@@ -27,6 +28,7 @@ interface ArticleContent {
 const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "the-intelligence-arbitrage",
+    heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
     title: "Beacon Watch Brief: The Intelligence Arbitrage",
     excerpt:
       "The greatest arbitrage in economic history is closing. For the first time, you can manufacture intelligence out of electricity. Here is what that means for every person who was told the leverage was not for them.",
@@ -77,6 +79,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "the-leverage-has-arrived",
+    heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
     title: "Beacon Watch Brief: The Leverage Has Arrived",
     excerpt:
       "The old world built systems that required your compliance in exchange for a minimal existence. That world is ending. Here is what is actually happening — and why it matters more than any benchmark or funding round.",
@@ -115,6 +118,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "ai-roi-reckoning",
+    heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
     title: "Beacon Watch Brief: The AI ROI Reckoning",
     excerpt:
       "The enterprise AI narrative has collapsed. 95% of projects delivered zero measurable ROI. Here is what the data actually shows — and what it means for operators building real systems.",
@@ -194,6 +198,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "frontier-models-in-motion",
+    heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
     title: "Beacon Watch Brief: Frontier Models in Motion",
     excerpt:
       "Claude Opus 5 is returning, Grok 5 is in training, and AI is deciphering a 5,000-year-old script. Here is what each development means for Beacon operators right now.",
@@ -796,6 +801,41 @@ export default function BlogArticlePage() {
           />
         </div>
       </header>
+
+      {/* ── Hero Image ── */}
+      {article.heroImage && (
+        <div
+          style={{
+            width: "100%",
+            maxHeight: "420px",
+            overflow: "hidden",
+            position: "relative",
+          }}
+        >
+          <img
+            src={article.heroImage}
+            alt="Beacon Momentum — lighthouse at golden hour"
+            style={{
+              width: "100%",
+              height: "420px",
+              objectFit: "cover",
+              objectPosition: "center 40%",
+              display: "block",
+              filter: "brightness(0.82)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "120px",
+              background: "linear-gradient(to bottom, transparent, #0D1B2A)",
+            }}
+          />
+        </div>
+      )}
 
       {/* ── Article Body ── */}
       <main
