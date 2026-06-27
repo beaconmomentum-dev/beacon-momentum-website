@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import { createServer } from "http";
 import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
@@ -50,6 +50,17 @@ async function startServer() {
   } else {
     serveStatic(app);
   }
+
+  // Global error handler — catches URIError from malformed URL probes (bots/scanners)
+  // and any other unhandled Express errors. Must be registered AFTER all routes.
+  app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
+    if (err instanceof URIError) {
+      res.status(400).send("Bad Request");
+      return;
+    }
+    console.error("[Server] Unhandled error:", err.message);
+    res.status(500).send("Internal Server Error");
+  });
 
   const preferredPort = parseInt(process.env.PORT || "3000");
   const port = await findAvailablePort(preferredPort);
