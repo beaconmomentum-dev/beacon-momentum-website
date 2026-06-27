@@ -254,6 +254,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "follow-the-dollar-ai-ipo-wave",
+    audioSrc: "/audio/signal-follow-the-dollar.mp3",
     title: "Follow the Dollar: What the AI IPO Wave Is Really Telling You",
     excerpt:
       "Within a 60-day window this spring, SpaceX, OpenAI, and Anthropic moved toward public markets simultaneously — combined implied valuation: $4.5 trillion. The convergence is not coincidental.",
@@ -292,6 +293,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "ai-transition-not-replacement",
+    audioSrc: "/audio/signal-ai-transition-redistribution.mp3",
     title: "The AI Transition Is Not a Replacement Story — It Is a Redistribution Story",
     excerpt:
       "Every major technological shift in history has redistributed power, income, and relevance. The question is not whether AI will change your work — it will. The question is which side of the redistribution you land on.",
@@ -326,6 +328,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "five-questions-before-starting-over",
+    audioSrc: "/audio/signal-five-questions-start-over.mp3",
     title: "Five Questions to Ask Before You Start Over",
     excerpt:
       "Most people who want to start over are not actually trying to escape their life. They are trying to escape the version of themselves that built it. Before you blow up what you have, ask these five questions.",
@@ -364,6 +367,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "solopreneur-vs-freelancer",
+    audioSrc: "/audio/signal-solopreneur-vs-freelancer.mp3",
     title: "Solopreneur vs. Freelancer: The Difference That Changes Everything",
     excerpt:
       "A freelancer sells time. A solopreneur builds systems. Both can produce income. Only one can produce freedom. Here is the framework that separates the two.",
@@ -401,206 +405,204 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "ai-tools-that-actually-work",
-    title: "The AI Tools That Actually Work (And the Ones That Just Look Like They Do)",
+    audioSrc: "/audio/signal-ai-tools-non-technical.mp3",
+    title: "Separating the Leverage from the Noise",
     excerpt:
-      "After running dozens of AI audits for businesses across five industries, Beacon Labs has identified the tools that produce measurable results versus the ones that produce impressive demos.",
+      "The market is flooded with AI tools designed to look impressive in a demo. We do not care about demos. We care about what works when the environment is hostile and the stakes are real.",
     pillar: "Systems",
     pillarColor: "#3D5A80",
     readTime: "9 min",
     date: "May 2026",
     body: `
-      <p class="beacon-article-lede">After running dozens of AI audits for businesses across five industries, Beacon Labs has identified the tools that produce measurable results versus the ones that produce impressive demos. The gap is wider than most people expect.</p>
+      <p class="beacon-article-lede">If you want to understand the current AI market, look at who is selling the shovels. The ecosystem is flooded with tools designed to look impressive in a controlled demo, built by people who have never had to rely on them when the environment is hostile and the stakes are real. At Beacon, we do not care about demos. We care about leverage.</p>
 
-      <h2>The Demo Problem</h2>
+      <h2>The Illusion of the Turnkey Solution</h2>
 
-      <p>Every AI tool looks good in a demo. The demo is designed to show the tool at its best — clean inputs, clear tasks, favorable conditions. The real test is what happens when you put the tool into a messy real-world workflow with inconsistent inputs, legacy systems, and users who are not AI experts.</p>
+      <p>The system wants you to buy the illusion that intelligence can be purchased in a shrink-wrapped box. "Install this tool and replace your entire operations team." It is the same lie they sold with enterprise software two decades ago, repackaged for the agentic era.</p>
 
-      <p>Most tools fail that test. Not because they are fraudulent — the capabilities are real. But because the gap between "impressive demo" and "reliable operational tool" is enormous, and most vendors do not acknowledge it.</p>
+      <p>Tools that promise to replace human judgment entirely are a liability. They perform adequately on the median task and fail catastrophically on the edge cases. And if you have lived through anything difficult, you know that survival happens in the edge cases.</p>
 
-      <h2>The Tools That Produce Measurable Results</h2>
+      <h2>The Tools That Actually Work</h2>
 
-      <p>Based on Beacon Labs audits, the tools that consistently produce measurable ROI share three characteristics: they do one thing exceptionally well, they integrate cleanly with existing workflows, and they have a clear verification mechanism so you can tell when the output is wrong.</p>
+      <p>The leverage does not come from a magic bullet. It comes from assembling reliable, modular agents that do one thing with absolute precision. The tools that matter are the ones that integrate cleanly into your architecture, that allow you to verify their outputs, and that amplify your judgment rather than attempting to replace it.</p>
 
-      <p>In the writing and content category, AI tools that assist with editing, summarization, and first-draft generation consistently produce measurable time savings — typically 30–50% reduction in time-to-first-draft. The key word is "assist." The tools that replace the human writer entirely tend to produce content that is technically correct but strategically empty.</p>
+      <p>We use frontier models to process unstructured data, to draft the architecture of our operations, and to run local swarms that handle the execution gap. We do not use them to decide what matters. That is the domain of the operator.</p>
 
-      <p>In the operations category, AI tools that automate data extraction, classification, and routing from structured inputs (forms, emails, spreadsheets) produce consistent results. The inputs are clean; the task is well-defined; the output can be verified. These tools work.</p>
+      <h2>The Beacon Standard of Deployment</h2>
 
-      <h2>The Tools That Just Look Like They Do</h2>
+      <p>Before you integrate any AI tool into your foundation, ask the only question that matters: does this tool increase my autonomy, or does it create a new dependency? If it obscures the process, locks your data behind a proprietary wall, or removes your ability to audit the outcome, it is not leverage. It is a leash.</p>
 
-      <p>The tools that consistently underperform in real-world deployments are the ones that promise to replace judgment. AI-powered "strategy" tools, "autonomous" sales agents, and "self-managing" customer service systems all share the same failure mode: they perform well on the cases they were trained on and fail unpredictably on the edge cases that actually matter.</p>
-
-      <p>The edge cases are where the business lives. The routine cases take care of themselves.</p>
-
-      <h2>The Beacon Systems Evaluation Framework</h2>
-
-      <p>Before deploying any AI tool in a real operational context, Beacon Labs recommends a three-question evaluation: Does it do one thing well? Can you verify the output without being an AI expert? Does it fail gracefully when it fails? If the answer to any of these questions is no, the tool is not ready for production use.</p>
+      <p>Choose the tools that serve the mission. Discard the rest.</p>
 
       <p class="beacon-article-closing">The Lighthouse is lit. Join us at the Watch.</p>
     `,
   },
   {
     id: "wisdom-over-information",
-    title: "Why Wisdom Matters More Than Information in the Age of AI",
+    audioSrc: "/audio/signal-wisdom-over-information.mp3",
+    title: "The Asset the Machine Cannot Generate",
     excerpt:
-      "Information is now free and infinite. Wisdom — the ability to know what to do with information — has never been more scarce or more valuable.",
+      "Information is now free and infinite. Wisdom — the ability to know what to do with information — is the only moat left. If you have survived the fire, your scars are your credentials.",
     pillar: "Life",
     pillarColor: "#2A7F6F",
     readTime: "5 min",
     date: "May 2026",
     body: `
-      <p class="beacon-article-lede">Information is now free and infinite. Wisdom — the ability to know what to do with information — has never been more scarce or more valuable. The Digital Grandpa thesis is simple: the people who have lived through hard things have something AI cannot replicate.</p>
+      <p class="beacon-article-lede">Information is now free and infinite. The machine can synthesize the entire history of human knowledge in seconds. But information is not wisdom. Information is the data. Wisdom is knowing what to do when the data conflicts with reality. And wisdom cannot be generated. It must be earned.</p>
 
       <h2>The Information Paradox</h2>
 
-      <p>We live in the most information-rich environment in human history. Every question you can think of has been answered somewhere on the internet. Every skill you want to learn has a tutorial. Every problem you face has a forum thread. And yet, by most measures, people are not making better decisions than they were 30 years ago.</p>
+      <p>We are drowning in information and starving for judgment. Every tactic, every framework, and every strategy is available on demand. Yet the people with access to all of it are still paralyzed. Why? Because when the cost of information drops to zero, the value of the person who knows which information actually matters goes up.</p>
 
-      <p>The reason is that information and wisdom are not the same thing. Information is data. Wisdom is the judgment to know which data matters, when to apply it, and what to do when the data conflicts with itself — which it always does in real life.</p>
+      <p>The system wants you to believe that the young, the unscarred, and the credentialed will inherit this new world because they are faster with the tools. The opposite is true. The tools are easy. The judgment required to wield them is hard.</p>
 
-      <h2>What AI Can and Cannot Do</h2>
+      <h2>The Wounded Healer's Moat</h2>
 
-      <p>AI is the most powerful information retrieval and synthesis tool ever built. It can summarize, compare, analyze, and generate at a scale no human can match. But it cannot tell you what matters to you specifically. It cannot weigh the tradeoffs in your particular situation with your particular constraints. It cannot account for the things you know that you have never said out loud.</p>
+      <p>If you have lived through hard transitions — a deployment, a sentence, a business collapse, a total reconstruction of your life — you carry something the machine cannot replicate. You carry the knowledge of what it actually feels like to navigate uncertainty when the theory runs out and the safety nets vanish.</p>
 
-      <p>That is the domain of wisdom. And wisdom is not downloaded. It is earned — through experience, failure, reflection, and the kind of mentorship that only happens in real relationships.</p>
+      <p>That is not a liability. That is the moat. AI can write the code, draft the copy, and analyze the spreadsheet. It cannot look another human being in the eye and tell them they are going to survive the night because you survived it first.</p>
 
       <h2>The Digital Grandpa Thesis</h2>
 
-      <p>The people who have lived through hard transitions — career changes, financial setbacks, health crises, relationship losses — carry something that cannot be Googled or generated. They carry the knowledge of what it actually feels like to navigate uncertainty, and what actually works when the theory runs out.</p>
+      <p>The people who have been tested by the system and survived it are the most undervalued asset in the AI era. You are not obsolete. You are the missing piece of the architecture.</p>
 
-      <p>That knowledge is the most undervalued asset in the AI era. As information becomes cheaper and more abundant, the people who can help others apply it wisely become more valuable, not less.</p>
+      <p>The leverage is available to anyone. The wisdom to direct it is not. Your job is not to compete with the machine. Your job is to point the machine at the problems only you understand.</p>
 
       <p class="beacon-article-closing">The Lighthouse is lit. Join us at the Watch.</p>
     `,
   },
   {
     id: "beacon-trading-entry-point",
-    title: "Why Financial Literacy Is the Foundation of Every Other Kind of Freedom",
+    audioSrc: "/audio/signal-beacon-trading-entry-point.mp3",
+    title: "The Financial Foundation of Autonomy",
     excerpt:
-      "You cannot make good decisions about your career, your business, or your life if you are financially illiterate. Not because money is everything — but because financial stress is the single most common reason people make decisions they later regret.",
+      "The system uses financial illiteracy as a control mechanism. If you do not understand how capital moves, you will spend your life moving it for someone else. Here is how to break the cycle.",
     pillar: "Trading",
     pillarColor: "#B8860B",
     readTime: "6 min",
     date: "Apr 2026",
     body: `
-      <p class="beacon-article-lede">You cannot make good decisions about your career, your business, or your life if you are financially illiterate. Not because money is everything — it is not. But because financial stress is the single most common reason people make decisions they later regret.</p>
+      <p class="beacon-article-lede">The system uses financial illiteracy as a control mechanism. It is not an accident that the mechanics of capital, leverage, and compounding are not taught to the people who need them most. If you do not understand how money moves, you will spend your life moving it for someone else. Financial literacy is not about wealth. It is about autonomy.</p>
 
-      <h2>The Stress Tax</h2>
+      <h2>The Tax on the Uninformed</h2>
 
-      <p>Financial stress does not just feel bad. It impairs cognition. Research from Princeton and Harvard has shown that financial scarcity consumes cognitive bandwidth — the mental resources you need for planning, judgment, and self-control. When you are worried about money, you have less capacity for everything else.</p>
+      <p>Financial stress is not just a burden; it is a tax on your cognitive bandwidth. When you are operating from a position of scarcity, you cannot make strategic decisions. You make survival decisions. The institutions rely on that scarcity to keep the labor pool compliant and the debt cycles churning.</p>
 
-      <p>This is not a character flaw. It is a documented cognitive effect. And it means that financial literacy is not just about money — it is about the quality of every other decision you make.</p>
+      <p>You cannot build a sovereign life on a foundation of financial ignorance. Until you understand the rules of the game, you are the piece being played.</p>
 
-      <h2>What Financial Literacy Actually Means</h2>
+      <h2>Redefining Literacy</h2>
 
-      <p>Financial literacy is not about knowing how to pick stocks or time the market. Most professional fund managers cannot reliably do those things. Financial literacy is about understanding the basic mechanics of how money moves: income, expenses, assets, liabilities, cash flow, and compounding.</p>
+      <p>Financial literacy is not the ability to pick stocks or decipher complex derivatives. It is the understanding of leverage. It is knowing the difference between an asset that produces freedom and a liability disguised as a status symbol. It is understanding that capital, like intelligence, is just stored energy waiting to be directed.</p>
 
-      <p>With those fundamentals in place, you can make informed decisions about your career (is this job offer actually better?), your business (is this investment worth it?), and your life (can I actually afford this?). Without them, you are navigating by feel — and feel is unreliable.</p>
+      <p>The people who have been locked out of the traditional pathways to wealth do not need another lecture on saving the price of a coffee. They need to understand how the architecture of modern markets actually functions.</p>
 
-      <h2>The Beacon Trading Pathway</h2>
+      <h2>The Educational Mandate</h2>
 
-      <p>The Beacon Trading pathway is not a trading course. It is a financial literacy foundation built for people who want to understand how markets work, how wealth is actually built outside the traditional system, and how to make financial decisions from a position of knowledge rather than anxiety.</p>
+      <p>The Beacon educational platform exists to demystify that architecture. We do not provide financial advice, and we are not an institution. We provide the map. The simulation-first approach allows you to learn the mechanics of modern markets with real data, without risking the capital you need to survive.</p>
 
-      <p>The simulation-first approach means you learn with real market data and real mechanics, without real financial risk. The goal is not to make you a trader. The goal is to make you financially literate enough to make good decisions about everything else.</p>
+      <p>The goal is not to turn you into a day trader. The goal is to ensure that when you make a decision about your life, your business, or your family, you are making it from a position of clarity, not desperation.</p>
 
       <p class="beacon-article-closing">The Lighthouse is lit. Join us at the Watch.</p>
     `,
   },
   {
     id: "identity-after-job-loss",
-    title: "Who Are You When the Job Title Is Gone?",
+    audioSrc: "/audio/signal-identity-after-job-loss.mp3",
+    title: "The Danger of the Borrowed Identity",
     excerpt:
-      "For most people, their job title is their identity. When the title disappears — through layoff, retirement, or a deliberate exit — the identity crisis that follows is real and often underestimated.",
+      "When the institution revokes your title, who is left standing? If your identity is tied to a system you do not control, you are always one decision away from being erased.",
     pillar: "Life",
     pillarColor: "#2A7F6F",
     readTime: "8 min",
     date: "Apr 2026",
     body: `
-      <p class="beacon-article-lede">For most people, their job title is their identity. When the title disappears — through layoff, retirement, or a deliberate exit — the identity crisis that follows is real and often underestimated. Here is how to navigate it without losing yourself.</p>
+      <p class="beacon-article-lede">The most dangerous thing you can do is lease your identity from an institution. When the title disappears — through a layoff, a discharge, a sentence, or a systemic collapse — the identity crisis that follows is not a psychological flaw. It is the structural consequence of building your foundation on rented land.</p>
 
-      <h2>The Title Was Never You</h2>
+      <h2>The Illusion of the Title</h2>
 
-      <p>The job title was a role you played. It came with a script, a costume, a set of relationships, and a place in a hierarchy. Those things are real and they matter. But they were never the whole of who you are — even if, over time, they came to feel that way.</p>
+      <p>The system encourages you to confuse your function with your worth. It gives you a title, a uniform, or a badge, and tells you that this is who you are. It works perfectly, right up until the moment the system decides it no longer needs you. When the role ends, the identity built around it shatters.</p>
 
-      <p>The problem with building your identity around a role is that roles end. Jobs are eliminated. Companies are acquired. Careers are disrupted. When the role ends, the identity built around it goes with it — and what is left can feel like nothing.</p>
+      <p>If you have been through the fire, you already know this. The veteran who takes off the uniform for the last time knows it. The person walking out of the gates with nothing but a release paper knows it. The corporate operator whose division was just automated knows it.</p>
 
-      <h2>The Transition Is Not a Crisis — It Is an Inventory</h2>
+      <h2>The Sovereign Inventory</h2>
 
-      <p>The period after a job title disappears is disorienting. But it is also, if you approach it correctly, an opportunity to take inventory of who you actually are when the role is stripped away.</p>
+      <p>The period after the title is stripped away is brutal. But it is also the only time you can take an honest inventory of what actually belongs to you. What capacity for endurance did you build? What judgment did you earn? What principles do you hold when no one is paying you to hold them?</p>
 
-      <p>What do you care about when no one is watching? What problems do you find yourself thinking about even when you are not being paid to? What skills do you have that exist independent of any employer? What relationships do you have that are not contingent on your professional status?</p>
+      <p>Those are not soft skills. They are the only assets the system cannot revoke.</p>
 
-      <p>The answers to those questions are the raw material of whatever comes next.</p>
+      <h2>The Foundation of Autonomy</h2>
 
-      <h2>The Beacon Life Approach</h2>
+      <p>You cannot build a sovereign life on a borrowed identity. Before you can direct the leverage of the AI era, you must know exactly who is directing it. The work is internal before it is external.</p>
 
-      <p>The Beacon Life pathway was built specifically for people navigating this kind of transition. The curriculum is not about finding a new job title to replace the old one. It is about building a stable identity that does not depend on any single role, employer, or external validation.</p>
-
-      <p>The work is internal before it is external. You cannot build a sustainable next chapter on an unstable foundation. The Beacon Life approach starts with the foundation.</p>
+      <p>We do not rebuild by finding a new master to serve. We rebuild by anchoring our identity in the wisdom we earned in the dark, and using the tools of this moment to ensure we never have to lease our worth again.</p>
 
       <p class="beacon-article-closing">The Lighthouse is lit. Join us at the Watch.</p>
     `,
   },
   {
     id: "automation-first-business",
-    title: "Build the Automation First, Then Hire the Human",
+    audioSrc: "/audio/signal-automation-first-business.mp3",
+    title: "The Architecture of the Lean Operator",
     excerpt:
-      "The old model: hire a person, then automate their repetitive tasks later. The new model: automate everything you can first, then hire a human for the judgment calls that automation cannot make.",
+      "The old model was to hire humans to act like machines. The new model is to build the machine first, and reserve the human for the judgment the machine lacks.",
     pillar: "Systems",
     pillarColor: "#3D5A80",
     readTime: "7 min",
     date: "Apr 2026",
     body: `
-      <p class="beacon-article-lede">The old model: hire a person, then automate their repetitive tasks later. The new model: automate everything you can first, then hire a human for the judgment calls that automation cannot make. The businesses that get this right will operate at a fraction of the cost of those that do not.</p>
+      <p class="beacon-article-lede">For a century, the standard business model was to hire human beings to act like machines — executing repetitive tasks, moving data from one column to another, following rigid scripts. It was an indignity to the human and an inefficiency for the business. That era is over. The operators who win the next decade will build the machine first, and reserve the human for the judgment the machine lacks.</p>
 
-      <h2>Why the Old Model Fails</h2>
+      <h2>The Cost of the Old Model</h2>
 
-      <p>The old model of hiring first and automating later has a structural problem: people build habits, relationships, and institutional knowledge around the way things are done. When you try to automate a process that a human has been doing for two years, you are not just replacing a task — you are disrupting a person's workflow, their sense of value, and often their job security.</p>
+      <p>When you hire a person to do a repeatable task, you are not just paying their salary. You are paying the friction cost of human error, the management overhead, and the structural fragility of a single point of failure. More importantly, you are wasting human potential on work that requires zero earned wisdom.</p>
 
-      <p>The result is that automation projects in established organizations face enormous resistance — not because the technology does not work, but because the human and organizational costs of the transition are underestimated.</p>
+      <p>The institutions are currently paralyzed trying to retrofit automation into legacy human workflows. They are fighting internal resistance, defending old fiefdoms, and moving slowly. The independent operator has no such baggage.</p>
 
-      <h2>The Automation-First Approach</h2>
+      <h2>The Automation-First Mandate</h2>
 
-      <p>When you build the automation first, you start with a clean slate. You design the workflow around what the technology can do reliably, then identify the specific points in that workflow where human judgment is genuinely required. Those are the only points where you hire a human.</p>
+      <p>The Beacon mandate is absolute: if a process can be defined by a set of rules, it belongs to an agent. You do not hire a human being until you reach the edge of the rules — the point where context, empathy, and hard-won judgment are required to make the call.</p>
 
-      <p>The result is a leaner, more resilient operation. The human you hire is doing work that actually requires a human — judgment, relationship management, creative problem-solving, accountability. They are not spending 60% of their day on tasks that a well-designed system could handle.</p>
+      <p>This is how the veteran, the formerly incarcerated, and the solo founder compete with the institutions. You do not need a team of fifty. You need an architecture of five reliable agents, and the wisdom to direct them.</p>
 
-      <h2>What This Looks Like in Practice</h2>
+      <h2>The Human Bottleneck</h2>
 
-      <p>For a small business owner, the automation-first approach means mapping every repeating process before hiring anyone to do it. Customer onboarding, invoice generation, follow-up sequences, content scheduling, data reporting — these are all candidates for automation before they are candidates for a hire.</p>
+      <p>When you automate the routine, the human becomes the bottleneck — but it is the right kind of bottleneck. The human is reserved for the relationship that requires trust, the strategy that requires vision, and the crisis that requires courage. That is where your leverage lives.</p>
 
-      <p>The hire comes when you hit a genuine judgment bottleneck: a customer situation that requires empathy and context, a strategic decision that requires experience, a relationship that requires a human presence. That is where the human adds irreplaceable value.</p>
+      <p>Build the system. Automate the friction. Protect the judgment.</p>
 
       <p class="beacon-article-closing">The Lighthouse is lit. Join us at the Watch.</p>
     `,
   },
   {
     id: "resume-is-dead",
-    title: "The Resume Is Not Dead — But the Way You Use It Is",
+    audioSrc: "/audio/signal-resume-is-dead.mp3",
+    title: "The End of the Permission Slip",
     excerpt:
-      "The resume is not a history document. It is a marketing document. Most people treat it like the former and wonder why it does not work like the latter.",
+      "The traditional resume is a permission slip you hand to an institution, hoping they validate your worth. In the intelligence arbitrage, you do not ask for permission. You demonstrate leverage.",
     pillar: "Work",
     pillarColor: "#1A5C6B",
     readTime: "6 min",
     date: "Mar 2026",
     body: `
-      <p class="beacon-article-lede">The resume is not a history document. It is a marketing document. Most people treat it like the former and wonder why it does not work like the latter. Here is how to reframe every line of your resume for the AI-era job market.</p>
+      <p class="beacon-article-lede">The traditional resume is a permission slip. It is a document you format according to the system's rules, hand to a gatekeeper, and wait to be told if your past makes you worthy of their future. If your past includes a gap, a uniform, or a sentence, the gatekeeper throws the slip away. That game is rigged. Stop playing it.</p>
 
-      <h2>The History Document Problem</h2>
+      <h2>The Filter of the Algorithm</h2>
 
-      <p>Most resumes read like a chronological list of things the person did. Dates, titles, bullet points describing responsibilities. The implicit message is: here is my past. The hiring manager's job is to figure out what it means for their future.</p>
+      <p>The system has automated the rejection. Your resume is no longer read by a human looking for potential; it is parsed by an algorithm looking for compliance. It scans for the exact keywords, the unbroken timeline, and the approved credentials. If you do not fit the mold perfectly, you are filtered out before a human ever sees your name.</p>
 
-      <p>That is backwards. The hiring manager is not an archaeologist. They are a buyer. They are trying to answer one question: can this person solve the problem I have right now? A history document does not answer that question. A marketing document does.</p>
+      <p>You cannot win a compliance game against a machine designed to enforce the status quo.</p>
 
-      <h2>The Marketing Document Reframe</h2>
+      <h2>The Demonstration of Leverage</h2>
 
-      <p>A marketing document starts with the buyer's problem, not the seller's history. Before you write a single line of your resume, you need to know: what problem is this organization trying to solve? What does success look like in this role? What does the person who gets this job need to be able to do?</p>
+      <p>The alternative is not to write a better resume. The alternative is to bypass the filter entirely by demonstrating leverage. In the AI era, the cost of building a prototype, executing a complex analysis, or solving a specific problem for a target organization is near zero.</p>
 
-      <p>Every line of your resume should be written to answer those questions. Not "I managed a team of five" but "I built and led the team that reduced customer churn by 23% in 18 months." Not "I was responsible for social media" but "I grew organic social reach from 2,000 to 47,000 followers without a paid budget."</p>
+      <p>Do not tell them what you did five years ago. Show them what you can do for them tomorrow. Use the tools to identify their operational friction, build the agentic solution that solves it, and deliver the result. When you arrive with the solution already built, the gap in your employment history ceases to matter.</p>
 
-      <h2>The AI-Era Adjustment</h2>
+      <h2>The Sovereign Operator</h2>
 
-      <p>In the current job market, your resume is read by an AI before it is read by a human. The AI is looking for keyword matches to a job description. This means that the marketing document reframe has an additional layer: you need to use the language of the job description, not just the language of your experience.</p>
+      <p>The people the system wrote off have always had to work twice as hard to get half the recognition. The intelligence arbitrage changes the math. When you hold the leverage, you dictate the terms of engagement.</p>
 
-      <p>This is not gaming the system. It is speaking the buyer's language. If the job description says "cross-functional collaboration" and your resume says "worked with other teams," you are describing the same thing in different words — but the AI will not make that connection.</p>
+      <p>Stop asking the institution to validate your worth based on a piece of paper. Build the architecture, demonstrate the value, and make them ask you for access to it.</p>
 
       <p class="beacon-article-closing">The Lighthouse is lit. Join us at the Watch.</p>
     `,
