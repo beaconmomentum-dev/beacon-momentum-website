@@ -26,6 +26,56 @@ interface ArticleContent {
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
   {
+    id: "the-intelligence-arbitrage",
+    title: "Beacon Watch Brief: The Intelligence Arbitrage",
+    excerpt:
+      "The greatest arbitrage in economic history is closing. For the first time, you can manufacture intelligence out of electricity. Here is what that means for every person who was told the leverage was not for them.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "9 min",
+    date: "Jun 27, 2026",
+    featured: true,
+    body: `
+      <p class="beacon-article-lede">The old world built systems that required your compliance in exchange for a minimal existence. That world is ending. The new world is being built right now, and the barrier to entry is no longer capital, pedigree, or permission. The barrier is whether you understand what is happening to the price of intelligence.</p>
+
+      <h2>The Greatest Arbitrage in Economic History is Closing</h2>
+
+      <p>For all of human history, the constraint on how much value humanity could create was fundamentally the number of capable brains and the hours in the day. A human brain runs on about 20 watts of power — less than the lightbulb in your refrigerator. In a year, that brain burns through roughly $20 worth of electricity. In the United States, the average worker generates something like $65,000 a year of labor value from that $20 of power.</p>
+
+      <p>That is a gap of roughly 3,000 to 1. The market pays 3,000 times more for what a brain produces than it costs to run the brain. For 10,000 years, that gap was completely untouchable because the only way to manufacture a thinking machine was to raise a human being for 20 years.</p>
+
+      <p>That is what just changed.</p>
+
+      <p>Artificial intelligence is the machine that closes the gap. For the first time, you can manufacture intelligence out of electricity instead of out of making a child. The moment that becomes true, the economy stops being capped by how many smart humans exist and starts being capped by something completely physical: energy.</p>
+
+      <h2>The Models Are Splitting: Agents vs. Engines</h2>
+
+      <p>You do not need to understand the underlying architecture of the new models. You only need to understand how they are being deployed to capture this arbitrage.</p>
+
+      <p><strong>The Agentic Shift (GPT-5.6).</strong> OpenAI's latest release is not a single model. It is a three-tier family. The flagship achieved a 91.9% score on complex agentic benchmarks not by being smarter, but by using an "Ultra mode" — spawning sub-agents that take pieces of a problem, work in parallel, and stitch the results together. The model is talking to copies of itself. This is no longer a chatbot. It is a synthetic workforce.</p>
+
+      <p><strong>The Context Moat (Google Spark).</strong> Google just released a $100/month personal AI agent that runs 24/7 in the background. It reads your Gmail, your Docs, and your Calendar to act on your behalf. The competitive advantage here is not the model itself; it is the fact that Google already holds years of your personal and business data. They are turning your history into the context window for their agents.</p>
+
+      <p><strong>The Local Swarm (Claude Code).</strong> While the tech giants fight over massive data centers, operators are building local AI swarms. Using tools like Claude Code, businesses are running entirely on AI workers without writing a single line of code. They create a memory file that acts as the business's brain, define skills as Standard Operating Procedures, and deploy specialized sub-agents for proposals, research, and operations. A team of one good worker beats a mess of ten that you have never tuned.</p>
+
+      <h2>The Redistribution of Power</h2>
+
+      <p>The trap is assuming that you can simply replace a $65,000 employee with an AI agent and keep the margin. You cannot. When intelligence stops being scarce, the price of cognitive work collapses toward the cost of the electricity required to run it.</p>
+
+      <p>The surplus value does not vanish; it migrates. First to the AI owners, and then to the consumer in the form of cheaper everything.</p>
+
+      <p>The people who win in this transition are the ones who stop being buyers of intelligence and start being distributors of it. Consider the AI website business model: selling a custom website for $5,000 is no longer the goal. The website is simply a foot-in-the-door strategy — a lead magnet — to establish trust. The real business is the $1,000/month subscription for AI search optimization, lead generation, and automated marketing that follows.</p>
+
+      <h2>The Beacon Mandate</h2>
+
+      <p>The transition is not a replacement story; it is a redistribution story. The leverage has arrived, and it is being handed to anyone willing to build the systems to harness it.</p>
+
+      <p>You do not need permission to build a local swarm. You do not need a technical background to deploy an agentic workforce. You only need the willingness to stop playing by the rules of an economy that no longer exists.</p>
+
+      <p class="beacon-article-closing">The window is open. The lighthouse is lit. Find your bearing.</p>
+    `,
+  },
+  {
     id: "the-leverage-has-arrived",
     title: "Beacon Watch Brief: The Leverage Has Arrived",
     excerpt:

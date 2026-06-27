@@ -32,6 +32,17 @@ interface Article {
 
 const ARTICLES: Article[] = [
   {
+    id: "the-intelligence-arbitrage",
+    title: "Beacon Watch Brief: The Intelligence Arbitrage",
+    excerpt:
+      "The greatest arbitrage in economic history is closing. For the first time, you can manufacture intelligence out of electricity. Here is what that means for every person who was told the leverage was not for them.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "9 min",
+    date: "Jun 2026",
+    featured: true,
+  },
+  {
     id: "the-leverage-has-arrived",
     title: "Beacon Watch Brief: The Leverage Has Arrived",
     excerpt:
