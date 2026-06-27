@@ -33,7 +33,7 @@ interface Article {
 const ARTICLES: Article[] = [
   {
     id: "the-intelligence-arbitrage",
-    title: "Beacon Watch Brief: The Intelligence Arbitrage",
+    title: "The Intelligence Arbitrage: Who Wins When the Price of Thinking Collapses",
     excerpt:
       "The greatest arbitrage in economic history is closing. For the first time, you can manufacture intelligence out of electricity. Here is what that means for every person who was told the leverage was not for them.",
     pillar: "Systems",
@@ -44,7 +44,7 @@ const ARTICLES: Article[] = [
   },
   {
     id: "the-leverage-has-arrived",
-    title: "Beacon Watch Brief: The Leverage Has Arrived",
+    title: "The Leverage Has Arrived: The Old World Is Ending and the New One Does Not Require Permission",
     excerpt:
       "The old world built systems that required your compliance in exchange for a minimal existence. That world is ending. Here is what is actually happening — and why it matters more than any benchmark or funding round.",
     pillar: "Systems",
@@ -55,7 +55,7 @@ const ARTICLES: Article[] = [
   },
   {
     id: "ai-roi-reckoning",
-    title: "Beacon Watch Brief: The AI ROI Reckoning",
+    title: "The AI ROI Reckoning: 95% of Enterprise Projects Failed — Here Is What Actually Works",
     excerpt:
       "The enterprise AI narrative has collapsed. 95% of projects delivered zero measurable ROI. Here is what the data actually shows — and what it means for operators building real systems.",
     pillar: "Systems",
@@ -66,7 +66,7 @@ const ARTICLES: Article[] = [
   },
   {
     id: "frontier-models-in-motion",
-    title: "Beacon Watch Brief: Frontier Models in Motion",
+    title: "Frontier Models in Motion: What the New AI Race Means for Operators Right Now",
     excerpt:
       "Claude Opus 5 is returning, Grok 5 is in training, and AI is deciphering a 5,000-year-old script. Here is what each development means for Beacon operators right now.",
     pillar: "Systems",
