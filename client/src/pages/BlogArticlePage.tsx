@@ -26,6 +26,44 @@ interface ArticleContent {
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
   {
+    id: "the-leverage-has-arrived",
+    title: "Beacon Watch Brief: The Leverage Has Arrived",
+    excerpt:
+      "The old world built systems that required your compliance in exchange for a minimal existence. That world is ending. Here is what is actually happening — and why it matters more than any benchmark or funding round.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "10 min",
+    date: "Jun 26, 2026",
+    featured: true,
+    body: `
+      <p class="beacon-article-lede">The old world built systems that required your compliance in exchange for a minimal existence. The economy, healthcare, the markets, the institutions of government — they were quietly rewritten over decades by people who understood that if you control the rules, you never have to win fairly.</p>
+
+      <p>That world is collapsing. The extraction economies that treated human attention and labor as resources to be mined are reaching their limits. The leverage has shifted, and it is shifting faster than most people realize.</p>
+
+      <h2>The Warning and the Opportunity</h2>
+
+      <p>Mo Gawdat recently issued a profound warning: machines trained on human data inherit human dysfunction. If we build artificial intelligence based on the extractive, manipulative systems of the old world, we will simply automate our own destruction. The ethics of what we build matters now more than ever.</p>
+
+      <p>This is why the current media narratives are so dangerous. Consider the recent hype around "Gemini 4." The most repeated "facts" about the next dominant AI models are largely noise designed to drive engagement. The real differentiator is not a theoretical benchmark score. The real differentiator is speed, accuracy, and the context window — the ability of a system to understand the full scope of a problem and execute a solution reliably.</p>
+
+      <h2>The Cost of Leverage is Plummeting</h2>
+
+      <p>While the media focuses on hypothetical future capabilities, the practical cost of running AI agents is dropping exponentially. The recent disruption caused by models like MiniMax M3 proves this point. The cost to deploy intelligent, autonomous systems is falling faster than most businesses can adapt to.</p>
+
+      <p>This reinforces the core Beacon thesis: the leverage has arrived. For fifty years, the tools that created leverage — reach, distribution, production, analysis — were concentrated in the hands of the few. Because the price of admission was set deliberately beyond their reach. That barrier is gone.</p>
+
+      <h2>The Door Is Open</h2>
+
+      <p>The AI generation is not a tech story. It is a power story. For the first time in modern history, the tools that used to require a team of fifty and a seven-figure budget are available to anyone willing to learn to use them. One person with the right knowledge can now multiply their effort a thousandfold.</p>
+
+      <p>The people who held the leverage know this. They are moving fast to capture these tools too — to wrap them in subscriptions, lock them behind enterprise contracts, and make the learning curve steep enough that most people quit before they start.</p>
+
+      <p>The door is open. The tools are real. The knowledge of how to use them is the only thing that ever stood between you and the leverage you were told was not for you.</p>
+
+      <p class="beacon-article-closing">The Lighthouse is lit. The leverage has arrived. Join us at the Watch.</p>
+    `,
+  },
+  {
     id: "ai-roi-reckoning",
     title: "Beacon Watch Brief: The AI ROI Reckoning",
     excerpt:

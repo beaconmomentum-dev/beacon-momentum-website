@@ -32,6 +32,17 @@ interface Article {
 
 const ARTICLES: Article[] = [
   {
+    id: "the-leverage-has-arrived",
+    title: "Beacon Watch Brief: The Leverage Has Arrived",
+    excerpt:
+      "The old world built systems that required your compliance in exchange for a minimal existence. That world is ending. Here is what is actually happening — and why it matters more than any benchmark or funding round.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "10 min",
+    date: "Jun 2026",
+    featured: true,
+  },
+  {
     id: "ai-roi-reckoning",
     title: "Beacon Watch Brief: The AI ROI Reckoning",
     excerpt:
