@@ -21,6 +21,7 @@ interface ArticleContent {
   date: string;
   featured?: boolean;
   heroImage?: string; // optional hero image shown below the article header
+  audioSrc?: string;  // optional MP3 audio narration for the Listen button
   body: string; // HTML string for article body
 }
 
@@ -29,6 +30,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "the-intelligence-arbitrage",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
+    audioSrc: "/audio/watch-brief-04-the-intelligence-arbitrage.mp3",
     title: "Beacon Watch Brief: The Intelligence Arbitrage",
     excerpt:
       "The greatest arbitrage in economic history is closing. For the first time, you can manufacture intelligence out of electricity. Here is what that means for every person who was told the leverage was not for them.",
@@ -80,6 +82,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "the-leverage-has-arrived",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
+    audioSrc: "/audio/watch-brief-03-the-leverage-has-arrived.mp3",
     title: "Beacon Watch Brief: The Leverage Has Arrived",
     excerpt:
       "The old world built systems that required your compliance in exchange for a minimal existence. That world is ending. Here is what is actually happening — and why it matters more than any benchmark or funding round.",
@@ -119,6 +122,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "ai-roi-reckoning",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
+    audioSrc: "/audio/watch-brief-02-ai-roi-reckoning.mp3",
     title: "Beacon Watch Brief: The AI ROI Reckoning",
     excerpt:
       "The enterprise AI narrative has collapsed. 95% of projects delivered zero measurable ROI. Here is what the data actually shows — and what it means for operators building real systems.",
@@ -199,6 +203,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "frontier-models-in-motion",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
+    audioSrc: "/audio/watch-brief-01-frontier-models-in-motion.mp3",
     title: "Beacon Watch Brief: Frontier Models in Motion",
     excerpt:
       "Claude Opus 5 is returning, Grok 5 is in training, and AI is deciphering a 5,000-year-old script. Here is what each development means for Beacon operators right now.",
@@ -788,6 +793,57 @@ export default function BlogArticlePage() {
               <Calendar size={13} /> {article.date}
             </span>
           </div>
+
+          {/* Listen Button */}
+          {article.audioSrc && (
+            <div style={{ marginTop: "1.5rem" }}>
+              <audio id="beacon-audio-player" src={article.audioSrc} preload="none" />
+              <button
+                id="beacon-listen-btn"
+                onClick={() => {
+                  const audio = document.getElementById("beacon-audio-player") as HTMLAudioElement;
+                  const btn = document.getElementById("beacon-listen-btn") as HTMLButtonElement;
+                  const label = document.getElementById("beacon-listen-label");
+                  if (!audio) return;
+                  if (audio.paused) {
+                    audio.play();
+                    if (label) label.textContent = "Pause";
+                    btn.style.background = "rgba(26,92,107,0.25)";
+                  } else {
+                    audio.pause();
+                    if (label) label.textContent = "Listen";
+                    btn.style.background = "transparent";
+                  }
+                  audio.onended = () => {
+                    if (label) label.textContent = "Listen";
+                    btn.style.background = "transparent";
+                  };
+                }}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "transparent",
+                  border: `1px solid ${article.pillarColor}`,
+                  borderRadius: "2px",
+                  padding: "0.45rem 1rem",
+                  cursor: "pointer",
+                  color: article.pillarColor,
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  transition: "background 0.2s",
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                  <polygon points="2,1 11,6 2,11" />
+                </svg>
+                <span id="beacon-listen-label">Listen</span>
+              </button>
+            </div>
+          )}
 
           {/* Divider */}
           <div
