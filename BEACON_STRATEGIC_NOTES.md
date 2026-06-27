@@ -35,3 +35,26 @@ A dedicated module (or standalone lead magnet) covering product ladder architect
 Develop module outline and lesson structure. Assign to ACCESS course curriculum sprint when ready.
 
 ---
+
+## SN-002 — Digistore24 Vendor Listing
+**Date logged:** June 26, 2026
+**Source:** Digistore24 Top Business & Investment Offers list (June 2026)
+**Priority:** Future — not yet actioned
+**Status:** Logged, pending VSL and affiliate materials
+
+### Observation
+Beacon's Full Membership ($597/year) and Quartermaster Circle ($1,497/year) are strong candidates for the Digistore24 marketplace as vendor products. At 30% commission, these would rank near the top of the Business & Investment category by AOV ($179 and $449 per referred sale respectively).
+
+### Prerequisites Before Actioning
+- Founder's statement video finalized (professional voice quality — ElevenLabs clone session needed)
+- Full VSL produced for each tier
+- Affiliate swipe copy written (email sequences, banner ads, social copy)
+- Affiliate support page built on beaconmomentum.com
+
+### Affiliate Product to Consider Promoting (Not Selling)
+**Tube Mastery and Monetization by Matt Par** — legitimate mechanics, real audience overlap with Beacon students learning to build content businesses without showing their faces. 50% commission, $213.80 AOV. Vet product quality before recommending to community.
+
+### Note
+Do not associate Beacon with low-quality hype products on this platform. The vast majority of the current top-10 list is hype with no substantive value. Brand credibility is Beacon's primary asset and must be protected absolutely.
+
+---
