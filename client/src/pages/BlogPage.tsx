@@ -327,16 +327,36 @@ function FeaturedArticle({ article }: { article: Article }) {
         background: "var(--beacon-parchment)",
         border: "1px solid var(--beacon-parchment-dark)",
         borderLeft: `4px solid ${article.pillarColor}`,
-        padding: "2.5rem",
+        overflow: "hidden",
         display: "grid",
         gridTemplateColumns: "1fr",
-        gap: "1rem",
+        gap: "0",
         cursor: "pointer",
         transition: "box-shadow 0.2s",
       }}
       onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.07)"; }}
       onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
     >
+      {/* Thumbnail — full-width image above content when present */}
+      {article.thumbnail && (
+        <div style={{ width: "100%", height: "220px", overflow: "hidden" }}>
+          <img
+            src={article.thumbnail}
+            alt={article.title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+              transition: "transform 0.5s ease",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.03)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
+          />
+        </div>
+      )}
+      {/* Content wrapper */}
+      <div style={{ padding: "2.5rem", display: "grid", gridTemplateColumns: "1fr", gap: "1rem" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
         <span style={{
           fontFamily: "'Outfit', system-ui, sans-serif",
@@ -388,6 +408,7 @@ function FeaturedArticle({ article }: { article: Article }) {
       }}>
         Read article <ArrowRight size={13} />
       </div>
+      </div>{/* end content wrapper */}
     </motion.article>
     </Link>
   );
