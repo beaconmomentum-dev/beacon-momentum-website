@@ -54,6 +54,7 @@ const ARTICLES: Article[] = [
     readTime: "9 min",
     date: "Jun 2026",
     featured: true,
+    thumbnail: "/images/hero-intelligence-arbitrage.jpg",
   },
   {
     id: "the-leverage-has-arrived",
@@ -65,6 +66,7 @@ const ARTICLES: Article[] = [
     readTime: "10 min",
     date: "Jun 2026",
     featured: true,
+    thumbnail: "/images/hero-leverage-arrived.jpg",
   },
   {
     id: "ai-roi-reckoning",
@@ -76,6 +78,7 @@ const ARTICLES: Article[] = [
     readTime: "9 min",
     date: "Jun 2026",
     featured: true,
+    thumbnail: "/images/hero-ai-roi-reckoning.jpg",
   },
   {
     id: "frontier-models-in-motion",
@@ -87,6 +90,7 @@ const ARTICLES: Article[] = [
     readTime: "8 min",
     date: "Jun 2026",
     featured: true,
+    thumbnail: "/images/hero-frontier-models.jpg",
   },
   {
     id: "follow-the-dollar-ai-ipo-wave",
@@ -98,6 +102,7 @@ const ARTICLES: Article[] = [
     readTime: "11 min",
     date: "Jun 2026",
     featured: true,
+    thumbnail: "/images/hero-follow-the-dollar.jpg",
   },
   {
     id: "ai-transition-not-replacement",
@@ -109,6 +114,7 @@ const ARTICLES: Article[] = [
     readTime: "6 min",
     date: "Jun 2026",
     featured: true,
+    thumbnail: "/images/hero-ai-transition.jpg",
   },
   {
     id: "five-questions-before-starting-over",
@@ -120,6 +126,7 @@ const ARTICLES: Article[] = [
     readTime: "5 min",
     date: "Jun 2026",
     featured: true,
+    thumbnail: "/images/hero-five-questions.jpg",
   },
   {
     id: "solopreneur-vs-freelancer",
@@ -130,6 +137,7 @@ const ARTICLES: Article[] = [
     pillarColor: "#7C4F2A",
     readTime: "7 min",
     date: "May 2026",
+    thumbnail: "/images/hero-solopreneur-freelancer.jpg",
   },
   {
     id: "ai-tools-that-actually-work",
@@ -140,6 +148,7 @@ const ARTICLES: Article[] = [
     pillarColor: "#3D5A80",
     readTime: "9 min",
     date: "May 2026",
+    thumbnail: "/images/hero-ai-tools.jpg",
   },
   {
     id: "wisdom-over-information",
@@ -150,6 +159,7 @@ const ARTICLES: Article[] = [
     pillarColor: "#2A7F6F",
     readTime: "5 min",
     date: "May 2026",
+    thumbnail: "/images/hero-wisdom-information.jpg",
   },
   {
     id: "beacon-trading-entry-point",
@@ -160,6 +170,7 @@ const ARTICLES: Article[] = [
     pillarColor: "#B8860B",
     readTime: "6 min",
     date: "Apr 2026",
+    thumbnail: "/images/hero-financial-literacy.jpg",
   },
   {
     id: "identity-after-job-loss",
@@ -170,6 +181,7 @@ const ARTICLES: Article[] = [
     pillarColor: "#2A7F6F",
     readTime: "8 min",
     date: "Apr 2026",
+    thumbnail: "/images/hero-identity-job-loss.jpg",
   },
   {
     id: "automation-first-business",
@@ -180,6 +192,7 @@ const ARTICLES: Article[] = [
     pillarColor: "#3D5A80",
     readTime: "7 min",
     date: "Apr 2026",
+    thumbnail: "/images/hero-automation-first.jpg",
   },
   {
     id: "resume-is-dead",
@@ -190,6 +203,7 @@ const ARTICLES: Article[] = [
     pillarColor: "#1A5C6B",
     readTime: "6 min",
     date: "Mar 2026",
+    thumbnail: "/images/hero-resume-reframe.jpg",
   },
 ];
 
