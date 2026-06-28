@@ -28,9 +28,22 @@ interface Article {
   readTime: string;
   date: string;
   featured?: boolean;
+  thumbnail?: string; // Optional card thumbnail for blog index
 }
 
 const ARTICLES: Article[] = [
+  {
+    id: "palantir-ai-surveillance-watch",
+    title: "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
+    excerpt:
+      "A major lawsuit has been filed against Palantir Technologies alleging domestic surveillance, biometric harvesting, and cognitive trespass. We verified the claims, separated fact from alarm, and built a practical guide for protecting yourself from the systems that are already operating.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "12 min",
+    date: "Jun 2026",
+    featured: true,
+    thumbnail: "/images/watch-palantir-hero.jpg",
+  },
   {
     id: "the-intelligence-arbitrage",
     title: "The Intelligence Arbitrage: Who Wins When the Price of Thinking Collapses",
@@ -219,6 +232,31 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         e.currentTarget.style.boxShadow = "none";
       }}
     >
+      {/* Thumbnail image — shown only when present */}
+      {article.thumbnail && (
+        <div style={{
+          width: "100%",
+          height: "160px",
+          overflow: "hidden",
+          marginBottom: "-0.25rem",
+          borderRadius: "2px",
+        }}>
+          <img
+            src={article.thumbnail}
+            alt={article.title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+              transition: "transform 0.4s ease",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.03)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
+          />
+        </div>
+      )}
+
       {/* Pillar tag + meta */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem" }}>
         <span style={{
