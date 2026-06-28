@@ -30,6 +30,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "palantir-ai-surveillance-watch",
     heroImage: "/images/watch-palantir-hero.jpg",
+    audioSrc: "/audio/signal-palantir-ai-surveillance.mp3?v=1",
     title: "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
     excerpt:
       "A major lawsuit has been filed against Palantir Technologies alleging domestic surveillance, biometric harvesting, and cognitive trespass. We verified the claims, separated fact from alarm, and built a practical guide for protecting yourself from the systems that are already operating.",
@@ -714,6 +715,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "quiet-cost-of-staying-ready",
+    audioSrc: "/audio/signal-quiet-cost-of-staying-ready.mp3?v=1",
     title: "The Quiet Cost of Staying Ready",
     excerpt: "The hardest part of surviving chaos is learning how to turn off the alarm system when the fire is out. If you do not build rest into your architecture, your vigilance will become the thing that destroys you.",
     pillar: "Life",
@@ -747,6 +749,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "grief-and-reinvention",
+    audioSrc: "/audio/signal-grief-and-reinvention.mp3?v=1",
     title: "What Grief and Reinvention Have in Common",
     excerpt: "Starting over is not a business strategy. It is a grieving process for the life you thought you were going to have. The people who understand this are the ones who actually survive the transition.",
     pillar: "Life",
@@ -780,6 +783,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "meeting-that-should-have-been-a-system",
+    audioSrc: "/audio/signal-meeting-should-be-system.mp3?v=1",
     title: "The Meeting That Should Have Been a System",
     excerpt: "Every recurring meeting on your calendar is a failure of system design. If you are having the same conversation every week, you are managing a symptom instead of curing the disease.",
     pillar: "Work",
@@ -811,6 +815,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "pricing-in-a-repricing-market",
+    audioSrc: "/audio/signal-pricing-repricing-market.mp3?v=1",
     title: "How to Price Yourself in a Market That Is Repricing Everything",
     excerpt: "The hourly rate is dead. When artificial intelligence can execute a task in seconds, charging for your time is a race to the bottom. Here is how to price the outcome instead of the effort.",
     pillar: "Work",
@@ -844,6 +849,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "portfolio-career-is-the-strategy",
+    audioSrc: "/audio/signal-portfolio-career-strategy.mp3?v=1",
     title: "The Portfolio Career Is Not a Fallback \u2014 It Is the Strategy",
     excerpt: "Relying on a single employer for 100% of your income is the highest-risk strategy in the modern economy. The portfolio career is the only rational response to systemic instability.",
     pillar: "Work",
@@ -871,6 +877,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "zero-to-one-problem",
+    audioSrc: "/audio/signal-zero-to-one-problem.mp3?v=1",
     title: "The \$0 to \$1 Problem: Why Most Solopreneurs Stall Before They Start",
     excerpt: "The gap between having an idea and making your first dollar is where 90% of ventures die. It is rarely a failure of the product; it is almost always a failure of courage masked as a need for more preparation.",
     pillar: "Venture",
@@ -902,6 +909,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "build-the-offer-first",
+    audioSrc: "/audio/signal-build-offer-first.mp3?v=1",
     title: "Build the Offer Before You Build the Brand",
     excerpt: "A brand without an offer is just a very expensive art project. If you cannot articulate exactly what you are selling and who you are selling it to, no amount of marketing will save you.",
     pillar: "Venture",
@@ -929,6 +937,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "recurring-revenue-mandate",
+    audioSrc: "/audio/signal-recurring-revenue-mandate.mp3?v=1",
     title: "The Recurring Revenue Mandate",
     excerpt: "If you start every month at zero, you do not own a business; you own a high-stress job. The transition from project revenue to recurring revenue is the transition from survival to sovereignty.",
     pillar: "Venture",
@@ -956,6 +965,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "three-numbers-about-your-money",
+    audioSrc: "/audio/signal-three-numbers-your-money.mp3?v=1",
     title: "The Three Numbers Every Person Should Know About Their Own Money",
     excerpt: "Financial literacy is not about picking stocks. It is about understanding the mechanics of your own survival. If you do not know your net worth, your burn rate, and your runway, you are flying blind in a storm.",
     pillar: "Trading",
@@ -987,6 +997,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "myth-of-the-safe-industry",
+    audioSrc: "/audio/signal-myth-safe-industry.mp3?v=1",
     title: 'The Myth of the "Safe" Industry',
     excerpt: "There are no safe industries left. The AI transition is sector-agnostic. If your defense strategy is to hide in a legacy institution, you are waiting for the tide to wash you out.",
     pillar: "Work",
