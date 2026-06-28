@@ -53,7 +53,6 @@ const ARTICLES: Article[] = [
     pillarColor: "#3D5A80",
     readTime: "9 min",
     date: "Jun 2026",
-    featured: true,
     thumbnail: "/images/hero-intelligence-arbitrage.jpg",
   },
   {
@@ -65,7 +64,6 @@ const ARTICLES: Article[] = [
     pillarColor: "#3D5A80",
     readTime: "10 min",
     date: "Jun 2026",
-    featured: true,
     thumbnail: "/images/hero-leverage-arrived.jpg",
   },
   {
@@ -77,7 +75,6 @@ const ARTICLES: Article[] = [
     pillarColor: "#3D5A80",
     readTime: "9 min",
     date: "Jun 2026",
-    featured: true,
     thumbnail: "/images/hero-ai-roi-reckoning.jpg",
   },
   {
@@ -89,7 +86,6 @@ const ARTICLES: Article[] = [
     pillarColor: "#3D5A80",
     readTime: "8 min",
     date: "Jun 2026",
-    featured: true,
     thumbnail: "/images/hero-frontier-models.jpg",
   },
   {
@@ -101,7 +97,6 @@ const ARTICLES: Article[] = [
     pillarColor: "#3D5A80",
     readTime: "11 min",
     date: "Jun 2026",
-    featured: true,
     thumbnail: "/images/hero-follow-the-dollar.jpg",
   },
   {
@@ -113,7 +108,6 @@ const ARTICLES: Article[] = [
     pillarColor: "#1A5C6B",
     readTime: "6 min",
     date: "Jun 2026",
-    featured: true,
     thumbnail: "/images/hero-ai-transition.jpg",
   },
   {
@@ -125,7 +119,6 @@ const ARTICLES: Article[] = [
     pillarColor: "#2A7F6F",
     readTime: "5 min",
     date: "Jun 2026",
-    featured: true,
     thumbnail: "/images/hero-five-questions.jpg",
   },
   {
