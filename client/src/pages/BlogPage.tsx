@@ -205,6 +205,116 @@ const ARTICLES: Article[] = [
     date: "Mar 2026",
     thumbnail: "/images/hero-resume-reframe.jpg",
   },
+  {
+    id: "quiet-cost-of-staying-ready",
+    title: "The Quiet Cost of Staying Ready",
+    excerpt:
+      "The hardest part of surviving chaos is learning how to turn off the alarm system when the fire is out. If you do not build rest into your architecture, your vigilance will become the thing that destroys you.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "7 min",
+    date: "Jan 2026",
+    thumbnail: "/images/hero-quiet-cost.jpg",
+  },
+  {
+    id: "grief-and-reinvention",
+    title: "What Grief and Reinvention Have in Common",
+    excerpt:
+      "Starting over is not a business strategy. It is a grieving process for the life you thought you were going to have. The people who understand this are the ones who actually survive the transition.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "8 min",
+    date: "Feb 2026",
+    thumbnail: "/images/hero-grief-reinvention.jpg",
+  },
+  {
+    id: "meeting-that-should-have-been-a-system",
+    title: "The Meeting That Should Have Been a System",
+    excerpt:
+      "Every recurring meeting on your calendar is a failure of system design. If you are having the same conversation every week, you are managing a symptom instead of curing the disease.",
+    pillar: "Work",
+    pillarColor: "#1A5C6B",
+    readTime: "6 min",
+    date: "Jan 2026",
+    thumbnail: "/images/hero-meeting-system.jpg",
+  },
+  {
+    id: "pricing-in-a-repricing-market",
+    title: "How to Price Yourself in a Market That Is Repricing Everything",
+    excerpt:
+      "The hourly rate is dead. When artificial intelligence can execute a task in seconds, charging for your time is a race to the bottom. Here is how to price the outcome instead of the effort.",
+    pillar: "Work",
+    pillarColor: "#1A5C6B",
+    readTime: "9 min",
+    date: "Feb 2026",
+    thumbnail: "/images/hero-pricing-market.jpg",
+  },
+  {
+    id: "portfolio-career-is-the-strategy",
+    title: "The Portfolio Career Is Not a Fallback — It Is the Strategy",
+    excerpt:
+      "Relying on a single employer for 100% of your income is the highest-risk strategy in the modern economy. The portfolio career is the only rational response to systemic instability.",
+    pillar: "Work",
+    pillarColor: "#1A5C6B",
+    readTime: "8 min",
+    date: "Apr 2026",
+    thumbnail: "/images/hero-portfolio-career.jpg",
+  },
+  {
+    id: "zero-to-one-problem",
+    title: "The $0 to $1 Problem: Why Most Solopreneurs Stall Before They Start",
+    excerpt:
+      "The gap between having an idea and making your first dollar is where 90% of ventures die. It is rarely a failure of the product; it is almost always a failure of courage masked as a need for more preparation.",
+    pillar: "Venture",
+    pillarColor: "#7C4F2A",
+    readTime: "7 min",
+    date: "Jan 2026",
+    thumbnail: "/images/hero-zero-to-one.jpg",
+  },
+  {
+    id: "build-the-offer-first",
+    title: "Build the Offer Before You Build the Brand",
+    excerpt:
+      "A brand without an offer is just a very expensive art project. If you cannot articulate exactly what you are selling and who you are selling it to, no amount of marketing will save you.",
+    pillar: "Venture",
+    pillarColor: "#7C4F2A",
+    readTime: "6 min",
+    date: "Feb 2026",
+    thumbnail: "/images/hero-offer-first.jpg",
+  },
+  {
+    id: "recurring-revenue-mandate",
+    title: "The Recurring Revenue Mandate",
+    excerpt:
+      "If you start every month at zero, you do not own a business; you own a high-stress job. The transition from project revenue to recurring revenue is the transition from survival to sovereignty.",
+    pillar: "Venture",
+    pillarColor: "#7C4F2A",
+    readTime: "8 min",
+    date: "Mar 2026",
+    thumbnail: "/images/hero-recurring-revenue.jpg",
+  },
+  {
+    id: "three-numbers-about-your-money",
+    title: "The Three Numbers Every Person Should Know About Their Own Money",
+    excerpt:
+      "Financial literacy is not about picking stocks. It is about understanding the mechanics of your own survival. If you do not know your net worth, your burn rate, and your runway, you are flying blind in a storm.",
+    pillar: "Trading",
+    pillarColor: "#B8860B",
+    readTime: "9 min",
+    date: "Jan 2026",
+    thumbnail: "/images/hero-three-numbers.jpg",
+  },
+  {
+    id: "myth-of-the-safe-industry",
+    title: "The Myth of the \"Safe\" Industry",
+    excerpt:
+      "There are no safe industries left. The AI transition is sector-agnostic. If your defense strategy is to hide in a legacy institution, you are waiting for the tide to wash you out.",
+    pillar: "Work",
+    pillarColor: "#1A5C6B",
+    readTime: "7 min",
+    date: "Mar 2026",
+    thumbnail: "/images/hero-safe-industry.jpg",
+  },
 ];
 
 const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];

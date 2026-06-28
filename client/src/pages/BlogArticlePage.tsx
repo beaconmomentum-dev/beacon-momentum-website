@@ -712,6 +712,310 @@ const ARTICLE_CONTENT: ArticleContent[] = [
       <p class="beacon-article-closing">The Lighthouse is lit. Join us at the Watch.</p>
     `,
   },
+  {
+    id: "quiet-cost-of-staying-ready",
+    title: "The Quiet Cost of Staying Ready",
+    excerpt: "The hardest part of surviving chaos is learning how to turn off the alarm system when the fire is out. If you do not build rest into your architecture, your vigilance will become the thing that destroys you.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "7 min",
+    date: "Jan 2026",
+    heroImage: "/images/hero-quiet-cost.jpg",
+    body: `
+      <p class="beacon-article-lede">The hardest part of surviving chaos is learning how to turn off the alarm system when the fire is out. For the veteran, the operator, and anyone who has rebuilt their life from zero, hyper-vigilance is not a character flaw. It is the tool that kept you alive. But if you do not build rest into your architecture, your vigilance will become the thing that destroys you.</p>
+
+      <h2>The Debt of Vigilance</h2>
+
+      <p>When you spend years waiting for the other shoe to drop, your nervous system rewires itself for sustained conflict. You become exceptional at crisis management. You become terrible at peace. The quiet cost of staying ready is that you burn energy simply existing in a room where nothing is wrong.</p>
+
+      <p>This is not a psychological abstraction; it is a physiological debt. The cortisol required to maintain that state of readiness borrows against your future capacity. Eventually, the debt comes due, usually in the form of burnout, systemic inflammation, or the sabotage of healthy relationships.</p>
+
+      <h2>Engineering the Stand-Down</h2>
+
+      <p>You cannot simply decide to relax. A nervous system trained for war does not respond to logic. It responds to structure. You have to engineer the stand-down the same way you engineered the survival.</p>
+
+      <p>This means treating recovery as an operational requirement, not a luxury. It means defining clear boundaries between "on watch" and "off watch." When you are off watch, you must aggressively defend that time from the intrusion of the world. The goal is not to lose your edge. The goal is to ensure you have an edge left when you actually need it.</p>
+
+      <h2>The Architecture of Rest</h2>
+
+      <p>Rest is not the absence of activity. It is the presence of restoration. Sleep, movement, silence, and genuine connection are not indulgences; they are the maintenance schedule for the most important system you operate. Neglect the maintenance and the system fails at the worst possible moment.</p>
+
+      <p>Build the stand-down into your calendar the same way you build the mission. Block it. Defend it. Execute it. The people who last in this era are not the ones who never stop. They are the ones who know when to stop and how to come back stronger.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "grief-and-reinvention",
+    title: "What Grief and Reinvention Have in Common",
+    excerpt: "Starting over is not a business strategy. It is a grieving process for the life you thought you were going to have. The people who understand this are the ones who actually survive the transition.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "8 min",
+    date: "Feb 2026",
+    heroImage: "/images/hero-grief-reinvention.jpg",
+    body: `
+      <p class="beacon-article-lede">Starting over is rarely framed correctly. The culture treats reinvention as a triumphant montage of late nights and early mornings. The reality is much darker. Starting over is not a business strategy. It is a grieving process for the life you thought you were going to have.</p>
+
+      <h2>The Anatomy of Loss</h2>
+
+      <p>Whether you lost a career, a marriage, or an identity you spent decades building, the mechanics of the transition are identical to mourning. You have to process the anger of the failure, the bargaining of trying to salvage the unsalvageable, and the profound disorientation of waking up in a life you do not recognize.</p>
+
+      <p>The people who fail at reinvention are the ones who try to skip the grief. They rush into the next venture, the next relationship, or the next identity without burying the old one. They carry the ghost of the previous failure into the new architecture, where it inevitably causes a collapse.</p>
+
+      <h2>The Advantage of the Broken</h2>
+
+      <p>There is a distinct advantage to having your life shattered. When the structure falls apart, you get to see the foundation. You discover exactly what is structural and what was merely decorative. The things that survive the collapse are the things worth building on.</p>
+
+      <p>The people who have been through hard things possess a resilience that cannot be taught in a seminar. They know that survival is not about avoiding the hit; it is about knowing how to take the hit, assess the damage, and build something stronger over the fracture.</p>
+
+      <h2>The Permission to Grieve</h2>
+
+      <p>Give yourself the permission to grieve the life you thought you were going to have. Not indefinitely, but honestly. Acknowledge what was lost before you begin building what comes next. The grief is not weakness. It is the honest accounting that makes the new architecture sound.</p>
+
+      <p>The people who reinvent successfully are not the ones who pretended the loss did not happen. They are the ones who looked at it directly, named it, and then decided what to build in its place.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "meeting-that-should-have-been-a-system",
+    title: "The Meeting That Should Have Been a System",
+    excerpt: "Every recurring meeting on your calendar is a failure of system design. If you are having the same conversation every week, you are managing a symptom instead of curing the disease.",
+    pillar: "Work",
+    pillarColor: "#1A5C6B",
+    readTime: "6 min",
+    date: "Jan 2026",
+    heroImage: "/images/hero-meeting-system.jpg",
+    body: `
+      <p class="beacon-article-lede">Every recurring meeting on your calendar is a failure of system design. If you are having the same conversation every week, reviewing the same metrics, and answering the same questions, you are not managing a business. You are managing a symptom instead of curing the disease.</p>
+
+      <h2>The Cost of Synchronous Work</h2>
+
+      <p>The most expensive resource in any operation is synchronous human attention. When you put five people in a room for an hour, you have not spent one hour; you have spent five hours of focused capacity. If the output of that meeting is simply a status update, you have burned capital that cannot be recovered.</p>
+
+      <p>The old world relied on meetings because information moved slowly. The manager had to gather the team to distribute the data. In the AI era, information moves instantly. The only valid reason to gather human beings in real time is to make a complex judgment call or to build trust.</p>
+
+      <h2>Automating the Routine</h2>
+
+      <p>The solution is not fewer meetings; it is better architecture. If a decision can be made based on a set of rules, it should be made by an agent. If a status needs to be updated, it should be pulled automatically into a dashboard. The human operator should only be interrupted when an anomaly occurs that the system cannot resolve.</p>
+
+      <p>Audit your calendar. Identify every meeting that exists simply to transfer information. Replace it with a system. A shared dashboard, an automated report, a structured async update — any of these costs a fraction of the synchronous alternative and returns the most valuable thing in the operation: uninterrupted focus time.</p>
+
+      <h2>The Meetings Worth Keeping</h2>
+
+      <p>Not all meetings are failures. The ones worth keeping are the ones that require genuine human judgment, creative friction, or relationship investment. Keep those. Protect them. Make them count. Everything else is a system waiting to be built.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "pricing-in-a-repricing-market",
+    title: "How to Price Yourself in a Market That Is Repricing Everything",
+    excerpt: "The hourly rate is dead. When artificial intelligence can execute a task in seconds, charging for your time is a race to the bottom. Here is how to price the outcome instead of the effort.",
+    pillar: "Work",
+    pillarColor: "#1A5C6B",
+    readTime: "9 min",
+    date: "Feb 2026",
+    heroImage: "/images/hero-pricing-market.jpg",
+    body: `
+      <p class="beacon-article-lede">The hourly rate is dead. For a century, the standard contract between labor and capital was an exchange of time for money. When artificial intelligence can execute a complex task in seconds, charging for your time is a race to the bottom. You must learn to price the outcome instead of the effort.</p>
+
+      <h2>The Collapse of the Task Economy</h2>
+
+      <p>If your value proposition is based on how fast you can type, code, or generate a report, your market value is approaching zero. The client does not care that it took you ten hours to write the code; they care that the code works. If an agent can write it in ten seconds, the client will not pay you for the ten hours.</p>
+
+      <p>This is terrifying if you are selling time. It is liberating if you are selling solutions.</p>
+
+      <h2>Value-Based Architecture</h2>
+
+      <p>The shift requires a fundamental rewiring of how you present yourself to the market. You are no longer a provider of services; you are a solver of problems. You do not sell a website; you sell a lead-generation system. You do not sell a legal brief; you sell risk mitigation. The distinction is not semantic; it is the difference between a commodity and a premium.</p>
+
+      <p>When you price the outcome, the efficiency of the AI era works for you, not against you. If you can deliver a $50,000 outcome in one hour using advanced agents, you do not lower your price to reflect the hour. You keep the margin. That is the intelligence arbitrage in action.</p>
+
+      <h2>The Conversation You Must Have</h2>
+
+      <p>The transition to value-based pricing requires a different sales conversation. You must understand the cost of the problem before you propose the price of the solution. What does it cost the client to leave this problem unsolved? What is the value of having it resolved? Price against the gap, not against your time.</p>
+
+      <p>This conversation is uncomfortable for operators who have been trained to justify their rates by the hour. It is the most important conversation you will learn to have.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "portfolio-career-is-the-strategy",
+    title: "The Portfolio Career Is Not a Fallback \u2014 It Is the Strategy",
+    excerpt: "Relying on a single employer for 100% of your income is the highest-risk strategy in the modern economy. The portfolio career is the only rational response to systemic instability.",
+    pillar: "Work",
+    pillarColor: "#1A5C6B",
+    readTime: "8 min",
+    date: "Apr 2026",
+    heroImage: "/images/hero-portfolio-career.jpg",
+    body: `
+      <p class="beacon-article-lede">Relying on a single employer for 100% of your income is the highest-risk strategy in the modern economy. The corporate structure was designed to protect the institution, not the operator. When the market turns, the institution will jettison you without hesitation. The portfolio career is the only rational response to systemic instability.</p>
+
+      <h2>The Illusion of Safety</h2>
+
+      <p>The W-2 salary is often described as "safe." It is not safe; it is simply predictable right up until the moment it disappears completely. A single point of failure is bad engineering in software, and it is bad engineering in life. The 2008 financial crisis, the 2020 pandemic layoffs, and the current AI-driven displacement wave have each demonstrated the same truth: the institution will protect its balance sheet before it protects its people.</p>
+
+      <p>A portfolio career distributes the risk. By building multiple streams of income — consulting, digital products, equity in small ventures, and automated systems — you create a structure that can absorb a hit. If one client leaves or one market shifts, the architecture holds.</p>
+
+      <h2>Building the Nodes</h2>
+
+      <p>You do not build a portfolio career by working 100 hours a week. You build it by leveraging systems. The goal is to decouple your income from your time. Each income stream should require less of your active attention over time, not more.</p>
+
+      <p>Start with your core competency and productize it. Turn your knowledge into a framework, your framework into a system, and your system into a recurring revenue stream. The leverage of the AI era makes this possible for a single operator in ways that were not available five years ago. Build the nodes, connect the network, and secure your autonomy.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "zero-to-one-problem",
+    title: "The \$0 to \$1 Problem: Why Most Solopreneurs Stall Before They Start",
+    excerpt: "The gap between having an idea and making your first dollar is where 90% of ventures die. It is rarely a failure of the product; it is almost always a failure of courage masked as a need for more preparation.",
+    pillar: "Venture",
+    pillarColor: "#7C4F2A",
+    readTime: "7 min",
+    date: "Jan 2026",
+    heroImage: "/images/hero-zero-to-one.jpg",
+    body: `
+      <p class="beacon-article-lede">The gap between having an idea and making your first dollar is where 90% of ventures die. It is rarely a failure of the product, the market, or the timing. It is almost always a failure of courage masked as a need for more preparation.</p>
+
+      <h2>The Preparation Trap</h2>
+
+      <p>Most aspiring solopreneurs spend months building the perfect website, designing the perfect logo, and writing the perfect business plan. This feels like work. It is not work. It is sophisticated procrastination. You are building a facade to avoid the terrifying reality of asking someone to pay you for your value.</p>
+
+      <p>Until a transaction occurs, you do not have a business; you have a hobby with overhead. The market does not care about your logo. The market cares if you can solve its problem.</p>
+
+      <h2>The Velocity of the First Dollar</h2>
+
+      <p>The only metric that matters in the beginning is the velocity of the first dollar. How fast can you get a stranger to hand you money for a solution? That transaction validates the premise. Everything else is noise until that moment occurs.</p>
+
+      <p>Strip away the friction. You do not need a website to close your first client. You need a phone, a clear offer, and the willingness to face rejection. Once you have the first dollar, the architecture of the business will reveal itself naturally. The market will tell you what it needs. Stop preparing. Start asking.</p>
+
+      <h2>The Real Blocker</h2>
+
+      <p>The real blocker is almost never the product. It is the fear of being told no. Every rejection is data. Every "not right now" is a refinement opportunity. The operators who reach the first dollar fastest are not the ones with the best product; they are the ones with the highest tolerance for the discomfort of asking.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "build-the-offer-first",
+    title: "Build the Offer Before You Build the Brand",
+    excerpt: "A brand without an offer is just a very expensive art project. If you cannot articulate exactly what you are selling and who you are selling it to, no amount of marketing will save you.",
+    pillar: "Venture",
+    pillarColor: "#7C4F2A",
+    readTime: "6 min",
+    date: "Feb 2026",
+    heroImage: "/images/hero-offer-first.jpg",
+    body: `
+      <p class="beacon-article-lede">A brand without an offer is just a very expensive art project. If you cannot articulate exactly what you are selling, who you are selling it to, and what specific transformation it provides, no amount of marketing, design, or social media presence will save you.</p>
+
+      <h2>The Core Mechanism</h2>
+
+      <p>The offer is the core mechanism of the business. It is the engine that converts attention into revenue. A weak offer requires brilliant marketing to sell. A brilliant offer requires almost no marketing at all — it sells through word of mouth, referrals, and the simple clarity of its value proposition.</p>
+
+      <p>Most founders get this backward. They build the audience first and then try to figure out what to sell them. This leads to misaligned products, burned trust, and the painful experience of having a large following that does not buy. You must define the transformation first.</p>
+
+      <h2>The Architecture of an Irresistible Offer</h2>
+
+      <p>An irresistible offer has three components: a high-value outcome, a high probability of success, and a low perceived effort for the client. If you can guarantee the result and remove the friction from the path to that result, price becomes secondary. The client is not buying your time or your expertise; they are buying the certainty of the outcome.</p>
+
+      <p>Spend your time engineering the offer. Test it quietly with a small group. Refine it until it converts consistently. Only then do you build the brand around it to scale the distribution. The brand amplifies the offer. It cannot replace it.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "recurring-revenue-mandate",
+    title: "The Recurring Revenue Mandate",
+    excerpt: "If you start every month at zero, you do not own a business; you own a high-stress job. The transition from project revenue to recurring revenue is the transition from survival to sovereignty.",
+    pillar: "Venture",
+    pillarColor: "#7C4F2A",
+    readTime: "8 min",
+    date: "Mar 2026",
+    heroImage: "/images/hero-recurring-revenue.jpg",
+    body: `
+      <p class="beacon-article-lede">If you start every month at zero, you do not own a business; you own a high-stress job. The cycle of hunting for clients, delivering the work, and then hunting again is exhausting and ultimately unsustainable. The transition from project revenue to recurring revenue is the transition from survival to sovereignty.</p>
+
+      <h2>The Mathematics of Freedom</h2>
+
+      <p>Recurring revenue changes the mathematics of your life. When your baseline expenses are covered by subscriptions or retainers on the first day of the month, every new sale is pure leverage. You stop making decisions out of desperation and start making them out of strategy. The quality of every decision you make improves when you are not operating from scarcity.</p>
+
+      <p>This is why the institutions love the subscription model. They understand that predictable cash flow is the foundation of power. You must adopt the same architecture for your own operation.</p>
+
+      <h2>Productizing the Service</h2>
+
+      <p>To build recurring revenue, you must productize your service. You cannot sell your time on a retainer indefinitely; you must sell access to a system, a community, or a specific ongoing outcome. The distinction matters because a system scales and a retainer does not.</p>
+
+      <p>Identify the recurring problem your clients face. Build an automated or highly leveraged system to solve it continuously. Price it as a monthly subscription at a level where the value is obvious and the churn is low. It will be harder to sell the first ten subscriptions than the first ten projects. The hundredth subscription will change your life in ways the hundredth project never could.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "three-numbers-about-your-money",
+    title: "The Three Numbers Every Person Should Know About Their Own Money",
+    excerpt: "Financial literacy is not about picking stocks. It is about understanding the mechanics of your own survival. If you do not know your net worth, your burn rate, and your runway, you are flying blind in a storm.",
+    pillar: "Trading",
+    pillarColor: "#B8860B",
+    readTime: "9 min",
+    date: "Jan 2026",
+    heroImage: "/images/hero-three-numbers.jpg",
+    body: `
+      <p class="beacon-article-lede">Financial literacy is not about picking stocks or understanding complex derivatives. It is about understanding the mechanics of your own survival. If you do not know your net worth, your burn rate, and your runway, you are flying blind in a storm. These are the three numbers that dictate your autonomy.</p>
+
+      <h2>1. The Burn Rate</h2>
+
+      <p>Your burn rate is exactly how much capital exits your life every month to maintain your current baseline. Not your aspirational baseline, but the actual cost of keeping the lights on, the subscriptions running, and the obligations met. Most people underestimate this number by 20% because they forget the irregular expenses — the annual insurance renewal, the quarterly tax payment, the car repair that was not in the budget.</p>
+
+      <p>You cannot defend a perimeter if you do not know where the walls are. Calculate your burn rate with precision. Include everything.</p>
+
+      <h2>2. The Net Worth</h2>
+
+      <p>Your net worth is the absolute truth of your financial position. It is what you own minus what you owe. It is not your salary, your title, or your lifestyle. A high salary with massive debt is not wealth; it is high-cash-flow poverty. Tracking your net worth monthly forces you to confront the reality of your leverage and the direction of your trajectory.</p>
+
+      <h2>3. The Runway</h2>
+
+      <p>Your runway is your liquid capital divided by your burn rate. It tells you exactly how many months you can survive if all income stops tomorrow. This is the most important number in your life. A three-month runway means you have to take the first job offered to you. A two-year runway means you can say no to the wrong client, walk away from the toxic environment, and build something that actually matters.</p>
+
+      <p>Runway is not money. Runway is time. And time is the only asset that cannot be replaced. Build it deliberately, protect it aggressively, and never let it fall below six months.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
+  {
+    id: "myth-of-the-safe-industry",
+    title: 'The Myth of the "Safe" Industry',
+    excerpt: "There are no safe industries left. The AI transition is sector-agnostic. If your defense strategy is to hide in a legacy institution, you are waiting for the tide to wash you out.",
+    pillar: "Work",
+    pillarColor: "#1A5C6B",
+    readTime: "7 min",
+    date: "Mar 2026",
+    heroImage: "/images/hero-safe-industry.jpg",
+    body: `
+      <p class="beacon-article-lede">There are no safe industries left. For decades, the conventional wisdom was to seek shelter in law, medicine, accounting, or government. The belief was that these sectors were immune to disruption. The AI transition is proving that assumption fatally wrong. It is sector-agnostic.</p>
+
+      <h2>The Collapse of the Moat</h2>
+
+      <p>The moat around legacy industries was built on the high cost of acquiring specialized knowledge. You paid a lawyer $500 an hour not for their time, but for the three years of law school they endured to know which form to file. When an AI model can pass the bar exam in the 90th percentile and draft a flawless contract in four seconds, the moat evaporates. The same dynamic is playing out in radiology, accounting, financial advising, and government administration.</p>
+
+      <p>If your defense strategy is to hide in a legacy institution and hope the technology passes you by, you are waiting for the tide to wash you out.</p>
+
+      <h2>The Only Real Security</h2>
+
+      <p>Security is no longer found in the institution. It is found in adaptability. The operators who thrive will be the ones who use the disruption to their advantage — who use the AI to do the heavy lifting of the legacy industry faster, cheaper, and better than the institution itself can manage.</p>
+
+      <p>The lawyer who uses AI to handle the routine work and focuses their human judgment on the complex cases will outcompete the firm that is still billing by the hour for document review. The accountant who automates the compliance work and positions themselves as a strategic advisor will survive the wave that drowns the ones who refused to move.</p>
+
+      <h2>The Mandate</h2>
+
+      <p>Stop looking for a safe place to hide. Build the capability to survive in the open. The disruption is not coming for the weak industries first; it is coming for the ones that have been most insulated from competition. The higher the wall, the more dramatic the collapse when the wall comes down.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
+    `,
+  },
 ];
 
 // ─── Helper: find article by slug ─────────────────────────────────────────────
