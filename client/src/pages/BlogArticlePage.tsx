@@ -28,6 +28,111 @@ interface ArticleContent {
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
   {
+    id: "palantir-ai-surveillance-watch",
+    heroImage: "/images/watch-palantir-hero.jpg",
+    title: "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
+    excerpt:
+      "A major lawsuit has been filed against Palantir Technologies alleging domestic surveillance, biometric harvesting, and cognitive trespass. We verified the claims, separated fact from alarm, and built a practical guide for protecting yourself from the systems that are already operating.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "12 min",
+    date: "Jun 28, 2026",
+    featured: true,
+    body: `
+      <p class="beacon-article-lede">A viral video circulating under the title <em>"This is an EXTINCTION-LEVEL Event &amp; Palantir Just Got EXPOSED"</em> has generated significant alarm across independent media communities. It centers on a federal lawsuit filed against Palantir Technologies, its founder Peter Thiel, CEO Alex Karp, and COO Shyam Sankar, alleging domestic surveillance, biometric harvesting, and \"cognitive trespass\" — the use of AI to model and predict human thought before it becomes action.</p>
+
+      <p>The video is compelling. It raises real questions. And it also contains meaningful distortions that, if accepted uncritically, can leave you more confused and less protected than before you watched it. At Beacon, we believe you deserve both the honest facts and a clear path forward. So let's do both.</p>
+
+      <h2>What the Verification Shows</h2>
+
+      <p>Our research team cross-referenced every major claim in the video against primary sources — court records, federal contract databases, legislative filings, and credentialed journalism.</p>
+
+      <table style="width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.85rem;">
+        <thead><tr style="border-bottom:1px solid rgba(250,248,244,0.15);">
+          <th style="text-align:left;padding:0.6rem 0.8rem;color:rgba(250,248,244,0.5);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:0.7rem;">Claim</th>
+          <th style="text-align:left;padding:0.6rem 0.8rem;color:rgba(250,248,244,0.5);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:0.7rem;">Verdict</th>
+          <th style="text-align:left;padding:0.6rem 0.8rem;color:rgba(250,248,244,0.5);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:0.7rem;">Evidence</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(250,248,244,0.07);">
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.85);">Federal lawsuit filed against Palantir, Thiel, Karp &amp; Sankar</td>
+            <td style="padding:0.7rem 0.8rem;"><span style="color:#B8860B;font-weight:600;">Confirmed with caveats</span></td>
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.65);"><em>Doe v. Palantir</em>, No. 1:25-cv-04581 (D.C. District Court) exists, filed Dec. 3, 2025. It is a <em>pro se</em> filing with a procedural deficiency notice — plaintiffs have not paid the $405 filing fee. The court may close it administratively.</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(250,248,244,0.07);">
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.85);">Palantir works for the Pentagon, DHS, and intelligence agencies</td>
+            <td style="padding:0.7rem 0.8rem;"><span style="color:#2A7F6F;font-weight:600;">Fully confirmed</span></td>
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.65);">$10B Army contract (Aug. 2025), $795M Maven Smart System modification (May 2025), $30M ICE \"ImmigrationOS\" contract (Apr. 2025), sole-source ICM platform for ICE since 2014 — now $145M+.</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(250,248,244,0.07);">
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.85);">Palantir used for domestic surveillance and data consolidation</td>
+            <td style="padding:0.7rem 0.8rem;"><span style="color:#2A7F6F;font-weight:600;">Fully confirmed</span></td>
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.65);">ACLU documented Palantir's ELITE targeting system and ICM platform consolidating health records, employment data, commercial data broker information, and biometric traits to build dossiers on individuals, including U.S. citizens.</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(250,248,244,0.07);">
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.85);">Multiple US states are passing brain data protection laws</td>
+            <td style="padding:0.7rem 0.8rem;"><span style="color:#2A7F6F;font-weight:600;">Fully confirmed</span></td>
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.65);">Colorado (2024), California (2024), Montana (2025) have enacted neural data privacy laws. At least five more states have proposed legislation.</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(250,248,244,0.07);">
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.85);">277,000 people were \"digitally tracked\" at the Charlie Kirk memorial</td>
+            <td style="padding:0.7rem 0.8rem;"><span style="color:#8B3A3A;font-weight:600;">Distorted</span></td>
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.65);">277,000 was the total <em>attendance</em> figure reported by TPUSA. No confirmed reporting of mass geo-fencing or digital tracking of attendees.</td>
+          </tr>
+          <tr>
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.85);">The \"CIA whistleblower\" guest has verified credentials</td>
+            <td style="padding:0.7rem 0.8rem;"><span style="color:#8B3A3A;font-weight:600;">Unverified</span></td>
+            <td style="padding:0.7rem 0.8rem;color:rgba(250,248,244,0.65);">No public record, government document, or credentialed source confirms the guest's claimed identity as an \"MK Ultra whistleblower.\"</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>The bottom line:</strong> The lawsuit is procedurally weak and may not survive. The underlying surveillance infrastructure it describes is real, documented, and expanding.</p>
+
+      <h2>The Beacon Stance</h2>
+
+      <p>We are not going to tell you to panic. We are also not going to tell you to look away.</p>
+
+      <p>What Palantir represents is the maturation of a system that has been under construction for decades: the convergence of AI, biometric data, behavioral prediction, and state power into a single, integrated architecture. This is not science fiction. It is a $10 billion Army contract. It is a deportation targeting map that populates with \"target-rich\" neighborhoods. It is a CEO who publicly acknowledges that his software participates in lethal military operations.</p>
+
+      <p>The question for every person at the watch is not <em>\"Is this real?\"</em> It is <em>\"What do I do about it?\"</em></p>
+
+      <p>We believe the answer has two parts: <strong>awareness</strong> and <strong>applied intelligence</strong>.</p>
+
+      <h2>Part One: Awareness as the First Layer of Protection</h2>
+
+      <p>The most powerful thing surveillance infrastructure requires is your <em>unconscious participation</em>. The data that feeds these systems comes from the devices you carry, the platforms you use, the apps you grant permissions to, and the terms of service you scroll past. None of this requires your informed consent — only your inattention.</p>
+
+      <p>Awareness means understanding the data economy you are already operating inside. Every app on your phone is a data collection endpoint. Every \"free\" service you use is monetizing your behavioral profile. The terms of service agreements that the video rightly calls out are not fine print — they are the legal architecture by which corporations claim ownership over your behavioral data, your location history, and increasingly, your biometric signatures.</p>
+
+      <p>This is not cause for paranoia. It is cause for intentionality.</p>
+
+      <h2>Part Two: Applied Intelligence — Using the Same Tools to Protect Yourself</h2>
+
+      <p>Here is what Beacon stands for that most alarm-based media does not: <strong>the same technology that can be used against you can be used by you.</strong> The goal is not to retreat from technology. It is to engage with it on your own terms, with your eyes open.</p>
+
+      <p><strong>Understand your data footprint.</strong> Tools like Privacy.com, virtual card numbers, and compartmentalized email addresses (e.g., SimpleLogin or Apple's Hide My Email) allow you to transact online without exposing your primary identity to every data broker in the chain. This is basic digital hygiene — the same way locking your front door is not paranoia.</p>
+
+      <p><strong>Audit your permissions.</strong> On both iOS and Android, you can review which apps have access to your location, microphone, camera, and contacts. Most people have granted permissions they have forgotten about. A quarterly audit of these permissions is a five-minute practice that meaningfully reduces your passive data exposure.</p>
+
+      <p><strong>Understand behavioral profiling.</strong> Social media platforms are explicitly designed to maximize engagement through emotional arousal — outrage, fear, and tribalism generate more clicks than calm analysis. Recognizing this mechanism does not require you to abandon these platforms. It requires you to use them with awareness of the incentive structure driving what you see.</p>
+
+      <p><strong>Protect your neural data now.</strong> As brain-computer interfaces move from clinical to consumer settings — Neuralink, Muse headbands, focus-tracking earbuds — the data generated by your nervous system will become the most intimate dataset ever collected. Colorado, California, and Montana have begun legislating protections. Know your state's status. Opt out of data sharing wherever the option exists.</p>
+
+      <p><strong>Engage the legislative process.</strong> The brain data protection bills moving through state legislatures are bipartisan and broadly supported. They passed unanimously or near-unanimously in every state where they have been enacted. This is a rare area where civic engagement has a direct, measurable impact on the legal protections available to you.</p>
+
+      <h2>What This Means for the Beacon Community</h2>
+
+      <p>The Beacon ecosystem exists to help you build life, work, and ventures that are genuinely yours — not optimized for someone else's behavioral model. The expansion of AI-driven surveillance infrastructure is not an abstract threat to \"society.\" It is a direct pressure on your ability to think freely, make autonomous decisions, and build without being profiled, predicted, and nudged in directions that serve someone else's agenda.</p>
+
+      <p>Understanding this technology — how it works, what data it consumes, how it models behavior — is not optional for anyone building a serious life or business in the current environment. It is foundational literacy for the era we are in.</p>
+
+      <p>We will continue watching this space. The lawsuit may or may not survive. The infrastructure will continue to expand regardless. Our job at the watch is to keep the signal clear.</p>
+
+      <p class="beacon-article-closing">The lighthouse is lit. Keep your eyes on the horizon.</p>
+    `,
+  },
+  {
     id: "the-intelligence-arbitrage",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
     audioSrc: "/audio/watch-brief-04-the-intelligence-arbitrage.mp3?v=2",
