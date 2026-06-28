@@ -308,6 +308,62 @@ const ARTICLES: Article[] = [
     date: "Mar 2026",
     thumbnail: "/images/hero-safe-industry.jpg",
   },
+  // ── Life in America Series ──────────────────────────────────────────────────
+  {
+    id: "lia-geopolitics-public-health",
+    title: "Life in America: The Geopolitics of Public Health and Bio-Research",
+    excerpt:
+      "A major narrative claims the U.S. government secretly exported banned gain-of-function research to overseas biolabs. We verified the claims, separated documented policy from disinformation, and built a practical guide for understanding the intersection of global health and national security.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "10 min",
+    date: "Feb 2026",
+    thumbnail: "/images/hero-lia-biolabs.jpg",
+  },
+  {
+    id: "lia-end-of-phillips-curve",
+    title: "Life in America: The End of the Phillips Curve and the Reindustrialization Mandate",
+    excerpt:
+      "A significant shift in U.S. economic policy is underway. The new Federal Reserve leadership is abandoning long-held doctrines in favor of aggressive domestic reindustrialization. We verified the claims and built a practical guide for positioning your business in this new environment.",
+    pillar: "Trading",
+    pillarColor: "#B8860B",
+    readTime: "9 min",
+    date: "Mar 2026",
+    thumbnail: "/images/hero-lia-fed-reindustrialization.jpg",
+  },
+  {
+    id: "lia-architecture-of-manufactured-movements",
+    title: "Life in America: The Architecture of Manufactured Political Movements",
+    excerpt:
+      "Recent political commentary has focused heavily on the mechanics of color revolutions, alleging that domestic movements are utilizing tactics historically funded by U.S. agencies abroad. We verified the claims and built a practical guide for maintaining cognitive independence during manufactured crises.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "9 min",
+    date: "Apr 2026",
+    thumbnail: "/images/hero-lia-color-revolutions.jpg",
+  },
+  {
+    id: "lia-long-march-through-institutions",
+    title: "Life in America: The Long March Through the Institutions",
+    excerpt:
+      "A recurring narrative links the Democratic Socialists of America to the theories of Italian Marxist Antonio Gramsci. We verified the claims, separated ideological history from conspiracy, and built a practical guide for understanding cultural leverage and building your own foundations.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "10 min",
+    date: "May 2026",
+    thumbnail: "/images/hero-lia-gramsci-institutions.jpg",
+  },
+  {
+    id: "lia-architecture-of-historical-memory",
+    title: "Life in America: The Architecture of Historical Memory",
+    excerpt:
+      "The management of presidential records has become a flashpoint for political conflict. We verified the claims around the Obama Presidential Center's structure and the National Archives, separated legal framework from political narrative, and built a practical guide for understanding how historical memory is controlled.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "8 min",
+    date: "Jun 2026",
+    thumbnail: "/images/hero-lia-presidential-records.jpg",
+  },
 ];
 
 const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];

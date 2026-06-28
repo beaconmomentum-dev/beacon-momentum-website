@@ -1027,6 +1027,252 @@ const ARTICLE_CONTENT: ArticleContent[] = [
       <p class="beacon-article-closing">The lighthouse is lit. Join us at the Watch.</p>
     `,
   },
+  // ── Life in America Series ──────────────────────────────────────────────────
+  {
+    id: "lia-geopolitics-public-health",
+    title: "Life in America: The Geopolitics of Public Health and Bio-Research",
+    excerpt: "A major narrative claims the U.S. government secretly exported banned gain-of-function research to overseas biolabs. We verified the claims, separated documented policy from disinformation, and built a practical guide for understanding the intersection of global health and national security.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "10 min",
+    date: "Feb 2026",
+    heroImage: "/images/hero-lia-biolabs.jpg",
+    audioSrc: "/audio/signal-lia-biolabs.mp3",
+    body: `
+      <p>A major narrative circulating in political media claims the U.S. government secretly exported banned gain-of-function research to overseas biolabs, including facilities in Ukraine and Wuhan. We verified the claims, separated documented policy from disinformation, and built a practical guide for understanding the intersection of global health and national security.</p>
+
+      <h2>The Verification</h2>
+
+      <table class="beacon-verify-table">
+        <thead><tr><th>Claim</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Obama banned gain-of-function research in the US in 2014.</td><td><strong>CONFIRMED WITH CAVEATS</strong></td><td>The Obama administration announced a “pause” on federally funded GOF research in 2014, not an outright ban, and it was lifted in 2017 with new oversight frameworks.</td></tr>
+          <tr><td>Metabiota (Pentagon contractor) received a contract starting in 2014.</td><td><strong>CONFIRMED</strong></td><td>USAspending.gov confirms Metabiota, Inc. received a DoD contract starting Feb 10, 2014, for “PROJECT COORDINATION.”</td></tr>
+          <tr><td>Lawrence Livermore Z-program assessed lab origin of COVID in May 2020.</td><td><strong>CONFIRMED</strong></td><td>Multiple sources confirm a classified report by LLNL’s Z Program found both lab-origin and zoonotic theories plausible.</td></tr>
+          <tr><td>Fauci lied to Congress about gain-of-function funding.</td><td><strong>CONFIRMED WITH CAVEATS</strong></td><td>Sen. Rand Paul accused Dr. Fauci of lying; Fauci denied it, highlighting a profound public and scientific debate over the precise definition of GOF research.</td></tr>
+          <tr><td>Biden pardoned Fauci covering 2014 to 2024.</td><td><strong>FALSE</strong></td><td>President Biden issued a preemptive pardon for Fauci in January 2025 as he left office, not tied to specific offenses during a specific decade.</td></tr>
+          <tr><td>DNI Gabbard released documents showing 120 secret US-funded labs.</td><td><strong>DISTORTED</strong></td><td>DNI Gabbard released declassified documents on US-funded biological research facilities, but framing them as “secret biolabs” implies nefarious activity rather than standard global health surveillance.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The Beacon Stance</h2>
+
+      <p>The narrative surrounding COVID-19 origins and international bio-research is a case study in how complex scientific policy is weaponized for political leverage. Beacon Momentum does not deal in conspiracy, but we do demand clarity on how power and capital flow.</p>
+
+      <p>The documented reality is concerning enough without exaggeration: the U.S. government did fund controversial research through complex grant structures like EcoHealth Alliance, and the oversight mechanisms failed to maintain public trust. The debate over what constitutes “gain-of-function” revealed a bureaucratic system more interested in defending its definitions than ensuring transparency.</p>
+
+      <p>The threat is not a comic-book villain operating secret lairs. The threat is institutional arrogance, regulatory capture, and the outsourcing of high-risk research to jurisdictions with opaque safety standards.</p>
+
+      <h2>Applied Intelligence: How to Read the Science Geopolitics</h2>
+
+      <p>When navigating claims about global health and bio-security, apply these filters.</p>
+
+      <h3>Follow the Grants, Not the Rhetoric</h3>
+      <p>The real story is usually in the procurement databases (USAspending.gov) and grant sub-awards. The NIH and DoD fund global health initiatives for strategic reasons. Understanding the stated purpose of a grant is the first step to evaluating its risk.</p>
+
+      <h3>Define the Terms</h3>
+      <p>Much of the Fauci/Congress conflict hinged on the technical definition of “gain-of-function.” When institutions rely on highly narrow, bureaucratic definitions to deny involvement in risky behavior, trust is broken. Demand plain-language explanations of what research is actually being conducted.</p>
+
+      <h3>Distinguish Between Surveillance and Engineering</h3>
+      <p>Global bio-surveillance — tracking emerging diseases — is a legitimate national security function. Engineering pathogens to be more transmissible or lethal is a profound ethical and security risk. The danger lies in when the former provides cover for the latter.</p>
+
+      <p>Stay grounded in documented reality. The actual mechanisms of institutional failure are far more instructive than the speculative narratives that surround them.</p>
+
+      <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at the Watch.</p>
+    `,
+  },
+  {
+    id: "lia-end-of-phillips-curve",
+    title: "Life in America: The End of the Phillips Curve and the Reindustrialization Mandate",
+    excerpt: "A significant shift in U.S. economic policy is underway. The new Federal Reserve leadership is abandoning long-held doctrines in favor of aggressive domestic reindustrialization. We verified the claims and built a practical guide for positioning your business in this new environment.",
+    pillar: "Trading",
+    pillarColor: "#B8860B",
+    readTime: "9 min",
+    date: "Mar 2026",
+    heroImage: "/images/hero-lia-fed-reindustrialization.jpg",
+    audioSrc: "/audio/signal-lia-fed-reindustrialization.mp3",
+    body: `
+      <p>A significant shift in U.S. economic policy is underway, with claims that the new Federal Reserve leadership is abandoning long-held doctrines in favor of aggressive domestic reindustrialization. We verified the claims, separated economic fact from political framing, and built a practical guide for positioning your business in this new environment.</p>
+
+      <h2>The Verification</h2>
+
+      <table class="beacon-verify-table">
+        <thead><tr><th>Claim</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>New Fed Chair Kevin Warsh rejected the Phillips Curve doctrine.</td><td><strong>CONFIRMED</strong></td><td>Multiple financial news outlets and economic analyses confirm Warsh’s stance that strong growth, low prices, and strong employment are mutually compatible, challenging the traditional Phillips Curve tradeoff.</td></tr>
+          <tr><td>Warsh abandoned the ‘forward guidance’ practice.</td><td><strong>CONFIRMED</strong></td><td>Warsh has signaled a departure from the practice of providing explicit, long-term forecasts of interest rate movements, preferring a more data-dependent approach.</td></tr>
+          <tr><td>Trump’s NSC met with EXIM Bank, Commerce, and SBA on reindustrialization.</td><td><strong>CONFIRMED</strong></td><td>Official government sources confirm inter-agency coordination focused on domestic manufacturing and supply chain resilience.</td></tr>
+          <tr><td>EXIM Bank announced 90% loan guarantees on equipment loans for small businesses.</td><td><strong>CONFIRMED</strong></td><td>The Export-Import Bank’s ‘Make More in America’ initiative includes significant loan guarantees for domestic manufacturing equipment.</td></tr>
+          <tr><td>Trump signed executive orders on quantum computing.</td><td><strong>CONFIRMED</strong></td><td>White House records and major news outlets confirm executive actions aimed at advancing U.S. leadership in quantum technologies.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The Beacon Stance</h2>
+
+      <p>The economic operating system of the last forty years is being rewritten. The rejection of the Phillips Curve by the Federal Reserve leadership is not just an academic debate; it is a fundamental shift in how the central bank views the relationship between growth and inflation.</p>
+
+      <p>For decades, the assumption was that too much employment caused inflation, requiring the Fed to cool the economy. The new posture suggests that productivity and industrial capacity — not just suppressing demand — are the keys to stable prices. This aligns with a broader, multi-agency push toward reindustrialization and the revival of what some call the “American System” of political economy.</p>
+
+      <p>Beacon Momentum recognizes this as a generational transition. The capital flows are moving from software-as-a-service and financial engineering back toward hard assets, manufacturing, and critical infrastructure.</p>
+
+      <h2>Applied Intelligence: Positioning for the Industrial Shift</h2>
+
+      <h3>Track the Capital Incentives</h3>
+      <p>The 90% loan guarantees from the EXIM Bank and similar SBA initiatives are massive levers. If your business touches manufacturing, logistics, or physical infrastructure, the cost of capital for equipment just dropped significantly.</p>
+
+      <h3>The End of Forward Guidance Means Higher Volatility</h3>
+      <p>Without the Fed telegraphing its moves months in advance, market volatility will increase. Businesses must build more robust cash reserves and flexible pricing models, rather than relying on predictable interest rate environments.</p>
+
+      <h3>The B2B Opportunity in the Industrial Base</h3>
+      <p>As the industrial base expands, it requires secondary services: specialized software, compliance consulting, logistics optimization, and workforce training. The “picks and shovels” of reindustrialization are high-value opportunities for agile, systems-thinking operators.</p>
+
+      <p>The leverage has shifted from financial abstraction back to physical reality. Position yourself accordingly.</p>
+
+      <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at the Watch.</p>
+    `,
+  },
+  {
+    id: "lia-architecture-of-manufactured-movements",
+    title: "Life in America: The Architecture of Manufactured Political Movements",
+    excerpt: "Recent political commentary has focused heavily on the mechanics of color revolutions, alleging that domestic movements are utilizing tactics historically funded by U.S. agencies abroad. We verified the claims and built a practical guide for maintaining cognitive independence during manufactured crises.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "9 min",
+    date: "Apr 2026",
+    heroImage: "/images/hero-lia-color-revolutions.jpg",
+    audioSrc: "/audio/signal-lia-color-revolutions.mp3",
+    body: `
+      <p>Recent political commentary has heavily focused on the mechanics of “color revolutions,” alleging that domestic political movements are utilizing tactics historically funded by U.S. agencies abroad. We verified the claims, separated historical fact from speculative projection, and built a practical guide for maintaining cognitive independence during manufactured crises.</p>
+
+      <h2>The Verification</h2>
+
+      <table class="beacon-verify-table">
+        <thead><tr><th>Claim</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Gene Sharp wrote the manual for color revolutions in 1993.</td><td><strong>CONFIRMED</strong></td><td>Sharp’s 1993 book “From Dictatorship to Democracy” is widely recognized as a foundational, highly influential text on the tactics of nonviolent resistance and regime change.</td></tr>
+          <tr><td>The same color revolution model was used in the Arab Spring 2011.</td><td><strong>CONFIRMED</strong></td><td>Academic and geopolitical analyses widely note the tactical similarities and the influence of Sharp’s methodologies on the Arab Spring uprisings.</td></tr>
+          <tr><td>DSA candidate called for abolition of police, prisons, and borders.</td><td><strong>CONFIRMED WITH CAVEATS</strong></td><td>Reporting confirms she previously made these statements on social media before deleting them amidst political scrutiny.</td></tr>
+          <tr><td>DSA candidate attended a pro-Hamas rally the day after Oct 7.</td><td><strong>CONFIRMED WITH CAVEATS</strong></td><td>Reporting confirms her attendance at a pro-Palestinian rally on October 8, 2023, which drew significant controversy given the timing.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The Beacon Stance</h2>
+
+      <p>The mechanics of mass mobilization are neutral; it is the application that reveals the intent. Gene Sharp’s work on nonviolent resistance is a masterclass in systems thinking applied to political power. It outlines how to identify the pillars of support for a regime and systematically dismantle them.</p>
+
+      <p>The concern arises when these same highly effective, system-destabilizing tactics are deployed domestically by factions aiming not for reform, but for the fundamental dismantling of foundational institutions. When you understand the playbook of manufactured outrage and tactical destabilization, you cease to be a pawn in the movement and become an observer of the architecture.</p>
+
+      <h2>Applied Intelligence: Maintaining Cognitive Independence</h2>
+
+      <h3>Identify the Tactical Playbook</h3>
+      <p>Are you witnessing organic outrage, or a coordinated deployment of proven resistance tactics? Look for the hallmarks: unified branding, specific and escalating demands designed to provoke a heavy-handed response, and the targeting of institutional legitimacy.</p>
+
+      <h3>Disconnect from the Urgency Engine</h3>
+      <p>Manufactured movements rely on the illusion of immediate crisis to bypass critical thinking. The most powerful action you can take during a manufactured crisis is to slow down, refuse to react on their timeline, and evaluate the long-term systemic goals of the actors involved.</p>
+
+      <h3>Focus on Local Resilience</h3>
+      <p>While national and international narratives consume attention, the most impactful leverage you have is local. Build resilient local networks, secure your independent income streams, and focus on the systems you can actually control.</p>
+
+      <p>The architecture of control relies on your predictable reaction. Choose to be unpredictable.</p>
+
+      <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at the Watch.</p>
+    `,
+  },
+  {
+    id: "lia-long-march-through-institutions",
+    title: "Life in America: The Long March Through the Institutions",
+    excerpt: "A recurring narrative links the Democratic Socialists of America to the theories of Italian Marxist Antonio Gramsci. We verified the claims, separated ideological history from conspiracy, and built a practical guide for understanding cultural leverage and building your own foundations.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "10 min",
+    date: "May 2026",
+    heroImage: "/images/hero-lia-gramsci-institutions.jpg",
+    audioSrc: "/audio/signal-lia-gramsci-institutions.mp3",
+    body: `
+      <p>A recurring narrative in cultural analysis focuses on the ideological roots of modern political movements, specifically linking the Democratic Socialists of America to the theories of Italian Marxist Antonio Gramsci. We verified the claims, separated ideological history from conspiracy, and built a practical guide for understanding cultural leverage.</p>
+
+      <h2>The Verification</h2>
+
+      <table class="beacon-verify-table">
+        <thead><tr><th>Claim</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>DSA’s internal educational program is based on Gramsci’s theory of cultural hegemony.</td><td><strong>CONFIRMED</strong></td><td>The DSA’s official educational materials explicitly reference Gramsci’s theories on cultural hegemony and political education as foundational concepts.</td></tr>
+          <tr><td>Gramsci’s notebooks were preserved by Marxist economist Piero Sraffa.</td><td><strong>CONFIRMED</strong></td><td>Historical records confirm Sraffa, an associate of John Maynard Keynes, played a vital role in preserving Gramsci’s Prison Notebooks.</td></tr>
+          <tr><td>CFR launched a ‘post-Trump world’ project in May 2026, citing Gramsci.</td><td><strong>CONFIRMED</strong></td><td>A Council on Foreign Relations essay by Charles Kupchan (May 2026) explicitly opens with a Gramsci quote to frame the current geopolitical interregnum.</td></tr>
+          <tr><td>DSA published a platform to defund the DoD and grant amnesty to all immigrants.</td><td><strong>CONFIRMED WITH CAVEATS</strong></td><td>The DSA platform officially advocates to “greatly reduce” the military budget and grant “immediate amnesty” to all immigrants.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The Beacon Stance</h2>
+
+      <p>Antonio Gramsci’s concept of “cultural hegemony” is one of the most important frameworks for understanding modern political warfare. Gramsci argued that power is not just maintained through physical force — the state — but through cultural institutions: schools, media, religion. These institutions manufacture consent by defining what is considered “common sense.”</p>
+
+      <p>The fact that both the DSA and the Council on Foreign Relations cite Gramsci is not a conspiracy. It is an acknowledgment by serious political actors that Gramsci was right about how power actually operates. Beacon Momentum focuses on leverage. If you do not understand how cultural narratives are engineered to shape your perception of reality, you are operating at a severe disadvantage.</p>
+
+      <h2>Applied Intelligence: Building Your Own Hegemony</h2>
+
+      <h3>Audit Your Information Diet</h3>
+      <p>Recognize that very little media is neutral. Most of it is designed to establish a specific “common sense” that serves a particular ideological or economic interest. Actively diversify your inputs and seek out primary sources.</p>
+
+      <h3>Establish Foundational Values</h3>
+      <p>Cultural hegemony works by slowly eroding foundational values and replacing them with new norms. Define your core principles — financial independence, intellectual autonomy, familial resilience — and ruthlessly defend them against cultural drift.</p>
+
+      <h3>Build Parallel Systems</h3>
+      <p>If mainstream institutions are captured by ideologies hostile to your goals, the answer is not to complain; the answer is to build parallel systems. This means independent education, decentralized financial networks, and communities based on shared competence rather than shared outrage.</p>
+
+      <p>The battle for the culture is fought in the realm of ideas. Make sure yours are your own.</p>
+
+      <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at the Watch.</p>
+    `,
+  },
+  {
+    id: "lia-architecture-of-historical-memory",
+    title: "Life in America: The Architecture of Historical Memory",
+    excerpt: "The management of presidential records has become a flashpoint for political conflict. We verified the claims around the Obama Presidential Center’s structure and the National Archives, separated legal framework from political narrative, and built a practical guide for understanding how historical memory is controlled.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "8 min",
+    date: "Jun 2026",
+    heroImage: "/images/hero-lia-presidential-records.jpg",
+    audioSrc: "/audio/signal-lia-presidential-records.mp3",
+    body: `
+      <p>The management of presidential records has become a flashpoint for political conflict, with claims centering on the Obama Presidential Center’s structure and the National Archives’ role in recent investigations. We verified the claims, separated legal framework from political narrative, and built a practical guide for understanding how historical memory is controlled.</p>
+
+      <h2>The Verification</h2>
+
+      <table class="beacon-verify-table">
+        <thead><tr><th>Claim</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Obama’s Presidential Center cost $850 million.</td><td><strong>CONFIRMED</strong></td><td>Multiple major news outlets confirm the estimated cost of the Chicago facility.</td></tr>
+          <tr><td>Obama’s records are at the National Archives, and the Foundation controls digitization.</td><td><strong>CONFIRMED WITH CAVEATS</strong></td><td>NARA legally owns and manages the records. The Obama Foundation funds and partners in the digitization effort, which gives them influence over the process, though NARA retains ultimate custody.</td></tr>
+          <tr><td>The Daily Beast called this ‘a mockery of transparency.’</td><td><strong>CONFIRMED</strong></td><td>The publication did run an article with this specific framing regarding the digitization arrangement.</td></tr>
+          <tr><td>The Presidential Records Act of 1978 established public ownership.</td><td><strong>CONFIRMED</strong></td><td>The PRA fundamentally shifted ownership of presidential records from private (the president’s property) to public (the government’s property).</td></tr>
+          <tr><td>The National Archives fabricated the claim that Trump stole classified documents.</td><td><strong>FALSE</strong></td><td>NARA officially confirmed finding classified material in the initial boxes retrieved from Mar-a-Lago, which triggered the subsequent DOJ investigation. There is no evidence of fabrication by NARA.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The Beacon Stance</h2>
+
+      <p>The transition from physical presidential libraries holding original documents to a fully digitized model represents a significant shift in how historical memory is curated. While the digitization of records increases theoretical access, the arrangement where a private foundation funds the digitization of public records introduces a bottleneck. Whoever controls the scanner controls the timeline of history.</p>
+
+      <p>The concern raised by transparency advocates is legitimate: public access to historical documents should not be dependent on the funding priorities or timelines of a private political foundation. However, Beacon Momentum draws a hard line between criticizing a flawed digitization process and endorsing the false claim that the National Archives fabricated evidence in a federal investigation. Clarity requires separating systemic critique from partisan defense.</p>
+
+      <h2>Applied Intelligence: The Control of Information</h2>
+
+      <h3>Own Your Archives</h3>
+      <p>If you rely entirely on cloud platforms without local, physical backups, you do not own your history; you lease access to it. Implement a 3-2-1 backup strategy for your critical business and personal documents.</p>
+
+      <h3>The Power of the Index</h3>
+      <p>A massive archive of data is useless without a searchable index. In your own business, the ability to rapidly retrieve past decisions, financial records, and operational procedures is a massive competitive advantage. Build your index before you need it.</p>
+
+      <h3>Distrust the Single Source of Truth</h3>
+      <p>When historical or political narratives rely on a single, curated source of documents, remain skeptical. Always seek out corroborating evidence, dissenting accounts, and primary sources that sit outside the curated archive.</p>
+
+      <p>History is written by those who control the records. Ensure you control your own.</p>
+
+      <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at the Watch.</p>
+    `,
+  },
 ];
 
 // ─── Helper: find article by slug ─────────────────────────────────────────────
