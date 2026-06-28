@@ -337,26 +337,15 @@ function FeaturedArticle({ article }: { article: Article }) {
       onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.07)"; }}
       onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
     >
-      {/* Thumbnail — full-width image above content when present */}
-      {article.thumbnail && (
-        <div style={{ width: "100%", height: "220px", overflow: "hidden" }}>
-          <img
-            src={article.thumbnail}
-            alt={article.title}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block",
-              transition: "transform 0.5s ease",
-            }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.03)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
-          />
-        </div>
-      )}
-      {/* Content wrapper */}
-      <div style={{ padding: "2.5rem", display: "grid", gridTemplateColumns: "1fr", gap: "1rem" }}>
+      {/* Editorial layout: text left / image right when thumbnail present; text-only otherwise */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: article.thumbnail ? "1fr 40%" : "1fr",
+        gap: 0,
+        minHeight: article.thumbnail ? "220px" : undefined,
+      }}>
+        {/* Content wrapper */}
+        <div style={{ padding: "2.5rem", display: "flex", flexDirection: "column", gap: "1rem", justifyContent: "center" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
         <span style={{
           fontFamily: "'Outfit', system-ui, sans-serif",
@@ -407,8 +396,34 @@ function FeaturedArticle({ article }: { article: Article }) {
         color: article.pillarColor,
       }}>
         Read article <ArrowRight size={13} />
-      </div>
-      </div>{/* end content wrapper */}
+        </div>
+        </div>{/* end content column */}
+
+        {/* Thumbnail image — right column, only when present */}
+        {article.thumbnail && (
+          <div style={{
+            overflow: "hidden",
+            position: "relative",
+            minHeight: "220px",
+          }}>
+            <img
+              src={article.thumbnail}
+              alt={article.title}
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+                transition: "transform 0.5s ease",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
+            />
+          </div>
+        )}
+      </div>{/* end editorial grid */}
     </motion.article>
     </Link>
   );
