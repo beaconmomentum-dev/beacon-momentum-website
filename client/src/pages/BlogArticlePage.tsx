@@ -30,7 +30,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "the-intelligence-arbitrage",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
-    audioSrc: "/audio/watch-brief-04-the-intelligence-arbitrage.mp3",
+    audioSrc: "/audio/watch-brief-04-the-intelligence-arbitrage.mp3?v=2",
     title: "The Intelligence Arbitrage: Who Wins When the Price of Thinking Collapses",
     excerpt:
       "The greatest arbitrage in economic history is closing. For the first time, you can manufacture intelligence out of electricity. Here is what that means for every person who was told the leverage was not for them.",
@@ -82,7 +82,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "the-leverage-has-arrived",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
-    audioSrc: "/audio/watch-brief-03-the-leverage-has-arrived.mp3",
+    audioSrc: "/audio/watch-brief-03-the-leverage-has-arrived.mp3?v=2",
     title: "The Leverage Has Arrived: The Old World Is Ending and the New One Does Not Require Permission",
     excerpt:
       "The old world built systems that required your compliance in exchange for a minimal existence. That world is ending. Here is what is actually happening — and why it matters more than any benchmark or funding round.",
@@ -122,7 +122,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "ai-roi-reckoning",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
-    audioSrc: "/audio/watch-brief-02-ai-roi-reckoning.mp3",
+    audioSrc: "/audio/watch-brief-02-ai-roi-reckoning.mp3?v=2",
     title: "The AI ROI Reckoning: 95% of Enterprise Projects Failed — Here Is What Actually Works",
     excerpt:
       "The enterprise AI narrative has collapsed. 95% of projects delivered zero measurable ROI. Here is what the data actually shows — and what it means for operators building real systems.",
@@ -203,7 +203,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "frontier-models-in-motion",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
-    audioSrc: "/audio/watch-brief-01-frontier-models-in-motion.mp3",
+    audioSrc: "/audio/watch-brief-01-frontier-models-in-motion.mp3?v=2",
     title: "Frontier Models in Motion: What the New AI Race Means for Operators Right Now",
     excerpt:
       "Claude Opus 5 is returning, Grok 5 is in training, and AI is deciphering a 5,000-year-old script. Here is what each development means for Beacon operators right now.",
@@ -254,7 +254,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "follow-the-dollar-ai-ipo-wave",
-    audioSrc: "/audio/signal-follow-the-dollar.mp3",
+    audioSrc: "/audio/signal-follow-the-dollar.mp3?v=2",
     title: "Follow the Dollar: What the AI IPO Wave Is Really Telling You",
     excerpt:
       "Within a 60-day window this spring, SpaceX, OpenAI, and Anthropic moved toward public markets simultaneously — combined implied valuation: $4.5 trillion. The convergence is not coincidental.",
@@ -293,7 +293,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "ai-transition-not-replacement",
-    audioSrc: "/audio/signal-ai-transition-redistribution.mp3",
+    audioSrc: "/audio/signal-ai-transition-redistribution.mp3?v=2",
     title: "The AI Transition Is Not a Replacement Story — It Is a Redistribution Story",
     excerpt:
       "Every major technological shift in history has redistributed power, income, and relevance. The question is not whether AI will change your work — it will. The question is which side of the redistribution you land on.",
@@ -328,7 +328,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "five-questions-before-starting-over",
-    audioSrc: "/audio/signal-five-questions-start-over.mp3",
+    audioSrc: "/audio/signal-five-questions-start-over.mp3?v=2",
     title: "Five Questions to Ask Before You Start Over",
     excerpt:
       "Most people who want to start over are not actually trying to escape their life. They are trying to escape the version of themselves that built it. Before you blow up what you have, ask these five questions.",
@@ -367,7 +367,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "solopreneur-vs-freelancer",
-    audioSrc: "/audio/signal-solopreneur-vs-freelancer.mp3",
+    audioSrc: "/audio/signal-solopreneur-vs-freelancer.mp3?v=2",
     title: "Solopreneur vs. Freelancer: The Difference That Changes Everything",
     excerpt:
       "A freelancer sells time. A solopreneur builds systems. Both can produce income. Only one can produce freedom. Here is the framework that separates the two.",
@@ -405,7 +405,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "ai-tools-that-actually-work",
-    audioSrc: "/audio/signal-ai-tools-non-technical.mp3",
+    audioSrc: "/audio/signal-ai-tools-non-technical.mp3?v=2",
     title: "Separating the Leverage from the Noise",
     excerpt:
       "The market is flooded with AI tools designed to look impressive in a demo. We do not care about demos. We care about what works when the environment is hostile and the stakes are real.",
@@ -439,7 +439,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "wisdom-over-information",
-    audioSrc: "/audio/signal-wisdom-over-information.mp3",
+    audioSrc: "/audio/signal-wisdom-over-information.mp3?v=2",
     title: "The Asset the Machine Cannot Generate",
     excerpt:
       "Information is now free and infinite. Wisdom — the ability to know what to do with information — is the only moat left. If you have survived the fire, your scars are your credentials.",
@@ -473,7 +473,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "beacon-trading-entry-point",
-    audioSrc: "/audio/signal-beacon-trading-entry-point.mp3",
+    audioSrc: "/audio/signal-beacon-trading-entry-point.mp3?v=2",
     title: "The Financial Foundation of Autonomy",
     excerpt:
       "The system uses financial illiteracy as a control mechanism. If you do not understand how capital moves, you will spend your life moving it for someone else. Here is how to break the cycle.",
@@ -507,7 +507,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "identity-after-job-loss",
-    audioSrc: "/audio/signal-identity-after-job-loss.mp3",
+    audioSrc: "/audio/signal-identity-after-job-loss.mp3?v=2",
     title: "The Danger of the Borrowed Identity",
     excerpt:
       "When the institution revokes your title, who is left standing? If your identity is tied to a system you do not control, you are always one decision away from being erased.",
@@ -541,7 +541,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "automation-first-business",
-    audioSrc: "/audio/signal-automation-first-business.mp3",
+    audioSrc: "/audio/signal-automation-first-business.mp3?v=2",
     title: "The Architecture of the Lean Operator",
     excerpt:
       "The old model was to hire humans to act like machines. The new model is to build the machine first, and reserve the human for the judgment the machine lacks.",
@@ -575,7 +575,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "resume-is-dead",
-    audioSrc: "/audio/signal-resume-is-dead.mp3",
+    audioSrc: "/audio/signal-resume-is-dead.mp3?v=2",
     title: "The End of the Permission Slip",
     excerpt:
       "The traditional resume is a permission slip you hand to an institution, hoping they validate your worth. In the intelligence arbitrage, you do not ask for permission. You demonstrate leverage.",
