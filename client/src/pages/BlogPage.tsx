@@ -5,7 +5,7 @@
  * Pattern: editorial magazine layout with category filters.
  */
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
@@ -553,6 +553,12 @@ function BeaconBriefStrip() {
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function BlogPage() {
   const [activeFilter, setActiveFilter] = useState<Pillar>("All");
+
+  // Set page title
+  React.useEffect(() => {
+    document.title = "The Signal — Beacon Momentum";
+    return () => { document.title = "Beacon Momentum — AI-Era Human Capability"; };
+  }, []);
 
   const featured = ARTICLES.filter((a) => a.featured);
   const filtered =
