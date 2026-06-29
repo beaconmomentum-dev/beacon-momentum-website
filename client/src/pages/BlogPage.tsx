@@ -33,6 +33,18 @@ interface Article {
 
 const ARTICLES: Article[] = [
   {
+    id: "frontier-models-in-motion",
+    title: "Frontier Models in Motion: The Export Ban, Multi-Agent Teams, and the Race After AI",
+    excerpt:
+      "A government ban strands businesses overnight. Four days later, Tokyo ships the answer. Meanwhile, Google quietly funds the race that comes after AI entirely. Here is what it all means for operators right now.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "10 min",
+    date: "Jun 29, 2026",
+    featured: true,
+    thumbnail: "/images/hero-frontier-models.jpg",
+  },
+  {
     id: "palantir-ai-surveillance-watch",
     title: "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
     excerpt:
@@ -40,8 +52,7 @@ const ARTICLES: Article[] = [
     pillar: "Systems",
     pillarColor: "#3D5A80",
     readTime: "12 min",
-    date: "Jun 2026",
-    featured: true,
+    date: "Jun 28, 2026",
     thumbnail: "/images/watch-palantir-hero.jpg",
   },
   {
@@ -77,17 +88,7 @@ const ARTICLES: Article[] = [
     date: "Jun 2026",
     thumbnail: "/images/hero-ai-roi-reckoning.jpg",
   },
-  {
-    id: "frontier-models-in-motion",
-    title: "Frontier Models in Motion: What the New AI Race Means for Operators Right Now",
-    excerpt:
-      "Claude Opus 5 is returning, Grok 5 is in training, and AI is deciphering a 5,000-year-old script. Here is what each development means for Beacon operators right now.",
-    pillar: "Systems",
-    pillarColor: "#3D5A80",
-    readTime: "8 min",
-    date: "Jun 2026",
-    thumbnail: "/images/hero-frontier-models.jpg",
-  },
+
   {
     id: "follow-the-dollar-ai-ipo-wave",
     title: "Follow the Dollar: What the AI IPO Wave Is Really Telling You",
