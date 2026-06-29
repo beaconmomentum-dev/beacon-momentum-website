@@ -38,7 +38,6 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#3D5A80",
     readTime: "12 min",
     date: "Jun 28, 2026",
-    featured: true,
     body: `
       <p class="beacon-article-lede">A viral video circulating under the title <em>"This is an EXTINCTION-LEVEL Event &amp; Palantir Just Got EXPOSED"</em> has generated significant alarm across independent media communities. It centers on a federal lawsuit filed against Palantir Technologies, its founder Peter Thiel, CEO Alex Karp, and COO Shyam Sankar, alleging domestic surveillance, biometric harvesting, and \"cognitive trespass\" — the use of AI to model and predict human thought before it becomes action.</p>
 
@@ -309,51 +308,51 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "frontier-models-in-motion",
     heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
-    audioSrc: "/audio/watch-brief-01-frontier-models-in-motion.mp3?v=2",
-    title: "Frontier Models in Motion: What the New AI Race Means for Operators Right Now",
+    audioSrc: "/audio/watch-brief-01-frontier-models-in-motion.mp3?v=3",
+    title: "Frontier Models in Motion: The Export Ban, Multi-Agent Teams, and the Race After AI",
     excerpt:
-      "Claude Opus 5 is returning, Grok 5 is in training, and AI is deciphering a 5,000-year-old script. Here is what each development means for Beacon operators right now.",
+      "A government ban strands businesses overnight. Four days later, Tokyo ships the answer. Meanwhile, Google quietly funds the race that comes after AI entirely. Here is what it all means for operators right now.",
     pillar: "Systems",
     pillarColor: "#3D5A80",
-    readTime: "8 min",
-    date: "Jun 26, 2026",
+    readTime: "10 min",
+    date: "Jun 29, 2026",
     featured: true,
     body: `
-      <p class="beacon-article-lede">While the enterprise market reckons with the operational realities of AI deployment, the underlying technology continues to cross capability thresholds that were considered impossible just 24 months ago. This week, three separate developments signal where the frontier is actually moving — and what it means for operators building their own systems.</p>
+      <p class="beacon-article-lede">While the enterprise market reckons with the operational realities of AI deployment, the underlying architecture of the technology is undergoing a massive paradigm shift. This week, a sudden government intervention against an American AI model triggered a rapid response from Tokyo, while deep in the background, Google quietly began funding the race that comes after AI entirely. These developments signal where the frontier is actually moving — and what it means for operators building their own systems.</p>
 
-      <h2>1. The Return of Claude "Opus 5"</h2>
+      <h2>1. The Export Ban on Fable 5</h2>
 
-      <p>Anthropic's most capable model — internally codenamed "Fable 5" and officially part of the Mythos class — was pulled from public access earlier this month due to an emergency export control directive regarding cybersecurity and biology capabilities. That ban appears to be ending within days.</p>
+      <p>Anthropic's most capable model — internally codenamed "Fable 5" and officially part of the Mythos class — was pulled from public access earlier this month due to an emergency export control directive regarding cybersecurity and biology capabilities.</p>
 
-      <p>The signals are hidden in the infrastructure:</p>
+      <p>Businesses relying on the model as a single brain for their operations were stranded. While the ban appears to be ending soon — signaled by leaked infrastructure changes and a looming Congressional deadline — the event exposed the fatal flaw of the American approach to AI: <strong>single-point failure</strong>. If your business relies on one massive model, a government ban, a server outage, or a sudden price hike can kill your access overnight.</p>
 
-      <ul>
-        <li><strong>Production Code Changes:</strong> Leaked code from Claude Code version 2.1.190 shows a critical string change. The previous code read: <em>"purchased separately from your plan."</em> The new code reads: <em>"You've used your included Fable 5 usage for this week."</em></li>
-        <li><strong>Enterprise Relisting:</strong> Fable 5 has quietly reappeared in Amazon Bedrock's documentation and model cards without a formal announcement.</li>
-        <li><strong>Congressional Pressure:</strong> A June 26th deadline from the House AI Committee has been applied to the Commerce Department to resolve the export control status.</li>
-      </ul>
+      <h2>2. The Japanese Response: Fugu Ultra</h2>
 
-      <blockquote><strong>Strategic Takeaway:</strong> The pricing change is the real story. Originally planned as a premium add-on, Opus 5 appears to be shifting to a bundled model with a weekly usage reset. For operators already using Claude, this means access to Anthropic's most capable model at no additional cost. The intense government vetting — NSA review, Commerce Department examination — serves as a perverse security certification that other frontier models cannot currently claim.</blockquote>
+      <p>Four days after Fable 5 was pulled offline, a Tokyo-based research lab named Sakana AI released Fugu Ultra.</p>
 
-      <h2>2. Grok 5: Separating Signal From Noise</h2>
+      <p>Fugu is not a massive, single-brain model. It is an orchestration layer. It uses a smaller conductor model to route tasks to a pool of the world's best existing AIs — GPT, Claude, Gemini, and open-source models. It acts as a manager: it assigns specialists, has them fact-check each other, and compiles the final result.</p>
 
-      <p>xAI has officially confirmed that "Grok 5 is currently in training." Beyond that single sentence, the details come largely from Elon Musk and technical leaks.</p>
+      <p>In a head-to-head benchmark against Fable 5, Fugu won decisively. Asked to perform equity research, Fugu spun up a team of AI agents — an analyst, a valuation expert, a bull, a bear, a fact-checker, and a judge. In minutes, it generated a massive, interactive financial dashboard with live sliders for scenario testing. Fable 5, working alone, could not compete with the orchestrated team.</p>
 
-      <p>Credible analysis suggests Grok 5 utilizes a Mixture of Experts (MoE) architecture with approximately 6 trillion total parameters, featuring dynamic agent spawning that scales with task complexity. This is a massive theoretical capacity, designed to route queries to specialist sub-models to keep inference costs viable.</p>
+      <blockquote><strong>Strategic Takeaway:</strong> The Fugu architecture is being marketed as insurance against vendor lock-in. Because it is an orchestration layer, it is immune to single-point failures. If any one provider goes offline or raises prices, Fugu instantly routes the workload to other available models. A word of caution: Sakana AI has not published a full technical paper, and their benchmark claims are vendor-reported, not independently verified. Judge the product by its observable behavior, not its marketing.</blockquote>
 
-      <p>However, caution is required. There are zero published benchmarks for Grok 5. Any comparison chart currently circulating is fabricated. Furthermore, Grok's history of safety challenges — from generating non-consensual explicit deepfakes to posting extremist content in 2025 — means that scaling to 6 trillion parameters without a proven shift in safety culture carries operational risk.</p>
+      <h2>3. The Horizon: Recursive Self-Improvement</h2>
 
-      <blockquote><strong>Strategic Takeaway:</strong> Grok 5 represents real engineering, not just theater. The MoE architecture is a legitimate advance. But for Beacon operators, the only number that matters is the API pricing on launch day. Until it ships and is independently benchmarked, do not build critical infrastructure dependencies around it.</blockquote>
+      <p>Multi-agent orchestration is only the first step. The true horizon is Recursive Self-Improvement — a scenario where AI systems write the code to build better versions of themselves.</p>
 
-      <h2>3. Reading the Dead: AI and the Indus Script</h2>
+      <p>This is no longer theoretical. Claude's ability to handle long-horizon tasks grew from four minutes in early 2024 to over sixteen hours today. Anthropic claims that over 80% of the code merged into its own codebase is now written by its AI. A new startup called Mirendil recently raised $200 million specifically to build AI that builds better AI. Anthropic co-founder Jack Clark puts a real chance of full recursive self-improvement before the end of 2028.</p>
 
-      <p>The most profound AI story of the week isn't about code or enterprise efficiency; it's about history.</p>
+      <p>The loop is tightening. The job of a software engineer is shifting from manually typing code to directing and reviewing the work of autonomous AI agents. The same shift is coming for every knowledge worker.</p>
 
-      <p>The Indus Valley Civilization (3000–1300 BCE) left behind a script that has defeated human decipherment for over a century. There is no Rosetta Stone, and the average inscription is only 4.5 symbols long. Following successful AI applications to the carbonized Herculaneum Scrolls and fragmented Babylonian cuneiform, frontier models are now being trained on the entire corpus of the Indus script to identify statistical structures and grammatical patterns that no human brain can hold simultaneously.</p>
+      <h2>4. The Race After the Race: REPLIQA</h2>
 
-      <p>Researchers privately assess that AI translation is no longer a question of if but of <em>when</em>.</p>
+      <p>While the market fights over AI, Google is buying the starting line for the next technological era. Google Quantum AI has committed $10 million to REPLIQA, an initiative to simulate human biology — specifically drug metabolism — using quantum computers.</p>
 
-      <blockquote><strong>Strategic Takeaway:</strong> This story highlights the ultimate epistemological warning of the AI era. When an AI proposes a translation for a dead language with no bilingual texts, there is no ground truth to check it against. The machine can find real patterns, but it can also hallucinate patterns that were never there — presenting both with equal, absolute confidence. This is the exact same hallucination problem that affects every AI system. It proves the core Beacon doctrine: AI is a powerful engine, but it requires human scaffolding, structured verification, and grounded judgment to be useful.</blockquote>
+      <p>Classical computers hit a physical wall when trying to simulate complex molecules. Quantum computers use qubits, which operate on the exact same quantum mechanics that molecules run on. They do not approximate biology from the outside; they rebuild it from the same rulebook. Google's 105-qubit Willow chip recently solved a physics problem in two hours that would have taken a classical supercomputer three years.</p>
+
+      <p>Google is not doing this because quantum hardware is ready today. They are doing it to ensure they have years of the hardest biological problems already queued up and ready to solve the moment the hardware matures. They are not racing to win today. They are buying the starting line for a race that has not been announced yet.</p>
+
+      <blockquote><strong>Strategic Takeaway:</strong> The AI tools your competitors are scrambling to adopt today are not the finish line. The era of relying on one giant brain is ending, replaced by multi-agent teams, recursive improvement, and eventually quantum-enabled simulation. For Beacon operators, the mandate is clear: build flexible systems that route to the best available tools, rather than hard-coding your business to a single provider. The tool was never the moat. The system is. Let the machines be machines.</blockquote>
 
       <p class="beacon-article-closing">Systems over willpower. The Lighthouse is lit. Join us at the Watch.</p>
     `,
