@@ -117,6 +117,63 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     `,
   },
   {
+    id: "consolidation-of-power",
+    heroImage: "/images/signal-consolidation-power.jpg",
+    audioSrc: "/audio/signal-consolidation-power.mp3",
+    title: "The Signal: The Consolidation of Power",
+    excerpt:
+      "The US government is now personally approving who gets access to frontier AI models. Apple is lobbying to buy chips from a Pentagon-blacklisted Chinese supplier. SpaceX just filed to go public with a plan to put AI data centers in orbit. These are not separate stories. The infrastructure of AI is being consolidated \u2014 and the gap between those who own the stack and those who rent it is widening.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "7 min",
+    date: "Jun 30, 2026",
+    body: `
+      <p class="beacon-article-lede">In the space of a single week, the architecture of the future was quietly rewritten.</p>
+
+      <p>It did not happen on a debate stage or in a viral consumer product launch. It happened in server farms, government offices, and the supply chain. If you are paying attention to the surface noise \u2014 which model scored higher on a coding benchmark, or whether the new AI assistant is faster than the old one \u2014 you are missing the actual story. The real story is the consolidation of power. The forces that control the physical and political infrastructure of artificial intelligence are moving to lock it down.</p>
+
+      <p>This is not a theoretical risk. It is happening right now, across three distinct fronts: policy, hardware, and infrastructure.</p>
+
+      <h2>The Policy Front: Gating the Frontier</h2>
+
+      <p>For the first time, the United States government is personally approving who gets access to a frontier AI model, one company at a time.</p>
+
+      <p>When OpenAI launched its GPT-5.6 family, it did not release it to the public. Instead, under pressure from the White House, the Office of the National Cyber Director, and the Office of Science and Technology Policy, the model was restricted to a small group of roughly 20 vetted companies. This follows the government forcing Anthropic\u2019s most powerful model, Claude Mythos, completely offline.</p>
+
+      <p>The stated reason is security. These models possess agentic capabilities in coding, biology, and cybersecurity that make them powerful dual-use technologies. But the precedent being set is profound. The government is establishing a de facto involuntary licensing regime. The moment advanced AI crossed a certain capability threshold, it stopped being treated like software and started being treated like a strategic weapon.</p>
+
+      <p>The genie may be out of the bottle globally, but domestically, the gates are closing. If you are building a business that relies entirely on access to the absolute bleeding edge of AI capability, you are now building on land zoned by the federal government.</p>
+
+      <h2>The Hardware Front: The Vertical Squeeze</h2>
+
+      <p>While access to the models is being gated, the physical cost of running them is triggering a supply chain war.</p>
+
+      <p>The AI boom requires staggering amounts of high-bandwidth memory. Tech giants are buying up memory capacity at unprecedented rates, causing a global supply crunch for everyone else. Apple, facing a dramatic surge in DRAM chip costs \u2014 from roughly $17 per chip to over $145 for the next-generation component \u2014 has been forced to raise hardware prices across MacBooks and iPads and is now lobbying the US government to buy memory from CXMT, a Chinese chipmaker currently blacklisted by the Pentagon for alleged military ties.</p>
+
+      <p>When the most valuable company on Earth is willing to risk immense political backlash just to secure a secondary memory supplier, the severity of the hardware bottleneck becomes clear.</p>
+
+      <p>Simultaneously, the companies that build the models are trying to escape this bottleneck by building their own silicon. OpenAI recently revealed its first custom AI inference chip. Google, Amazon, Microsoft, and Meta are all doing the same. The companies controlling the entire stack \u2014 the models, the software, and the silicon \u2014 are pulling away from everyone who only builds one layer. The cost of competing at the frontier is becoming so astronomically high that only a handful of vertically integrated titans can afford to play.</p>
+
+      <h2>The Infrastructure Front: Compute in Orbit</h2>
+
+      <p>Nowhere is this vertical integration more extreme than with SpaceX and xAI.</p>
+
+      <p>SpaceX recently absorbed Elon Musk\u2019s xAI in a merger that valued the combined entity at over $1.25 trillion. In its S-1 filing ahead of its IPO, SpaceX projected revenue could reach $1 trillion by 2030 \u2014 a number that requires growing at 123% per year for five straight years.</p>
+
+      <p>How? By moving AI compute into space. The vision is to launch orbital data centers \u2014 the AI-1 satellite series \u2014 powered by unlimited solar energy and cooled by the vacuum of space, bypassing the terrestrial constraints of power grids, water usage, and local zoning laws. Whether they hit the 2030 deadline is almost irrelevant. The direction is what matters. The largest infrastructure play in human history is being built to capture the compute market, and it is being done by a company that intends to manufacture the chips, launch them on its own rockets, power them with the sun, and rent the computing power to the entire industry.</p>
+
+      <h2>The Signal</h2>
+
+      <p>The cycle of leverage is turning again. The tools of creation have been distributed, but the infrastructure required to run them at scale \u2014 the silicon, the energy, the models themselves \u2014 is being aggressively consolidated by governments and a few trillion-dollar monopolies.</p>
+
+      <p>If your strategy relies on always having cheap, unfettered access to the frontier models, you are vulnerable to a policy decision or a supply chain shock you cannot control. The gap between the monopolies that own the stack and the businesses that merely rent access to it is widening.</p>
+
+      <p>The move is not to panic. The move is to build resilience. Do not wire your entire workflow to a single model. Learn to run smaller, open-weight models locally. Build systems that are model-agnostic. Understand that the true leverage is not in having the smartest AI \u2014 it is in having a system that works regardless of who is currently holding the keys to the frontier.</p>
+
+      <p><strong>Pick up the tools. But own your infrastructure.</strong></p>
+    `,
+  },
+  {
     id: "palantir-ai-surveillance-watch",
     heroImage: "/images/watch-palantir-hero.jpg",
     audioSrc: "/audio/signal-palantir-ai-surveillance.mp3?v=1",

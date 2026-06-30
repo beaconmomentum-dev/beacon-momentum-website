@@ -56,6 +56,17 @@ const ARTICLES: Article[] = [
     thumbnail: "/images/hero-cycle-of-leverage.jpg",
   },
   {
+    id: "consolidation-of-power",
+    title: "The Signal: The Consolidation of Power",
+    excerpt:
+      "The US government is now personally approving who gets access to frontier AI models. Apple is lobbying to buy chips from a Pentagon-blacklisted Chinese supplier. SpaceX just filed to go public with a plan to put AI data centers in orbit. These are not separate stories. The infrastructure of AI is being consolidated — and the gap between those who own the stack and those who rent it is widening.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "7 min",
+    date: "Jun 30, 2026",
+    thumbnail: "/images/signal-consolidation-power.jpg",
+  },
+  {
     id: "palantir-ai-surveillance-watch",
     title: "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
     excerpt:
