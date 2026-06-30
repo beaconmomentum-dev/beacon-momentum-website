@@ -45,6 +45,17 @@ const ARTICLES: Article[] = [
     thumbnail: "/images/hero-frontier-models.jpg",
   },
   {
+    id: "cycle-of-leverage",
+    title: "The Signal: The Cycle of Leverage",
+    excerpt:
+      "What seems new is rarely new. The Sumerians, Kissinger, China's desert, and the AI models the US tried to lock away all tell the same story: every capability leap is followed immediately by an attempt to capture it. The genie is out. The question is whether you will have a voice in what it builds.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "8 min",
+    date: "Jun 30, 2026",
+    thumbnail: "/images/hero-cycle-of-leverage.jpg",
+  },
+  {
     id: "palantir-ai-surveillance-watch",
     title: "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
     excerpt:

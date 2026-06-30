@@ -28,6 +28,95 @@ interface ArticleContent {
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
   {
+    id: "cycle-of-leverage",
+    heroImage: "/images/hero-cycle-of-leverage.jpg",
+    audioSrc: "/audio/signal-cycle-of-leverage.mp3?v=1",
+    title: "The Signal: The Cycle of Leverage",
+    excerpt:
+      "What seems new is rarely new. The Sumerians, Kissinger, China's desert, and the AI models the US tried to lock away all tell the same story: every capability leap is followed immediately by an attempt to capture it. The genie is out. The question is whether you will have a voice in what it builds.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "8 min",
+    date: "Jun 30, 2026",
+    body: `
+      <p class="beacon-article-lede">There is a strange comfort in reading the oldest things we have ever found.</p>
+
+      <p>When you read the translations of the ancient Sumerian clay tablets — the first written records of human civilization — you don't find mystical poetry. You find bureaucratic records. You find disputes over labor, complaints about noise, and the profound, uncomfortable assertion that humanity was engineered specifically to be a servant class. According to the tablets, we were made to work, and the moment we began to develop autonomy, our creators decided we had become a problem.</p>
+
+      <p>Whether you read that as literal history or profound mythology, the pattern is the same. It is the oldest pattern in the human record: a massive leap in capability arrives, and immediately, the forces in power move to capture it, manage it, and ensure it never fully distributes. The people who engage the new capability on their own terms shape the civilization that follows. The people who disengage don't escape the consequences. They simply lose their voice in determining what those consequences are.</p>
+
+      <p>What seems new is rarely new. It is just the next turn of a very old wheel.</p>
+
+      <p>Right now, you are living through the most significant capability leap since the industrial revolution. The noise around AI is deafening, but if you step back and look at the historical pattern, the game being played is entirely predictable. And if you know the rules, you can choose how you play it.</p>
+
+      <h2>The Technology of Control</h2>
+
+      <p>In the 1970s, Henry Kissinger built an entire foreign policy doctrine around a simple concept: balance of power.</p>
+
+      <p>His approach was never about solving conflicts. It was about managing them. You pit forces against each other so that no one is ever strong enough or peaceful enough to break free. When President Eisenhower and his Secretary of State William Rogers tried to build real peace in the Middle East through economic development — using nuclear power to desalinate water and turn deserts into farmland — Kissinger's doctrine buried it. When Ronald Reagan proposed the Strategic Defense Initiative, a shield that would render nuclear weapons obsolete and end the doctrine of mutual assured destruction, Kissinger's framework mocked it as Star Wars and killed it in the budget process.</p>
+
+      <p>Why? Because a self-sufficient, prosperous nation cannot be controlled. A population that is not afraid cannot be managed.</p>
+
+      <p>The balance-of-power doctrine is not a foreign policy philosophy. It is a technology of control. It relies on keeping people and nations just capable enough to be useful, but never capable enough to be free. The empire's doctrine is always the management of scarcity — and it works for as long as the people who hold the tools are the only ones who understand them.</p>
+
+      <h2>The Genie and the Bottle</h2>
+
+      <p>The United States had the most advanced AI models in the world. It had the engineering talent, the compute infrastructure, and the head start. And then, reflexively, it closed the door.</p>
+
+      <p>Export controls. Restrictions on model weights. The instinct to lock the most powerful tools behind enterprise contracts and government clearances — to keep the leverage concentrated in the hands of the few. It was the Kissinger doctrine applied to artificial intelligence: manage the capability, don't distribute it, keep the balance of power intact.</p>
+
+      <p>China watched this and made the opposite bet. It released equally powerful models to the entire world. Open weights. Open access. No gatekeeping.</p>
+
+      <p>The result is what it has always been when one power tries to manage a capability that another power is willing to distribute: the genie left the bottle. The knowledge is out there now. It cannot be stopped. It cannot be put back. Every developer, every entrepreneur, every student in every country on earth now has access to frontier-level AI capability, and no amount of export control will change that.</p>
+
+      <p>The balance-of-power playbook failed in real time, on the most consequential technology in a generation. And in failing, it proved the oldest lesson in the record: you cannot manage a capability back into scarcity once it has been distributed.</p>
+
+      <p>But here is what that lesson actually means — and this is the part that gets lost in the noise about disruption and adoption curves and who will be left behind.</p>
+
+      <p>The technology will not wait for consensus. It will not pause while societies deliberate. It will be shaped, right now, by whoever engages it. And the values, the intentions, the ethical frameworks — or the absence of them — that the people who engage it bring to the work will be built into the foundation of everything that follows. This is not a metaphor. It is how every previous capability leap has worked. The printing press did not wait for the church to decide what should be printed. The industrial revolution did not pause while governments decided who should own the machines. The people who engaged those technologies first, on their own terms, with their own purposes, determined what civilization inherited.</p>
+
+      <p>The question is not whether you will be affected by what is being built right now. You will be. Your children will be. The generations that follow will live inside the world that is being constructed in this window. The question is whether you will have any voice in what gets built into it.</p>
+
+      <h2>The Negotiable Map</h2>
+
+      <p>The civilizations that survive capability leaps are not the ones that manage scarcity. They are the ones that build.</p>
+
+      <p>Look at what is happening right now in the Taklamakan Desert. China has wrapped a 3,000-kilometer green belt around a desert the size of Germany. They didn't do it by dragging the ocean inland. They did it by using solar desalination to strip the salt out of the brackish, poisoned groundwater that was already there, running it through drip grids to feed dune-locking trees. They built a toolkit: salt-resistant pipelines, solar desalination, and the slow science of restarting a microclimate from scratch. And now they are selling that toolkit to every nation the United Nations has flagged as a future water collapse zone.</p>
+
+      <p>The oldest rule of civilization is that geography is destiny — you live where the water is, and you leave when it runs dry. But it turns out the map is negotiable. The question is always who does the negotiating, and on whose behalf.</p>
+
+      <p>The green belt is not a monument to Chinese state power. It is a decision about what the next generation inherits. Six hundred thousand people planted the final stretch of it by hand. That is not a government project. That is a civilization deciding, collectively, that the map its children live on will be different from the one it received.</p>
+
+      <p>That is what honorable engagement with a powerful tool looks like at scale.</p>
+
+      <h2>The Frame Level</h2>
+
+      <p>You can see the same choice playing out right now in AI video — at the individual level, this week, for anyone paying attention.</p>
+
+      <p>For the last two years, generating AI video was a slot machine. You typed a prompt, paid a credit, and hoped the machine guessed what was in your head. You were making the most expensive decision — the actual look of the shot — at the exact moment you had the least control over it. That is not creation. That is abdication. You handed the creative authority to the machine and accepted whatever it gave back.</p>
+
+      <p>That has changed. The serious tools have stopped treating video as one big prompt and started treating it the way film has always worked: storyboard first. You plan the frames, you lock the visual style, and <em>then</em> you animate. You stay the director. The machine executes your vision, not its own best guess at one.</p>
+
+      <p>This is a small example of a large principle. The people who are using these tools well right now are not the ones with the most sophisticated technical knowledge. They are the ones who bring intention to the work — who know what they are trying to say before they ask the machine to help them say it. The tool amplifies what you bring to it. If you bring nothing, it gives you nothing worth keeping.</p>
+
+      <h2>What Gets Built Into the Foundation</h2>
+
+      <p>The gap between the people who engage these tools with intention and the people who don't will widen faster than any previous technology gap. Not because the tools are hard — they aren't. But because the people who engage them compound. Every week their capability grows. Every week the distance between them and the people who waited increases.</p>
+
+      <p>But the more important gap is not personal. It is generational.</p>
+
+      <p>The values that get embedded in AI systems right now — the assumptions about what people need, what they deserve, what they are capable of — will shape how those systems behave for decades. The people who disengage from this technology do not protect themselves from its influence. They simply forfeit their voice in determining what that influence will be. Their children will live inside a world built by whoever did engage, on whatever terms those people chose to engage on.</p>
+
+      <p>This is the weight of the moment. Not the personal career risk of falling behind. The civilizational responsibility of being alive at the turn of a very old wheel.</p>
+
+      <p>The technology is here. It is distributed. It cannot be recalled. The genie is out of the bottle, and it will be shaped by whoever picks it up next.</p>
+
+      <p><strong>Pick it up with honor. Mold it to something worth handing forward.</strong> The society around you — the one your children will inherit — is being built right now, in this window, by the people who chose to engage.</p>
+
+      <p>Be one of them.</p>
+    `,
+  },
+  {
     id: "palantir-ai-surveillance-watch",
     heroImage: "/images/watch-palantir-hero.jpg",
     audioSrc: "/audio/signal-palantir-ai-surveillance.mp3?v=1",
