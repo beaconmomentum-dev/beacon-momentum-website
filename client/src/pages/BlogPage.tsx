@@ -387,6 +387,62 @@ const ARTICLES: Article[] = [
     date: "Jun 2026",
     thumbnail: "/images/hero-lia-presidential-records.jpg",
   },
+  {
+    id: "watch-open-source-ai-shift",
+    title: "The Open-Source AI Shift",
+    excerpt:
+      "The US locked down its most capable AI models. Days later, China open-sourced comparable capability to the entire internet for free. The walls only contain the people already inside them.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-open-source-ai.jpg",
+  },
+  {
+    id: "watch-engine-of-elon-premium",
+    title: "The Engine of the Elon Premium",
+    excerpt:
+      "Elon Musk briefly became the first trillionaire in history. Twelve days later, the market corrected. The number is not the story. The story is the engine that built the number — and the asymmetry of accountability when it collapses.",
+    pillar: "Venture",
+    pillarColor: "#5C3D8F",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-elon-premium.jpg",
+  },
+  {
+    id: "watch-org-chart-targeting-document",
+    title: "Your Org Chart Is a Targeting Document",
+    excerpt:
+      "A Five Eyes joint advisory confirmed Chinese military intelligence is using LinkedIn, Indeed, and Upwork to recruit and coerce targets. Transparency is a requirement for building a brand. It is also a vulnerability.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-linkedin-security.jpg",
+  },
+  {
+    id: "watch-readout-bottleneck",
+    title: "The Readout Bottleneck",
+    excerpt:
+      "Stanford solved the quantum computing wall — not by adding more qubits, but by building a better dashboard. The bottleneck is rarely the tool itself. Almost always, it is your ability to read the output.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-quantum-readout.jpg",
+  },
+  {
+    id: "watch-wall-is-real",
+    title: "The Wall Is Real",
+    excerpt:
+      "The era of shipping your best model and seeing what happens ended June 12th. One lab hit the wall, negotiated its way back, and is now permanently inside a relationship with Washington it did not choose. Another is still running toward the same wall at full speed.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "8 min",
+    date: "Jul 2026",
+    featured: true,
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
 ];
 
 const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];
