@@ -1533,6 +1533,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     date: "Jul 2026",
     featured: true,
     heroImage: "/images/hero-watch-wall-is-real.jpg",
+    audioSrc: "/audio/watch-wall-is-real.mp3",
     body: `
       <p>The era of shipping your best model and seeing what happens ended on June 12th, 2026. One lab learned that lesson, came back changed, and is now permanently inside a relationship with Washington it did not choose. Another lab is still running toward the same wall at full speed, marketing AGI before it ships, with no regulatory clearance and near-zero enterprise trust.</p>
       <p>Both stories are worth understanding. Not because of the models themselves — but because of what they reveal about the landscape you are building in.</p>

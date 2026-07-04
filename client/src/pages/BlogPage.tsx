@@ -41,7 +41,6 @@ const ARTICLES: Article[] = [
     pillarColor: "#3D5A80",
     readTime: "10 min",
     date: "Jun 29, 2026",
-    featured: true,
     thumbnail: "/images/hero-frontier-models.jpg",
   },
   {
