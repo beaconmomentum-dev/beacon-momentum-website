@@ -1420,6 +1420,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "watch-open-source-ai-shift",
+    audioSrc: "/audio/watch-brief-deepseek-openshift.mp3",
     title: "The Open-Source AI Shift",
     excerpt: "The US locked down its most capable AI models. Days later, China open-sourced comparable capability to the entire internet for free. The walls only contain the people already inside them.",
     pillar: "Systems",
@@ -1445,6 +1446,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "watch-engine-of-elon-premium",
+    audioSrc: "/audio/watch-brief-elon-premium.mp3",
     title: "The Engine of the Elon Premium",
     excerpt: "Elon Musk briefly became the first trillionaire in history. Twelve days later, the market corrected. The number is not the story. The story is the engine that built the number — and the asymmetry of accountability when it collapses.",
     pillar: "Venture",
@@ -1474,6 +1476,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "watch-org-chart-targeting-document",
+    audioSrc: "/audio/watch-brief-linkedin-security.mp3",
     title: "Your Org Chart Is a Targeting Document",
     excerpt: "A Five Eyes joint advisory confirmed Chinese military intelligence is using LinkedIn, Indeed, and Upwork to recruit and coerce targets. Transparency is a requirement for building a brand. It is also a vulnerability.",
     pillar: "Life",
@@ -1501,6 +1504,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "watch-readout-bottleneck",
+    audioSrc: "/audio/watch-brief-quantum-readout.mp3",
     title: "The Readout Bottleneck",
     excerpt: "Stanford solved the quantum computing wall — not by adding more qubits, but by building a better dashboard. The bottleneck is rarely the tool itself. Almost always, it is your ability to read the output.",
     pillar: "Systems",
