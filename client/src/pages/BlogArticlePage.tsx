@@ -28,6 +28,105 @@ interface ArticleContent {
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
   {
+    id: "founders-framework-america-250",
+    heroImage: "/images/hero-founders-framework.jpg",
+    title: "The Founders\u2019 Framework: What Jefferson\u2019s Four Words Mean for Every Builder in 2026",
+    excerpt:
+      "Jefferson changed four words in the founding document and declared war on a particular idea of what human beings are and what an economy is for. Two hundred and fifty years later, those four words are the most important framework a builder can carry.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "7 min",
+    date: "Jul 4, 2026",
+    featured: true,
+    body: `
+      <p class="beacon-article-lede">There is a line in the Declaration of Independence that most people have read a hundred times without noticing what it actually says.</p>
+
+      <p>Not the part about all men being created equal. Not the grievances against the Crown. The line I mean is the one that defines the purpose of government itself: that we are endowed with certain unalienable rights, and that among these are life, liberty, and <strong>the pursuit of happiness</strong>.</p>
+
+      <p>That phrase is so familiar it has become invisible. But it was not the obvious choice. The dominant political philosophy of the colonial era \u2014 John Locke\u2019s framework, the intellectual foundation most of the founders had studied \u2014 used different language. Locke\u2019s version read: life, liberty, and <strong>property</strong>.</p>
+
+      <p>Thomas Jefferson, guided in no small part by Benjamin Franklin, changed it. And that change was not cosmetic. It was a declaration of war against a particular idea of what human beings are and what an economy is for.</p>
+
+      <h2>Two Systems, Two Definitions of Wealth</h2>
+
+      <p>Behind \u201cproperty\u201d and \u201chappiness\u201d are two fundamentally different models of economic life.</p>
+
+      <p>The property model \u2014 which became the basis of British economic liberalism, free trade doctrine, and eventually the laissez-faire consensus that dominated the 20th century \u2014 treats wealth as accumulation. In this framework, the purpose of an economy is to maximize the flow of goods and money. The ideal actor is the efficient consumer: someone who acquires what they need at the lowest possible cost, regardless of where it was made or who made it. The measure of a good economy is GDP. The measure of a good business is margin.</p>
+
+      <p>The happiness model \u2014 which Jefferson was encoding into the founding document of the republic \u2014 treats wealth as capability. In this framework, the purpose of an economy is to develop the creative and productive power of its people. The ideal actor is the builder: someone who produces, invents, and manufactures. The measure of a good economy is not what flows through the checkout counter but what gets made at the factory gate. The measure of a good business is not just what it earns but what it can do.</p>
+
+      <p>These are not subtle differences. They produce entirely different civilizations.</p>
+
+      <p>For most of the 19th century, the United States ran on the second model. It was called the American System \u2014 a term coined by Senator Henry Clay and championed by figures from Alexander Hamilton to Abraham Lincoln to William McKinley. The core principles were straightforward: protect domestic industry with tariffs, invest in infrastructure that expands productive capacity, and bias national policy toward producers rather than pure consumers. The results were visible. The United States industrialized faster than any nation in history, built the most extensive rail network on earth, and became the world\u2019s largest manufacturing economy within a century of its founding.</p>
+
+      <p>Then, in 1901, McKinley was assassinated. And with him, quietly, the American System was buried.</p>
+
+      <h2>The 125-Year Drift</h2>
+
+      <p>What replaced it was not a sudden reversal. It was a slow substitution \u2014 a gradual replacement of the producer\u2019s framework with the consumer\u2019s framework, dressed in the language of freedom and efficiency.</p>
+
+      <p>Free trade, we were told, would make everything cheaper. Globalization would lift all boats. Comparative advantage meant it was rational to offshore manufacturing to wherever labor was cheapest. The Federal Reserve would smooth out the business cycle. GDP would tell us everything we needed to know about how the economy was performing.</p>
+
+      <p>None of these ideas were neutral. Each one was a choice that favored one kind of economic actor over another. Free trade favored the importer over the domestic manufacturer. Financialization favored the capital allocator over the person doing the work. Measuring GDP without measuring its composition favored consumption over production. Each choice, taken alone, seemed reasonable. Taken together, over 125 years, they hollowed out the productive base of the country.</p>
+
+      <p>The cost was not abstract. It showed up in towns where the plant closed and nothing replaced it. It showed up in supply chains that snapped the moment a pandemic disrupted the lowest-cost producer. It showed up in the discovery that the United States could not manufacture its own semiconductors, its own pharmaceuticals, or its own personal protective equipment at the moment it needed them most.</p>
+
+      <p>The people who designed the system did not pay those costs. The people who lived inside it did.</p>
+
+      <h2>The Business Parallel</h2>
+
+      <p>I am not writing this as a policy argument. I am writing it because the same dynamic plays out at the level of every business that has ever been built on someone else\u2019s platform.</p>
+
+      <p>The consumer\u2019s framework, applied to business infrastructure, sounds like this: use the cheapest available tool, rent access to the most powerful platform, optimize for speed to market, and do not worry about ownership because the cloud is always there. This is the SaaS-everything doctrine. It is the business equivalent of free trade \u2014 efficient in the short term, fragile in the long term.</p>
+
+      <p>The producer\u2019s framework sounds like this: own the infrastructure that your business depends on. Build the systems that give you leverage. Do not wire your revenue, your data, or your customer relationships into a platform that can change its terms, raise its prices, or be switched off by a vendor decision or a government directive. This is not paranoia. It is the same logic Hamilton applied to manufacturing: a nation \u2014 or a business \u2014 that cannot produce what it needs is not truly sovereign.</p>
+
+      <p>The last few years have provided a comprehensive stress test of both approaches.</p>
+
+      <p>Businesses built on a single payment processor discovered what happens when the processor decides their category is too risky. Businesses built on a single social platform discovered what happens when the algorithm changes. Businesses built on a single AI API discovered what happens when the model is pulled offline by a government directive \u2014 as happened with Anthropic\u2019s Fable 5 in June of this year, dark for 18 days while the regulatory process ran its course. Businesses built on a single cloud provider discovered what happens during an outage.</p>
+
+      <p>In every case, the businesses that survived intact were the ones that had built on infrastructure they controlled. Not because they were smarter. Because they had internalized the producer\u2019s principle: real leverage comes from ownership, not access.</p>
+
+      <h2>What the Founders Were Actually Defending</h2>
+
+      <p>Go back to Jefferson\u2019s choice for a moment.</p>
+
+      <p>When he wrote \u201cthe pursuit of happiness\u201d instead of \u201cthe pursuit of property,\u201d he was drawing on a philosophical tradition that ran through Gottfried Leibniz and Benjamin Franklin \u2014 a tradition that held that human beings are not animals driven by appetite and the accumulation of things. We are minds. We are capable of discovering the laws of nature, of inventing new tools, of building systems that improve the conditions of life for everyone who comes after us.</p>
+
+      <p>The pursuit of happiness, in that tradition, is not the pursuit of comfort. It is the pursuit of that highest human activity: to create, to build, and to leave the world more developed than you found it.</p>
+
+      <p>A nation founded on that principle does not measure itself by what it owns. It measures itself by what it can make. And a business founded on that principle does not measure itself by what it can extract from its customers. It measures itself by what it can build for them \u2014 and what it can hand forward to the next generation of builders.</p>
+
+      <p>That is the standard I hold Beacon to. Not because it is a marketing position. Because it is the only framework that makes sense of what we are actually trying to do.</p>
+
+      <h2>The Reclaiming</h2>
+
+      <p>The good news \u2014 and I mean this without any partisan framing \u2014 is that the conversation is changing.</p>
+
+      <p>After 125 years, the producer\u2019s framework is coming back into mainstream economic thinking. Treasury Secretary Scott Bessent said it plainly earlier this year: \u201cWe measured abundance at the checkout counter rather than at the factory gate. We talked about GDP, but not enough about its composition.\u201d Vice President Vance put it in the language of purpose: \u201cThe economy is a tool to service the dignity of the human person.\u201d</p>
+
+      <p>These are not new ideas. They are the ideas Jefferson encoded in the Declaration. They are the ideas Hamilton argued in his Report on Manufactures. They are the ideas Lincoln championed when he said the purpose of government is to clear the path for every person to improve their condition through their own labor.</p>
+
+      <p>They were buried for 125 years. They are coming back because the cost of forgetting them became impossible to ignore.</p>
+
+      <p>For founders and operators, the practical translation is straightforward. Build on infrastructure you own. Develop capabilities you control. Measure your business not just by what it earns today but by what it can produce tomorrow \u2014 and what it leaves behind for the people who come after you.</p>
+
+      <p>That is not a growth hack. It is a philosophy. And it is, as it turns out, the original American one.</p>
+
+      <h2>Why Beacon Was Built This Way</h2>
+
+      <p>I did not build Beacon because I had a clever insight about the SaaS market. I built it because I had watched too many capable, serious people build real things on rented land and lose them \u2014 not because they failed, but because the platform changed, the terms shifted, or the vendor decided to compete with them.</p>
+
+      <p>Every architectural decision in this ecosystem traces back to the same principle. We run on our own servers. We own our data. We build tools that belong to the people using them. We do not create dependencies we cannot exit. We do not build leverage for someone else at our own expense.</p>
+
+      <p>That is the producer\u2019s framework applied to a modern business ecosystem. It is the same argument the founders were making about the young republic. A business \u2014 like a nation \u2014 that cannot produce what it needs is not truly free.</p>
+
+      <p>On this 250th anniversary, I am not just celebrating the political independence our founders secured. I am celebrating the slow, difficult reclaiming of the economic philosophy they embedded in the founding document. The idea that we are here to build \u2014 not just to consume. That the measure of a life, and a business, is not what it owns but what it can create.</p>
+
+      <p class="beacon-article-closing">If that is how you think about your work, you already understand why Beacon exists. The lighthouse is lit. Let\u2019s get back to building.</p>
+    `,
+  },
+  {
     id: "cycle-of-leverage",
     heroImage: "/images/hero-cycle-of-leverage.jpg",
     audioSrc: "/audio/signal-cycle-of-leverage.mp3?v=1",
