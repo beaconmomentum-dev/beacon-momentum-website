@@ -1969,10 +1969,78 @@ export default function BlogArticlePage() {
           dangerouslySetInnerHTML={{ __html: article.body }}
         />
 
-        {/* ── Back to The Signal ── */}
+        {/* ── Watch Brief Premium CTA ── */}
         <div
           style={{
             marginTop: "4rem",
+            padding: "2.5rem 2rem",
+            background: "rgba(200,150,62,0.06)",
+            border: "1px solid rgba(200,150,62,0.18)",
+            borderLeft: "4px solid #C8963E",
+          }}
+        >
+          <div style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "1.5rem",
+            flexWrap: "wrap",
+          }}>
+            <div style={{ flex: 1, minWidth: "220px" }}>
+              <div style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontSize: "0.65rem",
+                fontWeight: 700,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "#C8963E",
+                marginBottom: "0.6rem",
+              }}>
+                Watch Brief Premium &nbsp;·&nbsp; $27 / month
+              </div>
+              <div style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
+                fontWeight: 600,
+                color: "#FAF8F4",
+                lineHeight: 1.25,
+                marginBottom: "0.75rem",
+              }}>
+                A second brief every month. One signal worth acting on. No membership required.
+              </div>
+              <p style={{
+                fontFamily: "'Lora', Georgia, serif",
+                fontSize: "0.9rem",
+                color: "rgba(250,248,244,0.65)",
+                lineHeight: 1.75,
+                margin: "0 0 1.25rem",
+              }}>
+                Every month: a second Watch Brief, a curated tool recommendation with an implementation note, and the Signal of the Week — one data point worth acting on before the next cycle. Cancel any time.
+              </p>
+              <a
+                href="/pricing"
+                style={{
+                  display: "inline-block",
+                  background: "#C8963E",
+                  color: "#0D1B2A",
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontSize: "0.7rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  padding: "0.75rem 1.75rem",
+                }}
+              >
+                Subscribe for $27 / month &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Back to The Signal ── */}
+        <div
+          style={{
+            marginTop: "2.5rem",
             paddingTop: "2rem",
             borderTop: "1px solid rgba(255,255,255,0.08)",
           }}
