@@ -1,5 +1,5 @@
 /**
- * Beacon Momentum — /blog
+ * Beacon Momentum — /blog (The Signal)
  * Design: Deep Water Editorial / Quiet Authority
  * Curated articles tied to the five Beacon pillars.
  * Pattern: editorial magazine layout with category filters.
@@ -28,7 +28,7 @@ interface Article {
   readTime: string;
   date: string;
   featured?: boolean;
-  thumbnail?: string; // Optional card thumbnail for blog index
+  thumbnail?: string; // Optional card thumbnail for The Signal index
 }
 
 const ARTICLES: Article[] = [

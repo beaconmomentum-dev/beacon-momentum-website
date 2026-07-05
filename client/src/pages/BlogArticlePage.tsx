@@ -1,7 +1,7 @@
 /**
  * Beacon Momentum — /blog/:slug
  * Design: Deep Water Editorial / Quiet Authority
- * Full article detail page for The Signal blog.
+ * Full article detail page for The Signal.
  */
 
 import { useEffect } from "react";
@@ -1969,7 +1969,7 @@ export default function BlogArticlePage() {
           dangerouslySetInnerHTML={{ __html: article.body }}
         />
 
-        {/* ── Back to blog ── */}
+        {/* ── Back to The Signal ── */}
         <div
           style={{
             marginTop: "4rem",
