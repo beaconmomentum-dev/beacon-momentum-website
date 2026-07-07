@@ -30,6 +30,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   {
     id: "founders-framework-america-250",
     heroImage: "/images/hero-founders-framework.jpg",
+    audioSrc: "/audio/signal-founders-framework.mp3?v=1",
     title: "The Founders\u2019 Framework: What Jefferson\u2019s Four Words Mean for Every Builder in 2026",
     excerpt:
       "Jefferson changed four words in the founding document and declared war on a particular idea of what human beings are and what an economy is for. Two hundred and fifty years later, those four words are the most important framework a builder can carry.",
