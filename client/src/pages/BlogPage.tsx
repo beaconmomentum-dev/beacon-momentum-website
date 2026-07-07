@@ -442,6 +442,61 @@ const ARTICLES: Article[] = [
     featured: true,
     thumbnail: "/images/hero-watch-wall-is-real.jpg",
   },
+  {
+    id: "watch-brief-05-ghost-particle",
+    title: "The Ghost Particle: Microsoft\u2019s 1,000x Quantum Leap",
+    excerpt:
+      "For almost 90 years it existed only on paper. On June 2nd, 2026, Microsoft announced they had not only built the Majorana particle \u2014 they held it. For 20 seconds. That is a thousandfold improvement in the exact property that makes or breaks a quantum computer.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-06-maya-collapse",
+    title: "The Maya Collapse: When Success Becomes the Trap",
+    excerpt:
+      "A thousand years ago, the Maya were one of the most advanced civilizations on Earth. Within a hundred years, the great cities were abandoned. The jungle walked in and took it all back. The cause is more unsettling than any myth \u2014 and more relevant than most people want to admit.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-07-voynich-manuscript",
+    title: "The Voynich Manuscript: What AI Cannot Crack",
+    excerpt:
+      "Six hundred years ago, someone wrote a book. To this day, no other human being has ever read it. It has defeated the greatest codebreakers of the 20th century. And despite what the headlines claim, artificial intelligence has not cracked it either.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-08-claude-fable-5",
+    title: "Claude Fable 5: The Reality Behind the Hype",
+    excerpt:
+      "If you just gained access to Claude Fable 5 and plan to use it exactly like the previous version, stop. The marketing is designed to generate noise. The reality requires a fundamental shift in how you operate it.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-09-ai-arms-race",
+    title: "The AI Arms Race: Gemini, Google, and the Real Stakes",
+    excerpt:
+      "The tech press is misreading the current moment. The question is not which model wins the benchmark. The question is who uses these models to build something real. The scoreboard is a distraction. The door is open.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
 ];
 
 const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];
