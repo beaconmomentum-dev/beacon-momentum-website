@@ -29,7 +29,7 @@ const serif = "'Cormorant Garamond', Georgia, serif";
 const sans = "'Outfit', system-ui, sans-serif";
 const body = "'Lora', Georgia, serif";
 
-const PDF_URL = "/Signal_Starter_Pack.pdf";
+const PDF_URL = "/manus-storage/Signal_Starter_Pack.pdf";
 
 export default function StarterPackPage() {
   const [firstName, setFirstName] = useState("");
