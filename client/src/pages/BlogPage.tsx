@@ -497,6 +497,17 @@ const ARTICLES: Article[] = [
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-wall-is-real.jpg",
   },
+  {
+    id: "the-exit-ramp",
+    title: "The Exit Ramp: How to Stop Running to Stand Still",
+    excerpt:
+      "There is a feeling going around right now that is difficult to shake. The Chinese have a word for it: neijuan, or involution. The treadmill keeps speeding up. Here is how to find the exit.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "7 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
 ];
 
 const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];
