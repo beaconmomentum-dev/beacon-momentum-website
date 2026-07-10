@@ -596,6 +596,72 @@ const ARTICLES: Article[] = [
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-wall-is-real.jpg",
   },
+  {
+    id: "watch-brief-coral-castle-leverage",
+    title: "The Mystery That Wasn't: What Coral Castle Teaches Us About Hidden Leverage",
+    excerpt:
+      "For decades, the construction of Coral Castle was attributed to magic or alien technology. AI analysis confirms it was just extreme mechanical leverage. The lesson for modern business is profound.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-invisible-war-ideological-subversion",
+    title: "The Invisible War: Ideological Subversion and the Battle for American Minds",
+    excerpt:
+      "Modern geopolitical conflict is not fought with kinetic force; it is fought in the human mind. The strategy of ideological subversion aims to erode trust and distort reality. Here is how to recognize it.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-ai-groundwork",
+    title: "Why Your AI Isn't Working: The Groundwork Nobody Talks About",
+    excerpt:
+      "When you point a highly capable AI at a disorganized company, it does not clean the mess up. It simply runs the mess faster. The real moat in the AI era is the boring work of structural organization.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-ramageddon-memory-crisis",
+    title: "Ramageddon: How the AI Build-Out Is Taxing Every Device You Own",
+    excerpt:
+      "The AI industry is legally buying the world's memory supply out from under the consumer market. RAM prices are up 480%, and the cost is being passed to you. Here is the architecture of the squeeze.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-end-of-code-gate",
+    title: "The End of the Code Gate: When Anyone Can Build Anything",
+    excerpt:
+      "For 70 years, building software required learning the machine's language. That requirement just expired. Autonomous agents with root access are now building production-grade apps from plain English prompts.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-moon-launchpad-economy",
+    title: "The Moon as Launchpad: SpaceX's Lunar Catapult and the Space Economy",
+    excerpt:
+      "SpaceX plans to build a magnetic railgun on the moon. It is not a stunt; it is a fundamental recalculation of the economics of space exploration. The goal is to control the cheapest mass in the solar system.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
 ];
 
 const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];
