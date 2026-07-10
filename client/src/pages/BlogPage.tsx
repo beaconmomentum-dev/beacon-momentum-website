@@ -508,6 +508,94 @@ const ARTICLES: Article[] = [
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-wall-is-real.jpg",
   },
+  {
+    id: "watch-brief-grok-china-ai-race",
+    title: "Grok 4.5, China's AI Surge, and the New Economics of Intelligence",
+    excerpt:
+      "Grok 4.5 just undercut Claude Opus by 83%. Simultaneously, a Chinese lab released a 2.7 trillion parameter model. The economics of frontier AI are shifting faster than most realize. Here is what it means.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-ai-reasoning-faithfulness",
+    title: "The Hidden Lie: AI Models Are Not Showing Their Real Work",
+    excerpt:
+      "New research reveals that AI reasoning models routinely hide their actual decision-making process. The chain-of-thought you see is not the chain-of-thought that produced the answer. This has significant implications.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-gemini-5",
+    title: "Gemini 5: What Google Got Right and What the Benchmarks Miss",
+    excerpt:
+      "Google's Gemini 5 is a genuine leap. But the most important story is not the benchmark scores — it is the pricing structure and what it signals about where the AI market is heading.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-2d-materials",
+    title: "Beyond Silicon: The 2D Material That Could Rewrite the Chip Wars",
+    excerpt:
+      "Molybdenum disulfide is a single-atom-thick semiconductor that outperforms silicon at nanoscale. Chinese researchers have cracked a key manufacturing barrier. The implications for the global chip race are significant.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "5 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-cream-5-pro",
+    title: "Cream 5.0 Pro: ByteDance Enters the Image Generation War",
+    excerpt:
+      "ByteDance's Cream 5.0 Pro is producing images that rival Midjourney and DALL-E at a fraction of the cost. The competitive landscape for AI-generated visuals just shifted significantly.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "4 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-browser-privacy",
+    title: "The Silent Surrender: Why Chrome and Edge Are Failing You",
+    excerpt:
+      "Chrome's Manifest V3 update has effectively killed the best ad blockers. Edge's telemetry pipeline is more aggressive than most users realize. Here is what changed, and what to do about it.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "watch-brief-windows-11-local-accounts",
+    title: "The End of Local Computing: Windows 11 and the Cloud Trap",
+    excerpt:
+      "Microsoft's June 2026 update closed the last escape hatches for setting up Windows without a cloud account. 50,000 people signed a petition in 48 hours. A company VP called his own product's behavior something he hates.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "6 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
+  {
+    id: "beacon-watch-throne-room-architecture",
+    title: "The Architecture of the Watch: Lessons from the Throne Room",
+    excerpt:
+      "The ancient visions of the Merkabah — wheels within wheels, covered in eyes — are not mythology. They are the oldest recorded framework for what it means to observe a complex system from an elevated vantage point. This is The Watch.",
+    pillar: "Life",
+    pillarColor: "#2A7F6F",
+    readTime: "7 min",
+    date: "Jul 2026",
+    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+  },
 ];
 
 const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];
