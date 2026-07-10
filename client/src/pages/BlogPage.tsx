@@ -597,6 +597,16 @@ const ARTICLES: Article[] = [
     thumbnail: "/images/hero-watch-wall-is-real.jpg",
   },
   {
+    id: "watch-brief-media-factory-runway-dev",
+    title: "The Media Factory: How Runway Dev Just Handed Enterprise Teams a One-API Creative Department",
+    excerpt: "Runway's new developer platform collapses the barrier to enterprise media production into a single API call — and the numbers behind it are staggering.",
+    category: "Watch Brief",
+    readTime: "5 min read",
+    pillar: "technology",
+    featured: false,
+    audioFile: "/audio/watch-brief-media-factory-runway-dev.mp3",
+  },
+  {
     id: "watch-brief-coral-castle-leverage",
     title: "The Mystery That Wasn't: What Coral Castle Teaches Us About Hidden Leverage",
     excerpt:
