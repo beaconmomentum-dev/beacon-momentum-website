@@ -597,6 +597,16 @@ const ARTICLES: Article[] = [
     thumbnail: "/images/hero-watch-wall-is-real.jpg",
   },
   {
+    id: "watch-brief-lyzr-grid-acceleration",
+    title: "The AI Fundraise and the Grid That Can't Keep Up: Two Sides of the Same Acceleration",
+    excerpt: "A startup just used an AI agent to run a $100M fundraise. Meanwhile, counties are rejecting data centers and grid commissioners are calling the power situation untenable. These are the same story.",
+    category: "Watch Brief",
+    readTime: "5 min read",
+    pillar: "technology",
+    featured: false,
+    audioFile: "/audio/watch-brief-lyzr-grid-acceleration.mp3",
+  },
+  {
     id: "watch-brief-media-factory-runway-dev",
     title: "The Media Factory: How Runway Dev Just Handed Enterprise Teams a One-API Creative Department",
     excerpt: "Runway's new developer platform collapses the barrier to enterprise media production into a single API call — and the numbers behind it are staggering.",
