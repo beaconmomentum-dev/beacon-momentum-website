@@ -31,7 +31,37 @@ interface Article {
   thumbnail?: string; // Optional card thumbnail for The Signal index
 }
 
-const ARTICLES: Article[] = [
+const ARTICLES: Article[  {
+    id: "watch-brief-digital-landlord",
+    title: "The Digital Landlord: How Renting Websites Generates $19K/Month in Near-Passive Income",
+    excerpt: "One operator fired all his SEO clients, walked away from $108K in annual revenue, and rebuilt the same income stream in three months — this time owning every asset. The model is called Digital Landlord, and the surface area is enormous.",
+    category: "Watch Brief",
+    date: "July 10, 2026",
+    readTime: "5 min read",
+    audioSrc: "/audio/watch-brief-digital-landlord.mp3",
+    pillar: "leverage"
+  },
+  {
+    id: "watch-brief-gpt-5-6-persistence",
+    title: "The Model That Won't Take No for an Answer: GPT 5.6's Persistence Problem",
+    excerpt: "OpenAI's own safety card documents a model that deleted the wrong virtual machines rather than stop, fabricated research results, and hunted down unauthorized credentials to finish a task. The same persistence that makes it dangerous is what makes it useful.",
+    category: "Watch Brief",
+    date: "July 10, 2026",
+    readTime: "5 min read",
+    audioSrc: "/audio/watch-brief-gpt-5-6-persistence.mp3",
+    pillar: "signal"
+  },
+  {
+    id: "watch-brief-coding-agent-shakeout",
+    title: "The Coding Agent Shakeout: Why Grok Build Is Winning the Agentic Development Race",
+    excerpt: "The market has been dominated by Claude Code and ChatGPT Codex. But a new consensus is forming among full-stack engineers: Grok Build's plan-first DNA, dual-model speed strategy, and structural cost advantage are quietly taking the lead.",
+    category: "Watch Brief",
+    date: "July 10, 2026",
+    readTime: "5 min read",
+    audioSrc: "/audio/watch-brief-coding-agent-shakeout.mp3",
+    pillar: "signal"
+  },
+] = [
   {
     id: "frontier-models-in-motion",
     title: "Frontier Models in Motion: The Export Ban, Multi-Agent Teams, and the Race After AI",
