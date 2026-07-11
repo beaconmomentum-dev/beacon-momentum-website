@@ -27,6 +27,48 @@ interface ArticleContent {
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[  {
+    id: "watch-brief-nine-to-zero-redistricting",
+    title: "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
+    category: "Watch Brief",
+    date: "July 10, 2026",
+    readTime: "6 min read",
+    audioFile: "/audio/watch-brief-nine-to-zero-redistricting.mp3",
+    pillar: "signal",
+    body: `
+## Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting
+
+The Supreme Court of the United States almost never moves fast. Its calendar is deliberate, its process methodical, its pace calibrated to the weight of the decisions it makes. When nine justices interrupt that calendar to issue an emergency ruling — and do so unanimously, with zero dissents — something has happened that the court believes cannot wait even one more day.
+
+That is exactly what happened in July 2026. And most Americans have no idea.
+
+## What the Court Found
+
+The case involved a federal district court that had been given explicit, binding instructions from the Supreme Court on how to handle a congressional redistricting challenge under Section 2 of the Voting Rights Act. Those instructions were not ambiguous. They established a clear framework — referred to in the ruling as the "Clay framework" — that required courts to separate racial discrimination claims from partisan advantage claims, honor the legitimate redistricting principles states actually use, and demand that any challenger's alternative map perform equally well across every single redistricting criterion, not just the ones favorable to the challenger's case.
+
+The district court received those instructions and then issued a ruling that nine justices unanimously agreed failed to apply them. Not a close call. Not a difficult interpretive question. A unanimous rebuke.
+
+## Three Errors That Shook the System
+
+The Supreme Court identified three specific constitutional failures in the lower court's conduct.
+
+The first was the most fundamental: the district court blocked the state legislature's map and replaced it with a map drawn by a court-appointed special master — an unelected official accountable to no voter. The court's justification was administrative convenience. The special master's map was already embedded in the election system, and changing it would be disruptive. The Supreme Court recognized this for what it was: a court protecting its own prior intervention from correction by claiming the intervention had become too entrenched to reverse. That is not judicial restraint. That is entrenchment.
+
+The second error struck at the presumption of legislative good faith. When a state legislature draws congressional maps, courts are constitutionally required to begin from the presumption that elected representatives are acting for legitimate reasons, not discriminatory ones. That presumption is not a courtesy. It is constitutional architecture that reflects the structure of democratic governance. The lower court inverted it entirely — and used the state's normal appellate activity, its legally protected right to challenge court orders through proper channels, as evidence of discriminatory intent. The Supreme Court was unambiguous: disagreeing with a court order through the proper appellate process is not evidence of bad faith. Using a party's legal advocacy against it in this way threatens the ability of any litigant to defend its position without that defense being weaponized against it.
+
+The third error involved the evidentiary standard for alternative maps. The Clay framework requires that a challenger's proposed alternative map perform equally well across all legitimate redistricting criteria. The lower court allowed a map that satisfied only the racial composition metrics favorable to the challenger's case while ignoring community integrity, geographic coherence, and incumbent pairing standards. Selective compliance with a binding framework is not compliance at all.
+
+## Why This Matters Beyond the Courtroom
+
+For every state legislature currently defending its congressional maps in federal court — and there are many — this ruling carries immediate practical significance. Courts across multiple circuits have been permitting challengers to use a state's litigation history, its patterns of appeal, its vigorous legal advocacy, as evidence of discriminatory intent. The Supreme Court just told every one of those courts that approach is constitutionally wrong.
+
+The deeper signal is structural. When unelected judicial officers can override the decisions of elected representatives, embed those overrides in the administrative machinery of elections, and then argue that the embedment itself justifies keeping the override in place, the accountability chain between voters and their government has been severed. The Supreme Court's emergency intervention was a recognition that this severance, left uncorrected, compounds with every election cycle that passes.
+
+Nine justices. Zero dissents. The constitutional guardrails held — this time.
+
+*The Lighthouse Is Lit. Join Us at The Watch.*
+    `
+  },
+  {
     id: "watch-brief-digital-landlord",
     title: "The Digital Landlord: How Renting Websites Generates $19K/Month in Near-Passive Income",
     category: "Watch Brief",

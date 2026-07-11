@@ -32,6 +32,16 @@ interface Article {
 }
 
 const ARTICLES: Article[  {
+    id: "watch-brief-nine-to-zero-redistricting",
+    title: "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
+    excerpt: "Nine justices. Zero dissents. An emergency ruling issued at a speed SCOTUS almost never moves at. The court found a federal district court had inverted the presumption of legislative good faith and used a state's own legal advocacy against it. Here is what actually happened.",
+    category: "Watch Brief",
+    date: "July 10, 2026",
+    readTime: "6 min read",
+    audioSrc: "/audio/watch-brief-nine-to-zero-redistricting.mp3",
+    pillar: "signal"
+  },
+  {
     id: "watch-brief-digital-landlord",
     title: "The Digital Landlord: How Renting Websites Generates $19K/Month in Near-Passive Income",
     excerpt: "One operator fired all his SEO clients, walked away from $108K in annual revenue, and rebuilt the same income stream in three months — this time owning every asset. The model is called Digital Landlord, and the surface area is enormous.",
