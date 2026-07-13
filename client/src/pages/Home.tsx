@@ -1515,7 +1515,7 @@ function LabsSignal() {
               fontWeight: 400, fontSize: "0.975rem",
               lineHeight: 1.75, color: "rgba(250,248,244,0.72)",
             }}>
-              The Beacon Signal Check queries ChatGPT, Gemini, Perplexity, and Claude with the exact prompts your customers are using — and scores how often and how accurately your business appears. Free. No sales call. Delivered within 24 hours.
+              The Beacon Signal Check queries ChatGPT, Gemini, Perplexity, and Claude with the exact prompts your customers are using — and scores how often and how accurately your business appears. Free. No sales call. Report delivered automatically — typically within the hour.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "flex-start" }}>
@@ -1558,6 +1558,119 @@ function LabsSignal() {
               Visit Beacon Labs →
             </a>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Field Guides ─────────────────────────────────────────────────────────────
+function FieldGuides() {
+  const ref = useFadeUp();
+  const guides = [
+    { title: "The AI-Era Solopreneur Playbook", desc: "Build a one-person business that runs on AI infrastructure, not hustle." },
+    { title: "Signal Check: Be Found in AI Search", desc: "The step-by-step guide to making your business visible to ChatGPT, Gemini, and Perplexity." },
+    { title: "The Veterans Blueprint", desc: "Translate military-grade discipline into AI-era economic power." },
+    { title: "From Burnout to Builder", desc: "A structured path from exhaustion to a business that works without burning you down." },
+    { title: "The Watch Starter Kit", desc: "Everything you need to start navigating the AI transition with clear eyes and practical tools." },
+  ];
+  return (
+    <section style={{ background: "var(--beacon-parchment)", padding: "6rem 0", borderTop: "1px solid rgba(10,22,40,0.08)" }}>
+      <div className="container">
+        <div ref={ref} className="fade-up" style={{ marginBottom: "3.5rem" }}>
+          <span style={{
+            fontFamily: "'Outfit', system-ui, sans-serif",
+            fontWeight: 400, fontSize: "0.7rem",
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "var(--beacon-teal)",
+            display: "flex", alignItems: "center", gap: "0.75rem",
+            marginBottom: "1rem",
+          }}>
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-teal)", display: "inline-block" }} />
+            Beacon Field Guides
+          </span>
+          <h2 style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 600, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+            lineHeight: 1.15, letterSpacing: "-0.02em",
+            color: "var(--beacon-charcoal)",
+            marginBottom: "1rem", maxWidth: "640px",
+          }}>
+            Practical intelligence.<br />
+            <em style={{ fontStyle: "italic", color: "rgba(10,22,40,0.65)" }}>Built for the transition you are already in.</em>
+          </h2>
+          <p style={{
+            fontFamily: "'Lora', Georgia, serif",
+            fontWeight: 400, fontSize: "0.975rem",
+            lineHeight: 1.75, color: "rgba(10,22,40,0.65)",
+            maxWidth: "560px",
+          }}>
+            Five focused guides — each one built around a specific challenge, a specific person, and a specific outcome. No filler. No theory without application.
+          </p>
+        </div>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+          gap: "1.5rem",
+          marginBottom: "3rem",
+        }}>
+          {guides.map((g, i) => (
+            <div key={i} style={{
+              background: "#fff",
+              border: "1px solid rgba(10,22,40,0.08)",
+              padding: "1.75rem",
+              transition: "box-shadow 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 4px 24px rgba(10,22,40,0.10)")}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+            >
+              <div style={{
+                width: "2rem", height: "2px",
+                background: "var(--beacon-amber)",
+                marginBottom: "1.25rem",
+              }} />
+              <h3 style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontWeight: 600, fontSize: "1.1rem",
+                lineHeight: 1.3, letterSpacing: "-0.01em",
+                color: "var(--beacon-charcoal)",
+                marginBottom: "0.75rem",
+              }}>{g.title}</h3>
+              <p style={{
+                fontFamily: "'Lora', Georgia, serif",
+                fontWeight: 400, fontSize: "0.875rem",
+                lineHeight: 1.7, color: "rgba(10,22,40,0.6)",
+              }}>{g.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+          <a
+            href="/guides"
+            style={{
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontWeight: 500, fontSize: "0.9rem",
+              letterSpacing: "0.04em",
+              padding: "0.875rem 2rem",
+              background: "var(--beacon-charcoal)",
+              color: "#FAF8F4",
+              textDecoration: "none",
+              display: "inline-block",
+              transition: "background 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "var(--beacon-teal)")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "var(--beacon-charcoal)")}
+          >
+            Browse All Field Guides
+          </a>
+          <span style={{
+            fontFamily: "'Outfit', system-ui, sans-serif",
+            fontWeight: 400, fontSize: "0.8rem",
+            letterSpacing: "0.06em",
+            color: "rgba(10,22,40,0.45)",
+          }}>
+            Starting at $9
+          </span>
         </div>
       </div>
     </section>
@@ -1810,6 +1923,7 @@ export default function Home() {
       <TrustEngine />
       <TheWatch />
       <LabsSignal />
+      <FieldGuides />
       <Newsletter />
       <SharedFooter />
     </div>
