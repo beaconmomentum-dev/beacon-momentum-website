@@ -493,7 +493,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-05-ghost-particle.jpg",
   },
   {
     id: "watch-brief-06-maya-collapse",
@@ -504,7 +504,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-06-maya-collapse.jpg",
   },
   {
     id: "watch-brief-07-voynich-manuscript",
@@ -515,7 +515,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-07-voynich-manuscript.jpg",
   },
   {
     id: "watch-brief-08-claude-fable-5",
@@ -526,7 +526,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-08-claude-fable-5.jpg",
   },
   {
     id: "watch-brief-09-ai-arms-race",
@@ -537,7 +537,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-09-ai-arms-race.jpg",
   },
   {
     id: "the-exit-ramp",
@@ -548,7 +548,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "7 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-the-exit-ramp.jpg",
   },
   {
     id: "watch-brief-grok-china-ai-race",
@@ -559,7 +559,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-grok-china-ai-race.jpg",
   },
   {
     id: "watch-brief-ai-reasoning-faithfulness",
@@ -570,7 +570,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-ai-reasoning-faithfulness.jpg",
   },
   {
     id: "watch-brief-gemini-5",
@@ -581,7 +581,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-gemini-5.jpg",
   },
   {
     id: "watch-brief-2d-materials",
@@ -592,7 +592,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-2d-materials.jpg",
   },
   {
     id: "watch-brief-cream-5-pro",
@@ -603,7 +603,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "4 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-cream-5-pro.jpg",
   },
   {
     id: "watch-brief-browser-privacy",
@@ -614,7 +614,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-browser-privacy.jpg",
   },
   {
     id: "watch-brief-windows-11-local-accounts",
@@ -625,7 +625,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-windows-11-local-accounts.jpg",
   },
   {
     id: "beacon-watch-throne-room-architecture",
@@ -636,7 +636,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "7 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-beacon-watch-throne-room-architecture.jpg",
   },
   {
     id: "watch-brief-grok-accountability-gap",
@@ -757,7 +757,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-coral-castle-leverage.jpg",
   },
   {
     id: "watch-brief-invisible-war-ideological-subversion",
@@ -768,7 +768,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-invisible-war-ideological-subversion.jpg",
   },
   {
     id: "watch-brief-ai-groundwork",
@@ -779,7 +779,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-ai-groundwork.jpg",
   },
   {
     id: "watch-brief-ramageddon-memory-crisis",
@@ -790,7 +790,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-ramageddon-memory-crisis.jpg",
   },
   {
     id: "watch-brief-end-of-code-gate",
@@ -801,7 +801,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-end-of-code-gate.jpg",
   },
   {
     id: "watch-brief-moon-launchpad-economy",
@@ -812,7 +812,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/hero-watch-brief-moon-launchpad-economy.jpg",
   },
 ];
 
