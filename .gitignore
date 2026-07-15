@@ -32,3 +32,4 @@ client/public/__manus__/
 
 # Wrangler
 .wrangler/
+.env.production

@@ -18,7 +18,7 @@ const redirectToLoginIfUnauthorized = (error: unknown) => {
 
   if (!isUnauthorized) return;
 
-  window.location.href = getLoginUrl();
+  // window.location.href = getLoginUrl(); // Disabled: public site - no global auth redirect
 };
 
 queryClient.getQueryCache().subscribe(event => {
