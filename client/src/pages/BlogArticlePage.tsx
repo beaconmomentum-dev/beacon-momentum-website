@@ -23,10 +23,13 @@ interface ArticleContent {
   heroImage?: string; // optional hero image shown below the article header
   audioSrc?: string;  // optional MP3 audio narration for the Listen button
   body: string; // HTML string for article body
+  category?: string; // Optional category label
+  audioFile?: string; // Optional audio file path (alias for audioSrc)
 }
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
-const ARTICLE_CONTENT: ArticleContent[  {
+const ARTICLE_CONTENT: ArticleContent[] = [
+  {
     id: "watch-brief-nine-to-zero-redistricting",
     title: "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
     category: "Watch Brief",
@@ -200,7 +203,6 @@ For an enterprise building its internal workflows around a specific coding agent
 *The Lighthouse Is Lit. Join Us at The Watch.*
     `
   },
-] = [
   {
     id: "founders-framework-america-250",
     heroImage: "/images/hero-founders-framework.jpg",

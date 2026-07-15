@@ -5,6 +5,7 @@
  * This prevents a broken build from ever reaching production.
  */
 
+import { config } from 'dotenv'; config();
 // Required for the CLIENT build (baked into the JS bundle at build time)
 const REQUIRED_CLIENT = [
   "VITE_OAUTH_PORTAL_URL",   // OAuth portal URL (e.g. https://app.beaconmomentum.com)

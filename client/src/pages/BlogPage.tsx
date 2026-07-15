@@ -29,9 +29,12 @@ interface Article {
   date: string;
   featured?: boolean;
   thumbnail?: string; // Optional card thumbnail for The Signal index
+  audioSrc?: string; // Optional audio file for Watch Brief audio player
+  category?: string; // Optional category label
 }
 
-const ARTICLES: Article[  {
+const ARTICLES = [
+  {
     id: "watch-brief-nine-to-zero-redistricting",
     title: "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
     excerpt: "Nine justices. Zero dissents. An emergency ruling issued at a speed SCOTUS almost never moves at. The court found a federal district court had inverted the presumption of legislative good faith and used a state's own legal advocacy against it. Here is what actually happened.",
@@ -71,7 +74,6 @@ const ARTICLES: Article[  {
     audioSrc: "/audio/watch-brief-coding-agent-shakeout.mp3",
     pillar: "signal"
   },
-] = [
   {
     id: "frontier-models-in-motion",
     title: "Frontier Models in Motion: The Export Ban, Multi-Agent Teams, and the Race After AI",
@@ -361,7 +363,7 @@ const ARTICLES: Article[  {
   },
   {
     id: "myth-of-the-safe-industry",
-    title: "The Myth of the \"Safe\" Industry",
+    title: "The Myth of the Safe Industry",
     excerpt:
       "There are no safe industries left. The AI transition is sector-agnostic. If your defense strategy is to hide in a legacy institution, you are waiting for the tide to wash you out.",
     pillar: "Work",

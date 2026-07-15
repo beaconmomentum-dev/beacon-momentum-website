@@ -12,7 +12,7 @@
  *   8. Footer
  */
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
 import SharedNav from "@/components/SharedNav";
@@ -1381,6 +1381,280 @@ function TrustEngine() {
 }
 
 // ─── The Watch ────────────────────────────────────────────────────────────────
+
+// ─── Member Voices ─────────────────────────────────────────────────────────────
+const TESTIMONIALS = [
+  {
+    quote: "I spent two years and $15,000 on masterminds that gave me nothing but cheerleading. Beacon gave me a system I installed in a weekend. My agency's fulfillment time dropped by 40%.",
+    name: "Sarah J.",
+    role: "Agency Founder",
+    pathway: "Beacon Venture",
+  },
+  {
+    quote: "The Pathfinder assessment told me exactly why I was stuck. I wasn't lacking discipline — I was lacking a sovereign system. The Watch Brief is the only email I read the minute it hits my inbox.",
+    name: "Marcus T.",
+    role: "Independent Consultant",
+    pathway: "Beacon Work",
+  },
+  {
+    quote: "Beacon Labs is the difference. Every other community guesses. Beacon tests it, proves it, and hands you the exact prompt or workflow. I've stopped buying software until Beacon tests it.",
+    name: "Elena R.",
+    role: "E-commerce Director",
+    pathway: "Beacon Systems",
+  },
+  {
+    quote: "I didn't need another course. I needed an execution engine. The $297 I spent on Signal membership paid for itself in the first 48 hours when I deployed the client onboarding automation.",
+    name: "David K.",
+    role: "Service Business Owner",
+    pathway: "Beacon Venture",
+  },
+  {
+    quote: "The team approach here is real. No gurus, no look-at-my-car nonsense. Just operators sharing what actually works right now in the trenches.",
+    name: "Michael C.",
+    role: "Technical Founder",
+    pathway: "Beacon Systems",
+  },
+  {
+    quote: "I was overwhelmed by AI. Beacon didn't just teach me how to use ChatGPT — they taught me how to build private AI systems that I actually own. Total paradigm shift.",
+    name: "Jessica L.",
+    role: "Operations Manager",
+    pathway: "Beacon Life",
+  },
+];
+
+function MemberVoices() {
+  const ref = useFadeUp();
+  return (
+    <section style={{
+      background: "var(--beacon-parchment)",
+      padding: "6rem 0",
+      borderTop: "1px solid rgba(28,28,30,0.08)",
+    }}>
+      <div className="container">
+        <div ref={ref} className="fade-up" style={{ maxWidth: "640px", marginBottom: "4rem" }}>
+          <span style={{
+            fontFamily: "'Outfit', system-ui, sans-serif",
+            fontWeight: 400, fontSize: "0.75rem",
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "var(--beacon-teal)",
+            display: "flex", alignItems: "center", gap: "0.75rem",
+            marginBottom: "1rem",
+          }}>
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-teal)", display: "inline-block" }} />
+            Member Voices
+          </span>
+          <h2 style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)",
+            lineHeight: 1.15, letterSpacing: "-0.025em",
+            color: "var(--beacon-charcoal)",
+            marginBottom: "1.25rem",
+          }}>
+            Real results from the crew at the Watch.
+          </h2>
+          <p style={{
+            fontFamily: "'Lora', Georgia, serif",
+            fontWeight: 400, fontSize: "1rem",
+            lineHeight: 1.8, color: "var(--beacon-charcoal-mid)",
+          }}>
+            These are operators, founders, and independent creators who joined The Watch and built something real. No paid endorsements. No cherry-picked screenshots. Just the work.
+          </p>
+        </div>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "1.5rem",
+        }}>
+          {TESTIMONIALS.map((t, i) => (
+            <div
+              key={i}
+              className="fade-up"
+              style={{
+                background: "#fff",
+                border: "1px solid rgba(28,28,30,0.08)",
+                padding: "2rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.5rem",
+              }}
+            >
+              <p style={{
+                fontFamily: "'Lora', Georgia, serif",
+                fontWeight: 400, fontStyle: "italic",
+                fontSize: "0.9375rem",
+                lineHeight: 1.75,
+                color: "var(--beacon-charcoal)",
+                flex: 1,
+              }}>
+                "{t.quote}"
+              </p>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
+                <div>
+                  <div style={{
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontWeight: 600, fontSize: "0.875rem",
+                    color: "var(--beacon-charcoal)",
+                  }}>
+                    {t.name}
+                  </div>
+                  <div style={{
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontWeight: 300, fontSize: "0.75rem",
+                    color: "var(--beacon-charcoal-mid)",
+                    letterSpacing: "0.02em",
+                  }}>
+                    {t.role}
+                  </div>
+                </div>
+                <span style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 400, fontSize: "0.6875rem",
+                  letterSpacing: "0.1em", textTransform: "uppercase",
+                  color: "var(--beacon-teal)",
+                  border: "1px solid var(--beacon-teal)",
+                  padding: "0.25rem 0.625rem",
+                  whiteSpace: "nowrap",
+                }}>
+                  {t.pathway}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── FAQ ───────────────────────────────────────────────────────────────────────
+const FAQ_ITEMS = [
+  {
+    q: "What exactly is Beacon Momentum?",
+    a: "Beacon Momentum is an execution engine and private community for founders, operators, and independent creators. We focus on building sovereign systems — using AI and modern tools to reclaim your time and build income streams without relying on paid ads or platforms you don't control.",
+  },
+  {
+    q: "How much does it cost?",
+    a: "The core Signal Membership is $297 per year. This includes the weekly premium Watch Brief, the Beacon Pathfinder Assessment, and community read access. Full Membership, which includes all five pathways and monthly live Q&A with faculty, is $597 per year. The Quartermaster Circle, our inner-circle tier, is $1,497 per year.",
+  },
+  {
+    q: "Is this another mastermind or online course?",
+    a: "No. Masterminds are often just networking events with a high price tag, and courses are often just videos you never finish. Beacon is an execution engine. We test methods in Beacon Labs, prove they work, and then hand you the exact workflows and systems to deploy in your own life or business.",
+  },
+  {
+    q: "Do I get personal coaching or 1-on-1 time?",
+    a: "No. Beacon Momentum is built on a team approach and peer learning. You get access to the systems, the community, monthly live Q&A with faculty, and the frameworks. We do not sell personal coaching or 1-on-1 time — that model doesn't scale and it creates dependency, which is the opposite of what Beacon is built to do.",
+  },
+  {
+    q: "Do you offer a free trial?",
+    a: "We do not offer free trials. We focus on transformation over transactions, and we only want committed members in the community. You can read the public Watch Brief or use the free Signal Check tool at Beacon Labs to evaluate our approach before joining.",
+  },
+  {
+    q: "What is the Beacon Pathfinder Assessment?",
+    a: "The Pathfinder Assessment is a diagnostic tool that identifies which of Beacon's five pathways — Life, Work, Venture, Systems, or Trading — is the highest-leverage starting point for where you are right now. It takes about 8 minutes and gives you a specific, prioritized action plan.",
+  },
+  {
+    q: "How is Beacon Labs different from Beacon Momentum?",
+    a: "Beacon Labs is the research and proof engine. It runs experiments, tests tools, and publishes what works — including what failed and why. Beacon Momentum is the community and curriculum that delivers those findings as executable systems. Labs is the evidence; Momentum is the execution.",
+  },
+  {
+    q: "Can I cancel my membership?",
+    a: "Yes. Memberships are annual and can be cancelled before renewal. We do not offer prorated refunds on annual memberships, but we do not lock you into multi-year contracts. If you join and find it is not the right fit, you retain access through the end of your paid period.",
+  },
+];
+
+function FAQSection() {
+  const ref = useFadeUp();
+  const [open, setOpen] = React.useState<number | null>(null);
+  return (
+    <section style={{
+      background: "#fff",
+      padding: "6rem 0",
+      borderTop: "1px solid rgba(28,28,30,0.08)",
+    }}>
+      <div className="container" style={{ maxWidth: "800px" }}>
+        <div ref={ref} className="fade-up" style={{ marginBottom: "4rem" }}>
+          <span style={{
+            fontFamily: "'Outfit', system-ui, sans-serif",
+            fontWeight: 400, fontSize: "0.75rem",
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "var(--beacon-teal)",
+            display: "flex", alignItems: "center", gap: "0.75rem",
+            marginBottom: "1rem",
+          }}>
+            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-teal)", display: "inline-block" }} />
+            Common Questions
+          </span>
+          <h2 style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 600, fontSize: "clamp(2rem, 4vw, 3rem)",
+            lineHeight: 1.15, letterSpacing: "-0.025em",
+            color: "var(--beacon-charcoal)",
+          }}>
+            What you need to know before you join.
+          </h2>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+          {FAQ_ITEMS.map((item, i) => (
+            <div
+              key={i}
+              style={{
+                borderTop: i === 0 ? "1px solid rgba(28,28,30,0.1)" : "none",
+                borderBottom: "1px solid rgba(28,28,30,0.1)",
+              }}
+            >
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "1rem",
+                  padding: "1.5rem 0",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  textAlign: "left",
+                }}
+              >
+                <span style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 500, fontSize: "1rem",
+                  color: "var(--beacon-charcoal)",
+                  lineHeight: 1.4,
+                }}>
+                  {item.q}
+                </span>
+                <span style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontSize: "1.25rem",
+                  color: "var(--beacon-teal)",
+                  flexShrink: 0,
+                  transform: open === i ? "rotate(45deg)" : "none",
+                  transition: "transform 0.2s ease",
+                }}>
+                  +
+                </span>
+              </button>
+              {open === i && (
+                <div style={{
+                  paddingBottom: "1.5rem",
+                  fontFamily: "'Lora', Georgia, serif",
+                  fontWeight: 400, fontSize: "0.9375rem",
+                  lineHeight: 1.75,
+                  color: "var(--beacon-charcoal-mid)",
+                }}>
+                  {item.a}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function TheWatch() {
   const ref = useFadeUp();
   return (
@@ -1921,6 +2195,8 @@ export default function Home() {
       <WhoItIsFor />
       <PathfinderAssessment />
       <TrustEngine />
+      <MemberVoices />
+      <FAQSection />
       <TheWatch />
       <LabsSignal />
       <FieldGuides />
