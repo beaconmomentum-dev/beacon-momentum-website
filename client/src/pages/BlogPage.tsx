@@ -35,6 +35,18 @@ interface Article {
 
 const ARTICLES = [
   {
+    id: "3-ai-business-models-launch-this-weekend",
+    title: "3 AI Business Models You Can Launch This Weekend (That Actually Build Legacy)",
+    excerpt: "There is a massive difference between launching a page and launching a legacy. The real opportunity is not in the tools \u2014 it is in the system. Here are the only three AI business models worth your time, and why the Draft and Approve method is the only sustainable path.",
+    category: "Beacon Systems",
+    date: "July 17, 2026",
+    readTime: "5 min read",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    thumbnail: "/images/blog-3ai-business-models.png",
+    featured: true,
+  },
+  {
     id: "watch-brief-nine-to-zero-redistricting",
     thumbnail: "/images/hero-watch-brief-nine-to-zero-redistricting.jpg",
     title: "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
