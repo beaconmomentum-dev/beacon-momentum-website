@@ -76,7 +76,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
 
 <p>If you are ready to stop kicking tires and start building your legacy, you need to know which of these three models fits your unique experience best.</p>
 
-<p><a href=\"https://beaconmomentum.com/assessment\">Take our free Beacon Assessment</a>. It takes two minutes, and it will tell you exactly which pathway\u2014Circle, Work, or Systems\u2014is the right starting point for your journey.</p>
+<p><a href="https://beaconmomentum.com/assessment">Take our free Beacon Assessment</a>. It takes two minutes, and it will tell you exactly which pathway\u2014Circle, Work, or Systems\u2014is the right starting point for your journey.</p>
 
 <p><em>The lighthouse is lit. Join us at the watch.</em></p>
     `
