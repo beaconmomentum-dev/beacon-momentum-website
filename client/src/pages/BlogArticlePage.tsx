@@ -2044,6 +2044,7 @@ For an enterprise building its internal workflows around a specific coding agent
     pillarColor: "#3D5A80",
     readTime: "7 min",
     date: "Jul 2026",
+    audioSrc: "/audio/signal-exit-ramp.mp3",
     body: `
       <p class="beacon-article-lede">There is a feeling going around right now that is difficult to shake. You wake up, you put in the hours, you optimize your schedule, and yet, at the end of the month, you find yourself in the exact same place. You are working twice as hard just to maintain the status quo.</p>
       <p>The Chinese have a word for this: <em>neijuan</em>, or involution. It describes a society that is trapped in an endless cycle of intensifying competition, where the effort required to survive keeps rising, but the rewards do not. It is the treadmill that keeps speeding up.</p>
