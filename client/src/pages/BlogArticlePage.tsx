@@ -38,6 +38,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillar: "Systems",
     pillarColor: "#3D5A80",
     heroImage: "/images/blog-3ai-business-models.png",
+    audioSrc: "/audio/blog-3ai-business-models.mp3",
     excerpt: "There is a massive difference between launching a page and launching a legacy. The real opportunity is not in the tools \u2014 it is in the system.",
     body: `
 <p class="beacon-article-lede">If you\u2019ve been online at all this week, you\u2019ve seen the ads. \u201cBuild a $10,000-a-month business with one AI prompt.\u201d \u201cLet AI be your technical co-founder, marketing team, and web developer.\u201d</p>
