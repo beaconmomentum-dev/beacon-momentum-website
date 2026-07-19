@@ -510,6 +510,7 @@ const ARTICLES = [
     readTime: "6 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-05-ghost-particle.jpg",
+    audioFile: "/audio/watch-brief-05-ghost-particle.mp3",
   },
   {
     id: "watch-brief-06-maya-collapse",
@@ -521,6 +522,7 @@ const ARTICLES = [
     readTime: "6 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-06-maya-collapse.jpg",
+    audioFile: "/audio/watch-brief-06-maya-collapse.mp3",
   },
   {
     id: "watch-brief-07-voynich-manuscript",
@@ -532,6 +534,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-07-voynich-manuscript.jpg",
+    audioFile: "/audio/watch-brief-07-voynich-manuscript.mp3",
   },
   {
     id: "watch-brief-08-claude-fable-5",
@@ -543,6 +546,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-08-claude-fable-5.jpg",
+    audioFile: "/audio/watch-brief-08-claude-fable-5.mp3",
   },
   {
     id: "watch-brief-09-ai-arms-race",
@@ -554,6 +558,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-09-ai-arms-race.jpg",
+    audioFile: "/audio/watch-brief-09-ai-arms-race.mp3",
   },
   {
     id: "the-exit-ramp",
@@ -576,6 +581,7 @@ const ARTICLES = [
     readTime: "6 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-grok-china-ai-race.jpg",
+    audioFile: "/audio/watch-brief-grok-china-ai-race.mp3",
   },
   {
     id: "watch-brief-ai-reasoning-faithfulness",
@@ -587,6 +593,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-ai-reasoning-faithfulness.jpg",
+    audioFile: "/audio/watch-brief-ai-reasoning-faithfulness.mp3",
   },
   {
     id: "watch-brief-gemini-5",
@@ -598,6 +605,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-gemini-5.jpg",
+    audioFile: "/audio/watch-brief-gemini-5.mp3",
   },
   {
     id: "watch-brief-2d-materials",
@@ -609,6 +617,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-2d-materials.jpg",
+    audioFile: "/audio/watch-brief-2d-materials.mp3",
   },
   {
     id: "watch-brief-cream-5-pro",
@@ -620,6 +629,7 @@ const ARTICLES = [
     readTime: "4 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-cream-5-pro.jpg",
+    audioFile: "/audio/watch-brief-cream-5-pro.mp3",
   },
   {
     id: "watch-brief-browser-privacy",
@@ -631,6 +641,7 @@ const ARTICLES = [
     readTime: "6 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-browser-privacy.jpg",
+    audioFile: "/audio/watch-brief-browser-privacy.mp3",
   },
   {
     id: "watch-brief-windows-11-local-accounts",
@@ -642,6 +653,7 @@ const ARTICLES = [
     readTime: "6 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-windows-11-local-accounts.jpg",
+    audioFile: "/audio/watch-brief-windows-11-local-accounts.mp3",
   },
   {
     id: "beacon-watch-throne-room-architecture",
@@ -785,6 +797,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-coral-castle-leverage.jpg",
+    audioFile: "/audio/watch-brief-coral-castle-leverage.mp3",
   },
   {
     id: "watch-brief-invisible-war-ideological-subversion",
@@ -796,6 +809,7 @@ const ARTICLES = [
     readTime: "6 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-invisible-war-ideological-subversion.jpg",
+    audioFile: "/audio/watch-brief-invisible-war-ideological-subversion.mp3",
   },
   {
     id: "watch-brief-ai-groundwork",
@@ -807,6 +821,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-ai-groundwork.jpg",
+    audioFile: "/audio/watch-brief-ai-groundwork.mp3",
   },
   {
     id: "watch-brief-ramageddon-memory-crisis",
@@ -818,6 +833,7 @@ const ARTICLES = [
     readTime: "6 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-ramageddon-memory-crisis.jpg",
+    audioFile: "/audio/watch-brief-ramageddon-memory-crisis.mp3",
   },
   {
     id: "watch-brief-end-of-code-gate",
@@ -829,6 +845,7 @@ const ARTICLES = [
     readTime: "5 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-end-of-code-gate.jpg",
+    audioFile: "/audio/watch-brief-end-of-code-gate.mp3",
   },
   {
     id: "watch-brief-moon-launchpad-economy",
@@ -840,6 +857,7 @@ const ARTICLES = [
     readTime: "6 min",
     date: "Jul 2026",
     thumbnail: "/images/hero-watch-brief-moon-launchpad-economy.jpg",
+    audioFile: "/audio/watch-brief-moon-launchpad-economy.mp3",
   },
 ];
 
