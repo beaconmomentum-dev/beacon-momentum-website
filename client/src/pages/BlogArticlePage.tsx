@@ -2616,6 +2616,53 @@ const ARTICLE_CONTENT: ArticleContent[] = [
       <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at The Watch.</p>
     `,
   },
+  {
+    id: "watch-brief-tesla-semi-freight",
+    title: "The Number That Controls the Price of Everything — And Why It's Moving",
+    date: "July 22, 2026",
+    category: "Watch Brief",
+    pillar: "signal",
+    pillarColor: "#1a3a5c",
+    heroImage: "/images/hero-watch-brief-tesla-semi.jpg",
+    body: `
+      <p class="beacon-article-lead">There is a number embedded in the price of almost everything you buy. It is not the cost of the product itself, the labor to make it, or the margin the retailer takes. It is the cost of moving the product — from factory to warehouse to store shelf to your door. That number is called <strong>cost per mile</strong>, and for the last hundred years it has been owned by diesel.</p>
+      <p>Not because diesel is particularly elegant or efficient, but because it was cheap enough and reliable enough that nothing on the planet could compete with it. In April 2026, at a factory in Nevada, that changed.</p>
+      <p>Tesla's Semi — announced in 2017, delayed repeatedly, and finally rolling off a mass-production line this year — is now operating commercially at scale. PepsiCo, which took its first units in December 2022, is running approximately 50 of them across four California facilities. Their electrification program manager has stated publicly that the Tesla Semi delivers a lower cost solution over time. That is not a press release. That is an operational conclusion from a company that moves billions of dollars of freight every year.</p>
+      <h2>The Economics, Plainly Stated</h2>
+      <p>The American Transportation Research Institute publishes the definitive annual cost breakdown for operating a Class 8 diesel truck in the United States. Their most recent figure: <strong>$2.26 per mile, all-in</strong>. Here is how that breaks down:</p>
+      <ul>
+        <li><strong>Driver wages + benefits:</strong> ~$1.00/mile (~44% of total)</li>
+        <li><strong>Vehicle financing:</strong> ~$0.39/mile (~17%)</li>
+        <li><strong>Fuel:</strong> ~$0.48/mile (~21%)</li>
+        <li><strong>Maintenance + repair:</strong> ~$0.19/mile (~8%)</li>
+        <li><strong>Insurance, tires, permits:</strong> ~$0.20/mile (~9%)</li>
+      </ul>
+      <p>The first thing this reveals is counterintuitive: <strong>diesel trucking is primarily a labor and maintenance business that happens to also burn fuel.</strong> Fuel is less than a quarter of the total cost.</p>
+      <p>The Tesla Semi addresses two of those line items simultaneously. On fuel, PepsiCo's real-world data shows the Semi consuming approximately 1.7 kWh per mile under heavy load — translating to roughly $0.20–$0.30 per mile in energy costs at commercial electricity rates, compared to $0.80–$0.90 per mile for diesel at current prices. That is a 65–75% reduction on fuel alone.</p>
+      <p>On maintenance, the comparison is more dramatic. A diesel drivetrain contains thousands of moving parts — engine, multi-speed transmission, exhaust aftertreatment systems, DEF fluid, regular oil changes. An electric drivetrain has almost none of those. Current estimates put Tesla Semi maintenance at approximately <strong>$0.06 per mile</strong>, compared to $0.19–$0.20 for diesel. That is a 70% reduction on one of the largest line items in the business.</p>
+      <h2>The Two-Phase Disruption</h2>
+      <p>It is important to be precise about what is happening now versus what is coming.</p>
+      <p><strong>Phase One (underway now):</strong> Electric trucks strip out the fuel cost and most of the maintenance cost. The driver remains. PepsiCo's drivers reportedly prefer the Semi — it is quieter, smoother, and produces less vibration over long hauls. Phase One does not eliminate jobs. It reduces operating costs and, in many cases, improves working conditions.</p>
+      <p><strong>Phase Two (2030–2035 horizon):</strong> Autonomous trucking strips out the driver cost on specific route types. Companies like Aurora and Kodiak are already running fully driverless trucks on defined highway corridors in Texas and Arizona. The realistic projection from industry analysts is that 30–50% of long-haul highway miles could be autonomous within that window — specifically the long, straight, exit-to-exit interstate segments that are easiest to automate.</p>
+      <p>When both phases are complete, the cost per mile of trucking falls toward <strong>rail economics</strong> — approximately $0.02–$0.05 per ton-mile — while retaining the flexibility of a truck. The vehicle goes anywhere there is a road, at nearly the cost of a train. That combination has never existed before.</p>
+      <h2>Why This Is Bigger Than It Looks</h2>
+      <p>The implications extend well beyond the trucking industry itself.</p>
+      <p>For the last century, <strong>distance has functioned as a tax on commerce</strong>. Because moving things was expensive, the entire physical structure of the global economy was built to minimize freight costs: giant factories located where labor was cheapest, massive centralized warehouses designed to spread shipping costs across enormous batches, supply chains stretched across oceans because the math penciled out.</p>
+      <p>When freight becomes genuinely cheap, every one of those decisions has to be made again. Reshoring manufacturing stops being a political argument and becomes a straightforward cost calculation. Distributed warehousing becomes economically viable. Smaller production runs, more frequent replenishment, and regional supply chains all become competitive with the current model.</p>
+      <p>We have seen this before. In 1956, Malcolm McLean standardized the shipping container. Before the container, loading cargo onto a ship cost approximately $5.86 per ton. After: $0.16 per ton. A 97% reduction. Global trade on routes that adopted the container grew by 900% or more within fifteen years. The entire structure of modern global commerce — make it in Asia, sell it in America — is downstream of one metal box that made distance cheap.</p>
+      <p>The autonomous electric truck is that metal box, applied to the inland leg of freight. The part that happens after the ship, on the roads between the port and the consumer.</p>
+      <h2>What to Watch</h2>
+      <p>The disruption is not imminent in the sense of happening next quarter. But it is directionally certain in a way that most economic shifts are not. The technology exists, it is in commercial operation, and the economics are already favorable for specific use cases.</p>
+      <p>For builders and business owners, the relevant questions are:</p>
+      <p><strong>Where does your supply chain assume expensive freight?</strong> Any business model built on centralized distribution, long replenishment cycles, or geographic concentration of production is implicitly betting that freight costs stay high. That bet is getting riskier.</p>
+      <p><strong>What becomes possible when distance is nearly free?</strong> The Jevons Paradox applies here: when a resource gets cheaper, consumption increases, not decreases. Cheap freight does not mean less freight. It means more commerce, more variety, more frequent shipments, and new business models that were not viable before.</p>
+      <p><strong>What is the timeline for your industry?</strong> Long-haul highway freight is the first segment to be disrupted. Last-mile delivery, urban logistics, and specialized freight will follow on different timelines. Know where your industry sits on that curve.</p>
+      <h2>The Bottom Line</h2>
+      <p>The number that controls the price of everything is moving. It has moved before — the shipping container rewrote the planet — and it will move again. The Tesla Semi is not a curiosity or a green initiative. It is the beginning of a structural shift in the economics of physical commerce.</p>
+      <p>The builders who understand this early will see opportunities that others miss. The ones who ignore it will find their cost structures and competitive positions quietly eroded by a change they never saw coming.</p>
+      <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at The Watch.</p>
+    `,
+  },
 ];
 
 // ─── Helper: find article by slug ─────────────────────────────────────────────

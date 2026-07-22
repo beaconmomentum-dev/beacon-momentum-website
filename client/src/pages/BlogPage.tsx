@@ -70,6 +70,17 @@ const ARTICLES = [
     pillarColor: "#1a3a5c",
   },
   {
+    id: "watch-brief-tesla-semi-freight",
+    thumbnail: "/images/hero-watch-brief-tesla-semi.jpg",
+    title: "The Number That Controls the Price of Everything — And Why It's Moving",
+    excerpt: "There is a number embedded in the price of almost everything you buy. It is called cost per mile, and for a hundred years it has been owned by diesel. In April 2026, at a factory in Nevada, that math started to break. Here is what it means for builders and business owners.",
+    category: "Watch Brief",
+    date: "July 22, 2026",
+    readTime: "6 min read",
+    pillar: "signal",
+    pillarColor: "#1a3a5c",
+  },
+  {
     id: "watch-brief-nine-to-zero-redistricting",
     thumbnail: "/images/hero-watch-brief-nine-to-zero-redistricting.jpg",
     title: "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
