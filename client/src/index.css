@@ -1,6 +1,7 @@
 /*
  * BEACON MOMENTUM — GLOBAL STYLES
- * Design Philosophy: Deep Water Editorial / Quiet Authority
+ * System Design: Deep Water Editorial / Quiet Authority for the wider Beacon site;
+ * homepage overlay: Tide & Tension — maritime modernism with Swiss editorial discipline.
  * ─────────────────────────────────────────────────────────
  * Color Philosophy: Warm parchment ground (#FAF8F4), deep coastal teal (#1A5C6B),
  *   amber signal (#C8860A), charcoal text (#1C1C1E). Pillar accents are distinct.
@@ -213,6 +214,48 @@
 
   /* Button press feel */
   .btn-press:active { transform: scale(0.97); transition: transform 160ms var(--ease-out); }
+
+  /* Tide & Tension homepage — scoped so legacy pages preserve their existing editorial system. */
+  .tide-home {
+    --tide-navy: #061A29;
+    --tide-ink: #0B2A3B;
+    --tide-brass: #D8A94A;
+    --tide-fog: #EEF0EB;
+    --tide-teal: #58A6A4;
+    --tide-display: "DM Serif Display", Georgia, serif;
+    --tide-ui: "IBM Plex Sans", Arial, sans-serif;
+    font-family: var(--tide-ui);
+  }
+  .tide-home .container { max-width: 1440px; }
+  .tide-home .font-display { font-family: var(--tide-display); }
+  .tide-home .font-ui { font-family: var(--tide-ui); }
+  .tide-grid {
+    background-image: linear-gradient(rgba(183, 222, 218, 0.065) 1px, transparent 1px), linear-gradient(90deg, rgba(183, 222, 218, 0.065) 1px, transparent 1px);
+    background-size: 58px 58px;
+    background-position: center center;
+  }
+  .tide-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.14;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    mix-blend-mode: soft-light;
+  }
+  .fog-glass {
+    background: rgba(6, 26, 41, 0.78);
+    box-shadow: 0 10px 36px rgba(1, 12, 20, 0.24);
+    backdrop-filter: blur(16px);
+  }
+  .brass-button {
+    transition: transform 160ms var(--ease-out), background-color 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out);
+  }
+  .brass-button:hover { transform: translateY(-2px); }
+  .brass-button:active { transform: scale(0.97); }
+  .brass-button:focus-visible { box-shadow: 0 0 0 3px rgba(88, 166, 164, 0.48), 0 0 0 6px rgba(216, 169, 74, 0.22); }
+  .link-arrow { transition: transform 180ms var(--ease-out); }
+  .group:hover .link-arrow { transform: translate(3px, -3px); }
 }
 
 /* ─── Digital Grandpa Page ─────────────────────────────────────────────────── */

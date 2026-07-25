@@ -33,6 +33,8 @@ Pushes to `main` trigger the GitHub Actions workflow (`deploy.yml`) which:
 1. SSHes to the production droplet
 2. Runs `/usr/local/bin/deploy-beacon-www.sh` (git pull + build + nginx reload)
 
+The detailed, mandatory GitHub-first and local-first release procedure is documented in [OPERATIONS.md](./OPERATIONS.md). GitHub is the source of truth; the DigitalOcean droplet is the production runtime; managed preview environments are non-canonical review tools only.
+
 ## Required GitHub Secrets
 
 | Secret | Description |

@@ -13,10 +13,24 @@ export async function setupVite(app: Express, server: Server) {
     allowedHosts: true as const,
   };
 
+  // vite.config.ts exports a config factory. Resolve it before spreading so the
+  // development server uses the canonical client root, aliases, and plugins.
+  // Spreading the factory itself silently drops those settings and makes module
+  // requests such as /src/main.tsx fall through to the HTML catch-all route.
+  const config =
+    typeof viteConfig === "function"
+      ? await viteConfig({
+          command: "serve",
+          mode: process.env.NODE_ENV ?? "development",
+          isSsrBuild: false,
+          isPreview: false,
+        })
+      : viteConfig;
+
   const vite = await createViteServer({
-    ...viteConfig,
+    ...config,
     configFile: false,
-    server: serverOptions,
+    server: { ...config.server, ...serverOptions },
     appType: "custom",
   });
 
