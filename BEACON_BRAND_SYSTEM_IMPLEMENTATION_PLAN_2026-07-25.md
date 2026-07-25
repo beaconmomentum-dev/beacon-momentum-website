@@ -1,6 +1,6 @@
 # Beacon Brand System — Detailed Implementation Plan
 
-**Status:** Proposed implementation standard for approval
+**Status:** Owner-approved shared visual foundation; implementation remains gated by property-specific source, access, policy, and commercial-truth requirements
 
 **Scope:** Beacon Momentum, LLC; `beaconmomentum.com`; `beaconcommunity.net`; `beacontrading.ai`; `beaconlabs.ai`; and `app.beaconmomentum.com`
 
@@ -97,7 +97,7 @@ The shared promise is **steady navigation through complex work**. Beacon languag
 
 ### 4.2 Visual token contract
 
-The system should be implemented first as semantic tokens—not a set of copied hex codes. Each property consumes the same token categories, while its property profile selects the accent, surface balance, and illustration/data treatment. Initial values below are a design-direction proposal and must undergo contrast validation before production adoption.
+The system must be implemented first as semantic tokens—not a set of copied hex codes. Each property consumes the same token categories, while its property profile selects the accent, surface balance, and illustration/data treatment. The owner approved this shared foundation on July 25, 2026; exact production values must still undergo contrast validation before release.
 
 | Token family | Parent role | Proposed semantic tokens | Rule |
 |---|---|---|---|
@@ -111,7 +111,7 @@ The system should be implemented first as semantic tokens—not a set of copied 
 
 ### 4.3 Initial color-direction proposal
 
-The exact palette should be validated through a visual token review, but the first implementation pass should use this relationship model.
+The owner approved this relationship model on July 25, 2026. Exact production values must be validated through a visual token and contrast review before release.
 
 | Property | Accent direction | Function of the accent | Do not use it for |
 |---|---|---|---|
@@ -123,7 +123,7 @@ The exact palette should be validated through a visual token review, but the fir
 
 ### 4.4 Typography, iconography, imagery, and motion
 
-The parent system should use an editorial display face and an unusually legible UI/body face rather than defaulting to a single generic sans-serif. The recommended initial pairing is **Fraunces** for display, **Manrope** for body and interface, and **IBM Plex Mono** for technical labels, data values, and simulation metadata. The implementation team should validate font licensing, variable-font support, and fallback stacks before approval.
+The parent system uses an editorial display face and an unusually legible UI/body face rather than defaulting to a single generic sans-serif. The approved pairing is **Fraunces** for display, **Manrope** for body and interface, and **IBM Plex Mono** for technical labels, data values, and simulation metadata. The implementation team must validate font licensing, variable-font support, loading performance, and fallback stacks before release.
 
 The lighthouse mark is the shared brand anchor. Each property receives a property badge or signal device beside—never instead of—the parent mark. Icons must be custom, geometric, and semantically named. Stock-outline icon sets should be used only as temporary implementation scaffolding and replaced within the property rollout.
 
