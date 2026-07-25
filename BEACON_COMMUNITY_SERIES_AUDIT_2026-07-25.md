@@ -69,11 +69,45 @@ The `/coach` page describes Safe Harbor as an “ND-aware thinking partner” tr
 
 The `/bearings` and `/community` pathways currently resolve to a sign-in surface, and `/enroll` exposes navigation only rather than a confirmed purchase route. The lesson portal’s HTML links to several external ecosystem properties, including `beaconlabs.ai`, `beaconmomentum.com`, `beacontrading.ai`, `digitalgrandpa.org`, and `hollowthreads.store`. Any reuse must preserve only relevant content and eliminate cross-property handoffs that conflict with the current Beacon Momentum route and offer architecture.
 
+### Member-feature verification status — July 25, 2026 follow-up
+
+The initial review did **not** establish that the historical member features no longer exist. It established only that the unauthenticated `/community` route redirects to `login?callbackUrl=/community`, and the visible “The Dock” navigation resolves to that protected route when no active member session is present. The login shell still displays an **Open Harbor Guide** control. Direct interaction confirms that the guide opens with member-oriented prompts, accepts a selected prompt, transitions to a free-text chat interface, and displays a live “Thinking…” state. The guide then returned a complete, context-appropriate response to a supporter-oriented prompt. **The chatbot is therefore still operational from the public login surface.**
+
+The live page metadata still describes the property as a Beacon Momentum member portal where people can “access courses, connect with the community, and tools,” and references `https://app.beaconmomentum.com` as its application URL. This is evidence that community functionality remains part of the portal’s declared purpose, but it is not proof that an active forum or peer-message database currently contains usable member activity. The protected `/community` route remains the key unresolved surface.
+
+The public sitemap still declares a `/dock` route with daily change frequency, but a direct live request to `https://beaconcommunity.net/dock` returns the site’s branded **404** page. This is a material integrity problem: at least one historically community-oriented route is still advertised in metadata while no longer serving an application page. The visible “The Dock” navigation does not resolve to that sitemap route; unauthenticated navigation points instead at the protected `/community` route. The evidence supports treating the historical forum/peer-space status as **unverified and currently inaccessible**, rather than assuming it remains live.
+
+### Newly identified active portal: `app.beaconmomentum.com`
+
+The `beaconcommunity.net` metadata points to `https://app.beaconmomentum.com`, and that subdomain is publicly live as **“Beacon Momentum — Member Portal.”** It presents itself as the membership experience rather than a generic marketing redirect. Its public landing page advertises community forum access, daily check-ins and a mood journal, 24/7 AI chat support, peer matching, private accountability groups, progress tracking, courses, certificates, and member-only community spaces. These are **declared features on a live landing page**, not yet verified authenticated capabilities.
+
+This discovery materially changes the fit assessment: the historical membership platform may not have disappeared; it appears to have been separated into the `app.beaconmomentum.com` portal while `beaconcommunity.net` remains a related but structurally inconsistent legacy surface. The app’s current public offer and vocabulary are also inconsistent with the approved Beacon Momentum release: it advertises legacy Member/Mentor/Lifetime pricing, course language, and subject areas that do not align with the current single annual Watch membership. That portal must be treated as a distinct legacy application requiring a controlled product, content, privacy, identity, and migration audit—not as proof that its advertised private features are active today.
+
+An unauthenticated sign-in control check on the app did not navigate to a visible login route or establish a member session. A transient daily-check-in interface surfaced during that interaction, then the public landing page remained in place; no check-in data was entered and no authentication claim can be made from it. The app’s declared feature list remains meaningful product evidence, but authenticated forum, peer matching, private-group, progress-tracking, and course states still require authorized inspection.
+
+Static bundle review verifies that the application contains lazy-loaded member routes for `/community`, `/ai-chat`, `/dashboard`, `/check-in-history`, `/mentorship`, `/challenges`, `/courses`, and administrative moderation/user-management areas. The Community module includes rendered post, reply, like-count, reply-count, and post-reply interfaces; the AI Chat module includes conversation history, message retrieval, message sending, and feedback controls. A direct request to `https://app.beaconmomentum.com/community` redirects to the protected `/manual-login` route. This establishes that the community and chatbot features are implemented in the live application build and properly gated, while their live data, member activity, and end-to-end member behavior remain unverified pending authorized access.
+
+The architecture recommendation must be read with that boundary in mind: the Community portal should not be assumed retired or empty merely because its private functions were unavailable to the current session. A definitive operational assessment requires authorized member or administrator access, followed by an inside-the-portal feature inventory.
+
+### Corrected operational conclusion
+
+**Yes—the historical membership experience still exists, but it is split across legacy surfaces.** `beaconcommunity.net` retains public lessons, a working Harbor Guide chatbot, and a protected community gateway. `app.beaconmomentum.com` is a live, separate member application that contains implemented, authentication-gated community and AI-chat modules.[1] [9] [10]
+
+| Member capability | Current evidence | Verified status |
+|---|---|---|
+| **Harbor Guide chatbot** | The public Beacon Community login surface accepts a guided prompt and returns a complete response. | **Operational publicly** |
+| **Forum / discussion system** | The live application bundle includes posts, replies, like counts, reply counts, and post-reply controls; direct access to `/community` redirects to member login. | **Implemented and gated; live data unverified** |
+| **AI chat** | The live application bundle includes conversation history, message retrieval, message sending, and feedback controls. | **Implemented and gated; member records unverified** |
+| **Dashboard, courses, check-ins, mentorship, challenges, moderation** | These member and administrative routes are part of the live application build. | **Implemented and gated; end-to-end behavior unverified** |
+| **The Dock on `beaconcommunity.net`** | Listed in the sitemap, but direct route returns a branded 404. | **Broken legacy route** |
+
+The correct immediate posture is **preserve and audit, not rebuild or silently retire**. The remaining question is not whether the membership platform exists; it is whether its authenticated data, member activity, payment state, privacy controls, and legacy claims are healthy enough to rehabilitate, require a controlled migration, or should be archived after preservation.[9] [10]
+
 ## Fit map for the current Beacon Momentum architecture
 
 ### Architectural decision
 
-**Do not integrate Beacon Community as another public product, tier, portal, or account system.** The current Beacon Momentum release has one annual Watch membership, and progression is earned inside the work rather than purchased through separate tiers. The already-integrated Venture Execution Sprint follows that rule: it sits within Beacon Venture and The Watch, carries no separate checkout, and has no external course-platform dependency. The Beacon Community series should follow the same content-salvage model rather than be imported as a parallel experience.
+**Do not recreate or merge the legacy membership application into the current public Beacon Momentum release by default.** The current Beacon Momentum release has one annual Watch membership, and progression is earned inside the work rather than purchased through separate tiers. The already-integrated Venture Execution Sprint follows that rule: it sits within Beacon Venture and The Watch, carries no separate checkout, and has no external course-platform dependency. However, the live `app.beaconmomentum.com` membership application must now be treated as an existing legacy system to preserve and audit—not a vanished portal to replace casually.
 
 The appropriate unit of integration is therefore a **rewritten, self-contained Watch resource**, assigned to an existing pillar and released only after its specific risk review. It is not a sixth pillar called “Beacon Community,” nor a revival of Storm Navigation, Safe Harbor, or the legacy Execution Engine funnel.
 
@@ -86,7 +120,7 @@ The appropriate unit of integration is therefore a **rewritten, self-contained W
 | **Debt repayment, retirement accounts, brokers, funds, allocation claims, employer-match instructions** | **Hold. Not approved for current import.** | None at present | Requires separate legal/compliance review, appropriate disclosures, and a deliberate educational-product scope. It does not belong inside the current Beacon Trading simulation by default. |
 | **Lighthouse Keepers supporter guides** | **Do not integrate in this release.** | None at present | This is a different audience, with health/neurodivergence-specific subject matter and relationship guidance. Any future adaptation requires a distinct Beacon Life program brief and qualified review. |
 | **Safe Harbor conversational coach** | **Do not integrate in this release.** | None at present | A future assistant would need a separate product definition, safety policy, privacy model, consent/retention design, escalation boundaries, and evaluation process. Its existing “not therapy/not financial advice” language alone is not a sufficient integration plan. |
-| **Beacon Community portal, navigation, accounts, and cross-property links** | **Keep separate; do not merge or cross-link by default.** | No current Beacon Momentum home | An eventual migration needs deliberate identity, consent, content-ownership, analytics, routing, and support planning. It must not be coupled to The Watch merely because some lessons overlap. |
+| **Beacon Community portal, navigation, accounts, and cross-property links** | **Preserve as a separate legacy application while it is audited; do not merge or cross-link by default.** | `app.beaconmomentum.com` for the legacy member application; no automatic current-site home | An eventual migration or rehabilitation needs deliberate identity, consent, content-ownership, data-retention, analytics, routing, payment-state, and support planning. It must not be coupled to The Watch merely because some lessons overlap. |
 
 ### Recommended integration shape
 
@@ -109,8 +143,9 @@ The following elements should remain out of the current Beacon Momentum release:
 | **1 — already complete** | Keep the six Execution Engine modules consolidated as the Venture Execution Sprint within The Watch. | Prevents duplicate curriculum and protects the retired-funnel decision. |
 | **2 — next reusable work** | Create a short content brief for 3–5 “Operating With Less Friction” Watch resources, each with a named pillar owner, learner outcome, safety boundary, and source lessons. | Converts the reusable mechanics into the current architecture without importing sensitive framing. |
 | **3 — review gate** | Run legal/compliance and editorial review on any money-related rewrite before drafting or publishing it. | The existing series contains specific financial product and investment guidance, including named brokers and account recommendations.[5] |
-| **4 — separate decision** | Decide whether Beacon Community remains an archived distinct property, is repositioned under a new owner and safety model, or is retired. | A portal/account migration is a product and data decision, not a content-copy task. |
-| **5 — only with approved scope** | Build a new member-resource delivery experience on the current Beacon Momentum stack, not on the existing Community portal. | Maintains one canonical source of truth, the single Watch membership, and the self-contained asset rule. |
+| **4 — immediate governance** | Use authorized administrator access to inventory active members, roles, forum activity, chat records, courses, check-ins, payment state, integrations, backups, privacy/retention settings, and the apparent `/dock` routing defect. | Determines whether there is member data and live operational value that must be preserved before any product decision. |
+| **5 — separate product decision** | Decide whether the legacy application is rehabilitated and aligned, migrated through a consentful plan, or archived after data preservation. | A portal/account decision is a product, privacy, payment, and data-migration decision—not a content-copy task. |
+| **6 — only with approved scope** | Build a new member-resource delivery experience on the current Beacon Momentum stack only if the authorized audit supports replacement rather than rehabilitation. | Maintains one canonical source of truth, the single Watch membership, and the self-contained asset rule without destroying existing member value. |
 
 ## Sources
 
@@ -122,3 +157,7 @@ The following elements should remain out of the current Beacon Momentum release:
 6. [Charting Your Waters](https://beaconcommunity.net/lessons/charting-your-waters)
 7. [The Gap Between Knowing and Doing](https://beaconcommunity.net/lessons/the-execution-gap)
 8. [The Vibe Coding Method](https://beaconcommunity.net/lessons/the-vibe-coding-method)
+9. [Beacon Momentum Member Portal](https://app.beaconmomentum.com/)
+10. [Beacon Momentum Community Route](https://app.beaconmomentum.com/community)
+11. [Beacon Momentum Member Login](https://app.beaconmomentum.com/manual-login)
+12. [Beacon Community Dock Route](https://beaconcommunity.net/dock)

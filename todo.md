@@ -20,3 +20,5 @@
 - [x] Review the Beacon Community series at `beaconcommunity.net` and extract its curriculum, positioning, and conversion structure.
 - [x] Map reusable elements from that series to the current Beacon Momentum architecture, including The Watch and Beacon Venture, without reviving a conflicting standalone funnel.
 - [x] Produce a prioritized integration recommendation for the current release; see `BEACON_COMMUNITY_SERIES_AUDIT_2026-07-25.md`.
+- [x] Verify the public and build-level status of Beacon Community’s historical member features: Harbor Guide is operational, and the live `app.beaconmomentum.com` build contains protected forum, AI chat, dashboard, check-in, mentorship, challenge, course, moderation, and user-management features; see `BEACON_COMMUNITY_SERIES_AUDIT_2026-07-25.md`.
+- [ ] With authorized owner or administrator access, inventory actual member activity, data, payments, privacy/retention settings, integrations, and backups in `app.beaconmomentum.com` before deciding whether to rehabilitate, migrate, or archive the legacy membership application.
