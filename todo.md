@@ -17,3 +17,6 @@
 - [x] Replace the controllable `exec.beaconmomentum.com` Execution Engine process with a Node-core-only redirect to `https://beaconmomentum.com/pillar/venture`; verify its public `302` response and zero package dependencies.
 - [x] Correct the controlled redirect target from the non-existent `/pillar/venture` path to the verified live `/the-watch` route; confirm `302 → 200` and a browser landing on The Watch page.
 - [ ] Remove or redirect the separate `exec-funnel-aqf76wtd.manus.space/offer` page once its owner task or project is available; it remains publicly live and cannot be truthfully marked retired yet.
+- [x] Review the Beacon Community series at `beaconcommunity.net` and extract its curriculum, positioning, and conversion structure.
+- [x] Map reusable elements from that series to the current Beacon Momentum architecture, including The Watch and Beacon Venture, without reviving a conflicting standalone funnel.
+- [x] Produce a prioritized integration recommendation for the current release; see `BEACON_COMMUNITY_SERIES_AUDIT_2026-07-25.md`.
