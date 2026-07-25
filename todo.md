@@ -49,3 +49,4 @@
 - [x] Export the confirmed Roundel operating pair as verified transparent PNG assets: A for light contexts and B for dark-mode contexts; retain the compact glyph pending its specific favicon/app-icon approval.
 - [x] Obtain a specific decision on the compact Roundel glyph before using it as the favicon/app icon across the ecosystem; adopted as-is.
 - [x] Export the adopted compact Roundel glyph as a verified transparent PNG favicon/app-icon asset and create a canonical parent-badge asset handoff manifest for the approved light, dark, and compact variants; see `BEACON_PARENT_BADGE_ASSET_HANDOFF_2026-07-25.md`.
+- [ ] Use approved local inference/model resources by default for eligible Beacon batch analysis, classification, and document-preparation work; retain human approval and source-of-truth review for commercial, policy, ownership, and release decisions.
