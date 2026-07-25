@@ -8,7 +8,7 @@
  */
 import { createServer } from "node:http";
 
-const destination = "https://beaconmomentum.com/pillar/venture";
+const destination = "https://beaconmomentum.com/the-watch";
 const port = Number.parseInt(process.env.PORT || "3011", 10);
 
 const server = createServer((_request, response) => {
