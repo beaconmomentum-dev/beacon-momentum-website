@@ -4,7 +4,7 @@
  * Model: One annual Watch membership + paid standalone operating dossiers
  * Membership: The Watch ($497/yr)
  * Monthly: Watch Brief Premium ($27/mo) | Beacon Labs Stack Brief ($47/mo) | Accountability Sprint ($197/mo — waitlist)
- * Signal Check: Free lead generation tool
+ * Signal Check: Paid Beacon Labs diagnostic ($297)
  * Updated: June 2026
  */
 
@@ -150,8 +150,8 @@ const FAQS = [
     a: "The Watch is annual-only. Annual billing is the foundation of a committed community and a longer-term curriculum. Watch Brief Premium and Beacon Labs Stack Brief are separate monthly operating products; request enrollment details for the current release and payment instructions.",
   },
   {
-    q: "What is the Signal Check and why is it free?",
-    a: "The Signal Check is a full AI-powered audit of a brand's digital presence — website, social, paid ads, competitive landscape, and conversion posture. It is free because we believe the people who need Beacon most should be able to see what we see before they spend a dollar. Agencies and consultants are welcome to use it as a client-facing tool. Our only ask is your contact information so we can follow up.",
+    q: "What is the paid Signal Check?",
+    a: "The $297 Beacon Labs Signal Check is a paid diagnostic review of a brand's digital presence — website, social, paid ads, competitive landscape, and conversion posture. It is separate from The Watch membership. Request details to confirm the current scope, delivery timing, and next steps.",
   },
   {
     q: "What is the Accountability Sprint?",
@@ -696,24 +696,24 @@ export default function PricingPage() {
               letterSpacing: "0.18em", textTransform: "uppercase",
               color: teal, marginBottom: "1rem",
             }}>
-              Free · No Commitment Required
+              Beacon Labs diagnostic · $297
             </div>
             <h2 style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               fontWeight: 600, fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
               lineHeight: 1.1, color: charcoal, marginBottom: "1rem",
             }}>
-              Start with a Signal Check.
+              Start with a paid Signal Check.
             </h2>
             <p style={{
               fontFamily: "'Lora', Georgia, serif",
               fontSize: "0.9rem", lineHeight: 1.75,
               color: charcoalMid, maxWidth: "520px", margin: "0 auto 2rem",
             }}>
-              A full AI-powered audit of your brand's digital presence — website, social, paid ads, competitive landscape, and conversion posture. Free. No sales call. No obligation. We give it away because we believe the people who need Beacon most should be able to see what we see before they spend a dollar.
+              A paid $297 diagnostic review of your brand's digital presence — website, social, paid ads, competitive landscape, and conversion posture. The Signal Check is a Beacon Labs offer, separate from The Watch’s $497 annual curriculum and community membership.
             </p>
             <a
-              href="/signal-check"
+              href="/contact?interest=signal-check"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "0.5rem",
                 padding: "0.875rem 2rem",
@@ -724,7 +724,7 @@ export default function PricingPage() {
                 textDecoration: "none",
               }}
             >
-              Get Your Free Signal Check
+              Request Signal Check details
               <ArrowRight style={{ width: "0.875rem", height: "0.875rem" }} />
             </a>
             <p style={{
@@ -732,7 +732,7 @@ export default function PricingPage() {
               fontSize: "0.7rem", color: charcoalMid,
               marginTop: "1rem", opacity: 0.6,
             }}>
-              Agencies and consultants are welcome to use Signal Check as a client-facing tool.
+              Agencies and consultants may request Signal Check details for a client-facing diagnostic.
             </p>
           </div>
         </div>
