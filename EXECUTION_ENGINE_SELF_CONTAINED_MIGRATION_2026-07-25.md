@@ -25,9 +25,19 @@ The authenticated workspace permits access to the Beacon Momentum project and it
 
 The public page exposes `spaceId` `Aqf76wTDchHiTptc7cmqvj` and session identifier `K9pJEiXR28eOWruKvS49Ge` in its published editor configuration. These identifiers confirm that the site is a separately published Manus Space and provide a concrete handle for locating its owner task or website record; they are recorded here only for source retirement and are not an authorization credential.
 
+An independent controllable deployment was subsequently identified on the Beacon production origin: PM2 process `execution-engine` (ID 4), working directory `/var/www/execution-engine/`, serving the legacy `exec.beaconmomentum.com` surface. Its source is a version-controlled repository named `beaconmomentum-dev/execution-engine-funnel`, currently present on the production server. The repository contains a full standalone application and payment stack; no credentials or secrets from that legacy application are retained in this record.
+
+The authenticated GitHub CLI cannot currently resolve that private repository, and its existing deployment credential was not accepted by the GitHub API. The canonical Beacon integration remains committed in its own repository; the controllable production source can still be converted safely into a dependency-free internal redirect on the server while repository access is repaired separately.
+
 ## Migration principle
 
 Preserve only the edited instructional value. Rebuild the curriculum in the canonical Beacon repository as a **Venture Execution Sprint** inside The Watch; do not copy or preserve the standalone frontend, payment implementation, hosted assets, or external dependencies.
+
+## Canonical release verification
+
+The canonical Beacon production build was completed on July 25, 2026 using the existing production environment and restarted successfully. A public verification of both `/the-watch?release=7629ba6` and `/pillar/venture?release=7629ba6` confirmed that **Venture Execution Sprint** is present as Beacon Venture curriculum included in The Watch. The published wording presents it as a member sequence and exposes no standalone price, checkout, urgency device, or external course-platform handoff.
+
+This verification applies to the canonical Beacon release only. The separate legacy Manus Space remains publicly reachable until its owner task or source project is identified and explicitly retired or internally redirected.
 
 ## Sources
 

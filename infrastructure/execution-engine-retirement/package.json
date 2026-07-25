@@ -1,0 +1,15 @@
+{
+  "name": "execution-engine-redirect",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dependency-free retirement redirect for the former Execution Engine funnel.",
+  "scripts": {
+    "start": "node server/index.mjs",
+    "check": "node --check server/index.mjs",
+    "test": "node --check server/index.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
