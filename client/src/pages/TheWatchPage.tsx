@@ -5,11 +5,11 @@
  * Sections:
  *   1. Hero — full-bleed night lighthouse image, manifesto headline
  *   2. What Is The Watch — doctrine copy, no free trials, transformation over transactions
- *   3. Membership Tiers — Sentinel (entry) / Navigator (full) / Quartermaster (founding)
+ *   3. Membership Stages — Sentinel (entry) / Navigator (earned) / Quartermaster (earned)
  *   4. Community Proof — stats, overhead map image, member voice quotes
- *   5. What You Get — feature grid per tier
+ *   5. What You Get — feature grid by earned stage
  *   6. FAQ — common objections answered
- *   7. Join CTA — GHL-linked signup form (name + email → tag BM_Watch_Join)
+ *   7. Join CTA — membership-request form → GHL → short fit-and-cohort intake; no payment or activation implied
  *   8. Footer via SharedFooter
  */
 
@@ -225,7 +225,7 @@ function Hero() {
               e.currentTarget.style.borderColor = "rgba(250,248,244,0.25)";
             }}
           >
-            See Membership Tiers →
+            See Membership Stages →
           </a>
         </div>
       </div>
@@ -393,26 +393,26 @@ const TIERS: Tier[] = [
     name: "Sentinel",
     subtitle: "Where every member begins.",
     price: "$297",
-    period: "/ month",
+    period: "/ year",
     image: SENTINEL_IMG,
     highlight: false,
     features: [
       "Full community access — all channels, all cohorts",
-      "Weekly Watch Brief (curated AI-era intelligence)",
+      "Watch Brief Premium included as a member benefit",
       "Monthly live Q&A with Beacon faculty",
       "Access to the Beacon Pathfinder Assessment",
-      "Beacon Brief newsletter (premium edition)",
+      "Free Beacon Brief plus member operating updates",
       "Member resource library — tools, templates, frameworks",
     ],
-    cta: "Join The Watch",
+    cta: "Request enrollment details",
     ghlTag: "BM_Watch_Sentinel",
   },
   {
     id: "navigator",
     name: "Navigator",
     subtitle: "Earned through consistent action.",
-    price: "$297",
-    period: "/ month",
+    price: "Earned",
+    period: "through participation",
     image: NAVIGATOR_IMG,
     highlight: true,
     badge: "Active Stage",
@@ -424,28 +424,27 @@ const TIERS: Tier[] = [
       "Early access to new Beacon tools and frameworks",
       "Cohort leadership opportunities as you progress",
     ],
-    cta: "Join The Watch",
+    cta: "Start at Sentinel",
     ghlTag: "BM_Watch_Navigator",
   },
   {
     id: "quartermaster",
     name: "Quartermaster",
-    subtitle: "The founding crew.",
-    price: "$297",
-    period: "/ month",
+    subtitle: "Earned through contribution.",
+    price: "Earned",
+    period: "through contribution",
     image: QUARTERMASTER_IMG,
     highlight: false,
     badge: "Founding Stage",
     features: [
       "Everything in Navigator",
       "Founding member status — permanent recognition",
-      "Weekly direct access to Beacon leadership",
       "Input on curriculum direction and community doctrine",
-      "Quarterly strategy session (private, 60 min)",
+      "Contribution opportunities inside the member environment",
       "Access to all future Beacon properties at no additional cost",
       "Legacy member rate — price locked for life",
     ],
-    cta: "Apply for Quartermaster",
+    cta: "Start at Sentinel",
     ghlTag: "BM_Watch_Quartermaster",
   },
 ];
@@ -687,7 +686,7 @@ function MembershipTiers({ onTierSelect }: { onTierSelect: () => void }) {
               margin: "0 auto",
             }}
           >
-            The Watch is a single annual membership at $497/year — less than $42/month. Sentinel,
+            The Watch is a single annual membership at $297/year — less than $25/month. Sentinel,
             Navigator, and Quartermaster are progression stages — earned
             through consistent action, not purchased separately. No free
             trials. No casual access. The Watch is for people who have decided.
@@ -975,9 +974,8 @@ function JoinForm() {
       source: "beaconmomentum.com/the-watch",
     });
     if (ok) {
-      // Store member info for the intake page
+      // Store enrollment-request details for the fit-and-cohort intake.
       sessionStorage.setItem("watch_intake_email", email);
-      sessionStorage.setItem("watch_intake_tier", "sentinel");
       if (firstName) sessionStorage.setItem("watch_intake_name", firstName);
       navigate("/the-watch/intake");
       return;
@@ -995,7 +993,7 @@ function JoinForm() {
       }}
     >
       <div className="container" style={{ maxWidth: "640px" }}>
-        <SectionLabel>Join The Watch</SectionLabel>
+        <SectionLabel>Request Membership Details</SectionLabel>
         <h2
           style={{
             fontFamily: serif,
@@ -1018,10 +1016,11 @@ function JoinForm() {
             marginBottom: "2.5rem",
           }}
         >
-          The Watch is $497/year — less than $42/month, annual billing only. Enter your details below and a member of the
-          Beacon team will reach out within 24 hours with your onboarding link
-          and cohort placement information. All members begin at Sentinel and
-          progress from there.
+          The Watch is $297/year — less than $25/month, annual billing only.
+          Start with a short enrollment request so we can understand where you
+          are and send the current enrollment and onboarding details. Completing
+          this request does not process payment. Every approved member begins at
+          Sentinel and progresses from there.
         </p>
 
         {status === "success" ? (
@@ -1052,8 +1051,7 @@ function JoinForm() {
                 marginBottom: "2rem",
               }}
             >
-              We'll be in touch within 24 hours with your onboarding details.
-              Welcome to The Watch.
+              We'll be in touch within 24 hours with your enrollment and onboarding details.
             </p>
             {/* Bridge to Beacon Circle */}
             <div
@@ -1073,7 +1071,7 @@ function JoinForm() {
                   marginBottom: "0.75rem",
                 }}
               >
-                Ready to start now?
+                Already have a Beacon Community account?
               </p>
               <p
                 style={{
@@ -1084,9 +1082,7 @@ function JoinForm() {
                   marginBottom: "1.5rem",
                 }}
               >
-                Don't wait for the 24-hour follow-up. Join Beacon Circle directly
-                and get immediate access to the community, the course library, and
-                the Safe Harbor Coach.
+                Use the community login to access an existing account. New membership enrollment is confirmed through the Beacon team after your request.
               </p>
               <a
                 href="https://beaconcommunity.net/upgrade"
@@ -1105,7 +1101,7 @@ function JoinForm() {
                 onMouseEnter={(e) => { e.currentTarget.style.background = C.amberLight; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = C.amber; }}
               >
-                Join Beacon Circle — $497/year →
+                Open Beacon Community login →
               </a>
               <p
                 style={{
@@ -1115,7 +1111,7 @@ function JoinForm() {
                   marginTop: "0.75rem",
                 }}
               >
-                Less than $42/month · Annual billing · Cancel anytime
+                Existing-member access only · New enrollment details arrive by email
               </p>
             </div>
           </div>
@@ -1233,7 +1229,7 @@ function JoinForm() {
                 (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
               }}
             >
-              {status === "submitting" ? "Sending..." : "Join The Watch →"}
+              {status === "submitting" ? "Sending..." : "Continue to Short Enrollment Request →"}
             </button>
 
             {status === "error" && (
@@ -1262,7 +1258,7 @@ function JoinForm() {
               }}
             >
               No spam. No free trials. No pressure. Your information is used
-              only to process your membership and send Watch communications.
+              only to review your membership request and send Watch communications.
             </p>
           </form>
         )}

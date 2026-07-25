@@ -10,6 +10,7 @@
  *
  * Tags applied:
  *   BM_Newsletter       — Beacon Brief newsletter subscriber
+ *   BM_Watch_Brief_Premium_Interest — Watch Brief Premium enrollment-detail request
  *   BM_Path_Life        — Pathfinder result: Beacon Life
  *   BM_Path_Work        — Pathfinder result: Beacon Work
  *   BM_Path_Venture     — Pathfinder result: Beacon Venture
@@ -96,6 +97,19 @@ export async function subscribeToBeaconBrief(email: string, firstName?: string):
     firstName,
     tags: ["BM_Newsletter", "BM_Beacon_Brief"],
     source: "beaconmomentum.com/newsletter",
+  });
+}
+
+/**
+ * Request enrollment details for the paid Watch Brief Premium dossier.
+ * This is intentionally an interest handoff, not a payment or checkout action.
+ */
+export async function requestWatchBriefPremiumDetails(email: string, firstName?: string): Promise<boolean> {
+  return submitToGHL({
+    email,
+    firstName,
+    tags: ["BM_Watch_Brief_Premium_Interest"],
+    source: "beaconmomentum.com/watch-brief-premium",
   });
 }
 

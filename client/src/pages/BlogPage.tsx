@@ -1242,18 +1242,21 @@ function BeaconBriefStrip() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setLoading(true);
+    setError(false);
     try {
-      await subscribeToBeaconBrief(email);
+      const accepted = await subscribeToBeaconBrief(email);
+      setSubmitted(accepted);
+      setError(!accepted);
     } catch (_) {
-      // Silent fail
+      setError(true);
     } finally {
       setLoading(false);
-      setSubmitted(true);
     }
   };
 
@@ -1270,7 +1273,7 @@ function BeaconBriefStrip() {
               letterSpacing: "0.18em", textTransform: "uppercase",
               color: "var(--beacon-amber-light)",
             }}>
-              The Beacon Brief
+              The Beacon Brief · Free weekly email
             </span>
           </div>
           <h3 style={{
@@ -1279,14 +1282,14 @@ function BeaconBriefStrip() {
             lineHeight: 1.2, letterSpacing: "-0.02em",
             color: "#FAF8F4", marginBottom: "0.875rem",
           }}>
-            One weekly signal. No noise.
+            Keep the weekly signal in view.
           </h3>
           <p style={{
             fontFamily: "'Lora', Georgia, serif",
             fontSize: "0.9rem", lineHeight: 1.8,
             color: "rgba(250,248,244,0.6)", marginBottom: "2rem",
           }}>
-            The Beacon Brief summarizes the week's most important AI transition developments, Beacon Labs experiments, and practical actions — in five minutes or less. Every article on this page started as a Brief.
+            The Beacon Brief is a free five-minute weekly digest of the most useful public Signal work, Beacon Labs experiments, and one practical action. Read here when you want depth; use the Brief to keep the line open between issues.
           </p>
           {submitted ? (
             <div style={{
@@ -1298,7 +1301,7 @@ function BeaconBriefStrip() {
               color: "var(--beacon-teal-light)",
               display: "inline-block",
             }}>
-              You are on the list. The first Brief arrives this week.
+              You are on the list. The next free Brief will arrive this week.
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: "flex", gap: 0, maxWidth: "440px" }}>
@@ -1350,8 +1353,13 @@ function BeaconBriefStrip() {
             fontSize: "0.7rem", color: "rgba(250,248,244,0.3)",
             marginTop: "0.75rem", letterSpacing: "0.04em",
           }}>
-            No spam. Unsubscribe anytime. One email per week.
+            Free weekly email. No spam. Unsubscribe anytime.
           </p>
+          {error && <p role="alert" style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "0.78rem", color: "#F0A699", marginTop: "0.75rem" }}>We could not add you right now. Please try again in a moment.</p>}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "1.5rem" }}>
+            <a href="/watch-brief-premium" style={{ color: "var(--beacon-amber-light)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.09em", textTransform: "uppercase", textDecoration: "none" }}>Explore Watch Brief Premium · $27/month <ArrowRight size={13} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
+            <a href="/the-watch#join" style={{ color: "rgba(250,248,244,0.72)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.09em", textTransform: "uppercase", textDecoration: "none" }}>Explore The Watch · $297/year <ArrowRight size={13} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
+          </div>
         </div>
       </div>
     </section>

@@ -1,8 +1,8 @@
 /**
  * Beacon Momentum — /pricing
  * Design: Deep Water Editorial / Quiet Authority
- * Model: Three-tier annual membership + three monthly standalone products
- * Tiers: Signal ($297/yr) → Full Membership ($597/yr) → Quartermaster Circle ($1,497/yr)
+ * Model: One annual Watch membership + paid standalone operating dossiers
+ * Membership: The Watch ($297/yr)
  * Monthly: Watch Brief Premium ($27/mo) | Beacon Labs Stack Brief ($47/mo) | Accountability Sprint ($197/mo — waitlist)
  * Signal Check: Free lead generation tool
  * Updated: June 2026
@@ -30,75 +30,24 @@ const copper = "#7C4F2A";
 // ─── Membership tiers ──────────────────────────────────────────────────────────
 const TIERS = [
   {
-    id: "signal",
-    name: "The Watch: Signal",
-    tagline: "Start here. Stay informed. Find your bearing.",
-    monthlyValue: 35,
+    id: "watch",
+    name: "The Watch",
+    tagline: "The annual operating environment for people ready to build with more structure, context, and company.",
     annualPrice: 297,
-    color: teal,
-    highlight: false,
-    included: [
-      "Weekly Watch Brief — full premium edition",
-      "Beacon Pathfinder Assessment",
-      "Community read access — see the culture before you commit",
-      "One introductory module from one pathway of your choice",
-      "Monthly Watch Brief digest email",
-    ],
-    notIncluded: [
-      "Full pathway curriculum access",
-      "Monthly live Q&A with faculty",
-      "Cohort accountability groups",
-      "Member resource library",
-    ],
-    cta: "Join as Signal Member",
-    ctaHref: "/the-watch",
-    note: "The right first step for the person who is not yet ready for the full commitment — but is done standing still.",
-  },
-  {
-    id: "full",
-    name: "The Watch: Full Membership",
-    tagline: "All five pathways. One standing crew. No ceiling.",
-    monthlyValue: 75,
-    annualPrice: 597,
+    valueNote: "Annual commitment · billed once",
     color: tealMid,
     highlight: true,
     included: [
-      "Access to all Five Pillar pathways — Life, Work, Venture, Systems, Trading",
-      "Sentinel → Navigator → Quartermaster progression system",
-      "Monthly live Q&A with Beacon faculty",
-      "Small-group cohort accountability (activates at Navigator stage)",
-      "Full community access — all channels, all cohorts",
-      "Beacon Pathfinder Assessment",
-      "Member resource library — tools, templates, frameworks",
-      "Watch Brief premium edition — weekly",
-      "Access to all future Beacon properties at no additional cost",
+      "Five-pillar curriculum pathways and member resources",
+      "Community access and accountability structure",
+      "Monthly Watch Brief Premium as a member benefit",
+      "Beacon Pathfinder Assessment and onboarding guidance",
+      "Progression through Sentinel, Navigator, and Quartermaster stages",
     ],
     notIncluded: [],
-    cta: "Join The Watch",
-    ctaHref: "/the-watch",
-    note: "The core membership. Everything you need to move from where you are to where you are capable of being.",
-  },
-  {
-    id: "quartermaster",
-    name: "Quartermaster Circle",
-    tagline: "Inner circle access. Direct line. No intermediaries.",
-    monthlyValue: 175,
-    annualPrice: 1497,
-    color: copper,
-    highlight: false,
-    included: [
-      "Everything in Full Membership",
-      "Monthly small-group strategy session — 6 to 8 members maximum",
-      "Quarterly Signal Check report for your own business or brand",
-      "Early access to new curriculum before general release",
-      "Private Quartermaster channel — direct access to faculty and peers",
-      "Listed as a Beacon contributor for qualifying members",
-      "Priority consideration for Beacon mentor and faculty roles",
-    ],
-    notIncluded: [],
-    cta: "Apply for Quartermaster Circle",
-    ctaHref: "/the-watch",
-    note: "For members who have done the work and are ready for the inner circle. Application required — not everyone who applies is accepted.",
+    cta: "Request Watch enrollment details",
+    ctaHref: "/the-watch#join",
+    note: "The Watch changes the operating environment. The free Brief and monthly dossier can prepare you for it, but neither replaces it.",
   },
 ];
 
@@ -111,9 +60,9 @@ const MONTHLY_PRODUCTS = [
     price: 27,
     cadence: "per month",
     description:
-      "A second Watch Brief each month, a curated tool recommendation with a short implementation note, and a Signal of the Week — one data point or development worth acting on. No membership required.",
-    cta: "Subscribe to the Brief",
-    ctaHref: "/the-watch",
+      "A paid monthly operating dossier: one deeper briefing, one curated tool note, and one high-leverage signal worth acting on. No membership required.",
+    cta: "Request enrollment details",
+    ctaHref: "/watch-brief-premium",
     available: true,
   },
   {
@@ -124,8 +73,8 @@ const MONTHLY_PRODUCTS = [
     cadence: "per month",
     description:
       "A monthly 8–10 page PDF briefing on the AI tool stack. What to use, what to drop, what is overhyped, what is underrated. Three recommended stacks — solopreneur, small team, career professional — updated every 30 days as the landscape shifts. Researched and produced by the Beacon AI team.",
-    cta: "Subscribe to Labs Brief",
-    ctaHref: "/the-watch",
+    cta: "Request Labs Brief details",
+    ctaHref: "/contact?interest=labs-brief",
     available: true,
   },
   {
@@ -177,12 +126,16 @@ const STAGES = [
 // ─── FAQs ──────────────────────────────────────────────────────────────────────
 const FAQS = [
   {
+    q: "How do The Signal, Beacon Brief, Watch Brief Premium, and The Watch fit together?",
+    a: "The Signal is the public editorial library. The Beacon Brief is the free weekly email that curates useful Signal work and one practical action. Watch Brief Premium is a separate paid monthly operating dossier for people who want more depth without joining a community. The Watch is the $297/year annual curriculum and community membership; it includes the premium briefing as a member benefit, along with the operating environment the briefing alone cannot provide.",
+  },
+  {
     q: "Why no free trial?",
     a: "We don't offer free trials because we don't believe in letting people sample something this serious. If you're here, you've already done the math. We trust that. A paid commitment signals intent — and the community is stronger because of it.",
   },
   {
-    q: "What is the difference between the three membership tiers?",
-    a: "Signal is the entry point — the Watch Brief, community access, and one introductory module. It is for the person who is not yet ready to commit to the full curriculum but is done standing still. Full Membership is the core offer — all five pathways, the progression system, live Q&A, and cohort accountability. Quartermaster Circle is the inner circle — for members who have done the work and want direct access, strategy sessions, and Signal Check reports for their own business.",
+    q: "Why is there one Watch membership instead of multiple tiers?",
+    a: "The Watch is one annual operating environment at $297/year. Sentinel, Navigator, and Quartermaster are progression stages earned through participation and contribution—not separate plans to compare or purchase. Every new member begins as a Sentinel, then progresses through the work.",
   },
   {
     q: "What are the progression stages?",
@@ -194,7 +147,7 @@ const FAQS = [
   },
   {
     q: "Is there a monthly option?",
-    a: "The Watch memberships are annual-only. Annual billing is the foundation of a committed community — it filters out casual browsers and ensures every member is invested in the long-term work. The Watch Brief Premium and Beacon Labs Stack Brief are available as monthly standalone subscriptions with no annual commitment required.",
+    a: "The Watch is annual-only. Annual billing is the foundation of a committed community and a longer-term curriculum. Watch Brief Premium and Beacon Labs Stack Brief are separate monthly operating products; request enrollment details for the current release and payment instructions.",
   },
   {
     q: "What is the Signal Check and why is it free?",
@@ -213,8 +166,8 @@ const FAQS = [
     a: "Beacon Trading is the fifth pathway within The Watch — AI-powered curriculum covering market fundamentals, portfolio thinking, and financial decision-making. It is an educational platform that teaches market opportunities. It is not a trading platform, investment advisory service, or financial institution. It is education — the kind that changes how you think about money.",
   },
   {
-    q: "Not sure which tier is right for you?",
-    a: "Take the Pathfinder Assessment. Five minutes. No sales call. No obligation. It will tell you honestly whether The Watch is the right next step — and if it is, which tier and pathway to start with.",
+    q: "Not sure whether The Watch is the right next step?",
+    a: "Take the Pathfinder Assessment. Five minutes. No sales call. No obligation. It will help you decide whether to begin with the free Signal, Watch Brief Premium, or the annual membership—and, if you join The Watch, which pathway to start with.",
   },
 ];
 
@@ -253,7 +206,7 @@ export default function PricingPage() {
                 letterSpacing: "0.18em", textTransform: "uppercase",
                 color: amber,
               }}>
-                Membership · Beacon Momentum
+                Beacon Momentum · Clear next steps
               </span>
             </div>
             <h1 style={{
@@ -262,14 +215,14 @@ export default function PricingPage() {
               lineHeight: 1.05, letterSpacing: "-0.025em",
               color: cream, marginBottom: "1rem", maxWidth: "680px",
             }}>
-              Choose your entry point.<br />There is no wrong door.
+              Start with the right<br />level of depth.
             </h1>
             <p style={{
               fontFamily: "'Lora', Georgia, serif",
               fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)",
               lineHeight: 1.75, color: "rgba(250,248,244,0.7)", maxWidth: "560px",
             }}>
-              Every tier is a real commitment to a real outcome. Start where you are. The work is the same regardless of where you begin.
+              Read the public Signal. Keep the line open with the free Beacon Brief. Explore Watch Brief Premium for a monthly dossier—or request Watch enrollment details when you are ready for the full operating environment.
             </p>
           </motion.div>
         </div>
@@ -290,14 +243,14 @@ export default function PricingPage() {
               letterSpacing: "0.14em", textTransform: "uppercase",
               marginBottom: "1.5rem",
             }}>
-              Annual Membership — All Tiers
+              Annual Membership · The Watch
             </div>
             <p style={{
               fontFamily: "'Lora', Georgia, serif",
               fontSize: "0.9rem", lineHeight: 1.75,
               color: charcoalMid, maxWidth: "520px", margin: "0 auto",
             }}>
-              All memberships are annual-only. Each price shown is the annual commitment — billed once. The monthly value shown is what each tier is worth on a per-month basis.
+              One annual membership for people ready for a stronger operating environment: curriculum, community, accountability, and member resources.
             </p>
           </div>
 
@@ -383,7 +336,7 @@ export default function PricingPage() {
                       fontSize: "0.7rem", color: charcoalMid,
                       marginTop: "0.25rem", opacity: 0.65,
                     }}>
-                      Valued at ${tier.monthlyValue}/month · billed once annually
+                      {tier.valueNote}
                     </p>
                   </div>
                 </div>
@@ -470,9 +423,9 @@ export default function PricingPage() {
               fontSize: "0.875rem", lineHeight: 1.7,
               color: charcoalMid, marginBottom: "1rem",
             }}>
-              Not sure which tier is right for you?
+              Need a field recommendation before joining?
             </p>
-            <Link href="/pathfinder" style={{
+            <Link href="/assessment" style={{
               display: "inline-flex", alignItems: "center", gap: "0.5rem",
               fontFamily: "'Outfit', system-ui, sans-serif",
               fontWeight: 500, fontSize: "0.8rem",
@@ -581,7 +534,7 @@ export default function PricingPage() {
                 letterSpacing: "0.18em", textTransform: "uppercase",
                 color: teal,
               }}>
-                Standalone Monthly Products
+              Paid Operating Dossiers
               </span>
               <span style={{ width: "2rem", height: "1px", background: teal, display: "inline-block" }} />
             </div>
@@ -591,14 +544,14 @@ export default function PricingPage() {
               lineHeight: 1.1, color: charcoal,
               maxWidth: "560px", margin: "0 auto 1rem",
             }}>
-              Not ready for a full membership?<br />Start with one product.
+              Need more depth before a full membership?<br />Start with one focused operating layer.
             </h2>
             <p style={{
               fontFamily: "'Lora', Georgia, serif",
               fontSize: "0.9rem", lineHeight: 1.75,
               color: charcoalMid, maxWidth: "480px", margin: "0 auto",
             }}>
-              Each of these products stands on its own. No membership required. Cancel any time.
+              These are paid standalone products for people who want more depth without entering the community and curriculum environment of The Watch.
             </p>
           </div>
 

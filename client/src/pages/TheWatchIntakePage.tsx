@@ -1,10 +1,11 @@
 /**
- * Beacon Momentum — The Watch Cohort Placement Intake
+ * Beacon Momentum — The Watch Enrollment Request Intake
  * Design: Deep Water Editorial / Quiet Authority
  *
  * Route: /the-watch/intake
- * Purpose: 7-step questionnaire for Navigator and Quartermaster members.
- *   Collects context, assigns cohort track, pushes to GHL with tags and custom fields.
+ * Purpose: 6-step fit-and-starting-track questionnaire for people requesting The Watch.
+ *   Collects context, recommends a starting track, and pushes the enrollment request to GHL.
+ * Funnel rule: this is neither a checkout nor membership activation; approved members begin at Sentinel.
  *
  * GHL tags applied:
  *   BM_Watch_Intake         — any intake completion
@@ -14,9 +15,9 @@
  *   BM_Track_Legacy         — primary track: legacy and long-term planning
  *
  * Custom fields written:
- *   watch_intake_track      — assigned cohort track
+ *   watch_intake_track      — recommended starting track
  *   watch_intake_answers    — JSON blob of all answers
- *   watch_intake_tier       — Sentinel / Navigator / Quartermaster
+ *   watch_intake_tier       — Sentinel (single annual membership entry stage)
  */
 
 import { useState, useEffect } from "react";
@@ -98,21 +99,8 @@ interface Question {
 
 const QUESTIONS: Question[] = [
   {
-    id: "tier",
-    step: 1,
-    label: "Which membership tier did you select?",
-    sublabel: "This helps us route your onboarding correctly.",
-    type: "radio",
-    required: true,
-    options: [
-      { value: "sentinel", label: "Sentinel", sub: "$47/month — entry tier" },
-      { value: "navigator", label: "Navigator", sub: "$97/month — full cohort access" },
-      { value: "quartermaster", label: "Quartermaster", sub: "$247/month — founding tier" },
-    ],
-  },
-  {
     id: "current_situation",
-    step: 2,
+    step: 1,
     label: "What best describes where you are right now?",
     sublabel: "Be honest. This is for placement, not judgment.",
     type: "radio",
@@ -129,7 +117,7 @@ const QUESTIONS: Question[] = [
   },
   {
     id: "biggest_obstacle",
-    step: 3,
+    step: 2,
     label: "What is the single biggest obstacle between you and where you want to be?",
     sublabel: "One sentence is enough. Be specific.",
     type: "textarea",
@@ -138,7 +126,7 @@ const QUESTIONS: Question[] = [
   },
   {
     id: "time_horizon",
-    step: 4,
+    step: 3,
     label: "What is your primary time horizon?",
     sublabel: "Where is your focus right now?",
     type: "radio",
@@ -152,7 +140,7 @@ const QUESTIONS: Question[] = [
   },
   {
     id: "ai_comfort",
-    step: 5,
+    step: 4,
     label: "How comfortable are you with AI tools right now?",
     sublabel: "No wrong answer — this determines your starting point in the Systems track.",
     type: "radio",
@@ -167,7 +155,7 @@ const QUESTIONS: Question[] = [
   },
   {
     id: "accountability",
-    step: 6,
+    step: 5,
     label: "What kind of accountability works best for you?",
     sublabel: "We'll use this to structure your cohort experience.",
     type: "radio",
@@ -182,7 +170,7 @@ const QUESTIONS: Question[] = [
   },
   {
     id: "track_choice",
-    step: 7,
+    step: 6,
     label: "Based on what you've shared, which cohort track fits you best?",
     sublabel:
       "We'll validate this against your answers and assign your cohort. You can always switch tracks after your first 30 days.",
@@ -217,9 +205,6 @@ function scoreTrack(answers: Record<string, string>): keyof typeof TRACKS {
   // AI comfort
   if (answers.ai_comfort === "none" || answers.ai_comfort === "curious") scores.transition += 1;
   if (answers.ai_comfort === "regular" || answers.ai_comfort === "building") scores.systems += 3;
-
-  // tier
-  if (answers.tier === "quartermaster") scores.legacy += 1;
 
   const top = (Object.keys(scores) as (keyof typeof TRACKS)[]).reduce((a, b) =>
     scores[a] >= scores[b] ? a : b
@@ -447,9 +432,9 @@ export default function TheWatchIntakePage() {
   // Persist intake to DB for the cohort lead dashboard
   const submitIntakeMutation = trpc.cohort.submitIntake.useMutation();
 
-  // Compute recommended track whenever answers change (for step 7)
+  // Compute the recommended starting track on the final question.
   useEffect(() => {
-    if (step === 7) {
+    if (step === totalSteps) {
       const rec = scoreTrack(answers);
       setRecommendedTrack(rec);
       // Pre-select recommended track if not already chosen
@@ -486,7 +471,7 @@ export default function TheWatchIntakePage() {
     // Retrieve email from session storage (set by TheWatchPage JoinForm)
     const email = sessionStorage.getItem("watch_intake_email") || "";
     const firstName = sessionStorage.getItem("watch_intake_name") || undefined;
-    const tier = answers.tier || sessionStorage.getItem("watch_intake_tier") || "navigator";
+    const entryStage = "sentinel";
     const track = answers.track_choice || recommendedTrack;
     const trackData = TRACKS[track as keyof typeof TRACKS] || TRACKS.transition;
 
@@ -498,13 +483,14 @@ export default function TheWatchIntakePage() {
       tags: [
         "BM_Watch_Intake",
         "BM_Watch_Join",
-        `BM_Watch_${tier.charAt(0).toUpperCase() + tier.slice(1)}`,
+        "BM_Watch_Enrollment_Request",
+        "BM_Watch_Sentinel",
         trackData.tag,
       ],
       source: "beaconmomentum.com/the-watch/intake",
       customFields: [
         { id: WATCH_FIELD_IDS.watch_intake_track, field_value: track },
-        { id: WATCH_FIELD_IDS.watch_intake_tier, field_value: tier },
+        { id: WATCH_FIELD_IDS.watch_intake_tier, field_value: entryStage },
         { id: WATCH_FIELD_IDS.watch_intake_answers, field_value: JSON.stringify(answers) },
       ],
     });
@@ -514,7 +500,7 @@ export default function TheWatchIntakePage() {
       submitIntakeMutation.mutate({
         email,
         firstName,
-        tier,
+        tier: entryStage,
         track,
         intakeAnswers: answers,
       });
@@ -567,7 +553,7 @@ export default function TheWatchIntakePage() {
                 marginBottom: "1rem",
               }}
             >
-              You're in.
+              Your request is in.
             </h1>
             <p
               style={{
@@ -578,7 +564,7 @@ export default function TheWatchIntakePage() {
                 marginBottom: "0.75rem",
               }}
             >
-              Your cohort placement is confirmed:{" "}
+              Your recommended starting track is:{" "}
               <strong style={{ color: C.amberLight }}>{trackData.label}</strong>.
             </p>
             <p
@@ -590,9 +576,9 @@ export default function TheWatchIntakePage() {
                 marginBottom: "2.5rem",
               }}
             >
-              A member of the Beacon team will send your onboarding details and
-              cohort introduction within 24 hours. Check your inbox — and your
-              spam folder.
+              A member of the Beacon team will review your request and send the
+              current enrollment details, next steps, and a recommended cohort
+              path within 24 hours. Check your inbox — and your spam folder.
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/the-watch">
@@ -751,7 +737,7 @@ export default function TheWatchIntakePage() {
             marginBottom: "0.75rem",
           }}
         >
-          The Watch · Cohort Placement
+          The Watch · Enrollment Request
         </div>
         <h1
           style={{
@@ -777,8 +763,9 @@ export default function TheWatchIntakePage() {
             margin: "0 auto",
           }}
         >
-          Seven questions. Five minutes. Your answers determine your cohort
-          track and starting point inside The Watch.
+          Six questions. About five minutes. Your answers help us recommend a
+          starting track and explain the right next step. This is not a checkout
+          or membership activation.
         </p>
       </div>
 
@@ -921,7 +908,7 @@ export default function TheWatchIntakePage() {
                 transition: "background 0.15s ease-out",
               }}
             >
-              {submitStatus === "submitting" ? "Submitting…" : "Confirm My Track →"}
+              {submitStatus === "submitting" ? "Submitting…" : "Submit Enrollment Request →"}
             </button>
           )}
         </div>
@@ -945,7 +932,7 @@ export default function TheWatchIntakePage() {
             <a href="mailto:hello@beaconmomentum.com" style={{ color: C.amberLight }}>
               hello@beaconmomentum.com
             </a>{" "}
-            with your name and selected tier.
+            with your name and email address.
           </div>
         )}
 
@@ -960,9 +947,9 @@ export default function TheWatchIntakePage() {
             marginTop: "2.5rem",
           }}
         >
-          Your answers are used only for cohort placement and are never shared
-          outside the Beacon team. You can update your track at any time by
-          contacting your cohort lead.
+          Your answers are used only to review your enrollment request and
+          recommend a starting track. They are never shared outside the Beacon
+          team.
         </p>
       </div>
 

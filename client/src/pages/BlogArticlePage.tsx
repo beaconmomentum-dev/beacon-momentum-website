@@ -3108,7 +3108,7 @@ export default function BlogArticlePage() {
                 lineHeight: 1.25,
                 marginBottom: "0.75rem",
               }}>
-                A second brief every month. One signal worth acting on. No membership required.
+                A paid monthly operating dossier. One signal worth acting on. No membership required.
               </div>
               <p style={{
                 fontFamily: "'Lora', Georgia, serif",
@@ -3117,10 +3117,10 @@ export default function BlogArticlePage() {
                 lineHeight: 1.75,
                 margin: "0 0 1.25rem",
               }}>
-                Every month: a second Watch Brief, a curated tool recommendation with an implementation note, and the Signal of the Week — one data point worth acting on before the next cycle. Cancel any time.
+                Every month: one deeper briefing, a curated tool recommendation with an implementation note, and one high-leverage signal worth carrying into the next cycle. It is distinct from the free weekly Beacon Brief.
               </p>
               <a
-                href="/pricing"
+                href="/watch-brief-premium"
                 style={{
                   display: "inline-block",
                   background: "#C8963E",
@@ -3134,7 +3134,7 @@ export default function BlogArticlePage() {
                   padding: "0.75rem 1.75rem",
                 }}
               >
-                Subscribe for $27 / month &rarr;
+                Request enrollment details &rarr;
               </a>
             </div>
           </div>

@@ -31,3 +31,8 @@ The locally hosted `llama3.1:8b` model reviewed the route, asset, newsletter, an
 The canonical commit `c1c3ece` was confirmed as the checked-out revision at `/var/www/beacon-momentum-www` on the DigitalOcean host. PM2 reported `beacon-momentum-www` online, the local health endpoint returned HTTP 200, and all five versioned homepage WebP assets were present in the production build.
 
 The public `https://beaconmomentum.com/` site rendered the Tide & Tension hero, Watch offer, and primary assessment/membership calls to action. Its production navigation control opened the expected primary-route list successfully.
+
+## Funnel Destination Audit — July 24, 2026
+
+- The existing membership target `https://beaconcommunity.net/upgrade` redirects publicly to `https://beaconcommunity.net/login` rather than exposing a purchasable upgrade flow. It must not be presented as immediate checkout until a real purchase destination is confirmed.
+- The intended public progression is **The Signal** (open editorial) → **The Beacon Brief** (free weekly email) → **Watch Brief Premium** (a distinct paid $27/month briefing, with a confirmed purchase destination) → **The Watch** (annual membership, with a confirmed application or checkout destination).

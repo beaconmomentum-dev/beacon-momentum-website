@@ -429,7 +429,7 @@ export default function PillarPage() {
             <div className="text-xs font-ui tracking-widest uppercase text-[#9B8E7E] mb-3">Membership</div>
             <h2 className="font-display text-4xl text-[#2C2416] mb-4">Join {pillar.name}</h2>
             <p className="text-[#6B5E4E] max-w-xl mx-auto">
-              Full access to the curriculum, mentor sessions, community, and all tools. No upsells. No hidden tiers.
+              One annual Watch membership gives you the curriculum, community, and member tools. Progression is earned inside the work—not purchased as a separate tier.
             </p>
           </div>
 
@@ -446,13 +446,13 @@ export default function PillarPage() {
                 Annual Membership
               </div>
               <div className="flex items-baseline gap-1 mb-1">
-                <span className="font-display text-6xl text-[#2C2416]">$497</span>
+                <span className="font-display text-6xl text-[#2C2416]">$297</span>
                 <span className="text-[#9B8E7E] font-ui">/year</span>
               </div>
               <p className="text-sm mb-1" style={{ color: pillar.color }}>
-                Less than $42/month — cancel anytime
+                Less than $25/month — annual commitment
               </p>
-              <p className="text-sm text-[#6B5E4E] mb-8">Full access from day one. No upsells. No hidden tiers.</p>
+              <p className="text-sm text-[#6B5E4E] mb-8">Full membership access from day one. No hidden tiers or competing plans.</p>
               <ul className="space-y-3 mb-10">
                 {[
                   "Full curriculum access",

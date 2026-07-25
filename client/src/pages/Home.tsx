@@ -7,7 +7,9 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
 
 const ASSESSMENT_URL = "/assessment";
-const MEMBERSHIP_URL = "/pricing";
+const MEMBERSHIP_URL = "/the-watch#join";
+const PRICING_URL = "/pricing";
+const PREMIUM_BRIEF_URL = "/watch-brief-premium";
 const HOME_IMAGES = {
   mark: "/images/home/beacon-mark.webp",
   hero: "/images/home/beacon-hero-tide-tension.webp",
@@ -431,7 +433,7 @@ export default function Home() {
                   transition={{ duration: reduceMotion ? 0 : 0.44, ease: [0.23, 1, 0.32, 1] }}
                   className="mt-5 text-xs leading-5 text-[#9BB0B0]"
                 >
-                  Start with the $297 annual Signal membership, then choose a deeper commitment only if it fits the work ahead.
+                  Start with the free Signal and Beacon Brief. Add the $27 monthly dossier or enter The Watch only when the work calls for more.
                 </motion.p>
               </motion.div>
 
@@ -596,10 +598,10 @@ export default function Home() {
                   <span className="font-display text-7xl leading-none tracking-[-0.06em] text-[#F8F5EC]">$297</span>
                   <span className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.17em] text-[#B8C6C2]">/ Year</span>
                 </div>
-                <p className="mt-5 border-y border-white/15 py-5 text-sm leading-6 text-[#C7D4D0]">The $297 Signal membership is the first door into The Watch. Review the annual options, then choose the level of access that matches the operating position you are ready to build.</p>
+                <p className="mt-5 border-y border-white/15 py-5 text-sm leading-6 text-[#C7D4D0]">The Watch is the annual operating environment: curriculum, community, accountability, and member resources. The $297 annual entry is for people ready to work inside that environment—not simply receive another briefing.</p>
                 <div className="mt-7">
-                  <PrimaryCta href={MEMBERSHIP_URL}>Explore Membership Options</PrimaryCta>
-                  <p id="membership" className="mt-5 text-xs leading-5 text-[#9BB0B0]">Review the annual membership options first. If you need a field recommendation before choosing, take the Pathfinder Assessment.</p>
+                  <PrimaryCta href={MEMBERSHIP_URL}>Request Watch enrollment details</PrimaryCta>
+                  <p id="membership" className="mt-5 text-xs leading-5 text-[#9BB0B0]">The annual membership path starts with a brief request, followed by enrollment and onboarding details. If you need a field recommendation first, take the Pathfinder Assessment.</p>
                   <a href={ASSESSMENT_URL} className="group mt-4 inline-flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#B7E0DA] hover:text-[#D8A94A]">
                     Take the assessment <ArrowIcon className="link-arrow h-3.5 w-3.5" />
                   </a>
@@ -659,12 +661,16 @@ export default function Home() {
             <SignalStrip label="The Brief · Signal 06" inverse />
             <div className="mt-12 grid gap-10 lg:grid-cols-[0.95fr_0.8fr] lg:items-end lg:justify-between lg:gap-20">
               <div>
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.21em] text-[#D8A94A]">The Beacon Brief</p>
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.21em] text-[#D8A94A]">The Beacon Brief · Free weekly email</p>
                 <h2 className="font-display mt-5 max-w-2xl text-5xl leading-[0.98] tracking-[-0.045em] sm:text-6xl">One weekly signal. <span className="italic text-[#58A6A4]">No noise.</span></h2>
-                <p className="mt-6 max-w-xl text-base leading-7 text-[#C7D4D0]">A concise field report on the AI transition, Beacon Labs findings, and practical actions worth carrying into the next week.</p>
+                <p className="mt-6 max-w-xl text-base leading-7 text-[#C7D4D0]">A free five-minute digest of the best public Signal work, Beacon Labs findings, and one practical action worth carrying into the next week.</p>
+                <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-[0.67rem] font-semibold uppercase tracking-[0.14em]">
+                  <a href="/blog" className="inline-flex items-center gap-2 text-[#B7E0DA] hover:text-[#D8A94A]">Read The Signal <ArrowIcon className="link-arrow h-3.5 w-3.5" /></a>
+                  <a href={PREMIUM_BRIEF_URL} className="inline-flex items-center gap-2 text-[#D8A94A] hover:text-[#F0C76B]">Explore Watch Brief Premium · $27/month <ArrowIcon className="link-arrow h-3.5 w-3.5" /></a>
+                </div>
               </div>
               <form onSubmit={handleNewsletterSubmit} className="border border-white/15 bg-[#061A29]/65 p-5 sm:p-6">
-                <label htmlFor="beacon-brief-email" className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">Receive the field report</label>
+                <label htmlFor="beacon-brief-email" className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">Get the free weekly email</label>
                 <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                   <input
                     id="beacon-brief-email"
@@ -686,7 +692,7 @@ export default function Home() {
                     ? "You are on the list. Watch for the next field report."
                     : newsletterState === "error"
                       ? "We could not add you right now. Please try again in a moment."
-                      : "No spam. Unsubscribe at any time."}
+                      : "Free weekly email. No spam. Unsubscribe at any time."}
                 </p>
               </form>
             </div>
@@ -722,7 +728,7 @@ export default function Home() {
               <div className="mt-3 flex flex-col gap-2 text-sm">
                 <a href={ASSESSMENT_URL} className="hover:text-[#EEF3EF]">Pathfinder Assessment</a>
                 <a href="#portfolio" className="hover:text-[#EEF3EF]">Beacon Portfolio</a>
-                <a href={MEMBERSHIP_URL} className="hover:text-[#EEF3EF]">Pricing</a>
+                <a href={PRICING_URL} className="hover:text-[#EEF3EF]">Pricing &amp; pathways</a>
                 <a href="/contact" className="hover:text-[#EEF3EF]">Contact</a>
               </div>
             </div>
