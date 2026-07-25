@@ -18,4 +18,6 @@ The deployed production `index.html` references the new hashed JavaScript bundle
 
 ## Public Endpoint Check
 
-The public URL `https://beaconmomentum.com/the-watch?release=bcb4757` responded with the expected page title, but the connected-browser renderer did not expose the client-rendered page content or screenshot. The source, build, preview, and origin-file checks confirm the updated price; a normal browser refresh remains advisable as a final customer-side cache observation.
+The public URL `https://beaconmomentum.com/the-watch?release=2a0c10d` was fetched directly after deployment. It serves both the `"price": "497"` structured-data value and the new hashed JavaScript bundle `assets/index-CvD3eqcF-1784948427746.js`.
+
+The connected-browser renderer returned the expected page title but did not expose client-rendered body text or a screenshot in this session. The direct public response, production-origin file, local build, and local visual preview together confirm the release.
