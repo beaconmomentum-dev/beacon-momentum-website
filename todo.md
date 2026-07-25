@@ -14,4 +14,5 @@
 - [x] Produce a direct reuse verdict and the editorial changes required to prevent a duplicate or conflicting offer: reuse is viable only as an edited Watch-member asset within Beacon Venture.
 - [ ] Locate the owner task or source project behind `exec-funnel-aqf76wtd.manus.space`; its published Space ID is known, but no editable source task is available in the current project or GitHub repository.
 - [x] Add the edited Venture Execution Sprint to Beacon Venture as a self-contained Watch-member curriculum asset with no standalone price, checkout, urgency, direct-access claim, third-party course platform, or external asset dependency.
+- [x] Replace the controllable `exec.beaconmomentum.com` Execution Engine process with a Node-core-only redirect to `https://beaconmomentum.com/pillar/venture`; verify its public `302` response and zero package dependencies.
 - [ ] Remove or redirect the separate `exec-funnel-aqf76wtd.manus.space/offer` page once its owner task or project is available; it remains publicly live and cannot be truthfully marked retired yet.

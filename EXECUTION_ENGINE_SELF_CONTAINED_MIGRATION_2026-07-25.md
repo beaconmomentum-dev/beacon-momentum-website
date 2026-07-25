@@ -39,6 +39,12 @@ The canonical Beacon production build was completed on July 25, 2026 using the e
 
 This verification applies to the canonical Beacon release only. The separate legacy Manus Space remains publicly reachable until its owner task or source project is identified and explicitly retired or internally redirected.
 
+## Controlled legacy-host retirement
+
+On July 25, 2026, the controllable `exec.beaconmomentum.com` Execution Engine process was replaced with a Node.js-core-only redirect service. The new source is stored in `infrastructure/execution-engine-retirement/` in the canonical Beacon repository at commit `10fb40b`. It has no package dependencies, checkout code, database access, analytics integration, remote asset loading, or runtime secret requirement.
+
+Public verification confirmed that `https://exec.beaconmomentum.com/offer?release=10fb40b` returns `302 Found` with `Location: https://beaconmomentum.com/pillar/venture` and a `no-store` cache policy. The previously independent public Manus Space at `https://exec-funnel-aqf76wtd.manus.space/offer` still responds independently with `200 OK`; it cannot be truthfully described as retired until its owning Manus task or Space-management access is available.
+
 ## Sources
 
 1. [Published Execution Engine page](https://exec-funnel-aqf76wtd.manus.space/offer)
