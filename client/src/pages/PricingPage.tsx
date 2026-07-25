@@ -4,7 +4,7 @@
  * Model: One annual Watch membership + paid standalone operating dossiers
  * Membership: The Watch ($497/yr)
  * Monthly: Watch Brief Premium ($27/mo) | Beacon Labs Stack Brief ($47/mo) | Accountability Sprint ($197/mo — waitlist)
- * Signal Check: Paid Beacon Labs diagnostic ($297)
+ * Signal Check: Free initial diagnostic + optional $297 expanded B2B follow-up
  * Updated: June 2026
  */
 
@@ -150,8 +150,12 @@ const FAQS = [
     a: "The Watch is annual-only. Annual billing is the foundation of a committed community and a longer-term curriculum. Watch Brief Premium and Beacon Labs Stack Brief are separate monthly operating products; request enrollment details for the current release and payment instructions.",
   },
   {
-    q: "What is the paid Signal Check?",
-    a: "The $297 Beacon Labs Signal Check is a paid diagnostic review of a brand's digital presence — website, social, paid ads, competitive landscape, and conversion posture. It is separate from The Watch membership. Request details to confirm the current scope, delivery timing, and next steps.",
+    q: "What is the Signal Check?",
+    a: "The initial Beacon Labs Signal Check is a free diagnostic read of a brand's digital presence — website, social, paid ads, competitive landscape, and conversion posture. It is a no-cost starting point, separate from The Watch membership.",
+  },
+  {
+    q: "What is the expanded Signal Check follow-up?",
+    a: "The expanded follow-up is an optional $297 Beacon Labs B2B diagnostic for organizations that want to continue beyond the initial Signal Check. It is a separate entry-level business offer, not a charge for the free Signal Check and not part of The Watch membership.",
   },
   {
     q: "What is the Accountability Sprint?",
@@ -682,58 +686,101 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ── Signal Check ── */}
+      {/* ── Signal Check — approved two-stage Beacon Labs funnel ── */}
       <section style={{ padding: "5rem 0", background: parchment }}>
-        <div className="container" style={{ maxWidth: "760px" }}>
-          <div style={{
-            border: `1.5px solid rgba(26,92,107,0.25)`,
-            padding: "3rem",
-            textAlign: "center",
-          }}>
+        <div className="container" style={{ maxWidth: "980px" }}>
+          <div style={{ textAlign: "center", maxWidth: "660px", margin: "0 auto 2.5rem" }}>
             <div style={{
               fontFamily: "'Outfit', system-ui, sans-serif",
               fontWeight: 500, fontSize: "0.65rem",
               letterSpacing: "0.18em", textTransform: "uppercase",
               color: teal, marginBottom: "1rem",
             }}>
-              Beacon Labs diagnostic · $297
+              Beacon Labs · Two-stage diagnostic path
             </div>
             <h2 style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontWeight: 600, fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
-              lineHeight: 1.1, color: charcoal, marginBottom: "1rem",
+              fontWeight: 600, fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+              lineHeight: 1.1, color: charcoal, marginBottom: "0.875rem",
             }}>
-              Start with a paid Signal Check.
+              Start with clarity. Continue only when it serves the work.
             </h2>
             <p style={{
               fontFamily: "'Lora', Georgia, serif",
-              fontSize: "0.9rem", lineHeight: 1.75,
-              color: charcoalMid, maxWidth: "520px", margin: "0 auto 2rem",
+              fontSize: "0.9rem", lineHeight: 1.75, color: charcoalMid, margin: 0,
             }}>
-              A paid $297 diagnostic review of your brand's digital presence — website, social, paid ads, competitive landscape, and conversion posture. The Signal Check is a Beacon Labs offer, separate from The Watch’s $497 annual curriculum and community membership.
+              The Signal Check begins with a free read. Organizations that need a fuller B2B diagnostic can choose a separate expanded follow-up after that first step.
             </p>
-            <a
-              href="/contact?interest=signal-check"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                padding: "0.875rem 2rem",
-                background: teal, color: cream,
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                fontWeight: 600, fontSize: "0.8rem",
-                letterSpacing: "0.06em", textTransform: "uppercase",
-                textDecoration: "none",
-              }}
-            >
-              Request Signal Check details
-              <ArrowRight style={{ width: "0.875rem", height: "0.875rem" }} />
-            </a>
-            <p style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontSize: "0.7rem", color: charcoalMid,
-              marginTop: "1rem", opacity: 0.6,
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", gap: "1.25rem" }}>
+            <div style={{
+              border: `1.5px solid rgba(26,92,107,0.25)`, padding: "2.5rem", textAlign: "center", background: cream,
             }}>
-              Agencies and consultants may request Signal Check details for a client-facing diagnostic.
-            </p>
+              <div style={{
+                fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500, fontSize: "0.65rem",
+                letterSpacing: "0.18em", textTransform: "uppercase", color: teal, marginBottom: "1rem",
+              }}>
+                Step one · Free initial Signal Check
+              </div>
+              <h3 style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600,
+                fontSize: "clamp(1.35rem, 2vw, 1.8rem)", lineHeight: 1.1, color: charcoal, marginBottom: "1rem",
+              }}>
+                Get a clear first read.
+              </h3>
+              <p style={{
+                fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", lineHeight: 1.75,
+                color: charcoalMid, margin: "0 auto 1.75rem",
+              }}>
+                A no-cost initial review of your brand’s digital presence — including website, social, visibility, competitive context, and conversion posture.
+              </p>
+              <a
+                href="https://beaconlabs.ai/signal-check"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.875rem 1.5rem",
+                  background: teal, color: cream, fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 600,
+                  fontSize: "0.75rem", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none",
+                }}
+              >
+                Get Your Free Signal Check
+                <ArrowRight style={{ width: "0.875rem", height: "0.875rem" }} />
+              </a>
+            </div>
+
+            <div style={{
+              border: `1.5px solid rgba(200,146,42,0.55)`, padding: "2.5rem", textAlign: "center", background: charcoal,
+            }}>
+              <div style={{
+                fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 500, fontSize: "0.65rem",
+                letterSpacing: "0.18em", textTransform: "uppercase", color: "#E8C77A", marginBottom: "1rem",
+              }}>
+                Step two · Expanded B2B follow-up · $297
+              </div>
+              <h3 style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600,
+                fontSize: "clamp(1.35rem, 2vw, 1.8rem)", lineHeight: 1.1, color: cream, marginBottom: "1rem",
+              }}>
+                Continue with the expanded review.
+              </h3>
+              <p style={{
+                fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", lineHeight: 1.75,
+                color: "rgba(250,248,244,0.78)", margin: "0 auto 1.75rem",
+              }}>
+                An optional $297 entry-level B2B diagnostic for organizations ready to continue beyond the free Signal Check. It is separate from both the free first step and The Watch membership.
+              </p>
+              <a
+                href="/contact?interest=signal-check-expanded"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.875rem 1.5rem",
+                  background: amber, color: charcoal, fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 700,
+                  fontSize: "0.75rem", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none",
+                }}
+              >
+                Request expanded follow-up details
+                <ArrowRight style={{ width: "0.875rem", height: "0.875rem" }} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
