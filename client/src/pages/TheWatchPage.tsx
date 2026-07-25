@@ -392,7 +392,7 @@ const TIERS: Tier[] = [
     id: "sentinel",
     name: "Sentinel",
     subtitle: "Where every member begins.",
-    price: "$297",
+    price: "$497",
     period: "/ year",
     image: SENTINEL_IMG,
     highlight: false,
@@ -686,7 +686,7 @@ function MembershipTiers({ onTierSelect }: { onTierSelect: () => void }) {
               margin: "0 auto",
             }}
           >
-            The Watch is a single annual membership at $297/year — less than $25/month. Sentinel,
+            The Watch is a single annual membership at $497/year — about $41/month. Sentinel,
             Navigator, and Quartermaster are progression stages — earned
             through consistent action, not purchased separately. No free
             trials. No casual access. The Watch is for people who have decided.
@@ -1016,7 +1016,7 @@ function JoinForm() {
             marginBottom: "2.5rem",
           }}
         >
-          The Watch is $297/year — less than $25/month, annual billing only.
+          The Watch is $497/year — about $41/month, annual billing only.
           Start with a short enrollment request so we can understand where you
           are and send the current enrollment and onboarding details. Completing
           this request does not process payment. Every approved member begins at

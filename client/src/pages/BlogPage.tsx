@@ -1358,7 +1358,7 @@ function BeaconBriefStrip() {
           {error && <p role="alert" style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "0.78rem", color: "#F0A699", marginTop: "0.75rem" }}>We could not add you right now. Please try again in a moment.</p>}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "1.5rem" }}>
             <a href="/watch-brief-premium" style={{ color: "var(--beacon-amber-light)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.09em", textTransform: "uppercase", textDecoration: "none" }}>Explore Watch Brief Premium · $27/month <ArrowRight size={13} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
-            <a href="/the-watch#join" style={{ color: "rgba(250,248,244,0.72)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.09em", textTransform: "uppercase", textDecoration: "none" }}>Explore The Watch · $297/year <ArrowRight size={13} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
+            <a href="/the-watch#join" style={{ color: "rgba(250,248,244,0.72)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.09em", textTransform: "uppercase", textDecoration: "none" }}>Explore The Watch · $497/year <ArrowRight size={13} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
           </div>
         </div>
       </div>

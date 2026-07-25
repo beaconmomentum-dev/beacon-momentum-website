@@ -446,11 +446,11 @@ export default function PillarPage() {
                 Annual Membership
               </div>
               <div className="flex items-baseline gap-1 mb-1">
-                <span className="font-display text-6xl text-[#2C2416]">$297</span>
+                <span className="font-display text-6xl text-[#2C2416]">$497</span>
                 <span className="text-[#9B8E7E] font-ui">/year</span>
               </div>
               <p className="text-sm mb-1" style={{ color: pillar.color }}>
-                Less than $25/month — annual commitment
+                About $41/month — annual commitment
               </p>
               <p className="text-sm text-[#6B5E4E] mb-8">Full membership access from day one. No hidden tiers or competing plans.</p>
               <ul className="space-y-3 mb-10">

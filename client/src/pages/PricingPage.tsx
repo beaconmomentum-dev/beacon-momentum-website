@@ -2,7 +2,7 @@
  * Beacon Momentum — /pricing
  * Design: Deep Water Editorial / Quiet Authority
  * Model: One annual Watch membership + paid standalone operating dossiers
- * Membership: The Watch ($297/yr)
+ * Membership: The Watch ($497/yr)
  * Monthly: Watch Brief Premium ($27/mo) | Beacon Labs Stack Brief ($47/mo) | Accountability Sprint ($197/mo — waitlist)
  * Signal Check: Free lead generation tool
  * Updated: June 2026
@@ -33,7 +33,7 @@ const TIERS = [
     id: "watch",
     name: "The Watch",
     tagline: "The annual operating environment for people ready to build with more structure, context, and company.",
-    annualPrice: 297,
+    annualPrice: 497,
     valueNote: "Annual commitment · billed once",
     color: tealMid,
     highlight: true,
@@ -127,7 +127,7 @@ const STAGES = [
 const FAQS = [
   {
     q: "How do The Signal, Beacon Brief, Watch Brief Premium, and The Watch fit together?",
-    a: "The Signal is the public editorial library. The Beacon Brief is the free weekly email that curates useful Signal work and one practical action. Watch Brief Premium is a separate paid monthly operating dossier for people who want more depth without joining a community. The Watch is the $297/year annual curriculum and community membership; it includes the premium briefing as a member benefit, along with the operating environment the briefing alone cannot provide.",
+    a: "The Signal is the public editorial library. The Beacon Brief is the free weekly email that curates useful Signal work and one practical action. Watch Brief Premium is a separate paid monthly operating dossier for people who want more depth without joining a community. The Watch is the $497/year annual curriculum and community membership; it includes the premium briefing as a member benefit, along with the operating environment the briefing alone cannot provide.",
   },
   {
     q: "Why no free trial?",
@@ -135,7 +135,7 @@ const FAQS = [
   },
   {
     q: "Why is there one Watch membership instead of multiple tiers?",
-    a: "The Watch is one annual operating environment at $297/year. Sentinel, Navigator, and Quartermaster are progression stages earned through participation and contribution—not separate plans to compare or purchase. Every new member begins as a Sentinel, then progresses through the work.",
+    a: "The Watch is one annual operating environment at $497/year. Sentinel, Navigator, and Quartermaster are progression stages earned through participation and contribution—not separate plans to compare or purchase. Every new member begins as a Sentinel, then progresses through the work.",
   },
   {
     q: "What are the progression stages?",

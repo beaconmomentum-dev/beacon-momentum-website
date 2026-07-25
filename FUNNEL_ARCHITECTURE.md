@@ -13,7 +13,7 @@ Beacon Momentum should not ask a new visitor to understand every offer at once. 
 | Top funnel | **The Signal** | Public reading, no form required | `/blog` | Show the quality and point of view of Beacon Momentum through open editorial work. |
 | Top funnel | **The Beacon Brief** | Email for a free weekly five-minute digest | Homepage and `/blog` form | Turn readers into known subscribers by delivering a concise weekly bridge back to the best public Signal work. |
 | Middle funnel | **Watch Brief Premium — $27/month** | Paid enrollment interest for a monthly operating dossier | `/watch-brief-premium` | Offer deeper analysis without requiring community membership. This is not a duplicate of the free Brief. |
-| Bottom funnel | **The Watch — $297/year** | Membership application and onboarding details | `/the-watch#join` | Offer curriculum, community, accountability, and member resources to visitors ready for an annual commitment. |
+| Bottom funnel | **The Watch — $497/year** | Membership application and onboarding details | `/the-watch#join` | Offer curriculum, community, accountability, and member resources to visitors ready for an annual commitment. |
 
 ## Naming and Cadence Rules
 
@@ -36,5 +36,5 @@ The current paid products do not have a confirmed public checkout link. Until th
 - Do not call a free form a subscription without stating that it is free.
 - Do not call a GHL interest form an automatic checkout.
 - Do not promise direct founder time, investment advice, or financial outcomes.
-- Keep The Watch at the documented **$297/year** entry price unless a confirmed payment page and product change are made together.
+- Treat **$497/year** as The Watch's canonical public annual price. Do not imply immediate checkout until a confirmed public payment link is available.
 - Use one strong primary CTA per section. Supporting links should clarify the next layer, not compete with it.

@@ -45,7 +45,7 @@ Develop module outline and lesson structure. Assign to ACCESS course curriculum 
 ### Historical Observation — Superseded July 2026
 This note described a discontinued multi-tier pricing architecture: Full Membership at $597/year and a Quartermaster Circle at $1,497/year. Those figures are not current offers and must not be used in public copy, structured data, checkout setup, or affiliate materials.
 
-**Current offer architecture:** The Watch is one annual membership at **$297/year**. Sentinel, Navigator, and Quartermaster are earned stages, not separately purchasable tiers. Watch Brief Premium is a distinct **$27/month** paid operating dossier and is included as a Watch member benefit. Any future Digistore24 strategy must be redesigned around the current offer architecture rather than this historical observation.
+**Current offer architecture (confirmed July 24, 2026):** The Watch is one annual membership at **$497/year**. Sentinel, Navigator, and Quartermaster are earned stages, not separately purchasable tiers. Watch Brief Premium is a distinct **$27/month** paid operating dossier and is included as a Watch member benefit. Any future Digistore24 strategy must be redesigned around the current offer architecture rather than this historical observation.
 
 ### Prerequisites Before Actioning
 - Founder's statement video finalized (professional voice quality — ElevenLabs clone session needed)
@@ -58,5 +58,17 @@ This note described a discontinued multi-tier pricing architecture: Full Members
 
 ### Note
 Do not associate Beacon with low-quality hype products on this platform. The vast majority of the current top-10 list is hype with no substantive value. Brand credibility is Beacon's primary asset and must be protected absolutely.
+
+---
+
+## SN-003 — Watch Annual Price Confirmation
+**Date logged:** July 24, 2026
+**Status:** Confirmed for public implementation
+
+### Decision
+The Watch's single annual public membership price is **$497/year**. This replaces the prior $297 annual price in public copy, structured data, and funnel documentation.
+
+### Architecture Guardrail
+This price confirmation does **not** reactivate the retired Quartermaster Circle at $1,497/year. Quartermaster remains an earned progression stage inside The Watch, not a separately purchasable tier. Any future premium offer using the Quartermaster name requires a separately defined product, delivery model, and payment path before it is publicly introduced.
 
 ---

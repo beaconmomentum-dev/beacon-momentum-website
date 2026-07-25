@@ -420,7 +420,7 @@ export default function Home() {
                   transition={{ duration: reduceMotion ? 0 : 0.46, ease: [0.23, 1, 0.32, 1] }}
                   className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
                 >
-                  <PrimaryCta href={MEMBERSHIP_URL}>Explore The Watch · $297/yr</PrimaryCta>
+                  <PrimaryCta href={MEMBERSHIP_URL}>Explore The Watch · $497/yr</PrimaryCta>
                   <a
                     href={ASSESSMENT_URL}
                     className="brass-button group inline-flex min-h-12 items-center justify-center gap-3 border border-white/25 px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#EEF3EF] hover:border-[#58A6A4] hover:text-[#B7E0DA] sm:px-6"
@@ -450,7 +450,7 @@ export default function Home() {
                 </p>
                 <div className="mt-7 grid grid-cols-2 gap-x-6 border-t border-white/15 pt-4 text-[0.62rem] uppercase tracking-[0.15em] text-[#9BB0B0]">
                   <span>Annual entry</span>
-                  <span className="text-right text-[#EEF3EF]">$297</span>
+                  <span className="text-right text-[#EEF3EF]">$497</span>
                 </div>
               </motion.aside>
             </div>
@@ -595,10 +595,10 @@ export default function Home() {
                 <div className="absolute right-0 top-0 h-20 w-20 border-b border-l border-[#D8A94A]/35" aria-hidden="true" />
                 <p className="text-[0.63rem] font-semibold uppercase tracking-[0.21em] text-[#D8A94A]">The Watch · Annual Membership</p>
                 <div className="mt-8 flex items-end gap-2">
-                  <span className="font-display text-7xl leading-none tracking-[-0.06em] text-[#F8F5EC]">$297</span>
+                  <span className="font-display text-7xl leading-none tracking-[-0.06em] text-[#F8F5EC]">$497</span>
                   <span className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.17em] text-[#B8C6C2]">/ Year</span>
                 </div>
-                <p className="mt-5 border-y border-white/15 py-5 text-sm leading-6 text-[#C7D4D0]">The Watch is the annual operating environment: curriculum, community, accountability, and member resources. The $297 annual entry is for people ready to work inside that environment—not simply receive another briefing.</p>
+                <p className="mt-5 border-y border-white/15 py-5 text-sm leading-6 text-[#C7D4D0]">The Watch is the annual operating environment: curriculum, community, accountability, and member resources. The $497 annual entry is for people ready to work inside that environment—not simply receive another briefing.</p>
                 <div className="mt-7">
                   <PrimaryCta href={MEMBERSHIP_URL}>Request Watch enrollment details</PrimaryCta>
                   <p id="membership" className="mt-5 text-xs leading-5 text-[#9BB0B0]">The annual membership path starts with a brief request, followed by enrollment and onboarding details. If you need a field recommendation first, take the Pathfinder Assessment.</p>
