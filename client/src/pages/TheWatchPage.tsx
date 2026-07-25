@@ -1071,7 +1071,7 @@ const FAQS = [
   },
   {
     q: "What happens if I cancel?",
-    a: "You retain access through the end of your paid period. There are no refunds for partial months. Quartermasters who cancel lose their founding rate and cannot reclaim it.",
+    a: "You can cancel before your next renewal date. Cancellation stops the next renewal, and your Beacon Community access remains active through the end of the current paid term. Earned progression stages do not change the cancellation process.",
   },
 ];
 

@@ -36,3 +36,4 @@
 - [ ] Repair or remove the broken Beacon Trading Pricing route; verify current Terms, Privacy, Disclaimer, No Investment Advice, and purchase/access policy pages; and remove execution-oriented language from training content.
 - [ ] Complete a Beacon Community route, product, claims, safety-boundary, moderation, and escalation audit, including the broken Dock navigation and Safe Harbor coach language.
 - [ ] Establish a parent-company offer ledger, claims ledger, and cross-property link registry before syndicating prices or case-study claims across sites.
+- [x] Replace the legacy cancellation FAQ answer that references partial-month refunds and Quartermaster founding rates with consistent Beacon Community membership cancellation, renewal, and billing-support wording across The Watch FAQ, Pricing FAQ, and public FAQ schema; production client build verified.

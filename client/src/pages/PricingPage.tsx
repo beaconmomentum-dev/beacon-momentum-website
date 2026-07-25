@@ -159,7 +159,7 @@ const FAQS = [
   },
   {
     q: "Is there a refund policy?",
-    a: "Memberships can be cancelled before the next billing date. There are no refunds for partial months or partial years. Annual members who cancel mid-year do not receive a prorated refund.",
+    a: "You can cancel before your next renewal date. Cancellation stops the next renewal, and your Beacon Community access remains active through the end of the current paid term. For a billing question or a possible exception, contact Beacon Community support; current purchase terms apply.",
   },
   {
     q: "What is Beacon Trading?",
