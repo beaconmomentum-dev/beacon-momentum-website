@@ -109,12 +109,46 @@ const PILLARS: Record<string, PillarData> = {
     curriculum: [
       "The Resilient Income Framework: Multiple streams, not multiple jobs",
       "Digital Product Architecture: What to build, how to price it, and how to deliver it",
+      "Venture Execution Sprint: Validate, launch, and systematize a working offer inside The Watch",
       "Organic Growth Engine: YouTube, content, and community before paid ads",
       "The Beacon Trading Simulation: Understanding financial markets as a venture skill",
       "AI-Assisted Operations: Running a solopreneur business with private AI tools",
       "The Limited Drop Strategy: Small, testable offers that prove demand before you scale",
       "Financial Sovereignty: Understanding capital, markets, and money as a founder skill",
     ],
+    executionSprint: {
+      eyebrow: "Included in The Watch · Beacon Venture",
+      title: "Venture Execution Sprint",
+      summary:
+        "A self-contained member sequence for moving from a validated problem to a tested offer and a repeatable delivery rhythm. It is part of The Watch curriculum—not a separate product, checkout, or external course platform.",
+      stages: [
+        {
+          number: "01",
+          title: "Clarify the work",
+          body: "Choose one real problem, define the smallest useful outcome, and name the execution constraint that has kept it from moving.",
+        },
+        {
+          number: "02",
+          title: "Validate the offer",
+          body: "Test the problem, audience, and value exchange before building more than the evidence supports.",
+        },
+        {
+          number: "03",
+          title: "Build the smallest proof",
+          body: "Use practical, AI-assisted tools where appropriate to create a prototype, service workflow, or pilot—not software for its own sake.",
+        },
+        {
+          number: "04",
+          title: "Systematize delivery",
+          body: "Document quality checks, ownership, and the next operating cadence so useful momentum does not depend on a burst of willpower.",
+        },
+      ],
+      resources: [
+        "Execution field guide",
+        "Offer-validation worksheet",
+        "Prototype and delivery quality-control checklists",
+      ],
+    },
     cta: "Start Your Venture Path",
     ctaLink: "/assessment",
     bridge: {
@@ -205,6 +239,13 @@ interface PillarData {
   mentor: { name: string; role: string; bio: string };
   stages: { name: string; description: string }[];
   curriculum: string[];
+  executionSprint?: {
+    eyebrow: string;
+    title: string;
+    summary: string;
+    stages: { number: string; title: string; body: string }[];
+    resources: string[];
+  };
   cta: string;
   ctaLink: string;
   bridge: { label: string; description: string; url: string } | null;
@@ -366,6 +407,51 @@ export default function PillarPage() {
               </motion.div>
             ))}
           </div>
+
+          {pillar.executionSprint && (
+            <div className="mt-14 border-t border-[#E8E4DC] pt-12">
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
+                <div className="max-w-2xl">
+                  <div className="text-xs font-ui tracking-widest uppercase mb-3" style={{ color: pillar.color }}>
+                    {pillar.executionSprint.eyebrow}
+                  </div>
+                  <h2 className="font-display text-3xl text-[#2C2416] mb-3">{pillar.executionSprint.title}</h2>
+                  <p className="text-[#6B5E4E] leading-relaxed">{pillar.executionSprint.summary}</p>
+                </div>
+                <div
+                  className="inline-flex w-fit px-4 py-2 border text-xs font-ui tracking-widest uppercase text-[#4A3E30]"
+                  style={{ borderColor: pillar.color }}
+                >
+                  Member curriculum
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#E8E4DC] border border-[#E8E4DC]">
+                {pillar.executionSprint.stages.map((stage) => (
+                  <article key={stage.number} className="bg-white p-6 min-h-52">
+                    <div className="text-xs font-ui tracking-widest mb-10" style={{ color: pillar.color }}>
+                      {stage.number}
+                    </div>
+                    <h3 className="font-display text-xl text-[#2C2416] mb-3">{stage.title}</h3>
+                    <p className="text-sm text-[#6B5E4E] leading-relaxed">{stage.body}</p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-px bg-[#2C2416] px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                <div>
+                  <div className="text-[10px] font-ui tracking-widest uppercase text-[#D4A843] mb-2">Included resources</div>
+                  <p className="text-sm text-white/75 leading-relaxed">{pillar.executionSprint.resources.join(" · ")}</p>
+                </div>
+                <Link
+                  href="/the-watch"
+                  className="inline-flex w-fit items-center gap-2 border-b border-[#D4A843] pb-1 text-xs font-ui tracking-widest uppercase text-white hover:text-[#D4A843] transition-colors"
+                >
+                  Explore The Watch <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

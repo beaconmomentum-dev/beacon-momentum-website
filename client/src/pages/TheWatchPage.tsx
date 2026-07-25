@@ -11,6 +11,8 @@
  *   6. FAQ — common objections answered
  *   7. Join CTA — membership-request form → GHL → short fit-and-cohort intake; no payment or activation implied
  *   8. Footer via SharedFooter
+ * Venture Execution Sprint is an included Beacon Venture member curriculum:
+ * no standalone price, checkout, urgency device, or external course platform.
  */
 
 import { useState, useRef, useEffect } from "react";
@@ -398,6 +400,7 @@ const TIERS: Tier[] = [
     highlight: false,
     features: [
       "Full community access — all channels, all cohorts",
+      "Venture Execution Sprint — validate, launch, and systematize a working offer",
       "Watch Brief Premium included as a member benefit",
       "Monthly live Q&A with Beacon faculty",
       "Access to the Beacon Pathfinder Assessment",
@@ -441,8 +444,8 @@ const TIERS: Tier[] = [
       "Founding member status — permanent recognition",
       "Input on curriculum direction and community doctrine",
       "Contribution opportunities inside the member environment",
-      "Access to all future Beacon properties at no additional cost",
-      "Legacy member rate — price locked for life",
+      "Early review of future Beacon curriculum pilots",
+      "Stewardship role inside the Watch member environment",
     ],
     cta: "Start at Sentinel",
     ghlTag: "BM_Watch_Quartermaster",
@@ -704,6 +707,225 @@ function MembershipTiers({ onTierSelect }: { onTierSelect: () => void }) {
           {TIERS.map((tier) => (
             <TierCard key={tier.id} tier={tier} onSelect={onTierSelect} />
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Venture Execution Sprint · Beacon Venture member curriculum ──────────────
+const VENTURE_EXECUTION_SPRINT = [
+  {
+    number: "01",
+    title: "Clarify the work",
+    body: "Choose one real problem, define the smallest useful outcome, and name the constraint that has held the work in place.",
+  },
+  {
+    number: "02",
+    title: "Validate the offer",
+    body: "Test the audience, problem, and value exchange before committing time or money to a larger build.",
+  },
+  {
+    number: "03",
+    title: "Build the smallest proof",
+    body: "Produce a focused prototype, service workflow, or pilot with practical tools—not software for its own sake.",
+  },
+  {
+    number: "04",
+    title: "Systematize delivery",
+    body: "Document the quality checks, ownership, and next operating cadence that keep useful momentum alive.",
+  },
+];
+
+function VentureExecutionSprint() {
+  const ref = useFadeUp();
+  return (
+    <section
+      id="venture-execution-sprint"
+      aria-labelledby="venture-execution-sprint-title"
+      style={{
+        background: C.cream,
+        color: C.navy,
+        padding: "7rem 0",
+        borderTop: `1px solid ${C.amber}`,
+      }}
+    >
+      <div className="container">
+        <div
+          ref={ref}
+          className="fade-up"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            gap: "2rem",
+            flexWrap: "wrap",
+            marginBottom: "3.25rem",
+          }}
+        >
+          <div style={{ maxWidth: "700px" }}>
+            <div
+              style={{
+                fontFamily: sans,
+                fontWeight: 600,
+                fontSize: "0.68rem",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: C.amber,
+                marginBottom: "1rem",
+              }}
+            >
+              Beacon Venture · Included member curriculum
+            </div>
+            <h2
+              id="venture-execution-sprint-title"
+              style={{
+                fontFamily: serif,
+                fontWeight: 600,
+                fontSize: "clamp(2.25rem, 4.5vw, 4rem)",
+                letterSpacing: "-0.035em",
+                lineHeight: 1.02,
+                color: C.navy,
+                margin: "0 0 1.2rem",
+              }}
+            >
+              Venture Execution Sprint.
+              <br />
+              <em style={{ color: C.teal }}>Build proof, not noise.</em>
+            </h2>
+            <p
+              style={{
+                fontFamily: body,
+                fontSize: "1.05rem",
+                lineHeight: 1.8,
+                color: C.mutedDark,
+                margin: 0,
+              }}
+            >
+              A self-contained Beacon Venture sequence for turning a validated
+              problem into a tested offer and a repeatable delivery rhythm. It
+              is part of The Watch—no separate price, checkout, urgency device,
+              or external course platform.
+            </p>
+          </div>
+          <div
+            style={{
+              border: `1px solid ${C.amber}`,
+              padding: "0.8rem 1rem",
+              fontFamily: sans,
+              fontWeight: 600,
+              fontSize: "0.65rem",
+              letterSpacing: "0.13em",
+              textTransform: "uppercase",
+              color: C.navy,
+              whiteSpace: "nowrap",
+            }}
+          >
+            Part of The Watch
+          </div>
+        </div>
+
+        <div
+          className="execution-sprint-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+            border: `1px solid rgba(10,22,40,0.16)`,
+            background: "rgba(10,22,40,0.16)",
+            gap: "1px",
+          }}
+        >
+          {VENTURE_EXECUTION_SPRINT.map((stage) => (
+            <article
+              key={stage.number}
+              style={{
+                background: "rgba(255,255,255,0.68)",
+                padding: "1.75rem",
+                minHeight: "260px",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: sans,
+                  fontWeight: 700,
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.17em",
+                  color: C.amber,
+                  marginBottom: "3rem",
+                }}
+              >
+                {stage.number}
+              </div>
+              <h3
+                style={{
+                  fontFamily: serif,
+                  fontWeight: 600,
+                  fontSize: "1.65rem",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em",
+                  color: C.navy,
+                  margin: "0 0 0.9rem",
+                }}
+              >
+                {stage.title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: body,
+                  fontSize: "0.88rem",
+                  lineHeight: 1.7,
+                  color: C.mutedDark,
+                  margin: 0,
+                }}
+              >
+                {stage.body}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div
+          style={{
+            background: C.navy,
+            color: C.cream,
+            padding: "1.35rem 1.6rem",
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "1.5rem",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: body,
+              fontSize: "0.88rem",
+              lineHeight: 1.6,
+              color: "rgba(250,248,244,0.75)",
+              margin: 0,
+            }}
+          >
+            Includes the Execution Field Guide, offer-validation worksheet,
+            and prototype and delivery quality-control checklists.
+          </p>
+          <a
+            href="#join"
+            style={{
+              fontFamily: sans,
+              fontWeight: 600,
+              fontSize: "0.72rem",
+              letterSpacing: "0.11em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+              color: C.cream,
+              borderBottom: `1px solid ${C.amber}`,
+              paddingBottom: "0.35rem",
+            }}
+          >
+            Request membership details →
+          </a>
         </div>
       </div>
     </section>
@@ -1053,67 +1275,16 @@ function JoinForm() {
             >
               We'll be in touch within 24 hours with your enrollment and onboarding details.
             </p>
-            {/* Bridge to Beacon Circle */}
-            <div
+            <p
               style={{
-                borderTop: `1px solid rgba(200,146,42,0.25)`,
-                paddingTop: "2rem",
-                marginTop: "0.5rem",
+                fontFamily: body,
+                fontSize: "0.78rem",
+                color: "rgba(250,248,244,0.45)",
+                margin: "0.75rem 0 0",
               }}
             >
-              <p
-                style={{
-                  fontFamily: sans,
-                  fontSize: "0.72rem",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: C.amberLight,
-                  marginBottom: "0.75rem",
-                }}
-              >
-                Already have a Beacon Community account?
-              </p>
-              <p
-                style={{
-                  fontFamily: body,
-                  fontSize: "0.9rem",
-                  lineHeight: 1.75,
-                  color: C.muted,
-                  marginBottom: "1.5rem",
-                }}
-              >
-                Use the community login to access an existing account. New membership enrollment is confirmed through the Beacon team after your request.
-              </p>
-              <a
-                href="https://beaconcommunity.net/upgrade"
-                style={{
-                  display: "inline-block",
-                  fontFamily: sans,
-                  fontWeight: 600,
-                  fontSize: "0.9rem",
-                  letterSpacing: "0.04em",
-                  padding: "0.9rem 2.25rem",
-                  background: C.amber,
-                  color: C.cream,
-                  textDecoration: "none",
-                  transition: "background 0.2s",
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = C.amberLight; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = C.amber; }}
-              >
-                Open Beacon Community login →
-              </a>
-              <p
-                style={{
-                  fontFamily: body,
-                  fontSize: "0.72rem",
-                  color: "rgba(250,248,244,0.35)",
-                  marginTop: "0.75rem",
-                }}
-              >
-                Existing-member access only · New enrollment details arrive by email
-              </p>
-            </div>
+              Your enrollment and member-access details are confirmed directly by the Beacon team.
+            </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -1281,6 +1452,7 @@ export default function TheWatchPage() {
       <SharedNav />
       <Hero />
       <WatchDoctrine />
+      <VentureExecutionSprint />
       <MembershipTiers onTierSelect={handleTierSelect} />
       <CommunityProof />
       <FAQ />
