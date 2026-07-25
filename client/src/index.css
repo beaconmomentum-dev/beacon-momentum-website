@@ -5,7 +5,7 @@
  * ─────────────────────────────────────────────────────────
  * Color Philosophy: Warm parchment ground (#FAF8F4), deep coastal teal (#1A5C6B),
  *   amber signal (#C8860A), charcoal text (#1C1C1E). Pillar accents are distinct.
- * Typography: Cormorant Garamond (display) + Lora (body) + Outfit (UI/mono)
+ * Typography: Self-contained Georgia (display/body) + system UI (interface)
  * Layout: Wide-margin editorial, asymmetric, not grid-centered
  * Signature Elements: Lighthouse beam motif, coastline dividers, tidal-pool reflections
  * Animation: Slow, deliberate entrances. Nothing snaps. Everything breathes.
@@ -222,8 +222,8 @@
     --tide-brass: #D8A94A;
     --tide-fog: #EEF0EB;
     --tide-teal: #58A6A4;
-    --tide-display: "DM Serif Display", Georgia, serif;
-    --tide-ui: "IBM Plex Sans", Arial, sans-serif;
+  --tide-display: Georgia, "Times New Roman", serif;
+  --tide-ui: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-family: var(--tide-ui);
   }
   .tide-home .container { max-width: 1440px; }
