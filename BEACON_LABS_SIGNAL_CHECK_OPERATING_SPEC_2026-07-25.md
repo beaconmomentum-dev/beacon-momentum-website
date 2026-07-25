@@ -78,7 +78,7 @@ The canonical implementation must use **one approved GoHighLevel location** and 
 
 ### B. Payment model
 
-The $297 expanded follow-up must use a **Beacon-branded on-site payment page**, not a hosted-checkout redirect. The browser may use the authorized processor’s secure client-side payment component or tokenization layer, while the Beacon backend creates or coordinates the payment and receives the processor’s signed webhook. Only that verified server-side payment event may transition the prospect to `expanded_paid`, queue work, create the receipt/confirmation state, or trigger CRM/report-delivery automation. The customer must receive a receipt and clear support/refund contact route.
+The $297 expanded follow-up must use a **Beacon-branded on-site payment page**, not a hosted-checkout redirect. The browser may use the authorized processor’s secure embedded payment component or tokenization layer, while the Beacon backend creates or coordinates the payment and receives the processor’s signed webhook. Only that verified server-side payment event may transition the prospect to `expanded_paid`, queue work, create the receipt/confirmation state, or trigger CRM/report-delivery automation. The customer must receive a receipt and clear support/refund contact route. Stripe’s official Payment Intents documentation supports this on-site pattern and specifically directs fulfillment to verified webhooks rather than the client.[6] [7]
 
 > No payment credential, CRM credential, webhook secret, or report-generation secret may be exposed in browser code. No browser success callback or client-submitted “paid” flag is sufficient to unlock paid work. The existing client-side GHL pattern is not an approved architecture for the operational funnel.[1] [2]
 
@@ -130,5 +130,8 @@ The current Privacy page recognizes GHL and Stripe as processors but does not ye
 [1] [`client/src/lib/ghl.ts`](./client/src/lib/ghl.ts)  
 [2] [`client/src/pages/ContactPage.tsx`](./client/src/pages/ContactPage.tsx)  
 [3] [`/home/ubuntu/skills/beacon-signal-check-pipeline/SKILL.md`](/home/ubuntu/skills/beacon-signal-check-pipeline/SKILL.md)  
-[4] [`client/src/pages/PrivacyPage.tsx`](./client/src/pages/PrivacyPage.tsx)  
+[4] [`client/src/pages/PrivacyPage.tsx`](./client/src/pages/PrivacyPage.tsx)
 [5] [`BEACON_LABS_SIGNAL_CHECK_FUNNEL_DECISION_2026-07-25.md`](./BEACON_LABS_SIGNAL_CHECK_FUNNEL_DECISION_2026-07-25.md)
+[6] [Stripe, “Build a checkout page with Payment Intents API”](https://docs.stripe.com/payments/quickstart)
+[7] [Stripe, “Payment status updates”](https://docs.stripe.com/payments/payment-intents/verifying-status)
+[8] [`BEACON_LABS_PAYMENT_ARCHITECTURE_EVIDENCE_2026-07-25.md`](./BEACON_LABS_PAYMENT_ARCHITECTURE_EVIDENCE_2026-07-25.md)
