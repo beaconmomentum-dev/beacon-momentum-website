@@ -27,5 +27,6 @@
 | Canonical commit | `24b6260d19df79980cb962e5e517b724f8390db4` — `fix: restore two-stage signal check funnel`. |
 | CI/CD deployment | Passed: [Deploy to Production run 30173349404](https://github.com/beaconmomentum-dev/beacon-momentum-website/actions/runs/30173349404). |
 | Live route | Passed: [`https://beaconmomentum.com/pricing`](https://beaconmomentum.com/pricing) displays The Watch at `$497/year`, a free initial Signal Check, and a separate optional `$297` expanded B2B follow-up. |
+| Expanded-follow-up handoff | Passed: [`/contact?interest=signal-check-expanded`](https://beaconmomentum.com/contact?interest=signal-check-expanded) resolves to the live Beacon Momentum contact route with a Signal Check Report inquiry option. |
 
 The canonical deployment path was followed: GitHub commit → CI/CD → live-route verification. No managed preview is a source of truth or deployment dependency for this release.
