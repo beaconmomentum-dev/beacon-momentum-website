@@ -9,3 +9,6 @@
 - [x] Inspect `exec-funnel-aqf76wtd.manus.space/offer` to identify its product, pricing, ownership, and live calls to action.
 - [x] Compare that page’s offer architecture with the current Beacon funnel; recommendation: retire it from public circulation or redirect it, pending Bob’s explicit disposition decision.
 - [x] Reconcile the live `beaconmomentum.com/pricing` page with the approved $497 single-membership release; the legacy tier output was stale text-extractor data, while the cache-busted public application and current bundle show the correct release.
+- [x] Extract the Execution Engine’s actual modules, exercises, and promised outcomes from the published course funnel.
+- [x] Map those learning assets against Beacon Life, Work, Venture, Systems, and Labs; Beacon Venture is the strongest legitimate home.
+- [x] Produce a direct reuse verdict and the editorial changes required to prevent a duplicate or conflicting offer: reuse is viable only as an edited Watch-member asset within Beacon Venture.
