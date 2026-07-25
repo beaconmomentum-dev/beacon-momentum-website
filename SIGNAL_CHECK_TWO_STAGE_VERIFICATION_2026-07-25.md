@@ -20,4 +20,12 @@
 | Desktop local render | Passed. The two stages appear as separate, labeled offer panels. |
 | Mobile local render | Passed. The Pricing route retains readable hierarchy and stacks the offer panels without collapsing their free/paid distinction. |
 
-This file records a pre-deployment check only. The canonical deployment remains GitHub commit → CI/CD → live-route verification.
+## Deployment and live verification
+
+| Check | Result |
+|---|---|
+| Canonical commit | `24b6260d19df79980cb962e5e517b724f8390db4` — `fix: restore two-stage signal check funnel`. |
+| CI/CD deployment | Passed: [Deploy to Production run 30173349404](https://github.com/beaconmomentum-dev/beacon-momentum-website/actions/runs/30173349404). |
+| Live route | Passed: [`https://beaconmomentum.com/pricing`](https://beaconmomentum.com/pricing) displays The Watch at `$497/year`, a free initial Signal Check, and a separate optional `$297` expanded B2B follow-up. |
+
+The canonical deployment path was followed: GitHub commit → CI/CD → live-route verification. No managed preview is a source of truth or deployment dependency for this release.
