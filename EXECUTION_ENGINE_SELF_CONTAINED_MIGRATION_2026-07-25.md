@@ -45,6 +45,10 @@ On July 25, 2026, the controllable `exec.beaconmomentum.com` Execution Engine pr
 
 Public verification confirmed that `https://exec.beaconmomentum.com/offer?release=10fb40b` returns `302 Found` with `Location: https://beaconmomentum.com/pillar/venture` and a `no-store` cache policy. The previously independent public Manus Space at `https://exec-funnel-aqf76wtd.manus.space/offer` still responds independently with `200 OK`; it cannot be truthfully described as retired until its owning Manus task or Space-management access is available.
 
+## Final self-contained release verification
+
+The canonical release at `https://beaconmomentum.com/the-watch?release=43a8ca5` was verified publicly after the build cleanup. The page exposes **Beacon Venture · Included Member Curriculum** and **Venture Execution Sprint**, describing it as “validate, launch, and systematize a working offer.” The generated production bundle was audited for Google Fonts, external analytics, Stripe, and the former Manus funnel URL; no such runtime resource remains in the output. The external Manus Space remains the sole known independent surface pending owner-task access.
+
 ## Sources
 
 1. [Published Execution Engine page](https://exec-funnel-aqf76wtd.manus.space/offer)
