@@ -25,3 +25,9 @@ At a 375 × 812 mobile viewport, the header lockup, menu control, coordinate lab
 ## Local-First Review Outcome
 
 The locally hosted `llama3.1:8b` model reviewed the route, asset, newsletter, and Vite middleware evidence. Its only material concern was whether the Vite repair could affect production. The canonical server entry resolves this directly: `setupVite()` is called only when `NODE_ENV === "development"`; production invokes `serveStatic()` instead. The repair therefore applies only to the local development middleware path and does not alter the DigitalOcean production static-serving path.
+
+## Production Verification
+
+The canonical commit `c1c3ece` was confirmed as the checked-out revision at `/var/www/beacon-momentum-www` on the DigitalOcean host. PM2 reported `beacon-momentum-www` online, the local health endpoint returned HTTP 200, and all five versioned homepage WebP assets were present in the production build.
+
+The public `https://beaconmomentum.com/` site rendered the Tide & Tension hero, Watch offer, and primary assessment/membership calls to action. Its production navigation control opened the expected primary-route list successfully.
