@@ -1,6 +1,6 @@
 # Beacon Momentum, LLC — Parent Badge Refinement Brief
 
-**Status:** Roundel A/B operating pair confirmed; transparent PNG export and compact-glyph approval pending
+**Status:** Badge system approved for Phase 0 use: Light Roundel, Inverse Roundel, and compact glyph adopted
 **Prepared:** July 25, 2026  
 **Decision linked to:** Brand System Phase 0, D-06 — Shared visual foundation
 
@@ -59,13 +59,13 @@ The working primary mark must be usable across light and dark interface contexts
 
 | Variant | Intended role | Current decision | Review URL |
 |---|---|---|
-| **A — Primary light-context Roundel** | Parent badge on light paper/mist surfaces, documents, and light social-avatar contexts. | **Confirmed for light contexts.** | `/manus-storage/beacon-roundel-primary-light_cec5eea8.png` |
-| **B — Inverse dark-context Roundel** | Parent badge on dark navy headers, dark-mode navigation, and app surfaces. | **Confirmed for dark-mode contexts.** | `/manus-storage/beacon-roundel-inverse-dark_90dd064b.png` |
-| **Compact favicon/app glyph** | Minimum-size browser, app, and utility identifier. | **Pending specific favicon/app-icon approval.** | `/manus-storage/beacon-roundel-favicon_9bbd6f0b.png` |
+| **Light Roundel** | Parent badge on light paper/mist surfaces, documents, and light social-avatar contexts. | **Approved for light contexts.** | `/manus-storage/beacon-roundel-light_3bdd192b.png` |
+| **Inverse Roundel** | Parent badge on dark navy headers, dark-mode navigation, and app surfaces. | **Approved for dark-mode contexts.** | `/manus-storage/beacon-roundel-dark_b1894af8.png` |
+| **Compact favicon/app glyph** | Minimum-size browser, app, and utility identifier. | **Adopted as-is.** | `/manus-storage/beacon-roundel-favicon-512_3ad802bf.png` |
 
 ### Delivery verification
 
-The delivered A and B variant files were verified to include an alpha channel. Any magenta or checkerboard field shown by a viewer is a transparency matte rather than a brand color or exported background.
+The delivered Light Roundel, Inverse Roundel, and compact glyph files were verified to include an alpha channel and were exported as transparent PNGs. Any magenta or checkerboard field shown by a viewer is a transparency matte rather than a brand color or exported background. The canonical implementation paths and usage rules are recorded in the [Parent Badge Asset Handoff Manifest](./BEACON_PARENT_BADGE_ASSET_HANDOFF_2026-07-25.md).
 
 ## Approval criteria
 
@@ -79,12 +79,13 @@ The selected direction should pass all of the following before it becomes an off
 - Property-level accents differentiate Community, Trading, Labs, and the related app without obscuring the parent relationship.
 - The final production export includes transparent PNG assets and a compact favicon/app-icon variant.
 
-## Next approval request
+## Approval outcome
 
-The working hierarchy is now **A primary, B heritage/editorial, C product/app**. The A/B Roundel pair is confirmed for light and dark contexts. The remaining badge decision is whether to approve the compact glyph for favicon/app use or request one focused adjustment. Once that is complete, the selected system will be converted into the Brand System asset hierarchy and recorded as the badge portion of the Phase 0 visual-foundation approval.
+The working hierarchy is **A primary Roundel, B heritage/editorial Signet, C product/app Bearing Mark**. The approved operating system is the **Light Roundel** for light surfaces, the **Inverse Roundel** for dark navy surfaces, and the **compact glyph** for favicon/app use. This resolves the parent-badge portion of D-06; the wider shared visual foundation still requires its remaining token and cross-property adoption decisions.
 
 ## References
 
 1. [Beacon Brand System Implementation Plan](./BEACON_BRAND_SYSTEM_IMPLEMENTATION_PLAN_2026-07-25.md)
 2. [Pre-Implementation Closure Register](./BEACON_PRE_IMPLEMENTATION_CLOSURE_REGISTER_2026-07-25.md)
 3. Supplied Beacon lighthouse and badge artwork, July 25, 2026.
+4. [Parent Badge Asset Handoff Manifest](./BEACON_PARENT_BADGE_ASSET_HANDOFF_2026-07-25.md)
