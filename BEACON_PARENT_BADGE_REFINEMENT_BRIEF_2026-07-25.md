@@ -1,6 +1,6 @@
 # Beacon Momentum, LLC — Parent Badge Refinement Brief
 
-**Status:** Candidate concepts generated; parent-brand approval pending  
+**Status:** A — Beacon Roundel selected as the working primary parent mark; production-style variants pending review
 **Prepared:** July 25, 2026  
 **Decision linked to:** Brand System Phase 0, D-06 — Shared visual foundation
 
@@ -43,15 +43,25 @@ The badge should be deployed as a system rather than as a single image used at e
 | **Property badge** | Community, Trading, Labs, and related-app route confirmation | Parent signet remains recognizable; a disciplined property accent or small device differentiates the property without replacing the parent mark. |
 | **Illustration family** | Hero, pathway, campaign, and explanatory art | Full architectural lighthouse and broader beam remain allowed, but never serve as the minimum-size icon. |
 
-## Candidate concepts for approval
+## Candidate hierarchy and working selection
 
-The candidates below intentionally contain **no text**. They are intended to determine the emblem direction; the final wordmark will use the approved type system rather than embedded image typography.
+The candidates below intentionally contain **no text**. They establish a shared visual family rather than forcing a single mark to carry every use case. The final wordmark will use the approved type system rather than embedded image typography.
 
-| Candidate | Concept | Best use if selected | Review URL |
+| Candidate | Working role | Rationale | Review URL |
 |---|---|---|---|
-| **A — Beacon Roundel** | A restrained circular lighthouse-and-light emblem with a double ring and horizon cue. | Recommended default parent badge; headers, footer stamp, favicon family. | `/manus-storage/beacon-parent-badge-roundel-a_52e8ea78.png` |
-| **B — Architectural Signet** | A simplified lighthouse inside a compact vertical signet with a contained beam. | More formal, heritage-forward expression; useful if the brand should feel more architectural. | `/manus-storage/beacon-parent-badge-signet-b_e5b67237.png` |
-| **C — Bearing Mark** | A geometric lighthouse/light mark with sparse bearing ticks. | More contemporary systems-oriented expression; strongest fit for product/app contexts. | `/manus-storage/beacon-parent-badge-compass-c_c02da6b9.png` |
+| **A — Beacon Roundel** | **Working primary parent mark** for headers, footer stamps, social-avatar bases, and the favicon family. | It has the clearest navy-and-gold contrast and preserves the existing badge’s circular heritage while reducing visual noise. | `/manus-storage/beacon-parent-badge-roundel-a_52e8ea78.png` |
+| **B — Architectural Signet** | Secondary heritage direction for certificates, editorial stamps, founder/legacy materials, or controlled campaign use. | Its vertical form carries the lighthouse architecture well, but it is less efficient as the universal primary icon. | `/manus-storage/beacon-parent-badge-signet-b_e5b67237.png` |
+| **C — Bearing Mark** | Secondary product/app direction for system utilities, product contexts, or technical navigation. | Its bearing motif can signal orientation and decision support without displacing the primary parent mark. | `/manus-storage/beacon-parent-badge-compass-c_c02da6b9.png` |
+
+## Roundel variant review
+
+The working primary mark must be usable across light and dark interface contexts without falling back to an unreadable navy disc or uncontrolled gold glow. The three variants below are generated for review and do not yet constitute a final production-asset approval.
+
+| Variant | Intended role | Review URL |
+|---|---|---|
+| **Primary light-context Roundel** | Parent badge on light paper/mist surfaces, documents, and light social-avatar contexts. | `/manus-storage/beacon-roundel-primary-light_cec5eea8.png` |
+| **Inverse dark-context Roundel** | Parent badge on dark navy headers, dark-mode navigation, and app surfaces. | `/manus-storage/beacon-roundel-inverse-dark_90dd064b.png` |
+| **Compact favicon/app glyph** | Minimum-size browser, app, and utility identifier. | `/manus-storage/beacon-roundel-favicon_9bbd6f0b.png` |
 
 ## Approval criteria
 
@@ -65,9 +75,9 @@ The selected direction should pass all of the following before it becomes an off
 - Property-level accents differentiate Community, Trading, Labs, and the related app without obscuring the parent relationship.
 - The final production export includes transparent PNG assets and a compact favicon/app-icon variant.
 
-## Decision request
+## Next approval request
 
-Select **A**, **B**, **C**, or request a focused revision. The recommended default is **A — Beacon Roundel** because it connects most directly to the existing badge while correcting the color, text-density, and small-size weaknesses. Once selected, the chosen mark will be converted into the Brand System asset hierarchy and recorded as part of the Phase 0 visual-foundation approval.
+The working hierarchy is now **A primary, B heritage/editorial, C product/app**. Review the three A variants and approve them as a coherent parent-mark family, or request one focused change. Once the variants are approved, the selected system will be converted into the Brand System asset hierarchy and recorded as the badge portion of the Phase 0 visual-foundation approval.
 
 ## References
 
