@@ -78,9 +78,9 @@ The canonical implementation must use **one approved GoHighLevel location** and 
 
 ### B. Payment model
 
-The $297 expanded follow-up requires a payment processor checkout or payment link created and verified through an authorized Beacon Labs payment account. Payment status must be confirmed by a signed server-side provider event before work is queued. The customer must receive a receipt and clear support/refund contact route.
+The $297 expanded follow-up must use a **Beacon-branded on-site payment page**, not a hosted-checkout redirect. The browser may use the authorized processor’s secure client-side payment component or tokenization layer, while the Beacon backend creates or coordinates the payment and receives the processor’s signed webhook. Only that verified server-side payment event may transition the prospect to `expanded_paid`, queue work, create the receipt/confirmation state, or trigger CRM/report-delivery automation. The customer must receive a receipt and clear support/refund contact route.
 
-> No payment credential, CRM credential, or report-generation secret may be exposed in browser code. The existing client-side GHL pattern is not an approved architecture for the operational funnel.[1] [2]
+> No payment credential, CRM credential, webhook secret, or report-generation secret may be exposed in browser code. No browser success callback or client-submitted “paid” flag is sufficient to unlock paid work. The existing client-side GHL pattern is not an approved architecture for the operational funnel.[1] [2]
 
 ### C. Report-generation and delivery model
 
@@ -111,7 +111,7 @@ The current Privacy page recognizes GHL and Stripe as processors but does not ye
 |---|---|---|---|
 | **1. Ownership and data map** | One named Beacon Labs operational owner; one CRM location; final custom-field schema; data-flow map. | Owner nomination and authorized GHL access. | Written approval of data ownership and schema. |
 | **2. Free intake and delivery** | Dedicated free Signal Check route/form, server-side submission endpoint, free report status/receipt, delivery workflow. | Confirmed report generator and delivery service. | Test submission, consent capture, CRM event, report delivery, failure path. |
-| **3. Paid expanded follow-up** | Expanded-offer page, scope acknowledgement, payment checkout, server-verified payment event, paid intake, receipt. | Explicit authorization to create/use the $297 payment product and checkout. | Test payment in non-production mode; no browser secret exposure. |
+| **3. Paid expanded follow-up** | Expanded-offer page, scope acknowledgement, Beacon-branded on-site payment page, server-verified signed webhook event, paid intake, and receipt. | Explicit authorization to create/use the $297 payment product and approved processor components. | Test payment in non-production mode; no hosted redirect, no browser secret exposure, and no browser-trusted payment state. |
 | **4. Service handoff** | Optional service-interest CTA, human assignment workflow, qualification dashboard or CRM view. | Named Beacon Labs service owner. | Test handoff and opt-out path. |
 | **5. Policy and release audit** | Updated policies/copy, route/link verification, data-minimization review, accessibility and mobile review. | Policy review and authorized source access. | Signed release checklist. |
 
@@ -121,7 +121,7 @@ The current Privacy page recognizes GHL and Stripe as processors but does not ye
 |---|---|---|
 | **Designate the Beacon Labs operations owner** | A named role must own report queues, exceptions, delivery SLAs, and CRM lifecycle standards. | Beacon Momentum LLC. |
 | **Select the authoritative GHL location and field schema** | Existing source contains more than one location configuration; new funnel data must not be split or misrouted. | CRM owner. |
-| **Authorize the $297 payment product and checkout method** | A live payment product/link is a financial and customer-facing operation requiring explicit approval. | Beacon Momentum LLC + payment owner. |
+| **Authorize the $297 payment product and on-site payment method** | A live payment product and embedded/on-site payment experience are customer-facing financial operations requiring explicit approval. | Beacon Momentum LLC + payment owner. |
 | **Approve report scopes and delivery SLAs** | The free and paid reports need bounded templates and feasible human/automation delivery commitments. | Beacon Labs operations/service owner. |
 | **Authorize server-side integration approach** | Required to remove client-side credential exposure and enforce verified lifecycle transitions. | Technical owner. |
 

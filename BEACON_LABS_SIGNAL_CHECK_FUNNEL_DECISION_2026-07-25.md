@@ -40,7 +40,7 @@
 |---|---|
 | **Intake** | Stage-specific forms with required fields, data-minimization rules, source attribution, and a clear business-purpose statement. |
 | **CRM** | Separate lifecycle tags and field values for free submission, free delivery, expanded interest, paid/confirmed, expanded delivery, service-qualified, service-declined, and opt-in status. |
-| **Payment** | A server-verified $297 payment event and a receipt/confirmation state before expanded work begins. Payment credentials must not be exposed in client-side code. |
+| **Payment** | A Beacon-branded on-site $297 payment experience, followed by a server-verified processor webhook event and a receipt/confirmation state before expanded work begins. Payment credentials and webhook secrets must not be exposed in client-side code; no hosted-checkout redirect or browser-trusted payment claim is permitted. |
 | **Report delivery** | A named delivery owner, service-level target, secure report link or attachment policy, and failure/retry procedure. |
 | **Consent and privacy** | Clear delivery notice, separate marketing permission, retention/deletion pathway, and policy coverage for both diagnostic stages. |
 | **Handoff** | An affirmative “discuss Beacon Labs services” action with scope, qualification, and ownership rules; no automatic sales enrollment. |
