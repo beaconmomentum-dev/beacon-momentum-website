@@ -46,3 +46,5 @@
 - [ ] Produce and review badge candidates on dark and light backgrounds, including a compact favicon/app-icon treatment, then record the approved asset and usage guidance in the Brand System foundation.
 - [x] Deliver the generated Beacon badge candidates as directly viewable image files and verify that the owner can see each candidate before requesting a selection.
 - [ ] Formalize A — Beacon Roundel as the primary parent mark, preserve B — Architectural Signet for heritage/editorial-stamp use and C — Bearing Mark for product/app use, and prepare the selected Roundel’s dark-, light-, and compact-icon variants for approval.
+- [x] Export the confirmed Roundel operating pair as verified transparent PNG assets: A for light contexts and B for dark-mode contexts; retain the compact glyph pending its specific favicon/app-icon approval.
+- [ ] Obtain a specific decision on the compact Roundel glyph before using it as the favicon/app icon across the ecosystem.

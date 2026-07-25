@@ -1,6 +1,6 @@
 # Beacon Momentum, LLC — Parent Badge Refinement Brief
 
-**Status:** A — Beacon Roundel selected as the working primary parent mark; production-style variants pending review
+**Status:** Roundel A/B operating pair confirmed; transparent PNG export and compact-glyph approval pending
 **Prepared:** July 25, 2026  
 **Decision linked to:** Brand System Phase 0, D-06 — Shared visual foundation
 
@@ -57,11 +57,15 @@ The candidates below intentionally contain **no text**. They establish a shared 
 
 The working primary mark must be usable across light and dark interface contexts without falling back to an unreadable navy disc or uncontrolled gold glow. The three variants below are generated for review and do not yet constitute a final production-asset approval.
 
-| Variant | Intended role | Review URL |
+| Variant | Intended role | Current decision | Review URL |
 |---|---|---|
-| **Primary light-context Roundel** | Parent badge on light paper/mist surfaces, documents, and light social-avatar contexts. | `/manus-storage/beacon-roundel-primary-light_cec5eea8.png` |
-| **Inverse dark-context Roundel** | Parent badge on dark navy headers, dark-mode navigation, and app surfaces. | `/manus-storage/beacon-roundel-inverse-dark_90dd064b.png` |
-| **Compact favicon/app glyph** | Minimum-size browser, app, and utility identifier. | `/manus-storage/beacon-roundel-favicon_9bbd6f0b.png` |
+| **A — Primary light-context Roundel** | Parent badge on light paper/mist surfaces, documents, and light social-avatar contexts. | **Confirmed for light contexts.** | `/manus-storage/beacon-roundel-primary-light_cec5eea8.png` |
+| **B — Inverse dark-context Roundel** | Parent badge on dark navy headers, dark-mode navigation, and app surfaces. | **Confirmed for dark-mode contexts.** | `/manus-storage/beacon-roundel-inverse-dark_90dd064b.png` |
+| **Compact favicon/app glyph** | Minimum-size browser, app, and utility identifier. | **Pending specific favicon/app-icon approval.** | `/manus-storage/beacon-roundel-favicon_9bbd6f0b.png` |
+
+### Delivery verification
+
+The delivered A and B variant files were verified to include an alpha channel. Any magenta or checkerboard field shown by a viewer is a transparency matte rather than a brand color or exported background.
 
 ## Approval criteria
 
@@ -77,7 +81,7 @@ The selected direction should pass all of the following before it becomes an off
 
 ## Next approval request
 
-The working hierarchy is now **A primary, B heritage/editorial, C product/app**. Review the three A variants and approve them as a coherent parent-mark family, or request one focused change. Once the variants are approved, the selected system will be converted into the Brand System asset hierarchy and recorded as the badge portion of the Phase 0 visual-foundation approval.
+The working hierarchy is now **A primary, B heritage/editorial, C product/app**. The A/B Roundel pair is confirmed for light and dark contexts. The remaining badge decision is whether to approve the compact glyph for favicon/app use or request one focused adjustment. Once that is complete, the selected system will be converted into the Brand System asset hierarchy and recorded as the badge portion of the Phase 0 visual-foundation approval.
 
 ## References
 
