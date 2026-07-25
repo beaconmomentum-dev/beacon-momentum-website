@@ -6,3 +6,6 @@
 - [x] Preserve the approved four-layer funnel: The Signal (free) → Beacon Brief (free email) → Watch Brief Premium ($27/month) → The Watch ($497/year).
 - [x] Run the local production build and perform a site-wide continuity check for price, headers, footers, and funnel handoffs.
 - [x] Commit the verified change, push GitHub `main`, and confirm the DigitalOcean production origin reflects it; the public browser endpoint returned the expected title but did not expose client-rendered body text in this session.
+- [x] Inspect `exec-funnel-aqf76wtd.manus.space/offer` to identify its product, pricing, ownership, and live calls to action.
+- [x] Compare that page’s offer architecture with the current Beacon funnel; recommendation: retire it from public circulation or redirect it, pending Bob’s explicit disposition decision.
+- [x] Reconcile the live `beaconmomentum.com/pricing` page with the approved $497 single-membership release; the legacy tier output was stale text-extractor data, while the cache-busted public application and current bundle show the correct release.
