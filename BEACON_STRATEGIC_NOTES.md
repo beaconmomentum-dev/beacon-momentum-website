@@ -42,8 +42,10 @@ Develop module outline and lesson structure. Assign to ACCESS course curriculum 
 **Priority:** Future — not yet actioned
 **Status:** Logged, pending VSL and affiliate materials
 
-### Observation
-Beacon's Full Membership ($597/year) and Quartermaster Circle ($1,497/year) are strong candidates for the Digistore24 marketplace as vendor products. At 30% commission, these would rank near the top of the Business & Investment category by AOV ($179 and $449 per referred sale respectively).
+### Historical Observation — Superseded July 2026
+This note described a discontinued multi-tier pricing architecture: Full Membership at $597/year and a Quartermaster Circle at $1,497/year. Those figures are not current offers and must not be used in public copy, structured data, checkout setup, or affiliate materials.
+
+**Current offer architecture:** The Watch is one annual membership at **$297/year**. Sentinel, Navigator, and Quartermaster are earned stages, not separately purchasable tiers. Watch Brief Premium is a distinct **$27/month** paid operating dossier and is included as a Watch member benefit. Any future Digistore24 strategy must be redesigned around the current offer architecture rather than this historical observation.
 
 ### Prerequisites Before Actioning
 - Founder's statement video finalized (professional voice quality — ElevenLabs clone session needed)
