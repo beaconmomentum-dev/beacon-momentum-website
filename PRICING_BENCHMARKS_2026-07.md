@@ -13,9 +13,9 @@ This note records public, directional benchmarks for the re-evaluation of The Wa
 | GrowthMentor 2026 mastermind guide | Paid online mastermind groups: approximately $100–$1,000/month; community/free groups: up to roughly $500/year | Distinguishes passive/community access from structured groups with matched cohorts and facilitation. | The Watch should only use a premium anchor if its curriculum, accountability cadence, and member environment are made tangible and consistently delivered. |
 | Speakeasy Mastermind | $5,995/year | Vetted high-caliber business community with live meetups, private app, global network, resources, and an annual summit. | This is not a direct substitute, but it confirms that strong selection, access, and facilitated connection can support substantially higher pricing. |
 
-## Preliminary read
+## Current read
 
-The current $297/year Watch price places a multi-pillar curriculum, community, accountability structure, member resources, onboarding, and included premium briefing below the lower end of several public professional-community comparables. A $497/year price is directionally defensible only if the public promise is narrowed to what is consistently delivered and the member experience demonstrates a real operating environment rather than a content library.
+The approved $497/year Watch price sits within the range indicated by several public professional-community comparables. It remains defensible only if the public promise is narrowed to what is consistently delivered and the member experience demonstrates a real operating environment rather than a content library.
 
 ## Sources
 

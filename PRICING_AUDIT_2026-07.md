@@ -15,8 +15,8 @@ The `$597/year` figure was **not** part of the current Watch offer. It came from
 - **The Signal:** public editorial intelligence.
 - **The Beacon Brief:** free weekly email.
 - **Watch Brief Premium:** `$27/month` paid operating dossier.
-- **The Watch:** one annual membership at `$297/year`; Sentinel, Navigator, and Quartermaster are earned stages, not purchasable tiers. Watch Brief Premium is included as a member benefit.
+- **The Watch:** one annual membership at `$497/year`; Sentinel, Navigator, and Quartermaster are earned stages, not purchasable tiers. Watch Brief Premium is included as a member benefit.
 
 ## Correction and Release Evidence
 
-Commit `3f9482d` removed the stale `$597/year` public schema claim and marked the historical marketplace concept as superseded. The local production build completed successfully. The GitHub push was confirmed on the DigitalOcean origin at `159.203.81.39`, where `/var/www/beacon-momentum-www` reported commit `3f9482d` and PM2 process `beacon-momentum-www` was online. Nginx responded with HTTP `301` for the local `Host: beaconmomentum.com` probe, consistent with its HTTPS redirect behavior.
+Commit `3f9482d` removed the stale `$597/year` public schema claim and marked the historical marketplace concept as superseded. The subsequent approved public-price correction established `$497/year` as the single canonical Watch price across current source, structured data, and funnel records. The local production build completed successfully. The GitHub push was confirmed on the DigitalOcean origin at `159.203.81.39`, where `/var/www/beacon-momentum-www` reported commit `3f9482d` and PM2 process `beacon-momentum-www` was online. Nginx responded with HTTP `301` for the local `Host: beaconmomentum.com` probe, consistent with its HTTPS redirect behavior.
