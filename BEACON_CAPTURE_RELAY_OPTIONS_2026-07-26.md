@@ -25,7 +25,7 @@ The active Express/tRPC server would expose `capture.submit` under its existing 
 | Security control | Strong. The current candidate implements server-owned event mapping, location/tag allow-lists, validation, origin checks, best-effort rate limiting, and safe errors. |
 | Customer experience | Strong. Same-origin requests make retry, error, and request-ID behavior easy to keep consistent with existing React forms. |
 | Availability profile | Coupled to the marketing application server. If that service is unavailable, capture is unavailable. |
-| Current state | **Prepared but not released.** `server/routers/capture.ts` and four isolated tests exist locally; no form invokes it and no production secret has been installed. |
+| Current state | **Prepared but not released.** `server/routers/capture.ts` and six isolated tests exist in canonical source; no form invokes it and no production secret has been installed. |
 | Needed before release | Founder approval; production environment secret; integration confirmation for approved source tags; client migration; controlled tests; deploy/rollback plan. |
 
 ## Option B — Use a dedicated Cloudflare Worker relay
@@ -80,7 +80,7 @@ The non-deployed candidate supports only verified primary-location events:
 | `watch_brief_premium_interest` | `BM_Watch_Brief_Premium_Interest` | `beaconmomentum.com/watch-brief-premium` |
 | `watch_join` | `BM_Watch_Join`, `BM_Watch_Sentinel`, `BM_Community` | `beaconmomentum.com/the-watch` |
 
-The candidate deliberately excludes Contact, Digital Grandpa Library, and Watch Intake. It does not set a public success state after a failed HighLevel response; its isolated tests cover client tag override stripping, enum restriction, rejected CRM response handling, and server-only authorization.
+The candidate deliberately excludes Contact, Digital Grandpa Library, and Watch Intake. It does not set a public success state after a failed HighLevel response, and it rejects requests without an approved browser origin in production. Its isolated tests cover client tag override stripping, enum restriction, rejected CRM response handling, missing-credential fail-closed behavior, production-origin enforcement, and server-only authorization.
 
 ## Approval questions
 
