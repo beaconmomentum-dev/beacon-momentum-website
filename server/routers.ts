@@ -2,6 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
+import { captureRouter } from "./routers/capture";
 import { cohortRouter } from "./routers/cohort";
 
 export const appRouter = router({
@@ -20,6 +21,9 @@ export const appRouter = router({
 
   /** Cohort lead dashboard — password-protected, no Manus OAuth required */
   cohort: cohortRouter,
+
+  /** Public, server-side CRM capture relay. Client migration is released separately. */
+  capture: captureRouter,
 });
 
 export type AppRouter = typeof appRouter;

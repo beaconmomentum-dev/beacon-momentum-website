@@ -7,6 +7,8 @@ export const ENV = {
   isProduction: process.env.NODE_ENV === "production",
   forgeApiUrl: process.env.BUILT_IN_FORGE_API_URL ?? "",
   forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? "",
+  /** Server-only HighLevel credential for the public capture relay. Never expose this through VITE_* variables. */
+  ghlApiKey: process.env.GHL_API_KEY ?? "",
   /** Shared password for cohort lead dashboard access */
   cohortLeadPassword: process.env.COHORT_LEAD_PASSWORD ?? "",
 };
