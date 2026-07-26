@@ -224,8 +224,8 @@ function clientIdentifier(headers: Record<string, string | string[] | undefined>
   return raw?.split(",")[0]?.trim() || "unknown";
 }
 
-function isAllowedOrigin(origin: string | undefined): boolean {
-  if (!origin) return true;
+export function isAllowedOrigin(origin: string | undefined, isProduction = ENV.isProduction): boolean {
+  if (!origin) return !isProduction;
   const productionOrigins = new Set([
     "https://beaconmomentum.com",
     "https://www.beaconmomentum.com",
@@ -233,7 +233,7 @@ function isAllowedOrigin(origin: string | undefined): boolean {
     "https://www.digitalgrandpa.org",
   ]);
   if (productionOrigins.has(origin)) return true;
-  return !ENV.isProduction && /^http:\/\/localhost(?::\d+)?$/.test(origin);
+  return !isProduction && /^http:\/\/localhost(?::\d+)?$/.test(origin);
 }
 
 function publicCaptureError(reason: CaptureFailureReason, requestId: string): TRPCError {

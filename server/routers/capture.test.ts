@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { buildGhlUpsertPayload, captureInputSchema, submitCaptureToGhl } from "./capture";
+import { buildGhlUpsertPayload, captureInputSchema, isAllowedOrigin, submitCaptureToGhl } from "./capture";
 
 describe("public capture relay contract", () => {
   it("owns newsletter tags and source on the server", () => {
@@ -47,6 +47,13 @@ describe("public capture relay contract", () => {
     const input = captureInputSchema.parse({ event: "starter_pack_request", email: "person@example.com" });
 
     await expect(submitCaptureToGhl(input, { apiKey: "" })).rejects.toThrow("not_configured");
+  });
+
+  it("requires an approved browser origin in production", () => {
+    expect(isAllowedOrigin(undefined, true)).toBe(false);
+    expect(isAllowedOrigin("https://beaconmomentum.com", true)).toBe(true);
+    expect(isAllowedOrigin("http://localhost:5173", true)).toBe(false);
+    expect(isAllowedOrigin("http://localhost:5173", false)).toBe(true);
   });
 
   it("uses the server credential only in the outbound request", async () => {
