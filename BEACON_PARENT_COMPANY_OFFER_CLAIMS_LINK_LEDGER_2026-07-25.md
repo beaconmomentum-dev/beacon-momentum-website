@@ -1,0 +1,113 @@
+# Beacon Momentum, LLC — Parent-Company Offer, Claims, and Cross-Property Link Ledger
+
+**Version:** 1.0
+**Status:** Active governance control; it does not itself authorize new public publication
+**Effective date:** July 25, 2026
+**Parent owner:** Bob, Beacon Momentum, LLC
+**Review cadence:** Before any material price, claim, CTA, policy, or destination change; otherwise quarterly, with the first scheduled review by October 25, 2026.
+
+> **Control objective.** This ledger is the parent-company source of truth for the offers, claims, and cross-property links that may appear on Beacon surfaces. A record marked **Do not syndicate**, **Release-gated**, or **Retire or repair** must not be copied into public copy, structured data, email, paid media, a new CTA, or an external referral until its stated gate is closed by the accountable owner.
+
+This document reconciles the canonical architecture, owner decision records, pricing audit, current Signal Check implementation evidence, and the parent-company closure register. Local inference was used only to stress-test the release-gate ordering; all entries below remain grounded in the cited source records rather than model output.[1] [2] [3] [4] [5]
+
+## 1. Ledger conventions and hierarchy
+
+| Status | Meaning | Publication rule |
+|---|---|---|
+| **Active canonical** | The offer or claim has a current source of truth and can be used only within its stated scope. | Match the record exactly; do not broaden price, promise, audience, or data use. |
+| **Owner-approved, release-gated** | The owner has approved the direction or scope, but implementation, policy, route, or evidence work remains. | Internal planning only unless the row expressly permits a limited public use. |
+| **Do not syndicate** | A source conflict, missing evidence, or unverified route makes public repetition unsafe. | Remove, hold, or replace; do not create new copies. |
+| **Retire or repair** | A duplicate, obsolete, unmanaged, or conflicting route/claim requires an explicit disposition. | No amplification; preserve evidence and complete the stated remediation. |
+| **Unmapped** | The property is visible in the ecosystem but has no approved offer/role record in this ledger. | No price, claim, shared-account assertion, or CTA expansion without a new approved record. |
+
+### Canonical property roles
+
+| Surface | Canonical role | Account, payment, and data boundary | Ledger consequence |
+|---|---|---|---|
+| **Beacon Momentum, LLC** | Parent company | Governs brand standards, shared disclosures, and this ledger; it is not a default shared-records owner. | Owns governance, not automatic account unification. |
+| **`beaconmomentum.com`** | Public ecosystem front door | Does not own membership accounts, member data, B2B checkout, or B2B intake. | May orient visitors and make explicitly labeled referrals only. |
+| **`beaconcommunity.net`** | Membership system of record | Owns membership enrollment, accounts, community, courses, and membership operations. | All membership routing must point here once the request-to-payment-to-activation chain is verified. |
+| **`beaconlabs.ai`** | Distinct B2B operating arm | Owns B2B diagnostics, client intake, payment, contracts, delivery, and client support. | B2B links must be explicit external referrals; no member-data transfer or implied member benefit. |
+| **`beacontrading.ai`** | Education-first, simulation-only practice environment | Must not imply investment advice, brokerage, custody, execution, or performance outcomes. | Do not expand links or price/offer claims until source, policy, and route evidence are verified. |
+| **`app.beaconmomentum.com`** | Related technical surface | Technical/data role is not yet determined; it is not the membership system of record. | No new public handoff, shared-account, payment, or portal-owner claim is authorized. |
+
+The architecture permits shared ownership and standards, but it does **not** permit default sharing of customer or member data between properties.[1] [2]
+
+## 2. Offer ledger
+
+| Offer ID | Accountable owner | Canonical name and bounded scope | Audience | Price / term | Canonical source and destination | Checkout / intake state | Evidence date | Status and publication rule |
+|---|---|---|---|---|---|---|---|---|
+| **BM-001** | Bob / Beacon Momentum, LLC public-product owner | **The Signal** — public editorial intelligence. | Public readers | No charge | `beaconmomentum.com` public editorial surface | No purchase claim in this record. | July 2026 | **Active canonical.** Do not add outcomes, member access, or advisory claims. |
+| **BM-002** | Bob / Beacon Momentum, LLC public-product owner | **The Beacon Brief** — free weekly email. | Opt-in subscribers | No charge | `beaconmomentum.com` | Separate email opt-in; do not treat general site contact as enrollment. | July 2026 | **Active canonical.** Use only with the applicable consent and privacy controls. |
+| **BM-003** | Bob / Beacon Momentum, LLC public-product owner | **Watch Brief Premium** — paid operating dossier. | Individuals seeking the middle path between public editorial and membership | **$27/month** | `beaconmomentum.com/watch-brief-premium` | Existing request/enrollment details are not represented here as checkout. | July 2026 | **Active canonical.** Do not present it as The Watch enrollment or duplicate its benefits without a matching offer record. |
+| **BM-004** | Beacon Community product owner + Beacon Momentum, LLC product owner | **The Watch** — one annual membership; Sentinel, Navigator, and Quartermaster are earned stages, not separate purchasable tiers. | Prospective and active members | **$497/year** | Public request route: `beaconmomentum.com/the-watch#join`; membership system of record: `beaconcommunity.net` | Approved sequence is **request → payment → Beacon Community activation/onboarding**. The end-to-end chain and policy link remain unverified. | July 25, 2026 | **Owner-approved, release-gated.** The price/name may be shown only on an offer card that remains request-first and links to the approved support/policy route. Do not use “Beacon Circle,” a $297 Watch price, a $597 Watch price, or immediate-activation wording. |
+| **BM-005** | Beacon Community product owner + parent product owner | **Execution Engine** — subordinate, member-only Beacon Venture / The Watch curriculum asset. | Confirmed members | Included member curriculum; **not a standalone public offer** | Controlled member curriculum destination only | No standalone checkout or sales funnel is authorized. | July 25, 2026 | **Retire or repair.** Retire or redirect all standalone public offer, price, checkout, and unmanaged funnel surfaces before amplification. |
+| **BL-001** | Bob (decision owner); Beacon Labs commercial owner (execution) | **Initial Signal Check** — free B2B diagnostic request. | Organizations | **Free** | `beaconlabs.ai/signal-check` | Current public form requires affirmative permission before CRM processing and routes a request to `BL_Signal_Check → SC_Requested`. | July 25, 2026 | **Active canonical for consented intake only.** Do not promise an automatic scan, report, email, result, or delivery time; broad promotion remains release-gated pending fulfillment and counsel review. |
+| **BL-002** | Bob (decision owner); Beacon Labs commercial owner + policy reviewer | **Expanded Signal Check follow-up** — one domain, up to three priority URLs, one competitor, up to seven findings, a 30/60/90-day sequence, and a 15-minute recorded walkthrough. Excludes credentials, implementation, design, code, and guarantees. | Organizations that explicitly choose deeper diagnostic work | **$297 one-time** | Intended route: `beaconlabs.ai/signal-check/expanded` | Separate paid intake, server-verified payment, scope acknowledgement, consent, and post-payment access controls are not yet implemented or validated. | July 25, 2026 | **Owner-approved, release-gated.** Internal planning only; no paid page, checkout, payment claim, or public promotion until every stated control passes. |
+| **BL-003** | Beacon Labs commercial owner + parent offer owner | **Beacon Labs services** — separately scoped implementation, strategy, technical, or ongoing B2B engagements. | Qualified organizations | Quote- or scope-based | `beaconlabs.ai` after a separate affirmative services conversation | No automatic escalation from either Signal Check stage. | July 25, 2026 | **Active boundary, not a price card.** Do not imply that a diagnostic creates a service engagement, result, contract, or automatic sales enrollment. |
+| **BT-001** | Bob (decision owner); Beacon Trading owner + policy reviewer | **Beacon Trading** — education-first, simulation-only practice environment. | Learners | Price / access terms unverified | `beacontrading.ai` | No approved checkout or pricing-route record in this ledger. | July 25, 2026 | **Do not syndicate price or access claims.** Source/CMS, policy, legal route, and public-content verification are required before any offer entry becomes active. |
+| **BM-006** | Bob (decision owner); commerce/operations owner + policy reviewer | **Beacon Merchandise V1** — Supporter Edition T-shirt, Signal Journal / Field Notebook, one drinkware item, and Beacon cap / hat. | Supporters and members | T-shirt concept: **$100 pending economics**; all other pricing unapproved | Future standard Beacon merchandise page | No storefront, fulfillment, shipping, return, tax, privacy, or support route is approved yet. | July 25, 2026 | **Owner-approved scope, release-gated.** Ordinary retail only; do not sell, state other prices, or launch deferred crewneck/medallion extensions before gates close. |
+| **BM-007** | Parent company operations owner | **Hollow Threads and Digital Grandpa references** — presently shown as affiliated-property links, not validated cross-property offers. | Public visitors | Unmapped | Current Company-page links only | No shared checkout, identity, or data behavior is authorized. | July 2026 | **Unmapped.** Do not syndicate an offer, price, result, or shared-ownership claim until an owner, role, evidence source, and data boundary are recorded. |
+
+### Historical and conflicting price exclusions
+
+| Excluded record | Disposition | Required action |
+|---|---|---|
+| **The Watch `$597/year`** | Historical and superseded; removed from public structured data. | Do not reintroduce in source, schema, documents, or partner copy. |
+| **The Watch `$297/year`** | Not the current membership price; `$297` belongs only to the separately gated Expanded Signal Check. | Treat any current `$297/year` Watch label as a correction defect. |
+| **Beacon Labs `$497` Signal Check snapshot** | The architecture recorded it as a conflicting existing homepage price and explicitly prohibited syndication pending reconciliation. The current owner-approved diagnostic ladder is free initial Signal Check plus a separately gated `$297` expanded follow-up. | Remove or correct any surviving `$497` Signal Check price before an external price snapshot is published. |
+
+## 3. Claims ledger
+
+| Claim ID | Property | Exact controlled claim | Evidence source | Accountable reviewer | Review by | Permitted use |
+|---|---|---|---|---|---|---|
+| **CLM-001** | Parent / cross-property | “Beacon Momentum, LLC is the parent company for the ecosystem.” | Canonical ecosystem architecture.[1] | Bob / parent owner | October 25, 2026 | Approved in parent recognition and governance contexts; do not imply shared accounts or shared data. |
+| **CLM-002** | `beaconmomentum.com` | “Beacon Momentum introduces the ecosystem.” | Canonical ecosystem architecture.[1] | Bob / public-product owner | October 25, 2026 | Approved for public orientation; it must not claim to operate membership accounts or B2B intake. |
+| **CLM-003** | The Watch / Beacon Community | “The Watch is one annual membership at $497/year; Sentinel, Navigator, and Quartermaster are earned stages.” | Current pricing audit and membership decision record.[3] [2] | Beacon Community product owner + parent product owner | Before the next membership CTA release | Approved only with request-first enrollment language and a verified policy/support route. |
+| **CLM-004** | Beacon Community | “Beacon Community is the membership system of record.” | Canonical architecture and related-app decision.[1] [7] | Beacon Community product owner | Before any new public membership routing | Approved as an architectural statement; no claim of automatic shared app accounts or payment/data ownership elsewhere. |
+| **CLM-005** | Beacon Labs | “The free Signal Check accepts a consented request into the dedicated `BL_Signal_Check → SC_Requested` workflow.” | Controlled-test protocol.[5] | Beacon Labs commercial owner + policy reviewer | Before broad promotion | Approved only as an intake-status statement; it must not be rewritten as a report-delivery, turnaround-time, or outcome claim. |
+| **CLM-006** | Beacon Labs | “The expanded Signal Check is an optional $297 diagnostic follow-up, not a subscription or automatic service engagement.” | Owner Signal Check decision record.[4] | Beacon Labs commercial owner + policy reviewer | Before any paid-stage publication | **Internal planning only** until payment, consent, access, privacy, and delivery controls pass. |
+| **CLM-007** | Beacon Labs | “Beacon Labs services require a separate affirmative decision; scope, terms, and pricing are determined separately.” | Owner Signal Check decision record.[4] | Beacon Labs commercial owner | October 25, 2026 | Approved in post-diagnostic and B2B boundary language; no automatic escalation or guarantee. |
+| **CLM-008** | Beacon Trading | “Beacon Trading is an education-first, simulation-only practice environment. It does not provide investment advice, brokerage, custody, trade execution, live signals, managed accounts, or performance guarantees.” | Beacon Trading language decision.[6] | Beacon Trading owner + policy reviewer | Before any Trading copy publication | Approved policy direction only; source/CMS, routes, legal pages, and disclaimer proximity remain unverified. |
+| **CLM-009** | Beacon merchandise | “Net proceeds from this collection support the continued development of the Beacon ecosystem and resources for its members.” | Merchandise V1 decision record.[8] | Commerce/operations owner + policy reviewer | Before merchandise launch | Approved purpose note only after commerce release gates close. It must not be paired with donation, tax-deductible, scholarship, raffle, charitable-allocation, or beneficiary claims. |
+| **CLM-010** | Related app | “Beacon Momentum LLC is the responsible parent owner for the related app’s role and technical/data-governance decision.” | Related-app accountability decision.[7] | Bob / parent owner + assigned technical/data steward | Before any app route or copy change | Approved internal/accountability statement; no public claim of membership-system ownership, shared accounts, payments, or data is authorized. |
+| **CLM-011** | Beacon Labs pricing | “Beacon Signal Check is $497 one-time.” | Conflicting historical homepage snapshot recorded in the architecture.[1] | Beacon Labs commercial owner | Immediate correction | **Do not syndicate.** The canonical diagnostic ladder supersedes this snapshot; remediate any surviving public instance. |
+
+## 4. Cross-property link registry
+
+| Link ID | Source property | Destination | Link label / purpose | Relationship | Data transfer and attribution rule | Required pre-click disclosure | Accountable owner | Status / release gate |
+|---|---|---|---|---|---|---|---|---|
+| **LNK-001** | `beaconmomentum.com` | `https://beaconcommunity.net` | **Membership & community** — move from public orientation to membership enrollment and operations. | Explicit referral | No automatic account creation, prefill, CRM merge, or member-data transfer. | “Membership and community are operated through Beacon Community.” | Beacon Community product owner + parent product owner | **Owner-approved, release-gated.** Publish/expand only after the request → payment → Community activation chain and policy/support route are tested. |
+| **LNK-002** | `beaconmomentum.com` | `https://beaconlabs.ai` | **For Organizations** — move from public orientation to a distinct B2B services journey. | Explicit referral | No B2C/member record transfer. A non-identifying `source=beaconmomentum` parameter is permissible only if privacy/analytics controls approve it. | “B2B services offered by Beacon Labs, a Beacon Momentum, LLC company.” | Beacon Labs commercial owner + parent offer owner | **Owner-approved, release-gated.** Do not publish the parent-page B2B service snapshot or prices until Labs Phase 0 offer, policy, data, and payment controls are complete. |
+| **LNK-003** | `beaconmomentum.com` | `https://beaconlabs.ai/signal-check` | **Request a Signal Check** — explicit referral to a separate B2B diagnostic request. | Explicit referral | No form prefill, audience merge, or assumed marketing permission. Consent is captured at the destination. | “You are leaving Beacon Momentum for Beacon Labs’ B2B Signal Check request.” | Beacon Labs commercial owner + parent public-site owner | **Limited active referral.** The current route may record a consented request only; do not attach report, delivery-time, paid-stage, or service-result language. |
+| **LNK-004** | `beaconmomentum.com` | `https://beacontrading.ai` | **Beacon Trading Academy** — external educational/simulation path. | Explicit referral | No shared-account, member-data, payment, or performance tracking assertion. | “Beacon Trading is a separate education-first, simulation-only environment.” | Beacon Trading owner + policy reviewer | **Retire or repair before expansion.** Existing source links require source/CMS, policy, legal-route, pricing, and disclaimer validation; do not add performance, advice, or execution language. |
+| **LNK-005** | `beaconmomentum.com` | `https://app.beaconmomentum.com` | No new public handoff is authorized. | Not authorized | No data transfer or shared-account behavior. | Not applicable. | Bob / parent owner + technical/data steward to be assigned | **Blocked.** An authorized inventory and operational-role decision must precede any CTA, portal, payment, or account claim. |
+| **LNK-006** | `beaconcommunity.net` | `beaconlabs.ai` | Any prospective B2B-service referral from a member environment. | Proposed explicit referral only | No member-status transfer, profile prefill, tag sharing, or automatic CRM creation. | “Beacon Labs is a separate B2B service; requesting information does not change your membership.” | Beacon Community product owner + Beacon Labs commercial owner | **Not authorized.** Requires Labs Phase 0 evidence and an approved disclosed handoff design. |
+| **LNK-007** | Any public Beacon surface | `exec-funnel-aqf76wtd.manus.space/offer` or another unmanaged Execution Engine sales surface | Unmanaged duplicate public funnel. | Retire or repair | No attribution, prefill, payment, or audience behavior may be assumed. | No new linking or promotion. | Parent-company technical/operations owner + Beacon Community product owner | **Retire or repair.** Identify the editable source or redirect control, then retire, redirect, or preserve only with a compliant member-only role. |
+| **LNK-008** | `beaconlabs.ai/audit` | `beaconlabs.ai/signal-check` | Legacy Signal Check-like intake route. | Retired internal redirect | No new record creation on the retired route. | The canonical Signal Check intake is at `/signal-check`. | Beacon Labs commercial / technical owner | **Verified redirect.** Retain the redirect and do not reintroduce a parallel form. |
+
+## 5. Release-gate checks before any syndication
+
+| Check | Required evidence | Current consequence if absent |
+|---|---|---|
+| **Offer match** | The name, audience, price, term, scope, CTA, and destination exactly match one active canonical ledger row. | Hold the new card, schema, ad, email, or CTA. |
+| **Claim match** | The exact claim has a claims-ledger record with an active permitted-use status. | Remove the claim or create a new evidence-backed record; do not extrapolate. |
+| **Destination and disclosure** | The CTA appears in the link registry, uses the approved label, gives the required pre-click disclosure, and has a working destination. | Do not publish or expand the link. |
+| **Data separation** | No cross-property form prefill, account creation, CRM merge, tag transfer, audience merge, or implied shared data store occurs without explicit approved consent. | Block release and obtain a privacy/data-flow review. |
+| **Price reconciliation** | No active/public source, schema, page, feed, email, or partner asset conflicts with the ledger. | Treat the conflict as P0; correct or remove before syndication. |
+| **Policy/operational gate** | Terms, privacy, support, cancellations/refunds, intake/payment controls, and delivery expectations are verified for the specific offer. | The offer remains release-gated even if its owner-approved scope is recorded here. |
+
+## 6. Immediate owner and operational actions
+
+The ledger itself satisfies the parent-company documentation requirement, but it does not clear the underlying property gates. The next governance actions are to verify The Watch enrollment and policy routing; complete Signal Check fulfillment, privacy review, and later paid-stage controls; obtain authorized Beacon Trading and related-app inventories; dispose of the unmanaged Execution Engine funnel; and establish merchandise commerce/policy economics. Each public release must be compared against Sections 2–5 before publication.[2] [5] [6] [7] [8]
+
+## References
+
+[1] [Beacon Ecosystem Architecture — July 25, 2026](./BEACON_ECOSYSTEM_ARCHITECTURE_2026-07-25.md)
+[2] [Beacon Pre-Implementation Closure Register — July 25, 2026](./BEACON_PRE_IMPLEMENTATION_CLOSURE_REGISTER_2026-07-25.md)
+[3] [Pricing Audit — July 2026](./PRICING_AUDIT_2026-07.md)
+[4] [Beacon Labs Signal Check Funnel Decision — July 25, 2026](./BEACON_LABS_SIGNAL_CHECK_FUNNEL_DECISION_2026-07-25.md)
+[5] [Beacon Labs Signal Check Controlled-Test Protocol — July 25, 2026](https://github.com/Beacon-Ecosystem/beaconlabs-ai/blob/main/SIGNAL_CHECK_CONTROLLED_TEST_PROTOCOL_2026-07-25.md)
+[6] [Beacon Trading Language Standard Decision — July 25, 2026](./BEACON_TRADING_LANGUAGE_STANDARD_DECISION_2026-07-25.md)
+[7] [Beacon Related-App Owner Decision — July 25, 2026](./BEACON_RELATED_APP_OWNER_DECISION_2026-07-25.md)
+[8] [Beacon Merchandise V1 Decision Record — July 25, 2026](./BEACON_MERCHANDISE_V1_DECISION_RECORD_2026-07-25.md)
