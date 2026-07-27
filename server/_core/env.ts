@@ -11,4 +11,9 @@ export const ENV = {
   ghlApiKey: process.env.GHL_API_KEY ?? "",
   /** Shared password for cohort lead dashboard access */
   cohortLeadPassword: process.env.COHORT_LEAD_PASSWORD ?? "",
+  /** Server-only Stripe credentials for Beacon-controlled The Watch enrollment. */
+  stripeSecretKey: process.env.STRIPE_SECRET_KEY ?? "",
+  stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY ?? "",
+  stripeWatchAnnualPriceId: process.env.STRIPE_WATCH_ANNUAL_PRICE_ID ?? "",
+  stripeWatchWebhookSecret: process.env.STRIPE_WATCH_WEBHOOK_SECRET ?? "",
 };
