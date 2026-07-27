@@ -10,7 +10,7 @@ import { ArrowUpRight, BookOpen, Video, FileText, Compass, FlaskConical, Trendin
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 
-const RESOURCES_HERO_IMG = "/manus-storage/beacon_resources_editorial_f4e411d8.png";
+const RESOURCES_HERO_IMG = "/images/owned/beacon-resources-editorial.png";
 
 const RESOURCES = [
   {

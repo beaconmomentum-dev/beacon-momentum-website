@@ -18,7 +18,7 @@ import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import PillarIcon from "@/components/PillarIcon";
 
-const ABOUT_HERO_IMG = "/manus-storage/beacon_about_hero_3f574393.png";
+const ABOUT_HERO_IMG = "/images/owned/beacon-about-hero.png";
 
 const TIMELINE = [
   {

@@ -11,8 +11,7 @@ import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
 
-const DG_HERO_IMG =
-  "/manus-storage/beacon_digital_grandpa_hero_f181270e.png";
+const DG_HERO_IMG = "/images/owned/beacon-digital-grandpa-hero.png";
 
 // ─── Scroll reveal ─────────────────────────────────────────────────────────────
 function useFadeUp() {

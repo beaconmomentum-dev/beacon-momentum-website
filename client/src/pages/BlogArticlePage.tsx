@@ -546,7 +546,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "the-intelligence-arbitrage",
-    heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
+    heroImage: "/images/owned/beacon-about-hero.png",
     audioSrc: "/audio/watch-brief-04-the-intelligence-arbitrage.mp3?v=2",
     title: "The Intelligence Arbitrage: Who Wins When the Price of Thinking Collapses",
     excerpt:
@@ -598,7 +598,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "the-leverage-has-arrived",
-    heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
+    heroImage: "/images/owned/beacon-about-hero.png",
     audioSrc: "/audio/watch-brief-03-the-leverage-has-arrived.mp3?v=2",
     title: "The Leverage Has Arrived: The Old World Is Ending and the New One Does Not Require Permission",
     excerpt:
@@ -638,7 +638,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "ai-roi-reckoning",
-    heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
+    heroImage: "/images/owned/beacon-about-hero.png",
     audioSrc: "/audio/watch-brief-02-ai-roi-reckoning.mp3?v=2",
     title: "The AI ROI Reckoning: 95% of Enterprise Projects Failed — Here Is What Actually Works",
     excerpt:
@@ -719,7 +719,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "frontier-models-in-motion",
-    heroImage: "/manus-storage/beacon_about_hero_3f574393.png",
+    heroImage: "/images/owned/beacon-about-hero.png",
     audioSrc: "/audio/watch-brief-01-frontier-models-in-motion.mp3?v=3",
     title: "Frontier Models in Motion: The Export Ban, Multi-Agent Teams, and the Race After AI",
     excerpt:

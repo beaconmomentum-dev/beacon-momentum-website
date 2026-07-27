@@ -4,7 +4,6 @@
  * Consistent footer used across ALL pages.
  * Dark charcoal background, four-column layout.
  * Tagline: "The Lighthouse Is Lit. Join Us at the Watch."
- * Matches sandbox redesign (beaconredesign-6hqukxcf.manus.space) exactly.
  */
 import { Link } from "wouter";
 
