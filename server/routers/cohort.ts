@@ -24,7 +24,7 @@ import {
   getAllWatchMembers,
   getCohortLeadSession,
   getWatchMembersByLead,
-  insertWatchMember,
+  upsertWatchMemberIntake,
   updateWatchMemberAssignment,
   updateWatchMemberNotes,
 } from "../db";
@@ -199,7 +199,7 @@ export const cohortRouter = router({
       })
     )
     .mutation(async ({ input }) => {
-      const id = await insertWatchMember({
+      const id = await upsertWatchMemberIntake({
         email: input.email,
         firstName: input.firstName ?? null,
         tier: input.tier,

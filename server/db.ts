@@ -1,4 +1,4 @@
-import { and, desc, eq, gt } from "drizzle-orm";
+import { and, desc, eq, gt, isNotNull } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { InsertUser, users, watchMembers, InsertWatchMember, WatchMember, cohortLeadSessions } from "../drizzle/schema";
 import { ENV } from './_core/env';
@@ -98,10 +98,91 @@ export async function insertWatchMember(member: InsertWatchMember): Promise<numb
   return (result[0] as { insertId: number }).insertId;
 }
 
+export type WatchEnrollmentStatus = "pending" | "active" | "past_due" | "cancelled";
+
+export interface WatchEnrollmentInput {
+  email: string;
+  firstName: string | null;
+  stripeCustomerId: string;
+  stripeSubscriptionId: string;
+  enrollmentStatus: WatchEnrollmentStatus;
+  paidAt: Date | null;
+  renewsAt: Date | null;
+}
+
+/**
+ * Creates or refreshes the one durable record tied to a Stripe subscription.
+ * The unique subscription identifier makes repeated Stripe event delivery safe.
+ */
+export async function upsertWatchEnrollment(enrollment: WatchEnrollmentInput): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db
+    .insert(watchMembers)
+    .values(enrollment)
+    .onDuplicateKeyUpdate({
+      set: {
+        email: enrollment.email,
+        firstName: enrollment.firstName,
+        stripeCustomerId: enrollment.stripeCustomerId,
+        enrollmentStatus: enrollment.enrollmentStatus,
+        paidAt: enrollment.paidAt,
+        renewsAt: enrollment.renewsAt,
+      },
+    });
+}
+
+/** Updates a known Watch subscription without creating a member record for unrelated Stripe activity. */
+export async function updateWatchEnrollmentStatus(
+  stripeSubscriptionId: string,
+  enrollmentStatus: WatchEnrollmentStatus,
+  renewsAt: Date | null = null
+): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db
+    .update(watchMembers)
+    .set({ enrollmentStatus, renewsAt })
+    .where(eq(watchMembers.stripeSubscriptionId, stripeSubscriptionId));
+}
+
+/** Allows a paid record created by the webhook to be completed by the member intake flow. */
+export async function upsertWatchMemberIntake(member: InsertWatchMember): Promise<number> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const existing = await db
+    .select({ id: watchMembers.id })
+    .from(watchMembers)
+    .where(eq(watchMembers.email, member.email))
+    .orderBy(desc(watchMembers.paidAt), desc(watchMembers.createdAt))
+    .limit(1);
+
+  if (existing[0]) {
+    await db
+      .update(watchMembers)
+      .set({
+        firstName: member.firstName ?? null,
+        tier: member.tier ?? null,
+        track: member.track ?? null,
+        intakeAnswers: member.intakeAnswers ?? null,
+      })
+      .where(eq(watchMembers.id, existing[0].id));
+    return existing[0].id;
+  }
+
+  return insertWatchMember(member);
+}
+
 export async function getAllWatchMembers(): Promise<WatchMember[]> {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(watchMembers).orderBy(desc(watchMembers.createdAt));
+  return db
+    .select()
+    .from(watchMembers)
+    .where(isNotNull(watchMembers.intakeAnswers))
+    .orderBy(desc(watchMembers.createdAt));
 }
 
 export async function getWatchMembersByLead(leadEmail: string): Promise<WatchMember[]> {
@@ -110,7 +191,7 @@ export async function getWatchMembersByLead(leadEmail: string): Promise<WatchMem
   return db
     .select()
     .from(watchMembers)
-    .where(eq(watchMembers.cohortLeadEmail, leadEmail))
+    .where(and(eq(watchMembers.cohortLeadEmail, leadEmail), isNotNull(watchMembers.intakeAnswers)))
     .orderBy(desc(watchMembers.createdAt));
 }
 

@@ -31,25 +31,35 @@ export type InsertUser = typeof users.$inferInsert;
  */
 export const watchMembers = mysqlTable("watch_members", {
   id: int("id").autoincrement().primaryKey(),
-  /** Email address from sessionStorage at intake submission time */
+  /** Email address from checkout and later intake submission. */
   email: varchar("email", { length: 320 }).notNull(),
   /** First name (optional, from sessionStorage) */
   firstName: varchar("firstName", { length: 128 }),
   /** Membership tier: sentinel | navigator | quartermaster */
-  tier: varchar("tier", { length: 32 }).notNull(),
+  tier: varchar("tier", { length: 32 }),
   /** Assigned cohort track: transition | builder | systems | legacy */
-  track: varchar("track", { length: 32 }).notNull(),
+  track: varchar("track", { length: 32 }),
   /**
    * Full JSON blob of all 7 intake answers.
    * Shape: { tier, current_situation, biggest_obstacle, time_horizon, ai_comfort, accountability, track_choice }
    */
-  intakeAnswers: json("intakeAnswers").notNull(),
+  intakeAnswers: json("intakeAnswers"),
   /** Optional: cohort lead assignment (email of the lead responsible for this member) */
   cohortLeadEmail: varchar("cohortLeadEmail", { length: 320 }),
   /** Optional: cohort group name or label */
   cohortGroup: varchar("cohortGroup", { length: 128 }),
   /** Notes added by a cohort lead */
   leadNotes: text("leadNotes"),
+  /** Stripe customer identifier retained only for billing reconciliation. */
+  stripeCustomerId: varchar("stripeCustomerId", { length: 64 }),
+  /** One Watch enrollment row is authoritative for one Stripe subscription. */
+  stripeSubscriptionId: varchar("stripeSubscriptionId", { length: 64 }).unique(),
+  /** Durable billing state: pending | active | past_due | cancelled. */
+  enrollmentStatus: varchar("enrollmentStatus", { length: 32 }).notNull().default("pending"),
+  /** Timestamp of the most recent successful annual invoice payment. */
+  paidAt: timestamp("paidAt"),
+  /** Stripe-reported end of the active annual billing period. */
+  renewsAt: timestamp("renewsAt"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
