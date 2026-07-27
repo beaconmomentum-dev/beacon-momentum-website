@@ -27,6 +27,8 @@ import BlogArticlePage from "@/pages/BlogArticlePage";
 import TheWatchPage from "@/pages/TheWatchPage";
 import TheWatchCheckoutPage from "@/pages/TheWatchCheckoutPage";
 import TheWatchConfirmationPage from "@/pages/TheWatchConfirmationPage";
+import TheWatchTestCheckoutPage from "@/pages/TheWatchTestCheckoutPage";
+import TheWatchTestConfirmationPage from "@/pages/TheWatchTestConfirmationPage";
 import TheWatchIntakePage from "@/pages/TheWatchIntakePage";
 import CohortDashboardPage from "@/pages/CohortDashboardPage";
 import WatchBriefPremiumPage from "@/pages/WatchBriefPremiumPage";
@@ -55,6 +57,8 @@ function Router() {
       <Route path="/the-watch" component={TheWatchPage} />
       <Route path="/the-watch/checkout" component={TheWatchCheckoutPage} />
       <Route path="/the-watch/confirmation" component={TheWatchConfirmationPage} />
+      <Route path="/_ops/the-watch/test-checkout" component={TheWatchTestCheckoutPage} />
+      <Route path="/_ops/the-watch/test-confirmation" component={TheWatchTestConfirmationPage} />
       <Route path="/the-watch/intake" component={TheWatchIntakePage} />
       <Route path="/the-watch/cohort" component={CohortDashboardPage} />
       <Route path="/digital-grandpa/library" component={DigitalGrandpaLibraryPage} />

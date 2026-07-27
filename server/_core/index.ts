@@ -6,7 +6,7 @@ import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
-import { registerWatchStripeWebhook } from "../payment/watchWebhook";
+import { registerWatchStripeTestWebhook, registerWatchStripeWebhook } from "../payment/watchWebhook";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -32,6 +32,7 @@ async function startServer() {
   // Stripe signatures require the exact raw request body; this must precede
   // the global JSON parser and any middleware that consumes request bodies.
   registerWatchStripeWebhook(app);
+  registerWatchStripeTestWebhook(app);
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   app.use(

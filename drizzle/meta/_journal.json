@@ -11,9 +11,16 @@
     },
     {
       "idx": 1,
-      "version": "5",
-      "when": 1785188417950,
+      "version": "7",
+      "when": 1785188541080,
       "tag": "0001_watch_billing_state",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1785189211166,
+      "tag": "0002_watch_test_mode_isolation",
       "breakpoints": true
     }
   ]

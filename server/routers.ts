@@ -1,7 +1,7 @@
 import { publicProcedure, router } from "./_core/trpc";
 import { captureRouter } from "./routers/capture";
 import { cohortRouter } from "./routers/cohort";
-import { watchCheckoutRouter } from "./routers/watchCheckout";
+import { watchCheckoutRouter, watchTestCheckoutRouter } from "./routers/watchCheckout";
 
 export const appRouter = router({
   /** Cohort lead dashboard — password-protected with Beacon-controlled credentials. */
@@ -10,6 +10,8 @@ export const appRouter = router({
   capture: captureRouter,
   /** Public, same-origin Stripe Elements enrollment for The Watch. */
   watchCheckout: watchCheckoutRouter,
+  /** Isolated Stripe test-mode namespace; not linked from the public enrollment flow. */
+  watchTestCheckout: watchTestCheckoutRouter,
 });
 
 export type AppRouter = typeof appRouter;

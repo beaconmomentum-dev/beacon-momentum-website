@@ -99,12 +99,14 @@ export async function insertWatchMember(member: InsertWatchMember): Promise<numb
 }
 
 export type WatchEnrollmentStatus = "pending" | "active" | "past_due" | "cancelled";
+export type WatchBillingMode = "live" | "test";
 
 export interface WatchEnrollmentInput {
   email: string;
   firstName: string | null;
   stripeCustomerId: string;
   stripeSubscriptionId: string;
+  billingMode: WatchBillingMode;
   enrollmentStatus: WatchEnrollmentStatus;
   paidAt: Date | null;
   renewsAt: Date | null;
@@ -126,6 +128,7 @@ export async function upsertWatchEnrollment(enrollment: WatchEnrollmentInput): P
         email: enrollment.email,
         firstName: enrollment.firstName,
         stripeCustomerId: enrollment.stripeCustomerId,
+        billingMode: enrollment.billingMode,
         enrollmentStatus: enrollment.enrollmentStatus,
         paidAt: enrollment.paidAt,
         renewsAt: enrollment.renewsAt,
@@ -155,7 +158,7 @@ export async function upsertWatchMemberIntake(member: InsertWatchMember): Promis
   const existing = await db
     .select({ id: watchMembers.id })
     .from(watchMembers)
-    .where(eq(watchMembers.email, member.email))
+    .where(and(eq(watchMembers.email, member.email), eq(watchMembers.billingMode, "live")))
     .orderBy(desc(watchMembers.paidAt), desc(watchMembers.createdAt))
     .limit(1);
 
@@ -181,7 +184,7 @@ export async function getAllWatchMembers(): Promise<WatchMember[]> {
   return db
     .select()
     .from(watchMembers)
-    .where(isNotNull(watchMembers.intakeAnswers))
+    .where(and(eq(watchMembers.billingMode, "live"), isNotNull(watchMembers.intakeAnswers)))
     .orderBy(desc(watchMembers.createdAt));
 }
 
@@ -191,7 +194,13 @@ export async function getWatchMembersByLead(leadEmail: string): Promise<WatchMem
   return db
     .select()
     .from(watchMembers)
-    .where(and(eq(watchMembers.cohortLeadEmail, leadEmail), isNotNull(watchMembers.intakeAnswers)))
+    .where(
+      and(
+        eq(watchMembers.cohortLeadEmail, leadEmail),
+        eq(watchMembers.billingMode, "live"),
+        isNotNull(watchMembers.intakeAnswers)
+      )
+    )
     .orderBy(desc(watchMembers.createdAt));
 }
 

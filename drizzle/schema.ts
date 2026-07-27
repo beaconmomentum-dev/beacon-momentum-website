@@ -54,6 +54,8 @@ export const watchMembers = mysqlTable("watch_members", {
   stripeCustomerId: varchar("stripeCustomerId", { length: 64 }),
   /** One Watch enrollment row is authoritative for one Stripe subscription. */
   stripeSubscriptionId: varchar("stripeSubscriptionId", { length: 64 }).unique(),
+  /** Keeps internal Stripe test-mode lifecycle records out of the live member workflow. */
+  billingMode: varchar("billingMode", { length: 16 }).notNull().default("live"),
   /** Durable billing state: pending | active | past_due | cancelled. */
   enrollmentStatus: varchar("enrollmentStatus", { length: 32 }).notNull().default("pending"),
   /** Timestamp of the most recent successful annual invoice payment. */

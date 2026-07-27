@@ -12,25 +12,35 @@ import { ENV } from "../_core/env";
 import { publicProcedure, router } from "../_core/trpc";
 
 const OFFERING_KEY = "the_watch_founding_year_2026";
+type BillingMode = "live" | "test";
 
-function getStripeClient() {
-  if (!ENV.stripeSecretKey) {
-    throw new TRPCError({
-      code: "PRECONDITION_FAILED",
-      message: "The Watch enrollment is not configured yet. Please contact support@beaconmomentum.com.",
-    });
-  }
-  return new Stripe(ENV.stripeSecretKey);
+interface WatchCheckoutConfig {
+  mode: BillingMode;
+  secretKey: string;
+  publishableKey: string;
+  priceId: string;
+  webhookSecret: string;
+  enrollmentSource: string;
 }
 
-function getPriceId() {
-  if (!ENV.stripeWatchAnnualPriceId) {
+function getStripeClient(config: WatchCheckoutConfig) {
+  if (!config.secretKey) {
     throw new TRPCError({
       code: "PRECONDITION_FAILED",
       message: "The Watch enrollment is not configured yet. Please contact support@beaconmomentum.com.",
     });
   }
-  return ENV.stripeWatchAnnualPriceId;
+  return new Stripe(config.secretKey);
+}
+
+function getPriceId(config: WatchCheckoutConfig) {
+  if (!config.priceId) {
+    throw new TRPCError({
+      code: "PRECONDITION_FAILED",
+      message: "The Watch enrollment is not configured yet. Please contact support@beaconmomentum.com.",
+    });
+  }
+  return config.priceId;
 }
 
 async function verifyFoundingYearPrice(stripe: Stripe, priceId: string) {
@@ -67,16 +77,17 @@ function getStripeCustomerId(customer: Stripe.Customer | Stripe.DeletedCustomer)
   return customer.id;
 }
 
-export const watchCheckoutRouter = router({
+function createWatchCheckoutRouter(config: WatchCheckoutConfig) {
+  return router({
   /** A publishable key is safe to expose; secrets and price IDs never leave the server. */
   publicConfig: publicProcedure.query(() => ({
     ready: Boolean(
-      ENV.stripePublishableKey &&
-        ENV.stripeSecretKey &&
-        ENV.stripeWatchAnnualPriceId &&
-        ENV.stripeWatchWebhookSecret
+      config.publishableKey &&
+        config.secretKey &&
+        config.priceId &&
+        config.webhookSecret
     ),
-    publishableKey: ENV.stripePublishableKey || null,
+    publishableKey: config.publishableKey || null,
     priceLabel: "$497 USD / year",
   })),
 
@@ -94,8 +105,8 @@ export const watchCheckoutRouter = router({
       })
     )
     .mutation(async ({ input }) => {
-      const stripe = getStripeClient();
-      const priceId = getPriceId();
+      const stripe = getStripeClient(config);
+      const priceId = getPriceId(config);
 
       try {
         await verifyFoundingYearPrice(stripe, priceId);
@@ -107,7 +118,8 @@ export const watchCheckoutRouter = router({
               name: input.name,
               metadata: {
                 beacon_offering: OFFERING_KEY,
-                enrollment_source: "beaconmomentum.com/the-watch",
+                billing_mode: config.mode,
+                enrollment_source: config.enrollmentSource,
               },
             });
 
@@ -121,11 +133,12 @@ export const watchCheckoutRouter = router({
             metadata: {
               beacon_offering: OFFERING_KEY,
               founding_year: "2026",
-              enrollment_source: "beaconmomentum.com/the-watch",
+              billing_mode: config.mode,
+              enrollment_source: config.enrollmentSource,
             },
             expand: ["latest_invoice.confirmation_secret"],
           },
-          { idempotencyKey: `watch-enrollment-${input.checkoutAttemptId}` }
+          { idempotencyKey: `watch-${config.mode}-enrollment-${input.checkoutAttemptId}` }
         );
 
         const invoice =
@@ -158,4 +171,27 @@ export const watchCheckoutRouter = router({
         });
       }
     }),
+  });
+}
+
+export const watchCheckoutRouter = createWatchCheckoutRouter({
+  mode: "live",
+  secretKey: ENV.stripeSecretKey,
+  publishableKey: ENV.stripePublishableKey,
+  priceId: ENV.stripeWatchAnnualPriceId,
+  webhookSecret: ENV.stripeWatchWebhookSecret,
+  enrollmentSource: "beaconmomentum.com/the-watch",
+});
+
+/**
+ * Internal-only Stripe test namespace. It is intentionally not mounted on the
+ * customer-facing enrollment path and can only point to test-mode credentials.
+ */
+export const watchTestCheckoutRouter = createWatchCheckoutRouter({
+  mode: "test",
+  secretKey: ENV.stripeTestSecretKey,
+  publishableKey: ENV.stripeTestPublishableKey,
+  priceId: ENV.stripeTestWatchAnnualPriceId,
+  webhookSecret: ENV.stripeTestWatchWebhookSecret,
+  enrollmentSource: "beaconmomentum.com/_ops/the-watch/test-checkout",
 });
