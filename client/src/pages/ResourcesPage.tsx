@@ -19,7 +19,7 @@ const RESOURCES = [
     title: "Beacon YouTube Channel",
     description: "Free AI-era education from the field: what is changing, what we are testing, and the practical work worth paying attention to.",
     cta: "Watch on YouTube",
-    href: "https://youtube.com/@BeaconMomentumAI",
+    href: "https://www.youtube.com/@BeaconMomentum",
     external: true,
     color: "#B8860B",
     bg: "#FFFDF4",

@@ -313,7 +313,7 @@ export default function AboutPage() {
           <p style={{ color: "rgba(250,248,244,0.7)", lineHeight: 1.8, fontSize: "1.1rem", marginBottom: "2.5rem" }}>
             If you are ready to stop playing by the rules of an economy that no longer exists, we are ready to show you the lever.
           </p>
-          <Link href="/join">
+          <Link href="/the-watch">
             <a style={{
               display: "inline-flex", alignItems: "center", justifyContent: "center",
               background: sand, color: ink,

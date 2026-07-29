@@ -25,7 +25,7 @@ export default function SharedFooter() {
     { label: "The Signal", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
     { label: "Signal Check", href: "https://beaconlabs.ai/signal-check", external: true },
-    { label: "YouTube Channel", href: "https://youtube.com/@BeaconMomentumAI", external: true },
+    { label: "YouTube Channel", href: "https://www.youtube.com/@BeaconMomentum", external: true },
   ];
 
   const PROPERTIES = [
