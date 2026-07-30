@@ -1,22 +1,12 @@
 /**
- * Tide & Tension — Beacon Momentum's homepage is a vertical chartroom: editorial hierarchy,
- * asymmetric navigation fields, restrained brass signals, and custom maritime iconography.
+ * Tide & Tension — Beacon Momentum's canonical public-front-door route board: a vertical chartroom with
+ * Fraunces/Manrope/IBM Plex Mono hierarchy, inverse Roundel on dark surfaces, and route-aware accents.
  */
 import { motion } from "framer-motion";
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
-import { subscribeToBeaconBrief } from "@/lib/ghl";
+import { useEffect, useState } from "react";
 
-const ASSESSMENT_URL = "/assessment";
-const MEMBERSHIP_URL = "/the-watch#join";
-const PRICING_URL = "/pricing";
-const PREMIUM_BRIEF_URL = "/watch-brief-premium";
-const HOME_IMAGES = {
-  mark: "/images/home/beacon-mark.webp",
-  hero: "/images/home/beacon-hero-tide-tension.webp",
-  promise: "/images/home/beacon-core-promise.webp",
-  watch: "/images/home/beacon-watch-portrait.webp",
-  atlas: "/images/home/beacon-ecosystem-atlas.webp",
-} as const;
+const COMMUNITY_URL = "https://beaconcommunity.net";
+const LABS_URL = "https://beaconlabs.ai";
 
 function useReducedMotionPreference() {
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -89,38 +79,42 @@ const portfolio = [
   {
     number: "A1",
     field: "Field 01",
+    coordinate: "45°31′ N / 73°34′ W",
     category: "B2B Infrastructure & Diagnostics",
     name: "Beacon Labs",
     description: "Enterprise AI consulting, system building, and the deep-dive Signal Check diagnostic.",
     href: "https://beaconlabs.ai",
-    accent: "#58A6A4",
+    accent: "var(--property-labs-accent)",
   },
   {
     number: "A2",
     field: "Field 02",
+    coordinate: "45°32′ N / 73°32′ W",
     category: "Advanced Education",
     name: "Beacon Trading",
     description: "Scenario-based education for studying modern financial systems with discipline and context.",
     href: "https://beacontrading.ai",
-    accent: "#D8A94A",
+    accent: "var(--property-trading-accent)",
   },
   {
     number: "A3",
     field: "Field 03",
+    coordinate: "45°34′ N / 73°31′ W",
     category: "Independent Commerce",
     name: "Hollow Threads",
     description: "Premium, independent e-commerce made with a point of view.",
     href: "https://hollowthreads.store",
-    accent: "#0B2A3B",
+    accent: "var(--property-related-accent)",
   },
   {
     number: "A4",
     field: "Field 04",
+    coordinate: "45°35′ N / 73°29′ W",
     category: "Legacy & Mission",
     name: "Digital Grandpa",
     description: "A mission property focused on agency, strength, and practical modern capability.",
     href: "https://digitalgrandpa.org",
-    accent: "#58A6A4",
+    accent: "var(--property-community-accent)",
   },
 ];
 
@@ -150,7 +144,7 @@ function PlayIcon() {
 }
 
 function PillarIcon({ name }: { name: PillarIconName }) {
-  const iconPaths: Record<PillarIconName, ReactNode> = {
+  const iconPaths: Record<PillarIconName, React.ReactNode> = {
     life: (
       <>
         <path d="M8 22c6.7-2.4 10.4-7.4 11.2-15.2C13 7.4 8.7 10.5 8 16.4V22Z" />
@@ -195,12 +189,12 @@ function PillarIcon({ name }: { name: PillarIconName }) {
 
 function SignalStrip({ label, inverse = false }: { label: string; inverse?: boolean }) {
   return (
-    <div className={`relative flex items-center gap-3 ${inverse ? "text-[#8fa7aa]" : "text-[#49636b]"}`} aria-hidden="true">
-      <span className="h-px w-7 bg-[#D8A94A]" />
-      <span className="h-px w-3 bg-[#58A6A4]" />
-      <span className="font-ui text-[0.61rem] font-semibold uppercase tracking-[0.24em]">{label}</span>
+    <div className={`signal-strip relative flex items-center gap-3 ${inverse ? "text-[#8fa7aa]" : "text-[#49636b]"}`} aria-hidden="true">
+      <span className="h-px w-9 bg-[#D8A94A]" />
+      <span className="h-px w-4 bg-[#58A6A4]" />
+      <span className="font-mono text-[0.59rem] font-semibold uppercase tracking-[0.2em]">{label}</span>
       <span className={`h-px flex-1 ${inverse ? "bg-white/15" : "bg-[#0B2A3B]/15"}`} />
-      <span className={`border-l pl-3 font-ui text-[0.59rem] tracking-[0.18em] ${inverse ? "border-[#58A6A4]/45" : "border-[#58A6A4]/55"}`}>45°36′ N / 73°33′ W</span>
+      <span className={`signal-strip-coordinate border-l pl-3 font-mono text-[0.57rem] tracking-[0.16em] ${inverse ? "border-[#58A6A4]/45" : "border-[#58A6A4]/55"}`}>45°36′ N / 73°33′ W</span>
     </div>
   );
 }
@@ -208,9 +202,10 @@ function SignalStrip({ label, inverse = false }: { label: string; inverse?: bool
 function BeaconMark() {
   return (
     <img
-      src={HOME_IMAGES.mark}
+      src="/images/home/beacon-routeboard-mark.webp"
       alt=""
-      className="h-10 w-10 object-contain"
+      className="brand-roundel-image"
+      aria-hidden="true"
     />
   );
 }
@@ -218,7 +213,7 @@ function BeaconMark() {
 function BrandLockup({ footer = false }: { footer?: boolean }) {
   return (
     <span className={`flex items-center gap-3 ${footer ? "gap-3.5" : "gap-3"}`}>
-      <span className="relative grid h-11 w-11 place-items-center border border-[#D8A94A]/45 bg-[#061A29]/60 p-0.5 transition-colors duration-200 group-hover:border-[#D8A94A]">
+      <span className="brand-roundel-frame relative grid h-11 w-11 place-items-center border border-[#D8A94A]/45 bg-[#061A29]/60 p-0.5 transition-colors duration-200 group-hover:border-[#D8A94A]">
         <BeaconMark />
       </span>
       <span className="relative flex min-w-0 flex-col border-l border-[#58A6A4]/55 pl-3">
@@ -251,8 +246,6 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePillar, setActivePillar] = useState(0);
-  const [briefEmail, setBriefEmail] = useState("");
-  const [newsletterState, setNewsletterState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const reduceMotion = useReducedMotionPreference();
 
   useEffect(() => {
@@ -281,18 +274,8 @@ export default function Home() {
     visible: { opacity: 1, y: 0 },
   };
 
-  const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!briefEmail.trim()) return;
-
-    setNewsletterState("submitting");
-    const success = await subscribeToBeaconBrief(briefEmail.trim());
-    setNewsletterState(success ? "success" : "error");
-    if (success) setBriefEmail("");
-  };
-
   return (
-    <div id="top" className="tide-home min-h-screen overflow-x-clip bg-[#061A29] text-[#EEF3EF]">
+    <div className="tide-home min-h-screen overflow-x-clip bg-[#061A29] text-[#EEF3EF]">
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-200 ${
           scrolled ? "fog-glass border-white/10" : "border-transparent bg-transparent"
@@ -305,11 +288,9 @@ export default function Home() {
 
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
             {[
+              ["Choose a route", "#routes"],
               ["The Watch", "#watch"],
-              ["Five Pillars", "#pillars"],
-              ["Resources", "/resources"],
-              ["The Signal", "/blog"],
-              ["Portfolio", "#portfolio"],
+              ["The Atlas", "#portfolio"],
             ].map(([label, href]) => (
               <a
                 href={href}
@@ -320,10 +301,10 @@ export default function Home() {
               </a>
             ))}
             <a
-              href={ASSESSMENT_URL}
+              href="#routes"
               className="brass-button inline-flex items-center gap-2 border border-white/25 px-4 py-2.5 text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-[#EEF3EF] hover:border-[#D8A94A] hover:text-[#D8A94A]"
             >
-              Assessment <ArrowIcon className="h-3.5 w-3.5" />
+              Find your route <ArrowIcon className="h-3.5 w-3.5" />
             </a>
           </nav>
 
@@ -349,11 +330,9 @@ export default function Home() {
           >
             <div className="mx-auto flex max-w-xl flex-col gap-1">
               {[
+                ["Choose a route", "#routes"],
                 ["The Watch", "#watch"],
-                ["Five Pillars", "#pillars"],
-                ["Resources", "/resources"],
-                ["The Signal", "/blog"],
-                ["Portfolio", "#portfolio"],
+                ["The Atlas", "#portfolio"],
               ].map(([label, href], index) => (
                 <a
                   key={label}
@@ -366,22 +345,22 @@ export default function Home() {
                 </a>
               ))}
               <a
-                href={ASSESSMENT_URL}
+                href="#routes"
                 onClick={() => setMenuOpen(false)}
                 className="mt-3 inline-flex items-center justify-between bg-[#D8A94A] px-4 py-4 text-xs font-semibold uppercase tracking-[0.13em] text-[#061A29]"
               >
-                Take the Pathfinder Assessment <ArrowIcon className="h-4 w-4" />
+                Find your route <ArrowIcon className="h-4 w-4" />
               </a>
             </div>
           </motion.nav>
         )}
       </header>
 
-      <main id="main-content">
+      <main id="top">
         <section className="tide-grid tide-grain relative isolate flex min-h-[760px] items-end overflow-hidden border-b border-white/10 pb-14 pt-32 sm:min-h-[820px] sm:pb-20 lg:min-h-[880px] lg:pb-24">
           <div
             className="absolute inset-0 -z-20 bg-cover bg-center"
-            style={{ backgroundImage: `url('${HOME_IMAGES.hero}')` }}
+            style={{ backgroundImage: "url('/images/home/beacon-routeboard-hero.webp')" }}
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,26,41,0.98)_0%,rgba(6,26,41,0.91)_38%,rgba(6,26,41,0.54)_68%,rgba(6,26,41,0.65)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-64 -z-10 bg-[linear-gradient(0deg,#061A29,transparent)]" />
@@ -397,35 +376,35 @@ export default function Home() {
                   transition={{ duration: reduceMotion ? 0 : 0.42, ease: [0.23, 1, 0.32, 1] }}
                   className="mt-7 text-[0.66rem] font-semibold uppercase tracking-[0.23em] text-[#D8A94A]"
                 >
-                  For builders who want a longer horizon
+                  Beacon Momentum · Public Front Door
                 </motion.p>
                 <motion.h1
                   variants={entry}
                   transition={{ duration: reduceMotion ? 0 : 0.48, ease: [0.23, 1, 0.32, 1] }}
                   className="font-display mt-5 max-w-3xl text-[clamp(3.35rem,8.2vw,7.3rem)] leading-[0.91] tracking-[-0.055em] text-[#F6F5EF]"
                 >
-                  Stop Running
+                  Find a steadier
                   <br />
-                  <span className="italic text-[#D8A94A]">to Stand Still.</span>
+                  <span className="italic text-[#D8A94A]">next move.</span>
                 </motion.h1>
                 <motion.p
                   variants={entry}
                   transition={{ duration: reduceMotion ? 0 : 0.46, ease: [0.23, 1, 0.32, 1] }}
                   className="mt-8 max-w-2xl text-base leading-7 text-[#C8D3CF] sm:text-lg sm:leading-8"
                 >
-                  The system demands infinite output from finite people. You cannot outwork it. But you can out-build it. Beacon Momentum is the operating system for founders and professionals ready to step off the treadmill and build infrastructure that runs while they sleep.
+                  Beacon Momentum is a public orientation point for people navigating transition, building durable work, and studying modern financial systems with care. Start with the path that fits; every destination has a clear purpose and its own operating boundary.
                 </motion.p>
                 <motion.div
                   variants={entry}
                   transition={{ duration: reduceMotion ? 0 : 0.46, ease: [0.23, 1, 0.32, 1] }}
                   className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
                 >
-                  <PrimaryCta href={MEMBERSHIP_URL}>Explore The Watch · $497/yr</PrimaryCta>
+                  <PrimaryCta href="#routes">Choose your route</PrimaryCta>
                   <a
-                    href={ASSESSMENT_URL}
+                    href="#watch"
                     className="brass-button group inline-flex min-h-12 items-center justify-center gap-3 border border-white/25 px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#EEF3EF] hover:border-[#58A6A4] hover:text-[#B7E0DA] sm:px-6"
                   >
-                    Take the Pathfinder Assessment <ArrowIcon className="link-arrow h-4 w-4" />
+                    Visit The Watch <ArrowIcon className="link-arrow h-4 w-4" />
                   </a>
                 </motion.div>
                 <motion.p
@@ -433,7 +412,7 @@ export default function Home() {
                   transition={{ duration: reduceMotion ? 0 : 0.44, ease: [0.23, 1, 0.32, 1] }}
                   className="mt-5 text-xs leading-5 text-[#9BB0B0]"
                 >
-                  Start with the free Signal and Beacon Brief. Add the $27 monthly dossier or enter The Watch only when the work calls for more.
+                  The Watch is a $497 annual membership hosted at Beacon Community. Beacon Labs is a separate organization-facing services destination.
                 </motion.p>
               </motion.div>
 
@@ -444,19 +423,66 @@ export default function Home() {
                 className="relative border-l border-[#D8A94A]/65 pl-5 text-[#D6E3DE] lg:mb-3"
               >
                 <div className="absolute -left-[5px] top-0 h-2 w-2 bg-[#D8A94A]" />
-                <p className="text-[0.61rem] font-semibold uppercase tracking-[0.22em] text-[#D8A94A]">The Signal</p>
+                <p className="text-[0.61rem] font-semibold uppercase tracking-[0.22em] text-[#D8A94A]">Start with orientation</p>
                 <p className="font-display mt-4 max-w-[18rem] text-2xl leading-tight tracking-[-0.02em] sm:text-3xl">
-                  The lighthouse is lit. <span className="italic">Join us at the Watch.</span>
+                  A clearer next move begins with the right <span className="italic">destination.</span>
                 </p>
                 <div className="mt-7 grid grid-cols-2 gap-x-6 border-t border-white/15 pt-4 text-[0.62rem] uppercase tracking-[0.15em] text-[#9BB0B0]">
-                  <span>Annual entry</span>
-                  <span className="text-right text-[#EEF3EF]">$497</span>
+                  <span>Membership route</span>
+                  <span className="text-right text-[#EEF3EF]">The Watch</span>
                 </div>
               </motion.aside>
             </div>
           </div>
           <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-3 text-[0.58rem] uppercase tracking-[0.28em] text-[#829999] sm:flex" aria-hidden="true">
             <span className="h-px w-8 bg-[#58A6A4]" /> Scroll the chart <span className="h-7 w-px bg-[#58A6A4]" />
+          </div>
+        </section>
+
+        <section id="routes" className="relative overflow-hidden bg-[#DDE7E3] py-20 text-[#0B2A3B] sm:py-28 lg:py-32">
+          <div className="absolute inset-0 opacity-[0.3] [background-image:linear-gradient(rgba(11,42,59,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(11,42,59,0.1)_1px,transparent_1px)] [background-size:60px_60px]" aria-hidden="true" />
+          <div className="container relative">
+            <SignalStrip label="Start Here · Route Board 02" />
+            <div className="mt-12 grid gap-12 lg:grid-cols-[0.76fr_1.24fr] lg:gap-20">
+              <div>
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.21em] text-[#3E777A]">One public front door. Distinct onward paths.</p>
+                <h2 className="font-display mt-5 max-w-lg text-5xl leading-[0.98] tracking-[-0.045em] sm:text-6xl">Choose the path that fits <span className="italic text-[#3E777A]">where you are.</span></h2>
+                <p className="mt-7 max-w-md text-base leading-7 text-[#42606A]">The Watch supports individual learning and membership. Beacon Labs works with organizations on systems and diagnostics. Both belong to the wider Beacon ecosystem, but they operate as distinct destinations.</p>
+                <div className="relative mt-10 hidden min-h-[170px] overflow-hidden border border-[#0B2A3B]/15 bg-[#0B2A3B] p-5 lg:block">
+                  <div className="absolute inset-0 bg-cover bg-center opacity-45" style={{ backgroundImage: "url('/images/home/beacon-routeboard-wayfinding.webp')" }} aria-hidden="true" />
+                  <p className="relative max-w-[14rem] text-sm leading-6 text-[#EEF3EF]">No false funnel. No assumed handoff. Select the route that names the work in front of you.</p>
+                </div>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2">
+                <a href={COMMUNITY_URL} target="_blank" rel="noreferrer" className="route-board-card group relative flex min-h-[480px] flex-col overflow-hidden border border-[#0B2A3B]/25 bg-[#071D2E] p-6 text-[#EEF3EF] sm:p-7">
+                  <div className="absolute inset-0 bg-cover bg-center opacity-45 transition-transform duration-300 group-hover:scale-[1.035]" style={{ backgroundImage: "url('/images/home/beacon-routeboard-watch.webp')" }} aria-hidden="true" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,29,46,0.26)_0%,rgba(7,29,46,0.96)_80%)]" aria-hidden="true" />
+                  <div className="relative flex items-center justify-between gap-4 text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">
+                    <span>Route 01 · For individuals</span><ArrowIcon className="link-arrow h-4 w-4" />
+                  </div>
+                  <div className="relative mt-auto">
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#B7E0DA]">Membership &amp; learning</p>
+                    <h3 className="font-display mt-4 text-5xl leading-[0.92] tracking-[-0.045em]">The <span className="italic text-[#D8A94A]">Watch.</span></h3>
+                    <p className="mt-5 max-w-sm text-sm leading-6 text-[#C7D4D0]">A $497/year membership for people building a steadier operating position through curriculum, playbooks, and a community environment.</p>
+                    <p className="mt-5 border-t border-white/15 pt-4 text-[0.61rem] font-semibold uppercase tracking-[0.15em] text-[#B7E0DA]">Continue to Beacon Community ↗</p>
+                  </div>
+                </a>
+                <a href={LABS_URL} target="_blank" rel="noreferrer" className="route-board-card group relative flex min-h-[480px] flex-col overflow-hidden border border-[#0B2A3B]/25 bg-[#0B2A3B] p-6 text-[#EEF3EF] sm:p-7">
+                  <div className="absolute inset-0 bg-cover bg-center opacity-45 transition-transform duration-300 group-hover:scale-[1.035]" style={{ backgroundImage: "url('/images/home/beacon-routeboard-labs.webp')" }} aria-hidden="true" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,42,59,0.28)_0%,rgba(11,42,59,0.97)_82%)]" aria-hidden="true" />
+                  <div className="relative flex items-center justify-between gap-4 text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">
+                    <span>Route 02 · For organizations</span><ArrowIcon className="link-arrow h-4 w-4" />
+                  </div>
+                  <div className="relative mt-auto">
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#B7E0DA]">Systems &amp; diagnostics</p>
+                    <h3 className="font-display mt-4 text-5xl leading-[0.92] tracking-[-0.045em]">Beacon <span className="italic text-[#D8A94A]">Labs.</span></h3>
+                    <p className="mt-5 max-w-sm text-sm leading-6 text-[#C7D4D0]">An organization-facing practice for evidence-led Signal Checks, operating systems, and practical AI integration.</p>
+                    <p className="mt-5 border-t border-white/15 pt-4 text-[0.61rem] font-semibold uppercase tracking-[0.15em] text-[#B7E0DA]">Continue to Beacon Labs ↗</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <p className="mt-7 max-w-3xl border-l-2 border-[#D8A94A] pl-5 text-sm leading-6 text-[#49636B]">These routes are intentionally separate. A Beacon Community account, a Beacon Labs inquiry, and any information you submit at one destination do not transfer automatically to another.</p>
           </div>
         </section>
 
@@ -485,7 +511,7 @@ export default function Home() {
                 <div className="relative mt-11 overflow-hidden border border-[#0B2A3B]/20 bg-[#0B2A3B] p-2 shadow-[0_22px_45px_rgba(11,42,59,0.14)]">
                   <div
                     className="absolute inset-0 bg-cover bg-center opacity-35"
-                    style={{ backgroundImage: `url('${HOME_IMAGES.promise}')` }}
+                    style={{ backgroundImage: "url('/images/home/beacon-routeboard-wayfinding.webp')" }}
                     aria-hidden="true"
                   />
                   <div className="relative aspect-video overflow-hidden border border-white/10 bg-[#061A29]">
@@ -561,24 +587,18 @@ export default function Home() {
         </section>
 
         <section id="watch" className="tide-grid tide-grain relative isolate overflow-hidden bg-[#071D2E] py-20 sm:py-28 lg:py-32">
-          <div
-            className="absolute inset-y-0 right-0 -z-20 hidden w-[53%] bg-cover bg-center opacity-75 lg:block"
-            style={{ backgroundImage: `url('${HOME_IMAGES.watch}')` }}
-            aria-hidden="true"
-          />
-          <div className="absolute inset-y-0 right-0 -z-10 hidden w-[70%] bg-[linear-gradient(90deg,#071D2E_0%,rgba(7,29,46,0.82)_32%,rgba(7,29,46,0.28)_100%)] lg:block" aria-hidden="true" />
           <div className="container relative">
             <SignalStrip label="The Offer · Watch Post 04" inverse />
             <div className="mt-12 grid gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(340px,0.62fr)] lg:items-end lg:gap-24">
               <div>
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.21em] text-[#D8A94A]">A working environment for builders</p>
                 <h2 className="font-display mt-5 max-w-3xl text-5xl leading-[0.96] tracking-[-0.05em] text-[#F6F5EF] sm:text-6xl lg:text-7xl">The Lighthouse is Lit. <span className="italic text-[#D8A94A]">Join Us at the Watch.</span></h2>
-                <p className="mt-8 max-w-2xl text-base leading-7 text-[#C7D4D0] sm:text-lg sm:leading-8">The Watch is not a content warehouse. It is a working environment for builders, founders, and professionals who want a durable operating position in the transition.</p>
+                <p className="mt-8 max-w-2xl text-base leading-7 text-[#C7D4D0] sm:text-lg sm:leading-8">The Watch is not a content warehouse. It is a working environment for people who want a durable operating position in a changing world of work and technology.</p>
                 <div className="mt-10 grid max-w-2xl gap-5 border-t border-white/15 pt-7 sm:grid-cols-2">
                   {[
                     ["Complete Curriculum", "Unrestricted access to field guides and training modules across the Five Pillars."],
                     ["Operating Playbooks", "Standardized, ethical templates for AI integration, content deployment, and automation."],
-                    ["Community Environment", "A vetted network of peers building similar infrastructure."],
+                    ["Community Environment", "A member environment for respectful, practical peer exchange."],
                     ["Continuous Intelligence", "Regular system reviews and strategic insights from the Beacon operating team."],
                   ].map(([title, description], index) => (
                     <div key={title} className="relative pl-5">
@@ -598,12 +618,12 @@ export default function Home() {
                   <span className="font-display text-7xl leading-none tracking-[-0.06em] text-[#F8F5EC]">$497</span>
                   <span className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.17em] text-[#B8C6C2]">/ Year</span>
                 </div>
-                <p className="mt-5 border-y border-white/15 py-5 text-sm leading-6 text-[#C7D4D0]">The Watch is the annual operating environment: curriculum, community, accountability, and member resources. The $497 annual entry is for people ready to work inside that environment—not simply receive another briefing.</p>
+                <p className="mt-5 border-y border-white/15 py-5 text-sm leading-6 text-[#C7D4D0]">The Watch is a $497 annual membership. You will continue to Beacon Community, the separate membership destination, to review enrollment and member details.</p>
                 <div className="mt-7">
-                  <PrimaryCta href={MEMBERSHIP_URL}>Request Watch enrollment details</PrimaryCta>
-                  <p id="membership" className="mt-5 text-xs leading-5 text-[#9BB0B0]">The annual membership path starts with a brief request, followed by enrollment and onboarding details. If you need a field recommendation first, take the Pathfinder Assessment.</p>
-                  <a href={ASSESSMENT_URL} className="group mt-4 inline-flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#B7E0DA] hover:text-[#D8A94A]">
-                    Take the assessment <ArrowIcon className="link-arrow h-3.5 w-3.5" />
+                  <PrimaryCta href={COMMUNITY_URL}>Visit Beacon Community</PrimaryCta>
+                  <p id="membership" className="mt-5 text-xs leading-5 text-[#9BB0B0]">Review membership details at the destination. If you need an organization-facing diagnostic instead, return to the route board and visit Beacon Labs.</p>
+                  <a href="#routes" className="group mt-4 inline-flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#B7E0DA] hover:text-[#D8A94A]">
+                    Compare the routes <ArrowIcon className="link-arrow h-3.5 w-3.5" />
                   </a>
                 </div>
               </aside>
@@ -614,7 +634,7 @@ export default function Home() {
         <section id="portfolio" className="relative overflow-hidden bg-[#EEF0EB] py-20 text-[#0B2A3B] sm:py-28 lg:py-32">
           <div
             className="absolute inset-y-0 right-0 hidden w-[46%] bg-cover bg-center opacity-20 lg:block"
-            style={{ backgroundImage: `url('${HOME_IMAGES.atlas}')` }}
+            style={{ backgroundImage: "url('/images/home/beacon-routeboard-atlas.webp')" }}
             aria-hidden="true"
           />
           <div className="container relative">
@@ -633,7 +653,7 @@ export default function Home() {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group relative min-h-[246px] overflow-hidden bg-[#EEF0EB] p-6 transition-colors duration-200 hover:bg-[#E2EAE6] sm:p-7"
+                    className="atlas-registry-card group relative min-h-[258px] overflow-hidden bg-[#EEF0EB] p-6 hover:bg-[#E2EAE6] sm:p-7"
                   >
                     <span className="absolute left-0 top-0 h-1 w-16" style={{ backgroundColor: item.accent }} />
                     <span className="absolute right-[-2.5rem] top-[-2.8rem] h-24 w-24 rounded-full border border-[#58A6A4]/20" aria-hidden="true" />
@@ -646,55 +666,12 @@ export default function Home() {
                     <h3 className="font-display mt-3 text-3xl leading-none tracking-[-0.03em]">{item.name}</h3>
                     <p className="mt-4 max-w-xs text-sm leading-6 text-[#49636B]">{item.description}</p>
                     <div className="mt-6 flex items-center justify-between border-t border-[#0B2A3B]/15 pt-3 text-[0.56rem] font-semibold uppercase tracking-[0.15em] text-[#527078]">
-                      <span>Atlas registry</span>
+                      <span className="font-mono">{item.number} · {item.coordinate}</span>
                       <span className="text-[#3E777A]">External field ↗</span>
                     </div>
                   </a>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="brief" className="relative overflow-hidden bg-[#0B2A3B] py-20 text-[#EEF3EF] sm:py-24">
-          <div className="container relative">
-            <SignalStrip label="The Brief · Signal 06" inverse />
-            <div className="mt-12 grid gap-10 lg:grid-cols-[0.95fr_0.8fr] lg:items-end lg:justify-between lg:gap-20">
-              <div>
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.21em] text-[#D8A94A]">The Beacon Brief · Free weekly email</p>
-                <h2 className="font-display mt-5 max-w-2xl text-5xl leading-[0.98] tracking-[-0.045em] sm:text-6xl">One weekly signal. <span className="italic text-[#58A6A4]">No noise.</span></h2>
-                <p className="mt-6 max-w-xl text-base leading-7 text-[#C7D4D0]">A free five-minute digest of the best public Signal work, Beacon Labs findings, and one practical action worth carrying into the next week.</p>
-                <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-[0.67rem] font-semibold uppercase tracking-[0.14em]">
-                  <a href="/blog" className="inline-flex items-center gap-2 text-[#B7E0DA] hover:text-[#D8A94A]">Read The Signal <ArrowIcon className="link-arrow h-3.5 w-3.5" /></a>
-                  <a href={PREMIUM_BRIEF_URL} className="inline-flex items-center gap-2 text-[#D8A94A] hover:text-[#F0C76B]">Explore Watch Brief Premium · $27/month <ArrowIcon className="link-arrow h-3.5 w-3.5" /></a>
-                </div>
-              </div>
-              <form onSubmit={handleNewsletterSubmit} className="border border-white/15 bg-[#061A29]/65 p-5 sm:p-6">
-                <label htmlFor="beacon-brief-email" className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">Get the free weekly email</label>
-                <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-                  <input
-                    id="beacon-brief-email"
-                    type="email"
-                    required
-                    autoComplete="email"
-                    value={briefEmail}
-                    onChange={(event) => setBriefEmail(event.target.value)}
-                    placeholder="you@example.com"
-                    className="min-h-12 min-w-0 flex-1 border border-white/20 bg-transparent px-4 text-sm text-[#EEF3EF] placeholder:text-[#829999] focus:border-[#D8A94A] focus:outline-none"
-                    aria-describedby="beacon-brief-status"
-                  />
-                  <button type="submit" disabled={newsletterState === "submitting"} className="brass-button min-h-12 border border-[#D8A94A] bg-[#D8A94A] px-5 text-xs font-semibold uppercase tracking-[0.14em] text-[#061A29] hover:bg-[#F0C76B] disabled:cursor-not-allowed disabled:opacity-60">
-                    {newsletterState === "submitting" ? "Sending…" : "Subscribe"}
-                  </button>
-                </div>
-                <p id="beacon-brief-status" aria-live="polite" className={`mt-3 text-xs leading-5 ${newsletterState === "error" ? "text-[#F0A699]" : "text-[#9BB0B0]"}`}>
-                  {newsletterState === "success"
-                    ? "You are on the list. Watch for the next field report."
-                    : newsletterState === "error"
-                      ? "We could not add you right now. Please try again in a moment."
-                      : "Free weekly email. No spam. Unsubscribe at any time."}
-                </p>
-              </form>
             </div>
           </div>
         </section>
@@ -708,8 +685,8 @@ export default function Home() {
               <div className="mt-10"><BrandLockup footer /></div>
               <p className="mt-5 max-w-sm text-sm leading-6 text-[#9BB0B0]">Practical systems, curriculum, and community for people building a longer horizon in the AI transition.</p>
             </div>
-            <a href={ASSESSMENT_URL} className="brass-button group inline-flex min-h-11 items-center justify-center gap-3 border border-[#D8A94A] px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#D8A94A] hover:bg-[#D8A94A] hover:text-[#061A29]">
-              Find your position <ArrowIcon className="link-arrow h-4 w-4" />
+              <a href="#routes" className="brass-button group inline-flex min-h-11 items-center justify-center gap-3 border border-[#D8A94A] px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#D8A94A] hover:bg-[#D8A94A] hover:text-[#061A29]">
+              Choose a route <ArrowIcon className="link-arrow h-4 w-4" />
             </a>
           </div>
           <div className="grid gap-8 pt-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.7fr_0.7fr_0.7fr]">
@@ -717,30 +694,22 @@ export default function Home() {
             <div>
               <p className="text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">Navigate</p>
               <div className="mt-3 flex flex-col gap-2 text-sm">
+                <a href="#routes" className="hover:text-[#EEF3EF]">Choose a route</a>
                 <a href="#watch" className="hover:text-[#EEF3EF]">The Watch</a>
                 <a href="#pillars" className="hover:text-[#EEF3EF]">Five Pillars</a>
-                <a href="/resources" className="hover:text-[#EEF3EF]">Resources &amp; Guides</a>
-                <a href="/blog" className="hover:text-[#EEF3EF]">The Signal</a>
               </div>
             </div>
             <div>
               <p className="text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">Explore</p>
               <div className="mt-3 flex flex-col gap-2 text-sm">
-                <a href={ASSESSMENT_URL} className="hover:text-[#EEF3EF]">Pathfinder Assessment</a>
+                <a href={COMMUNITY_URL} className="hover:text-[#EEF3EF]">Beacon Community ↗</a>
+                <a href={LABS_URL} className="hover:text-[#EEF3EF]">Beacon Labs ↗</a>
                 <a href="#portfolio" className="hover:text-[#EEF3EF]">Beacon Portfolio</a>
-                <a href={PRICING_URL} className="hover:text-[#EEF3EF]">Pricing &amp; pathways</a>
-                <a href="/contact" className="hover:text-[#EEF3EF]">Contact</a>
               </div>
             </div>
             <div>
               <p className="text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">Position</p>
-              <p className="mt-3 text-sm leading-6">Quietly building the infrastructure that lets work compound.</p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[0.62rem] uppercase tracking-[0.13em] text-[#6F898A]">
-                <a href="/privacy" className="hover:text-[#EEF3EF]">Privacy</a>
-                <a href="/terms" className="hover:text-[#EEF3EF]">Terms</a>
-                <a href="/cookies" className="hover:text-[#EEF3EF]">Cookies</a>
-                <a href="/disclaimer" className="hover:text-[#EEF3EF]">Disclaimer</a>
-              </div>
+              <p className="mt-3 text-sm leading-6">Need help finding the right destination? <a className="text-[#EEF3EF] underline decoration-[#D8A94A]/70 underline-offset-4 hover:text-[#D8A94A]" href="mailto:support@beaconmomentum.com">support@beaconmomentum.com</a></p>
             </div>
           </div>
         </div>
