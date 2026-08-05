@@ -13,6 +13,7 @@ import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
 import { BEACON_EDITORIAL_IMAGE_ASPECT_RATIO } from "@/lib/blogMediaPolicy";
+import { AUGUST_ARTICLE_SUMMARIES } from "@/data/augustEditorial";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
 const BLOG_HERO_IMG =
@@ -36,6 +37,7 @@ interface Article {
 }
 
 const ARTICLES = [
+  ...AUGUST_ARTICLE_SUMMARIES,
   {
     id: "3-ai-business-models-launch-this-weekend",
     title: "3 AI Business Models You Can Launch This Weekend (That Actually Build Legacy)",

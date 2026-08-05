@@ -49,3 +49,7 @@ All **78** image references found across the current blog index and article reco
 ## Standardized-library route review
 
 The local `/blog` index presents full-composition 16:9 featured artwork without any detached playback control. The local `/blog/watch-brief-huggingface-breach` article confirms that a portrait-origin filing displays its standard 16:9 derivative below the header without cropped headline art. This article has no narration source, so no listen control is rendered. Earlier audio-bearing route checks confirm that the same shared policy renders **LISTEN** only on the owning article page.
+
+## Full-library production verification
+
+The GitHub deployment for commit `e3b6c49` completed successfully. Live HTTP checks returned 200 for the blog index and representative landscape, portrait-origin, and audio-bearing article routes. A live index review confirmed consistent framed 16:9 artwork with no playback action on linked cards. A live review of the audio-bearing redistricting article confirmed that **LISTEN** appears in the article header only, while the index remains free of detached player controls.

@@ -10,6 +10,7 @@ import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import { getArticleAudioSource } from "@/lib/blogMediaPolicy";
+import { AUGUST_ARTICLE_CONTENT } from "@/data/augustEditorial";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
 interface ArticleContent {
@@ -30,6 +31,7 @@ interface ArticleContent {
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
+  ...AUGUST_ARTICLE_CONTENT,
   {
     id: "3-ai-business-models-launch-this-weekend",
     title: "3 AI Business Models You Can Launch This Weekend (That Actually Build Legacy)",
