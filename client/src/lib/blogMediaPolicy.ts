@@ -3,6 +3,9 @@ export type ArticleMedia = {
   audioFile?: string;
 };
 
+/** The shared index frame used by all future Beacon editorial filing masters. */
+export const BEACON_EDITORIAL_IMAGE_ASPECT_RATIO = "16 / 9";
+
 /**
  * Audio is an article-level experience. Normalize the two legacy source fields
  * so a narrated article can present its control on its own route.

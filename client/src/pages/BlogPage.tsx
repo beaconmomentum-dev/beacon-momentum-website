@@ -12,6 +12,7 @@ import { ArrowRight, Mail } from "lucide-react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
+import { BEACON_EDITORIAL_IMAGE_ASPECT_RATIO } from "@/lib/blogMediaPolicy";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
 const BLOG_HERO_IMG =
@@ -939,7 +940,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         <div style={{
           width: "100%",
           minHeight: "180px",
-          aspectRatio: "16 / 9",
+          aspectRatio: BEACON_EDITORIAL_IMAGE_ASPECT_RATIO,
           overflow: "hidden",
           marginBottom: "-0.25rem",
           borderRadius: "2px",

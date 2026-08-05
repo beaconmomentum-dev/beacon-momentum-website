@@ -33,3 +33,11 @@
 | TypeScript check | Passed | The corrected blog and article presentation code type-checks cleanly. |
 | Production build | Passed | Built with temporary local placeholders for unrelated required environment validation; no production configuration was altered. |
 | Full suite | Environment-limited | Existing cohort tests require a local `COHORT_LEAD_PASSWORD` and seeded cohort state that are not present in this workspace. Those failures are unrelated to the blog presentation correction. |
+
+## Production verification
+
+The GitHub deployment for commit `487a062` completed successfully through Beacon’s established DigitalOcean workflow. The live `/blog`, `/blog/3-ai-business-models-launch-this-weekend`, and `/blog/watch-brief-nine-to-zero-redistricting` routes returned HTTP 200. A live visual review of `/blog` confirmed that the featured artwork is fully visible within intentional deep-water framing, no detached index-card playback control is present, and shared navigation remains consistent.
+
+## Approved future-filing image rule
+
+All future Beacon editorial filings use a **1920 × 1080 (16:9) master** and the shared `BEACON_EDITORIAL_IMAGE_ASPECT_RATIO` card frame. Essential copy and marks remain inside the 10% safe zone, exports use an sRGB WebP delivery file, and each record includes source provenance, alt text, rights/credit, a named owner, and human approval. The complete production standard is in `BEACON_EDITORIAL_IMAGE_SPECIFICATION.md`.
