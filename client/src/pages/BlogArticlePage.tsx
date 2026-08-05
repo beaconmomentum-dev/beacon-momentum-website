@@ -27,6 +27,8 @@ interface ArticleContent {
   body: string; // HTML string for article body
   category?: string; // Optional category label
   audioFile?: string; // Optional audio file path (alias for audioSrc)
+  transcriptSrc?: string; // Optional article-owned readable transcript
+  captionSrc?: string; // Optional WebVTT caption track download
 }
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
@@ -2859,7 +2861,7 @@ export default function BlogArticlePage() {
 
           {/* Listen Button */}
           {articleAudioSrc && (
-            <div style={{ marginTop: "1.5rem" }}>
+            <div style={{ marginTop: "1.5rem", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.75rem" }}>
               <audio id="beacon-audio-player" src={articleAudioSrc} preload="metadata" />
               <button
                 id="beacon-listen-btn"
@@ -2905,6 +2907,42 @@ export default function BlogArticlePage() {
                 </svg>
                 <span id="beacon-listen-label">Listen</span>
               </button>
+              {article.transcriptSrc && (
+                <a
+                  href={article.transcriptSrc}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    color: "rgba(250,248,244,0.72)",
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontSize: "0.72rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                  }}
+                >
+                  Transcript
+                </a>
+              )}
+              {article.captionSrc && (
+                <a
+                  href={article.captionSrc}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    color: "rgba(250,248,244,0.72)",
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontSize: "0.72rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                  }}
+                >
+                  Captions
+                </a>
+              )}
             </div>
           )}
 

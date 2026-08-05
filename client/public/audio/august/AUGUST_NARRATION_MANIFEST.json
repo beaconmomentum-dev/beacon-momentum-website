@@ -1,0 +1,72 @@
+[
+  {
+    "id": "five-questions-keep-you-in-charge",
+    "title": "Five Questions That Keep You in Charge",
+    "transcript": "/audio/august/transcripts/five-questions-keep-you-in-charge.txt",
+    "audio": "/audio/august/five-questions-keep-you-in-charge.mp3",
+    "caption": "/audio/august/captions/five-questions-keep-you-in-charge.vtt"
+  },
+  {
+    "id": "ai-capability-needs-a-home",
+    "title": "AI Capability Needs a Home",
+    "transcript": "/audio/august/transcripts/ai-capability-needs-a-home.txt",
+    "audio": "/audio/august/ai-capability-needs-a-home.mp3",
+    "caption": "/audio/august/captions/ai-capability-needs-a-home.vtt"
+  },
+  {
+    "id": "dependency-ladder-what-lives-closest-to-home",
+    "title": "The Dependency Ladder: What Should Live Closest to Home?",
+    "transcript": "/audio/august/transcripts/dependency-ladder-what-lives-closest-to-home.txt",
+    "audio": "/audio/august/dependency-ladder-what-lives-closest-to-home.mp3",
+    "caption": "/audio/august/captions/dependency-ladder-what-lives-closest-to-home.vtt"
+  },
+  {
+    "id": "what-17600-actions-teach-us-about-ai-control",
+    "title": "What 17,600 Actions Teach Us About AI Control",
+    "transcript": "/audio/august/transcripts/what-17600-actions-teach-us-about-ai-control.txt",
+    "audio": "/audio/august/what-17600-actions-teach-us-about-ai-control.mp3",
+    "caption": "/audio/august/captions/what-17600-actions-teach-us-about-ai-control.vtt"
+  },
+  {
+    "id": "rare-earth-lesson-for-a-small-team",
+    "title": "The Rare-Earth Lesson for a Small Team",
+    "transcript": "/audio/august/transcripts/rare-earth-lesson-for-a-small-team.txt",
+    "audio": "/audio/august/rare-earth-lesson-for-a-small-team.mp3",
+    "caption": "/audio/august/captions/rare-earth-lesson-for-a-small-team.vtt"
+  },
+  {
+    "id": "provenance-is-the-new-professionalism",
+    "title": "Provenance Is the New Professionalism",
+    "transcript": "/audio/august/transcripts/provenance-is-the-new-professionalism.txt",
+    "audio": "/audio/august/provenance-is-the-new-professionalism.mp3",
+    "caption": "/audio/august/captions/provenance-is-the-new-professionalism.vtt"
+  },
+  {
+    "id": "ai-work-you-should-not-automate",
+    "title": "The AI Work You Should Not Automate",
+    "transcript": "/audio/august/transcripts/ai-work-you-should-not-automate.txt",
+    "audio": "/audio/august/ai-work-you-should-not-automate.mp3",
+    "caption": "/audio/august/captions/ai-work-you-should-not-automate.vtt"
+  },
+  {
+    "id": "membership-is-not-a-shortcut-to-community",
+    "title": "A Membership Is Not a Shortcut to Community",
+    "transcript": "/audio/august/transcripts/membership-is-not-a-shortcut-to-community.txt",
+    "audio": "/audio/august/membership-is-not-a-shortcut-to-community.mp3",
+    "caption": "/audio/august/captions/membership-is-not-a-shortcut-to-community.vtt"
+  },
+  {
+    "id": "build-recovery-plan-before-you-need-it",
+    "title": "Build the Recovery Plan Before You Need It",
+    "transcript": "/audio/august/transcripts/build-recovery-plan-before-you-need-it.txt",
+    "audio": "/audio/august/build-recovery-plan-before-you-need-it.mp3",
+    "caption": "/audio/august/captions/build-recovery-plan-before-you-need-it.vtt"
+  },
+  {
+    "id": "quiet-advantage-of-a-system-you-can-explain",
+    "title": "The Quiet Advantage of a System You Can Explain",
+    "transcript": "/audio/august/transcripts/quiet-advantage-of-a-system-you-can-explain.txt",
+    "audio": "/audio/august/quiet-advantage-of-a-system-you-can-explain.mp3",
+    "caption": "/audio/august/captions/quiet-advantage-of-a-system-you-can-explain.vtt"
+  }
+]

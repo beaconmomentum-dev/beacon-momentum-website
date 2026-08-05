@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.036
+What 17,600 Actions Teach Us About AI Control. The useful
+
+2
+00:00:05.036 --> 00:00:10.072
+lesson from a security incident is not panic. It is
+
+3
+00:00:10.072 --> 00:00:15.108
+a better control question: if a workflow took thousands of
+
+4
+00:00:15.108 --> 00:00:20.144
+actions, would you know what it touched, where it went,
+
+5
+00:00:20.144 --> 00:00:25.179
+and how to stop it? Hugging Face’s published technical timeline
+
+6
+00:00:25.179 --> 00:00:30.215
+described an agent intrusion involving approximately 17,600 recorded actions. The
+
+7
+00:00:30.215 --> 00:00:35.251
+details matter to security teams, but the operating lesson applies
+
+8
+00:00:35.251 --> 00:00:40.287
+more broadly: unattended action accumulates consequence quickly. Make scope visible.
+
+9
+00:00:40.287 --> 00:00:45.323
+Every workflow should declare its inputs, permitted destinations, permitted writes,
+
+10
+00:00:45.323 --> 00:00:50.359
+and explicit non-goals before it runs. Keep the record. Retain
+
+11
+00:00:50.359 --> 00:00:55.395
+the source set, the action log, the output, and the
+
+12
+00:00:55.395 --> 00:01:00.431
+reviewer decision. A system without a record is difficult to
+
+13
+00:01:00.431 --> 00:01:05.467
+repair and impossible to explain. Build the stop before the
+
+14
+00:01:05.467 --> 00:01:10.502
+speed. Pause access, preserve the current record, notify the owner,
+
+15
+00:01:10.502 --> 00:01:15.538
+and require review before restart. These are ordinary operating controls,
+
+16
+00:01:15.538 --> 00:01:20.574
+not dramatic “kill switches. ” Read the underlying Hugging Face
+
+17
+00:01:20.574 --> 00:01:25.610
+technical timeline; do not treat unrelated model or market claims
+
+18
+00:01:25.610 --> 00:01:28.128
+as part of that evidence.

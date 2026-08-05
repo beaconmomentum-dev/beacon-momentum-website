@@ -1,0 +1,69 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.201
+The Dependency Ladder: What Should Live Closest to Home?. The
+
+2
+00:00:05.201 --> 00:00:10.402
+right question is not “cloud or local?” It is “what
+
+3
+00:00:10.402 --> 00:00:15.603
+happens if this capability is unavailable, wrong, or no longer
+
+4
+00:00:15.603 --> 00:00:20.804
+under the conditions we expected?” A dependency ladder gives a
+
+5
+00:00:20.804 --> 00:00:26.005
+small team a practical answer. It sorts work by consequence
+
+6
+00:00:26.005 --> 00:00:31.206
+rather than fashion. Level one: local-first work. Keep durable records,
+
+7
+00:00:31.206 --> 00:00:36.407
+source libraries, operating procedures, and routine drafts close to home
+
+8
+00:00:36.407 --> 00:00:41.608
+when continuity and provenance matter most. Level two: allowlisted external
+
+9
+00:00:41.608 --> 00:00:46.808
+work. Use specialized external tools for bounded tasks when they
+
+10
+00:00:46.808 --> 00:00:52.009
+provide clear value, documented terms, and a known fallback. The
+
+11
+00:00:52.009 --> 00:00:57.210
+work should still leave behind the source, output, and decision
+
+12
+00:00:57.210 --> 00:01:02.411
+record you need. Level three: human-owned work. Publishing, payments, access
+
+13
+00:01:02.411 --> 00:01:07.612
+changes, legal or financial interpretation, and sensitive communication require a
+
+14
+00:01:07.612 --> 00:01:12.813
+named human decision. Assistance is useful; delegated authority is not.
+
+15
+00:01:12.813 --> 00:01:18.014
+The ladder is a planning tool, not a purity test.
+
+16
+00:01:18.014 --> 00:01:23.215
+It helps you decide where a failure would hurt and
+
+17
+00:01:23.215 --> 00:01:28.416
+what a responsible fallback looks like before the pressure arrives.

@@ -1,0 +1,69 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.494
+The Rare-Earth Lesson for a Small Team. A resource is
+
+2
+00:00:04.494 --> 00:00:08.989
+not the same thing as capability. The difference is the
+
+3
+00:00:08.989 --> 00:00:13.483
+chain between the raw input and the finished result: processing,
+
+4
+00:00:13.483 --> 00:00:17.977
+maintenance, trained people, quality control, and a fallback when one
+
+5
+00:00:17.977 --> 00:00:22.471
+link breaks. Apple announced a $500 million commitment connected to
+
+6
+00:00:22.471 --> 00:00:26.966
+MP Materials in 2025, while MP Materials separately announced a
+
+7
+00:00:26.966 --> 00:00:31.460
+public-private agreement with the U. S. Department of Defense. Those
+
+8
+00:00:31.460 --> 00:00:35.954
+announcements are not a lesson about making market predictions. They
+
+9
+00:00:35.954 --> 00:00:40.449
+are a concrete example of long-horizon capacity building. Small teams
+
+10
+00:00:40.449 --> 00:00:44.943
+have supply chains too. Your supply chain may be source
+
+11
+00:00:44.943 --> 00:00:49.437
+access, editorial files, a domain, a payment processor, a model
+
+12
+00:00:49.437 --> 00:00:53.931
+endpoint, a recording process, or the person who knows how
+
+13
+00:00:53.931 --> 00:00:58.426
+a workflow actually works. Build a bill of materials. For
+
+14
+00:00:58.426 --> 00:01:02.920
+each recurring workflow, list the inputs, owner, location, access path,
+
+15
+00:01:02.920 --> 00:01:07.414
+fallback, and recovery time. The goal is not to eliminate
+
+16
+00:01:07.414 --> 00:01:11.909
+every dependency. It is to know which one matters before
+
+17
+00:01:11.909 --> 00:01:15.504
+it fails. Source releases: Apple and MP Materials.

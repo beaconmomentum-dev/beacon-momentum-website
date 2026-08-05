@@ -16,6 +16,12 @@ describe("August editorial batch", () => {
     expect(AUGUST_ARTICLE_SUMMARIES.every((article) => article.thumbnail?.endsWith("-16x9.webp"))).toBe(true);
   });
 
+  it("attaches an article-owned MP3, transcript, and caption track to every August post", () => {
+    expect(AUGUST_ARTICLE_CONTENT.every((article) => article.audioSrc?.endsWith(`${article.id}.mp3`))).toBe(true);
+    expect(AUGUST_ARTICLE_CONTENT.every((article) => article.transcriptSrc?.endsWith(`${article.id}.txt`))).toBe(true);
+    expect(AUGUST_ARTICLE_CONTENT.every((article) => article.captionSrc?.endsWith(`${article.id}.vtt`))).toBe(true);
+  });
+
   it("keeps article summaries aligned with the full article records", () => {
     expect(AUGUST_ARTICLE_SUMMARIES.map((article) => article.id)).toEqual(
       AUGUST_ARTICLE_CONTENT.map((article) => article.id),

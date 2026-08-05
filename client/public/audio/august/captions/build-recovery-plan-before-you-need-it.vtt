@@ -1,0 +1,65 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.673
+Build the Recovery Plan Before You Need It. The best
+
+2
+00:00:04.673 --> 00:00:09.346
+time to discover a hidden dependency is not during an
+
+3
+00:00:09.346 --> 00:00:14.019
+outage, a deadline, or a difficult handoff. It is while
+
+4
+00:00:14.019 --> 00:00:18.692
+the work is still calm enough to map. Start with
+
+5
+00:00:18.692 --> 00:00:23.366
+one critical workflow. List the trigger, inputs, systems, credentials, human
+
+6
+00:00:23.366 --> 00:00:28.039
+owner, output, archive location, fallback, and acceptable recovery time. Run
+
+7
+00:00:28.039 --> 00:00:32.712
+a small recovery exercise. Ask one simple question: if this
+
+8
+00:00:32.712 --> 00:00:37.385
+tool or person were unavailable today, what would we do
+
+9
+00:00:37.385 --> 00:00:42.058
+next? Do not aim for a perfect business-continuity plan. Aim
+
+10
+00:00:42.058 --> 00:00:46.731
+for an honest first answer. Keep the fallback usable. A
+
+11
+00:00:46.731 --> 00:00:51.404
+fallback that has never been tested is only an assumption.
+
+12
+00:00:51.404 --> 00:00:56.077
+Save the essential files, document the restart sequence, and make
+
+13
+00:00:56.077 --> 00:01:00.751
+sure another responsible person can follow it. Turn resilience into
+
+14
+00:01:00.751 --> 00:01:05.424
+routine. One workflow map per month is enough to create
+
+15
+00:01:05.424 --> 00:01:10.097
+a record of what the organization truly depends on. The
+
+16
+00:01:10.097 --> 00:01:13.368
+result is calmer operations and fewer surprises.

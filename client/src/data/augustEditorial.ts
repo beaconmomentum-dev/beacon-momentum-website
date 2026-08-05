@@ -1,4 +1,4 @@
-export const AUGUST_ARTICLE_CONTENT = [
+const AUGUST_ARTICLE_DRAFTS = [
   {
     id: "five-questions-keep-you-in-charge",
     title: "Five Questions That Keep You in Charge",
@@ -123,7 +123,16 @@ export const AUGUST_ARTICLE_CONTENT = [
   },
 ] as const;
 
+export const AUGUST_ARTICLE_CONTENT = AUGUST_ARTICLE_DRAFTS.map((article) => ({
+  ...article,
+  audioSrc: `/audio/august/${article.id}.mp3`,
+  audioFile: `/audio/august/${article.id}.mp3`,
+  transcriptSrc: `/audio/august/transcripts/${article.id}.txt`,
+  captionSrc: `/audio/august/captions/${article.id}.vtt`,
+}));
+
 export const AUGUST_ARTICLE_SUMMARIES = AUGUST_ARTICLE_CONTENT.map(({ body, heroImage, ...summary }) => ({
   ...summary,
+  featured: "featured" in summary ? summary.featured === true : false,
   thumbnail: heroImage,
 }));

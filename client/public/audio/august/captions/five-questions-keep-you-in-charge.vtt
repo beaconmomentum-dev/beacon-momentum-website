@@ -1,0 +1,101 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.854
+Five Questions That Keep You in Charge. The question is
+
+2
+00:00:04.854 --> 00:00:09.707
+not whether an AI tool is impressive. The question is
+
+3
+00:00:09.707 --> 00:00:14.561
+whether you can still explain what it is allowed to
+
+4
+00:00:14.561 --> 00:00:19.414
+do, what it is not allowed to do, and who
+
+5
+00:00:19.414 --> 00:00:24.268
+is accountable when it gets something wrong. Before a workflow
+
+6
+00:00:24.268 --> 00:00:29.121
+moves from experiment to routine, ask five questions: What is
+
+7
+00:00:29.121 --> 00:00:33.975
+the bounded job? What evidence is required? What may the
+
+8
+00:00:33.975 --> 00:00:38.828
+system read or write? How do we stop it? Who
+
+9
+00:00:38.828 --> 00:00:43.682
+gives the final approval? 1. Is the job narrow enough
+
+10
+00:00:43.682 --> 00:00:48.536
+to inspect?. A useful workflow has a specific input, a
+
+11
+00:00:48.536 --> 00:00:53.389
+specific output, and explicit non-goals. “Help with research” is not
+
+12
+00:00:53.389 --> 00:00:58.243
+a job. “Compare three named sources and flag unsupported claims”
+
+13
+00:00:58.243 --> 00:01:03.096
+is. 2. What evidence must travel with the output?. Claims
+
+14
+00:01:03.096 --> 00:01:07.950
+should keep their sources, dates, and limitations. If a summary
+
+15
+00:01:07.950 --> 00:01:12.803
+cannot show where it came from, it is a draft—not
+
+16
+00:01:12.803 --> 00:01:17.657
+a decision. 3. What authority is actually granted?. Default to
+
+17
+00:01:17.657 --> 00:01:22.510
+read-only access. Separate drafting from publication and recommendation from execution.
+
+18
+00:01:22.510 --> 00:01:27.364
+4. Can the workflow be stopped cleanly?. Every recurring process
+
+19
+00:01:27.364 --> 00:01:32.218
+needs a clear halt, a retained record, and a human
+
+20
+00:01:32.218 --> 00:01:37.071
+review before restart. 5. Whose name is on the final
+
+21
+00:01:37.071 --> 00:01:41.925
+call?. AI can assist the work. A person owns the
+
+22
+00:01:41.925 --> 00:01:46.778
+judgment. That is not a limitation; it is the reason
+
+23
+00:01:46.778 --> 00:01:51.632
+a system remains trustworthy. Use the full Five Questions field
+
+24
+00:01:51.632 --> 00:01:56.485
+note as a review sheet before you give any workflow
+
+25
+00:01:56.485 --> 00:01:57.456
+more responsibility.
