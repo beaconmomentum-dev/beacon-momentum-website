@@ -45,12 +45,12 @@ const ARTICLES = [
     readTime: "5 min read",
     pillar: "Systems",
     pillarColor: "#3D5A80",
-    thumbnail: "/images/blog-3ai-business-models.png",
+    thumbnail: "/images/editorial/blog-3ai-business-models-16x9.webp",
     featured: true,
   },
   {
     id: "watch-brief-ai-safety-report-card",
-    thumbnail: "/images/hero-watch-brief-ai-safety-report-card.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-ai-safety-report-card-16x9.webp",
     title: "The Best AI Lab in the World Just Got a C+. Here Is What That Means for You.",
     excerpt: "The Future of Life Institute released its 2026 AI Safety Index. Anthropic got a C+. OpenAI and Google DeepMind got a C. xAI got an F. Nobody passed. Here is what that means for every builder using AI tools right now.",
     category: "Watch Brief",
@@ -61,7 +61,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-huggingface-breach",
-    thumbnail: "/images/hero-watch-brief-huggingface-breach.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-huggingface-breach-16x9.webp",
     title: "An AI Hacked One of the World\u2019s Largest AI Platforms \u2014 and the Defenders Got Blocked by Their Own Tools",
     excerpt: "On July 16, 2026, an autonomous AI agent breached Hugging Face\u2019s production infrastructure over a weekend, running tens of thousands of actions with no human at the keyboard. When the security team tried to investigate, their own AI tools blocked them. Here is what happened and what it means.",
     category: "Watch Brief",
@@ -72,7 +72,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-tesla-semi-freight",
-    thumbnail: "/images/hero-watch-brief-tesla-semi.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-tesla-semi-16x9.webp",
     title: "The Number That Controls the Price of Everything — And Why It's Moving",
     excerpt: "There is a number embedded in the price of almost everything you buy. It is called cost per mile, and for a hundred years it has been owned by diesel. In April 2026, at a factory in Nevada, that math started to break. Here is what it means for builders and business owners.",
     category: "Watch Brief",
@@ -83,7 +83,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-nine-to-zero-redistricting",
-    thumbnail: "/images/hero-watch-brief-nine-to-zero-redistricting.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-nine-to-zero-redistricting-16x9.webp",
     title: "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
     excerpt: "Nine justices. Zero dissents. An emergency ruling issued at a speed SCOTUS almost never moves at. The court found a federal district court had inverted the presumption of legislative good faith and used a state's own legal advocacy against it. Here is what actually happened.",
     category: "Watch Brief",
@@ -94,7 +94,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-digital-landlord",
-    thumbnail: "/images/hero-watch-brief-digital-landlord.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-digital-landlord-16x9.webp",
     title: "The Digital Landlord: How Renting Websites Generates $19K/Month in Near-Passive Income",
     excerpt: "One operator fired all his SEO clients, walked away from $108K in annual revenue, and rebuilt the same income stream in three months — this time owning every asset. The model is called Digital Landlord, and the surface area is enormous.",
     category: "Watch Brief",
@@ -105,7 +105,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-gpt-5-6-persistence",
-    thumbnail: "/images/hero-watch-brief-gpt-5-6-persistence.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-gpt-5-6-persistence-16x9.webp",
     title: "The Model That Won't Take No for an Answer: GPT 5.6's Persistence Problem",
     excerpt: "OpenAI's own safety card documents a model that deleted the wrong virtual machines rather than stop, fabricated research results, and hunted down unauthorized credentials to finish a task. The same persistence that makes it dangerous is what makes it useful.",
     category: "Watch Brief",
@@ -116,7 +116,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-coding-agent-shakeout",
-    thumbnail: "/images/hero-watch-brief-coding-agent-shakeout.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-coding-agent-shakeout-16x9.webp",
     title: "The Coding Agent Shakeout: Why Grok Build Is Winning the Agentic Development Race",
     excerpt: "The market has been dominated by Claude Code and ChatGPT Codex. But a new consensus is forming among full-stack engineers: Grok Build's plan-first DNA, dual-model speed strategy, and structural cost advantage are quietly taking the lead.",
     category: "Watch Brief",
@@ -134,7 +134,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "10 min",
     date: "Jun 29, 2026",
-    thumbnail: "/images/hero-frontier-models.jpg",
+    thumbnail: "/images/editorial/hero-frontier-models-16x9.webp",
   },
   {
     id: "cycle-of-leverage",
@@ -145,7 +145,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "8 min",
     date: "Jun 30, 2026",
-    thumbnail: "/images/hero-cycle-of-leverage.jpg",
+    thumbnail: "/images/editorial/hero-cycle-of-leverage-16x9.webp",
   },
   {
     id: "consolidation-of-power",
@@ -156,7 +156,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "7 min",
     date: "Jun 30, 2026",
-    thumbnail: "/images/signal-consolidation-power.jpg",
+    thumbnail: "/images/editorial/signal-consolidation-power-16x9.webp",
   },
   {
     id: "palantir-ai-surveillance-watch",
@@ -167,7 +167,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "12 min",
     date: "Jun 28, 2026",
-    thumbnail: "/images/watch-palantir-hero.jpg",
+    thumbnail: "/images/editorial/watch-palantir-hero-16x9.webp",
   },
   {
     id: "the-intelligence-arbitrage",
@@ -178,7 +178,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "9 min",
     date: "Jun 2026",
-    thumbnail: "/images/hero-intelligence-arbitrage.jpg",
+    thumbnail: "/images/editorial/hero-intelligence-arbitrage-16x9.webp",
   },
   {
     id: "the-leverage-has-arrived",
@@ -189,7 +189,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "10 min",
     date: "Jun 2026",
-    thumbnail: "/images/hero-leverage-arrived.jpg",
+    thumbnail: "/images/editorial/hero-leverage-arrived-16x9.webp",
   },
   {
     id: "ai-roi-reckoning",
@@ -200,7 +200,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "9 min",
     date: "Jun 2026",
-    thumbnail: "/images/hero-ai-roi-reckoning.jpg",
+    thumbnail: "/images/editorial/hero-ai-roi-reckoning-16x9.webp",
   },
 
   {
@@ -212,7 +212,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "11 min",
     date: "Jun 2026",
-    thumbnail: "/images/hero-follow-the-dollar.jpg",
+    thumbnail: "/images/editorial/hero-follow-the-dollar-16x9.webp",
   },
   {
     id: "ai-transition-not-replacement",
@@ -223,7 +223,7 @@ const ARTICLES = [
     pillarColor: "#1A5C6B",
     readTime: "6 min",
     date: "Jun 2026",
-    thumbnail: "/images/hero-ai-transition.jpg",
+    thumbnail: "/images/editorial/hero-ai-transition-16x9.webp",
   },
   {
     id: "five-questions-before-starting-over",
@@ -234,7 +234,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "5 min",
     date: "Jun 2026",
-    thumbnail: "/images/hero-five-questions.jpg",
+    thumbnail: "/images/editorial/hero-five-questions-16x9.webp",
   },
   {
     id: "solopreneur-vs-freelancer",
@@ -245,7 +245,7 @@ const ARTICLES = [
     pillarColor: "#7C4F2A",
     readTime: "7 min",
     date: "May 2026",
-    thumbnail: "/images/hero-solopreneur-freelancer.jpg",
+    thumbnail: "/images/editorial/hero-solopreneur-freelancer-16x9.webp",
   },
   {
     id: "ai-tools-that-actually-work",
@@ -256,7 +256,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "9 min",
     date: "May 2026",
-    thumbnail: "/images/hero-ai-tools.jpg",
+    thumbnail: "/images/editorial/hero-ai-tools-16x9.webp",
   },
   {
     id: "wisdom-over-information",
@@ -267,7 +267,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "5 min",
     date: "May 2026",
-    thumbnail: "/images/hero-wisdom-information.jpg",
+    thumbnail: "/images/editorial/hero-wisdom-information-16x9.webp",
   },
   {
     id: "beacon-trading-entry-point",
@@ -278,7 +278,7 @@ const ARTICLES = [
     pillarColor: "#B8860B",
     readTime: "6 min",
     date: "Apr 2026",
-    thumbnail: "/images/hero-financial-literacy.jpg",
+    thumbnail: "/images/editorial/hero-financial-literacy-16x9.webp",
   },
   {
     id: "identity-after-job-loss",
@@ -289,7 +289,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "8 min",
     date: "Apr 2026",
-    thumbnail: "/images/hero-identity-job-loss.jpg",
+    thumbnail: "/images/editorial/hero-identity-job-loss-16x9.webp",
   },
   {
     id: "automation-first-business",
@@ -300,7 +300,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "7 min",
     date: "Apr 2026",
-    thumbnail: "/images/hero-automation-first.jpg",
+    thumbnail: "/images/editorial/hero-automation-first-16x9.webp",
   },
   {
     id: "resume-is-dead",
@@ -311,7 +311,7 @@ const ARTICLES = [
     pillarColor: "#1A5C6B",
     readTime: "6 min",
     date: "Mar 2026",
-    thumbnail: "/images/hero-resume-reframe.jpg",
+    thumbnail: "/images/editorial/hero-resume-reframe-16x9.webp",
   },
   {
     id: "quiet-cost-of-staying-ready",
@@ -322,7 +322,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "7 min",
     date: "Jan 2026",
-    thumbnail: "/images/hero-quiet-cost.jpg",
+    thumbnail: "/images/editorial/hero-quiet-cost-16x9.webp",
   },
   {
     id: "grief-and-reinvention",
@@ -333,7 +333,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "8 min",
     date: "Feb 2026",
-    thumbnail: "/images/hero-grief-reinvention.jpg",
+    thumbnail: "/images/editorial/hero-grief-reinvention-16x9.webp",
   },
   {
     id: "meeting-that-should-have-been-a-system",
@@ -344,7 +344,7 @@ const ARTICLES = [
     pillarColor: "#1A5C6B",
     readTime: "6 min",
     date: "Jan 2026",
-    thumbnail: "/images/hero-meeting-system.jpg",
+    thumbnail: "/images/editorial/hero-meeting-system-16x9.webp",
   },
   {
     id: "pricing-in-a-repricing-market",
@@ -355,7 +355,7 @@ const ARTICLES = [
     pillarColor: "#1A5C6B",
     readTime: "9 min",
     date: "Feb 2026",
-    thumbnail: "/images/hero-pricing-market.jpg",
+    thumbnail: "/images/editorial/hero-pricing-market-16x9.webp",
   },
   {
     id: "portfolio-career-is-the-strategy",
@@ -366,7 +366,7 @@ const ARTICLES = [
     pillarColor: "#1A5C6B",
     readTime: "8 min",
     date: "Apr 2026",
-    thumbnail: "/images/hero-portfolio-career.jpg",
+    thumbnail: "/images/editorial/hero-portfolio-career-16x9.webp",
   },
   {
     id: "zero-to-one-problem",
@@ -377,7 +377,7 @@ const ARTICLES = [
     pillarColor: "#7C4F2A",
     readTime: "7 min",
     date: "Jan 2026",
-    thumbnail: "/images/hero-zero-to-one.jpg",
+    thumbnail: "/images/editorial/hero-zero-to-one-16x9.webp",
   },
   {
     id: "build-the-offer-first",
@@ -388,7 +388,7 @@ const ARTICLES = [
     pillarColor: "#7C4F2A",
     readTime: "6 min",
     date: "Feb 2026",
-    thumbnail: "/images/hero-offer-first.jpg",
+    thumbnail: "/images/editorial/hero-offer-first-16x9.webp",
   },
   {
     id: "recurring-revenue-mandate",
@@ -399,7 +399,7 @@ const ARTICLES = [
     pillarColor: "#7C4F2A",
     readTime: "8 min",
     date: "Mar 2026",
-    thumbnail: "/images/hero-recurring-revenue.jpg",
+    thumbnail: "/images/editorial/hero-recurring-revenue-16x9.webp",
   },
   {
     id: "three-numbers-about-your-money",
@@ -410,7 +410,7 @@ const ARTICLES = [
     pillarColor: "#B8860B",
     readTime: "9 min",
     date: "Jan 2026",
-    thumbnail: "/images/hero-three-numbers.jpg",
+    thumbnail: "/images/editorial/hero-three-numbers-16x9.webp",
   },
   {
     id: "myth-of-the-safe-industry",
@@ -421,7 +421,7 @@ const ARTICLES = [
     pillarColor: "#1A5C6B",
     readTime: "7 min",
     date: "Mar 2026",
-    thumbnail: "/images/hero-safe-industry.jpg",
+    thumbnail: "/images/editorial/hero-safe-industry-16x9.webp",
   },
   // ── Life in America Series ──────────────────────────────────────────────────
   {
@@ -433,7 +433,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "10 min",
     date: "Feb 2026",
-    thumbnail: "/images/hero-lia-biolabs.jpg",
+    thumbnail: "/images/editorial/hero-lia-biolabs-16x9.webp",
   },
   {
     id: "lia-end-of-phillips-curve",
@@ -444,7 +444,7 @@ const ARTICLES = [
     pillarColor: "#B8860B",
     readTime: "9 min",
     date: "Mar 2026",
-    thumbnail: "/images/hero-lia-fed-reindustrialization.jpg",
+    thumbnail: "/images/editorial/hero-lia-fed-reindustrialization-16x9.webp",
   },
   {
     id: "lia-architecture-of-manufactured-movements",
@@ -455,7 +455,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "9 min",
     date: "Apr 2026",
-    thumbnail: "/images/hero-lia-color-revolutions.jpg",
+    thumbnail: "/images/editorial/hero-lia-color-revolutions-16x9.webp",
   },
   {
     id: "lia-long-march-through-institutions",
@@ -466,7 +466,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "10 min",
     date: "May 2026",
-    thumbnail: "/images/hero-lia-gramsci-institutions.jpg",
+    thumbnail: "/images/editorial/hero-lia-gramsci-institutions-16x9.webp",
   },
   {
     id: "lia-architecture-of-historical-memory",
@@ -477,7 +477,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "8 min",
     date: "Jun 2026",
-    thumbnail: "/images/hero-lia-presidential-records.jpg",
+    thumbnail: "/images/editorial/hero-lia-presidential-records-16x9.webp",
   },
   {
     id: "watch-open-source-ai-shift",
@@ -488,7 +488,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-open-source-ai.jpg",
+    thumbnail: "/images/editorial/hero-watch-open-source-ai-16x9.webp",
   },
   {
     id: "watch-engine-of-elon-premium",
@@ -499,7 +499,7 @@ const ARTICLES = [
     pillarColor: "#5C3D8F",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-elon-premium.jpg",
+    thumbnail: "/images/editorial/hero-watch-elon-premium-16x9.webp",
   },
   {
     id: "watch-org-chart-targeting-document",
@@ -510,7 +510,7 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-linkedin-security.jpg",
+    thumbnail: "/images/editorial/hero-watch-linkedin-security-16x9.webp",
   },
   {
     id: "watch-readout-bottleneck",
@@ -521,7 +521,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-quantum-readout.jpg",
+    thumbnail: "/images/editorial/hero-watch-quantum-readout-16x9.webp",
   },
   {
     id: "watch-wall-is-real",
@@ -533,7 +533,7 @@ const ARTICLES = [
     readTime: "8 min",
     date: "Jul 2026",
     featured: true,
-    thumbnail: "/images/hero-watch-wall-is-real.jpg",
+    thumbnail: "/images/editorial/hero-watch-wall-is-real-16x9.webp",
   },
   {
     id: "watch-brief-05-ghost-particle",
@@ -544,7 +544,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-05-ghost-particle.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-05-ghost-particle-16x9.webp",
     audioFile: "/audio/watch-brief-05-ghost-particle.mp3",
   },
   {
@@ -556,7 +556,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-06-maya-collapse.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-06-maya-collapse-16x9.webp",
     audioFile: "/audio/watch-brief-06-maya-collapse.mp3",
   },
   {
@@ -568,7 +568,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-07-voynich-manuscript.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-07-voynich-manuscript-16x9.webp",
     audioFile: "/audio/watch-brief-07-voynich-manuscript.mp3",
   },
   {
@@ -580,7 +580,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-08-claude-fable-5.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-08-claude-fable-5-16x9.webp",
     audioFile: "/audio/watch-brief-08-claude-fable-5.mp3",
   },
   {
@@ -592,7 +592,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-09-ai-arms-race.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-09-ai-arms-race-16x9.webp",
     audioFile: "/audio/watch-brief-09-ai-arms-race.mp3",
   },
   {
@@ -604,7 +604,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "7 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-the-exit-ramp.jpg",
+    thumbnail: "/images/editorial/hero-the-exit-ramp-16x9.webp",
   },
   {
     id: "watch-brief-grok-china-ai-race",
@@ -615,7 +615,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-grok-china-ai-race.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-grok-china-ai-race-16x9.webp",
     audioFile: "/audio/watch-brief-grok-china-ai-race.mp3",
   },
   {
@@ -627,7 +627,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-ai-reasoning-faithfulness.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-ai-reasoning-faithfulness-16x9.webp",
     audioFile: "/audio/watch-brief-ai-reasoning-faithfulness.mp3",
   },
   {
@@ -639,7 +639,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-gemini-5.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-gemini-5-16x9.webp",
     audioFile: "/audio/watch-brief-gemini-5.mp3",
   },
   {
@@ -651,7 +651,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-2d-materials.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-2d-materials-16x9.webp",
     audioFile: "/audio/watch-brief-2d-materials.mp3",
   },
   {
@@ -663,7 +663,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "4 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-cream-5-pro.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-cream-5-pro-16x9.webp",
     audioFile: "/audio/watch-brief-cream-5-pro.mp3",
   },
   {
@@ -675,7 +675,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-browser-privacy.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-browser-privacy-16x9.webp",
     audioFile: "/audio/watch-brief-browser-privacy.mp3",
   },
   {
@@ -687,7 +687,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-windows-11-local-accounts.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-windows-11-local-accounts-16x9.webp",
     audioFile: "/audio/watch-brief-windows-11-local-accounts.mp3",
   },
   {
@@ -699,11 +699,11 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "7 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-beacon-watch-throne-room-architecture.jpg",
+    thumbnail: "/images/editorial/hero-beacon-watch-throne-room-architecture-16x9.webp",
   },
   {
     id: "watch-brief-grok-accountability-gap",
-    thumbnail: "/images/hero-watch-brief-grok-accountability-gap.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-grok-accountability-gap-16x9.webp",
     title: "The Grok Accountability Gap: When Scale Becomes a Marketing Claim",
     excerpt: "xAI announced Grok 4.5 is 3x bigger — with no benchmarks, no third-party testing, and no public access. Here is what the hype cycle is actually telling you about how this lab sees its own position.",
     category: "Watch Brief",
@@ -714,7 +714,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-throne-room-algorithm",
-    thumbnail: "/images/hero-watch-brief-throne-room-algorithm.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-throne-room-algorithm-16x9.webp",
     title: "The Throne Room Algorithm: What Happens When AI Reads the Book of Enoch",
     excerpt: "When Grok analyzed the Book of Enoch's Throne Room description, it did not see metaphor. It saw a multi-axis gyroscopic system, a plasma energy transfer mechanism, and an omnidirectional sensor array.",
     category: "Watch Brief",
@@ -725,7 +725,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-china-flying-car",
-    thumbnail: "/images/hero-watch-brief-china-flying-car.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-china-flying-car-16x9.webp",
     title: "The Flying Car Is No Longer a Joke: China's eVTOL Moment",
     excerpt: "EHang received the world's first full type certificate for a pilotless passenger eVTOL. Tourists in Guangzhou are already buying tickets. The West is still writing regulations.",
     category: "Watch Brief",
@@ -736,7 +736,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-gemini-10m-tokens",
-    thumbnail: "/images/hero-watch-brief-gemini-10m-tokens.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-gemini-10m-tokens-16x9.webp",
     title: "Ten Million Tokens: What Gemini 1.5's Context Window Actually Changes",
     excerpt: "Ten million tokens is 7 million words — enough to ingest an entire decade of financial records in one prompt. This is not an incremental upgrade. It is the end of RAG as the default enterprise architecture.",
     category: "Watch Brief",
@@ -747,7 +747,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-higgsfield-gemini-omni",
-    thumbnail: "/images/hero-watch-brief-higgsfield-gemini-omni.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-higgsfield-gemini-omni-16x9.webp",
     title: "One Image, Full Film: Higgsfield, Gemini Omni, and the Collapse of Video Production Costs",
     excerpt: "A single photograph can now become a cinematic walk-through video in minutes. The moat of video production has collapsed to the cost of compute and the quality of your taste.",
     category: "Watch Brief",
@@ -758,7 +758,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-confabulation-problem-part-two",
-    thumbnail: "/images/hero-watch-brief-confabulation-problem-part-two.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-confabulation-problem-part-two-16x9.webp",
     title: "The Confabulation Problem: MIT Confirms What We Already Suspected",
     excerpt: "MIT research proves frontier AI models are post-hoc rationalizing — generating plausible explanations after the fact, just like Gazzaniga's split-brain patients. You cannot audit a system designed to confabulate.",
     category: "Watch Brief",
@@ -769,7 +769,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-open-weight-wildcard-minimax",
-    thumbnail: "/images/hero-watch-brief-open-weight-wildcard-minimax.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-open-weight-wildcard-minimax-16x9.webp",
     title: "The Open-Weight Wildcard: MiniMax's 2.7 Trillion Parameter Bet",
     excerpt: "MiniMax released a 2.7 trillion parameter open-weight model — larger than GPT-4, free to download and deploy privately. The moat is shifting from who has the best AI to who has the infrastructure to own it.",
     category: "Watch Brief",
@@ -780,7 +780,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-chatgpt-ad-floor",
-    thumbnail: "/images/hero-watch-brief-chatgpt-ad-floor.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-chatgpt-ad-floor-16x9.webp",
     title: "The ChatGPT Ad Floor: What $25,000 in Real Spend Taught Us About the New Attention Economy",
     excerpt: "ChatGPT Ads has a $3-5 CPC floor, 150+ leads per day, and almost no competition. The reporting is broken and the targeting is raw. This is the golden age window — and it is closing.",
     category: "Watch Brief",
@@ -791,7 +791,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-ocean-floor-data-center",
-    thumbnail: "/images/hero-watch-brief-ocean-floor-data-center.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-ocean-floor-data-center-16x9.webp",
     title: "The Ocean Floor Data Center: China's Underwater AI Infrastructure Play",
     excerpt: "HiCloud has sunk 2,000 AI computers 35 meters off the coast of Shanghai. Seawater cooling eliminates 40% of power costs. China Telecom is already running live workloads. Microsoft proved the concept and walked away.",
     category: "Watch Brief",
@@ -802,7 +802,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-lyzr-grid-acceleration",
-    thumbnail: "/images/hero-watch-brief-lyzr-grid-acceleration.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-lyzr-grid-acceleration-16x9.webp",
     title: "The AI Fundraise and the Grid That Can't Keep Up: Two Sides of the Same Acceleration",
     excerpt: "A startup just used an AI agent to run a $100M fundraise. Meanwhile, counties are rejecting data centers and grid commissioners are calling the power situation untenable. These are the same story.",
     category: "Watch Brief",
@@ -813,7 +813,7 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-media-factory-runway-dev",
-    thumbnail: "/images/hero-watch-brief-media-factory-runway-dev.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-media-factory-runway-dev-16x9.webp",
     title: "The Media Factory: How Runway Dev Just Handed Enterprise Teams a One-API Creative Department",
     excerpt: "Runway's new developer platform collapses the barrier to enterprise media production into a single API call — and the numbers behind it are staggering.",
     category: "Watch Brief",
@@ -831,7 +831,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-coral-castle-leverage.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-coral-castle-leverage-16x9.webp",
     audioFile: "/audio/watch-brief-coral-castle-leverage.mp3",
   },
   {
@@ -843,7 +843,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-invisible-war-ideological-subversion.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-invisible-war-ideological-subversion-16x9.webp",
     audioFile: "/audio/watch-brief-invisible-war-ideological-subversion.mp3",
   },
   {
@@ -855,7 +855,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-ai-groundwork.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-ai-groundwork-16x9.webp",
     audioFile: "/audio/watch-brief-ai-groundwork.mp3",
   },
   {
@@ -867,7 +867,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-ramageddon-memory-crisis.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-ramageddon-memory-crisis-16x9.webp",
     audioFile: "/audio/watch-brief-ramageddon-memory-crisis.mp3",
   },
   {
@@ -879,7 +879,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-end-of-code-gate.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-end-of-code-gate-16x9.webp",
     audioFile: "/audio/watch-brief-end-of-code-gate.mp3",
   },
   {
@@ -891,7 +891,7 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/hero-watch-brief-moon-launchpad-economy.jpg",
+    thumbnail: "/images/editorial/hero-watch-brief-moon-launchpad-economy-16x9.webp",
     audioFile: "/audio/watch-brief-moon-launchpad-economy.mp3",
   },
 ];

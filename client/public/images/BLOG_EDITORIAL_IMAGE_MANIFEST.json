@@ -1,0 +1,1260 @@
+{
+  "standard": "Beacon Editorial Image Specification",
+  "canvas": [
+    1920,
+    1080
+  ],
+  "ratio": "16:9",
+  "transform": "preserved foreground with blurred source continuation",
+  "background": "#0D1B2A with blurred source continuation",
+  "images": [
+    {
+      "source": "/images/blog-3ai-business-models.png",
+      "derivative": "/images/editorial/blog-3ai-business-models-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "5579d3638091745742e4fc648b207151d2c50a769fe7dd201a4ce3052733fdb3",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-ai-roi-reckoning.jpg",
+      "derivative": "/images/editorial/hero-ai-roi-reckoning-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "e3d5942bc2548e111f70fd9214b721557064359a63b02015b0a7a31365d98f1a",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-ai-tools.jpg",
+      "derivative": "/images/editorial/hero-ai-tools-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "f1c46016aba71bc8b03b24ae9eeef6b657feef3ad097e9374c10088988399ada",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-ai-transition.jpg",
+      "derivative": "/images/editorial/hero-ai-transition-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "76e14aca422098e84e1b91e960f397f23d587a943bc79b937e3671a28ecf56ce",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-automation-first.jpg",
+      "derivative": "/images/editorial/hero-automation-first-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "e40c9c19eaa8c3d84e757082df099caf18db475c0c7acd8775353e26452d68fd",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-beacon-watch-throne-room-architecture.jpg",
+      "derivative": "/images/editorial/hero-beacon-watch-throne-room-architecture-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "a3e6134ec59ce60c468a8a98f4d4784e8cdb513fe4772094577677d47a42166a",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-cycle-of-leverage.jpg",
+      "derivative": "/images/editorial/hero-cycle-of-leverage-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "c3b8721c88b746d4102785db663710e37a5447df5028de49879c1be630eb0e81",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-financial-literacy.jpg",
+      "derivative": "/images/editorial/hero-financial-literacy-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "7ce623ee2213e112f093fc43efe8f4d82bec05bc59d5f26c2e475ce394ec718b",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-five-questions.jpg",
+      "derivative": "/images/editorial/hero-five-questions-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "3a5bb1215e0b992a2a88d5853261bafcb56a556c846c3dd20d6ed63a21119330",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-follow-the-dollar.jpg",
+      "derivative": "/images/editorial/hero-follow-the-dollar-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "c1c0a08b62fddca7596247318082e7d476ab097ae0b75bd8dc23f9b625959ba7",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-founders-framework.jpg",
+      "derivative": "/images/editorial/hero-founders-framework-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "c70b5e0fd57ab4b4086efbebdc26f159788315e3b164d17626b18945ff074b15",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-frontier-models.jpg",
+      "derivative": "/images/editorial/hero-frontier-models-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "6bad4b9dc8e7440de6ae6d94f722d468d89db28cced8faf231380b69c2e7cba4",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-grief-reinvention.jpg",
+      "derivative": "/images/editorial/hero-grief-reinvention-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "67e68eafc608a1190b983d428da9b61321d67f1716f929abb5f8417617d0b312",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-identity-job-loss.jpg",
+      "derivative": "/images/editorial/hero-identity-job-loss-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "4cbe97948375f95cf27918bb1130d83153599b715513ccf9e37ddeceddd0d859",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-intelligence-arbitrage.jpg",
+      "derivative": "/images/editorial/hero-intelligence-arbitrage-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "5c09ee5a9e26a16b93521c47e9fbdd83e430b93a8732ca7616b8fbd2fa06c091",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-leverage-arrived.jpg",
+      "derivative": "/images/editorial/hero-leverage-arrived-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "2dfd9e5700717179a2c6b71966e81544ba74748669b1daed44ff4d8474fce640",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-lia-biolabs.jpg",
+      "derivative": "/images/editorial/hero-lia-biolabs-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "99824fbac8a8854ea27fd4fe85198c8ac9237d0f4ebe01f6b6c7480f69bb2d3c",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-lia-color-revolutions.jpg",
+      "derivative": "/images/editorial/hero-lia-color-revolutions-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "9fd125d24e91c23f62febab4ffe8bc8b1a6e97632a156124777e03407daf8588",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-lia-fed-reindustrialization.jpg",
+      "derivative": "/images/editorial/hero-lia-fed-reindustrialization-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "9c27f036cc12bd7b6fca8d98242854f934edc3f710571aacfc27ee6c5702e7c2",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-lia-gramsci-institutions.jpg",
+      "derivative": "/images/editorial/hero-lia-gramsci-institutions-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "0e1b06d2dd4a8c74796110f3883f30ab2640f9e4a1cda0a0de8aee32702438d1",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-lia-presidential-records.jpg",
+      "derivative": "/images/editorial/hero-lia-presidential-records-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "a700c080fc34effd4ba337fc0e4052bafaa002eda86fbdc0d80bc17f91be4bde",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-meeting-system.jpg",
+      "derivative": "/images/editorial/hero-meeting-system-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "b817677087979133ec01c4bdeca621067cb48606b59d94b87b9d6c609782b79d",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-offer-first.jpg",
+      "derivative": "/images/editorial/hero-offer-first-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "02c7883dc9caf440c9eafc7bda76f2a3299118aac0f247cd67f95e0a12f26722",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-portfolio-career.jpg",
+      "derivative": "/images/editorial/hero-portfolio-career-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "dd4d92d6dd52908d5e7df360506f6bbe75d7e15c4058335271bd86f1dfbf965e",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-pricing-market.jpg",
+      "derivative": "/images/editorial/hero-pricing-market-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "04949a72d0520f87769422ec29c4f3a9d5b48851ac80ea8522323d29acc9564a",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-quiet-cost.jpg",
+      "derivative": "/images/editorial/hero-quiet-cost-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "cfcb9f1f76283f2a5c12000f03e28f9071ea0e4ed0eb76dc3818ff83af13d426",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-recurring-revenue.jpg",
+      "derivative": "/images/editorial/hero-recurring-revenue-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "c255001a6e4a5dbd57057a7721a038cc0d50f4d1babe1778febc9d9c61640000",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-resume-reframe.jpg",
+      "derivative": "/images/editorial/hero-resume-reframe-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "2575722b15b25dc0a35150eda01c33e15d655ec5efb0f470559b86984f7aa99a",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-safe-industry.jpg",
+      "derivative": "/images/editorial/hero-safe-industry-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "d3f734b963bce871d2f789a368a96cdadd3a02a0478d6d7f438ad9dd2cfc3e01",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-solopreneur-freelancer.jpg",
+      "derivative": "/images/editorial/hero-solopreneur-freelancer-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "9c2c3e8de3e08d9ebcf0a3abec756ca142de962af64187cf6574ca94e5897215",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-the-exit-ramp.jpg",
+      "derivative": "/images/editorial/hero-the-exit-ramp-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "1d4ec3a8c6b6d2228bb035d876c4fd10a131026d9ad64b3cb49eee0a15814db8",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-three-numbers.jpg",
+      "derivative": "/images/editorial/hero-three-numbers-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "4332735c5849952a3eac35417ac6fee19cb99570acdab4c126bc9110e7850852",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-05-ghost-particle.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-05-ghost-particle-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "34664215abfe95c3c3496db345a28e8e4a9b0803fe624ade8a1360a74c65bcb6",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-06-maya-collapse.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-06-maya-collapse-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "934bfa6913e42c73d6a60ff7cba4f4f222e0022d9aca3acda336860efc8a1636",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-07-voynich-manuscript.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-07-voynich-manuscript-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "165ee68c45804d6fda2e7c7ce94a4051c8814b6a4d4dae04ad5909bb6f3a7e36",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-08-claude-fable-5.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-08-claude-fable-5-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "ee870db510f773b1b7aeda1d838346456a13020611f7675bb4f3d19454d78397",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-09-ai-arms-race.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-09-ai-arms-race-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "20acc0fa82769a9142ddc29d1178d2a155ad3eef5955d8fc46848d54c657f7f9",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-2d-materials.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-2d-materials-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "37a3ee29a87f83992dc01839fe34adef1314f15fc09bcdc6461de3a8054c8b74",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-ai-groundwork.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-ai-groundwork-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "da58691c75198b63c49b0c1970161fa93e02bcae205d27975c8d4f5367cc4a79",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-ai-reasoning-faithfulness.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-ai-reasoning-faithfulness-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "dcece3d9b838770262e4a9e0874788c624d24806b7c2ffd63bd316f86ac95a43",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-ai-safety-report-card.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-ai-safety-report-card-16x9.webp",
+      "source_dimensions": [
+        1664,
+        2080
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "e1a81fc45227e2b7af352165489b3d4b0844d8378d2e0f1f50341bb281ad4085",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-browser-privacy.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-browser-privacy-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "59e13be6af055f37441ea64d084b2c6f5c4ea85dedc39346653cfc1b10e0e1eb",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-chatgpt-ad-floor.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-chatgpt-ad-floor-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "efac9f8cb5e8ce8632309ebc24a02b8544537a19a23ddd57f8b4a3e2c974147c",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-china-flying-car.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-china-flying-car-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "f25d33b814671378d29a092f9ba4cec5c505593cf8ba6612f18300d05c9307d5",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-coding-agent-shakeout.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-coding-agent-shakeout-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "6a6756ba684cb045e225c6a2662e9a2fb21cd2f87fe2ea3c2eaecfeb7555486a",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-confabulation-problem-part-two.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-confabulation-problem-part-two-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "fbf2ec389d8826f5e8f370ce6dadc2bc0a0326eca9b1ad1f73a3885b9c73c19e",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-coral-castle-leverage.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-coral-castle-leverage-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "deacfc61bc151f1d05fed50b49d4170bd8f69c5990e14a25ad7f2802d3844181",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-cream-5-pro.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-cream-5-pro-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "997e85318ac9850549bd3eaa52ccdda6a422370280aca1e109cd9dc2e52340a1",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-digital-landlord.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-digital-landlord-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "fdd5f6636ae1c2115ebf3d48381a77ff5778e126ccd30cb2642a974649bc0efa",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-end-of-code-gate.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-end-of-code-gate-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "bfb0ea1851dd4e9417ceed5e65541c9d821da1f52dcbb2a8a6f15799e1c15b9e",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-gemini-10m-tokens.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-gemini-10m-tokens-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "432f0eee7d9b694a1264c75dbd2c28c10e70e83eaa0bdc337bb88100610e615c",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-gemini-5.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-gemini-5-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "c6f0d351f1266bb7c2e06f2837c67422153b934aefb53b9df7b03816d4471cb9",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-gpt-5-6-persistence.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-gpt-5-6-persistence-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "151eda8530ae036e218f6b9387f3dec0da8ed4a06f5dcaac9391ef2834e881b3",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-grok-accountability-gap.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-grok-accountability-gap-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "e45c97031fdbaf6131b6ae61a3c385ba35e53fe19d9ed077361586ed7feae5e6",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-grok-china-ai-race.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-grok-china-ai-race-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "70b884db543e82828e992174b8e6757d04237a2910c9a0cbc99e5951239746f7",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-higgsfield-gemini-omni.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-higgsfield-gemini-omni-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "e7ad290ea89f68ff99fc4ac3a6b3b7b391c9b975d2f94594e58f5d0f6041c01f",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-huggingface-breach.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-huggingface-breach-16x9.webp",
+      "source_dimensions": [
+        1664,
+        2080
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "e5a36da06246f42c50b0f0258d489abef7b061d87f3fee030b3b5bf9c7d9c7ee",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-invisible-war-ideological-subversion.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-invisible-war-ideological-subversion-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "d43269aeeb9215c4d927796c3981452673369eabb100394398fbd2a83499bf2d",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-lyzr-grid-acceleration.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-lyzr-grid-acceleration-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "44a049e20d3e2b470d7e4f193eaf87d40782c50bc0ae1fc23b6b8b7766676434",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-media-factory-runway-dev.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-media-factory-runway-dev-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "bc5f49a459ce64f3d6aaa4065509f73a94080dfc0accdc0699996cc9d5db27bc",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-moon-launchpad-economy.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-moon-launchpad-economy-16x9.webp",
+      "source_dimensions": [
+        1730,
+        909
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "cc974877bcbbdc494a9440f7e7f8c2626bfe5f09f9ebeab43634fc9dba038a2b",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-nine-to-zero-redistricting.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-nine-to-zero-redistricting-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "16f24178bf536a3f1572afe5f6da63c28f1a6f978cb85f523092ef1bd21251db",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-ocean-floor-data-center.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-ocean-floor-data-center-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "02b0f13431d45770ee8242cc4ba06a2bdaa79c39a2b392af2a1531a0ef75626d",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-open-weight-wildcard-minimax.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-open-weight-wildcard-minimax-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "22cd24e1ae8f5d346cd5849190cd96985f050c3d028dcd3e5ab03e7737119590",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-ramageddon-memory-crisis.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-ramageddon-memory-crisis-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "5d4873f210b81e52d3310f3701301174c370c57fd7cc95ffa4cb688e3b65fe3e",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-tesla-semi.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-tesla-semi-16x9.webp",
+      "source_dimensions": [
+        1664,
+        2080
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "e1a81fc45227e2b7af352165489b3d4b0844d8378d2e0f1f50341bb281ad4085",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-throne-room-algorithm.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-throne-room-algorithm-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "0bd1764ff803f7d12d92f9181cfac5bbaee663c275607eda3d577ab59a8ced72",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-brief-windows-11-local-accounts.jpg",
+      "derivative": "/images/editorial/hero-watch-brief-windows-11-local-accounts-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "59aab72c9929eff12789d9e3e8c9627873303c6aa19f68389073073f49b6c549",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-elon-premium.jpg",
+      "derivative": "/images/editorial/hero-watch-elon-premium-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "9e101ff195e7e064c1bdcc1fed0bf67bb61beaa0cbb6dc9c19686a61c2757b65",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-linkedin-security.jpg",
+      "derivative": "/images/editorial/hero-watch-linkedin-security-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "a51bfacdd60e400260e5d8e338d02c8a814f9cf5232d7c0a59c0087d6a3935a5",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-open-source-ai.jpg",
+      "derivative": "/images/editorial/hero-watch-open-source-ai-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "477ddc6a0f7a3b760f1ae0619c36895697ebbc757a12305ea8d7596e84dee655",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-quantum-readout.jpg",
+      "derivative": "/images/editorial/hero-watch-quantum-readout-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "6e8035b0ddd2ff5de1dddfe760264e31a97dbbfd02e0e4e6eb68aa40cb3b60c7",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-watch-wall-is-real.jpg",
+      "derivative": "/images/editorial/hero-watch-wall-is-real-16x9.webp",
+      "source_dimensions": [
+        1200,
+        630
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "71a9adab8fcbefbd867ac0a868b7ccd479340abe6217f6b6a111229c2fcff002",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-wisdom-information.jpg",
+      "derivative": "/images/editorial/hero-wisdom-information-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "98a9b7c1e7ece59ba7d9f049753befb040858e9f8a6de423759820512f062ba9",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/hero-zero-to-one.jpg",
+      "derivative": "/images/editorial/hero-zero-to-one-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "1aebb6f816539667ff91f71954053e8008406c9f9488a2beae183985895d2580",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/owned/beacon-about-hero.png",
+      "derivative": "/images/editorial/beacon-about-hero-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "bdb217b479d78da4e49bc5d337b637f90a86c3ffc6a0be6b641270d36484733b",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/signal-consolidation-power.jpg",
+      "derivative": "/images/editorial/signal-consolidation-power-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "dfc13b1b9640387c7c6cb314a235e991b5f9fb1fd85865d070f72f2bbb35c297",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    },
+    {
+      "source": "/images/watch-palantir-hero.jpg",
+      "derivative": "/images/editorial/watch-palantir-hero-16x9.webp",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "derivative_dimensions": [
+        1920,
+        1080
+      ],
+      "source_sha256": "f4107c916ea1ab78ae89c6135c929ec431ea32cf1ae8acb58547581dbab0eadb",
+      "transform": "preserved foreground with blurred source continuation",
+      "background": "#0D1B2A with blurred source continuation",
+      "ratio": "16:9"
+    }
+  ]
+}

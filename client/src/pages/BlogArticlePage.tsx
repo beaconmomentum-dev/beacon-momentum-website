@@ -38,7 +38,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min read",
     pillar: "Systems",
     pillarColor: "#3D5A80",
-    heroImage: "/images/blog-3ai-business-models.png",
+    heroImage: "/images/editorial/blog-3ai-business-models-16x9.webp",
     audioSrc: "/audio/blog-3ai-business-models.mp3",
     excerpt: "There is a massive difference between launching a page and launching a legacy. The real opportunity is not in the tools \u2014 it is in the system.",
     body: `
@@ -196,7 +196,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "founders-framework-america-250",
-    heroImage: "/images/hero-founders-framework.jpg",
+    heroImage: "/images/editorial/hero-founders-framework-16x9.webp",
     audioSrc: "/audio/signal-founders-framework.mp3?v=1",
     title: "The Founders\u2019 Framework: What Jefferson\u2019s Four Words Mean for Every Builder in 2026",
     excerpt:
@@ -296,7 +296,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "cycle-of-leverage",
-    heroImage: "/images/hero-cycle-of-leverage.jpg",
+    heroImage: "/images/editorial/hero-cycle-of-leverage-16x9.webp",
     audioSrc: "/audio/signal-cycle-of-leverage.mp3?v=1",
     title: "The Signal: The Cycle of Leverage",
     excerpt:
@@ -385,7 +385,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "consolidation-of-power",
-    heroImage: "/images/signal-consolidation-power.jpg",
+    heroImage: "/images/editorial/signal-consolidation-power-16x9.webp",
     audioSrc: "/audio/signal-consolidation-power.mp3",
     title: "The Signal: The Consolidation of Power",
     excerpt:
@@ -442,7 +442,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "palantir-ai-surveillance-watch",
-    heroImage: "/images/watch-palantir-hero.jpg",
+    heroImage: "/images/editorial/watch-palantir-hero-16x9.webp",
     audioSrc: "/audio/signal-palantir-ai-surveillance.mp3?v=1",
     title: "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
     excerpt:
@@ -547,7 +547,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "the-intelligence-arbitrage",
-    heroImage: "/images/owned/beacon-about-hero.png",
+    heroImage: "/images/editorial/beacon-about-hero-16x9.webp",
     audioSrc: "/audio/watch-brief-04-the-intelligence-arbitrage.mp3?v=2",
     title: "The Intelligence Arbitrage: Who Wins When the Price of Thinking Collapses",
     excerpt:
@@ -599,7 +599,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "the-leverage-has-arrived",
-    heroImage: "/images/owned/beacon-about-hero.png",
+    heroImage: "/images/editorial/beacon-about-hero-16x9.webp",
     audioSrc: "/audio/watch-brief-03-the-leverage-has-arrived.mp3?v=2",
     title: "The Leverage Has Arrived: The Old World Is Ending and the New One Does Not Require Permission",
     excerpt:
@@ -639,7 +639,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "ai-roi-reckoning",
-    heroImage: "/images/owned/beacon-about-hero.png",
+    heroImage: "/images/editorial/beacon-about-hero-16x9.webp",
     audioSrc: "/audio/watch-brief-02-ai-roi-reckoning.mp3?v=2",
     title: "The AI ROI Reckoning: 95% of Enterprise Projects Failed — Here Is What Actually Works",
     excerpt:
@@ -720,7 +720,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
   },
   {
     id: "frontier-models-in-motion",
-    heroImage: "/images/owned/beacon-about-hero.png",
+    heroImage: "/images/editorial/beacon-about-hero-16x9.webp",
     audioSrc: "/audio/watch-brief-01-frontier-models-in-motion.mp3?v=3",
     title: "Frontier Models in Motion: The Export Ban, Multi-Agent Teams, and the Race After AI",
     excerpt:
@@ -1134,7 +1134,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#2A7F6F",
     readTime: "7 min",
     date: "Jan 2026",
-    heroImage: "/images/hero-quiet-cost.jpg",
+    heroImage: "/images/editorial/hero-quiet-cost-16x9.webp",
     body: `
       <p class="beacon-article-lede">The hardest part of surviving chaos is learning how to turn off the alarm system when the fire is out. For the veteran, the operator, and anyone who has rebuilt their life from zero, hyper-vigilance is not a character flaw. It is the tool that kept you alive. But if you do not build rest into your architecture, your vigilance will become the thing that destroys you.</p>
 
@@ -1168,7 +1168,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#2A7F6F",
     readTime: "8 min",
     date: "Feb 2026",
-    heroImage: "/images/hero-grief-reinvention.jpg",
+    heroImage: "/images/editorial/hero-grief-reinvention-16x9.webp",
     body: `
       <p class="beacon-article-lede">Starting over is rarely framed correctly. The culture treats reinvention as a triumphant montage of late nights and early mornings. The reality is much darker. Starting over is not a business strategy. It is a grieving process for the life you thought you were going to have.</p>
 
@@ -1202,7 +1202,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#1A5C6B",
     readTime: "6 min",
     date: "Jan 2026",
-    heroImage: "/images/hero-meeting-system.jpg",
+    heroImage: "/images/editorial/hero-meeting-system-16x9.webp",
     body: `
       <p class="beacon-article-lede">Every recurring meeting on your calendar is a failure of system design. If you are having the same conversation every week, reviewing the same metrics, and answering the same questions, you are not managing a business. You are managing a symptom instead of curing the disease.</p>
 
@@ -1234,7 +1234,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#1A5C6B",
     readTime: "9 min",
     date: "Feb 2026",
-    heroImage: "/images/hero-pricing-market.jpg",
+    heroImage: "/images/editorial/hero-pricing-market-16x9.webp",
     body: `
       <p class="beacon-article-lede">The hourly rate is dead. For a century, the standard contract between labor and capital was an exchange of time for money. When artificial intelligence can execute a complex task in seconds, charging for your time is a race to the bottom. You must learn to price the outcome instead of the effort.</p>
 
@@ -1268,7 +1268,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#1A5C6B",
     readTime: "8 min",
     date: "Apr 2026",
-    heroImage: "/images/hero-portfolio-career.jpg",
+    heroImage: "/images/editorial/hero-portfolio-career-16x9.webp",
     body: `
       <p class="beacon-article-lede">Relying on a single employer for 100% of your income is the highest-risk strategy in the modern economy. The corporate structure was designed to protect the institution, not the operator. When the market turns, the institution will jettison you without hesitation. The portfolio career is the only rational response to systemic instability.</p>
 
@@ -1296,7 +1296,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#7C4F2A",
     readTime: "7 min",
     date: "Jan 2026",
-    heroImage: "/images/hero-zero-to-one.jpg",
+    heroImage: "/images/editorial/hero-zero-to-one-16x9.webp",
     body: `
       <p class="beacon-article-lede">The gap between having an idea and making your first dollar is where 90% of ventures die. It is rarely a failure of the product, the market, or the timing. It is almost always a failure of courage masked as a need for more preparation.</p>
 
@@ -1328,7 +1328,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#7C4F2A",
     readTime: "6 min",
     date: "Feb 2026",
-    heroImage: "/images/hero-offer-first.jpg",
+    heroImage: "/images/editorial/hero-offer-first-16x9.webp",
     body: `
       <p class="beacon-article-lede">A brand without an offer is just a very expensive art project. If you cannot articulate exactly what you are selling, who you are selling it to, and what specific transformation it provides, no amount of marketing, design, or social media presence will save you.</p>
 
@@ -1356,7 +1356,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#7C4F2A",
     readTime: "8 min",
     date: "Mar 2026",
-    heroImage: "/images/hero-recurring-revenue.jpg",
+    heroImage: "/images/editorial/hero-recurring-revenue-16x9.webp",
     body: `
       <p class="beacon-article-lede">If you start every month at zero, you do not own a business; you own a high-stress job. The cycle of hunting for clients, delivering the work, and then hunting again is exhausting and ultimately unsustainable. The transition from project revenue to recurring revenue is the transition from survival to sovereignty.</p>
 
@@ -1384,7 +1384,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#B8860B",
     readTime: "9 min",
     date: "Jan 2026",
-    heroImage: "/images/hero-three-numbers.jpg",
+    heroImage: "/images/editorial/hero-three-numbers-16x9.webp",
     body: `
       <p class="beacon-article-lede">Financial literacy is not about picking stocks or understanding complex derivatives. It is about understanding the mechanics of your own survival. If you do not know your net worth, your burn rate, and your runway, you are flying blind in a storm. These are the three numbers that dictate your autonomy.</p>
 
@@ -1416,7 +1416,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#1A5C6B",
     readTime: "7 min",
     date: "Mar 2026",
-    heroImage: "/images/hero-safe-industry.jpg",
+    heroImage: "/images/editorial/hero-safe-industry-16x9.webp",
     body: `
       <p class="beacon-article-lede">There are no safe industries left. For decades, the conventional wisdom was to seek shelter in law, medicine, accounting, or government. The belief was that these sectors were immune to disruption. The AI transition is proving that assumption fatally wrong. It is sector-agnostic.</p>
 
@@ -1448,7 +1448,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#3D5A80",
     readTime: "10 min",
     date: "Feb 2026",
-    heroImage: "/images/hero-lia-biolabs.jpg",
+    heroImage: "/images/editorial/hero-lia-biolabs-16x9.webp",
     audioSrc: "/audio/signal-lia-biolabs.mp3",
     body: `
       <p>A major narrative circulating in political media claims the U.S. government secretly exported banned gain-of-function research to overseas biolabs, including facilities in Ukraine and Wuhan. We verified the claims, separated documented policy from disinformation, and built a practical guide for understanding the intersection of global health and national security.</p>
@@ -1501,7 +1501,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#B8860B",
     readTime: "9 min",
     date: "Mar 2026",
-    heroImage: "/images/hero-lia-fed-reindustrialization.jpg",
+    heroImage: "/images/editorial/hero-lia-fed-reindustrialization-16x9.webp",
     audioSrc: "/audio/signal-lia-fed-reindustrialization.mp3",
     body: `
       <p>A significant shift in U.S. economic policy is underway, with claims that the new Federal Reserve leadership is abandoning long-held doctrines in favor of aggressive domestic reindustrialization. We verified the claims, separated economic fact from political framing, and built a practical guide for positioning your business in this new environment.</p>
@@ -1551,7 +1551,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#2A7F6F",
     readTime: "9 min",
     date: "Apr 2026",
-    heroImage: "/images/hero-lia-color-revolutions.jpg",
+    heroImage: "/images/editorial/hero-lia-color-revolutions-16x9.webp",
     audioSrc: "/audio/signal-lia-color-revolutions.mp3",
     body: `
       <p>Recent political commentary has heavily focused on the mechanics of “color revolutions,” alleging that domestic political movements are utilizing tactics historically funded by U.S. agencies abroad. We verified the claims, separated historical fact from speculative projection, and built a practical guide for maintaining cognitive independence during manufactured crises.</p>
@@ -1598,7 +1598,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#2A7F6F",
     readTime: "10 min",
     date: "May 2026",
-    heroImage: "/images/hero-lia-gramsci-institutions.jpg",
+    heroImage: "/images/editorial/hero-lia-gramsci-institutions-16x9.webp",
     audioSrc: "/audio/signal-lia-gramsci-institutions.mp3",
     body: `
       <p>A recurring narrative in cultural analysis focuses on the ideological roots of modern political movements, specifically linking the Democratic Socialists of America to the theories of Italian Marxist Antonio Gramsci. We verified the claims, separated ideological history from conspiracy, and built a practical guide for understanding cultural leverage.</p>
@@ -1645,7 +1645,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#3D5A80",
     readTime: "8 min",
     date: "Jun 2026",
-    heroImage: "/images/hero-lia-presidential-records.jpg",
+    heroImage: "/images/editorial/hero-lia-presidential-records-16x9.webp",
     audioSrc: "/audio/signal-lia-presidential-records.mp3",
     body: `
       <p>The management of presidential records has become a flashpoint for political conflict, with claims centering on the Obama Presidential Center’s structure and the National Archives’ role in recent investigations. We verified the claims, separated legal framework from political narrative, and built a practical guide for understanding how historical memory is controlled.</p>
@@ -1694,7 +1694,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    heroImage: "/images/hero-watch-open-source-ai.jpg",
+    heroImage: "/images/editorial/hero-watch-open-source-ai-16x9.webp",
     body: `
       <p>The walls only contain the people already inside them.</p>
       <p>That is the single most important lesson from the latest shift in global artificial intelligence, and it is a lesson every builder needs to internalize right now.</p>
@@ -1720,7 +1720,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#5C3D8F",
     readTime: "6 min",
     date: "Jul 2026",
-    heroImage: "/images/hero-watch-elon-premium.jpg",
+    heroImage: "/images/editorial/hero-watch-elon-premium-16x9.webp",
     body: `
       <p>On June 12th, 2026, Elon Musk became the first human being to be worth more than a trillion dollars, driven by the record-breaking SpaceX IPO. Twelve days later, after a market correction, he lost the title.</p>
       <p>The number is not the story. The story is the engine that built the number.</p>
@@ -1750,7 +1750,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#2A7F6F",
     readTime: "5 min",
     date: "Jul 2026",
-    heroImage: "/images/hero-watch-linkedin-security.jpg",
+    heroImage: "/images/editorial/hero-watch-linkedin-security-16x9.webp",
     body: `
       <p>Transparency is a requirement for building a brand in the modern economy. It is also a vulnerability.</p>
       <p>A recent joint advisory from the Five Eyes intelligence alliance confirmed a pattern that security professionals have warned about for years: Chinese military intelligence is using platforms like LinkedIn, Indeed, and Upwork to recruit targets.</p>
@@ -1778,7 +1778,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    heroImage: "/images/hero-watch-quantum-readout.jpg",
+    heroImage: "/images/editorial/hero-watch-quantum-readout-16x9.webp",
     body: `
       <p>The bottleneck is rarely the tool itself. Almost always, the bottleneck is your ability to read the output.</p>
       <p>First Movers Labs recently highlighted a breakthrough out of Stanford University that perfectly illustrates this principle. For years, the quantum computing industry has been racing to add more qubits. But they hit a wall around 6,000 qubits. The problem was not that they couldn't build more; the problem was that they couldn't measure them fast enough without the system collapsing.</p>
@@ -1803,7 +1803,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "8 min",
     date: "Jul 2026",
     featured: true,
-    heroImage: "/images/hero-watch-wall-is-real.jpg",
+    heroImage: "/images/editorial/hero-watch-wall-is-real-16x9.webp",
     audioSrc: "/audio/watch-wall-is-real.mp3",
     body: `
       <p>The era of shipping your best model and seeing what happens ended on June 12th, 2026. One lab learned that lesson, came back changed, and is now permanently inside a relationship with Washington it did not choose. Another lab is still running toward the same wall at full speed, marketing AGI before it ships, with no regulatory clearance and near-zero enterprise trust.</p>
@@ -2567,7 +2567,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min read",
     pillar: "signal",
     pillarColor: "#1a3a5c",
-    heroImage: "/images/hero-watch-brief-ai-safety-report-card.jpg",
+    heroImage: "/images/editorial/hero-watch-brief-ai-safety-report-card-16x9.webp",
     body: `
       <h2>The Best AI Lab in the World Just Got a C+. Here Is What That Means for You.</h2>
       <p>The Future of Life Institute released its 2026 AI Safety Index this week. It grades every major AI laboratory on safety practices — not on how powerful their models are, but on whether those labs have the governance, transparency, and oversight structures in place to keep those models from becoming a liability.</p>
@@ -2597,7 +2597,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "6 min read",
     pillar: "signal",
     pillarColor: "#1a3a5c",
-    heroImage: "/images/hero-watch-brief-huggingface-breach.jpg",
+    heroImage: "/images/editorial/hero-watch-brief-huggingface-breach-16x9.webp",
     body: `
       <h2>An AI Hacked One of the World\u2019s Largest AI Platforms \u2014 and the Defenders Got Blocked by Their Own Tools</h2>
       <p>On July 16, 2026, Hugging Face — the single largest repository of open AI models on the internet, hosting over 45,000 models and used by more than 50,000 organizations — disclosed a breach of its production infrastructure. The attacker was not a person. It was an autonomous AI agent system that executed the entire operation from initial access to lateral movement across internal clusters, running tens of thousands of individual actions across a swarm of self-migrating, short-lived sandboxes. No human was at the keyboard directing each step. The agent ran over a weekend — deliberately, because that is when monitoring dashboards go quiet — and it never needed to sleep.</p>
@@ -2624,7 +2624,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     category: "Watch Brief",
     pillar: "signal",
     pillarColor: "#1a3a5c",
-    heroImage: "/images/hero-watch-brief-tesla-semi.jpg",
+    heroImage: "/images/editorial/hero-watch-brief-tesla-semi-16x9.webp",
     body: `
       <p class="beacon-article-lead">There is a number embedded in the price of almost everything you buy. It is not the cost of the product itself, the labor to make it, or the margin the retailer takes. It is the cost of moving the product — from factory to warehouse to store shelf to your door. That number is called <strong>cost per mile</strong>, and for the last hundred years it has been owned by diesel.</p>
       <p>Not because diesel is particularly elegant or efficient, but because it was cheap enough and reliable enough that nothing on the planet could compete with it. In April 2026, at a factory in Nevada, that changed.</p>

@@ -41,3 +41,11 @@ The GitHub deployment for commit `487a062` completed successfully through Beacon
 ## Approved future-filing image rule
 
 All future Beacon editorial filings use a **1920 × 1080 (16:9) master** and the shared `BEACON_EDITORIAL_IMAGE_ASPECT_RATIO` card frame. Essential copy and marks remain inside the 10% safe zone, exports use an sRGB WebP delivery file, and each record includes source provenance, alt text, rights/credit, a named owner, and human approval. The complete production standard is in `BEACON_EDITORIAL_IMAGE_SPECIFICATION.md`.
+
+## Existing-library standardization
+
+All **78** image references found across the current blog index and article records now resolve to generated 1920 × 1080 WebP derivatives in `client/public/images/editorial/`. The `BLOG_EDITORIAL_IMAGE_MANIFEST.json` file preserves each source path, original dimensions, source checksum, derivative path, and the non-cropping transform used. Portrait and near-square artwork retains its complete foreground design over a subdued blurred continuation of the same source, rather than being cropped or left against empty side bands. Representative visual review confirmed the treatment preserves headline and source-mark legibility.
+
+## Standardized-library route review
+
+The local `/blog` index presents full-composition 16:9 featured artwork without any detached playback control. The local `/blog/watch-brief-huggingface-breach` article confirms that a portrait-origin filing displays its standard 16:9 derivative below the header without cropped headline art. This article has no narration source, so no listen control is rendered. Earlier audio-bearing route checks confirm that the same shared policy renders **LISTEN** only on the owning article page.
