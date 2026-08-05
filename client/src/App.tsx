@@ -36,6 +36,9 @@ import HowBeaconWorksPage from "@/pages/HowBeaconWorksPage";
 import FoundationYearPage from "@/pages/FoundationYearPage";
 import FoundationSupportPage from "@/pages/FoundationSupportPage";
 import FoundationSupportThankYouPage from "@/pages/FoundationSupportThankYouPage";
+import FiveQuestionsFieldNotePage from "@/pages/FiveQuestionsFieldNotePage";
+import ControlledAIWorkflowKitPage from "@/pages/ControlledAIWorkflowKitPage";
+import ControlledWorkflowPilotsPage from "@/pages/ControlledWorkflowPilotsPage";
 
 function Router() {
   return (
@@ -62,7 +65,10 @@ function Router() {
       <Route path="/foundation" component={FoundationYearPage} />
       <Route path="/foundation/support" component={FoundationSupportPage} />
       <Route path="/foundation/thank-you" component={FoundationSupportThankYouPage} />
+      <Route path="/field-notes/five-questions-keep-you-in-charge" component={FiveQuestionsFieldNotePage} />
       <Route path="/the-watch" component={TheWatchPage} />
+      <Route path="/the-watch/controlled-ai-workflow-kit" component={ControlledAIWorkflowKitPage} />
+      <Route path="/the-watch/controlled-workflow-pilots" component={ControlledWorkflowPilotsPage} />
       <Route path="/the-watch/checkout" component={TheWatchCheckoutPage} />
       <Route path="/the-watch/confirmation" component={TheWatchConfirmationPage} />
       <Route path="/_ops/the-watch/test-checkout" component={TheWatchTestCheckoutPage} />

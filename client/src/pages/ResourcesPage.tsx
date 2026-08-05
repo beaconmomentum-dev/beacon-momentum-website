@@ -6,7 +6,7 @@
 
 import type { CSSProperties } from "react";
 import { Link } from "wouter";
-import { ArrowUpRight, BookOpen, Compass, FileText, FlaskConical, Landmark, Video } from "lucide-react";
+import { ArrowUpRight, BookOpen, Compass, FileText, FlaskConical, Landmark, ShieldCheck, Video } from "lucide-react";
 import SharedFooter from "@/components/SharedFooter";
 import SharedNav from "@/components/SharedNav";
 
@@ -34,6 +34,17 @@ const RESOURCES = [
     external: false,
     color: "#1A5C6B",
     bg: "#F0F7FA",
+  },
+  {
+    icon: ShieldCheck,
+    category: "Public Field Note",
+    title: "Five Questions That Keep You in Charge",
+    description: "A practical five-question control check for anyone giving an AI workflow access to meaningful work.",
+    cta: "Read the field note",
+    href: "/field-notes/five-questions-keep-you-in-charge",
+    external: false,
+    color: "#285F61",
+    bg: "#EEF6F4",
   },
   {
     icon: Landmark,
