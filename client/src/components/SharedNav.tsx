@@ -47,6 +47,7 @@ export default function SharedNav({ dark = false }: SharedNavProps) {
     { label: "The Watch", href: "/the-watch" },
     { label: "Assessment", href: "/assessment" },
     { label: "Resources", href: "/resources" },
+    { label: "How Beacon Works", href: "/how-beacon-works" },
     { label: "The Signal", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
     { label: "About", href: "/about" },

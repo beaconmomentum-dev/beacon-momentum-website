@@ -32,6 +32,10 @@ import TheWatchTestConfirmationPage from "@/pages/TheWatchTestConfirmationPage";
 import TheWatchIntakePage from "@/pages/TheWatchIntakePage";
 import CohortDashboardPage from "@/pages/CohortDashboardPage";
 import WatchBriefPremiumPage from "@/pages/WatchBriefPremiumPage";
+import HowBeaconWorksPage from "@/pages/HowBeaconWorksPage";
+import FoundationYearPage from "@/pages/FoundationYearPage";
+import FoundationSupportPage from "@/pages/FoundationSupportPage";
+import FoundationSupportThankYouPage from "@/pages/FoundationSupportThankYouPage";
 
 function Router() {
   return (
@@ -54,6 +58,10 @@ function Router() {
       <Route path="/blog" component={BlogPage} />
       <Route path="/blog/:slug" component={BlogArticlePage} />
       <Route path="/watch-brief-premium" component={WatchBriefPremiumPage} />
+      <Route path="/how-beacon-works" component={HowBeaconWorksPage} />
+      <Route path="/foundation" component={FoundationYearPage} />
+      <Route path="/foundation/support" component={FoundationSupportPage} />
+      <Route path="/foundation/thank-you" component={FoundationSupportThankYouPage} />
       <Route path="/the-watch" component={TheWatchPage} />
       <Route path="/the-watch/checkout" component={TheWatchCheckoutPage} />
       <Route path="/the-watch/confirmation" component={TheWatchConfirmationPage} />

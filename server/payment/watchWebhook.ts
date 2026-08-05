@@ -12,6 +12,7 @@ import { ENV } from "../_core/env";
 import { type WatchBillingMode, updateWatchEnrollmentStatus, upsertWatchEnrollment } from "../db";
 
 const OFFERING_KEY = "the_watch_founding_year_2026";
+const FOUNDATION_SUPPORT_OFFERING_KEY = "foundation_year_voluntary_support_2026";
 
 function stripeObjectId(value: string | { id: string } | null | undefined): string | null {
   if (!value) return null;
@@ -61,6 +62,19 @@ function logWatchBillingEvent(event: Stripe.Event, billingMode: WatchBillingMode
       eventType: event.type,
       objectId: object.id ?? null,
       status: object.status ?? null,
+      createdAt: new Date(event.created * 1000).toISOString(),
+    })
+  );
+}
+
+function logFoundationSupportEvent(event: Stripe.Event, paymentIntent: Stripe.PaymentIntent) {
+  console.info(
+    JSON.stringify({
+      system: "foundation-year-stripe",
+      eventId: event.id,
+      eventType: event.type,
+      paymentIntentId: paymentIntent.id,
+      status: paymentIntent.status,
       createdAt: new Date(event.created * 1000).toISOString(),
     })
   );
@@ -143,6 +157,13 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
           if (!isWatchSubscription(subscription, config.priceId)) break;
           await updateWatchEnrollmentStatus(subscription.id, mapSubscriptionStatus(subscription.status), getRenewsAt(subscription));
           logWatchBillingEvent(event, config.billingMode);
+          break;
+        }
+        case "payment_intent.succeeded":
+        case "payment_intent.payment_failed": {
+          const paymentIntent = event.data.object as Stripe.PaymentIntent;
+          if (paymentIntent.metadata.beacon_offering !== FOUNDATION_SUPPORT_OFFERING_KEY) break;
+          logFoundationSupportEvent(event, paymentIntent);
           break;
         }
         default:

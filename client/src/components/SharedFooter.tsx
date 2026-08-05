@@ -22,6 +22,8 @@ export default function SharedFooter() {
   const RESOURCES = [
     { label: "Pathfinder Assessment", href: "/assessment" },
     { label: "Resources & Guides", href: "/resources" },
+    { label: "How Beacon Works", href: "/how-beacon-works" },
+    { label: "Foundation Year", href: "/foundation" },
     { label: "The Signal", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
     { label: "Signal Check", href: "https://beaconlabs.ai/signal-check", external: true },

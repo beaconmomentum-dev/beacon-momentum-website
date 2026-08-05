@@ -14,10 +14,10 @@ import SharedFooter from "@/components/SharedFooter";
 interface ArticleContent {
   id: string;
   title: string;
-  excerpt: string;
+  excerpt?: string;
   pillar: string;
-  pillarColor: string;
-  readTime: string;
+  pillarColor?: string;
+  readTime?: string;
   date: string;
   featured?: boolean;
   heroImage?: string; // optional hero image shown below the article header
@@ -2756,7 +2756,7 @@ export default function BlogArticlePage() {
             <ArrowLeft size={14} /> Back to The Signal
           </Link>
         </div>
-        <SharedFooter dark />
+        <SharedFooter />
       </div>
     );
   }
@@ -2799,7 +2799,7 @@ export default function BlogArticlePage() {
 
           {/* Pillar badge */}
           <div style={{ marginBottom: "1.25rem" }}>
-            <PillarBadge pillar={article.pillar} color={article.pillarColor} />
+            <PillarBadge pillar={article.pillar} color={article.pillarColor ?? "#1A5C6B"} />
           </div>
 
           {/* Title */}
@@ -3168,7 +3168,7 @@ export default function BlogArticlePage() {
         </div>
       </main>
 
-      <SharedFooter dark />
+      <SharedFooter />
     </div>
   );
 }

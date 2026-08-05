@@ -23,10 +23,10 @@ interface Article {
   id: string;
   title: string;
   excerpt: string;
-  pillar: Pillar;
-  pillarColor: string;
+  pillar: string;
+  pillarColor?: string;
   readTime: string;
-  date: string;
+  date?: string;
   featured?: boolean;
   thumbnail?: string; // Optional card thumbnail for The Signal index
   audioSrc?: string; // Optional audio file for Watch Brief audio player
@@ -1027,7 +1027,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         cursor: "pointer",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = article.pillarColor;
+        e.currentTarget.style.borderColor = article.pillarColor ?? "var(--beacon-teal)";
         e.currentTarget.style.boxShadow = `0 4px 24px rgba(0,0,0,0.06)`;
       }}
       onMouseLeave={(e) => {

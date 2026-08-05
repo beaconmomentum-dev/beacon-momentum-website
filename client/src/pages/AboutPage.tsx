@@ -213,7 +213,7 @@ export default function AboutPage() {
       {/* ── 4. WHO WE SERVE ─────────────────────────────────────────────────── */}
       <section style={{ padding: "6rem 0", background: "#F5F1EA" }}>
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "4rem", maxWidth: "600px", marginX: "auto" }}>
+          <div style={{ textAlign: "center", margin: "0 auto 4rem", maxWidth: "600px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
               <span style={{ width: "2rem", height: "1px", background: teal, display: "inline-block" }} />
               <span style={{ fontFamily: sans, fontWeight: 400, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: teal }}>The Community</span>
