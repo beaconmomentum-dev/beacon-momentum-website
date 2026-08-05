@@ -28,3 +28,9 @@ The article route and each current contextual destination returned HTTP 200 on t
 | `/the-watch` | 200 |
 
 The article component now uses the existing `usePageMeta` helper to update page title, description, canonical URL, Open Graph, and Twitter metadata at runtime. The source article’s responsive pathway layout uses wrapping flex content and an accessible text link; it preserves the editorial-first presentation rather than adding a generic offer panel.
+
+## Live Production Check
+
+**Route:** `https://beaconmomentum.com/blog/five-questions-keep-you-in-charge`
+
+After the successful GitHub-to-DigitalOcean deployment for commit `a7c5929`, the live article rendered the article-owned **Listen**, **Transcript**, and **Captions** controls. Its extracted production content also displayed the contextual **Beacon Work** pathway and **Open the Workflow Kit** action beneath the editorial body.
