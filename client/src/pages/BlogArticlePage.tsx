@@ -9,6 +9,7 @@ import { Link, useParams } from "wouter";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
+import { getArticleAudioSource } from "@/lib/blogMediaPolicy";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
 interface ArticleContent {
@@ -2761,6 +2762,8 @@ export default function BlogArticlePage() {
     );
   }
 
+  const articleAudioSrc = getArticleAudioSource(article);
+
   return (
     <div style={{ minHeight: "100vh", background: "#0D1B2A", color: "#FAF8F4" }}>
       <SharedNav dark />
@@ -2853,9 +2856,9 @@ export default function BlogArticlePage() {
           </div>
 
           {/* Listen Button */}
-          {article.audioSrc && (
+          {articleAudioSrc && (
             <div style={{ marginTop: "1.5rem" }}>
-              <audio id="beacon-audio-player" src={article.audioSrc} preload="none" />
+              <audio id="beacon-audio-player" src={articleAudioSrc} preload="metadata" />
               <button
                 id="beacon-listen-btn"
                 onClick={() => {
@@ -2916,36 +2919,26 @@ export default function BlogArticlePage() {
         </div>
       </header>
 
-      {/* ── Hero Image ── */}
+      {/* ── Hero Image: preserve the supplied editorial asset without a forced crop ── */}
       {article.heroImage && (
         <div
           style={{
             width: "100%",
-            maxHeight: "420px",
-            overflow: "hidden",
-            position: "relative",
+            background: "#07101A",
+            display: "flex",
+            justifyContent: "center",
+            borderBottom: "1px solid rgba(255,255,255,0.06)",
           }}
         >
           <img
             src={article.heroImage}
-            alt="Beacon Momentum — lighthouse at golden hour"
+            alt={article.title}
             style={{
-              width: "100%",
-              height: "420px",
-              objectFit: "cover",
-              objectPosition: "center 40%",
+              width: "min(100%, 1440px)",
+              height: "auto",
+              maxHeight: "560px",
+              objectFit: "contain",
               display: "block",
-              filter: "brightness(0.82)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: "120px",
-              background: "linear-gradient(to bottom, transparent, #0D1B2A)",
             }}
           />
         </div>

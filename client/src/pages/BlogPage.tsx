@@ -5,10 +5,10 @@
  * Pattern: editorial magazine layout with category filters.
  */
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Play, Pause, Volume2 } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
@@ -907,108 +907,7 @@ const PILLAR_COLORS: Record<Pillar, string> = {
 };
 
 // ─── Article Card ──────────────────────────────────────────────────────────────
-// ─── Inline Audio Player ──────────────────────────────────────────────────────
-function InlineAudioPlayer({ src, accentColor }: { src: string; accentColor: string }) {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    const onTimeUpdate = () => setProgress(audio.currentTime);
-    const onLoaded = () => setDuration(audio.duration);
-    const onEnded = () => { setPlaying(false); setProgress(0); };
-    audio.addEventListener("timeupdate", onTimeUpdate);
-    audio.addEventListener("loadedmetadata", onLoaded);
-    audio.addEventListener("ended", onEnded);
-    return () => {
-      audio.removeEventListener("timeupdate", onTimeUpdate);
-      audio.removeEventListener("loadedmetadata", onLoaded);
-      audio.removeEventListener("ended", onEnded);
-    };
-  }, []);
-
-  const toggle = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (playing) { audio.pause(); setPlaying(false); }
-    else { audio.play(); setPlaying(true); }
-  };
-
-  const seek = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const audio = audioRef.current;
-    if (!audio || !duration) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const ratio = (e.clientX - rect.left) / rect.width;
-    audio.currentTime = ratio * duration;
-  };
-
-  const fmt = (s: number) => {
-    if (!s || isNaN(s)) return "0:00";
-    const m = Math.floor(s / 60);
-    const sec = Math.floor(s % 60);
-    return `${m}:${sec.toString().padStart(2, "0")}`;
-  };
-
-  const pct = duration ? (progress / duration) * 100 : 0;
-
-  return (
-    <div
-      style={{
-        display: "flex", alignItems: "center", gap: "0.5rem",
-        padding: "0.5rem 0.75rem",
-        background: "rgba(0,0,0,0.04)",
-        borderRadius: "4px",
-        marginTop: "0.25rem",
-      }}
-      onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-    >
-      <audio ref={audioRef} src={src} preload="metadata" />
-      <button
-        onClick={toggle}
-        style={{
-          background: accentColor, border: "none", borderRadius: "50%",
-          width: "28px", height: "28px", display: "flex", alignItems: "center",
-          justifyContent: "center", cursor: "pointer", flexShrink: 0,
-          color: "#fff",
-        }}
-        aria-label={playing ? "Pause" : "Play"}
-      >
-        {playing ? <Pause size={12} fill="#fff" /> : <Play size={12} fill="#fff" />}
-      </button>
-      <div
-        onClick={seek}
-        style={{
-          flex: 1, height: "3px", background: "rgba(0,0,0,0.12)",
-          borderRadius: "2px", cursor: "pointer", position: "relative",
-        }}
-      >
-        <div style={{
-          position: "absolute", left: 0, top: 0, height: "100%",
-          width: `${pct}%`, background: accentColor, borderRadius: "2px",
-          transition: "width 0.1s linear",
-        }} />
-      </div>
-      <span style={{
-        fontFamily: "'Outfit', system-ui, sans-serif",
-        fontSize: "0.65rem", color: "var(--beacon-charcoal-mid)",
-        opacity: 0.7, flexShrink: 0, minWidth: "2.5rem", textAlign: "right",
-      }}>
-        {playing ? fmt(progress) : fmt(duration)}
-      </span>
-      <Volume2 size={11} style={{ color: accentColor, opacity: 0.6, flexShrink: 0 }} />
-    </div>
-  );
-}
-
 function ArticleCard({ article, index }: { article: Article; index: number }) {
-  const audioSrc = article.audioFile || article.audioSrc;
   return (
     <Link href={`/blog/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
     <motion.article
@@ -1035,14 +934,21 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         e.currentTarget.style.boxShadow = "none";
       }}
     >
-      {/* Thumbnail image — shown only when present */}
+      {/* Index art preserves the supplied editorial composition; playback lives on the article route. */}
       {article.thumbnail && (
         <div style={{
           width: "100%",
-          height: "160px",
+          minHeight: "180px",
+          aspectRatio: "16 / 9",
           overflow: "hidden",
           marginBottom: "-0.25rem",
           borderRadius: "2px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#0D1B2A",
+          padding: "0.5rem",
+          boxSizing: "border-box",
         }}>
           <img
             src={article.thumbnail}
@@ -1050,7 +956,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
               display: "block",
               transition: "transform 0.4s ease",
             }}
@@ -1101,11 +1007,6 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
       }}>
         {article.excerpt}
       </p>
-
-      {/* Inline audio player — shown only when audio is available */}
-      {audioSrc && (
-        <InlineAudioPlayer src={audioSrc} accentColor={article.pillarColor || "#1A5C6B"} />
-      )}
 
       {/* Read more */}
       <div style={{
@@ -1207,22 +1108,26 @@ function FeaturedArticle({ article }: { article: Article }) {
         </div>
         </div>{/* end content column */}
 
-        {/* Thumbnail image — right column, only when present */}
+        {/* Featured art retains its full visual-safe area; article media controls remain on the article. */}
         {article.thumbnail && (
           <div style={{
             overflow: "hidden",
             position: "relative",
             minHeight: "220px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#0D1B2A",
+            padding: "0.75rem",
+            boxSizing: "border-box",
           }}>
             <img
               src={article.thumbnail}
               alt={article.title}
               style={{
-                position: "absolute",
-                inset: 0,
                 width: "100%",
                 height: "100%",
-                objectFit: "cover",
+                objectFit: "contain",
                 display: "block",
                 transition: "transform 0.5s ease",
               }}
