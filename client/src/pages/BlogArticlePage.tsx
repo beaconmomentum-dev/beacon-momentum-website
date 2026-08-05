@@ -10,6 +10,8 @@ import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
 import { getArticleAudioSource } from "@/lib/blogMediaPolicy";
+import { getEditorialPathway } from "@/lib/editorialPathways";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { AUGUST_ARTICLE_CONTENT } from "@/data/augustEditorial";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
@@ -2703,6 +2705,18 @@ export default function BlogArticlePage() {
   const params = useParams<{ slug: string }>();
   const article = findArticle(params.slug || "");
 
+  const articleDescription = article
+    ? article.excerpt ?? article.body.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().slice(0, 155)
+    : "Source-bound operating insight from Beacon Momentum.";
+
+  usePageMeta({
+    title: article?.title ?? "Article Not Found",
+    description: articleDescription,
+    image: article?.heroImage ? `https://beaconmomentum.com${article.heroImage}` : undefined,
+    url: article ? `/blog/${article.id}` : "/blog",
+    type: article ? "article" : "website",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [params.slug]);
@@ -2767,6 +2781,7 @@ export default function BlogArticlePage() {
   }
 
   const articleAudioSrc = getArticleAudioSource(article);
+  const pathway = getEditorialPathway(article.id);
 
   return (
     <div style={{ minHeight: "100vh", background: "#0D1B2A", color: "#FAF8F4" }}>
@@ -3105,14 +3120,14 @@ export default function BlogArticlePage() {
           dangerouslySetInnerHTML={{ __html: article.body }}
         />
 
-        {/* ── Watch Brief Premium CTA ── */}
+        {/* ── Contextual Beacon pathway ── */}
         <div
           style={{
             marginTop: "4rem",
             padding: "2.5rem 2rem",
-            background: "rgba(200,150,62,0.06)",
-            border: "1px solid rgba(200,150,62,0.18)",
-            borderLeft: "4px solid #C8963E",
+            background: "rgba(26,92,107,0.10)",
+            border: "1px solid rgba(26,92,107,0.28)",
+            borderLeft: `4px solid ${article.pillarColor}`,
           }}
         >
           <div style={{
@@ -3128,10 +3143,10 @@ export default function BlogArticlePage() {
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "#C8963E",
+                color: article.pillarColor,
                 marginBottom: "0.6rem",
               }}>
-                Watch Brief Premium &nbsp;·&nbsp; $27 / month
+                {pathway.eyebrow}
               </div>
               <div style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -3141,7 +3156,7 @@ export default function BlogArticlePage() {
                 lineHeight: 1.25,
                 marginBottom: "0.75rem",
               }}>
-                A paid monthly operating dossier. One signal worth acting on. No membership required.
+                {pathway.heading}
               </div>
               <p style={{
                 fontFamily: "'Lora', Georgia, serif",
@@ -3150,14 +3165,14 @@ export default function BlogArticlePage() {
                 lineHeight: 1.75,
                 margin: "0 0 1.25rem",
               }}>
-                Every month: one deeper briefing, a curated tool recommendation with an implementation note, and one high-leverage signal worth carrying into the next cycle. It is distinct from the free weekly Beacon Brief.
+                {pathway.description}
               </p>
-              <a
-                href="/watch-brief-premium"
+              <Link
+                href={pathway.href}
                 style={{
                   display: "inline-block",
-                  background: "#C8963E",
-                  color: "#0D1B2A",
+                  background: article.pillarColor,
+                  color: "#FAF8F4",
                   fontFamily: "'Outfit', system-ui, sans-serif",
                   fontSize: "0.7rem",
                   fontWeight: 700,
@@ -3167,8 +3182,8 @@ export default function BlogArticlePage() {
                   padding: "0.75rem 1.75rem",
                 }}
               >
-                Request enrollment details &rarr;
-              </a>
+                {pathway.cta} &rarr;
+              </Link>
             </div>
           </div>
         </div>
