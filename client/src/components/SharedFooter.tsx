@@ -23,6 +23,7 @@ export default function SharedFooter() {
     { label: "Pathfinder Assessment", href: "/assessment" },
     { label: "Resources & Guides", href: "/resources" },
     { label: "How Beacon Works", href: "/how-beacon-works" },
+    { label: "Field Notes", href: "/field-notes" },
     { label: "Foundation Year", href: "/foundation" },
     { label: "The Signal", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
