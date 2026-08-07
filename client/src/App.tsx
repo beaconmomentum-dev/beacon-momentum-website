@@ -39,6 +39,8 @@ import FoundationSupportThankYouPage from "@/pages/FoundationSupportThankYouPage
 import FiveQuestionsFieldNotePage from "@/pages/FiveQuestionsFieldNotePage";
 import ControlledAIWorkflowKitPage from "@/pages/ControlledAIWorkflowKitPage";
 import ControlledWorkflowPilotsPage from "@/pages/ControlledWorkflowPilotsPage";
+import CommunityBuildGrantPage from "@/pages/CommunityBuildGrantPage";
+import CommunityBuildSocialPage from "@/pages/CommunityBuildSocialPage";
 
 function Router() {
   return (
@@ -60,6 +62,8 @@ function Router() {
       <Route path="/digital-grandpa" component={DigitalGrandpaPage} />
       <Route path="/blog" component={BlogPage} />
       <Route path="/blog/:slug" component={BlogArticlePage} />
+      <Route path="/community-build-grant" component={CommunityBuildGrantPage} />
+      <Route path="/community-build-grant/social" component={CommunityBuildSocialPage} />
       <Route path="/watch-brief-premium" component={WatchBriefPremiumPage} />
       <Route path="/how-beacon-works" component={HowBeaconWorksPage} />
       <Route path="/foundation" component={FoundationYearPage} />
