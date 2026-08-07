@@ -41,6 +41,8 @@ import ControlledAIWorkflowKitPage from "@/pages/ControlledAIWorkflowKitPage";
 import ControlledWorkflowPilotsPage from "@/pages/ControlledWorkflowPilotsPage";
 import CommunityBuildGrantPage from "@/pages/CommunityBuildGrantPage";
 import CommunityBuildSocialPage from "@/pages/CommunityBuildSocialPage";
+import DigitalRampUpFieldNotesIndexPage from "@/pages/DigitalRampUpFieldNotesIndexPage";
+import DigitalRampUpFieldNotePage from "@/pages/DigitalRampUpFieldNotePage";
 
 function Router() {
   return (
@@ -64,12 +66,14 @@ function Router() {
       <Route path="/blog/:slug" component={BlogArticlePage} />
       <Route path="/community-build-grant" component={CommunityBuildGrantPage} />
       <Route path="/community-build-grant/social" component={CommunityBuildSocialPage} />
+      <Route path="/field-notes" component={DigitalRampUpFieldNotesIndexPage} />
       <Route path="/watch-brief-premium" component={WatchBriefPremiumPage} />
       <Route path="/how-beacon-works" component={HowBeaconWorksPage} />
       <Route path="/foundation" component={FoundationYearPage} />
       <Route path="/foundation/support" component={FoundationSupportPage} />
       <Route path="/foundation/thank-you" component={FoundationSupportThankYouPage} />
       <Route path="/field-notes/five-questions-keep-you-in-charge" component={FiveQuestionsFieldNotePage} />
+      <Route path="/field-notes/:slug" component={DigitalRampUpFieldNotePage} />
       <Route path="/the-watch" component={TheWatchPage} />
       <Route path="/the-watch/controlled-ai-workflow-kit" component={ControlledAIWorkflowKitPage} />
       <Route path="/the-watch/controlled-workflow-pilots" component={ControlledWorkflowPilotsPage} />

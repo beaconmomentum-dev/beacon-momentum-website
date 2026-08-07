@@ -48,6 +48,7 @@ export default function SharedNav({ dark = false }: SharedNavProps) {
     { label: "Assessment", href: "/assessment" },
     { label: "Resources", href: "/resources" },
     { label: "How Beacon Works", href: "/how-beacon-works" },
+    { label: "Field Notes", href: "/field-notes" },
     { label: "Community Build", href: "/community-build-grant" },
     { label: "The Signal", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
@@ -79,7 +80,7 @@ export default function SharedNav({ dark = false }: SharedNavProps) {
           </Link>
 
           {/* Desktop links */}
-          <div style={{ display: "flex", alignItems: "center", gap: "2rem" }} className="nav-desktop">
+          <div style={{ display: "flex", alignItems: "center", gap: "clamp(0.65rem, 1.4vw, 1.5rem)" }} className="nav-desktop">
             {NAV_LINKS.map((l) => (
               <a
                 key={l.label}
