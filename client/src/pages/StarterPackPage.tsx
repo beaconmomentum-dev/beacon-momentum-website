@@ -169,6 +169,34 @@ export default function StarterPackPage() {
           ))}
         </div>
 
+        <section
+          aria-labelledby="foundation-year-film-heading"
+          style={{
+            borderTop: `1px solid rgba(200,146,42,0.28)`,
+            borderBottom: `1px solid rgba(200,146,42,0.28)`,
+            marginBottom: 40,
+            padding: "26px 0",
+          }}
+        >
+          <p style={{ color: C.amber, fontFamily: sans, fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", margin: 0, textTransform: "uppercase" }}>
+            Short orientation
+          </p>
+          <h2 id="foundation-year-film-heading" style={{ color: C.cream, fontFamily: serif, fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 400, lineHeight: 1.08, margin: "0.65rem 0 0" }}>
+            Prefer a short introduction first?
+          </h2>
+          <p style={{ color: C.muted, fontFamily: body, fontSize: "0.96rem", lineHeight: 1.75, margin: "0.85rem auto 0", maxWidth: 540 }}>
+            Watch the Foundation Year film, then decide whether this starter resource is the right next step for you.
+          </p>
+          <a
+            href="https://www.youtube.com/watch?v=uJuvhPjcjO0"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: C.amber, display: "inline-block", fontFamily: sans, fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.08em", marginTop: 16, textDecoration: "none", textTransform: "uppercase" }}
+          >
+            Watch the Foundation Year film →
+          </a>
+        </section>
+
         {/* ── Form ── */}
         {status === "success" ? (
           <div

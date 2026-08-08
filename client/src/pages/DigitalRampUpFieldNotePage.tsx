@@ -45,7 +45,15 @@ export default function DigitalRampUpFieldNotePage() {
 
         <section style={{ padding: "clamp(3.5rem, 8vw, 6.5rem) 0" }}>
           <div className="container field-note-reading-grid" style={{ maxWidth: "1040px", display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(220px, 0.34fr)", gap: "clamp(2.5rem, 8vw, 7rem)" }}>
-            <article className="field-note-body" dangerouslySetInnerHTML={{ __html: note.body }} />
+            <div>
+              <article className="field-note-body" dangerouslySetInnerHTML={{ __html: note.body }} />
+              {note.slug === "choose-the-right-door" && <section aria-labelledby="foundation-year-route-map-heading" style={{ marginTop: "2.5rem", padding: "1.5rem", background: "var(--beacon-amber-pale)", border: "1px solid rgba(200,134,10,0.28)", borderLeft: "4px solid var(--beacon-amber)" }}>
+                <p style={{ ...eyebrow, color: "var(--beacon-amber)" }}>Route map in context</p>
+                <h2 id="foundation-year-route-map-heading" style={{ color: "var(--beacon-charcoal)", fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", lineHeight: 1.05, margin: "0.65rem 0 0" }}>See the route map in context.</h2>
+                <p style={{ color: "var(--beacon-charcoal-mid)", fontFamily: "'Lora', Georgia, serif", fontSize: "0.95rem", lineHeight: 1.75, margin: "0.8rem 0 0" }}>The Foundation Year film explains why Beacon keeps its public, membership, and organization-facing paths distinct.</p>
+                <a href="https://www.youtube.com/watch?v=uJuvhPjcjO0" target="_blank" rel="noreferrer" style={{ ...linkStyle, marginTop: "1.2rem" }}>Watch the Foundation Year film <ArrowRight size={15} /></a>
+              </section>}
+            </div>
             <aside style={{ alignSelf: "start", position: "sticky", top: "96px" }} className="field-note-aside">
               <div style={{ borderTop: `3px solid ${note.accent}`, paddingTop: "1.25rem" }}>
                 <p style={{ ...eyebrow, color: note.accent }}>Field question</p>
