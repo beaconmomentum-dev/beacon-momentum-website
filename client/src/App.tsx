@@ -1,7 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { useEffect } from "react";
+import { Route, Switch, useLocation, useParams } from "wouter";
 import StarterPackPage from "@/pages/StarterPackPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -44,6 +45,27 @@ import CommunityBuildSocialPage from "@/pages/CommunityBuildSocialPage";
 import DigitalRampUpFieldNotesIndexPage from "@/pages/DigitalRampUpFieldNotesIndexPage";
 import DigitalRampUpFieldNotePage from "@/pages/DigitalRampUpFieldNotePage";
 
+function LegacyBlogIndexRedirect() {
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    setLocation("/signal", { replace: true });
+  }, [setLocation]);
+
+  return <main id="main-content" aria-live="polite">Taking you to The Signal.</main>;
+}
+
+function LegacyBlogArticleRedirect() {
+  const { slug } = useParams<{ slug: string }>();
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    setLocation(`/signal/${slug}`, { replace: true });
+  }, [setLocation, slug]);
+
+  return <main id="main-content" aria-live="polite">Taking you to The Signal.</main>;
+}
+
 function Router() {
   return (
     <Switch>
@@ -62,8 +84,10 @@ function Router() {
       <Route path="/path/:pillar" component={PillarSharePage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/digital-grandpa" component={DigitalGrandpaPage} />
-      <Route path="/blog" component={BlogPage} />
-      <Route path="/blog/:slug" component={BlogArticlePage} />
+      <Route path="/signal/:slug" component={BlogArticlePage} />
+      <Route path="/signal" component={BlogPage} />
+      <Route path="/blog/:slug" component={LegacyBlogArticleRedirect} />
+      <Route path="/blog" component={LegacyBlogIndexRedirect} />
       <Route path="/community-build-grant" component={CommunityBuildGrantPage} />
       <Route path="/community-build-grant/social" component={CommunityBuildSocialPage} />
       <Route path="/field-notes" component={DigitalRampUpFieldNotesIndexPage} />

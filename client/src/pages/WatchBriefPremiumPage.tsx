@@ -75,7 +75,7 @@ export default function WatchBriefPremiumPage() {
                 ))}
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "2.25rem" }}>
-                <a href="/blog" style={{ color: teal, fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 600, fontSize: "0.76rem", letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none" }}>Read The Signal <ArrowRight size={14} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
+                <a href="/signal" style={{ color: teal, fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 600, fontSize: "0.76rem", letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none" }}>Read The Signal <ArrowRight size={14} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
                 <a href="/the-watch#join" style={{ color: navy, fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 600, fontSize: "0.76rem", letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none" }}>Explore The Watch membership <ArrowRight size={14} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
               </div>
             </div>

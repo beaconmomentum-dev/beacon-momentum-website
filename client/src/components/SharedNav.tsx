@@ -50,7 +50,7 @@ export default function SharedNav({ dark = false }: SharedNavProps) {
     { label: "How Beacon Works", href: "/how-beacon-works" },
     { label: "Field Notes", href: "/field-notes" },
     { label: "Community Build", href: "/community-build-grant" },
-    { label: "The Signal", href: "/blog" },
+    { label: "The Signal", href: "/signal" },
     { label: "Pricing", href: "/pricing" },
     { label: "About", href: "/about" },
   ];

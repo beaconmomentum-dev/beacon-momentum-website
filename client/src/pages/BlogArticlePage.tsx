@@ -1,5 +1,5 @@
 /**
- * Beacon Momentum — /blog/:slug
+ * Beacon Momentum — /signal/:slug
  * Design: Deep Water Editorial / Quiet Authority
  * Full article detail page for The Signal.
  */
@@ -2713,7 +2713,7 @@ export default function BlogArticlePage() {
     title: article?.title ?? "Article Not Found",
     description: articleDescription,
     image: article?.heroImage ? `https://beaconmomentum.com${article.heroImage}` : undefined,
-    url: article ? `/blog/${article.id}` : "/blog",
+    url: article ? `/signal/${article.id}` : "/signal",
     type: article ? "article" : "website",
   });
 
@@ -2758,7 +2758,7 @@ export default function BlogArticlePage() {
             This article does not exist.
           </h1>
           <Link
-            href="/blog"
+            href="/signal"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -2798,7 +2798,7 @@ export default function BlogArticlePage() {
         <div style={{ maxWidth: "760px", margin: "0 auto" }}>
           {/* Breadcrumb */}
           <Link
-            href="/blog"
+            href="/signal"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -3204,7 +3204,7 @@ export default function BlogArticlePage() {
           }}
         >
           <Link
-            href="/blog"
+            href="/signal"
             style={{
               display: "inline-flex",
               alignItems: "center",

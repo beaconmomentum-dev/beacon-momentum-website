@@ -1,5 +1,5 @@
 /**
- * Beacon Momentum — /blog (The Signal)
+ * Beacon Momentum — /signal (The Signal)
  * Design: Deep Water Editorial / Quiet Authority
  * Curated articles tied to the five Beacon pillars.
  * Pattern: editorial magazine layout with category filters.
@@ -14,6 +14,7 @@ import SharedFooter from "@/components/SharedFooter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
 import { BEACON_EDITORIAL_IMAGE_ASPECT_RATIO } from "@/lib/blogMediaPolicy";
 import { AUGUST_ARTICLE_SUMMARIES } from "@/data/augustEditorial";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
 const BLOG_HERO_IMG =
@@ -912,7 +913,7 @@ const PILLAR_COLORS: Record<Pillar, string> = {
 // ─── Article Card ──────────────────────────────────────────────────────────────
 function ArticleCard({ article, index }: { article: Article; index: number }) {
   return (
-    <Link href={`/blog/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
+    <Link href={`/signal/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
     <motion.article
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
@@ -1030,7 +1031,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
 // ─── Featured Article ──────────────────────────────────────────────────────────
 function FeaturedArticle({ article }: { article: Article }) {
   return (
-    <Link href={`/blog/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
+    <Link href={`/signal/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -1278,11 +1279,12 @@ function BeaconBriefStrip() {
 export default function BlogPage() {
   const [activeFilter, setActiveFilter] = useState<Pillar>("All");
 
-  // Set page title
-  React.useEffect(() => {
-    document.title = "The Signal — Beacon Momentum";
-    return () => { document.title = "Beacon Momentum — AI-Era Human Capability"; };
-  }, []);
+  usePageMeta({
+    title: "The Signal",
+    description: "Beacon Momentum's public editorial library of practical field intelligence on AI, human capability, work, and durable operating systems.",
+    image: "https://beaconmomentum.com/images/beacon_hero.webp",
+    url: "/signal",
+  });
 
   const featured = ARTICLES.filter((a) => a.featured);
   const filtered =
