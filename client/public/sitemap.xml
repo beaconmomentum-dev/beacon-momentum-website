@@ -36,32 +36,52 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://beaconmomentum.com/pathways</loc>
+    <loc>https://beaconmomentum.com/resources</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beaconmomentum.com/field-notes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://beaconmomentum.com/pathways/life</loc>
+    <loc>https://beaconmomentum.com/field-notes/five-questions-keep-you-in-charge</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://beaconmomentum.com/pathways/work</loc>
+    <loc>https://beaconmomentum.com/field-notes/start-with-the-work-not-the-tool</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://beaconmomentum.com/pathways/venture</loc>
+    <loc>https://beaconmomentum.com/field-notes/your-work-needs-a-memory</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://beaconmomentum.com/pathways/systems</loc>
+    <loc>https://beaconmomentum.com/field-notes/proof-before-output</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://beaconmomentum.com/pathways/trading</loc>
+    <loc>https://beaconmomentum.com/field-notes/human-review-is-the-real-control-surface</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beaconmomentum.com/field-notes/choose-the-right-door</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beaconmomentum.com/field-notes/chance-first-purpose-after-selection</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beaconmomentum.com/community-build-grant</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
