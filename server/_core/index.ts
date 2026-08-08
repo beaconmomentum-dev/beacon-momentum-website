@@ -43,6 +43,19 @@ async function startServer() {
     })
   );
 
+  const legacySearch = (req: Request) => {
+    const queryIndex = req.originalUrl.indexOf("?");
+    return queryIndex >= 0 ? req.originalUrl.slice(queryIndex) : "";
+  };
+
+  app.get("/blog", (req, res) => {
+    res.redirect(308, `/signal${legacySearch(req)}`);
+  });
+
+  app.get("/blog/:slug", (req, res) => {
+    res.redirect(308, `/signal/${req.params.slug}${legacySearch(req)}`);
+  });
+
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
   } else {

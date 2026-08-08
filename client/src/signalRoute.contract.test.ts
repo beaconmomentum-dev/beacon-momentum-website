@@ -9,6 +9,7 @@ const source = (relativePath: string) =>
 describe("The Signal canonical route contract", () => {
   it("serves Signal as the public editorial route and confines Blog to legacy redirects", () => {
     const app = source("client/src/App.tsx");
+    const server = source("server/_core/index.ts");
 
     expect(app).toContain('<Route path="/signal/:slug" component={BlogArticlePage} />');
     expect(app).toContain('<Route path="/signal" component={BlogPage} />');
@@ -16,6 +17,10 @@ describe("The Signal canonical route contract", () => {
     expect(app).toContain('<Route path="/blog" component={LegacyBlogIndexRedirect} />');
     expect(app).toContain('setLocation("/signal", { replace: true })');
     expect(app).toContain('setLocation(`/signal/${slug}`, { replace: true })');
+    expect(server).toContain('app.get("/blog", (req, res) => {');
+    expect(server).toContain('res.redirect(308, `/signal${legacySearch(req)}`)');
+    expect(server).toContain('app.get("/blog/:slug", (req, res) => {');
+    expect(server).toContain('res.redirect(308, `/signal/${req.params.slug}${legacySearch(req)}`)');
   });
 
   it("uses Signal for public navigation, editorial links, canonical metadata, and discovery surfaces", () => {
