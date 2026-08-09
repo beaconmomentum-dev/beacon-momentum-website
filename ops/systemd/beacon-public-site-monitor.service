@@ -5,7 +5,8 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-EnvironmentFile=/etc/beacon-public-site-monitor/slack.env
+LoadCredential=slack-webhook-url:/etc/beacon-public-site-monitor/slack-webhook-url
+Environment=SLACK_WEBHOOK_URL_FILE=%d/slack-webhook-url
 ExecStart=/usr/local/sbin/beacon-public-site-monitor
 User=root
 Group=root
@@ -14,4 +15,3 @@ PrivateTmp=true
 ProtectHome=true
 ProtectSystem=full
 ReadWritePaths=/var/lib/beacon-public-site-monitor
-

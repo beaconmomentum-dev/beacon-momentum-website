@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Deterministic public-site monitor for beaconmomentum.com.
 #
-# Required environment:
-#   SLACK_WEBHOOK_URL — private incoming webhook bound only to #beacon-site-alerts.
+# Required credential:
+#   SLACK_WEBHOOK_URL_FILE — path to a private incoming-webhook URL bound only
+#   to #beacon-site-alerts. The system service supplies this through systemd's
+#   credential directory rather than an environment file.
 #
 # The script intentionally checks the public domain from an independent Beacon
 # host. It verifies the failure mode that caused the 2026-08-09 white screen:
@@ -37,8 +39,13 @@ http_status() {
 
 send_slack_message() {
   local message="$1"
-  if [[ -z "${SLACK_WEBHOOK_URL:-}" ]]; then
-    logger -t beacon-public-site-monitor "Slack delivery skipped: SLACK_WEBHOOK_URL is not configured."
+  local webhook_url=""
+  if [[ -n "${SLACK_WEBHOOK_URL_FILE:-}" && -r "${SLACK_WEBHOOK_URL_FILE}" ]]; then
+    webhook_url="$(tr -d '\r\n' < "${SLACK_WEBHOOK_URL_FILE}")"
+  fi
+
+  if [[ -z "${webhook_url}" ]]; then
+    logger -t beacon-public-site-monitor "Slack delivery skipped: private webhook credential is not available."
     return 1
   fi
 
@@ -48,7 +55,7 @@ send_slack_message() {
     --connect-timeout "${CONNECT_TIMEOUT_SECONDS}" \
     -H 'Content-Type: application/json' \
     --data "{\"text\":\"${message}\"}" \
-    "${SLACK_WEBHOOK_URL}" >/dev/null
+    "${webhook_url}" >/dev/null
 }
 
 record_state() {
