@@ -8,7 +8,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 export default function DigitalRampUpFieldNotesIndexPage() {
   usePageMeta({
     title: "Digital Ramp-Up Field Notes",
-    description: "Six practical public notes on durable capability: work, operating memory, evidence, human review, clear relationships, and fair public structures.",
+    description: "Eight practical public notes on durable capability: work, operating memory, evidence, human review, clear relationships, careful public structures, and accountable AI assistance.",
     image: "https://beaconmomentum.com/images/field-notes/field-note-01-start-with-work.jpg",
     url: "/field-notes",
   });
@@ -23,7 +23,7 @@ export default function DigitalRampUpFieldNotesIndexPage() {
             <div className="field-notes-hero-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.45fr) minmax(260px, 0.55fr)", gap: "clamp(2rem, 7vw, 6rem)", alignItems: "end" }}>
               <div>
                 <h1 style={{ margin: "1rem 0 0", maxWidth: "760px", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(3.35rem, 7vw, 6.55rem)", lineHeight: 0.92, letterSpacing: "-0.05em", fontWeight: 600 }}>The Digital Ramp-Up.</h1>
-                <p style={{ maxWidth: "730px", margin: "1.75rem 0 0", color: "rgba(250,248,244,0.76)", fontSize: "1.08rem", lineHeight: 1.85 }}>Six public notes for making capability more durable: start with the work, keep the record, verify the claim, retain human review, choose a clear relationship, and build trust through visible structures.</p>
+                <p style={{ maxWidth: "730px", margin: "1.75rem 0 0", color: "rgba(250,248,244,0.76)", fontSize: "1.08rem", lineHeight: 1.85 }}>Eight public notes for making capability more durable: start with the work, keep the record, verify the claim, retain human review, choose a clear relationship, build trust through visible structures, and keep AI assistance accountable to the people affected by it.</p>
               </div>
               <div style={{ borderLeft: "1px solid rgba(232,160,32,0.52)", paddingLeft: "1.35rem" }}>
                 <Layers3 size={20} color="var(--beacon-amber-light)" />
@@ -38,8 +38,8 @@ export default function DigitalRampUpFieldNotesIndexPage() {
           <div className="container" style={{ maxWidth: "1180px" }}>
             <div style={{ display: "flex", alignItems: "end", justifyContent: "space-between", gap: "1rem", marginBottom: "2.25rem" }}>
               <div>
-                <p style={{ ...eyebrow, color: "var(--beacon-teal)" }}>The first six notes</p>
-                <h2 style={{ margin: "0.65rem 0 0", color: "var(--beacon-charcoal)", fontSize: "clamp(2.2rem, 4vw, 3.65rem)", lineHeight: 0.98 }}>Six practices that travel.</h2>
+                <p style={{ ...eyebrow, color: "var(--beacon-teal)" }}>The public notebook</p>
+                <h2 style={{ margin: "0.65rem 0 0", color: "var(--beacon-charcoal)", fontSize: "clamp(2.2rem, 4vw, 3.65rem)", lineHeight: 0.98 }}>Eight practices that travel.</h2>
               </div>
               <Compass size={23} color="var(--beacon-amber)" aria-hidden="true" />
             </div>

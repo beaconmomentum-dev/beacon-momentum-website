@@ -2,12 +2,14 @@ import { describe, expect, it } from "vitest";
 import { DIGITAL_RAMP_UP_FIELD_NOTES, findDigitalRampUpFieldNote } from "./digitalRampUpFieldNotes";
 
 describe("Digital Ramp-Up Field Notes", () => {
-  it("defines the complete first six-note public sequence with unique, routable entries", () => {
-    expect(DIGITAL_RAMP_UP_FIELD_NOTES).toHaveLength(6);
-    expect(new Set(DIGITAL_RAMP_UP_FIELD_NOTES.map((note) => note.slug)).size).toBe(6);
+  it("defines the complete eight-note public sequence with unique, routable entries", () => {
+    expect(DIGITAL_RAMP_UP_FIELD_NOTES).toHaveLength(8);
+    expect(new Set(DIGITAL_RAMP_UP_FIELD_NOTES.map((note) => note.slug)).size).toBe(8);
     expect(DIGITAL_RAMP_UP_FIELD_NOTES.every((note) => note.image.startsWith("/images/field-notes/"))).toBe(true);
     expect(DIGITAL_RAMP_UP_FIELD_NOTES.every((note) => note.alt.length > 30 && note.ctaHref.startsWith("/"))).toBe(true);
     expect(findDigitalRampUpFieldNote("proof-before-output")?.number).toBe("03");
+    expect(findDigitalRampUpFieldNote("the-question-behind-an-ai-answer")?.number).toBe("07");
+    expect(findDigitalRampUpFieldNote("when-the-system-cannot-verify-itself-it-pauses")?.number).toBe("08");
   });
 
   it("keeps the Community Build note framework-only and excludes internal-only source paths", () => {
