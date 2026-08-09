@@ -34,10 +34,9 @@ This policy does not override owner instructions, safety requirements, source-va
 
 Every production static deployment must follow this order:
 
-1. Build from the committed authoritative GitHub source.
-2. Copy the complete generated `dist/public/assets/` set into `/var/www/beacon-shared-assets/`.
-3. Confirm that each JavaScript and stylesheet path referenced by the new `dist/public/index.html` returns `200` from the origin.
-4. Only then copy the matching `index.html` into `/var/www/beacon-momentum-www/dist/public/`.
-5. If the server bundle changed, deploy `dist/index.js` and restart only `beacon-momentum-www`; otherwise, do not restart the process solely for a static-asset refresh.
+1. Build from the committed authoritative GitHub source in an isolated worktree.
+2. On the production host, run `ops/deploy-beacon-static-release.sh /path/to/dist/public` from that same committed worktree.
+3. The wrapper copies the complete generated asset set into the active Nginx alias `/var/www/beacon-shared-assets/`, verifies every asset referenced by the proposed entry document directly against the origin, and only then publishes the matching `index.html`.
+4. If the server bundle changed, deploy `dist/index.js` through the approved server-release path and restart only `beacon-momentum-www` after the static-release wrapper succeeds; otherwise, do not restart the process solely for a static-asset refresh.
 
 > **Do not deploy `index.html` by itself.** A new Vite hash referenced by an entry document but missing from `/var/www/beacon-shared-assets/` produces a public white screen even when the corresponding file exists in the application build directory.
