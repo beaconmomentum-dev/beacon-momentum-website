@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Beacon Momentum public-site health monitor every five minutes
+
+[Timer]
+OnCalendar=*-*-* *:0/5:00
+Persistent=true
+RandomizedDelaySec=20
+Unit=beacon-public-site-monitor.service
+
+[Install]
+WantedBy=timers.target

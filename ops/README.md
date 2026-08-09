@@ -8,4 +8,6 @@ The monitor validates the public homepage entry document, every current JavaScri
 
 The monitor sends an outage notice only after **two consecutive failures**, then sends one recovery notice when the checks return to normal. The alert connection must be a dedicated private incoming webhook bound only to `#beacon-site-alerts` and stored outside Git in a root-readable environment file.
 
+The supplied `systemd` service and timer definitions install the monitor as a root-owned one-shot service every five minutes. The timer uses a short random delay to avoid synchronized infrastructure requests, while the monitor state directory provides the consecutive-failure and recovery logic.
+
 > Do not commit webhook URLs, access tokens, or other secrets to this repository.

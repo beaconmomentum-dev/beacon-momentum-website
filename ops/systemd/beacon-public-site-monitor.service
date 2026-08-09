@@ -1,0 +1,17 @@
+[Unit]
+Description=Beacon Momentum public-site health monitor
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/beacon-public-site-monitor/slack.env
+ExecStart=/usr/local/sbin/beacon-public-site-monitor
+User=root
+Group=root
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+ReadWritePaths=/var/lib/beacon-public-site-monitor
+
