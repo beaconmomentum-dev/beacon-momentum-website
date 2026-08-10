@@ -35,6 +35,7 @@ import CohortDashboardPage from "@/pages/CohortDashboardPage";
 import WatchBriefPremiumPage from "@/pages/WatchBriefPremiumPage";
 import HowBeaconWorksPage from "@/pages/HowBeaconWorksPage";
 import FoundationYearPage from "@/pages/FoundationYearPage";
+import FounderNotePage from "@/pages/FounderNotePage";
 import FoundationSupportPage from "@/pages/FoundationSupportPage";
 import FoundationSupportThankYouPage from "@/pages/FoundationSupportThankYouPage";
 import FiveQuestionsFieldNotePage from "@/pages/FiveQuestionsFieldNotePage";
@@ -94,6 +95,7 @@ function Router() {
       <Route path="/watch-brief-premium" component={WatchBriefPremiumPage} />
       <Route path="/how-beacon-works" component={HowBeaconWorksPage} />
       <Route path="/foundation" component={FoundationYearPage} />
+      <Route path="/foundation/founders-note" component={FounderNotePage} />
       <Route path="/foundation/support" component={FoundationSupportPage} />
       <Route path="/foundation/thank-you" component={FoundationSupportThankYouPage} />
       <Route path="/field-notes/five-questions-keep-you-in-charge" component={FiveQuestionsFieldNotePage} />
