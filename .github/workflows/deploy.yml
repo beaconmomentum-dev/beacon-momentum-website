@@ -71,7 +71,6 @@ jobs:
                 git -C beacon-mobile push origin "$mobile_fallback_branch"
                 echo "Created and pushed mobile fallback: $mobile_fallback_branch"
               fi
-              git submodule update --checkout beacon-mobile
             fi
 
             if [ -f "$local_environment_file" ]; then
@@ -80,6 +79,9 @@ jobs:
             fi
 
             git switch main
+            git reset --hard HEAD
+            git clean -ffd -- beacon-mobile "${untracked_source_files[@]}" "$local_environment_file"
+
             if [ -n "$(git status --porcelain)" ]; then
               echo "Unexpected production worktree changes remain after approved backups. Deployment halted."
               git status --short
