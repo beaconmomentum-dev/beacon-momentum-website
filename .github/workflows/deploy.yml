@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       recover_dirty_worktree:
-        description: Create and push a Git fallback of the known server-side edits before deployment
+        description: Create and push Git fallbacks for server-side source edits before deployment
         required: false
         default: false
         type: boolean
@@ -24,34 +24,64 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Create Git fallback for known server-side edits
+      - name: Create Git fallbacks and reconcile the production worktree
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.recover_dirty_worktree }}
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
             set -euo pipefail
             cd /var/www/beacon-momentum-www
 
-            fallback_branch="fallback/production-before-visual-system-$(date -u +%Y%m%dT%H%M%SZ)"
+            timestamp="$(date -u +%Y%m%dT%H%M%SZ)"
+            fallback_branch="fallback/production-before-visual-system-${timestamp}"
             tracked_files=(
               client/src/pages/BlogArticlePage.tsx
               client/src/pages/DigitalRampUpFieldNotePage.tsx
               client/src/pages/StarterPackPage.tsx
             )
+            untracked_source_files=(
+              client/src/PillarPage.tsx
+              client/src/TheWatchPage.tsx
+            )
+            local_environment_file=".env.production.watch-live-20260727204838"
 
-            if git diff --quiet -- "${tracked_files[@]}"; then
-              echo "No known server-side edits require a fallback."
-            else
-              git switch -c "$fallback_branch"
-              git add -- "${tracked_files[@]}"
+            git switch -c "$fallback_branch"
+            git add -- "${tracked_files[@]}"
+            for file in "${untracked_source_files[@]}"; do
+              if [ -f "$file" ]; then
+                git add -- "$file"
+              fi
+            done
+
+            if ! git diff --cached --quiet; then
               git -c user.name='Beacon Deployment Recovery' -c user.email='deploy@beaconmomentum.com' \
-                commit -m "backup: preserve production edits before visual-system release"
+                commit -m "backup: preserve production source edits before visual-system release"
               git push origin "$fallback_branch"
-              echo "Created and pushed Git fallback: $fallback_branch"
-              git switch main
+              echo "Created and pushed production-source fallback: $fallback_branch"
+            else
+              echo "No parent-repository source edits required a fallback commit."
             fi
 
+            if [ -d beacon-mobile/.git ] || [ -f beacon-mobile/.git ]; then
+              if [ -n "$(git -C beacon-mobile status --porcelain)" ]; then
+                mobile_fallback_branch="fallback/production-before-visual-system-${timestamp}"
+                git -C beacon-mobile switch -c "$mobile_fallback_branch"
+                git -C beacon-mobile add -A
+                git -C beacon-mobile -c user.name='Beacon Deployment Recovery' -c user.email='deploy@beaconmomentum.com' \
+                  commit -m "backup: preserve production mobile edits before visual-system release"
+                git -C beacon-mobile push origin "$mobile_fallback_branch"
+                echo "Created and pushed mobile fallback: $mobile_fallback_branch"
+              fi
+              git submodule update --checkout beacon-mobile
+            fi
+
+            if [ -f "$local_environment_file" ]; then
+              git stash push -a -m "backup: local production environment before visual-system release ${timestamp}" -- "$local_environment_file"
+              echo "Stashed local production environment file inside the server Git repository."
+            fi
+
+            git switch main
             if [ -n "$(git status --porcelain)" ]; then
-              echo "Unexpected production worktree changes remain after the approved fallback. Deployment halted."
+              echo "Unexpected production worktree changes remain after approved backups. Deployment halted."
               git status --short
               exit 1
             fi
