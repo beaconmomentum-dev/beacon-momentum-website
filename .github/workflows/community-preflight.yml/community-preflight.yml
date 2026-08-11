@@ -1,0 +1,37 @@
+name: Beacon Community Production Preflight
+
+on:
+  workflow_dispatch:
+
+jobs:
+  preflight:
+    name: Inspect Beacon Community release path
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Inspect release path without modifying production
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
+            set -euo pipefail
+            echo '=== Beacon Community candidate source directories ==='
+            for directory in /var/www/beacon-community /var/www/beaconcommunity /srv/beacon-community; do
+              if [ -d "$directory" ]; then
+                echo "DIRECTORY: $directory"
+                git -C "$directory" remote -v 2>/dev/null || true
+                git -C "$directory" status --short 2>/dev/null || true
+                [ -f "$directory/package.json" ] && grep -E '"(name|build|start)"' "$directory/package.json" || true
+              fi
+            done
+
+            echo '=== Beacon Community process ==='
+            pm2 describe beacon-community 2>/dev/null || true
+
+            echo '=== Nginx server mapping ==='
+            grep -R "server_name.*beaconcommunity.net" /etc/nginx/sites-enabled 2>/dev/null || true
+          REMOTE
