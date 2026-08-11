@@ -1,9 +1,17 @@
 name: Deploy to Production
+
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      recover_dirty_worktree:
+        description: Create and push a Git fallback of the known server-side edits before deployment
+        required: false
+        default: false
+        type: boolean
+
 jobs:
   deploy:
     name: Deploy to beaconmomentum.com
@@ -15,6 +23,41 @@ jobs:
           echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Create Git fallback for known server-side edits
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.recover_dirty_worktree }}
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
+            set -euo pipefail
+            cd /var/www/beacon-momentum-www
+
+            fallback_branch="fallback/production-before-visual-system-$(date -u +%Y%m%dT%H%M%SZ)"
+            tracked_files=(
+              client/src/pages/BlogArticlePage.tsx
+              client/src/pages/DigitalRampUpFieldNotePage.tsx
+              client/src/pages/StarterPackPage.tsx
+            )
+
+            if git diff --quiet -- "${tracked_files[@]}"; then
+              echo "No known server-side edits require a fallback."
+            else
+              git switch -c "$fallback_branch"
+              git add -- "${tracked_files[@]}"
+              git -c user.name='Beacon Deployment Recovery' -c user.email='deploy@beaconmomentum.com' \
+                commit -m "backup: preserve production edits before visual-system release"
+              git push origin "$fallback_branch"
+              echo "Created and pushed Git fallback: $fallback_branch"
+              git switch main
+            fi
+
+            if [ -n "$(git status --porcelain)" ]; then
+              echo "Unexpected production worktree changes remain after the approved fallback. Deployment halted."
+              git status --short
+              exit 1
+            fi
+
+            git pull --ff-only origin main
+          REMOTE
 
       - name: Deploy via SSH
         run: |
