@@ -31,22 +31,34 @@ export default function SharedFooter() {
     { label: "YouTube Channel", href: "https://www.youtube.com/@BeaconMomentum", external: true },
   ];
 
-  const PROPERTIES = [
-    { label: "Beacon Labs", sublabel: "beaconlabs.ai", href: "https://beaconlabs.ai", external: true },
-    { label: "Beacon Trading · Simulation Academy", sublabel: "beacontrading.ai", href: "https://beacontrading.ai", external: true },
-    { label: "Beacon Community", sublabel: "beaconcommunity.net", href: "https://beaconcommunity.net", external: true },
-    { label: "Hollow Threads", sublabel: "hollowthreads.store", href: "https://hollowthreads.store", external: true },
-    { label: "Digital Grandpa", sublabel: "digitalgrandpa.org", href: "https://digitalgrandpa.org", external: true },
+  const CONTINUE_INTENTIONALLY = [
+    {
+      label: "Beacon Community — Membership, learning, and member support",
+      sublabel: "The Watch is the annual membership. Enrollment and the member experience continue at Beacon Community.",
+      href: "https://beaconcommunity.net",
+      external: true,
+    },
+    {
+      label: "Beacon Labs — B2B systems and diagnostics",
+      sublabel: "For organizations seeking a consented Signal Check or scoped systems work.",
+      href: "https://beaconlabs.ai",
+      external: true,
+    },
+    {
+      label: "Beacon Trading — Educational simulation academy",
+      sublabel: "For market-literacy practice with artificial capital; no brokerage, custody, or advice.",
+      href: "https://beacontrading.ai",
+      external: true,
+    },
   ];
 
-  const COMPANY = [
-    { label: "About Beacon", href: "/about" },
-    { label: "Company", href: "/company" },
-    { label: "Contact", href: "/contact" },
-    { label: "Privacy Policy", href: "/privacy" },
+  const SUPPORT_AND_POLICIES = [
+    { label: "Support", href: "mailto:support@beaconmomentum.com" },
+    { label: "Privacy", href: "/privacy" },
     { label: "Terms of Use", href: "/terms" },
-    { label: "Cookie Policy", href: "/cookies" },
-    { label: "Disclaimer", href: "/disclaimer" },
+    { label: "The Watch membership information", href: "/the-watch" },
+    { label: "Education & simulation boundary", href: "/disclaimer" },
+    { label: "Accessibility", href: "mailto:support@beaconmomentum.com?subject=Accessibility%20request" },
   ];
 
   const colStyle: React.CSSProperties = {
@@ -149,16 +161,22 @@ export default function SharedFooter() {
             </div>
           </div>
           <p style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Lora', Georgia, serif",
             fontWeight: 400, fontSize: "1rem",
-            fontStyle: "italic",
-            color: "rgba(250,248,244,0.45)",
-            letterSpacing: "0.02em",
-            maxWidth: "400px",
+            color: "rgba(250,248,244,0.72)",
+            lineHeight: 1.6,
+            maxWidth: "560px",
             marginTop: "0.75rem",
           }}>
-            The Lighthouse Is Lit. Join Us at the Watch.
+            A public orientation point for people building durable work, useful capability, and a steadier next move.
           </p>
+          <Link href="/how-beacon-works" style={{ display: "inline-block", marginTop: "0.9rem", color: "var(--beacon-amber-light)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textDecoration: "underline", textUnderlineOffset: "0.25rem", textTransform: "uppercase" }}>
+            Choose your route
+          </Link>
+        </div>
+
+        <div style={{ borderBottom: "1px solid rgba(250,248,244,0.08)", color: "rgba(250,248,244,0.52)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.12em", paddingBottom: "1rem", textTransform: "uppercase" }}>
+          <a href="https://beaconmomentum.com/" style={{ color: "#FAF8F4", textDecoration: "underline", textUnderlineOffset: "0.2rem" }}>Beacon Momentum LLC</a> / Beacon Momentum / Public front door
         </div>
 
         {/* Four-column grid */}
@@ -177,14 +195,20 @@ export default function SharedFooter() {
             {RESOURCES.map((l) => <NavLink key={l.label} href={l.href} label={l.label} external={l.external} />)}
           </div>
           <div style={colStyle}>
-            <div style={colHeadStyle}>Beacon Properties</div>
-            {PROPERTIES.map((l) => (
+            <div style={colHeadStyle}>Continue intentionally</div>
+            <p style={{ color: "rgba(250,248,244,0.55)", fontFamily: "'Lora', Georgia, serif", fontSize: "0.78rem", lineHeight: 1.55, margin: "0 0 0.9rem" }}>
+              You are continuing to a separate Beacon property with its own experience, policies, and enrollment or inquiry process. Accounts, submitted details, payment information, and access do not transfer automatically.
+            </p>
+            {CONTINUE_INTENTIONALLY.map((l) => (
               <NavLink key={l.label} href={l.href} label={l.label} sublabel={l.sublabel} external={l.external} />
             ))}
           </div>
           <div style={colStyle}>
-            <div style={colHeadStyle}>Company</div>
-            {COMPANY.map((l) => <NavLink key={l.label} href={l.href} label={l.label} />)}
+            <div style={colHeadStyle}>Support & policies</div>
+            <p style={{ color: "rgba(250,248,244,0.55)", fontFamily: "'Lora', Georgia, serif", fontSize: "0.78rem", lineHeight: 1.55, margin: "0 0 0.9rem" }}>
+              Need help or a policy document? Contact <a href="mailto:support@beaconmomentum.com" style={{ color: "#FAF8F4" }}>support@beaconmomentum.com</a>. Include the property name and the page or action involved so we can route your request correctly.
+            </p>
+            {SUPPORT_AND_POLICIES.map((l) => <NavLink key={l.label} href={l.href} label={l.label} />)}
           </div>
         </div>
 
@@ -202,7 +226,7 @@ export default function SharedFooter() {
             color: "rgba(250,248,244,0.25)",
             letterSpacing: "0.04em",
           }}>
-            © {year} Beacon Momentum, LLC. All rights reserved.
+            © {year} Beacon Momentum LLC. Beacon Momentum is the public front door of the Beacon ecosystem.
           </p>
           <p style={{
             fontFamily: "'Outfit', system-ui, sans-serif",
@@ -211,7 +235,7 @@ export default function SharedFooter() {
             letterSpacing: "0.08em",
             textTransform: "uppercase",
           }}>
-            Earn · Prove · Amplify
+            Support: support@beaconmomentum.com
           </p>
         </div>
       </div>
