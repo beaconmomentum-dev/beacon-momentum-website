@@ -1,0 +1,82 @@
+name: Deploy Beacon Community
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_visual_system:
+        description: Deploy the approved Beacon visual-system release
+        required: true
+        default: false
+        type: boolean
+
+jobs:
+  deploy:
+    name: Deploy Beacon Community visual system
+    if: ${{ inputs.deploy_visual_system }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Create fallback and deploy atomically
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
+            set -euo pipefail
+            release_root='/var/www/beacon-community'
+            previous="$(readlink -f "${release_root}/current")"
+            timestamp="$(date -u +%Y%m%dT%H%M%SZ)"
+            fallback_branch="fallback/community-before-visual-system-${timestamp}"
+            release="${release_root}/releases/${timestamp}-visual-system"
+            switched=0
+
+            rollback() {
+              status=$?
+              if [ "${switched}" = '1' ]; then
+                rm -f "${release_root}/current.next"
+                ln -s "${previous}" "${release_root}/current.next"
+                mv -Tf "${release_root}/current.next" "${release_root}/current"
+                pm2 reload beacon-community --update-env || true
+              fi
+              exit "${status}"
+            }
+            trap rollback ERR
+
+            cd "${previous}"
+            if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+              echo 'Refusing deployment: tracked server-side source edits are present.' >&2
+              exit 1
+            fi
+
+            git branch "${fallback_branch}" "$(git rev-parse HEAD)"
+            git push origin "${fallback_branch}"
+
+            git fetch origin main
+            git worktree add --detach "${release}" origin/main
+            cd "${release}"
+            set -a
+            . "${release_root}/shared/prod-runtime"
+            set +a
+            npm ci --no-audit --no-fund
+            npm run build
+
+            rm -f "${release_root}/current.next"
+            ln -s "${release}" "${release_root}/current.next"
+            mv -Tf "${release_root}/current.next" "${release_root}/current"
+            switched=1
+            pm2 reload beacon-community --update-env
+
+            for attempt in $(seq 1 12); do
+              if curl -fsS --max-time 5 http://127.0.0.1:3014/ >/dev/null && curl -fsS --max-time 5 -H 'Host: beaconcommunity.net' http://127.0.0.1/ >/dev/null; then
+                echo "Deployment healthy; fallback branch: ${fallback_branch}"
+                exit 0
+              fi
+              sleep 2
+            done
+
+            echo 'Deployment health check failed; rolling back.' >&2
+            exit 1
+          REMOTE
