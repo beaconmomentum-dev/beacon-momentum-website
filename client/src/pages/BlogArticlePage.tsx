@@ -3188,6 +3188,13 @@ export default function BlogArticlePage() {
           </div>
         </div>
 
+        {article.id === "founders-framework-america-250" && <section aria-labelledby="foundation-year-film-heading" style={{ marginTop: "2rem", padding: "2.2rem 2rem", background: "rgba(200,134,10,0.10)", border: "1px solid rgba(200,134,10,0.30)", borderLeft: `4px solid ${article.pillarColor}` }}>
+          <p style={{ color: article.pillarColor, fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", margin: 0, textTransform: "uppercase" }}>Foundation Year film</p>
+          <h2 id="foundation-year-film-heading" style={{ color: "#FAF8F4", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(1.7rem, 3.5vw, 2.45rem)", lineHeight: 1.06, margin: "0.65rem 0 0" }}>Watch the Foundation Year film.</h2>
+          <p style={{ color: "rgba(250,248,244,0.72)", fontFamily: "'Lora', Georgia, serif", fontSize: "0.92rem", lineHeight: 1.75, margin: "0.75rem 0 0", maxWidth: "620px" }}>A concise explanation of the structure Beacon is building and why its public, member, and organization-facing routes are distinct.</p>
+          <a href="https://www.youtube.com/watch?v=uJuvhPjcjO0" target="_blank" rel="noreferrer" style={{ color: "#FAF8F4", display: "inline-block", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", marginTop: "1.2rem", textDecoration: "none", textTransform: "uppercase" }}>Watch the Foundation Year film →</a>
+        </section>}
+
         {/* ── Back to The Signal ── */}
         <div
           style={{
