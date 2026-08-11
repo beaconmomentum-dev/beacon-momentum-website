@@ -60,7 +60,7 @@ jobs:
             set -a
             . "${release_root}/shared/prod-runtime"
             set +a
-            npm ci --no-audit --no-fund
+            npm ci --legacy-peer-deps --no-audit --no-fund
             npm run build
 
             rm -f "${release_root}/current.next"
