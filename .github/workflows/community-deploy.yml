@@ -55,12 +55,13 @@ jobs:
             git push origin "${fallback_branch}"
 
             git fetch origin main
-            git worktree add --detach "${release}" origin/main
+            target="$(git rev-parse origin/main)"
+            git worktree add --detach "${release}" "${target}"
             cd "${release}"
+            npm ci --include=dev --legacy-peer-deps --no-audit --no-fund
             set -a
             . "${release_root}/shared/prod-runtime"
             set +a
-            npm ci --legacy-peer-deps --no-audit --no-fund
             npm run build
 
             rm -f "${release_root}/current.next"
@@ -71,7 +72,7 @@ jobs:
 
             for attempt in $(seq 1 12); do
               if curl -fsS --max-time 5 http://127.0.0.1:3014/ >/dev/null && curl -fsS --max-time 5 -H 'Host: beaconcommunity.net' http://127.0.0.1/ >/dev/null; then
-                echo "Deployment healthy; fallback branch: ${fallback_branch}"
+                echo "Deployment healthy; fallback branch: ${fallback_branch}; deployed commit: ${target}"
                 exit 0
               fi
               sleep 2
