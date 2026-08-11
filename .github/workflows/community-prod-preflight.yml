@@ -19,15 +19,20 @@ jobs:
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
             set -euo pipefail
-            echo '=== Beacon Community candidate source directories ==='
-            for directory in /var/www/beacon-community /var/www/beaconcommunity /srv/beacon-community; do
-              if [ -d "$directory" ]; then
-                echo "DIRECTORY: $directory"
-                git -C "$directory" remote -v 2>/dev/null || true
-                git -C "$directory" status --short 2>/dev/null || true
-                [ -f "$directory/package.json" ] && grep -E '"(name|build|start)"' "$directory/package.json" || true
-              fi
-            done
+            release_root='/var/www/beacon-community'
+            current_release="${release_root}/current"
+
+            echo '=== Beacon Community release layout ==='
+            ls -ld "${release_root}" "${current_release}" "${release_root}/releases" "${release_root}/shared" 2>/dev/null || true
+            readlink -f "${current_release}" 2>/dev/null || true
+            find "${release_root}" -maxdepth 2 -mindepth 1 -type d -printf '%p\n' 2>/dev/null | sort | head -n 50
+
+            echo '=== Current release Git state ==='
+            git -C "${current_release}" remote -v 2>/dev/null || true
+            git -C "${current_release}" branch -vv 2>/dev/null || true
+            git -C "${current_release}" status --short 2>/dev/null || true
+            git -C "${current_release}" log -1 --oneline 2>/dev/null || true
+            [ -f "${current_release}/package.json" ] && grep -E '"(name|build|start)"' "${current_release}/package.json" || true
 
             echo '=== Beacon Community process ==='
             pm2 describe beacon-community 2>/dev/null || true
