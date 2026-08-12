@@ -13,6 +13,7 @@ import AboutPage from "./pages/AboutPage";
 import CompanyPage from "./pages/CompanyPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
+import RefundPage from "./pages/RefundPage";
 import BeaconTradingPage from "./pages/BeaconTradingPage";
 import PricingPage from "./pages/PricingPage";
 import ResourcesPage from "./pages/ResourcesPage";
@@ -77,6 +78,7 @@ function Router() {
       <Route path="/company" component={CompanyPage} />
       <Route path="/privacy" component={PrivacyPage} />
       <Route path="/terms" component={TermsPage} />
+      <Route path="/refund" component={RefundPage} />
       <Route path="/beacon-trading" component={BeaconTradingPage} />
       <Route path="/pricing" component={PricingPage} />
       <Route path="/resources" component={ResourcesPage} />

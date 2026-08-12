@@ -59,7 +59,7 @@ export default function TheWatchPage() {
       </section>
 
       <section style={{ padding: "clamp(4rem, 8vw, 7rem) 0", background: C.cream, color: C.deep }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "minmax(0, 0.85fr) minmax(0, 1.15fr)", gap: "clamp(2rem, 7vw, 7rem)", alignItems: "start" }}>
+        <div className="container watch-split" style={{ display: "grid", gridTemplateColumns: "minmax(0, 0.85fr) minmax(0, 1.15fr)", gap: "clamp(2rem, 7vw, 7rem)", alignItems: "start" }}>
           <div><Eyebrow>Why this year matters</Eyebrow><h2 style={{ margin: "1rem 0 0", fontFamily: "Georgia, serif", fontSize: "clamp(2.25rem, 4.4vw, 4.4rem)", fontWeight: 500, lineHeight: 1.02, letterSpacing: "-0.045em" }}>We built the foundation. Now we are building the reserve to carry it.</h2></div>
           <div style={{ paddingTop: "0.35rem" }}>
             <p style={{ margin: 0, color: "rgba(7,21,35,0.78)", fontFamily: "Georgia, serif", fontSize: "1.1rem", lineHeight: 1.85 }}>Over the last 12 months, Beacon Momentum LLC invested more than $250,000 in the infrastructure, systems, content, and delivery capacity behind Beacon. The Watch is open for an ongoing annual enrollment because customer revenue—not a vague ask for support—is how the next 12 months of delivery are carried.</p>
@@ -70,14 +70,14 @@ export default function TheWatchPage() {
 
       <section id="what-begins" style={{ padding: "clamp(4rem, 8vw, 7rem) 0", background: C.water }}>
         <div className="container"><Eyebrow>What begins with membership</Eyebrow><h2 style={{ maxWidth: "700px", margin: "1rem 0 3rem", fontFamily: "Georgia, serif", fontSize: "clamp(2.25rem, 4.5vw, 4.6rem)", fontWeight: 500, lineHeight: 1.02, letterSpacing: "-0.045em" }}>Start with a field kit.<br /><em style={{ color: "rgba(247,241,229,0.70)" }}>Stay for the operating rhythm.</em></h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "1px", background: C.line, border: `1px solid ${C.line}` }}>
+          <div className="watch-foundation-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "1px", background: C.line, border: `1px solid ${C.line}` }}>
             {foundations.map(([title, copy], index) => <article key={title} style={{ padding: "clamp(1.35rem, 3vw, 2.2rem)", background: index === 1 ? "#102E46" : C.water, minHeight: "285px" }}><p style={{ color: C.amber, margin: 0, fontWeight: 800, letterSpacing: "0.16em", fontSize: "0.68rem" }}>0{index + 1}</p><h3 style={{ margin: "2.6rem 0 0", fontFamily: "Georgia, serif", fontWeight: 500, fontSize: "1.72rem", lineHeight: 1.1 }}>{title}</h3><p style={{ margin: "0.85rem 0 0", color: C.mist, lineHeight: 1.75, fontSize: "0.93rem" }}>{copy}</p></article>)}
           </div>
         </div>
       </section>
 
       <section style={{ padding: "clamp(4rem, 8vw, 7rem) 0", background: C.deep }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "minmax(0, 0.85fr) minmax(0, 1.15fr)", gap: "clamp(2rem, 7vw, 7rem)" }}>
+        <div className="container watch-split" style={{ display: "grid", gridTemplateColumns: "minmax(0, 0.85fr) minmax(0, 1.15fr)", gap: "clamp(2rem, 7vw, 7rem)" }}>
           <div><Eyebrow>Founding Year terms</Eyebrow><h2 style={{ margin: "1rem 0 0", fontFamily: "Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 4.1rem)", fontWeight: 500, lineHeight: 1.03, letterSpacing: "-0.045em" }}>A clear purchase.<br /><em style={{ color: "rgba(247,241,229,0.70)" }}>A clear boundary.</em></h2></div>
           <div style={{ borderTop: `1px solid ${C.line}` }}>
             {faq.map(([question, answer]) => <article key={question} style={{ padding: "1.45rem 0", borderBottom: `1px solid ${C.line}` }}><h3 style={{ margin: 0, color: C.cream, fontSize: "1rem", fontWeight: 750 }}>{question}</h3><p style={{ margin: "0.65rem 0 0", color: C.mist, lineHeight: 1.72, fontSize: "0.91rem" }}>{answer}</p></article>)}
@@ -89,6 +89,7 @@ export default function TheWatchPage() {
         <div className="container" style={{ textAlign: "left" }}><Eyebrow>Founding Year enrollment</Eyebrow><h2 style={{ maxWidth: "840px", margin: "1rem 0 0", fontFamily: "Georgia, serif", fontSize: "clamp(2.35rem, 5vw, 5rem)", fontWeight: 500, lineHeight: 1.02, letterSpacing: "-0.05em" }}>If the work is useful to you, join it while the current Founding Year rate is available.</h2><p style={{ maxWidth: "650px", margin: "1.4rem 0 0", color: C.mist, fontFamily: "Georgia, serif", fontSize: "1.08rem", lineHeight: 1.75 }}>Beacon will earn the next year through the quality and clarity of what it delivers. Review the access, annual renewal terms, and payment details before you enroll.</p><Link href="/the-watch/checkout" style={{ display: "inline-block", marginTop: "2rem", background: C.amber, color: C.deep, textDecoration: "none", padding: "1rem 1.25rem", textTransform: "uppercase", letterSpacing: "0.07em", fontWeight: 800, fontSize: "0.76rem" }}>Continue to Beacon-secured enrollment</Link></div>
       </section>
       <footer style={{ padding: "1.75rem 0", borderTop: `1px solid ${C.line}`, background: C.deep }}><div className="container" style={{ color: "rgba(247,241,229,0.52)", fontSize: "0.78rem", lineHeight: 1.6 }}>© Beacon Momentum LLC · The Watch is an annual membership purchase. Questions: <a href="mailto:support@beaconmomentum.com" style={{ color: C.cream }}>support@beaconmomentum.com</a></div></footer>
+      <style>{`@media (max-width: 760px) { .watch-split, .watch-foundation-grid { grid-template-columns: 1fr !important; } .watch-foundation-grid article { min-height: 0 !important; } }`}</style>
     </main>
   );
 }

@@ -8,6 +8,7 @@ import { loadStripe, type StripeElementsOptions } from "@stripe/stripe-js";
 import { useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const C = {
   deep: "#071523",
@@ -114,6 +115,12 @@ function PaymentForm({ email, subscriptionId }: { email: string; subscriptionId:
 }
 
 export default function TheWatchCheckoutPage() {
+  usePageMeta({
+    title: "The Watch secure enrollment",
+    description: "Complete secure annual enrollment for The Watch, Beacon Momentum's $497 annual membership.",
+    url: "/the-watch/checkout",
+  });
+
   const [, navigate] = useLocation();
   const config = trpc.watchCheckout.publicConfig.useQuery(undefined, { retry: false, refetchOnWindowFocus: false });
   const createSubscription = trpc.watchCheckout.createSubscription.useMutation();
@@ -164,7 +171,7 @@ export default function TheWatchCheckoutPage() {
       </header>
 
       <section style={{ padding: "clamp(3rem, 7vw, 6rem) 0", background: "radial-gradient(circle at 82% 7%, rgba(212,169,77,0.15), transparent 27%), linear-gradient(135deg, #071523 0%, #0D263B 100%)" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.1fr) minmax(320px, 0.9fr)", gap: "clamp(2rem, 6vw, 5rem)", alignItems: "start" }}>
+        <div className="container watch-checkout-layout" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.1fr) minmax(320px, 0.9fr)", gap: "clamp(2rem, 6vw, 5rem)", alignItems: "start" }}>
           <div>
             <p style={{ color: C.amber, textTransform: "uppercase", letterSpacing: "0.17em", fontSize: "0.72rem", fontWeight: 800, margin: "0 0 1rem" }}>Founding Year enrollment</p>
             <h1 style={{ maxWidth: "760px", margin: 0, fontFamily: "Georgia, serif", fontSize: "clamp(2.5rem, 5.5vw, 4.6rem)", fontWeight: 500, lineHeight: 1.03, letterSpacing: "-0.035em" }}>Take your post for the year ahead.</h1>
@@ -215,7 +222,7 @@ export default function TheWatchCheckoutPage() {
       </section>
 
       <section style={{ padding: "0 0 clamp(4rem, 8vw, 7rem)", background: C.deep }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "1px", background: C.line, border: `1px solid ${C.line}` }}>
+        <div className="container watch-checkout-disclosures" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "1px", background: C.line, border: `1px solid ${C.line}` }}>
           {[
             ["Issuer", "Payments are made to Beacon Momentum LLC."],
             ["Renewal", "The Watch renews automatically at $497/year while you remain continuously active and paid, unless you cancel before renewal."],
@@ -233,6 +240,7 @@ export default function TheWatchCheckoutPage() {
           </p>
         </div>
       </section>
+      <style>{`@media (max-width: 760px) { .watch-checkout-layout, .watch-checkout-disclosures { grid-template-columns: 1fr !important; } }`}</style>
     </main>
   );
 }
