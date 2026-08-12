@@ -358,9 +358,14 @@ export default function Home() {
 
       <main id="top">
         <section className="tide-grid tide-grain relative isolate flex min-h-[760px] items-end overflow-hidden border-b border-white/10 pb-14 pt-32 sm:min-h-[820px] sm:pb-20 lg:min-h-[880px] lg:pb-24">
-          <div
-            className="absolute inset-0 -z-20 bg-cover bg-center"
-            style={{ backgroundImage: "url('/images/home/beacon-routeboard-hero.webp')" }}
+          <img
+            src="/images/home/beacon-routeboard-hero.webp"
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,26,41,0.98)_0%,rgba(6,26,41,0.91)_38%,rgba(6,26,41,0.54)_68%,rgba(6,26,41,0.65)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-64 -z-10 bg-[linear-gradient(0deg,#061A29,transparent)]" />
@@ -517,6 +522,7 @@ export default function Home() {
                   <div className="relative aspect-video overflow-hidden border border-white/10 bg-[#061A29]">
                     <iframe
                       className="absolute inset-0 h-full w-full"
+                      loading="lazy"
                       src="https://www.youtube-nocookie.com/embed/vi1EkYANhQs?rel=0"
                       title="The Exit Ramp: How to Stop Running to Stand Still"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

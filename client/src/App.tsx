@@ -1,52 +1,55 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Switch, useLocation, useParams } from "wouter";
 import { useRouteMetadata } from "@/hooks/usePageMeta";
-import StarterPackPage from "@/pages/StarterPackPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-import Assessment from "./pages/Assessment";
-import PillarPage from "./pages/PillarPage";
-import AboutPage from "./pages/AboutPage";
-import CompanyPage from "./pages/CompanyPage";
-import PrivacyPage from "./pages/PrivacyPage";
-import TermsPage from "./pages/TermsPage";
-import RefundPage from "./pages/RefundPage";
-import BeaconTradingPage from "./pages/BeaconTradingPage";
-import PricingPage from "./pages/PricingPage";
-import ResourcesPage from "./pages/ResourcesPage";
-import CookiePage from "./pages/CookiePage";
 import CookieConsent from "./components/CookieConsent";
-import DisclaimerPage from "./pages/DisclaimerPage";
-import PillarSharePage from "@/pages/PillarSharePage";
-import ContactPage from "@/pages/ContactPage";
-import DigitalGrandpaLibraryPage from "@/pages/DigitalGrandpaLibraryPage";
-import DigitalGrandpaPage from "@/pages/DigitalGrandpaPage";
-import BlogPage from "@/pages/BlogPage";
-import BlogArticlePage from "@/pages/BlogArticlePage";
-import TheWatchPage from "@/pages/TheWatchPage";
-import TheWatchCheckoutPage from "@/pages/TheWatchCheckoutPage";
-import TheWatchConfirmationPage from "@/pages/TheWatchConfirmationPage";
-import TheWatchTestCheckoutPage from "@/pages/TheWatchTestCheckoutPage";
-import TheWatchTestConfirmationPage from "@/pages/TheWatchTestConfirmationPage";
-import TheWatchIntakePage from "@/pages/TheWatchIntakePage";
-import CohortDashboardPage from "@/pages/CohortDashboardPage";
-import WatchBriefPremiumPage from "@/pages/WatchBriefPremiumPage";
-import HowBeaconWorksPage from "@/pages/HowBeaconWorksPage";
-import FoundationYearPage from "@/pages/FoundationYearPage";
-import FounderNotePage from "@/pages/FounderNotePage";
-import FoundationSupportPage from "@/pages/FoundationSupportPage";
-import FoundationSupportThankYouPage from "@/pages/FoundationSupportThankYouPage";
-import FiveQuestionsFieldNotePage from "@/pages/FiveQuestionsFieldNotePage";
-import ControlledAIWorkflowKitPage from "@/pages/ControlledAIWorkflowKitPage";
-import ControlledWorkflowPilotsPage from "@/pages/ControlledWorkflowPilotsPage";
-import CommunityBuildGrantPage from "@/pages/CommunityBuildGrantPage";
-import CommunityBuildSocialPage from "@/pages/CommunityBuildSocialPage";
-import DigitalRampUpFieldNotesIndexPage from "@/pages/DigitalRampUpFieldNotesIndexPage";
-import DigitalRampUpFieldNotePage from "@/pages/DigitalRampUpFieldNotePage";
+
+// Keep the application shell small. Each public route is loaded only when requested,
+// which prevents payment, editorial, and operations modules from delaying the home page.
+const NotFound = lazy(() => import("@/pages/NotFound"));
+const StarterPackPage = lazy(() => import("@/pages/StarterPackPage"));
+const Home = lazy(() => import("./pages/Home"));
+const Assessment = lazy(() => import("./pages/Assessment"));
+const PillarPage = lazy(() => import("./pages/PillarPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const CompanyPage = lazy(() => import("./pages/CompanyPage"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
+const RefundPage = lazy(() => import("./pages/RefundPage"));
+const BeaconTradingPage = lazy(() => import("./pages/BeaconTradingPage"));
+const PricingPage = lazy(() => import("./pages/PricingPage"));
+const ResourcesPage = lazy(() => import("./pages/ResourcesPage"));
+const CookiePage = lazy(() => import("./pages/CookiePage"));
+const DisclaimerPage = lazy(() => import("./pages/DisclaimerPage"));
+const PillarSharePage = lazy(() => import("@/pages/PillarSharePage"));
+const ContactPage = lazy(() => import("@/pages/ContactPage"));
+const DigitalGrandpaLibraryPage = lazy(() => import("@/pages/DigitalGrandpaLibraryPage"));
+const DigitalGrandpaPage = lazy(() => import("@/pages/DigitalGrandpaPage"));
+const BlogPage = lazy(() => import("@/pages/BlogPage"));
+const BlogArticlePage = lazy(() => import("@/pages/BlogArticlePage"));
+const TheWatchPage = lazy(() => import("@/pages/TheWatchPage"));
+const TheWatchCheckoutPage = lazy(() => import("@/pages/TheWatchCheckoutPage"));
+const TheWatchConfirmationPage = lazy(() => import("@/pages/TheWatchConfirmationPage"));
+const TheWatchTestCheckoutPage = lazy(() => import("@/pages/TheWatchTestCheckoutPage"));
+const TheWatchTestConfirmationPage = lazy(() => import("@/pages/TheWatchTestConfirmationPage"));
+const TheWatchIntakePage = lazy(() => import("@/pages/TheWatchIntakePage"));
+const CohortDashboardPage = lazy(() => import("@/pages/CohortDashboardPage"));
+const WatchBriefPremiumPage = lazy(() => import("@/pages/WatchBriefPremiumPage"));
+const HowBeaconWorksPage = lazy(() => import("@/pages/HowBeaconWorksPage"));
+const FoundationYearPage = lazy(() => import("@/pages/FoundationYearPage"));
+const FounderNotePage = lazy(() => import("@/pages/FounderNotePage"));
+const FoundationSupportPage = lazy(() => import("@/pages/FoundationSupportPage"));
+const FoundationSupportThankYouPage = lazy(() => import("@/pages/FoundationSupportThankYouPage"));
+const FiveQuestionsFieldNotePage = lazy(() => import("@/pages/FiveQuestionsFieldNotePage"));
+const ControlledAIWorkflowKitPage = lazy(() => import("@/pages/ControlledAIWorkflowKitPage"));
+const ControlledWorkflowPilotsPage = lazy(() => import("@/pages/ControlledWorkflowPilotsPage"));
+const CommunityBuildGrantPage = lazy(() => import("@/pages/CommunityBuildGrantPage"));
+const CommunityBuildSocialPage = lazy(() => import("@/pages/CommunityBuildSocialPage"));
+const DigitalRampUpFieldNotesIndexPage = lazy(() => import("@/pages/DigitalRampUpFieldNotesIndexPage"));
+const DigitalRampUpFieldNotePage = lazy(() => import("@/pages/DigitalRampUpFieldNotePage"));
 
 function LegacyBlogIndexRedirect() {
   const [, setLocation] = useLocation();
@@ -73,6 +76,14 @@ function RouteMetadataController() {
   const [location] = useLocation();
   useRouteMetadata(location);
   return null;
+}
+
+function RouteLoading() {
+  return (
+    <main id="main-content" aria-live="polite" className="grid min-h-screen place-items-center bg-[#061A29] px-6 text-center text-sm font-semibold uppercase tracking-[0.16em] text-[#D8A94A]">
+      Loading Beacon Momentum…
+    </main>
+  );
 }
 
 function Router() {
@@ -135,12 +146,14 @@ function App() {
           <CookieConsent />
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#1A5C6B] focus:text-white focus:text-sm focus:font-ui focus:tracking-widest focus:uppercase focus:rounded-sm focus:outline-none"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#1A5C6B] focus:text-white focus:text-sm focus:font-ui focus:tracking-widest focus:uppercase"
           >
             Skip to main content
           </a>
           <RouteMetadataController />
-          <Router />
+          <Suspense fallback={<RouteLoading />}>
+            <Router />
+          </Suspense>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
