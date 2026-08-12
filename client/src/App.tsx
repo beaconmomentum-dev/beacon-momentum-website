@@ -3,6 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { useEffect } from "react";
 import { Route, Switch, useLocation, useParams } from "wouter";
+import { useRouteMetadata } from "@/hooks/usePageMeta";
 import StarterPackPage from "@/pages/StarterPackPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -66,6 +67,12 @@ function LegacyBlogArticleRedirect() {
   }, [setLocation, slug]);
 
   return <main id="main-content" aria-live="polite">Taking you to The Signal.</main>;
+}
+
+function RouteMetadataController() {
+  const [location] = useLocation();
+  useRouteMetadata(location);
+  return null;
 }
 
 function Router() {
@@ -132,6 +139,7 @@ function App() {
           >
             Skip to main content
           </a>
+          <RouteMetadataController />
           <Router />
         </TooltipProvider>
       </ThemeProvider>
