@@ -50,6 +50,8 @@ const CommunityBuildGrantPage = lazy(() => import("@/pages/CommunityBuildGrantPa
 const CommunityBuildSocialPage = lazy(() => import("@/pages/CommunityBuildSocialPage"));
 const DigitalRampUpFieldNotesIndexPage = lazy(() => import("@/pages/DigitalRampUpFieldNotesIndexPage"));
 const DigitalRampUpFieldNotePage = lazy(() => import("@/pages/DigitalRampUpFieldNotePage"));
+const ManifestoPage = lazy(() => import("@/pages/ManifestoPage"));
+const ManifestoQAPage = lazy(() => import("@/pages/ManifestoQAPage"));
 
 function LegacyBlogIndexRedirect() {
   const [, setLocation] = useLocation();
@@ -129,6 +131,8 @@ function Router() {
       <Route path="/_ops/the-watch/test-confirmation" component={TheWatchTestConfirmationPage} />
       <Route path="/the-watch/intake" component={TheWatchIntakePage} />
       <Route path="/the-watch/cohort" component={CohortDashboardPage} />
+      <Route path="/manifesto/questions" component={ManifestoQAPage} />
+      <Route path="/manifesto" component={ManifestoPage} />
       <Route path="/digital-grandpa/library" component={DigitalGrandpaLibraryPage} />
       <Route path="/start" component={StarterPackPage} />
       <Route path="/404" component={NotFound} />

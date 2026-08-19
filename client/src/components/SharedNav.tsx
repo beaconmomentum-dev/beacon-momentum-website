@@ -20,6 +20,7 @@ const NAV_LINKS = [
   { label: "Community Build", href: "/community-build-grant" },
   { label: "The Signal", href: "/signal" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Manifesto", href: "/manifesto" },
   { label: "About", href: "/about" },
 ];
 
