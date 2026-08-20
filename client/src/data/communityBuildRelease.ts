@@ -1,15 +1,22 @@
 export const COMMUNITY_BUILD_RELEASE = {
-  frameworkStatus: "Framework announcement — entries are not open.",
+  frameworkStatus: "Entries are now open.",
   awardValue: "$4,970",
-  awardName: "Purpose-Based Community Build Award",
+  awardName: "Community Build Award",
+  cycle: "Annual — one drawing per year",
+  currentCycleEnd: "August 15, 2027",
+  drawingDate: "August 20, 2027",
   universalDisclosure:
     "No purchase necessary. One recipient will be selected at random from eligible free entries. A purchase, voluntary support payment, membership, referral, social action, project idea, build plan, or orientation choice does not affect eligibility, entries, selection, or odds.",
   purposeSequence:
-    "After random selection and eligibility verification, the selected recipient must accept Beacon’s purpose-based education/build package to receive the award. Approved costs are fulfilled through direct vendor payments and documented reimbursements, not unrestricted cash.",
+    "After random selection and eligibility verification, the selected recipient must accept Beacon's purpose-based education/build package to receive the award. Approved costs are fulfilled through direct vendor payments and documented reimbursements, not unrestricted cash.",
   futureSupportBoundary:
     "Any future voluntary support route is separate from the active drawing, may support future grant reserves and disclosed program operations only, does not affect the active award, and is not tax-deductible.",
   orientationBoundary:
-    "Reading Beacon’s public orientation or choosing to request public updates is optional and does not affect eligibility, entries, random selection, or odds.",
+    "Reading Beacon's public orientation or choosing to request public updates is optional and does not affect eligibility, entries, random selection, or odds.",
+  missionContext:
+    "Beacon Momentum exists to help people in career transition build durable, independent work. The Community Build Award is how we put money directly behind that mission\u2014funding education, tools, and materials for one person selected at random, with no purchase required and no strings attached.",
+  separatePrograms:
+    "The $2,500 Customer Appreciation Awards (at awards.beaconmomentum.com) reward customers who purchase Beacon merchandise. Entries are earned through purchases, with three drawings per year. The $4,970 Community Build Award is completely separate\u2014free to enter, no purchase necessary, no connection to the merchandise program. One recipient selected at random, once per year.",
   socialPosts: [
     {
       platform: "LinkedIn",
