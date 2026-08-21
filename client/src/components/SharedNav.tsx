@@ -45,7 +45,7 @@ export default function SharedNav(_: SharedNavProps) {
       <nav aria-label="Primary" style={{ background: RAIL.background, backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}>
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }} aria-label="Beacon Momentum home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Beacon Momentum LLC" style={{ width: "2rem", height: "2rem", flexShrink: 0 }}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Beacon Momentum LLC" style={{ width: "2.75rem", height: "2.75rem", flexShrink: 0 }}>
               <rect width="64" height="64" rx="12" fill="#0D1D29"/>
               <g fill="none" stroke="#F7F1E5" strokeWidth="3.25" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 19.5 14.5 16" opacity=".72"/>
