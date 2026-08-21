@@ -140,6 +140,45 @@ export default function ManifestoPage() {
           </div>
         </section>
 
+        {/* ── VIDEO ──────────────────────────────────────────────────────────── */}
+        <Prose id="video">
+          <div style={{
+            position: "relative",
+            width: "100%",
+            paddingBottom: "56.25%",
+            background: "#0a0a0a",
+            borderRadius: "2px",
+            overflow: "hidden",
+            marginBottom: "1.5rem",
+          }}>
+            <video
+              controls
+              preload="metadata"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+              }}
+            >
+              <source src="https://files2.heygen.ai/aws_pacific/avatar_tmp/6800fc6a59db48da912a3e4e7c308dea/3cb0f81caa8745ec8dd60e52d014b6f6.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p style={{
+            fontFamily: sans,
+            fontSize: "0.75rem",
+            color: "var(--beacon-charcoal-mid)",
+            textTransform: "uppercase",
+            letterSpacing: "0.1em",
+            margin: "0 0 1rem",
+          }}>Watch: Against the Noise — 6:02</p>
+        </Prose>
+
+        <Divider />
+
         {/* ── OPENING ──────────────────────────────────────────────────────── */}
         <Prose>
           <P>I have been quiet for too long about what this is.</P>
