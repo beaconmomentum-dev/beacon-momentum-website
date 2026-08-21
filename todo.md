@@ -98,6 +98,6 @@
 - [x] Record the August 21 white-screen incident caused by publishing a new `index.html` while the matching hashed Vite assets were absent from `/var/www/beacon-shared-assets`.
 - [x] Add a source-controlled PM2 startup launcher that synchronizes and verifies the current build assets before starting the Beacon Momentum Node runtime.
 - [x] Add repeatable deployment-contract tests proving referenced hashed assets are published before the entry document and that startup fails closed when required assets are absent.
-- [ ] Deploy the guarded launcher to DigitalOcean with rollback evidence and verify future restarts cannot serve HTML whose referenced bundles are missing from the shared Nginx asset directory.
-- [ ] Validate the restored homepage, The Watch, `$497` rate content, checkout handoff, legal/support routes, approved parent mark, favicon, navigation, footer, and desktop/mobile rendering.
-- [ ] Confirm the legacy `beaconhome-ejdfdk4g.manus.space` Watch page is fully superseded by the canonical GitHub/DigitalOcean experience, then permanently unpublish it after explicit point-of-action confirmation.
+- [x] Deploy the guarded launcher to DigitalOcean with rollback evidence and verify future restarts cannot serve HTML whose referenced bundles are missing from the shared Nginx asset directory.
+- [x] Validate the restored homepage, The Watch, `$497` rate content, checkout handoff, legal/support routes, approved parent mark, favicon, navigation, footer, and desktop/mobile rendering.
+- [x] Confirm the legacy `beaconhome-ejdfdk4g.manus.space` Watch page is fully superseded by the canonical GitHub/DigitalOcean experience, unpublish it after explicit point-of-action confirmation, verify the public address returns `404`, and remove redundant local sandbox copies.
