@@ -1,0 +1,39 @@
+There is an old form of fraud called check kiting. It works like this. You write a check from an account with insufficient funds and deposit it in another account at a different bank. Before the first bank discovers the check is worthless, you write another check from the second account back to the first. You keep the paper moving. As long as the checks are in transit, both accounts appear solvent. The moment the music stops, the moment one bank clears a check before the next one arrives, the entire structure collapses.
+
+It is illegal. People go to prison for it. And it bears an uncomfortable resemblance to the way three trillion dollars in AI investment is currently structured.
+
+On August nineteenth, twenty twenty-six, Forbes published two separate analyses reaching the same conclusion from different angles. Six hundred billion dollars in on-balance-sheet infrastructure commitments by Alphabet, Amazon, Meta, and Microsoft. Plus two point four trillion in off-balance-sheet purchase commitments and not-yet-started leases.
+
+The revenue to support those commitments does not exist yet.
+
+Anthropic, one of the three frontier AI labs, reported an annualized revenue run rate of sixty-five billion dollars in July. That sounds enormous until you compare it to the trillions being spent to build the infrastructure that serves it. Alphabet reported its first quarter of negative free cash flow since going public. Not its first quarter of slowing growth. Its first quarter of spending more cash than it generated. Ever.
+
+And then there is the circular structure. Company A invests in Company B, which uses that investment to buy products from Company A. Nvidia and OpenAI sit at the center of a web of these arrangements. Bloomberg traced the pattern last year. Forbes confirmed it this week. The money is not flowing in a line from investor to company to customer. It is flowing in a circle.
+
+This is not illegal. The investments are real. The products are real. The companies involved are among the most sophisticated on earth. But the structure carries the same fundamental risk as check kiting: it depends on timing. It depends on the music continuing to play. And it depends on nobody asking, too loudly, whether the revenue will ever catch up to the spending.
+
+Now, what does this mean if you are building a business?
+
+The lesson is not that AI is a fraud. It is not. The technology is real. The productivity gains are documented. The adoption curve is steeper than anything since the internet. A new academic paper published this month confirms that generative AI increased productivity for most workers regardless of education level or contract type. The IMF projects AI will affect forty percent of global jobs, but new data shows AI-related hiring is outpacing displacement, not the other way around.
+
+The technology works. The question is whether the financial structure supporting it will hold.
+
+And that question matters to you, the person building a business on top of these platforms, more than it matters to the investors writing the checks.
+
+Here is why.
+
+When the dot-com bubble burst in two thousand, the fiber-optic infrastructure survived. The companies that built it did not. WorldCom went bankrupt. Global Crossing went bankrupt. The cables stayed in the ground. The internet kept working. But every business that had built its operations exclusively on those companies' platforms had to scramble.
+
+The same pattern is forming now. The AI infrastructure will survive. The question is which companies will be standing when the music stops, and whether your business is wired to one of the ones that will not be.
+
+Beacon has been saying this since the Follow the Dollar Watch Brief: the tool was never the moat. The system you build around the tool is the moat. The sovereign infrastructure you own is the moat. The ability to produce what you need without depending on a single provider is the moat.
+
+When Google is burning cash faster than it generates it, when the largest company in the world cannot sustain its own spending rate, the lesson for every builder is clear.
+
+Do not wire your business to a single platform. Do not assume the provider you depend on today will be the same provider tomorrow. Do not confuse access to a tool with ownership of a system.
+
+The companies that survive the next correction will be the ones that built real systems. Diversified, sovereign, owned. Not the ones that rented someone else's infrastructure and called it a business model.
+
+The music is still playing. But the checks are in transit. And the math does not close.
+
+Build accordingly.
