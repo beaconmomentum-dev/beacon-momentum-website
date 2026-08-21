@@ -77,7 +77,7 @@ export const communityBuildRouter = router({
       return { success: true };
     } catch (error: any) {
       // Duplicate entry (unique constraint on email+cycle)
-      if (error?.code === "ER_DUP_ENTRY" || error?.errno === 1062) {
+      if (error?.code === "ER_DUP_ENTRY" || error?.errno === 1062 || error?.sqlState === "23000") {
         console.info("[community-build] duplicate entry blocked", {
           email: input.email.replace(/(.{2}).*(@.*)/, "$1***$2"),
           cycle: CURRENT_CYCLE,
