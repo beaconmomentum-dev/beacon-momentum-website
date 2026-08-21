@@ -151,21 +151,20 @@ export default function ManifestoPage() {
             overflow: "hidden",
             marginBottom: "1.5rem",
           }}>
-            <video
-              controls
-              preload="metadata"
+            <iframe
+              src="https://www.youtube.com/embed/k08ySORO0Ys?rel=0&modestbranding=1"
+              title="Against the Noise — A Letter from Beacon's Founder"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
               style={{
                 position: "absolute",
                 top: 0,
                 left: 0,
                 width: "100%",
                 height: "100%",
-                objectFit: "contain",
+                border: "none",
               }}
-            >
-              <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/FkmtRUKyqILPIqMe.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            />
           </div>
           <p style={{
             fontFamily: sans,
