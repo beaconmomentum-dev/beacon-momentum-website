@@ -12,7 +12,7 @@
  *
  * Legal positioning: Educational simulation platform. Not a brokerage, not financial advice.
  * Historical context: Beacon Trading evolved from the Financial Sovereignty curriculum
- * and the Rise & Reclaim four-stage path.
+ * and the Beacon Life four-stage path.
  */
 
 import { useState } from "react";

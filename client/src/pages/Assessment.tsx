@@ -4,7 +4,7 @@
  * Purpose: Multi-step diagnostic quiz that routes visitors to one of five Beacon pillars
  *
  * Historical context: Evolved from the Financial Sovereignty Quiz and
- * Rise & Reclaim four-stage path (Stabilize → Build → Rise → Reclaim).
+ * Beacon Life four-stage path (Stabilize → Build → Rise → Reclaim).
  * Personas: Veterans in transition, displaced workers, mid-career professionals,
  * small business owners, survivors of personal/economic storms.
  */

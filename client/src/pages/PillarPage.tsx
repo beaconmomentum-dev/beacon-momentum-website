@@ -5,10 +5,10 @@
  * Each pillar has its own accent color, curriculum, mentor, and conversion CTA.
  *
  * Historical context:
- * - Beacon Life ← Rise & Reclaim (Stabilize → Build → Rise → Reclaim)
+ * - Beacon Life (Stabilize → Build → Rise → Reclaim)
  * - Beacon Work ← Beacon Academy (Elena Voss mentor)
  * - Beacon Venture ← Beacon Launch + beacontrading.ai (Dante Rivera mentor)
- * - Beacon Systems ← Phoenix + Beacon Labs client delivery
+ * - Beacon Systems ← Beacon Labs client delivery
  * - Beacon Labs ← Signal Check, DeerFlow research, case studies
  */
 
