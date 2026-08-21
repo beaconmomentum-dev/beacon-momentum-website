@@ -18,4 +18,8 @@ export const ENV = {
   stripeTestPublishableKey: process.env.STRIPE_TEST_PUBLISHABLE_KEY ?? "",
   stripeTestWatchAnnualPriceId: process.env.STRIPE_TEST_WATCH_ANNUAL_PRICE_ID ?? "",
   stripeTestWatchWebhookSecret: process.env.STRIPE_TEST_WATCH_WEBHOOK_SECRET ?? "",
+  /** SendGrid API key for transactional email notifications. */
+  sendgridApiKey: process.env.SENDGRID_API_KEY ?? "",
+  /** Admin email for system notifications (defaults to support@beaconmomentum.com). */
+  adminNotificationEmail: process.env.ADMIN_NOTIFICATION_EMAIL ?? "support@beaconmomentum.com",
 };
