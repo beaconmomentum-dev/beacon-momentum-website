@@ -5,7 +5,13 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+if [[ -n "${BEACON_REPO_ROOT:-}" ]]; then
+  REPO_ROOT="$BEACON_REPO_ROOT"
+elif [[ "$SCRIPT_DIR" == "/root" && -d "/var/www/beacon-momentum-www" ]]; then
+  REPO_ROOT="/var/www/beacon-momentum-www"
+else
+  REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+fi
 SITE_ROOT="${BEACON_SITE_ROOT:-$REPO_ROOT/dist/public}"
 SHARED_ASSET_DIR="${BEACON_SHARED_ASSET_DIR:-/var/www/beacon-shared-assets}"
 ENV_FILE="${BEACON_ENV_FILE:-$REPO_ROOT/.env.production}"
