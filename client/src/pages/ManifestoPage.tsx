@@ -163,7 +163,7 @@ export default function ManifestoPage() {
                 objectFit: "contain",
               }}
             >
-              <source src="https://files2.heygen.ai/aws_pacific/avatar_tmp/6800fc6a59db48da912a3e4e7c308dea/3cb0f81caa8745ec8dd60e52d014b6f6.mp4" type="video/mp4" />
+              <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/FkmtRUKyqILPIqMe.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
