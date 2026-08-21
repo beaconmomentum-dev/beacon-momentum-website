@@ -16,11 +16,18 @@ SHARED_ASSET_DIR="${BEACON_SHARED_ASSET_DIR:-/var/www/beacon-shared-assets}"
 ORIGIN_IP="${BEACON_ORIGIN_IP:-127.0.0.1}"
 PUBLIC_HOST="${BEACON_PUBLIC_HOST:-beaconmomentum.com}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 SYNC_SCRIPT="$SCRIPT_DIR/../scripts/sync-beacon-shared-assets.sh"
+STARTUP_SCRIPT="$REPO_ROOT/ops/start-beacon-momentum-www.sh"
+LAUNCHER_TARGET="${BEACON_LAUNCHER_TARGET:-/root/start-beacon-momentum-www.sh}"
 BUILD_INDEX="$BUILD_PUBLIC_DIR/index.html"
 
 if [[ ! -x "$SYNC_SCRIPT" ]]; then
   echo "ERROR: shared-asset sync script is unavailable or not executable: $SYNC_SCRIPT" >&2
+  exit 1
+fi
+if [[ ! -x "$STARTUP_SCRIPT" ]]; then
+  echo "ERROR: guarded startup script is unavailable or not executable: $STARTUP_SCRIPT" >&2
   exit 1
 fi
 
@@ -54,5 +61,8 @@ for asset in "${referenced_assets[@]}"; do
   fi
 done
 
+install -m 0755 "$STARTUP_SCRIPT" "$LAUNCHER_TARGET"
+
 printf 'Static release published safely: %s\n' "$BUILD_PUBLIC_DIR"
 printf 'Verified public assets: %s\n' "${referenced_assets[*]}"
+printf 'Guarded PM2 launcher installed: %s\n' "$LAUNCHER_TARGET"
