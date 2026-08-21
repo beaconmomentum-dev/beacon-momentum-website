@@ -87,3 +87,22 @@ export const cohortLeadSessions = mysqlTable("cohort_lead_sessions", {
 
 export type CohortLeadSession = typeof cohortLeadSessions.$inferSelect;
 export type InsertCohortLeadSession = typeof cohortLeadSessions.$inferInsert;
+
+/**
+ * Community Build Award entries — stores free entry submissions
+ * for the annual $4,970 purpose-based drawing.
+ * One entry per email per annual cycle, enforced by unique key.
+ */
+export const communityBuildEntries = mysqlTable("community_build_entries", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  city: varchar("city", { length: 128 }).notNull(),
+  state: varchar("state", { length: 64 }).notNull(),
+  cycle: varchar("cycle", { length: 32 }).notNull().default("2026-2027"),
+  ipAddress: varchar("ip_address", { length: 45 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export type CommunityBuildEntry = typeof communityBuildEntries.$inferSelect;
+export type InsertCommunityBuildEntry = typeof communityBuildEntries.$inferInsert;

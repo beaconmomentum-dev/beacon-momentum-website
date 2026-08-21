@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import SharedFooter from "@/components/SharedFooter";
 import SharedNav from "@/components/SharedNav";
 import { COMMUNITY_BUILD_RELEASE } from "@/data/communityBuildRelease";
+import { trpc } from "@/lib/trpc";
 
 const facts = [
   ["The chance", "One recipient will be selected at random from eligible free entries under the final Official Rules."],
@@ -23,25 +24,18 @@ export default function CommunityBuildGrantPage() {
   const [formState, setFormState] = useState<"idle" | "submitting" | "success">("idle");
   const [formData, setFormData] = useState({ name: "", email: "", city: "", state: "" });
 
-  async function handleSubmit(e: React.FormEvent) {
+  const enterMutation = trpc.communityBuildEntry.enter.useMutation({
+    onSuccess: () => setFormState("success"),
+    onError: (error) => {
+      setFormState("idle");
+      alert(error.message || "Something went wrong. Please try again or email support@beaconmomentum.com.");
+    },
+  });
+
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setFormState("submitting");
-    try {
-      const res = await fetch("/api/trpc/communityBuildEntry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (res.ok) {
-        setFormState("success");
-      } else {
-        setFormState("idle");
-        alert("Something went wrong. Please try again or email support@beaconmomentum.com.");
-      }
-    } catch {
-      setFormState("idle");
-      alert("Something went wrong. Please try again or email support@beaconmomentum.com.");
-    }
+    enterMutation.mutate(formData);
   }
 
   return (
