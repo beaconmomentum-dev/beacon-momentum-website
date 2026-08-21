@@ -28,7 +28,7 @@ export default function CompanyPage() {
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
             <img
-              src="/icons/beacon-logo.webp"
+              src="/brand/beacon-mark.svg"
               alt="Beacon Momentum"
               style={{ width: "1.75rem", height: "1.75rem", objectFit: "contain", flexShrink: 0 }}
             />

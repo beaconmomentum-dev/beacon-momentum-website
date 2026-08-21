@@ -131,7 +131,7 @@ export default function SharedFooter() {
         <div style={{ marginBottom: "3.5rem", paddingBottom: "3rem", borderBottom: "1px solid rgba(250,248,244,0.08)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.35rem" }}>
             <img
-              src="/icons/beacon-logo.webp"
+              src="/brand/beacon-mark.svg"
               alt="Beacon Momentum"
               style={{ width: "3rem", height: "3rem", objectFit: "contain" }}
               onError={(e) => {

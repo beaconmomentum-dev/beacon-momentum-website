@@ -7,6 +7,7 @@ import { Elements, PaymentElement, useElements, useStripe } from "@stripe/react-
 import { loadStripe, type StripeElementsOptions } from "@stripe/stripe-js";
 import { useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
+import BeaconRouteLockup from "@/components/BeaconRouteLockup";
 import { trpc } from "@/lib/trpc";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -163,9 +164,7 @@ export default function TheWatchCheckoutPage() {
     <main id="main-content" style={{ minHeight: "100vh", background: C.deep, color: C.cream, fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>
       <header style={{ borderBottom: `1px solid ${C.line}`, background: "rgba(7,21,35,0.96)" }}>
         <div className="container" style={{ minHeight: "76px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
-          <Link href="/the-watch" style={{ color: C.cream, textDecoration: "none", fontWeight: 800, letterSpacing: "0.11em", textTransform: "uppercase", fontSize: "0.82rem" }}>
-            Beacon Momentum <span style={{ color: C.amber }}>·</span> The Watch
-          </Link>
+          <BeaconRouteLockup descriptor="The Watch · Secure enrollment" href="/the-watch" textColor={C.cream} mutedColor={C.mist} compact />
           <button onClick={() => navigate("/the-watch")} style={{ background: "transparent", border: 0, color: C.mist, cursor: "pointer", fontSize: "0.84rem" }}>← Review membership</button>
         </div>
       </header>

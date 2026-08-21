@@ -140,7 +140,7 @@ export default function ContactPage() {
           }}
         >
           <img
-            src="/icons/beacon-logo.webp"
+            src="/brand/beacon-mark.svg"
             alt="Beacon Momentum"
             style={{ width: 32, height: 32, objectFit: "contain", flexShrink: 0 }}
           />

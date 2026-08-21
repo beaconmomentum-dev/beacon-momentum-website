@@ -10,6 +10,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
+import BeaconRouteLockup from "@/components/BeaconRouteLockup";
 
 // ─── Design tokens (matching The Watch dark navy aesthetic) ───────────────────
 const C = {
@@ -939,34 +940,7 @@ function Dashboard({ leadEmail, onLogout }: { leadEmail: string; onLogout: () =>
           zIndex: 100,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
-          <span style={{ fontSize: "1.1rem", color: C.amber }}>◈</span>
-          <div>
-            <span
-              style={{
-                fontFamily: serif,
-                fontSize: "1.1rem",
-                fontWeight: 600,
-                color: C.cream,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              The Watch
-            </span>
-            <span
-              style={{
-                fontFamily: body,
-                fontSize: "0.75rem",
-                color: C.muted,
-                marginLeft: "0.75rem",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-              }}
-            >
-              Cohort Lead Dashboard
-            </span>
-          </div>
-        </div>
+        <BeaconRouteLockup descriptor="The Watch · Cohort Lead Dashboard" href="/the-watch" textColor={C.cream} mutedColor={C.muted} compact />
         <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
           <span style={{ fontFamily: body, fontSize: "0.8rem", color: C.muted }}>
             {leadEmail}

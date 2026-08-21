@@ -4,6 +4,7 @@
  * nautical light motif. No managed-preview asset or hosted checkout.
  */
 import { Link } from "wouter";
+import BeaconRouteLockup from "@/components/BeaconRouteLockup";
 
 const C = {
   deep: "#071523",
@@ -37,7 +38,7 @@ export default function TheWatchPage() {
     <main id="main-content" style={{ background: C.deep, color: C.cream, fontFamily: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" }}>
       <header style={{ position: "relative", zIndex: 2, borderBottom: `1px solid ${C.line}`, background: "rgba(7,21,35,0.96)" }}>
         <div className="container" style={{ minHeight: "76px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
-          <Link href="/" style={{ color: C.cream, textDecoration: "none", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 800, fontSize: "0.78rem" }}>Beacon Momentum</Link>
+          <BeaconRouteLockup descriptor="The Watch" textColor={C.cream} mutedColor={C.mist} />
           <Link href="/the-watch/checkout" style={{ color: C.deep, background: C.amber, padding: "0.7rem 0.95rem", textDecoration: "none", letterSpacing: "0.07em", textTransform: "uppercase", fontWeight: 800, fontSize: "0.7rem" }}>Founding Year enrollment</Link>
         </div>
       </header>

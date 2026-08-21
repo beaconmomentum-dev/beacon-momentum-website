@@ -273,7 +273,7 @@ export default function PillarPage() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <img
-              src="/icons/beacon-logo.webp"
+              src="/brand/beacon-mark.svg"
               alt="Beacon Momentum"
               className="w-7 h-7"
               style={{ objectFit: "contain", flexShrink: 0 }}

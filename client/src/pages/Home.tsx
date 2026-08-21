@@ -202,7 +202,7 @@ function SignalStrip({ label, inverse = false }: { label: string; inverse?: bool
 function BeaconMark() {
   return (
     <img
-      src="/images/home/beacon-routeboard-mark.webp"
+      src="/brand/beacon-mark.svg"
       alt=""
       className="brand-roundel-image"
       aria-hidden="true"
@@ -219,7 +219,7 @@ function BrandLockup({ footer = false }: { footer?: boolean }) {
       <span className="relative flex min-w-0 flex-col border-l border-[#58A6A4]/55 pl-3">
         <span className="font-display text-[1.14rem] leading-[0.82] tracking-[-0.055em] text-[#EEF3EF] sm:text-[1.28rem]">Beacon</span>
         <span className="mt-1 flex items-center gap-1.5 text-[0.47rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">
-          <span className="h-px w-3 bg-[#58A6A4]" /> Momentum · {footer ? "Home Port" : "Field Systems"}
+          <span className="h-px w-3 bg-[#58A6A4]" /> Momentum · Public Front Door
         </span>
       </span>
     </span>

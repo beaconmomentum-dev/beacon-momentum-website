@@ -136,7 +136,7 @@ export default function BeaconTradingPage() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <img
-              src="/icons/beacon-logo.webp"
+              src="/brand/beacon-mark.svg"
               alt="Beacon Momentum"
               className="w-7 h-7"
               style={{ objectFit: "contain", flexShrink: 0 }}
@@ -643,7 +643,7 @@ export default function BeaconTradingPage() {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <img
-              src="/icons/beacon-logo.webp"
+              src="/brand/beacon-mark.svg"
               alt="Beacon Momentum"
               className="w-7 h-7"
               style={{ objectFit: "contain", flexShrink: 0 }}

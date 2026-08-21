@@ -1,0 +1,204 @@
+{
+  "baseUrl": "http://127.0.0.1:4174",
+  "checkedAt": "2026-08-21T02:23:12.080Z",
+  "results": [
+    {
+      "route": "/",
+      "viewport": "desktop",
+      "bodyCharacters": 6774,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Find a Steadier Next Move. — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/the-watch",
+      "viewport": "desktop",
+      "bodyCharacters": 3548,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "The Watch — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/the-watch/checkout",
+      "viewport": "desktop",
+      "bodyCharacters": 1353,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "The Watch secure enrollment — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/about",
+      "viewport": "desktop",
+      "bodyCharacters": 9748,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "About Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/pricing",
+      "viewport": "desktop",
+      "bodyCharacters": 6297,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Beacon Momentum Pricing",
+      "criticalFailures": []
+    },
+    {
+      "route": "/contact",
+      "viewport": "desktop",
+      "bodyCharacters": 737,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Contact — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/privacy",
+      "viewport": "desktop",
+      "bodyCharacters": 10066,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Privacy Policy — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/terms",
+      "viewport": "desktop",
+      "bodyCharacters": 10118,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Terms of Use — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/refund",
+      "viewport": "desktop",
+      "bodyCharacters": 2269,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Refund and Cancellation Policy — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/",
+      "viewport": "mobile",
+      "bodyCharacters": 6570,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Find a Steadier Next Move. — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/the-watch",
+      "viewport": "mobile",
+      "bodyCharacters": 3548,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "The Watch — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/the-watch/checkout",
+      "viewport": "mobile",
+      "bodyCharacters": 1353,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "The Watch secure enrollment — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/about",
+      "viewport": "mobile",
+      "bodyCharacters": 9602,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "About Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/pricing",
+      "viewport": "mobile",
+      "bodyCharacters": 6151,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Beacon Momentum Pricing",
+      "criticalFailures": []
+    },
+    {
+      "route": "/contact",
+      "viewport": "mobile",
+      "bodyCharacters": 737,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Contact — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/privacy",
+      "viewport": "mobile",
+      "bodyCharacters": 10066,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Privacy Policy — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/terms",
+      "viewport": "mobile",
+      "bodyCharacters": 10118,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Terms of Use — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/refund",
+      "viewport": "mobile",
+      "bodyCharacters": 2269,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Refund and Cancellation Policy — Beacon Momentum",
+      "criticalFailures": []
+    }
+  ]
+}

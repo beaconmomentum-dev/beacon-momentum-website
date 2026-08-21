@@ -95,3 +95,9 @@
 - [ ] Select the ordinary commerce and fulfillment route for the Beacon merchandise page; retain RallyUp only as a future optional storefront candidate, not as a scholarship or prize-promotion platform.
 - [ ] Obtain appropriate review of the merchandise page’s public purpose, allocation, tax, refund, privacy, shipping, and consumer disclosures before launch.
 - [x] Retire the scholarship-pilot decisions S-01 through S-06 in favor of the simplified standard merchandise-page direction; keep the legacy RV raffle out of the active plan.
+- [x] Record the August 21 white-screen incident caused by publishing a new `index.html` while the matching hashed Vite assets were absent from `/var/www/beacon-shared-assets`.
+- [x] Add a source-controlled PM2 startup launcher that synchronizes and verifies the current build assets before starting the Beacon Momentum Node runtime.
+- [x] Add repeatable deployment-contract tests proving referenced hashed assets are published before the entry document and that startup fails closed when required assets are absent.
+- [ ] Deploy the guarded launcher to DigitalOcean with rollback evidence and verify future restarts cannot serve HTML whose referenced bundles are missing from the shared Nginx asset directory.
+- [ ] Validate the restored homepage, The Watch, `$497` rate content, checkout handoff, legal/support routes, approved parent mark, favicon, navigation, footer, and desktop/mobile rendering.
+- [ ] Confirm the legacy `beaconhome-ejdfdk4g.manus.space` Watch page is fully superseded by the canonical GitHub/DigitalOcean experience, then permanently unpublish it after explicit point-of-action confirmation.

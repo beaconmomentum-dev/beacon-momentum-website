@@ -125,7 +125,7 @@ export default function AboutPage() {
         <div className="container" style={{ maxWidth: "760px" }}>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
             <img
-              src="/icons/beacon-logo-hero.webp"
+              src="/brand/beacon-mark.svg"
               alt="Beacon Momentum lighthouse"
               style={{ width: "clamp(180px, 28vw, 320px)", height: "auto", display: "block" }}
             />
