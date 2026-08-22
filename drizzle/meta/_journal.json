@@ -22,13 +22,6 @@
       "when": 1785189211166,
       "tag": "0002_watch_test_mode_isolation",
       "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1787441061294,
-      "tag": "0003_common_stature",
-      "breakpoints": true
     }
   ]
 }
