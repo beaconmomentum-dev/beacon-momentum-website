@@ -132,7 +132,7 @@ const AUGUST_ARTICLE_DRAFTS = [
     pillar: "Signal",
     pillarColor: "#E9BC52",
     featured: true,
-    body: `<div style="position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_CHECK_KITE?rel=0&modestbranding=1" title="The AI Check Kite" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe></div>
+    body: `<div style="width:100%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><video controls playsinline preload="metadata" poster="/images/signal-series/02-ai-check-kite-poster.jpg" aria-label="The AI Check Kite — When the Music Stops" style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0a0a0a"><source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/EUQjRypMMRNbFwEA.mp4" type="video/mp4">Your browser does not support embedded video. <a href="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/EUQjRypMMRNbFwEA.mp4">Watch the video directly.</a></video></div>
 <p class="beacon-article-lede">On Monday, Forbes published two separate analyses reaching the same conclusion: the financial structure supporting AI investment bears an uncomfortable resemblance to check kiting — an old form of fraud where insufficient funds are juggled between accounts to create the illusion of solvency.</p>
 <p>The numbers:</p>
 <ul>
@@ -162,7 +162,7 @@ const AUGUST_ARTICLE_DRAFTS = [
     readTime: "4 min read",
     pillar: "Signal",
     pillarColor: "#E9BC52",
-    body: `<div style="position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_65_FOUNDERS?rel=0&modestbranding=1" title="65% of Founders" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe></div>
+    body: `<div style="width:100%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><video controls playsinline preload="metadata" poster="/images/signal-series/03-65-percent-founders-poster.jpg" aria-label="65% of Founders Will Fail — Shortcuts vs. Levers" style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0a0a0a"><source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/UGqxoDkuebtKrAXN.mp4" type="video/mp4">Your browser does not support embedded video. <a href="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/UGqxoDkuebtKrAXN.mp4">Watch the video directly.</a></video></div>
 <p class="beacon-article-lede">Could someone with the same AI subscription you use replicate what you have built in a single day?</p>
 <p>If the answer is yes — you have not built a business. You have assembled a collection of outputs. And outputs are commodities.</p>
 <p>A new survey reports that 65 percent of aspiring entrepreneurs plan to use AI to launch their businesses this year. Most will fail. Not because the technology does not work — it works extraordinarily well. Because they will use it as a shortcut rather than a lever.</p>
@@ -183,7 +183,7 @@ const AUGUST_ARTICLE_DRAFTS = [
     readTime: "5 min read",
     pillar: "Signal",
     pillarColor: "#E9BC52",
-    body: `<div style="position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_COLLECTIVE?rel=0&modestbranding=1" title="The Collective Illusion" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe></div>
+    body: `<div style="width:100%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><video controls playsinline preload="metadata" poster="/images/signal-series/04-collective-illusion-poster.jpg" aria-label="The Collective Illusion — You Are Not the Outlier" style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0a0a0a"><source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/UnSCGhAMUIBPXCkO.mp4" type="video/mp4">Your browser does not support embedded video. <a href="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/UnSCGhAMUIBPXCkO.mp4">Watch the video directly.</a></video></div>
 <p class="beacon-article-lede">You are not the outlier.</p>
 <p>Whatever you privately believe — about your industry, about the market, about the narratives dominating your feed — you are not alone in believing it. You just think you are. And that assumption is costing you.</p>
 <p>There is a phenomenon called a collective illusion. It works like this: almost everyone in a group privately disagrees with a position, but each person believes everyone else agrees. So they stay quiet. They perform agreement. They nod along. And their performance becomes the evidence that convinces the next person they are the outlier too.</p>
@@ -207,7 +207,7 @@ const AUGUST_ARTICLE_DRAFTS = [
     readTime: "5 min read",
     pillar: "Signal",
     pillarColor: "#E9BC52",
-    body: `<div style="position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_300K?rel=0&modestbranding=1" title="300,000 Empty Seats" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe></div>
+    body: `<div style="width:100%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><video controls playsinline preload="metadata" poster="/images/signal-series/05-300k-empty-seats-poster.jpg" aria-label="300,000 Empty Seats — The Architecture of Fragility" style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0a0a0a"><source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/TLRSDNgLkUSLcQwK.mp4" type="video/mp4">Your browser does not support embedded video. <a href="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/TLRSDNgLkUSLcQwK.mp4">Watch the video directly.</a></video></div>
 <p class="beacon-article-lede">There are 300,000 local government seats in this country that are vacant or running unchallenged right now.</p>
 <p>School boards deciding what your children learn. City councils deciding what gets built. Planning commissions shaping the character of your community. Empty. Unchallenged. Waiting for someone to show up.</p>
 <h2>The Centralization Parallel</h2>
