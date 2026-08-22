@@ -22,4 +22,7 @@ export const ENV = {
   sendgridApiKey: process.env.SENDGRID_API_KEY ?? "",
   /** Admin email for system notifications (defaults to support@beaconmomentum.com). */
   adminNotificationEmail: process.env.ADMIN_NOTIFICATION_EMAIL ?? "support@beaconmomentum.com",
+  /** Protected machine-to-machine Phoenix intake for durable payment lifecycle notifications. */
+  phoenixPaymentNotificationUrl: process.env.PHOENIX_PAYMENT_NOTIFICATION_URL ?? "",
+  phoenixPaymentNotificationToken: process.env.PHOENIX_PAYMENT_NOTIFICATION_TOKEN ?? "",
 };

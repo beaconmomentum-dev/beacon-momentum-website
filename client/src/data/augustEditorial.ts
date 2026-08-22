@@ -232,8 +232,8 @@ export const AUGUST_ARTICLE_CONTENT = AUGUST_ARTICLE_DRAFTS.map((article) => ({
   captionSrc: `/audio/august/captions/${article.id}.vtt`,
 }));
 
-export const AUGUST_ARTICLE_SUMMARIES = AUGUST_ARTICLE_CONTENT.map(({ body, heroImage, ...summary }) => ({
+export const AUGUST_ARTICLE_SUMMARIES = AUGUST_ARTICLE_CONTENT.map(({ body, ...summary }) => ({
   ...summary,
   featured: "featured" in summary ? summary.featured === true : false,
-  thumbnail: heroImage,
+  thumbnail: "heroImage" in summary ? summary.heroImage : undefined,
 }));

@@ -70,6 +70,34 @@ export type WatchMember = typeof watchMembers.$inferSelect;
 export type InsertWatchMember = typeof watchMembers.$inferInsert;
 
 /**
+ * Durable handoff queue from Stripe lifecycle processing to Phoenix. The Stripe
+ * webhook persists the business state first, then emits one idempotent event to
+ * this outbox. Delivery retries never replay a customer charge.
+ */
+export const watchPaymentNotifications = mysqlTable("watch_payment_notifications", {
+  id: int("id").autoincrement().primaryKey(),
+  stripeEventId: varchar("stripeEventId", { length: 128 }).notNull().unique(),
+  billingMode: varchar("billingMode", { length: 16 }).notNull(),
+  eventType: varchar("eventType", { length: 96 }).notNull(),
+  email: varchar("email", { length: 320 }),
+  firstName: varchar("firstName", { length: 128 }),
+  stripeCustomerId: varchar("stripeCustomerId", { length: 64 }),
+  stripeSubscriptionId: varchar("stripeSubscriptionId", { length: 64 }),
+  notificationStatus: varchar("notificationStatus", { length: 32 }).notNull(),
+  payload: json("payload").notNull(),
+  deliveryStatus: varchar("deliveryStatus", { length: 32 }).notNull().default("pending"),
+  attemptCount: int("attemptCount").notNull().default(0),
+  nextAttemptAt: timestamp("nextAttemptAt"),
+  deliveredAt: timestamp("deliveredAt"),
+  lastError: text("lastError"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type WatchPaymentNotification = typeof watchPaymentNotifications.$inferSelect;
+export type InsertWatchPaymentNotification = typeof watchPaymentNotifications.$inferInsert;
+
+/**
  * Cohort lead sessions — simple password-based access for cohort leads.
  * A cohort lead authenticates with a shared password (stored as env var COHORT_LEAD_PASSWORD).
  * On success, a short-lived session token is issued and stored here.

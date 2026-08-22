@@ -7,6 +7,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerWatchStripeTestWebhook, registerWatchStripeWebhook } from "../payment/watchWebhook";
+import { deliverPendingPaymentNotifications } from "../payment/paymentNotificationOutbox";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -75,6 +76,22 @@ async function startServer() {
   const port = await findAvailablePort(preferredPort);
   if (port !== preferredPort) console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
   server.listen(port, () => console.log(`Server running on http://localhost:${port}/`));
+
+  // Stripe retries any failed lifecycle persistence itself. This separate outbox
+  // loop retries only the downstream Phoenix notification handoff, so a delayed
+  // CRM notice cannot replay a customer charge or block checkout acknowledgement.
+  const deliverPaymentOutbox = async () => {
+    try {
+      const result = await deliverPendingPaymentNotifications();
+      if (result.delivered || result.retried || result.deadLettered) {
+        console.info("[Payment notification outbox]", result);
+      }
+    } catch (error) {
+      console.error("[Payment notification outbox] delivery loop failed", error);
+    }
+  };
+  void deliverPaymentOutbox();
+  setInterval(() => void deliverPaymentOutbox(), 60_000).unref();
 }
 
 startServer().catch(console.error);

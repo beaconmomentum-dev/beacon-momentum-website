@@ -10,6 +10,7 @@ import express from "express";
 import Stripe from "stripe";
 import { ENV } from "../_core/env";
 import { type WatchBillingMode, updateWatchEnrollmentStatus, upsertWatchEnrollment } from "../db";
+import { enqueuePaymentNotification } from "./paymentNotificationOutbox";
 
 const OFFERING_KEY = "the_watch_founding_year_2026";
 const FOUNDATION_SUPPORT_OFFERING_KEY = "foundation_year_voluntary_support_2026";
@@ -137,6 +138,16 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
             paidAt: new Date(event.created * 1000),
             renewsAt: getRenewsAt(subscription),
           });
+          await enqueuePaymentNotification({
+            stripeEventId: event.id,
+            billingMode: config.billingMode,
+            eventType: event.type,
+            email: customer.email,
+            firstName: customer.name?.trim().split(/\s+/)[0] ?? null,
+            stripeCustomerId: customer.id,
+            stripeSubscriptionId: subscription.id,
+            notificationStatus: "active",
+          });
           logWatchBillingEvent(event, config.billingMode);
           break;
         }
@@ -148,6 +159,18 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
           const subscription = await stripe.subscriptions.retrieve(subscriptionId);
           if (!isWatchSubscription(subscription, config.priceId)) break;
           await updateWatchEnrollmentStatus(subscription.id, "past_due", getRenewsAt(subscription));
+          const customer = await stripe.customers.retrieve(stripeObjectId(subscription.customer) ?? "");
+          if (customer.deleted || !customer.email) throw new Error(`Watch subscription ${subscription.id} has no usable customer email.`);
+          await enqueuePaymentNotification({
+            stripeEventId: event.id,
+            billingMode: config.billingMode,
+            eventType: event.type,
+            email: customer.email,
+            firstName: customer.name?.trim().split(/\s+/)[0] ?? null,
+            stripeCustomerId: customer.id,
+            stripeSubscriptionId: subscription.id,
+            notificationStatus: "past_due",
+          });
           logWatchBillingEvent(event, config.billingMode);
           break;
         }
@@ -155,7 +178,20 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
         case "customer.subscription.deleted": {
           const subscription = event.data.object as Stripe.Subscription;
           if (!isWatchSubscription(subscription, config.priceId)) break;
-          await updateWatchEnrollmentStatus(subscription.id, mapSubscriptionStatus(subscription.status), getRenewsAt(subscription));
+          const notificationStatus = mapSubscriptionStatus(subscription.status);
+          await updateWatchEnrollmentStatus(subscription.id, notificationStatus, getRenewsAt(subscription));
+          const customer = await stripe.customers.retrieve(stripeObjectId(subscription.customer) ?? "");
+          if (customer.deleted || !customer.email) throw new Error(`Watch subscription ${subscription.id} has no usable customer email.`);
+          await enqueuePaymentNotification({
+            stripeEventId: event.id,
+            billingMode: config.billingMode,
+            eventType: event.type,
+            email: customer.email,
+            firstName: customer.name?.trim().split(/\s+/)[0] ?? null,
+            stripeCustomerId: customer.id,
+            stripeSubscriptionId: subscription.id,
+            notificationStatus,
+          });
           logWatchBillingEvent(event, config.billingMode);
           break;
         }
