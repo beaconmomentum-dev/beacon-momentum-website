@@ -121,6 +121,107 @@ const AUGUST_ARTICLE_DRAFTS = [
     heroImage: "/images/editorial/hero-beacon-watch-throne-room-architecture-16x9.webp",
     body: `<p class="beacon-article-lede">There is a quiet kind of advantage in being able to explain your own system. You know what it is for, where the work lives, who reviews it, and what happens when something changes.</p><p>That clarity is not anti-technology. It is what lets technology become useful without becoming mysterious.</p><h2>Explain the work in ordinary language</h2><p>What does this workflow do? What does it not do? Where does the record go? Who is responsible for the final decision? If those questions cannot be answered simply, the system is carrying too much hidden complexity.</p><h2>Accumulate judgment, not just tools</h2><p>Tools change quickly. The ability to compare evidence, recognize a limitation, and choose a responsible next step compounds across every tool change.</p><h2>Keep the light on</h2><p>A durable system does not promise certainty. It gives people a steadier next move because the work is visible, reviewable, and grounded in lived judgment.</p><p>Read <a href="/how-beacon-works">How Beacon Works</a> for Beacon’s practical version of this approach.</p>`,
   },
+
+  {
+    id: "the-ai-check-kite",
+    title: "The AI Check Kite — When the Music Stops",
+    excerpt: "$3 trillion in AI investment. The revenue to support these commitments does not exist yet. The financial structure supporting AI bears an uncomfortable resemblance to check kiting.",
+    category: "The Signal",
+    date: "August 2026",
+    readTime: "5 min read",
+    pillar: "Signal",
+    pillarColor: "#E9BC52",
+    featured: true,
+    body: `<div style="position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_CHECK_KITE?rel=0&modestbranding=1" title="The AI Check Kite" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe></div>
+<p class="beacon-article-lede">On Monday, Forbes published two separate analyses reaching the same conclusion: the financial structure supporting AI investment bears an uncomfortable resemblance to check kiting — an old form of fraud where insufficient funds are juggled between accounts to create the illusion of solvency.</p>
+<p>The numbers:</p>
+<ul>
+<li>$600 billion in on-balance-sheet AI infrastructure commitments from Alphabet, Amazon, Meta, and Microsoft</li>
+<li>$2.4 trillion in off-balance-sheet purchase commitments and leases</li>
+<li>Alphabet reported its first quarter of negative free cash flow since going public</li>
+<li>The investment structure is circular: Company A invests in Company B, which buys products from Company A</li>
+<li>Nvidia and OpenAI sit at the center of this web</li>
+</ul>
+<p>The revenue to support these commitments does not exist yet.</p>
+<p>I am not telling you AI is a fraud. It is not. The technology works. The productivity gains are real. The adoption curve is steeper than anything since the internet.</p>
+<p>But the financial structure supporting it is fragile. And if you are building a business on top of these platforms, that fragility matters to you more than it matters to the investors writing the checks.</p>
+<p>When the dot-com bubble burst in 2000, the fiber-optic cables stayed in the ground. The internet kept working. The companies that built the cables went bankrupt. Every business wired exclusively to those companies had to scramble.</p>
+<p>The same pattern is forming now.</p>
+<h2>The Builder's Framework</h2>
+<p>The tool was never the moat. The system you build around the tool is the moat. The sovereign infrastructure you own is the moat. Do not wire your business to a single platform. Do not confuse access to a tool with ownership of a system.</p>
+<p>The music is still playing. But the checks are in transit. And the math does not close.</p>
+<p>Build accordingly.</p>
+<p>— Bob</p>`,
+  },
+  {
+    id: "65-percent-of-founders",
+    title: "65% of Founders Will Fail — Shortcuts vs. Levers",
+    excerpt: "Could someone with the same AI subscription you use replicate what you have built in a single day? If the answer is yes — you have not built a business.",
+    category: "The Signal",
+    date: "August 2026",
+    readTime: "4 min read",
+    pillar: "Signal",
+    pillarColor: "#E9BC52",
+    body: `<div style="position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_65_FOUNDERS?rel=0&modestbranding=1" title="65% of Founders" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe></div>
+<p class="beacon-article-lede">Could someone with the same AI subscription you use replicate what you have built in a single day?</p>
+<p>If the answer is yes — you have not built a business. You have assembled a collection of outputs. And outputs are commodities.</p>
+<p>A new survey reports that 65 percent of aspiring entrepreneurs plan to use AI to launch their businesses this year. Most will fail. Not because the technology does not work — it works extraordinarily well. Because they will use it as a shortcut rather than a lever.</p>
+<h2>The Distinction That Matters</h2>
+<p>There are two ways to use AI. The first is as a production shortcut — you generate output faster. Everyone has access. Nothing defensible. The second is as a systems lever — you build infrastructure that compounds. Automated workflows. Proprietary pipelines. Tools built on your specific knowledge, your specific market, your specific relationships.</p>
+<p>The first makes you faster. The second makes you irreplaceable.</p>
+<p>Machines produce volume. Humans produce meaning. The founders who understand that distinction will be the ones standing when the market corrects.</p>
+<p>The 65 percent will use AI to skip steps. The ones who last will use it to build stairs.</p>
+<p>Which one are you building?</p>
+<p>— Bob</p>`,
+  },
+  {
+    id: "the-collective-illusion",
+    title: "The Collective Illusion — You Are Not the Outlier",
+    excerpt: "Whatever you privately believe — about your industry, about the market, about the narratives dominating your feed — you are not alone in believing it. You just think you are.",
+    category: "The Signal",
+    date: "August 2026",
+    readTime: "5 min read",
+    pillar: "Signal",
+    pillarColor: "#E9BC52",
+    body: `<div style="position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_COLLECTIVE?rel=0&modestbranding=1" title="The Collective Illusion" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe></div>
+<p class="beacon-article-lede">You are not the outlier.</p>
+<p>Whatever you privately believe — about your industry, about the market, about the narratives dominating your feed — you are not alone in believing it. You just think you are. And that assumption is costing you.</p>
+<p>There is a phenomenon called a collective illusion. It works like this: almost everyone in a group privately disagrees with a position, but each person believes everyone else agrees. So they stay quiet. They perform agreement. They nod along. And their performance becomes the evidence that convinces the next person they are the outlier too.</p>
+<p>The illusion feeds itself. And the only thing that breaks it is contact with reality.</p>
+<h2>The World Cup Proved It</h2>
+<p>Millions of people from every nation arrived in America. Media had told them it was dangerous. Media had told Americans that foreigners were a threat. They came anyway. Nothing went wrong. People who had been told to fear each other discovered — face to face — that the fear was the product, not the reality.</p>
+<p>The division was manufactured. The conformity was manufactured. The only thing that was real was the programming. And it broke the moment people interacted directly instead of through the filter.</p>
+<h2>Business Implications</h2>
+<p>If you are building a business, you are operating inside collective illusions every day. The illusion you need to be on every platform. The illusion your competitors are doing better. The illusion the market wants what the algorithm promotes.</p>
+<p>Most of your market assumptions are based on performed consensus, not observed behavior. The builders who break through are the ones who test the illusion — who talk to customers directly, who ignore what the algorithm promotes, and who build based on what people actually do.</p>
+<p>We tested it. We said what we believe. The audience was already there.</p>
+<p>You are not the outlier. You never were.</p>
+<p>— Bob</p>`,
+  },
+  {
+    id: "300000-empty-seats",
+    title: "300,000 Empty Seats — The Architecture of Fragility",
+    excerpt: "There are 300,000 local government seats in this country that are vacant or running unchallenged. The same architectural failure that left those seats empty collapses businesses every year.",
+    category: "The Signal",
+    date: "August 2026",
+    readTime: "5 min read",
+    pillar: "Signal",
+    pillarColor: "#E9BC52",
+    body: `<div style="position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_300K?rel=0&modestbranding=1" title="300,000 Empty Seats" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"></iframe></div>
+<p class="beacon-article-lede">There are 300,000 local government seats in this country that are vacant or running unchallenged right now.</p>
+<p>School boards deciding what your children learn. City councils deciding what gets built. Planning commissions shaping the character of your community. Empty. Unchallenged. Waiting for someone to show up.</p>
+<h2>The Centralization Parallel</h2>
+<p>The same architectural failure that left those seats empty is the one that collapses businesses every year. It is the failure of centralization — putting all your attention, all your dependency, all your operations in one place and assuming it will hold.</p>
+<p>Citizens centralized their attention on Washington and abandoned local government. The result: 300,000 empty seats and a population that feels powerless despite living in the most decentralized governance system ever designed.</p>
+<p>Founders centralized their operations on single platforms — Facebook, Google, Twitter — and assumed those platforms would always serve them. The result: businesses that collapsed overnight when the rules changed.</p>
+<p>The pattern is the same. The fix is the same.</p>
+<h2>Decentralize. Distribute. Build.</h2>
+<p>For your business: own your email list. Own your website. Own your customer relationships. Have multiple revenue streams. Build systems that run independently.</p>
+<p>For your citizenship: know who sits on your school board. Attend a local meeting. Run for something. Exercise your citizenship at the level where it actually touches your life.</p>
+<p>Resilience comes from distribution, not concentration. The system that cannot be shut down by a single decision is the system that survives.</p>
+<p>The 300,000 seats are waiting. Your infrastructure is waiting. Both need the same thing: someone who shows up.</p>
+<p>— Bob</p>`,
+  },
 ] as const;
 
 export const AUGUST_ARTICLE_CONTENT = AUGUST_ARTICLE_DRAFTS.map((article) => ({
