@@ -8,7 +8,7 @@
  * the 4-email nurture sequence.
  *
  * GHL Tag: BM_Starter_Pack
- * PDF URL: /Signal_Starter_Pack.pdf
+ * PDF URL: /downloads/signal-starter-pack-20260822.pdf
  */
 import { useState } from "react";
 import SharedNav from "@/components/SharedNav";
@@ -29,7 +29,7 @@ const serif = "'Cormorant Garamond', Georgia, serif";
 const sans = "'Outfit', system-ui, sans-serif";
 const body = "'Lora', Georgia, serif";
 
-const PDF_URL = "/downloads/signal-starter-pack.pdf";
+const PDF_URL = "/downloads/signal-starter-pack-20260822.pdf";
 
 export default function StarterPackPage() {
   const [firstName, setFirstName] = useState("");
