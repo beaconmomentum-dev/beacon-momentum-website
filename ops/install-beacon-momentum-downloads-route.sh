@@ -22,6 +22,15 @@ fi
 install -d -m 0755 "$(dirname "$SNIPPET_TARGET")" "$BACKUP_DIR"
 install -m 0644 "$SNIPPET_SOURCE" "$SNIPPET_TARGET"
 
+# Nginx loads every regular file in sites-enabled. Historical Beacon dashboard
+# backups stored there create duplicate server blocks and can win routing before
+# the canonical file. Preserve them outside the enabled directory.
+while IFS= read -r stale_config; do
+  stale_name="$(basename "$stale_config")"
+  mv "$stale_config" "$BACKUP_DIR/$stale_name"
+  printf 'Archived conflicting enabled backup: %s\n' "$stale_name"
+done < <(find "$(dirname "$ACTIVE_CONFIG")" -maxdepth 1 -type f -name 'beacon-dashboard.*' -print | sort)
+
 if ! grep -Fq "$INCLUDE_LINE" "$ACTIVE_CONFIG"; then
   timestamp="$(date -u +%Y%m%dT%H%M%SZ)"
   cp -a "$ACTIVE_CONFIG" "$BACKUP_DIR/beacon-dashboard.before-downloads-route.$timestamp"
