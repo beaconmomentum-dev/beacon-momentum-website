@@ -52,7 +52,11 @@ for asset in "${referenced_assets[@]}"; do
   fi
 done
 
-install -m 0644 "$BUILD_INDEX" "$SITE_ROOT/index.html"
+if [[ "$(realpath "$BUILD_INDEX")" != "$(realpath -m "$SITE_ROOT/index.html")" ]]; then
+  install -m 0644 "$BUILD_INDEX" "$SITE_ROOT/index.html"
+else
+  chmod 0644 "$BUILD_INDEX"
+fi
 
 for asset in "${referenced_assets[@]}"; do
   if ! grep -Fq "/assets/${asset}" "$SITE_ROOT/index.html"; then
