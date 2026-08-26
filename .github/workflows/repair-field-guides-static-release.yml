@@ -1,0 +1,29 @@
+name: Repair Field Guides Static Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  repair:
+    name: Install current Field Guides static entry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up production SSH access
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+      - name: Install the verified static release and validate the route
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
+            set -euo pipefail
+            cd /var/www/beacon-momentum-www
+            git fetch origin main
+            git checkout main
+            git reset --hard origin/main
+            pnpm build
+            ops/deploy-beacon-static-release.sh dist/public
+            entry="$(curl -ksS --resolve beaconmomentum.com:443:127.0.0.1 https://beaconmomentum.com/guides)"
+            printf '%s' "$entry" | grep -q 'FieldGuidesPage-'
+          REMOTE
