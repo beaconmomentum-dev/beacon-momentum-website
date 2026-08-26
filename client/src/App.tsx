@@ -103,7 +103,7 @@ function Router() {
       <Route path="/beacon-trading" component={BeaconTradingPage} />
       <Route path="/pricing" component={PricingPage} />
       <Route path="/resources" component={ResourcesPage} />
-      <Route path="/guides" component={FieldGuidesPage} />
+      <Route path="/field-guides" component={FieldGuidesPage} />
       <Route path="/cookies" component={CookiePage} />
       <Route path="/disclaimer" component={DisclaimerPage} />
       <Route path="/path/:pillar" component={PillarSharePage} />
