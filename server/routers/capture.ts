@@ -59,6 +59,14 @@ export const captureInputSchema = z.discriminatedUnion("event", [
     ...commonCaptureFields,
     event: z.literal("watch_join"),
   }),
+  z.object({
+    ...commonCaptureFields,
+    event: z.literal("contact_inquiry"),
+    lastName: z.string().trim().max(80).optional(),
+    phone: z.string().trim().max(40).optional(),
+    subject: z.string().trim().max(100).optional(),
+    message: z.string().trim().min(1).max(4000),
+  }),
 ]);
 
 export type CaptureInput = z.infer<typeof captureInputSchema>;
@@ -71,6 +79,8 @@ type GhlCustomField = {
 export type GhlUpsertPayload = {
   email: string;
   firstName?: string;
+  lastName?: string;
+  phone?: string;
   locationId: string;
   source: string;
   tags: string[];
@@ -110,6 +120,10 @@ export function buildGhlUpsertPayload(input: CaptureInput): GhlUpsertPayload {
   };
 
   if (input.firstName) payload.firstName = input.firstName;
+  if (input.event === "contact_inquiry") {
+    if (input.lastName) payload.lastName = input.lastName;
+    if (input.phone) payload.phone = input.phone;
+  }
 
   switch (input.event) {
     case "newsletter_signup":
@@ -147,6 +161,18 @@ export function buildGhlUpsertPayload(input: CaptureInput): GhlUpsertPayload {
         ...payload,
         source: "beaconmomentum.com/the-watch",
         tags: ["BM_Watch_Join", "BM_Watch_Sentinel", "BM_Community"],
+      };
+    case "contact_inquiry":
+      return {
+        ...payload,
+        source: "beaconmomentum.com/contact",
+        tags: ["BM_Contact_Form"],
+        customFields: [
+          {
+            id: "contact_message_field",
+            field_value: `[${input.subject || "General"}] ${input.message}`,
+          },
+        ],
       };
   }
 }

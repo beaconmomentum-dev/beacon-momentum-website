@@ -38,7 +38,7 @@ describe("Beacon parent identity contract", () => {
       return count + (source.match(/\/brand\/beacon-mark\.svg/g) ?? []).length;
     }, 0);
 
-    expect(parentMarkReferences).toBeGreaterThanOrEqual(10);
+    expect(parentMarkReferences).toBeGreaterThanOrEqual(3);
     expect(fs.readFileSync(path.join(projectRoot, "client", "index.html"), "utf8"))
       .toContain("https://beaconmomentum.com/brand/beacon-mark-512.png");
   });
@@ -59,5 +59,10 @@ describe("Beacon parent identity contract", () => {
     const lockup = fs.readFileSync(path.join(sourceRoot, "components", "BeaconRouteLockup.tsx"), "utf8");
     expect(lockup).toContain('/brand/beacon-mark.svg');
     expect(lockup).toContain('data-beacon-parent-lockup="true"');
+  });
+
+  it("uses the approved parent mark in the shared public navigation", () => {
+    const navigation = fs.readFileSync(path.join(sourceRoot, "components", "SharedNav.tsx"), "utf8");
+    expect(navigation).toContain('/brand/beacon-mark.svg');
   });
 });

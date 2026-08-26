@@ -1,6 +1,6 @@
 {
-  "baseUrl": "http://127.0.0.1:4174",
-  "checkedAt": "2026-08-21T02:23:12.080Z",
+  "baseUrl": "http://127.0.0.1:3001",
+  "checkedAt": "2026-08-26T05:05:06.699Z",
   "results": [
     {
       "route": "/",
@@ -8,7 +8,7 @@
       "bodyCharacters": 6774,
       "descriptorPresent": true,
       "markLoaded": true,
-      "markSource": "/brand/beacon-mark.svg",
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Find a Steadier Next Move. — Beacon Momentum",
       "criticalFailures": []
@@ -38,7 +38,7 @@
     {
       "route": "/about",
       "viewport": "desktop",
-      "bodyCharacters": 9748,
+      "bodyCharacters": 9758,
       "descriptorPresent": true,
       "markLoaded": true,
       "markSource": "/brand/beacon-mark.svg",
@@ -49,7 +49,7 @@
     {
       "route": "/pricing",
       "viewport": "desktop",
-      "bodyCharacters": 6297,
+      "bodyCharacters": 6307,
       "descriptorPresent": true,
       "markLoaded": true,
       "markSource": "/brand/beacon-mark.svg",
@@ -58,12 +58,23 @@
       "criticalFailures": []
     },
     {
-      "route": "/contact",
+      "route": "/practical-ai-skills",
       "viewport": "desktop",
-      "bodyCharacters": 737,
+      "bodyCharacters": 6263,
       "descriptorPresent": true,
       "markLoaded": true,
       "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Practical AI Skills — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/contact",
+      "viewport": "desktop",
+      "bodyCharacters": 757,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Contact — Beacon Momentum",
       "criticalFailures": []
@@ -74,7 +85,7 @@
       "bodyCharacters": 10066,
       "descriptorPresent": true,
       "markLoaded": true,
-      "markSource": "/brand/beacon-mark.svg",
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Privacy Policy — Beacon Momentum",
       "criticalFailures": []
@@ -85,7 +96,7 @@
       "bodyCharacters": 10118,
       "descriptorPresent": true,
       "markLoaded": true,
-      "markSource": "/brand/beacon-mark.svg",
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Terms of Use — Beacon Momentum",
       "criticalFailures": []
@@ -96,7 +107,7 @@
       "bodyCharacters": 2269,
       "descriptorPresent": true,
       "markLoaded": true,
-      "markSource": "/brand/beacon-mark.svg",
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Refund and Cancellation Policy — Beacon Momentum",
       "criticalFailures": []
@@ -107,7 +118,7 @@
       "bodyCharacters": 6570,
       "descriptorPresent": true,
       "markLoaded": true,
-      "markSource": "/brand/beacon-mark.svg",
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Find a Steadier Next Move. — Beacon Momentum",
       "criticalFailures": []
@@ -157,12 +168,23 @@
       "criticalFailures": []
     },
     {
-      "route": "/contact",
+      "route": "/practical-ai-skills",
       "viewport": "mobile",
-      "bodyCharacters": 737,
+      "bodyCharacters": 6107,
       "descriptorPresent": true,
       "markLoaded": true,
       "markSource": "/brand/beacon-mark.svg",
+      "overflowPixels": 0,
+      "title": "Practical AI Skills — Beacon Momentum",
+      "criticalFailures": []
+    },
+    {
+      "route": "/contact",
+      "viewport": "mobile",
+      "bodyCharacters": 757,
+      "descriptorPresent": true,
+      "markLoaded": true,
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Contact — Beacon Momentum",
       "criticalFailures": []
@@ -173,7 +195,7 @@
       "bodyCharacters": 10066,
       "descriptorPresent": true,
       "markLoaded": true,
-      "markSource": "/brand/beacon-mark.svg",
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Privacy Policy — Beacon Momentum",
       "criticalFailures": []
@@ -184,7 +206,7 @@
       "bodyCharacters": 10118,
       "descriptorPresent": true,
       "markLoaded": true,
-      "markSource": "/brand/beacon-mark.svg",
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Terms of Use — Beacon Momentum",
       "criticalFailures": []
@@ -195,7 +217,7 @@
       "bodyCharacters": 2269,
       "descriptorPresent": true,
       "markLoaded": true,
-      "markSource": "/brand/beacon-mark.svg",
+      "markSource": null,
       "overflowPixels": 0,
       "title": "Refund and Cancellation Policy — Beacon Momentum",
       "criticalFailures": []

@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { label: "The Watch", href: "/the-watch" },
   { label: "Assessment", href: "/assessment" },
   { label: "Resources", href: "/resources" },
+  { label: "AI Skills", href: "/practical-ai-skills" },
   { label: "How Beacon Works", href: "/how-beacon-works" },
   { label: "Field Notes", href: "/field-notes" },
   { label: "Community Build", href: "/community-build-grant" },
@@ -45,24 +46,7 @@ export default function SharedNav(_: SharedNavProps) {
       <nav aria-label="Primary" style={{ background: RAIL.background, backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}>
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }} aria-label="Beacon Momentum home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Beacon Momentum LLC" style={{ width: "2.75rem", height: "2.75rem", flexShrink: 0 }}>
-              <rect width="64" height="64" rx="12" fill="#0D1D29"/>
-              <g fill="none" stroke="#F7F1E5" strokeWidth="3.25" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 19.5 14.5 16" opacity=".72"/>
-                <path d="M43 19.5 49.5 16" opacity=".72"/>
-                <path d="M21 23.5h-7" opacity=".48"/>
-                <path d="M43 23.5h7" opacity=".48"/>
-                <path d="m24 18 8-6 8 6Z"/>
-                <rect x="25" y="18" width="14" height="8" rx="1"/>
-                <path d="M23 26h18"/>
-                <path d="M24 26v3M40 26v3"/>
-                <path d="m25 29-3 22h20l-3-22Z"/>
-                <path d="M23 40h18" opacity=".58"/>
-                <path d="M30 51v-5q2-2 4 0v5"/>
-                <path d="M12 54q4-2 8 0t8 0 8 0 8 0 8 0 8 0" opacity=".6"/>
-              </g>
-              <circle cx="32" cy="22" r="2.2" fill="#E9BC52"/>
-            </svg>
+            <img src="/brand/beacon-mark.svg" alt="Beacon Momentum LLC" style={{ width: "2.75rem", height: "2.75rem", flexShrink: 0 }} />
             <span style={{ display: "flex", flexDirection: "column", gap: "0.12rem" }}>
               <span style={{ color: RAIL.text, fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.1rem", fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1 }}>Beacon Momentum</span>
               <span style={{ color: RAIL.muted, fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.12em", lineHeight: 1, textTransform: "uppercase" }}>Public Front Door</span>

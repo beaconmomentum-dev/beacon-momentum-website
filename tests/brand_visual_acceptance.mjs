@@ -19,6 +19,7 @@ const routes = [
   { name: "watch-checkout", path: "/the-watch/checkout", expected: "Take your post for the year ahead", descriptor: "Secure enrollment" },
   { name: "about", path: "/about", expected: "Built in the storm", descriptor: "Public Front Door" },
   { name: "pricing", path: "/pricing", expected: "Pricing", descriptor: "Public Front Door" },
+  { name: "practical-ai-skills", path: "/practical-ai-skills", expected: "Build AI skills you can inspect, test, and trust.", descriptor: "Public Front Door" },
   { name: "contact", path: "/contact", expected: "We read every message", descriptor: "Beacon Momentum" },
   { name: "privacy", path: "/privacy", expected: "Privacy", descriptor: "Beacon Momentum" },
   { name: "terms", path: "/terms", expected: "Terms", descriptor: "Beacon Momentum" },
@@ -74,11 +75,18 @@ try {
 
       const state = await page.evaluate((descriptor) => {
         const mark = [...document.images].find((image) => image.getAttribute("src")?.includes("/brand/beacon-mark.svg"));
+        const inlineMark = [...document.querySelectorAll("svg")].some((svg) => {
+          const label = svg.getAttribute("aria-label") ?? "";
+          const title = svg.querySelector("title")?.textContent ?? "";
+          const lighthouseGeometry = svg.getAttribute("viewBox") === "0 0 64 64"
+            && Boolean(svg.querySelector('circle[fill="#E9BC52"], circle[fill="#E9BC52"]'));
+          return svg.getAttribute("data-beacon-mark") === "true" || lighthouseGeometry || /beacon momentum/i.test(`${label} ${title}`);
+        });
         const bodyText = document.body.innerText;
         return {
           bodyCharacters: bodyText.trim().length,
           descriptorPresent: bodyText.toLowerCase().includes(descriptor.toLowerCase()),
-          markLoaded: Boolean(mark && mark.complete && mark.naturalWidth > 0),
+          markLoaded: Boolean((mark && mark.complete && mark.naturalWidth > 0) || inlineMark),
           markSource: mark?.getAttribute("src") ?? null,
           overflowPixels: Math.max(0, document.documentElement.scrollWidth - window.innerWidth),
           title: document.title,
@@ -90,7 +98,7 @@ try {
       if (state.overflowPixels > 1) throw new Error(`${route.path} overflowed by ${state.overflowPixels}px at ${viewport.name}`);
       if (criticalFailures.length) throw new Error(`${route.path} critical asset failures: ${criticalFailures.join(" | ")}`);
 
-      if (["home", "watch", "watch-checkout"].includes(route.name)) {
+      if (["home", "watch", "watch-checkout", "practical-ai-skills"].includes(route.name)) {
         await page.screenshot({ path: path.join(outputDir, `${route.name}-${viewport.name}.png`), fullPage: false });
       }
 

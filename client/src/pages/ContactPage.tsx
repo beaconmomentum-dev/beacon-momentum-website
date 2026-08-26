@@ -1,13 +1,10 @@
 /**
  * ContactPage.tsx
  * Design: Deep Water Editorial — Navy/gold maritime, lighthouse metaphor.
- * Quiet authority voice. GHL form submission via fetch.
+ * Quiet authority voice. Server-side capture relay submission via fetch.
  */
 import { useState } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
-
-const GHL_LOCATION_ID = "lMSPBMOlJfKMlhLqCnxS";
-const GHL_API_KEY = import.meta.env.VITE_GHL_API_KEY as string;
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -45,35 +42,24 @@ export default function ContactPage() {
     setErrorMsg("");
 
     try {
-      const payload: Record<string, unknown> = {
-        locationId: GHL_LOCATION_ID,
+      const payload = {
+        event: "contact_inquiry" as const,
         email: form.email,
         firstName: form.firstName || undefined,
         lastName: form.lastName || undefined,
         phone: form.phone || undefined,
-        tags: ["bm_contact_form"],
-        customFields: [
-          {
-            id: "contact_message_field",
-            field_value: `[${form.subject || "General"}] ${form.message}`,
-          },
-        ],
+        subject: form.subject || undefined,
+        message: form.message,
+        consentVersion: "beacon-contact-v1",
       };
 
-      const res = await fetch(
-        "https://services.leadconnectorhq.com/contacts/upsert",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${GHL_API_KEY}`,
-            "Content-Type": "application/json",
-            Version: "2021-07-28",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const res = await fetch("/api/trpc/capture.submit?batch=1", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ "0": { json: payload } }),
+      });
 
-      if (!res.ok) throw new Error(`GHL ${res.status}`);
+      if (!res.ok) throw new Error(`Capture relay ${res.status}`);
       setStatus("success");
     } catch {
       setStatus("error");
@@ -407,6 +393,7 @@ export default function ContactPage() {
                     Beacon Labs / AI Consulting
                   </option>
                   <option value="Beacon Community">Beacon Community</option>
+                  <option value="Practical AI Skills">Practical AI Skills</option>
                   <option value="Signal Check Report">
                     Signal Check Report
                   </option>

@@ -12,8 +12,8 @@ export default function CommunityBuildSocialPage() {
         <section style={{ background: "#17353C", color: "#FAF8F4", padding: "clamp(4.5rem, 9vw, 7rem) 0" }}>
           <div className="container" style={{ maxWidth: "920px" }}>
             <p style={eyebrowStyle}>Community Build Grant · public release kit</p>
-            <h1 style={heroTitleStyle}>The framework, in public.</h1>
-            <p style={heroLeadStyle}>This is Beacon’s approved framework announcement and platform-native public copy. It documents the program structure; it does not open entries.</p>
+            <h1 style={heroTitleStyle}>The program, in public.</h1>
+            <p style={heroLeadStyle}>Beacon’s Community Build Award is now open for free entry. This release kit preserves the founding framework alongside the current program boundary and entry path.</p>
           </div>
         </section>
 
@@ -21,15 +21,17 @@ export default function CommunityBuildSocialPage() {
           <div className="container" style={{ maxWidth: "980px" }}>
             <div style={{ display: "flex", alignItems: "flex-start", gap: "0.8rem", padding: "1.1rem", border: "1px solid #C9B89B", background: "#F7F1E7", color: "var(--beacon-charcoal)" }}>
               <ShieldCheck size={20} color="var(--beacon-teal)" aria-hidden="true" />
-              <p style={{ margin: 0, fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.9rem", lineHeight: 1.65 }}><strong>Framework announcement only.</strong> {COMMUNITY_BUILD_RELEASE.frameworkStatus} The entry-opening release will be published only with the final Official Rules and official program page.</p>
+              <p style={{ margin: 0, fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.9rem", lineHeight: 1.65 }}><strong>Current program status.</strong> {COMMUNITY_BUILD_RELEASE.frameworkStatus} Review the official program page for the current entry path, eligibility, and governing materials.</p>
             </div>
 
             <div style={{ marginTop: "clamp(3rem, 6vw, 5rem)" }}>
               <p style={sectionLabelStyle}>The non-negotiable public boundary</p>
               <blockquote style={{ margin: "1rem 0 0", color: "var(--beacon-charcoal)", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(2.1rem, 4.5vw, 4rem)", lineHeight: 1.04, letterSpacing: "-0.03em" }}>{COMMUNITY_BUILD_RELEASE.universalDisclosure}</blockquote>
+              <Link href="/community-build-grant" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", marginTop: "1.5rem", background: "var(--beacon-teal)", color: "#FAF8F4", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.76rem", fontWeight: 700, letterSpacing: "0.08em", padding: "0.85rem 1rem", textDecoration: "none", textTransform: "uppercase" }}>Open the official entry page <ArrowLeft size={15} style={{ transform: "rotate(180deg)" }} /></Link>
             </div>
 
             <div style={{ display: "grid", gap: "1.25rem", marginTop: "clamp(3rem, 6vw, 5rem)" }}>
+              <p style={sectionLabelStyle}>Framework announcement archive</p>
               {COMMUNITY_BUILD_RELEASE.socialPosts.map((post, index) => (
                 <article key={post.platform} style={{ padding: "clamp(1.5rem, 4vw, 2.5rem)", border: "1px solid var(--beacon-parchment-dark)", background: index % 2 === 0 ? "#FCFAF5" : "var(--beacon-parchment)" }}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
@@ -42,7 +44,7 @@ export default function CommunityBuildSocialPage() {
             </div>
 
             <div style={{ borderTop: "1px solid var(--beacon-parchment-dark)", marginTop: "clamp(3rem, 6vw, 5rem)", paddingTop: "2rem" }}>
-              <Link href="/community-build-grant" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--beacon-teal)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.08em", textDecoration: "none", textTransform: "uppercase" }}><ArrowLeft size={15} /> Read the framework announcement</Link>
+              <Link href="/community-build-grant" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--beacon-teal)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.08em", textDecoration: "none", textTransform: "uppercase" }}><ArrowLeft size={15} /> Open the official entry page</Link>
             </div>
           </div>
         </section>

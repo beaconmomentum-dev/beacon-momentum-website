@@ -201,7 +201,7 @@ function SignalStrip({ label, inverse = false }: { label: string; inverse?: bool
 
 function BeaconMark() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" style={{ width: "2rem", height: "2rem", flexShrink: 0 }}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" data-beacon-mark="true" style={{ width: "2rem", height: "2rem", flexShrink: 0 }}>
               <rect width="64" height="64" rx="12" fill="#0D1D29"/>
               <g fill="none" stroke="#F7F1E5" strokeWidth="3.25" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 19.5 14.5 16" opacity=".72"/>

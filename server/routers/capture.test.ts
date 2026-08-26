@@ -36,6 +36,27 @@ describe("public capture relay contract", () => {
     ).toThrow();
   });
 
+  it("owns contact inquiry routing and does not let the browser choose tags or CRM location", () => {
+    const input = captureInputSchema.parse({
+      event: "contact_inquiry",
+      email: "person@example.com",
+      firstName: "Person",
+      lastName: "Example",
+      phone: "+1 555 0100",
+      subject: "Practical AI Skills",
+      message: "Please let me know when enrollment is available.",
+    });
+
+    expect(buildGhlUpsertPayload(input)).toMatchObject({
+      source: "beaconmomentum.com/contact",
+      tags: ["BM_Contact_Form"],
+      firstName: "Person",
+      lastName: "Example",
+      phone: "+1 555 0100",
+      customFields: [{ id: "contact_message_field", field_value: "[Practical AI Skills] Please let me know when enrollment is available." }],
+    });
+  });
+
   it("does not report success when HighLevel returns a non-success status", async () => {
     const fetchImpl = vi.fn().mockResolvedValue(new Response(JSON.stringify({ message: "rejected" }), { status: 400 }));
     const input = captureInputSchema.parse({ event: "starter_pack_request", email: "person@example.com" });

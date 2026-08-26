@@ -4,10 +4,11 @@
  */
 import { describe, it, expect, beforeAll } from "vitest";
 
-const BASE = "http://localhost:3000/api/trpc";
+const BASE = process.env.COHORT_INTEGRATION_BASE_URL;
+const describeIntegration = BASE ? describe : describe.skip;
 
 async function trpcPost(procedure: string, input: unknown) {
-  const res = await fetch(`${BASE}/${procedure}?batch=1`, {
+  const res = await fetch(`${BASE!}/${procedure}?batch=1`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ "0": { json: input } }),
@@ -18,7 +19,7 @@ async function trpcPost(procedure: string, input: unknown) {
 
 async function trpcGet(procedure: string, input: unknown, cookieHeader?: string) {
   const encoded = encodeURIComponent(JSON.stringify({ "0": { json: input } }));
-  const res = await fetch(`${BASE}/${procedure}?batch=1&input=${encoded}`, {
+  const res = await fetch(`${BASE!}/${procedure}?batch=1&input=${encoded}`, {
     headers: cookieHeader ? { Cookie: cookieHeader } : {},
   });
   const data = await res.json() as Array<{ result?: { data?: { json?: unknown } }; error?: { json?: { message?: string } } }>;
@@ -27,7 +28,7 @@ async function trpcGet(procedure: string, input: unknown, cookieHeader?: string)
 
 let sessionCookie = "";
 
-describe("Cohort Dashboard", () => {
+describeIntegration("Cohort Dashboard", () => {
   it("rejects login with wrong password", async () => {
     const result = await trpcPost("cohort.login", {
       leadEmail: "lead@test.com",

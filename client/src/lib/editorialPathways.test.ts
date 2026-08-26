@@ -6,7 +6,7 @@ describe("August editorial pathways", () => {
   it("gives every August article one contextual Beacon destination", () => {
     const pathways = AUGUST_ARTICLE_CONTENT.map((article) => getEditorialPathway(article.id));
 
-    expect(pathways).toHaveLength(10);
+    expect(pathways).toHaveLength(14);
     expect(pathways.every((pathway) => pathway.href.startsWith("/"))).toBe(true);
     expect(pathways.every((pathway) => pathway.cta.length > 0)).toBe(true);
   });
@@ -21,5 +21,6 @@ describe("August editorial pathways", () => {
     expect(getEditorialPathway("membership-is-not-a-shortcut-to-community").href).toBe(
       "/the-watch",
     );
+    expect(getEditorialPathway("the-ai-check-kite").href).toBe("/the-watch");
   });
 });

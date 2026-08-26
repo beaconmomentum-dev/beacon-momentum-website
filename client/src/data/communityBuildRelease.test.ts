@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { COMMUNITY_BUILD_RELEASE } from "@/data/communityBuildRelease";
 
 describe("Community Build framework release content", () => {
-  it("keeps the framework announcement distinct from an open entry period", () => {
-    expect(COMMUNITY_BUILD_RELEASE.frameworkStatus).toContain("entries are not open");
+  it("records the current open-entry state while retaining its historical framework archive", () => {
+    expect(COMMUNITY_BUILD_RELEASE.frameworkStatus).toContain("Entries are now open");
     expect(COMMUNITY_BUILD_RELEASE.socialPosts).toHaveLength(5);
     expect(COMMUNITY_BUILD_RELEASE.socialPosts.every((post) => post.copy.includes("does not open entries") || post.copy.includes("does not open entry") || post.copy.includes("entry opens") || post.copy.includes("entry details will follow"))).toBe(true);
   });

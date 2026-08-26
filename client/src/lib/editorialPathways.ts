@@ -44,6 +44,10 @@ const AUGUST_PATHWAYS: Record<string, EditorialPathway> = {
   "build-recovery-plan-before-you-need-it": SYSTEMS_PATHWAY,
   "quiet-advantage-of-a-system-you-can-explain": SYSTEMS_PATHWAY,
   "membership-is-not-a-shortcut-to-community": WATCH_PATHWAY,
+  "the-ai-check-kite": WATCH_PATHWAY,
+  "65-percent-of-founders": WATCH_PATHWAY,
+  "the-collective-illusion": WATCH_PATHWAY,
+  "300000-empty-seats": WATCH_PATHWAY,
 };
 
 export function getEditorialPathway(articleId: string): EditorialPathway {
