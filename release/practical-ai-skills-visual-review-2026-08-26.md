@@ -12,3 +12,9 @@
 - The official visual-acceptance suite passed for twenty desktop/mobile public-route checks, including `/practical-ai-skills`.
 - The course route, contact route, controlled-workflow kit, privacy, terms, refund, and public Phoenix dashboard target returned success responses in local/public checks.
 - The course page states a planned $297 Core program and routes visitors to an existing course-availability inquiry path; it does not claim that a payment, fulfillment, learner account, or founder-time offer is enabled.
+
+## Live production confirmation
+
+On 26 August 2026, the production route `https://beaconmomentum.com/practical-ai-skills` rendered the published course headline, its course-availability call to action, its harness call to action, the eight-module curriculum, the Phoenix Harness Starter capstone, and the grounded-learning promise. The public page title was `Practical AI Skills — Beacon Momentum`.
+
+The direct course route, contact path, controlled-workflow kit, privacy, terms, refund, and public Phoenix dashboard each returned successful public responses. The production contact entry document contained neither a browser-side HighLevel endpoint nor a `VITE_GHL_API_KEY` reference after the form was moved behind the server-side capture relay.
