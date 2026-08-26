@@ -28,5 +28,10 @@ jobs:
             echo '--- running Beacon listeners ---'
             ss -ltnp | grep -E ':3012|:3014|:3000' || true
             echo '--- pm2 Beacon processes ---'
-            pm2 jlist | jq -r '.[] | select(.name | test("beacon"; "i")) | [.name, .pm2_env.status, .pm2_env.pm_cwd, (.pm2_env.args | tostring)] | @tsv'
+            pm2 jlist | jq -r '.[] | select(.name | test("beacon"; "i")) | [.name, .pm2_env.status, .pm2_env.pm_cwd, (.pm2_env.env.PORT // ""), (.pm2_env.args | tostring)] | @tsv'
+            echo '--- local entry-document probes ---'
+            for port in $(ss -ltnp | awk '/node|docker-proxy/ && $4 ~ /:30(0[0-9]|1[0-9]|2[0-9])$/ {sub(/.*:/, "", $4); print $4}' | sort -u); do
+              entry=$(curl -sS --max-time 3 "http://127.0.0.1:${port}/guides" | grep -oE '/assets/index-[^\" ]+\\.js' | head -1 || true)
+              printf 'port=%s entry=%s\\n' "$port" "$entry"
+            done
           REMOTE
