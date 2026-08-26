@@ -22,6 +22,7 @@ const RefundPage = lazy(() => import("./pages/RefundPage"));
 const BeaconTradingPage = lazy(() => import("./pages/BeaconTradingPage"));
 const PricingPage = lazy(() => import("./pages/PricingPage"));
 const ResourcesPage = lazy(() => import("./pages/ResourcesPage"));
+const FieldGuidesPage = lazy(() => import("./pages/FieldGuidesPage"));
 const CookiePage = lazy(() => import("./pages/CookiePage"));
 const DisclaimerPage = lazy(() => import("./pages/DisclaimerPage"));
 const PillarSharePage = lazy(() => import("@/pages/PillarSharePage"));
@@ -102,6 +103,7 @@ function Router() {
       <Route path="/beacon-trading" component={BeaconTradingPage} />
       <Route path="/pricing" component={PricingPage} />
       <Route path="/resources" component={ResourcesPage} />
+      <Route path="/guides" component={FieldGuidesPage} />
       <Route path="/cookies" component={CookiePage} />
       <Route path="/disclaimer" component={DisclaimerPage} />
       <Route path="/path/:pillar" component={PillarSharePage} />
