@@ -41,7 +41,7 @@ else
       next
     }
     in_server {
-      if ($0 ~ /^[[:space:]]*server_name[[:space:]]+.*beaconmomentum\.com/) server_name_match=1
+      if ($0 ~ /(^|[[:space:]])beaconmomentum\.com([[:space:];]|$)/) server_name_match=1
       if ($0 ~ /^[[:space:]]*listen[[:space:]]+443[[:space:]].*ssl/) tls_listener=1
       opens=gsub(/\{/, "{", $0)
       closes=gsub(/\}/, "}", $0)
