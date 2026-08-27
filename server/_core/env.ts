@@ -4,8 +4,13 @@ export const ENV = {
   databaseUrl: process.env.DATABASE_URL ?? "",
   ownerOpenId: process.env.OWNER_OPEN_ID ?? "",
   isProduction: process.env.NODE_ENV === "production",
-  /** Server-only HighLevel credential for the public capture relay. Never expose this through VITE_* variables. */
-  ghlApiKey: process.env.GHL_API_KEY ?? "",
+  /**
+   * Server-only HighLevel credential for the public capture relay. New
+   * deployments must use GHL_API_KEY. The second lookup is a production-only
+   * compatibility bridge for the pre-existing server environment; no browser
+   * source reads it, and it should be retired once the host variable is moved.
+   */
+  ghlApiKey: process.env.GHL_API_KEY ?? process.env.VITE_GHL_API_KEY ?? "",
   /** Shared password for cohort lead dashboard access */
   cohortLeadPassword: process.env.COHORT_LEAD_PASSWORD ?? "",
   /** Server-only Stripe credentials for Beacon-controlled The Watch enrollment. */

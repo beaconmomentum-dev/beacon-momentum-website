@@ -17,7 +17,6 @@ const REQUIRED_SERVER = [
   "DATABASE_URL",
   "JWT_SECRET",
   "OAUTH_SERVER_URL",
-  "GHL_API_KEY",
   "NODE_ENV",
 ];
 
@@ -41,6 +40,14 @@ let failed = false;
 const missing = [...REQUIRED_CLIENT, ...REQUIRED_SERVER].filter(
   (k) => !process.env[k] || process.env[k].trim() === ""
 );
+
+// GHL_API_KEY is the required server-side name. Existing production hosts that
+// already hold the credential under the former VITE_ name may build during a
+// one-release migration period because neither the client source nor Vite
+// references that variable. The deployment record must then retire the alias.
+if (!process.env.GHL_API_KEY && !process.env.VITE_GHL_API_KEY) {
+  missing.push("GHL_API_KEY");
+}
 
 if (missing.length > 0) {
   console.error("\n❌  BUILD ABORTED — Missing required environment variables:\n");
