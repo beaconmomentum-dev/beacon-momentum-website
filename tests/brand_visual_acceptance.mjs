@@ -20,6 +20,7 @@ const routes = [
   { name: "about", path: "/about", expected: "Built in the storm", descriptor: "Public Front Door" },
   { name: "pricing", path: "/pricing", expected: "Pricing", descriptor: "Public Front Door" },
   { name: "practical-ai-skills", path: "/practical-ai-skills", expected: "Build AI skills you can inspect, test, and trust.", descriptor: "Public Front Door" },
+  { name: "ai-workflow-release-readiness-kit", path: "/ai-workflow-release-readiness-kit", expected: "Before you rely on an AI workflow", descriptor: "Public Front Door" },
   { name: "contact", path: "/contact", expected: "We read every message", descriptor: "Beacon Momentum" },
   { name: "privacy", path: "/privacy", expected: "Privacy", descriptor: "Beacon Momentum" },
   { name: "terms", path: "/terms", expected: "Terms", descriptor: "Beacon Momentum" },
@@ -98,7 +99,7 @@ try {
       if (state.overflowPixels > 1) throw new Error(`${route.path} overflowed by ${state.overflowPixels}px at ${viewport.name}`);
       if (criticalFailures.length) throw new Error(`${route.path} critical asset failures: ${criticalFailures.join(" | ")}`);
 
-      if (["home", "watch", "watch-checkout", "practical-ai-skills"].includes(route.name)) {
+      if (["home", "watch", "watch-checkout", "practical-ai-skills", "ai-workflow-release-readiness-kit"].includes(route.name)) {
         await page.screenshot({ path: path.join(outputDir, `${route.name}-${viewport.name}.png`), fullPage: false });
       }
 

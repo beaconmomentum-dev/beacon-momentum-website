@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
+import { requestDigitalGrandpaLibraryInterest } from "@/lib/ghl";
 
 const BOOKS = [
   {
@@ -101,33 +102,21 @@ export default function DigitalGrandpaLibraryPage() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setSubmitting(true);
-    try {
-      const GHL_LOCATION_ID = import.meta.env.VITE_GHL_LOCATION_ID || "ve9EPM428h8vShlRW1KT";
-      const GHL_API_KEY = import.meta.env.VITE_GHL_API_KEY || "";
-      await fetch(`https://services.leadconnectorhq.com/contacts/upsert`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${GHL_API_KEY}`,
-          Version: "2021-07-28",
-        },
-        body: JSON.stringify({
-          locationId: GHL_LOCATION_ID,
-          email,
-          tags: ["dg_library_waitlist"],
-        }),
-      });
-    } catch (_) {
-      // Silent — still show success
-    }
+    setSubmitError("");
+    const accepted = await requestDigitalGrandpaLibraryInterest(email.trim());
     setSubmitting(false);
-    setSubmitted(true);
-    setEmail("");
+    if (accepted) {
+      setSubmitted(true);
+      setEmail("");
+    } else {
+      setSubmitError("We could not receive your request right now. Please try again later.");
+    }
   };
 
   return (
@@ -189,6 +178,7 @@ export default function DigitalGrandpaLibraryPage() {
             You're on the list. We'll reach out the moment the library opens.
           </div>
         )}
+        {submitError && <p className="mt-3 text-xs text-amber-200" role="alert">{submitError}</p>}
         <p className="text-white/30 text-xs mt-3">No spam. One email when the library opens. That's it.</p>
       </section>
 

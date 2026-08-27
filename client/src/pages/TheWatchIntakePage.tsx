@@ -24,7 +24,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
-import { submitToGHL } from "@/lib/ghl";
+import { submitWatchIntake } from "@/lib/ghl";
 import { trpc } from "@/lib/trpc";
 
 // ─── Design tokens ─────────────────────────────────────────────────────────────
@@ -41,13 +41,6 @@ const C = {
 };
 const serif = "'Playfair Display', Georgia, serif";
 const body = "'Inter', system-ui, sans-serif";
-
-// ─── GHL custom field IDs for Watch intake (Beacon Momentum location) ──────────
-const WATCH_FIELD_IDS = {
-  watch_intake_track: "watch_intake_track",   // placeholder — update with real GHL field ID
-  watch_intake_answers: "watch_intake_answers",
-  watch_intake_tier: "watch_intake_tier",
-};
 
 // ─── Track definitions ─────────────────────────────────────────────────────────
 const TRACKS = {
@@ -473,27 +466,9 @@ export default function TheWatchIntakePage() {
     const firstName = sessionStorage.getItem("watch_intake_name") || undefined;
     const entryStage = "sentinel";
     const track = answers.track_choice || recommendedTrack;
-    const trackData = TRACKS[track as keyof typeof TRACKS] || TRACKS.transition;
-
     setSubmitStatus("submitting");
 
-    const ok = await submitToGHL({
-      email,
-      firstName,
-      tags: [
-        "BM_Watch_Intake",
-        "BM_Watch_Join",
-        "BM_Watch_Enrollment_Request",
-        "BM_Watch_Sentinel",
-        trackData.tag,
-      ],
-      source: "beaconmomentum.com/the-watch/intake",
-      customFields: [
-        { id: WATCH_FIELD_IDS.watch_intake_track, field_value: track },
-        { id: WATCH_FIELD_IDS.watch_intake_tier, field_value: entryStage },
-        { id: WATCH_FIELD_IDS.watch_intake_answers, field_value: JSON.stringify(answers) },
-      ],
-    });
+    const ok = await submitWatchIntake(email, firstName, track as "transition" | "builder" | "systems" | "legacy", answers);
 
     // Also persist to DB for cohort lead dashboard (fire-and-forget, non-blocking)
     if (email) {

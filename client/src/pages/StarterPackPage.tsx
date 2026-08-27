@@ -13,7 +13,7 @@
 import { useState } from "react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
-import { submitToGHL } from "@/lib/ghl";
+import { requestStarterPack } from "@/lib/ghl";
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 const C = {
@@ -43,12 +43,7 @@ export default function StarterPackPage() {
     setStatus("submitting");
     setErrorMsg("");
 
-    const ok = await submitToGHL({
-      email: email.trim(),
-      firstName: firstName.trim() || undefined,
-      tags: ["BM_Starter_Pack", "BM_YouTube_Optin"],
-      source: "beaconmomentum.com/start",
-    });
+    const ok = await requestStarterPack(email.trim(), firstName.trim() || undefined);
 
     if (ok) {
       setStatus("success");

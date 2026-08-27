@@ -25,6 +25,11 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       "Learn how Beacon Momentum helps people build durable capability, navigate transition, and make practical decisions with care.",
   },
+  "/ai-workflow-release-readiness-kit": {
+    title: "AI Workflow Release Readiness Kit",
+    description:
+      "A self-guided field-test kit for defining the boundaries, acceptance checks, evidence, and recovery path of one recurring AI workflow.",
+  },
   "/community-build-grant": {
     title: "Community Build Grant",
     description:

@@ -10,7 +10,6 @@ import { config } from 'dotenv'; config();
 const REQUIRED_CLIENT = [
   "VITE_OAUTH_PORTAL_URL",   // OAuth portal URL (e.g. https://app.beaconmomentum.com)
   "VITE_APP_ID",             // App identifier for Manus OAuth
-  "VITE_GHL_API_KEY",        // GoHighLevel API key
 ];
 
 // Required for the SERVER at runtime (checked here so a misconfigured deploy is caught early)
@@ -18,6 +17,7 @@ const REQUIRED_SERVER = [
   "DATABASE_URL",
   "JWT_SECRET",
   "OAUTH_SERVER_URL",
+  "GHL_API_KEY",
   "NODE_ENV",
 ];
 

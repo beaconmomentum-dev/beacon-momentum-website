@@ -1,147 +1,60 @@
 /**
- * Beacon Momentum — GoHighLevel CRM Integration Utility
- * Design: Deep Water Editorial / Quiet Authority
+ * Browser-safe public capture helpers.
  *
- * Submits contacts to the Beacon Momentum GHL location.
- * Used by: Newsletter signup, Pathfinder Assessment result capture.
- *
- * GHL Location: Beacon Momentum (vvhkYM6iySBVh5kOcFGM)
- * Base URL: https://services.leadconnectorhq.com
- *
- * Tags applied:
- *   BM_Newsletter       — Beacon Brief newsletter subscriber
- *   BM_Watch_Brief_Premium_Interest — Watch Brief Premium enrollment-detail request
- *   BM_Path_Life        — Pathfinder result: Beacon Life
- *   BM_Path_Work        — Pathfinder result: Beacon Work
- *   BM_Path_Venture     — Pathfinder result: Beacon Venture
- *   BM_Path_Systems     — Pathfinder result: Beacon Systems
- *   BM_Path_Labs        — Pathfinder result: Beacon Labs
- *   BM_Pathfinder       — Any Pathfinder Assessment completion
- *
- * SECURITY: API key must be set via VITE_GHL_API_KEY environment variable.
- * Never hardcode credentials in source files.
+ * The browser may submit one of the narrow, reviewed public event types below.
+ * Source, tags, CRM location, custom field identifiers, and the HighLevel
+ * credential are owned exclusively by the same-origin server relay.
  */
 
-const GHL_BASE = "https://services.leadconnectorhq.com";
-const GHL_LOCATION_ID = "vvhkYM6iySBVh5kOcFGM";
-// Loaded from environment — set VITE_GHL_API_KEY in .env or deployment secrets
-const GHL_API_KEY = import.meta.env.VITE_GHL_API_KEY as string;
+type PathfinderPillar = "life" | "work" | "venture" | "systems" | "labs";
+type WatchTrack = "transition" | "builder" | "systems" | "legacy";
 
-export interface GHLContactPayload {
-  email: string;
-  firstName?: string;
-  tags?: string[];
-  source?: string;
-  // GHL v2 requires field ID (not key string) for custom field writes
-  customFields?: { id: string; field_value: string }[];
+function isPathfinderPillar(value: string): value is PathfinderPillar {
+  return ["life", "work", "venture", "systems", "labs"].includes(value);
 }
 
-// GHL custom field IDs for Beacon Momentum location (vvhkYM6iySBVh5kOcFGM)
-// Retrieved via GET /locations/{id}/customFields
-const GHL_FIELD_IDS = {
-  pathfinder_result: "4KG5TRT5jHFIv4rO7bqg",
-  pathfinder_answers: "9zwDjVuo8TNXlRmljoAO",
-} as const;
+type RelayEvent =
+  | { event: "newsletter_signup"; email: string; firstName?: string; consentVersion: string }
+  | { event: "starter_pack_request"; email: string; firstName?: string; consentVersion: string }
+  | { event: "watch_brief_premium_interest"; email: string; firstName?: string; consentVersion: string }
+  | { event: "pathfinder_result"; email: string; firstName?: string; pillar: PathfinderPillar; consentVersion: string }
+  | { event: "digital_grandpa_library_interest"; email: string; consentVersion: string }
+  | { event: "watch_intake_submission"; email: string; firstName?: string; track: WatchTrack; entryStage: "sentinel"; answers: Record<string, string>; consentVersion: string };
 
-/**
- * Create or update a contact in the Beacon Momentum GHL location.
- * Returns true on success, false on failure.
- */
-export async function submitToGHL(payload: GHLContactPayload): Promise<boolean> {
-  if (!GHL_API_KEY) {
-    console.warn("GHL API key not configured. Set VITE_GHL_API_KEY in environment.");
-    return false;
-  }
-
+async function submitCapture(payload: RelayEvent): Promise<boolean> {
   try {
-    const body: Record<string, unknown> = {
-      email: payload.email,
-      locationId: GHL_LOCATION_ID,
-      source: payload.source || "beaconmomentum.com",
-      tags: payload.tags || [],
-    };
-
-    if (payload.firstName) body.firstName = payload.firstName;
-    if (payload.customFields) body.customFields = payload.customFields;
-
-    // Use /contacts/upsert to create-or-update without 400 duplicate errors
-    const response = await fetch(`${GHL_BASE}/contacts/upsert`, {
+    const response = await fetch("/api/trpc/capture.submit?batch=1", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${GHL_API_KEY}`,
-        Version: "2021-07-28",
-      },
-      body: JSON.stringify(body),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ "0": { json: payload } }),
     });
-
-    if (!response.ok) {
-      console.error("GHL upsert failed:", response.status, await response.text());
-      return false;
-    }
-
-    const data = await response.json();
-    return data.succeeded === true || data.succeded === true;
-  } catch (err) {
-    console.error("GHL submission error:", err);
+    return response.ok;
+  } catch {
     return false;
   }
 }
 
-/**
- * Subscribe an email to the Beacon Brief newsletter.
- */
-export async function subscribeToBeaconBrief(email: string, firstName?: string): Promise<boolean> {
-  return submitToGHL({
-    email,
-    firstName,
-    tags: ["BM_Newsletter", "BM_Beacon_Brief"],
-    source: "beaconmomentum.com/newsletter",
-  });
+export function subscribeToBeaconBrief(email: string, firstName?: string) {
+  return submitCapture({ event: "newsletter_signup", email, firstName, consentVersion: "beacon-brief-v1" });
 }
 
-/**
- * Request enrollment details for the paid Watch Brief Premium dossier.
- * This is intentionally an interest handoff, not a payment or checkout action.
- */
-export async function requestWatchBriefPremiumDetails(email: string, firstName?: string): Promise<boolean> {
-  return submitToGHL({
-    email,
-    firstName,
-    tags: ["BM_Watch_Brief_Premium_Interest"],
-    source: "beaconmomentum.com/watch-brief-premium",
-  });
+export function requestWatchBriefPremiumDetails(email: string, firstName?: string) {
+  return submitCapture({ event: "watch_brief_premium_interest", email, firstName, consentVersion: "watch-brief-premium-v1" });
 }
 
-/**
- * Submit a Pathfinder Assessment result to GHL.
- * Tags the contact with their pillar path and BM_Pathfinder.
- */
-export async function submitPathfinderResult(
-  email: string,
-  pillar: string,
-  answers?: Record<string, string>,
-  firstName?: string
-): Promise<boolean> {
-  const pillarTag = `BM_Path_${pillar.charAt(0).toUpperCase() + pillar.slice(1)}`;
+export function submitPathfinderResult(email: string, pillar: string, _answers?: Record<string, string>, firstName?: string) {
+  if (!isPathfinderPillar(pillar)) return Promise.resolve(false);
+  return submitCapture({ event: "pathfinder_result", email, firstName, pillar, consentVersion: "pathfinder-result-v1" });
+}
 
-  // Use field IDs (not key strings) — GHL v2 API requires IDs for custom field writes
-  const customFields: { id: string; field_value: string }[] = [
-    { id: GHL_FIELD_IDS.pathfinder_result, field_value: pillar },
-  ];
+export function requestStarterPack(email: string, firstName?: string) {
+  return submitCapture({ event: "starter_pack_request", email, firstName, consentVersion: "starter-pack-v1" });
+}
 
-  if (answers) {
-    customFields.push({
-      id: GHL_FIELD_IDS.pathfinder_answers,
-      field_value: JSON.stringify(answers),
-    });
-  }
+export function requestDigitalGrandpaLibraryInterest(email: string) {
+  return submitCapture({ event: "digital_grandpa_library_interest", email, consentVersion: "digital-grandpa-library-v1" });
+}
 
-  return submitToGHL({
-    email,
-    firstName,
-    tags: ["BM_Pathfinder", pillarTag],
-    source: "beaconmomentum.com/assessment",
-    customFields,
-  });
+export function submitWatchIntake(email: string, firstName: string | undefined, track: WatchTrack, answers: Record<string, string>) {
+  return submitCapture({ event: "watch_intake_submission", email, firstName, track, entryStage: "sentinel", answers, consentVersion: "watch-intake-v1" });
 }
