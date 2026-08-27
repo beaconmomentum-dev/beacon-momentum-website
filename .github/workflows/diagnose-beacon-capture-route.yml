@@ -18,11 +18,17 @@ jobs:
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
             set -euo pipefail
-            echo '--- beacon public capture route (no payload) ---'
+            echo '--- Cloudflare-routed Beacon capture route (no payload) ---'
             curl -ksS -o /tmp/beacon-public-capture-probe -w 'public_status=%{http_code}\n' \
               -H 'Origin: https://beaconmomentum.com' \
               'https://beaconmomentum.com/api/trpc/capture.submit?batch=1'
             head -c 400 /tmp/beacon-public-capture-probe; echo
+
+            echo '--- direct Beacon Nginx origin capture route (no payload) ---'
+            curl -ksS --resolve 'beaconmomentum.com:443:127.0.0.1' -o /tmp/beacon-origin-capture-probe -w 'origin_status=%{http_code}\n' \
+              -H 'Origin: https://beaconmomentum.com' \
+              'https://beaconmomentum.com/api/trpc/capture.submit?batch=1'
+            head -c 400 /tmp/beacon-origin-capture-probe; echo
 
             echo '--- local Beacon server capture route (no payload) ---'
             curl -sS -o /tmp/beacon-local-capture-probe -w 'local_status=%{http_code}\n' \
@@ -31,7 +37,16 @@ jobs:
               'http://127.0.0.1:3012/api/trpc/capture.submit?batch=1'
             head -c 400 /tmp/beacon-local-capture-probe; echo
 
-            echo '--- active Beacon Nginx route context ---'
+            echo '--- active Beacon TLS virtual-host context ---'
             nginx -T 2>/dev/null > /tmp/beacon-nginx-effective.conf
-            grep -n -E 'server_name.*beaconmomentum\.com|location /api|proxy_pass.*3012|root .*beacon-momentum' /tmp/beacon-nginx-effective.conf | tail -80 || true
+            awk '
+              /server_name beaconmomentum\.com new\.beaconmomentum\.com;/ {show=1; depth=0}
+              show {
+                print NR ":" $0
+                open_count=gsub(/\{/, "{", $0)
+                close_count=gsub(/\}/, "}", $0)
+                depth += open_count - close_count
+                if (depth <= 0 && close_count > 0) show=0
+              }
+            ' /tmp/beacon-nginx-effective.conf
           REMOTE
