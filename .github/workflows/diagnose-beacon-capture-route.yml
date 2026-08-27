@@ -1,0 +1,37 @@
+name: Diagnose Beacon capture route
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    name: Inspect capture API routing without submissions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up production SSH access
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+      - name: Compare local and public capture routes
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
+            set -euo pipefail
+            echo '--- beacon public capture route (no payload) ---'
+            curl -ksS -o /tmp/beacon-public-capture-probe -w 'public_status=%{http_code}\n' \
+              -H 'Origin: https://beaconmomentum.com' \
+              'https://beaconmomentum.com/api/trpc/capture.submit?batch=1'
+            head -c 400 /tmp/beacon-public-capture-probe; echo
+
+            echo '--- local Beacon server capture route (no payload) ---'
+            curl -sS -o /tmp/beacon-local-capture-probe -w 'local_status=%{http_code}\n' \
+              -H 'Host: beaconmomentum.com' \
+              -H 'Origin: https://beaconmomentum.com' \
+              'http://127.0.0.1:3012/api/trpc/capture.submit?batch=1'
+            head -c 400 /tmp/beacon-local-capture-probe; echo
+
+            echo '--- active Beacon Nginx route context ---'
+            nginx -T 2>/dev/null > /tmp/beacon-nginx-effective.conf
+            grep -n -E 'server_name.*beaconmomentum\.com|location /api|proxy_pass.*3012|root .*beacon-momentum' /tmp/beacon-nginx-effective.conf | tail -80 || true
+          REMOTE
