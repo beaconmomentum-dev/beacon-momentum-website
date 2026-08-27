@@ -39,14 +39,5 @@ jobs:
 
             echo '--- active Beacon TLS virtual-host context ---'
             nginx -T 2>/dev/null > /tmp/beacon-nginx-effective.conf
-            awk '
-              /server_name beaconmomentum\.com new\.beaconmomentum\.com;/ {show=1; depth=0}
-              show {
-                print NR ":" $0
-                open_count=gsub(/\{/, "{", $0)
-                close_count=gsub(/\}/, "}", $0)
-                depth += open_count - close_count
-                if (depth <= 0 && close_count > 0) show=0
-              }
-            ' /tmp/beacon-nginx-effective.conf
+            nl -ba /tmp/beacon-nginx-effective.conf | sed -n '450,640p'
           REMOTE
