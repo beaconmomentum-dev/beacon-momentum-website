@@ -96,6 +96,11 @@ jobs:
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} \
             /usr/local/bin/deploy-beacon-www.sh
 
+      - name: Verify and repair Beacon capture route
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} \
+            'cd /var/www/beacon-momentum-www && chmod 0755 ops/ensure-beacon-capture-route.sh && ops/ensure-beacon-capture-route.sh'
+
       - name: Verify deployment
         run: |
           sleep 5
@@ -105,3 +110,6 @@ jobs:
           echo "Commit: ${{ github.sha }}"
           echo "HTTP Status: $HTTP_CODE"
           [ "$HTTP_CODE" = "200" ] || exit 1
+          CAPTURE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -H "Origin: https://beaconmomentum.com" https://beaconmomentum.com/api/trpc/capture.submit?batch=1)
+          echo "Payload-free capture mutation status: $CAPTURE_STATUS"
+          [ "$CAPTURE_STATUS" = "405" ] || exit 1

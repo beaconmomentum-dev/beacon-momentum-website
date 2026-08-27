@@ -12,6 +12,7 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "test:deploy-contract": "bash ops/test-static-release-contract.sh",
+    "test:capture-route-contract": "bash ops/test-beacon-capture-route-contract.sh",
     "test:brand-visual": "node tests/brand_visual_acceptance.mjs",
     "db:push": "drizzle-kit generate && drizzle-kit migrate"
   },
