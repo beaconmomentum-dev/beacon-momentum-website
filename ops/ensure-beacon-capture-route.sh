@@ -7,12 +7,62 @@
 # the backup if validation or the post-reload no-payload mutation probe fails.
 set -Eeuo pipefail
 
-SITE_LINK="${BEACON_NGINX_SITE:-/etc/nginx/sites-enabled/beacon-dashboard}"
-SITE_CONFIG="$(readlink -f "$SITE_LINK")"
+SITE_CONFIG=""
 BACKUP_DIR="${BEACON_NGINX_BACKUP_DIR:-/var/backups/beacon-momentum-nginx}"
 PUBLIC_HOST="${BEACON_PUBLIC_HOST:-beaconmomentum.com}"
 BACKUP=""
 CHANGED=0
+effective_nginx=""
+tmp=""
+
+cleanup() {
+  [[ -n "$effective_nginx" ]] && rm -f "$effective_nginx"
+  [[ -n "$tmp" ]] && rm -f "$tmp"
+}
+trap cleanup EXIT
+
+if [[ -n "${BEACON_NGINX_SITE:-}" ]]; then
+  SITE_CONFIG="$(readlink -f "$BEACON_NGINX_SITE")"
+else
+  effective_nginx="$(mktemp /tmp/beacon-nginx-effective.XXXXXX)"
+  nginx -T 2>/dev/null > "$effective_nginx"
+  SITE_CONFIG="$(awk '
+    /^# configuration file / {
+      file=$4
+      sub(/:$/, "", file)
+      next
+    }
+    /^[[:space:]]*server[[:space:]]*\{/ {
+      in_server=1
+      depth=1
+      server_file=file
+      server_name_match=0
+      tls_listener=0
+      next
+    }
+    in_server {
+      if ($0 ~ /^[[:space:]]*server_name[[:space:]]+.*beaconmomentum\.com/) server_name_match=1
+      if ($0 ~ /^[[:space:]]*listen[[:space:]]+443[[:space:]].*ssl/) tls_listener=1
+      opens=gsub(/\{/, "{", $0)
+      closes=gsub(/\}/, "}", $0)
+      depth += opens - closes
+      if (depth <= 0) {
+        if (!printed && server_name_match && tls_listener) {
+          print server_file
+          printed=1
+        }
+        in_server=0
+      }
+    }
+  ' "$effective_nginx")"
+fi
+
+if [[ -z "$SITE_CONFIG" ]]; then
+  echo "ERROR: no effective Beacon TLS virtual host was found" >&2
+  exit 1
+fi
+
+SITE_CONFIG="$(readlink -f "$SITE_CONFIG")"
 
 if [[ ! -f "$SITE_CONFIG" ]]; then
   echo "ERROR: Beacon Nginx site configuration is unavailable: $SITE_CONFIG" >&2
@@ -31,8 +81,6 @@ rollback() {
 trap rollback ERR
 
 tmp="$(mktemp "${SITE_CONFIG}.capture-route.XXXXXX")"
-cleanup() { rm -f "$tmp"; }
-trap cleanup EXIT
 
 awk '
   /^[[:space:]]*location[[:space:]]+\/api\/trpc[[:space:]]*\{/ { in_capture=1 }
