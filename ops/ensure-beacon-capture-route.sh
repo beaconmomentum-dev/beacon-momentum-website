@@ -41,7 +41,13 @@ else
       next
     }
     in_server {
-      if ($0 ~ /(^|[[:space:]])beaconmomentum\.com([[:space:];]|$)/) server_name_match=1
+      if ($1 == "server_name") {
+        for (i = 2; i <= NF; i++) {
+          host=$i
+          sub(/;$/, "", host)
+          if (host == "beaconmomentum.com") server_name_match=1
+        }
+      }
       if ($0 ~ /^[[:space:]]*listen[[:space:]]+443[[:space:]].*ssl/) tls_listener=1
       opens=gsub(/\{/, "{", $0)
       closes=gsub(/\}/, "}", $0)
@@ -126,7 +132,7 @@ status="$(curl -ksS --resolve "${PUBLIC_HOST}:443:127.0.0.1" -o /tmp/beacon-capt
   "https://${PUBLIC_HOST}/api/trpc/capture.submit?batch=1")"
 if [[ "$status" != "405" ]]; then
   echo "ERROR: capture route probe expected 405 for payload-free mutation GET, received $status" >&2
-  exit 1
+  false
 fi
 
 echo "Beacon capture route verified: direct-origin no-payload mutation probe returned 405."

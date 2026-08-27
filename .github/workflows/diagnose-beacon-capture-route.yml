@@ -44,7 +44,16 @@ jobs:
             echo '--- enabled exact Beacon-domain configuration summaries ---'
             for config in /etc/nginx/sites-enabled/*; do
               [[ -f "$config" ]] || continue
-              if grep -Eq '(^|[[:space:]])beaconmomentum\.com([[:space:];]|$)' "$config"; then
+              if awk '
+                $1 == "server_name" {
+                  for (i = 2; i <= NF; i++) {
+                    host=$i
+                    sub(/;$/, "", host)
+                    if (host == "beaconmomentum.com") found=1
+                  }
+                }
+                END { exit found ? 0 : 1 }
+              ' "$config"; then
                 echo "CONFIG=$(readlink -f "$config")"
                 grep -nE 'server_name|listen[[:space:]]+443|location[[:space:]]|proxy_pass' "$config" || true
               fi
