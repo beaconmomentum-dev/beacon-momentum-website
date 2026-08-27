@@ -56,6 +56,7 @@ export default function SharedFooter() {
     { label: "Support", href: "mailto:support@beaconmomentum.com" },
     { label: "Privacy", href: "/privacy" },
     { label: "Terms of Use", href: "/terms" },
+    { label: "Refund & cancellation", href: "/refund" },
     { label: "The Watch membership information", href: "/the-watch" },
     { label: "Education & simulation boundary", href: "/disclaimer" },
     { label: "Accessibility", href: "mailto:support@beaconmomentum.com?subject=Accessibility%20request" },

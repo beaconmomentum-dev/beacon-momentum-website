@@ -41,6 +41,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://beaconmomentum.com/work-that-fits</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://beaconmomentum.com/field-notes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

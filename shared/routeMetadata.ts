@@ -178,6 +178,11 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     title: "Watch Brief Premium",
     description: "Beacon Momentum's premium operating dossier for members who want a concise, recurring intelligence brief.",
   },
+  "/work-that-fits": {
+    title: "Work That Fits",
+    description: "A calm seven-day AI work experiment built around one repeated, reversible, reviewable task.",
+    image: `${BEACON_SITE_URL}/images/work-that-fits/work-that-fits-social-preview-16x9.jpg`,
+  },
 };
 
 function normalizePath(pathname: string): string {

@@ -20,6 +20,27 @@ describe("public capture relay contract", () => {
     });
   });
 
+  it("requires explicit consent and owns Work That Fits card routing", () => {
+    const input = captureInputSchema.parse({
+      event: "work_that_fits_card_request",
+      email: "  PERSON@EXAMPLE.COM ",
+      firstName: "  Person  ",
+      emailConsent: true,
+      consentVersion: "work-that-fits-v1",
+    });
+
+    expect(buildGhlUpsertPayload(input)).toEqual({
+      email: "person@example.com",
+      firstName: "Person",
+      locationId: "vvhkYM6iySBVh5kOcFGM",
+      source: "beaconmomentum.com/work-that-fits",
+      tags: ["BM_Work_That_Fits", "BM_One_Task_Experiment_Card", "BM_Work_That_Fits_Email_Consent"],
+    });
+    expect(() =>
+      captureInputSchema.parse({ event: "work_that_fits_card_request", email: "person@example.com" }),
+    ).toThrow();
+  });
+
   it("allow-lists Pathfinder pillars and emits only the derived result field", () => {
     const input = captureInputSchema.parse({
       event: "pathfinder_result",

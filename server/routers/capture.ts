@@ -48,6 +48,12 @@ export const captureInputSchema = z.discriminatedUnion("event", [
   }),
   z.object({
     ...commonCaptureFields,
+    event: z.literal("work_that_fits_card_request"),
+    /** Explicit first-party consent is required for this resource and its short email sequence. */
+    emailConsent: z.literal(true),
+  }),
+  z.object({
+    ...commonCaptureFields,
     event: z.literal("pathfinder_result"),
     pillar: z.enum(["life", "work", "venture", "systems", "labs"]),
   }),
@@ -137,6 +143,12 @@ export function buildGhlUpsertPayload(input: CaptureInput): GhlUpsertPayload {
         ...payload,
         source: "beaconmomentum.com/start",
         tags: ["BM_Starter_Pack", "BM_YouTube_Optin"],
+      };
+    case "work_that_fits_card_request":
+      return {
+        ...payload,
+        source: "beaconmomentum.com/work-that-fits",
+        tags: ["BM_Work_That_Fits", "BM_One_Task_Experiment_Card", "BM_Work_That_Fits_Email_Consent"],
       };
     case "pathfinder_result":
       return {

@@ -54,6 +54,7 @@ const DigitalRampUpFieldNotePage = lazy(() => import("@/pages/DigitalRampUpField
 const ManifestoPage = lazy(() => import("@/pages/ManifestoPage"));
 const ManifestoQAPage = lazy(() => import("@/pages/ManifestoQAPage"));
 const PracticalAISkillsPage = lazy(() => import("@/pages/PracticalAISkillsPage"));
+const WorkThatFitsPage = lazy(() => import("@/pages/WorkThatFitsPage"));
 
 function LegacyBlogIndexRedirect() {
   const [, setLocation] = useLocation();
@@ -138,6 +139,7 @@ function Router() {
       <Route path="/manifesto" component={ManifestoPage} />
       <Route path="/digital-grandpa/library" component={DigitalGrandpaLibraryPage} />
       <Route path="/practical-ai-skills" component={PracticalAISkillsPage} />
+      <Route path="/work-that-fits" component={WorkThatFitsPage} />
       <Route path="/start" component={StarterPackPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
