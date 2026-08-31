@@ -13,6 +13,7 @@ import { getArticleAudioSource } from "@/lib/blogMediaPolicy";
 import { getEditorialPathway } from "@/lib/editorialPathways";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { AUGUST_ARTICLE_CONTENT } from "@/data/augustEditorial";
+import { SEPTEMBER_ARTICLE_CONTENT } from "@/data/septemberEditorial";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
 interface ArticleContent {
@@ -35,6 +36,7 @@ interface ArticleContent {
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
+  ...SEPTEMBER_ARTICLE_CONTENT,
   ...AUGUST_ARTICLE_CONTENT,
   {
     id: "3-ai-business-models-launch-this-weekend",

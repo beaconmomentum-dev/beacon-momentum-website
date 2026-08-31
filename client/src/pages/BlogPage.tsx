@@ -14,6 +14,7 @@ import SharedFooter from "@/components/SharedFooter";
 import { subscribeToBeaconBrief } from "@/lib/ghl";
 import { BEACON_EDITORIAL_IMAGE_ASPECT_RATIO } from "@/lib/blogMediaPolicy";
 import { AUGUST_ARTICLE_SUMMARIES } from "@/data/augustEditorial";
+import { SEPTEMBER_ARTICLE_SUMMARIES } from "@/data/septemberEditorial";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
@@ -38,6 +39,7 @@ interface Article {
 }
 
 const ARTICLES = [
+  ...SEPTEMBER_ARTICLE_SUMMARIES,
   ...AUGUST_ARTICLE_SUMMARIES,
   {
     id: "3-ai-business-models-launch-this-weekend",
