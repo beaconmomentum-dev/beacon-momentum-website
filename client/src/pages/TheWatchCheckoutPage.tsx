@@ -175,7 +175,7 @@ export default function TheWatchCheckoutPage() {
             <p style={{ color: C.amber, textTransform: "uppercase", letterSpacing: "0.17em", fontSize: "0.72rem", fontWeight: 800, margin: "0 0 1rem" }}>Founding Year enrollment</p>
             <h1 style={{ maxWidth: "760px", margin: 0, fontFamily: "Georgia, serif", fontSize: "clamp(2.5rem, 5.5vw, 4.6rem)", fontWeight: 500, lineHeight: 1.03, letterSpacing: "-0.035em" }}>Take your post for the year ahead.</h1>
             <p style={{ maxWidth: "650px", margin: "1.5rem 0 0", color: C.mist, fontSize: "1.08rem", lineHeight: 1.75 }}>
-              This is a Beacon-controlled annual enrollment. Your current rate is $497/year, and that rate remains with uninterrupted, paid renewals even if the public enrollment rate later changes.
+              This is a Beacon-controlled annual enrollment for the first 1,000 paid annual members. Your current rate is $497/year—$500 below the later $997 annual rate for new members—and it remains with uninterrupted, paid renewals.
             </p>
             <div style={{ marginTop: "2rem", padding: "1.25rem", borderLeft: `2px solid ${C.amber}`, background: "rgba(247,241,229,0.045)" }}>
               <p style={{ margin: 0, color: C.cream, lineHeight: 1.65 }}><strong>What begins here:</strong> Sentinel membership, the Beacon Venture Execution Sprint, Watch Brief Premium member benefit, Pathfinder Assessment, resource library, and the current execution field kit.</p>
@@ -188,7 +188,7 @@ export default function TheWatchCheckoutPage() {
               <strong style={{ color: C.cream, fontSize: "2.7rem", letterSpacing: "-0.05em" }}>$497</strong>
               <span style={{ color: C.mist }}>/ year</span>
             </div>
-            <p style={{ margin: "0.65rem 0 1.5rem", color: C.mist, fontSize: "0.9rem", lineHeight: 1.65 }}>No free trial. One annual membership. Earned stages are not separate purchases.</p>
+            <p style={{ margin: "0.65rem 0 1.5rem", color: C.mist, fontSize: "0.9rem", lineHeight: 1.65 }}>No free trial. One annual membership. Founding Year enrollment is available to the first 1,000 paid annual members. Earned stages are not separate purchases.</p>
 
             {!checkout && (
               <form onSubmit={beginPayment} style={{ display: "grid", gap: "1rem" }}>
@@ -224,7 +224,7 @@ export default function TheWatchCheckoutPage() {
         <div className="container watch-checkout-disclosures" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "1px", background: C.line, border: `1px solid ${C.line}` }}>
           {[
             ["Issuer", "Payments are made to Beacon Momentum LLC."],
-            ["Renewal", "The Watch renews automatically at $497/year while you remain continuously active and paid, unless you cancel before renewal."],
+            ["Renewal", "Founding Year members renew automatically at $497/year while continuously active and paid, unless they cancel before renewal. Later new enrollment is $997/year after the first 1,000 paid annual members."],
             ["Purchase boundary", "This purchase is not an investment, loan, equity interest, revenue-share interest, promise of financial return, charitable contribution, or tax-deductible donation."],
           ].map(([label, copy]) => (
             <div key={label} style={{ background: C.deep, padding: "1.35rem" }}>
