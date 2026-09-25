@@ -24,6 +24,7 @@ export default function SharedFooter() {
     { label: "Resources & Guides", href: "/resources" },
     { label: "How Beacon Works", href: "/how-beacon-works" },
     { label: "Field Notes", href: "/field-notes" },
+    { label: "The Storm Navigator’s Guide", href: "/storm-navigators-guide" },
     { label: "Foundation Year", href: "/foundation" },
     { label: "The Signal", href: "/signal" },
     { label: "Pricing", href: "/pricing" },

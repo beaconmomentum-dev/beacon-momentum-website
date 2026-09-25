@@ -55,6 +55,7 @@ const ManifestoPage = lazy(() => import("@/pages/ManifestoPage"));
 const ManifestoQAPage = lazy(() => import("@/pages/ManifestoQAPage"));
 const PracticalAISkillsPage = lazy(() => import("@/pages/PracticalAISkillsPage"));
 const AIWorkflowReleaseReadinessKitPage = lazy(() => import("@/pages/AIWorkflowReleaseReadinessKitPage"));
+const StormNavigatorsGuidePage = lazy(() => import("@/pages/StormNavigatorsGuidePage"));
 
 function LegacyBlogIndexRedirect() {
   const [, setLocation] = useLocation();
@@ -139,6 +140,7 @@ function Router() {
       <Route path="/manifesto" component={ManifestoPage} />
       <Route path="/digital-grandpa/library" component={DigitalGrandpaLibraryPage} />
       <Route path="/practical-ai-skills" component={PracticalAISkillsPage} />
+      <Route path="/storm-navigators-guide" component={StormNavigatorsGuidePage} />
       <Route path="/ai-workflow-release-readiness-kit" component={AIWorkflowReleaseReadinessKitPage} />
       <Route path="/start" component={StarterPackPage} />
       <Route path="/404" component={NotFound} />
