@@ -150,6 +150,12 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       "Beacon Momentum's public editorial library of practical field intelligence on AI, human capability, work, and durable operating systems.",
   },
+  "/storm-navigators-guide": {
+    title: "The Storm Navigator’s Guide",
+    description:
+      "A Beacon Momentum field guide in preparation for people taking stock, finding a steadier bearing, and choosing one useful next step through change.",
+    image: `${BEACON_SITE_URL}/images/owned/storm-navigators-guide-cover.webp`,
+  },
   "/terms": {
     title: "Terms of Use",
     description: "Beacon Momentum's public website, membership, payment, and use terms.",

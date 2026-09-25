@@ -90,6 +90,17 @@ const RESOURCES = [
     color: "#3D4F6B",
     bg: "#F4F6FA",
   },
+  {
+    icon: BookOpen,
+    category: "Field Guide in Preparation",
+    title: "The Storm Navigator’s Guide",
+    description: "A Beacon field guide in preparation for people naming what has changed, finding a steadier bearing, and taking one useful next step without chasing a promised outcome.",
+    cta: "Explore the guide",
+    href: "/storm-navigators-guide",
+    external: false,
+    color: "#8B5E3C",
+    bg: "#FCF6EE",
+  },
 ] as const;
 
 const ctaStyle = (color: string): CSSProperties => ({
