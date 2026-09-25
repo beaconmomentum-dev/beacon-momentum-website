@@ -145,6 +145,13 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       "Public Beacon Momentum resources for practical capability, durable work, and responsible AI-assisted systems.",
   },
+  "/stories/somebody-left-a-light-on": {
+    title: "Somebody Left a Light On | Bob Burr and Beacon Momentum",
+    description:
+      "A founder reflection connecting Where the Light Finds You, Porch Light, and The Storm Navigator’s Guide to Beacon Momentum’s practical work: durable capability, clear direction, and one useful next step.",
+    type: "article",
+    image: `${BEACON_SITE_URL}/images/founder/where-the-light-finds-you-social.jpg`,
+  },
   "/signal": {
     title: "The Signal",
     description:

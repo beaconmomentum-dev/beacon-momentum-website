@@ -29,6 +29,7 @@ const PillarSharePage = lazy(() => import("@/pages/PillarSharePage"));
 const ContactPage = lazy(() => import("@/pages/ContactPage"));
 const DigitalGrandpaLibraryPage = lazy(() => import("@/pages/DigitalGrandpaLibraryPage"));
 const DigitalGrandpaPage = lazy(() => import("@/pages/DigitalGrandpaPage"));
+const FounderStoryPage = lazy(() => import("@/pages/FounderStoryPage"));
 const BlogPage = lazy(() => import("@/pages/BlogPage"));
 const BlogArticlePage = lazy(() => import("@/pages/BlogArticlePage"));
 const TheWatchPage = lazy(() => import("@/pages/TheWatchPage"));
@@ -111,6 +112,7 @@ function Router() {
       <Route path="/path/:pillar" component={PillarSharePage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/digital-grandpa" component={DigitalGrandpaPage} />
+      <Route path="/stories/somebody-left-a-light-on" component={FounderStoryPage} />
       <Route path="/signal/:slug" component={BlogArticlePage} />
       <Route path="/signal" component={BlogPage} />
       <Route path="/blog/:slug" component={LegacyBlogArticleRedirect} />

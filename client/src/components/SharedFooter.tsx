@@ -26,6 +26,7 @@ export default function SharedFooter() {
     { label: "Field Notes", href: "/field-notes" },
     { label: "Foundation Year", href: "/foundation" },
     { label: "The Signal", href: "/signal" },
+    { label: "A Beacon Story", href: "/stories/somebody-left-a-light-on" },
     { label: "Pricing", href: "/pricing" },
     { label: "Signal Check", href: "https://beaconlabs.ai/signal-check", external: true },
     { label: "YouTube Channel", href: "https://www.youtube.com/@BeaconMomentum", external: true },
