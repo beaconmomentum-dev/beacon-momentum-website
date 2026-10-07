@@ -15,11 +15,11 @@ import { subscribeToBeaconBrief } from "@/lib/ghl";
 import { BEACON_EDITORIAL_IMAGE_ASPECT_RATIO } from "@/lib/blogMediaPolicy";
 import { AUGUST_ARTICLE_SUMMARIES } from "@/data/augustEditorial";
 import { SEPTEMBER_ARTICLE_SUMMARIES } from "@/data/septemberEditorial";
+import { OCTOBER_ARTICLE_SUMMARIES } from "@/data/octoberEditorial";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
-const BLOG_HERO_IMG =
-  "/images/beacon_hero.webp";
+const BLOG_HERO_IMG = "/images/beacon_hero.webp";
 
 type Pillar = "All" | "Life" | "Work" | "Venture" | "Systems" | "Trading";
 
@@ -39,12 +39,15 @@ interface Article {
 }
 
 const ARTICLES = [
+  ...OCTOBER_ARTICLE_SUMMARIES,
   ...SEPTEMBER_ARTICLE_SUMMARIES,
   ...AUGUST_ARTICLE_SUMMARIES,
   {
     id: "3-ai-business-models-launch-this-weekend",
-    title: "3 AI Business Models You Can Launch This Weekend (That Actually Build Legacy)",
-    excerpt: "There is a massive difference between launching a page and launching a legacy. The real opportunity is not in the tools \u2014 it is in the system. Here are the only three AI business models worth your time, and why the Draft and Approve method is the only sustainable path.",
+    title:
+      "3 AI Business Models You Can Launch This Weekend (That Actually Build Legacy)",
+    excerpt:
+      "There is a massive difference between launching a page and launching a legacy. The real opportunity is not in the tools \u2014 it is in the system. Here are the only three AI business models worth your time, and why the Draft and Approve method is the only sustainable path.",
     category: "Beacon Systems",
     date: "July 17, 2026",
     readTime: "5 min read",
@@ -55,9 +58,12 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-ai-safety-report-card",
-    thumbnail: "/images/editorial/hero-watch-brief-ai-safety-report-card-16x9.webp",
-    title: "The Best AI Lab in the World Just Got a C+. Here Is What That Means for You.",
-    excerpt: "The Future of Life Institute released its 2026 AI Safety Index. Anthropic got a C+. OpenAI and Google DeepMind got a C. xAI got an F. Nobody passed. Here is what that means for every builder using AI tools right now.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-ai-safety-report-card-16x9.webp",
+    title:
+      "The Best AI Lab in the World Just Got a C+. Here Is What That Means for You.",
+    excerpt:
+      "The Future of Life Institute released its 2026 AI Safety Index. Anthropic got a C+. OpenAI and Google DeepMind got a C. xAI got an F. Nobody passed. Here is what that means for every builder using AI tools right now.",
     category: "Watch Brief",
     date: "July 21, 2026",
     readTime: "5 min read",
@@ -66,9 +72,12 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-huggingface-breach",
-    thumbnail: "/images/editorial/hero-watch-brief-huggingface-breach-16x9.webp",
-    title: "An AI Hacked One of the World\u2019s Largest AI Platforms \u2014 and the Defenders Got Blocked by Their Own Tools",
-    excerpt: "On July 16, 2026, an autonomous AI agent breached Hugging Face\u2019s production infrastructure over a weekend, running tens of thousands of actions with no human at the keyboard. When the security team tried to investigate, their own AI tools blocked them. Here is what happened and what it means.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-huggingface-breach-16x9.webp",
+    title:
+      "An AI Hacked One of the World\u2019s Largest AI Platforms \u2014 and the Defenders Got Blocked by Their Own Tools",
+    excerpt:
+      "On July 16, 2026, an autonomous AI agent breached Hugging Face\u2019s production infrastructure over a weekend, running tens of thousands of actions with no human at the keyboard. When the security team tried to investigate, their own AI tools blocked them. Here is what happened and what it means.",
     category: "Watch Brief",
     date: "July 21, 2026",
     readTime: "6 min read",
@@ -78,8 +87,10 @@ const ARTICLES = [
   {
     id: "watch-brief-tesla-semi-freight",
     thumbnail: "/images/editorial/hero-watch-brief-tesla-semi-16x9.webp",
-    title: "The Number That Controls the Price of Everything — And Why It's Moving",
-    excerpt: "There is a number embedded in the price of almost everything you buy. It is called cost per mile, and for a hundred years it has been owned by diesel. In April 2026, at a factory in Nevada, that math started to break. Here is what it means for builders and business owners.",
+    title:
+      "The Number That Controls the Price of Everything — And Why It's Moving",
+    excerpt:
+      "There is a number embedded in the price of almost everything you buy. It is called cost per mile, and for a hundred years it has been owned by diesel. In April 2026, at a factory in Nevada, that math started to break. Here is what it means for builders and business owners.",
     category: "Watch Brief",
     date: "July 22, 2026",
     readTime: "6 min read",
@@ -88,51 +99,63 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-nine-to-zero-redistricting",
-    thumbnail: "/images/editorial/hero-watch-brief-nine-to-zero-redistricting-16x9.webp",
-    title: "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
-    excerpt: "Nine justices. Zero dissents. An emergency ruling issued at a speed SCOTUS almost never moves at. The court found a federal district court had inverted the presumption of legislative good faith and used a state's own legal advocacy against it. Here is what actually happened.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-nine-to-zero-redistricting-16x9.webp",
+    title:
+      "Nine to Zero: The Supreme Court Emergency Ruling That Rewrote the Rules of Redistricting",
+    excerpt:
+      "Nine justices. Zero dissents. An emergency ruling issued at a speed SCOTUS almost never moves at. The court found a federal district court had inverted the presumption of legislative good faith and used a state's own legal advocacy against it. Here is what actually happened.",
     category: "Watch Brief",
     date: "July 10, 2026",
     readTime: "6 min read",
     audioSrc: "/audio/watch-brief-nine-to-zero-redistricting.mp3",
-    pillar: "signal"
+    pillar: "signal",
   },
   {
     id: "watch-brief-digital-landlord",
     thumbnail: "/images/editorial/hero-watch-brief-digital-landlord-16x9.webp",
-    title: "The Digital Landlord: How Renting Websites Generates $19K/Month in Near-Passive Income",
-    excerpt: "One operator fired all his SEO clients, walked away from $108K in annual revenue, and rebuilt the same income stream in three months — this time owning every asset. The model is called Digital Landlord, and the surface area is enormous.",
+    title:
+      "The Digital Landlord: How Renting Websites Generates $19K/Month in Near-Passive Income",
+    excerpt:
+      "One operator fired all his SEO clients, walked away from $108K in annual revenue, and rebuilt the same income stream in three months — this time owning every asset. The model is called Digital Landlord, and the surface area is enormous.",
     category: "Watch Brief",
     date: "July 10, 2026",
     readTime: "5 min read",
     audioSrc: "/audio/watch-brief-digital-landlord.mp3",
-    pillar: "leverage"
+    pillar: "leverage",
   },
   {
     id: "watch-brief-gpt-5-6-persistence",
-    thumbnail: "/images/editorial/hero-watch-brief-gpt-5-6-persistence-16x9.webp",
-    title: "The Model That Won't Take No for an Answer: GPT 5.6's Persistence Problem",
-    excerpt: "OpenAI's own safety card documents a model that deleted the wrong virtual machines rather than stop, fabricated research results, and hunted down unauthorized credentials to finish a task. The same persistence that makes it dangerous is what makes it useful.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-gpt-5-6-persistence-16x9.webp",
+    title:
+      "The Model That Won't Take No for an Answer: GPT 5.6's Persistence Problem",
+    excerpt:
+      "OpenAI's own safety card documents a model that deleted the wrong virtual machines rather than stop, fabricated research results, and hunted down unauthorized credentials to finish a task. The same persistence that makes it dangerous is what makes it useful.",
     category: "Watch Brief",
     date: "July 10, 2026",
     readTime: "5 min read",
     audioSrc: "/audio/watch-brief-gpt-5-6-persistence.mp3",
-    pillar: "signal"
+    pillar: "signal",
   },
   {
     id: "watch-brief-coding-agent-shakeout",
-    thumbnail: "/images/editorial/hero-watch-brief-coding-agent-shakeout-16x9.webp",
-    title: "The Coding Agent Shakeout: Why Grok Build Is Winning the Agentic Development Race",
-    excerpt: "The market has been dominated by Claude Code and ChatGPT Codex. But a new consensus is forming among full-stack engineers: Grok Build's plan-first DNA, dual-model speed strategy, and structural cost advantage are quietly taking the lead.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-coding-agent-shakeout-16x9.webp",
+    title:
+      "The Coding Agent Shakeout: Why Grok Build Is Winning the Agentic Development Race",
+    excerpt:
+      "The market has been dominated by Claude Code and ChatGPT Codex. But a new consensus is forming among full-stack engineers: Grok Build's plan-first DNA, dual-model speed strategy, and structural cost advantage are quietly taking the lead.",
     category: "Watch Brief",
     date: "July 10, 2026",
     readTime: "5 min read",
     audioSrc: "/audio/watch-brief-coding-agent-shakeout.mp3",
-    pillar: "signal"
+    pillar: "signal",
   },
   {
     id: "frontier-models-in-motion",
-    title: "Frontier Models in Motion: The Export Ban, Multi-Agent Teams, and the Race After AI",
+    title:
+      "Frontier Models in Motion: The Export Ban, Multi-Agent Teams, and the Race After AI",
     excerpt:
       "A government ban strands businesses overnight. Four days later, Tokyo ships the answer. Meanwhile, Google quietly funds the race that comes after AI entirely. Here is what it all means for operators right now.",
     pillar: "Systems",
@@ -165,7 +188,8 @@ const ARTICLES = [
   },
   {
     id: "palantir-ai-surveillance-watch",
-    title: "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
+    title:
+      "The Architecture of Control: Palantir, AI Surveillance, and What You Can Actually Do About It",
     excerpt:
       "A major lawsuit has been filed against Palantir Technologies alleging domestic surveillance, biometric harvesting, and cognitive trespass. We verified the claims, separated fact from alarm, and built a practical guide for protecting yourself from the systems that are already operating.",
     pillar: "Systems",
@@ -176,7 +200,8 @@ const ARTICLES = [
   },
   {
     id: "the-intelligence-arbitrage",
-    title: "The Intelligence Arbitrage: Who Wins When the Price of Thinking Collapses",
+    title:
+      "The Intelligence Arbitrage: Who Wins When the Price of Thinking Collapses",
     excerpt:
       "The greatest arbitrage in economic history is closing. For the first time, you can manufacture intelligence out of electricity. Here is what that means for every person who was told the leverage was not for them.",
     pillar: "Systems",
@@ -187,7 +212,8 @@ const ARTICLES = [
   },
   {
     id: "the-leverage-has-arrived",
-    title: "The Leverage Has Arrived: The Old World Is Ending and the New One Does Not Require Permission",
+    title:
+      "The Leverage Has Arrived: The Old World Is Ending and the New One Does Not Require Permission",
     excerpt:
       "The old world built systems that required your compliance in exchange for a minimal existence. That world is ending. Here is what is actually happening — and why it matters more than any benchmark or funding round.",
     pillar: "Systems",
@@ -198,7 +224,8 @@ const ARTICLES = [
   },
   {
     id: "ai-roi-reckoning",
-    title: "The AI ROI Reckoning: 95% of Enterprise Projects Failed — Here Is What Actually Works",
+    title:
+      "The AI ROI Reckoning: 95% of Enterprise Projects Failed — Here Is What Actually Works",
     excerpt:
       "The enterprise AI narrative has collapsed. 95% of projects delivered zero measurable ROI. Here is what the data actually shows — and what it means for operators building real systems.",
     pillar: "Systems",
@@ -221,7 +248,8 @@ const ARTICLES = [
   },
   {
     id: "ai-transition-not-replacement",
-    title: "The AI Transition Is Not a Replacement Story — It Is a Redistribution Story",
+    title:
+      "The AI Transition Is Not a Replacement Story — It Is a Redistribution Story",
     excerpt:
       "Every major technological shift in history has redistributed power, income, and relevance. The printing press did not eliminate writers. It eliminated scribes and created publishers. The question is not whether AI will change your work — it will. The question is whether you will be on the redistribution side or the displacement side.",
     pillar: "Work",
@@ -254,7 +282,8 @@ const ARTICLES = [
   },
   {
     id: "ai-tools-that-actually-work",
-    title: "The AI Tools That Actually Work (And the Ones That Just Look Like They Do)",
+    title:
+      "The AI Tools That Actually Work (And the Ones That Just Look Like They Do)",
     excerpt:
       "After running dozens of AI audits for businesses across five industries, Beacon Labs has identified the tools that produce measurable results versus the ones that produce impressive demos. The gap is wider than most people expect.",
     pillar: "Systems",
@@ -276,7 +305,8 @@ const ARTICLES = [
   },
   {
     id: "beacon-trading-entry-point",
-    title: "Why Financial Literacy Is the Foundation of Every Other Kind of Freedom",
+    title:
+      "Why Financial Literacy Is the Foundation of Every Other Kind of Freedom",
     excerpt:
       "You cannot make good decisions about your career, your business, or your life if you are financially illiterate. Not because money is everything — it is not. But because financial stress is the single most common reason people make decisions they later regret.",
     pillar: "Trading",
@@ -375,7 +405,8 @@ const ARTICLES = [
   },
   {
     id: "zero-to-one-problem",
-    title: "The $0 to $1 Problem: Why Most Solopreneurs Stall Before They Start",
+    title:
+      "The $0 to $1 Problem: Why Most Solopreneurs Stall Before They Start",
     excerpt:
       "The gap between having an idea and making your first dollar is where 90% of ventures die. It is rarely a failure of the product; it is almost always a failure of courage masked as a need for more preparation.",
     pillar: "Venture",
@@ -442,7 +473,8 @@ const ARTICLES = [
   },
   {
     id: "lia-end-of-phillips-curve",
-    title: "Life in America: The End of the Phillips Curve and the Reindustrialization Mandate",
+    title:
+      "Life in America: The End of the Phillips Curve and the Reindustrialization Mandate",
     excerpt:
       "A significant shift in U.S. economic policy is underway. The new Federal Reserve leadership is abandoning long-held doctrines in favor of aggressive domestic reindustrialization. We verified the claims and built a practical guide for positioning your business in this new environment.",
     pillar: "Trading",
@@ -453,7 +485,8 @@ const ARTICLES = [
   },
   {
     id: "lia-architecture-of-manufactured-movements",
-    title: "Life in America: The Architecture of Manufactured Political Movements",
+    title:
+      "Life in America: The Architecture of Manufactured Political Movements",
     excerpt:
       "Recent political commentary has focused heavily on the mechanics of color revolutions, alleging that domestic movements are utilizing tactics historically funded by U.S. agencies abroad. We verified the claims and built a practical guide for maintaining cognitive independence during manufactured crises.",
     pillar: "Life",
@@ -573,7 +606,8 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-watch-brief-07-voynich-manuscript-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-07-voynich-manuscript-16x9.webp",
     audioFile: "/audio/watch-brief-07-voynich-manuscript.mp3",
   },
   {
@@ -620,7 +654,8 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-watch-brief-grok-china-ai-race-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-grok-china-ai-race-16x9.webp",
     audioFile: "/audio/watch-brief-grok-china-ai-race.mp3",
   },
   {
@@ -632,7 +667,8 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-watch-brief-ai-reasoning-faithfulness-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-ai-reasoning-faithfulness-16x9.webp",
     audioFile: "/audio/watch-brief-ai-reasoning-faithfulness.mp3",
   },
   {
@@ -692,7 +728,8 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-watch-brief-windows-11-local-accounts-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-windows-11-local-accounts-16x9.webp",
     audioFile: "/audio/watch-brief-windows-11-local-accounts.mp3",
   },
   {
@@ -704,13 +741,16 @@ const ARTICLES = [
     pillarColor: "#2A7F6F",
     readTime: "7 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-beacon-watch-throne-room-architecture-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-beacon-watch-throne-room-architecture-16x9.webp",
   },
   {
     id: "watch-brief-grok-accountability-gap",
-    thumbnail: "/images/editorial/hero-watch-brief-grok-accountability-gap-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-grok-accountability-gap-16x9.webp",
     title: "The Grok Accountability Gap: When Scale Becomes a Marketing Claim",
-    excerpt: "xAI announced Grok 4.5 is 3x bigger — with no benchmarks, no third-party testing, and no public access. Here is what the hype cycle is actually telling you about how this lab sees its own position.",
+    excerpt:
+      "xAI announced Grok 4.5 is 3x bigger — with no benchmarks, no third-party testing, and no public access. Here is what the hype cycle is actually telling you about how this lab sees its own position.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -719,9 +759,12 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-throne-room-algorithm",
-    thumbnail: "/images/editorial/hero-watch-brief-throne-room-algorithm-16x9.webp",
-    title: "The Throne Room Algorithm: What Happens When AI Reads the Book of Enoch",
-    excerpt: "When Grok analyzed the Book of Enoch's Throne Room description, it did not see metaphor. It saw a multi-axis gyroscopic system, a plasma energy transfer mechanism, and an omnidirectional sensor array.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-throne-room-algorithm-16x9.webp",
+    title:
+      "The Throne Room Algorithm: What Happens When AI Reads the Book of Enoch",
+    excerpt:
+      "When Grok analyzed the Book of Enoch's Throne Room description, it did not see metaphor. It saw a multi-axis gyroscopic system, a plasma energy transfer mechanism, and an omnidirectional sensor array.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -732,7 +775,8 @@ const ARTICLES = [
     id: "watch-brief-china-flying-car",
     thumbnail: "/images/editorial/hero-watch-brief-china-flying-car-16x9.webp",
     title: "The Flying Car Is No Longer a Joke: China's eVTOL Moment",
-    excerpt: "EHang received the world's first full type certificate for a pilotless passenger eVTOL. Tourists in Guangzhou are already buying tickets. The West is still writing regulations.",
+    excerpt:
+      "EHang received the world's first full type certificate for a pilotless passenger eVTOL. Tourists in Guangzhou are already buying tickets. The West is still writing regulations.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -742,8 +786,10 @@ const ARTICLES = [
   {
     id: "watch-brief-gemini-10m-tokens",
     thumbnail: "/images/editorial/hero-watch-brief-gemini-10m-tokens-16x9.webp",
-    title: "Ten Million Tokens: What Gemini 1.5's Context Window Actually Changes",
-    excerpt: "Ten million tokens is 7 million words — enough to ingest an entire decade of financial records in one prompt. This is not an incremental upgrade. It is the end of RAG as the default enterprise architecture.",
+    title:
+      "Ten Million Tokens: What Gemini 1.5's Context Window Actually Changes",
+    excerpt:
+      "Ten million tokens is 7 million words — enough to ingest an entire decade of financial records in one prompt. This is not an incremental upgrade. It is the end of RAG as the default enterprise architecture.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -752,9 +798,12 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-higgsfield-gemini-omni",
-    thumbnail: "/images/editorial/hero-watch-brief-higgsfield-gemini-omni-16x9.webp",
-    title: "One Image, Full Film: Higgsfield, Gemini Omni, and the Collapse of Video Production Costs",
-    excerpt: "A single photograph can now become a cinematic walk-through video in minutes. The moat of video production has collapsed to the cost of compute and the quality of your taste.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-higgsfield-gemini-omni-16x9.webp",
+    title:
+      "One Image, Full Film: Higgsfield, Gemini Omni, and the Collapse of Video Production Costs",
+    excerpt:
+      "A single photograph can now become a cinematic walk-through video in minutes. The moat of video production has collapsed to the cost of compute and the quality of your taste.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -763,9 +812,11 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-confabulation-problem-part-two",
-    thumbnail: "/images/editorial/hero-watch-brief-confabulation-problem-part-two-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-confabulation-problem-part-two-16x9.webp",
     title: "The Confabulation Problem: MIT Confirms What We Already Suspected",
-    excerpt: "MIT research proves frontier AI models are post-hoc rationalizing — generating plausible explanations after the fact, just like Gazzaniga's split-brain patients. You cannot audit a system designed to confabulate.",
+    excerpt:
+      "MIT research proves frontier AI models are post-hoc rationalizing — generating plausible explanations after the fact, just like Gazzaniga's split-brain patients. You cannot audit a system designed to confabulate.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -774,9 +825,11 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-open-weight-wildcard-minimax",
-    thumbnail: "/images/editorial/hero-watch-brief-open-weight-wildcard-minimax-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-open-weight-wildcard-minimax-16x9.webp",
     title: "The Open-Weight Wildcard: MiniMax's 2.7 Trillion Parameter Bet",
-    excerpt: "MiniMax released a 2.7 trillion parameter open-weight model — larger than GPT-4, free to download and deploy privately. The moat is shifting from who has the best AI to who has the infrastructure to own it.",
+    excerpt:
+      "MiniMax released a 2.7 trillion parameter open-weight model — larger than GPT-4, free to download and deploy privately. The moat is shifting from who has the best AI to who has the infrastructure to own it.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -786,8 +839,10 @@ const ARTICLES = [
   {
     id: "watch-brief-chatgpt-ad-floor",
     thumbnail: "/images/editorial/hero-watch-brief-chatgpt-ad-floor-16x9.webp",
-    title: "The ChatGPT Ad Floor: What $25,000 in Real Spend Taught Us About the New Attention Economy",
-    excerpt: "ChatGPT Ads has a $3-5 CPC floor, 150+ leads per day, and almost no competition. The reporting is broken and the targeting is raw. This is the golden age window — and it is closing.",
+    title:
+      "The ChatGPT Ad Floor: What $25,000 in Real Spend Taught Us About the New Attention Economy",
+    excerpt:
+      "ChatGPT Ads has a $3-5 CPC floor, 150+ leads per day, and almost no competition. The reporting is broken and the targeting is raw. This is the golden age window — and it is closing.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -796,9 +851,12 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-ocean-floor-data-center",
-    thumbnail: "/images/editorial/hero-watch-brief-ocean-floor-data-center-16x9.webp",
-    title: "The Ocean Floor Data Center: China's Underwater AI Infrastructure Play",
-    excerpt: "HiCloud has sunk 2,000 AI computers 35 meters off the coast of Shanghai. Seawater cooling eliminates 40% of power costs. China Telecom is already running live workloads. Microsoft proved the concept and walked away.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-ocean-floor-data-center-16x9.webp",
+    title:
+      "The Ocean Floor Data Center: China's Underwater AI Infrastructure Play",
+    excerpt:
+      "HiCloud has sunk 2,000 AI computers 35 meters off the coast of Shanghai. Seawater cooling eliminates 40% of power costs. China Telecom is already running live workloads. Microsoft proved the concept and walked away.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -807,9 +865,12 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-lyzr-grid-acceleration",
-    thumbnail: "/images/editorial/hero-watch-brief-lyzr-grid-acceleration-16x9.webp",
-    title: "The AI Fundraise and the Grid That Can't Keep Up: Two Sides of the Same Acceleration",
-    excerpt: "A startup just used an AI agent to run a $100M fundraise. Meanwhile, counties are rejecting data centers and grid commissioners are calling the power situation untenable. These are the same story.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-lyzr-grid-acceleration-16x9.webp",
+    title:
+      "The AI Fundraise and the Grid That Can't Keep Up: Two Sides of the Same Acceleration",
+    excerpt:
+      "A startup just used an AI agent to run a $100M fundraise. Meanwhile, counties are rejecting data centers and grid commissioners are calling the power situation untenable. These are the same story.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -818,9 +879,12 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-media-factory-runway-dev",
-    thumbnail: "/images/editorial/hero-watch-brief-media-factory-runway-dev-16x9.webp",
-    title: "The Media Factory: How Runway Dev Just Handed Enterprise Teams a One-API Creative Department",
-    excerpt: "Runway's new developer platform collapses the barrier to enterprise media production into a single API call — and the numbers behind it are staggering.",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-media-factory-runway-dev-16x9.webp",
+    title:
+      "The Media Factory: How Runway Dev Just Handed Enterprise Teams a One-API Creative Department",
+    excerpt:
+      "Runway's new developer platform collapses the barrier to enterprise media production into a single API call — and the numbers behind it are staggering.",
     category: "Watch Brief",
     readTime: "5 min read",
     pillar: "technology",
@@ -829,26 +893,30 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-coral-castle-leverage",
-    title: "The Mystery That Wasn't: What Coral Castle Teaches Us About Hidden Leverage",
+    title:
+      "The Mystery That Wasn't: What Coral Castle Teaches Us About Hidden Leverage",
     excerpt:
       "For decades, the construction of Coral Castle was attributed to magic or alien technology. AI analysis confirms it was just extreme mechanical leverage. The lesson for modern business is profound.",
     pillar: "Systems",
     pillarColor: "#3D5A80",
     readTime: "5 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-watch-brief-coral-castle-leverage-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-coral-castle-leverage-16x9.webp",
     audioFile: "/audio/watch-brief-coral-castle-leverage.mp3",
   },
   {
     id: "watch-brief-invisible-war-ideological-subversion",
-    title: "The Invisible War: Ideological Subversion and the Battle for American Minds",
+    title:
+      "The Invisible War: Ideological Subversion and the Battle for American Minds",
     excerpt:
       "Modern geopolitical conflict is not fought with kinetic force; it is fought in the human mind. The strategy of ideological subversion aims to erode trust and distort reality. Here is how to recognize it.",
     pillar: "Systems",
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-watch-brief-invisible-war-ideological-subversion-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-invisible-war-ideological-subversion-16x9.webp",
     audioFile: "/audio/watch-brief-invisible-war-ideological-subversion.mp3",
   },
   {
@@ -872,7 +940,8 @@ const ARTICLES = [
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-watch-brief-ramageddon-memory-crisis-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-ramageddon-memory-crisis-16x9.webp",
     audioFile: "/audio/watch-brief-ramageddon-memory-crisis.mp3",
   },
   {
@@ -889,19 +958,28 @@ const ARTICLES = [
   },
   {
     id: "watch-brief-moon-launchpad-economy",
-    title: "The Moon as Launchpad: SpaceX's Lunar Catapult and the Space Economy",
+    title:
+      "The Moon as Launchpad: SpaceX's Lunar Catapult and the Space Economy",
     excerpt:
       "SpaceX plans to build a magnetic railgun on the moon. It is not a stunt; it is a fundamental recalculation of the economics of space exploration. The goal is to control the cheapest mass in the solar system.",
     pillar: "Systems",
     pillarColor: "#3D5A80",
     readTime: "6 min",
     date: "Jul 2026",
-    thumbnail: "/images/editorial/hero-watch-brief-moon-launchpad-economy-16x9.webp",
+    thumbnail:
+      "/images/editorial/hero-watch-brief-moon-launchpad-economy-16x9.webp",
     audioFile: "/audio/watch-brief-moon-launchpad-economy.mp3",
   },
 ];
 
-const PILLARS: Pillar[] = ["All", "Life", "Work", "Venture", "Systems", "Trading"];
+const PILLARS: Pillar[] = [
+  "All",
+  "Life",
+  "Work",
+  "Venture",
+  "Systems",
+  "Trading",
+];
 
 const PILLAR_COLORS: Record<Pillar, string> = {
   All: "#1A5C6B",
@@ -915,218 +993,57 @@ const PILLAR_COLORS: Record<Pillar, string> = {
 // ─── Article Card ──────────────────────────────────────────────────────────────
 function ArticleCard({ article, index }: { article: Article; index: number }) {
   return (
-    <Link href={`/signal/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
-    <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.06, ease: [0.23, 1, 0.32, 1] }}
-      className="group"
-      style={{
-        background: "var(--beacon-parchment)",
-        border: "1px solid var(--beacon-parchment-dark)",
-        padding: "1.75rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "0.875rem",
-        transition: "border-color 0.2s, box-shadow 0.2s",
-        cursor: "pointer",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = article.pillarColor ?? "var(--beacon-teal)";
-        e.currentTarget.style.boxShadow = `0 4px 24px rgba(0,0,0,0.06)`;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "var(--beacon-parchment-dark)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
+    <Link
+      href={`/signal/${article.id}`}
+      style={{ textDecoration: "none", display: "block" }}
     >
-      {/* Index art preserves the supplied editorial composition; playback lives on the article route. */}
-      {article.thumbnail && (
-        <div style={{
-          width: "100%",
-          minHeight: "180px",
-          aspectRatio: BEACON_EDITORIAL_IMAGE_ASPECT_RATIO,
-          overflow: "hidden",
-          marginBottom: "-0.25rem",
-          borderRadius: "2px",
+      <motion.article
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.4,
+          delay: index * 0.06,
+          ease: [0.23, 1, 0.32, 1],
+        }}
+        className="group"
+        style={{
+          background: "var(--beacon-parchment)",
+          border: "1px solid var(--beacon-parchment-dark)",
+          padding: "1.75rem",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#0D1B2A",
-          padding: "0.5rem",
-          boxSizing: "border-box",
-        }}>
-          <img
-            src={article.thumbnail}
-            alt={article.title}
+          flexDirection: "column",
+          gap: "0.875rem",
+          transition: "border-color 0.2s, box-shadow 0.2s",
+          cursor: "pointer",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor =
+            article.pillarColor ?? "var(--beacon-teal)";
+          e.currentTarget.style.boxShadow = `0 4px 24px rgba(0,0,0,0.06)`;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "var(--beacon-parchment-dark)";
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
+        {/* Index art preserves the supplied editorial composition; playback lives on the article route. */}
+        {article.thumbnail && (
+          <div
             style={{
               width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              display: "block",
-              transition: "transform 0.4s ease",
+              minHeight: "180px",
+              aspectRatio: BEACON_EDITORIAL_IMAGE_ASPECT_RATIO,
+              overflow: "hidden",
+              marginBottom: "-0.25rem",
+              borderRadius: "2px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "#0D1B2A",
+              padding: "0.5rem",
+              boxSizing: "border-box",
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.03)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
-          />
-        </div>
-      )}
-
-      {/* Pillar tag + meta */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem" }}>
-        <span style={{
-          fontFamily: "'Outfit', system-ui, sans-serif",
-          fontWeight: 500, fontSize: "0.7rem",
-          letterSpacing: "0.14em", textTransform: "uppercase",
-          color: article.pillarColor,
-        }}>
-          {`Beacon ${article.pillar}`}
-        </span>
-        <span style={{
-          fontFamily: "'Outfit', system-ui, sans-serif",
-          fontSize: "0.7rem", color: "var(--beacon-charcoal-mid)",
-          opacity: 0.6,
-        }}>
-          {article.readTime} read · {article.date}
-        </span>
-      </div>
-
-      {/* Pillar accent rule */}
-      <div style={{ width: "2rem", height: "2px", background: article.pillarColor, opacity: 0.5 }} />
-
-      {/* Title */}
-      <h3 style={{
-        fontFamily: "'Cormorant Garamond', Georgia, serif",
-        fontWeight: 600, fontSize: "1.2rem",
-        lineHeight: 1.3, letterSpacing: "-0.01em",
-        color: "var(--beacon-charcoal)",
-        margin: 0,
-      }}>
-        {article.title}
-      </h3>
-
-      {/* Excerpt */}
-      <p style={{
-        fontFamily: "'Lora', Georgia, serif",
-        fontSize: "0.875rem", lineHeight: 1.7,
-        color: "var(--beacon-charcoal-mid)", margin: 0, flex: 1,
-      }}>
-        {article.excerpt}
-      </p>
-
-      {/* Read more */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: "0.375rem",
-        fontFamily: "'Outfit', system-ui, sans-serif",
-        fontSize: "0.75rem", fontWeight: 500,
-        letterSpacing: "0.1em", textTransform: "uppercase",
-        color: article.pillarColor,
-        transition: "gap 0.18s",
-      }}>
-        Read article <ArrowRight size={13} />
-      </div>
-    </motion.article>
-    </Link>
-  );
-}
-
-// ─── Featured Article ──────────────────────────────────────────────────────────
-function FeaturedArticle({ article }: { article: Article }) {
-  return (
-    <Link href={`/signal/${article.id}`} style={{ textDecoration: "none", display: "block" }}>
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-      style={{
-        background: "var(--beacon-parchment)",
-        border: "1px solid var(--beacon-parchment-dark)",
-        borderLeft: `4px solid ${article.pillarColor}`,
-        overflow: "hidden",
-        display: "grid",
-        gridTemplateColumns: "1fr",
-        gap: "0",
-        cursor: "pointer",
-        transition: "box-shadow 0.2s",
-      }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.07)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
-    >
-      {/* Editorial layout: text left / image right when thumbnail present; text-only otherwise */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: article.thumbnail ? "1fr 40%" : "1fr",
-        gap: 0,
-        minHeight: article.thumbnail ? "220px" : undefined,
-      }}>
-        {/* Content wrapper */}
-        <div style={{ padding: "2.5rem", display: "flex", flexDirection: "column", gap: "1rem", justifyContent: "center" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
-        <span style={{
-          fontFamily: "'Outfit', system-ui, sans-serif",
-          fontWeight: 500, fontSize: "0.7rem",
-          letterSpacing: "0.14em", textTransform: "uppercase",
-          color: article.pillarColor,
-        }}>
-          {`Beacon ${article.pillar}`}
-        </span>
-        <span style={{ width: "1px", height: "12px", background: "var(--beacon-parchment-dark)" }} />
-        <span style={{
-          fontFamily: "'Outfit', system-ui, sans-serif",
-          fontSize: "0.7rem", color: "var(--beacon-charcoal-mid)", opacity: 0.6,
-        }}>
-          {article.readTime} read · {article.date}
-        </span>
-        <span style={{
-          fontFamily: "'Outfit', system-ui, sans-serif",
-          fontWeight: 500, fontSize: "0.65rem",
-          letterSpacing: "0.12em", textTransform: "uppercase",
-          color: "#FAF8F4", background: article.pillarColor,
-          padding: "0.2rem 0.6rem",
-        }}>
-          Featured
-        </span>
-      </div>
-      <h2 style={{
-        fontFamily: "'Cormorant Garamond', Georgia, serif",
-        fontWeight: 600, fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
-        lineHeight: 1.25, letterSpacing: "-0.02em",
-        color: "var(--beacon-charcoal)", margin: 0,
-      }}>
-        {article.title}
-      </h2>
-      <p style={{
-        fontFamily: "'Lora', Georgia, serif",
-        fontSize: "0.95rem", lineHeight: 1.75,
-        color: "var(--beacon-charcoal-mid)", margin: 0,
-        maxWidth: "680px",
-      }}>
-        {article.excerpt}
-      </p>
-      <div style={{
-        display: "inline-flex", alignItems: "center", gap: "0.375rem",
-        fontFamily: "'Outfit', system-ui, sans-serif",
-        fontSize: "0.75rem", fontWeight: 500,
-        letterSpacing: "0.1em", textTransform: "uppercase",
-        color: article.pillarColor,
-      }}>
-        Read article <ArrowRight size={13} />
-        </div>
-        </div>{/* end content column */}
-
-        {/* Featured art retains its full visual-safe area; article media controls remain on the article. */}
-        {article.thumbnail && (
-          <div style={{
-            overflow: "hidden",
-            position: "relative",
-            minHeight: "220px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "#0D1B2A",
-            padding: "0.75rem",
-            boxSizing: "border-box",
-          }}>
+          >
             <img
               src={article.thumbnail}
               alt={article.title}
@@ -1135,15 +1052,296 @@ function FeaturedArticle({ article }: { article: Article }) {
                 height: "100%",
                 objectFit: "contain",
                 display: "block",
-                transition: "transform 0.5s ease",
+                transition: "transform 0.4s ease",
               }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLImageElement).style.transform =
+                  "scale(1.03)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLImageElement).style.transform =
+                  "scale(1)";
+              }}
             />
           </div>
         )}
-      </div>{/* end editorial grid */}
-    </motion.article>
+
+        {/* Pillar tag + meta */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "0.5rem",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: "0.7rem",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: article.pillarColor,
+            }}
+          >
+            {`Beacon ${article.pillar}`}
+          </span>
+          <span
+            style={{
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontSize: "0.7rem",
+              color: "var(--beacon-charcoal-mid)",
+              opacity: 0.6,
+            }}
+          >
+            {article.readTime} read · {article.date}
+          </span>
+        </div>
+
+        {/* Pillar accent rule */}
+        <div
+          style={{
+            width: "2rem",
+            height: "2px",
+            background: article.pillarColor,
+            opacity: 0.5,
+          }}
+        />
+
+        {/* Title */}
+        <h3
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 600,
+            fontSize: "1.2rem",
+            lineHeight: 1.3,
+            letterSpacing: "-0.01em",
+            color: "var(--beacon-charcoal)",
+            margin: 0,
+          }}
+        >
+          {article.title}
+        </h3>
+
+        {/* Excerpt */}
+        <p
+          style={{
+            fontFamily: "'Lora', Georgia, serif",
+            fontSize: "0.875rem",
+            lineHeight: 1.7,
+            color: "var(--beacon-charcoal-mid)",
+            margin: 0,
+            flex: 1,
+          }}
+        >
+          {article.excerpt}
+        </p>
+
+        {/* Read more */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.375rem",
+            fontFamily: "'Outfit', system-ui, sans-serif",
+            fontSize: "0.75rem",
+            fontWeight: 500,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: article.pillarColor,
+            transition: "gap 0.18s",
+          }}
+        >
+          Read article <ArrowRight size={13} />
+        </div>
+      </motion.article>
+    </Link>
+  );
+}
+
+// ─── Featured Article ──────────────────────────────────────────────────────────
+function FeaturedArticle({ article }: { article: Article }) {
+  return (
+    <Link
+      href={`/signal/${article.id}`}
+      style={{ textDecoration: "none", display: "block" }}
+    >
+      <motion.article
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+        style={{
+          background: "var(--beacon-parchment)",
+          border: "1px solid var(--beacon-parchment-dark)",
+          borderLeft: `4px solid ${article.pillarColor}`,
+          overflow: "hidden",
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gap: "0",
+          cursor: "pointer",
+          transition: "box-shadow 0.2s",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.07)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
+        {/* Editorial layout: text left / image right when thumbnail present; text-only otherwise */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: article.thumbnail ? "1fr 40%" : "1fr",
+            gap: 0,
+            minHeight: article.thumbnail ? "220px" : undefined,
+          }}
+        >
+          {/* Content wrapper */}
+          <div
+            style={{
+              padding: "2.5rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+                flexWrap: "wrap",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: article.pillarColor,
+                }}
+              >
+                {`Beacon ${article.pillar}`}
+              </span>
+              <span
+                style={{
+                  width: "1px",
+                  height: "12px",
+                  background: "var(--beacon-parchment-dark)",
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontSize: "0.7rem",
+                  color: "var(--beacon-charcoal-mid)",
+                  opacity: 0.6,
+                }}
+              >
+                {article.readTime} read · {article.date}
+              </span>
+              <span
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "#FAF8F4",
+                  background: article.pillarColor,
+                  padding: "0.2rem 0.6rem",
+                }}
+              >
+                Featured
+              </span>
+            </div>
+            <h2
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontWeight: 600,
+                fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
+                lineHeight: 1.25,
+                letterSpacing: "-0.02em",
+                color: "var(--beacon-charcoal)",
+                margin: 0,
+              }}
+            >
+              {article.title}
+            </h2>
+            <p
+              style={{
+                fontFamily: "'Lora', Georgia, serif",
+                fontSize: "0.95rem",
+                lineHeight: 1.75,
+                color: "var(--beacon-charcoal-mid)",
+                margin: 0,
+                maxWidth: "680px",
+              }}
+            >
+              {article.excerpt}
+            </p>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.375rem",
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontSize: "0.75rem",
+                fontWeight: 500,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: article.pillarColor,
+              }}
+            >
+              Read article <ArrowRight size={13} />
+            </div>
+          </div>
+          {/* end content column */}
+
+          {/* Featured art retains its full visual-safe area; article media controls remain on the article. */}
+          {article.thumbnail && (
+            <div
+              style={{
+                overflow: "hidden",
+                position: "relative",
+                minHeight: "220px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "#0D1B2A",
+                padding: "0.75rem",
+                boxSizing: "border-box",
+              }}
+            >
+              <img
+                src={article.thumbnail}
+                alt={article.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  display: "block",
+                  transition: "transform 0.5s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.transform =
+                    "scale(1.04)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.transform =
+                    "scale(1)";
+                }}
+              />
+            </div>
+          )}
+        </div>
+        {/* end editorial grid */}
+      </motion.article>
     </Link>
   );
 }
@@ -1172,50 +1370,87 @@ function BeaconBriefStrip() {
   };
 
   return (
-    <section style={{ background: "var(--beacon-charcoal)", padding: "5rem 0" }}>
+    <section
+      style={{ background: "var(--beacon-charcoal)", padding: "5rem 0" }}
+    >
       <div className="container">
         <div style={{ maxWidth: "640px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "1rem" }}>
-            <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.625rem",
+              marginBottom: "1rem",
+            }}
+          >
+            <span
+              style={{
+                width: "2rem",
+                height: "1px",
+                background: "var(--beacon-amber-light)",
+                display: "inline-block",
+              }}
+            />
             <Mail size={14} color="var(--beacon-amber-light)" />
-            <span style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 400, fontSize: "0.75rem",
-              letterSpacing: "0.18em", textTransform: "uppercase",
-              color: "var(--beacon-amber-light)",
-            }}>
+            <span
+              style={{
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 400,
+                fontSize: "0.75rem",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--beacon-amber-light)",
+              }}
+            >
               The Beacon Brief · Free weekly email
             </span>
           </div>
-          <h3 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 600, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-            lineHeight: 1.2, letterSpacing: "-0.02em",
-            color: "#FAF8F4", marginBottom: "0.875rem",
-          }}>
+          <h3
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontWeight: 600,
+              fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
+              lineHeight: 1.2,
+              letterSpacing: "-0.02em",
+              color: "#FAF8F4",
+              marginBottom: "0.875rem",
+            }}
+          >
             Keep the weekly signal in view.
           </h3>
-          <p style={{
-            fontFamily: "'Lora', Georgia, serif",
-            fontSize: "0.9rem", lineHeight: 1.8,
-            color: "rgba(250,248,244,0.6)", marginBottom: "2rem",
-          }}>
-            The Beacon Brief is a free five-minute weekly digest of the most useful public Signal work, Beacon Labs experiments, and one practical action. Read here when you want depth; use the Brief to keep the line open between issues.
+          <p
+            style={{
+              fontFamily: "'Lora', Georgia, serif",
+              fontSize: "0.9rem",
+              lineHeight: 1.8,
+              color: "rgba(250,248,244,0.6)",
+              marginBottom: "2rem",
+            }}
+          >
+            The Beacon Brief is a free five-minute weekly digest of the most
+            useful public Signal work, Beacon Labs experiments, and one
+            practical action. Read here when you want depth; use the Brief to
+            keep the line open between issues.
           </p>
           {submitted ? (
-            <div style={{
-              padding: "1rem 1.5rem",
-              background: "rgba(46,125,107,0.15)",
-              border: "1px solid rgba(46,125,107,0.3)",
-              fontFamily: "'Lora', Georgia, serif",
-              fontSize: "0.875rem",
-              color: "var(--beacon-teal-light)",
-              display: "inline-block",
-            }}>
+            <div
+              style={{
+                padding: "1rem 1.5rem",
+                background: "rgba(46,125,107,0.15)",
+                border: "1px solid rgba(46,125,107,0.3)",
+                fontFamily: "'Lora', Georgia, serif",
+                fontSize: "0.875rem",
+                color: "var(--beacon-teal-light)",
+                display: "inline-block",
+              }}
+            >
               You are on the list. The next free Brief will arrive this week.
             </div>
           ) : (
-            <form onSubmit={handleSubmit} style={{ display: "flex", gap: 0, maxWidth: "440px" }}>
+            <form
+              onSubmit={handleSubmit}
+              style={{ display: "flex", gap: 0, maxWidth: "440px" }}
+            >
               <input
                 type="email"
                 value={email}
@@ -1233,8 +1468,12 @@ function BeaconBriefStrip() {
                   color: "#FAF8F4",
                   outline: "none",
                 }}
-                onFocus={(e) => { e.currentTarget.style.borderColor = "var(--beacon-teal)"; }}
-                onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(250,248,244,0.12)"; }}
+                onFocus={(e) => {
+                  e.currentTarget.style.borderColor = "var(--beacon-teal)";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(250,248,244,0.12)";
+                }}
               />
               <button
                 type="submit"
@@ -1245,31 +1484,96 @@ function BeaconBriefStrip() {
                   color: "#FAF8F4",
                   border: "none",
                   fontFamily: "'Outfit', system-ui, sans-serif",
-                  fontWeight: 500, fontSize: "0.8rem",
-                  letterSpacing: "0.08em", textTransform: "uppercase",
+                  fontWeight: 500,
+                  fontSize: "0.8rem",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
                   cursor: loading ? "not-allowed" : "pointer",
                   opacity: loading ? 0.7 : 1,
                   transition: "background 0.18s",
                   whiteSpace: "nowrap",
                 }}
-                onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = "var(--beacon-teal-light, #2E7D6B)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "var(--beacon-teal)"; }}
+                onMouseEnter={(e) => {
+                  if (!loading)
+                    e.currentTarget.style.background =
+                      "var(--beacon-teal-light, #2E7D6B)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "var(--beacon-teal)";
+                }}
               >
                 {loading ? "Joining…" : "Join the Brief"}
               </button>
             </form>
           )}
-          <p style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
-            fontSize: "0.7rem", color: "rgba(250,248,244,0.3)",
-            marginTop: "0.75rem", letterSpacing: "0.04em",
-          }}>
+          <p
+            style={{
+              fontFamily: "'Outfit', system-ui, sans-serif",
+              fontSize: "0.7rem",
+              color: "rgba(250,248,244,0.3)",
+              marginTop: "0.75rem",
+              letterSpacing: "0.04em",
+            }}
+          >
             Free weekly email. No spam. Unsubscribe anytime.
           </p>
-          {error && <p role="alert" style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "0.78rem", color: "#F0A699", marginTop: "0.75rem" }}>We could not add you right now. Please try again in a moment.</p>}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "1.5rem" }}>
-            <a href="/watch-brief-premium" style={{ color: "var(--beacon-amber-light)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.09em", textTransform: "uppercase", textDecoration: "none" }}>Explore Watch Brief Premium · $27/month <ArrowRight size={13} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
-            <a href="/the-watch#join" style={{ color: "rgba(250,248,244,0.72)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.09em", textTransform: "uppercase", textDecoration: "none" }}>Explore The Watch · $497/year <ArrowRight size={13} style={{ display: "inline", verticalAlign: "-2px" }} /></a>
+          {error && (
+            <p
+              role="alert"
+              style={{
+                fontFamily: "'Lora', Georgia, serif",
+                fontSize: "0.78rem",
+                color: "#F0A699",
+                marginTop: "0.75rem",
+              }}
+            >
+              We could not add you right now. Please try again in a moment.
+            </p>
+          )}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1rem",
+              marginTop: "1.5rem",
+            }}
+          >
+            <a
+              href="/watch-brief-premium"
+              style={{
+                color: "var(--beacon-amber-light)",
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontSize: "0.7rem",
+                fontWeight: 600,
+                letterSpacing: "0.09em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+              }}
+            >
+              Explore Watch Brief Premium · $27/month{" "}
+              <ArrowRight
+                size={13}
+                style={{ display: "inline", verticalAlign: "-2px" }}
+              />
+            </a>
+            <a
+              href="/the-watch#join"
+              style={{
+                color: "rgba(250,248,244,0.72)",
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontSize: "0.7rem",
+                fontWeight: 600,
+                letterSpacing: "0.09em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+              }}
+            >
+              Explore The Watch · $497/year{" "}
+              <ArrowRight
+                size={13}
+                style={{ display: "inline", verticalAlign: "-2px" }}
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -1283,7 +1587,8 @@ export default function BlogPage() {
 
   usePageMeta({
     title: "The Signal",
-    description: "Beacon Momentum's public editorial library of practical field intelligence on AI, human capability, work, and durable operating systems.",
+    description:
+      "Beacon Momentum's public editorial library of practical field intelligence on AI, human capability, work, and durable operating systems.",
     image: "https://beaconmomentum.com/images/beacon_hero.webp",
     url: "/signal",
   });
@@ -1300,57 +1605,105 @@ export default function BlogPage() {
 
       <main id="main-content">
         {/* ── Hero band ── */}
-        <section style={{ position: "relative", minHeight: "340px", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
+        <section
+          style={{
+            position: "relative",
+            minHeight: "340px",
+            display: "flex",
+            alignItems: "flex-end",
+            overflow: "hidden",
+          }}
+        >
           {/* Background image */}
-          <div style={{
-            position: "absolute", inset: 0,
-            backgroundImage: `url(${BLOG_HERO_IMG})`,
-            backgroundSize: "cover", backgroundPosition: "center 25%",
-          }} />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `url(${BLOG_HERO_IMG})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center 25%",
+            }}
+          />
           {/* Dark overlay — heavier at bottom for text legibility */}
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "linear-gradient(to bottom, rgba(28,28,30,0.45) 0%, rgba(28,28,30,0.72) 60%, rgba(28,28,30,0.92) 100%)",
-          }} />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(to bottom, rgba(28,28,30,0.45) 0%, rgba(28,28,30,0.72) 60%, rgba(28,28,30,0.92) 100%)",
+            }}
+          />
 
           {/* Content */}
-          <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: "4rem", paddingTop: "8rem" }}>
+          <div
+            className="container"
+            style={{
+              position: "relative",
+              zIndex: 2,
+              paddingBottom: "4rem",
+              paddingTop: "8rem",
+            }}
+          >
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
             >
               {/* Eyebrow */}
-              <div style={{
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                fontWeight: 400, fontSize: "0.75rem",
-                letterSpacing: "0.18em", textTransform: "uppercase",
-                color: "var(--beacon-amber-light)",
-                display: "flex", alignItems: "center", gap: "0.75rem",
-                marginBottom: "1rem",
-              }}>
-                <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber-light)", display: "inline-block" }} />
+              <div
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "0.75rem",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--beacon-amber-light)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.75rem",
+                  marginBottom: "1rem",
+                }}
+              >
+                <span
+                  style={{
+                    width: "2rem",
+                    height: "1px",
+                    background: "var(--beacon-amber-light)",
+                    display: "inline-block",
+                  }}
+                />
                 Beacon Momentum — The Signal
               </div>
 
               {/* Headline */}
-              <h1 style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontWeight: 600, fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
-                lineHeight: 1.1, letterSpacing: "-0.03em",
-                color: "#FAF8F4", marginBottom: "1rem",
-              }}>
+              <h1
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontWeight: 600,
+                  fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.03em",
+                  color: "#FAF8F4",
+                  marginBottom: "1rem",
+                }}
+              >
                 Ideas worth acting on.
               </h1>
 
               {/* Sub-headline */}
-              <p style={{
-                fontFamily: "'Lora', Georgia, serif",
-                fontWeight: 400, fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
-                lineHeight: 1.75, color: "rgba(250,248,244,0.72)",
-                maxWidth: "560px",
-              }}>
-                Practical thinking on AI transitions, career reinvention, solopreneurship, financial literacy, and the wisdom that only comes from having lived through hard things.
+              <p
+                style={{
+                  fontFamily: "'Lora', Georgia, serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
+                  lineHeight: 1.75,
+                  color: "rgba(250,248,244,0.72)",
+                  maxWidth: "560px",
+                }}
+              >
+                Practical thinking on AI transitions, career reinvention,
+                solopreneurship, financial literacy, and the wisdom that only
+                comes from having lived through hard things.
               </p>
             </motion.div>
           </div>
@@ -1358,20 +1711,46 @@ export default function BlogPage() {
 
         {/* ── Featured articles ── */}
         {activeFilter === "All" && featured.length > 0 && (
-          <section style={{ padding: "3.5rem 0", borderBottom: "1px solid var(--beacon-parchment-dark)" }}>
+          <section
+            style={{
+              padding: "3.5rem 0",
+              borderBottom: "1px solid var(--beacon-parchment-dark)",
+            }}
+          >
             <div className="container">
-              <div style={{
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                fontWeight: 400, fontSize: "0.7rem",
-                letterSpacing: "0.18em", textTransform: "uppercase",
-                color: "var(--beacon-charcoal-mid)", opacity: 0.6,
-                marginBottom: "1.5rem",
-                display: "flex", alignItems: "center", gap: "0.75rem",
-              }}>
-                <span style={{ width: "1.5rem", height: "1px", background: "currentColor", display: "inline-block" }} />
+              <div
+                style={{
+                  fontFamily: "'Outfit', system-ui, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--beacon-charcoal-mid)",
+                  opacity: 0.6,
+                  marginBottom: "1.5rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.75rem",
+                }}
+              >
+                <span
+                  style={{
+                    width: "1.5rem",
+                    height: "1px",
+                    background: "currentColor",
+                    display: "inline-block",
+                  }}
+                />
                 Featured this week
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 520px), 1fr))", gap: "1.5rem" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(min(100%, 520px), 1fr))",
+                  gap: "1.5rem",
+                }}
+              >
                 {featured.map((a) => (
                   <FeaturedArticle key={a.id} article={a} />
                 ))}
@@ -1381,12 +1760,16 @@ export default function BlogPage() {
         )}
 
         {/* ── Filter bar ── */}
-        <section style={{
-          padding: "0",
-          borderBottom: "1px solid var(--beacon-parchment-dark)",
-          background: "var(--beacon-cream, #F5F0E8)",
-          position: "sticky", top: "64px", zIndex: 10,
-        }}>
+        <section
+          style={{
+            padding: "0",
+            borderBottom: "1px solid var(--beacon-parchment-dark)",
+            background: "var(--beacon-cream, #F5F0E8)",
+            position: "sticky",
+            top: "64px",
+            zIndex: 10,
+          }}
+        >
           <div className="container">
             <div style={{ display: "flex", gap: "0", overflowX: "auto" }}>
               {PILLARS.map((p) => (
@@ -1396,15 +1779,20 @@ export default function BlogPage() {
                   style={{
                     padding: "1rem 1.25rem",
                     fontFamily: "'Outfit', system-ui, sans-serif",
-                    fontWeight: 400, fontSize: "0.78rem",
-                    letterSpacing: "0.08em", textTransform: "uppercase",
-                    background: "none", border: "none",
-                    borderBottom: activeFilter === p
-                      ? `2px solid ${PILLAR_COLORS[p]}`
-                      : "2px solid transparent",
-                    color: activeFilter === p
-                      ? PILLAR_COLORS[p]
-                      : "var(--beacon-charcoal-mid)",
+                    fontWeight: 400,
+                    fontSize: "0.78rem",
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    background: "none",
+                    border: "none",
+                    borderBottom:
+                      activeFilter === p
+                        ? `2px solid ${PILLAR_COLORS[p]}`
+                        : "2px solid transparent",
+                    color:
+                      activeFilter === p
+                        ? PILLAR_COLORS[p]
+                        : "var(--beacon-charcoal-mid)",
                     cursor: "pointer",
                     transition: "color 0.18s, border-color 0.18s",
                     whiteSpace: "nowrap",
@@ -1419,32 +1807,56 @@ export default function BlogPage() {
         </section>
 
         {/* ── Article grid ── */}
-        <section style={{ padding: "3.5rem 0 6rem", background: "var(--beacon-parchment)" }}>
+        <section
+          style={{
+            padding: "3.5rem 0 6rem",
+            background: "var(--beacon-parchment)",
+          }}
+        >
           <div className="container">
             {filtered.length === 0 ? (
               <div style={{ textAlign: "center", padding: "5rem 0" }}>
-                <div style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontWeight: 400, fontStyle: "italic",
-                  fontSize: "1.5rem", color: "var(--beacon-charcoal)",
-                  marginBottom: "1rem",
-                }}>
+                <div
+                  style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    fontWeight: 400,
+                    fontStyle: "italic",
+                    fontSize: "1.5rem",
+                    color: "var(--beacon-charcoal)",
+                    marginBottom: "1rem",
+                  }}
+                >
                   No articles in this category yet.
                 </div>
-                <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", color: "var(--beacon-charcoal-mid)" }}>
+                <p
+                  style={{
+                    fontFamily: "'Lora', Georgia, serif",
+                    fontSize: "0.9rem",
+                    color: "var(--beacon-charcoal-mid)",
+                  }}
+                >
                   Check back soon — or{" "}
-                  <Link href="/assessment" style={{ color: "var(--beacon-teal)", textDecoration: "underline" }}>
+                  <Link
+                    href="/assessment"
+                    style={{
+                      color: "var(--beacon-teal)",
+                      textDecoration: "underline",
+                    }}
+                  >
                     take the assessment
                   </Link>{" "}
                   to find your path.
                 </p>
               </div>
             ) : (
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 360px), 1fr))",
-                gap: "1.5rem",
-              }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns:
+                    "repeat(auto-fill, minmax(min(100%, 360px), 1fr))",
+                  gap: "1.5rem",
+                }}
+              >
                 {filtered.map((a, i) => (
                   <ArticleCard key={a.id} article={a} index={i} />
                 ))}

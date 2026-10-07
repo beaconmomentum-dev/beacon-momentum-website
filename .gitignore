@@ -29,6 +29,7 @@ Thumbs.db
 .manus-logs/
 .project-config.json
 client/public/__manus__/
+.work/
 
 # Wrangler
 .wrangler/

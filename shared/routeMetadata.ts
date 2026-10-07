@@ -43,11 +43,13 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   },
   "/cookies": {
     title: "Cookie Policy",
-    description: "Beacon Momentum's cookie notice explains how public-site preferences and essential site functions are handled.",
+    description:
+      "Beacon Momentum's cookie notice explains how public-site preferences and essential site functions are handled.",
   },
   "/disclaimer": {
     title: "Public Disclaimer",
-    description: "Important public-use, educational, and responsibility disclosures for Beacon Momentum materials.",
+    description:
+      "Important public-use, educational, and responsibility disclosures for Beacon Momentum materials.",
   },
   "/field-notes": {
     title: "Digital Ramp-Up Field Notes",
@@ -110,15 +112,18 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   },
   "/foundation/founders-note": {
     title: "Foundation Founder's Note",
-    description: "A note on the purpose, boundaries, and long-horizon work behind the Beacon Foundation.",
+    description:
+      "A note on the purpose, boundaries, and long-horizon work behind the Beacon Foundation.",
   },
   "/foundation/support": {
     title: "Support the Beacon Foundation",
-    description: "Voluntary support for Beacon Momentum's public work, with clear boundaries and no investment or ownership claim.",
+    description:
+      "Voluntary support for Beacon Momentum's public work, with clear boundaries and no investment or ownership claim.",
   },
   "/foundation/thank-you": {
     title: "Thank You for Supporting the Beacon Foundation",
-    description: "Confirmation and next-step information for Beacon Foundation supporters.",
+    description:
+      "Confirmation and next-step information for Beacon Foundation supporters.",
     robots: "noindex, follow",
   },
   "/how-beacon-works": {
@@ -133,7 +138,8 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   },
   "/privacy": {
     title: "Privacy Policy",
-    description: "Beacon Momentum's privacy policy explains what information is collected, how it is used, and how to contact us.",
+    description:
+      "Beacon Momentum's privacy policy explains what information is collected, how it is used, and how to contact us.",
   },
   "/refund": {
     title: "Refund and Cancellation Policy",
@@ -150,6 +156,30 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       "Beacon Momentum's public editorial library of practical field intelligence on AI, human capability, work, and durable operating systems.",
   },
+  "/signal/a-claim-is-not-evidence": {
+    title: "A Claim Is Not Evidence",
+    description:
+      "A practical Beacon Signal guide for separating AI features, demonstrations, reported results, and claims that still need proof.",
+    type: "article",
+  },
+  "/signal/before-you-connect-an-app": {
+    title: "Before You Connect an App",
+    description:
+      "A 15-minute Beacon Signal permission inventory for reviewing app access, scope, ownership, and revocation paths.",
+    type: "article",
+  },
+  "/signal/a-disclosure-is-not-a-permission-slip": {
+    title: "A Disclosure Is Not a Permission Slip",
+    description:
+      "Beacon Signal guidance on synthetic-media consent, provenance, disclosure, and accountable human review.",
+    type: "article",
+  },
+  "/signal/what-an-ai-native-course-platform-has-to-prove": {
+    title: "What an AI-Native Course Platform Has to Prove",
+    description:
+      "A vendor-neutral Beacon Signal framework for evaluating learning design, data practices, access, and portability in AI-native course platforms.",
+    type: "article",
+  },
   "/storm-navigators-guide": {
     title: "The Storm Navigator’s Guide",
     description:
@@ -158,7 +188,8 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   },
   "/terms": {
     title: "Terms of Use",
-    description: "Beacon Momentum's public website, membership, payment, and use terms.",
+    description:
+      "Beacon Momentum's public website, membership, payment, and use terms.",
   },
   "/the-watch": {
     title: "The Watch",
@@ -167,12 +198,14 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   },
   "/the-watch/checkout": {
     title: "The Watch Secure Enrollment",
-    description: "Complete secure annual enrollment for The Watch, Beacon Momentum's $497 annual membership.",
+    description:
+      "Complete secure annual enrollment for The Watch, Beacon Momentum's $497 annual membership.",
     robots: "noindex, follow",
   },
   "/the-watch/confirmation": {
     title: "The Watch Enrollment Confirmation",
-    description: "Confirmation and next-step information for The Watch annual membership.",
+    description:
+      "Confirmation and next-step information for The Watch annual membership.",
     robots: "noindex, follow",
   },
   "/the-watch/intake": {
@@ -187,7 +220,8 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   },
   "/watch-brief-premium": {
     title: "Watch Brief Premium",
-    description: "Beacon Momentum's premium operating dossier for members who want a concise, recurring intelligence brief.",
+    description:
+      "Beacon Momentum's premium operating dossier for members who want a concise, recurring intelligence brief.",
   },
 };
 
@@ -209,7 +243,8 @@ function fallbackMetadata(path: string): RouteMetadata {
   if (path.startsWith("/field-notes/")) {
     return {
       title: "Digital Ramp-Up Field Note",
-      description: "A practical Beacon Momentum field note on durable capability and accountable AI assistance.",
+      description:
+        "A practical Beacon Momentum field note on durable capability and accountable AI assistance.",
       type: "article",
     };
   }
@@ -225,7 +260,10 @@ function fallbackMetadata(path: string): RouteMetadata {
 
 export function getRouteMetadata(pathname: string): RouteMetadata {
   const path = normalizePath(pathname);
-  return { ...DEFAULT_METADATA, ...(ROUTE_METADATA[path] ?? fallbackMetadata(path)) };
+  return {
+    ...DEFAULT_METADATA,
+    ...(ROUTE_METADATA[path] ?? fallbackMetadata(path)),
+  };
 }
 
 export function getCanonicalUrl(pathname: string): string {
@@ -239,20 +277,30 @@ export function getAbsoluteAssetUrl(asset?: string): string {
 }
 
 export function getDocumentTitle(title: string): string {
-  return title.includes(BEACON_SITE_NAME) ? title : `${title} — ${BEACON_SITE_NAME}`;
+  return title.includes(BEACON_SITE_NAME)
+    ? title
+    : `${title} — ${BEACON_SITE_NAME}`;
 }
 
 function escapeHtml(value: string): string {
-  return value.replace(/[&<>'"]/g, character => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    "'": "&#39;",
-    '"': "&quot;",
-  })[character] || character);
+  return value.replace(
+    /[&<>'"]/g,
+    (character) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;",
+      })[character] || character,
+  );
 }
 
-function replaceTag(template: string, pattern: RegExp, replacement: string): string {
+function replaceTag(
+  template: string,
+  pattern: RegExp,
+  replacement: string,
+): string {
   return template.replace(pattern, replacement);
 }
 
@@ -260,29 +308,86 @@ function replaceTag(template: string, pattern: RegExp, replacement: string): str
  * Injects route metadata into the initial server response so non-JavaScript
  * crawlers receive self-referential SEO and social metadata before hydration.
  */
-export function renderRouteMetadata(template: string, pathname: string): string {
+export function renderRouteMetadata(
+  template: string,
+  pathname: string,
+): string {
   const path = normalizePath(pathname);
   const metadata = getRouteMetadata(path);
   const title = getDocumentTitle(metadata.title);
   const description = metadata.description;
   const canonical = getCanonicalUrl(path);
   const image = getAbsoluteAssetUrl(metadata.image);
-  const robots = metadata.robots || "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
+  const robots =
+    metadata.robots ||
+    "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
   const type = metadata.type || "website";
 
   let html = template;
-  html = replaceTag(html, /<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`);
-  html = replaceTag(html, /<meta name="description" content="[^"]*"\s*\/>/i, `<meta name="description" content="${escapeHtml(description)}" />`);
-  html = replaceTag(html, /<meta name="robots" content="[^"]*"\s*\/>/i, `<meta name="robots" content="${escapeHtml(robots)}" />`);
-  html = replaceTag(html, /<meta property="og:type" content="[^"]*"\s*\/>/i, `<meta property="og:type" content="${type}" />`);
-  html = replaceTag(html, /<meta property="og:url" content="[^"]*"\s*\/>/i, `<meta property="og:url" content="${canonical}" />`);
-  html = replaceTag(html, /<meta property="og:title" content="[^"]*"\s*\/>/i, `<meta property="og:title" content="${escapeHtml(title)}" />`);
-  html = replaceTag(html, /<meta property="og:description" content="[^"]*"\s*\/>/i, `<meta property="og:description" content="${escapeHtml(description)}" />`);
-  html = replaceTag(html, /<meta property="og:image" content="[^"]*"\s*\/>/i, `<meta property="og:image" content="${image}" />`);
-  html = replaceTag(html, /<meta property="og:image:alt" content="[^"]*"\s*\/>/i, `<meta property="og:image:alt" content="${escapeHtml(title)}" />`);
-  html = replaceTag(html, /<meta name="twitter:title" content="[^"]*"\s*\/>/i, `<meta name="twitter:title" content="${escapeHtml(title)}" />`);
-  html = replaceTag(html, /<meta name="twitter:description" content="[^"]*"\s*\/>/i, `<meta name="twitter:description" content="${escapeHtml(description)}" />`);
-  html = replaceTag(html, /<meta name="twitter:image" content="[^"]*"\s*\/>/i, `<meta name="twitter:image" content="${image}" />`);
-  html = replaceTag(html, /<link rel="canonical" href="[^"]*"\s*\/>/i, `<link rel="canonical" href="${canonical}" />`);
+  html = replaceTag(
+    html,
+    /<title>[\s\S]*?<\/title>/i,
+    `<title>${escapeHtml(title)}</title>`,
+  );
+  html = replaceTag(
+    html,
+    /<meta name="description" content="[^"]*"\s*\/>/i,
+    `<meta name="description" content="${escapeHtml(description)}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta name="robots" content="[^"]*"\s*\/>/i,
+    `<meta name="robots" content="${escapeHtml(robots)}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta property="og:type" content="[^"]*"\s*\/>/i,
+    `<meta property="og:type" content="${type}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta property="og:url" content="[^"]*"\s*\/>/i,
+    `<meta property="og:url" content="${canonical}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta property="og:title" content="[^"]*"\s*\/>/i,
+    `<meta property="og:title" content="${escapeHtml(title)}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta property="og:description" content="[^"]*"\s*\/>/i,
+    `<meta property="og:description" content="${escapeHtml(description)}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta property="og:image" content="[^"]*"\s*\/>/i,
+    `<meta property="og:image" content="${image}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta property="og:image:alt" content="[^"]*"\s*\/>/i,
+    `<meta property="og:image:alt" content="${escapeHtml(title)}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta name="twitter:title" content="[^"]*"\s*\/>/i,
+    `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta name="twitter:description" content="[^"]*"\s*\/>/i,
+    `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<meta name="twitter:image" content="[^"]*"\s*\/>/i,
+    `<meta name="twitter:image" content="${image}" />`,
+  );
+  html = replaceTag(
+    html,
+    /<link rel="canonical" href="[^"]*"\s*\/>/i,
+    `<link rel="canonical" href="${canonical}" />`,
+  );
   return html;
 }
