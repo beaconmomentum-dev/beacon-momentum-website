@@ -1,0 +1,329 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.714
+A Disclosure Is Not a Permission Slip: Synthetic Media, Consent,
+
+2
+00:00:03.714 --> 00:00:07.429
+and Provenance. Synthetic media can make a useful explanation more
+
+3
+00:00:07.429 --> 00:00:11.143
+vivid. It can also make a false impression feel more
+
+4
+00:00:11.143 --> 00:00:14.857
+believable. That is why an honest disclosure matters. A viewer
+
+5
+00:00:14.857 --> 00:00:18.572
+deserves to know when an image, voice, or video has
+
+6
+00:00:18.572 --> 00:00:22.286
+been altered or generated. But disclosure is only one part
+
+7
+00:00:22.286 --> 00:00:26.000
+of responsible use. A label does not answer whether the
+
+8
+00:00:26.000 --> 00:00:29.715
+person in the material gave permission. It does not establish
+
+9
+00:00:29.715 --> 00:00:33.429
+who owns the source assets, whether a voice was cloned
+
+10
+00:00:33.429 --> 00:00:37.143
+under an agreed scope, whether a statement is accurate, or
+
+11
+00:00:37.143 --> 00:00:40.858
+whether a technical marker can always be detected or trusted.
+
+12
+00:00:40.858 --> 00:00:44.572
+Separate four responsibilities Responsibility The question to ask Consent Did
+
+13
+00:00:44.572 --> 00:00:48.286
+the person whose likeness, voice, writing, or performance is involved
+
+14
+00:00:48.286 --> 00:00:52.001
+agree to this exact kind of use? Provenance Can the
+
+15
+00:00:52.001 --> 00:00:55.715
+creator show where the source material came from, how it
+
+16
+00:00:55.715 --> 00:00:59.429
+was changed, and who approved the result? Disclosure Would a
+
+17
+00:00:59.429 --> 00:01:03.144
+reasonable viewer understand that the material is altered or generated
+
+18
+00:01:03.144 --> 00:01:06.858
+before they make a decision based on it? Review Who
+
+19
+00:01:06.858 --> 00:01:10.572
+checked the script, claims, captions, destinations, and final release? Consent
+
+20
+00:01:10.572 --> 00:01:14.287
+needs a scope “You can use my voice” is not
+
+21
+00:01:14.287 --> 00:01:18.001
+a complete operating instruction. It leaves important questions unanswered: for
+
+22
+00:01:18.001 --> 00:01:21.715
+which project, audience, channel, duration, territory, purpose, storage location, and
+
+23
+00:01:21.715 --> 00:01:25.430
+revision process? Can the person revoke permission? Can the material
+
+24
+00:01:25.430 --> 00:01:29.144
+be used in an advertisement, a lesson, a member experience,
+
+25
+00:01:29.144 --> 00:01:32.858
+or a public post? Who can access the source files?
+
+26
+00:01:32.858 --> 00:01:36.573
+The U.S. Copyright Office’s AI initiative identifies digital replicas as
+
+27
+00:01:36.573 --> 00:01:40.287
+a distinct area of law-and-policy analysis; its first report in
+
+28
+00:01:40.287 --> 00:01:44.001
+the series addressed that topic in July 2024. That does
+
+29
+00:01:44.001 --> 00:01:47.716
+not decide every real-world rights question. It does underline why
+
+30
+00:01:47.716 --> 00:01:51.430
+organizations should not treat a realistic likeness or voice as
+
+31
+00:01:51.430 --> 00:01:55.144
+ordinary stock material. For Beacon work, the practical standard is
+
+32
+00:01:55.144 --> 00:01:58.859
+narrower and more useful: keep a written consent record that
+
+33
+00:01:58.859 --> 00:02:02.573
+names the source person, source asset, allowed use, prohibited use,
+
+34
+00:02:02.573 --> 00:02:06.287
+disclosure treatment, storage location, review date, revocation path, and responsible
+
+35
+00:02:06.287 --> 00:02:10.002
+human approver. Technical transparency is helpful, not magic People often
+
+36
+00:02:10.002 --> 00:02:13.716
+look for a single technical answer: watermark it, detect it,
+
+37
+00:02:13.716 --> 00:02:17.430
+label it, or attach metadata. Each can be useful in
+
+38
+00:02:17.430 --> 00:02:21.145
+context. None should be described as a universal proof of
+
+39
+00:02:21.145 --> 00:02:24.859
+authenticity or a substitute for careful review. NIST’s report on
+
+40
+00:02:24.859 --> 00:02:28.573
+synthetic-content transparency reviews approaches for authenticating content and tracking provenance,
+
+41
+00:02:28.573 --> 00:02:32.288
+labeling synthetic content, detecting synthetic content, preventing certain harmful outputs,
+
+42
+00:02:32.288 --> 00:02:36.002
+testing related software, and auditing or maintaining synthetic content. The
+
+43
+00:02:36.002 --> 00:02:39.716
+value of that list is its breadth. Transparency is a
+
+44
+00:02:39.716 --> 00:02:43.431
+system of practices, not one switch a creator turns on
+
+45
+00:02:43.431 --> 00:02:47.145
+after the video is finished. Keep the original source file
+
+46
+00:02:47.145 --> 00:02:50.859
+where permitted. Retain the script. Keep versioned renders. Mark the
+
+47
+00:02:50.859 --> 00:02:54.573
+review decision. State what is synthetic, illustrative, reconstructed, or simulated.
+
+48
+00:02:54.573 --> 00:02:58.288
+Do not present a simulated testimonial, public reaction, interview, news
+
+49
+00:02:58.288 --> 00:03:02.002
+event, or client result as if it happened on camera.
+
+50
+00:03:02.002 --> 00:03:05.716
+Use a second channel to verify urgent requests Voice cloning
+
+51
+00:03:05.716 --> 00:03:09.431
+also creates a straightforward human risk: a familiar-sounding request can
+
+52
+00:03:09.431 --> 00:03:13.145
+be used to pressure someone into sharing money or information.
+
+53
+00:03:13.145 --> 00:03:16.859
+The Federal Trade Commission advises people who receive an urgent
+
+54
+00:03:16.859 --> 00:03:20.574
+request from a supposedly familiar voice to verify the story
+
+55
+00:03:20.574 --> 00:03:24.288
+using a phone number they already know or another trusted
+
+56
+00:03:24.288 --> 00:03:28.002
+route. That habit belongs in organizational workflows as well. A
+
+57
+00:03:28.002 --> 00:03:31.717
+voice, video, or message should not be the only approval
+
+58
+00:03:31.717 --> 00:03:35.431
+for a payment, credential change, sensitive upload, account recovery, or
+
+59
+00:03:35.431 --> 00:03:39.145
+public release. Use a known second channel and a named
+
+60
+00:03:39.145 --> 00:03:42.860
+human checkpoint. A simple release card What is synthetic or
+
+61
+00:03:42.860 --> 00:03:46.574
+altered? ____ Whose source asset is involved? ____ What written
+
+62
+00:03:46.574 --> 00:03:50.288
+consent covers this use? ____ What disclosure will the audience
+
+63
+00:03:50.288 --> 00:03:54.003
+see? ____ Who approved the final render and claim language?
+
+64
+00:03:54.003 --> 00:03:57.717
+____ Where are the source, script, version record, and removal
+
+65
+00:03:57.717 --> 00:04:01.431
+path? ____ The point is not to turn creative work
+
+66
+00:04:01.431 --> 00:04:05.146
+into paperwork. The point is to keep a powerful medium
+
+67
+00:04:05.146 --> 00:04:08.860
+connected to the people, evidence, and responsibility that make trust
+
+68
+00:04:08.860 --> 00:04:12.574
+possible. Sources and boundaries This article is educational commentary. It
+
+69
+00:04:12.574 --> 00:04:16.289
+is not legal advice, a determination of rights, a guarantee
+
+70
+00:04:16.289 --> 00:04:20.003
+of compliance, a statement that a watermark or detector will
+
+71
+00:04:20.003 --> 00:04:23.717
+work in every setting, or a certification that any synthetic-media
+
+72
+00:04:23.717 --> 00:04:27.432
+tool is safe. Seek qualified advice for your circumstances and
+
+73
+00:04:27.432 --> 00:04:31.146
+recheck current platform and legal requirements before release. U.S. Copyright
+
+74
+00:04:31.146 --> 00:04:34.860
+Office, “Copyright and Artificial Intelligence” (Part 1: Digital Replicas published
+
+75
+00:04:34.860 --> 00:04:38.575
+July 31, 2024; accessed October 7, 2026). National Institute of
+
+76
+00:04:38.575 --> 00:04:42.289
+Standards and Technology, Reducing Risks Posed by Synthetic Content (NIST
+
+77
+00:04:42.289 --> 00:04:46.003
+AI 100-4) (published November 20, 2024; accessed October 7, 2026).
+
+78
+00:04:46.003 --> 00:04:49.718
+Federal Trade Commission Consumer Alert, “Fighting back against harmful voice
+
+79
+00:04:49.718 --> 00:04:53.432
+cloning” (April 8, 2024; accessed October 7, 2026). A disclosure
+
+80
+00:04:53.432 --> 00:04:57.146
+can help an audience see the medium. Consent, provenance, and
+
+81
+00:04:57.146 --> 00:05:00.861
+human review are what help the audience decide whether to
+
+82
+00:05:00.861 --> 00:05:01.975
+trust the message.

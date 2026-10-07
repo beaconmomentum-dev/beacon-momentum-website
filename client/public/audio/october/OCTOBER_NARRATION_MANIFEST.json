@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a-claim-is-not-evidence",
+    "title": "A Claim Is Not Evidence: How to Review an AI Workflow Before You Believe It",
+    "transcript": "/audio/october/transcripts/a-claim-is-not-evidence.txt",
+    "audio": "/audio/october/a-claim-is-not-evidence.mp3",
+    "caption": "/audio/october/captions/a-claim-is-not-evidence.vtt",
+    "voice": "am_puck",
+    "voiceClone": false,
+    "source": "October Signal article body, generated locally"
+  },
+  {
+    "id": "before-you-connect-an-app",
+    "title": "Before You Connect an App: A 15-Minute Permission Inventory",
+    "transcript": "/audio/october/transcripts/before-you-connect-an-app.txt",
+    "audio": "/audio/october/before-you-connect-an-app.mp3",
+    "caption": "/audio/october/captions/before-you-connect-an-app.vtt",
+    "voice": "am_puck",
+    "voiceClone": false,
+    "source": "October Signal article body, generated locally"
+  },
+  {
+    "id": "a-disclosure-is-not-a-permission-slip",
+    "title": "A Disclosure Is Not a Permission Slip: Synthetic Media, Consent, and Provenance",
+    "transcript": "/audio/october/transcripts/a-disclosure-is-not-a-permission-slip.txt",
+    "audio": "/audio/october/a-disclosure-is-not-a-permission-slip.mp3",
+    "caption": "/audio/october/captions/a-disclosure-is-not-a-permission-slip.vtt",
+    "voice": "am_puck",
+    "voiceClone": false,
+    "source": "October Signal article body, generated locally"
+  },
+  {
+    "id": "what-an-ai-native-course-platform-has-to-prove",
+    "title": "What an AI-Native Course Platform Has to Prove Before You Trust It With Learners",
+    "transcript": "/audio/october/transcripts/what-an-ai-native-course-platform-has-to-prove.txt",
+    "audio": "/audio/october/what-an-ai-native-course-platform-has-to-prove.mp3",
+    "caption": "/audio/october/captions/what-an-ai-native-course-platform-has-to-prove.vtt",
+    "voice": "am_puck",
+    "voiceClone": false,
+    "source": "October Signal article body, generated locally"
+  }
+]

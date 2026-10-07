@@ -1,4 +1,4 @@
-export const OCTOBER_ARTICLE_CONTENT = [
+const OCTOBER_ARTICLE_DRAFTS = [
   {
     id: "a-claim-is-not-evidence",
     title:
@@ -22,15 +22,28 @@ export const OCTOBER_ARTICLE_CONTENT = [
 
       <h2>Four things that are often confused</h2>
 
-      <table>
-        <thead><tr><th>What you are seeing</th><th>What it can tell you</th><th>What it cannot tell you by itself</th></tr></thead>
-        <tbody>
-          <tr><td><strong>A product feature</strong></td><td>What a vendor says the product is designed to do.</td><td>Whether it works in your setting, with your data, under your rules.</td></tr>
-          <tr><td><strong>A demonstration</strong></td><td>That a particular example was made to work under shown conditions.</td><td>Whether the example is typical, repeatable, complete, or independently verified.</td></tr>
-          <tr><td><strong>A reported result</strong></td><td>What a named person or organization says happened for them.</td><td>Whether the result will transfer to another team, task, budget, or time period.</td></tr>
-          <tr><td><strong>An outcome promise</strong></td><td>What someone wants a buyer or viewer to expect.</td><td>Proof that the outcome is likely, suitable, lawful, or safe for you.</td></tr>
-        </tbody>
-      </table>
+      <dl class="beacon-evidence-grid">
+        <div>
+          <dt>A product feature</dt>
+          <dd><strong>What it can tell you</strong>What a vendor says the product is designed to do.</dd>
+          <dd><strong>What it cannot tell you by itself</strong>Whether it works in your setting, with your data, under your rules.</dd>
+        </div>
+        <div>
+          <dt>A demonstration</dt>
+          <dd><strong>What it can tell you</strong>That a particular example was made to work under shown conditions.</dd>
+          <dd><strong>What it cannot tell you by itself</strong>Whether the example is typical, repeatable, complete, or independently verified.</dd>
+        </div>
+        <div>
+          <dt>A reported result</dt>
+          <dd><strong>What it can tell you</strong>What a named person or organization says happened for them.</dd>
+          <dd><strong>What it cannot tell you by itself</strong>Whether the result will transfer to another team, task, budget, or time period.</dd>
+        </div>
+        <div>
+          <dt>An outcome promise</dt>
+          <dd><strong>What it can tell you</strong>What someone wants a buyer or viewer to expect.</dd>
+          <dd><strong>What it cannot tell you by itself</strong>Proof that the outcome is likely, suitable, lawful, or safe for you.</dd>
+        </div>
+      </dl>
 
       <h2>Make a small evidence card before you act</h2>
 
@@ -303,6 +316,16 @@ export const OCTOBER_ARTICLE_CONTENT = [
     `,
   },
 ] as const;
+
+export const OCTOBER_ARTICLE_CONTENT = OCTOBER_ARTICLE_DRAFTS.map(
+  (article) => ({
+    ...article,
+    audioSrc: `/audio/october/${article.id}.mp3`,
+    audioFile: `/audio/october/${article.id}.mp3`,
+    transcriptSrc: `/audio/october/transcripts/${article.id}.txt`,
+    captionSrc: `/audio/october/captions/${article.id}.vtt`,
+  }),
+);
 
 export const OCTOBER_ARTICLE_SUMMARIES = OCTOBER_ARTICLE_CONTENT.map(
   ({ body, ...summary }) => ({

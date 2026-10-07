@@ -1,0 +1,77 @@
+A Claim Is Not Evidence: How to Review an AI Workflow Before You Believe It.
+
+A new AI workflow can look convincing in under a minute. A screen changes. A report appears. A creator says it saved hours, replaced a team, or turned a difficult task into a button.
+
+That may be a useful starting point. It is not yet enough to make a decision.
+
+A feature is not a result. A demonstration is not a controlled test. A creator’s experience is not a promise that the same thing will happen in a different organization, with different data, permissions, people, and pressure.
+
+Beacon uses a simple rule: state a conclusion no more strongly than the evidence supports. That is not a reason to avoid new tools. It is how you keep a promising tool from becoming an expensive misunderstanding.
+
+Four things that are often confused
+
+A product feature
+
+What it can tell you What a vendor says the product is designed to do.
+
+What it cannot tell you by itself Whether it works in your setting, with your data, under your rules.
+
+A demonstration
+
+What it can tell you That a particular example was made to work under shown conditions.
+
+What it cannot tell you by itself Whether the example is typical, repeatable, complete, or independently verified.
+
+A reported result
+
+What it can tell you What a named person or organization says happened for them.
+
+What it cannot tell you by itself Whether the result will transfer to another team, task, budget, or time period.
+
+An outcome promise
+
+What it can tell you What someone wants a buyer or viewer to expect.
+
+What it cannot tell you by itself Proof that the outcome is likely, suitable, lawful, or safe for you.
+
+Make a small evidence card before you act
+
+You do not need a research department to ask better questions. Before you connect a system, move work into it, or repeat a claim in public, create a short evidence card.
+
+Name the claim exactly. “This drafts meeting notes” is different from “This removes the need for a reviewer.”
+
+Name who is making it. A vendor, creator, employee, customer, regulator, researcher, or independent evaluator each carries a different kind of evidence.
+
+Find the date and conditions. Version, plan, permissions, data used, task, benchmark, budget, and human help can change the result.
+
+Write what remains unverified. Privacy, reliability, accessibility, support, cost, rights, export, recovery, and error handling are often missing from a polished demonstration.
+
+Choose the smallest safe next test. Use non-sensitive or fictional material. Give one person responsibility for review. Keep a rollback path.
+
+The National Institute of Standards and Technology describes its Generative AI Profile as a voluntary companion to the AI Risk Management Framework, intended to help organizations incorporate trustworthiness considerations across the AI lifecycle. It is not a certification that a product is trustworthy. It is a useful reminder that a decision includes more than the moment a tool appears to work.
+
+Why language matters in public
+
+When a company says a tool will save time, reduce errors, improve conversion, secure data, replace work, or produce a result, readers may reasonably hear more than enthusiasm. They may hear an objective claim.
+
+The Federal Trade Commission’s advertising-substantiation policy states that advertisers and agencies must have a reasonable basis for objective claims before they are disseminated. What counts as a reasonable basis depends on the type of claim, the product, the consequences of getting it wrong, the benefits of the claim, the cost of substantiation, and the evidence experts would consider reasonable.
+
+Beacon does not treat that policy statement as legal advice for every reader or every situation. We treat it as a practical editorial discipline: do not let a smooth sentence run farther than the proof behind it.
+
+A good test leaves you with more control
+
+A useful evaluation should make your next decision clearer. It should tell you what the tool saw, what it did, who reviewed it, what could be undone, and what evidence would make you pause.
+
+If a trial requires credentials, customer records, private calls, a payment method, or an irreversible connection before you can understand the basic conditions, pause. A smaller test may be more responsible than a bigger promise.
+
+That is not fear. It is how people keep the tool in its proper place: supporting visible work and accountable judgment rather than asking a demo to carry more authority than it has earned.
+
+Sources and boundaries
+
+This is educational commentary and a general evidence-literacy framework. It is not legal, privacy, security, financial, medical, or professional advice; it does not certify a tool, workflow, vendor, or claim. Product capabilities, pricing, terms, access, and documentation can change. Re-open primary records before relying on them.
+
+National Institute of Standards and Technology, Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile (NIST AI 600-1) (published July 26, 2024; accessed October 7, 2026).
+
+Federal Trade Commission, FTC Policy Statement Regarding Advertising Substantiation (accessed October 7, 2026).
+
+The next useful question is not “What can this tool do?” It is “What do I know, what do I not know, and what is the smallest responsible next step?”

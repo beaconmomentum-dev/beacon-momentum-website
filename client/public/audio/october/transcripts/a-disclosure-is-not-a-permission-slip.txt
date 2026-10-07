@@ -1,0 +1,61 @@
+A Disclosure Is Not a Permission Slip: Synthetic Media, Consent, and Provenance.
+
+Synthetic media can make a useful explanation more vivid. It can also make a false impression feel more believable.
+
+That is why an honest disclosure matters. A viewer deserves to know when an image, voice, or video has been altered or generated. But disclosure is only one part of responsible use.
+
+A label does not answer whether the person in the material gave permission. It does not establish who owns the source assets, whether a voice was cloned under an agreed scope, whether a statement is accurate, or whether a technical marker can always be detected or trusted.
+
+Separate four responsibilities
+
+Responsibility The question to ask
+
+Consent Did the person whose likeness, voice, writing, or performance is involved agree to this exact kind of use?
+Provenance Can the creator show where the source material came from, how it was changed, and who approved the result?
+Disclosure Would a reasonable viewer understand that the material is altered or generated before they make a decision based on it?
+Review Who checked the script, claims, captions, destinations, and final release?
+
+Consent needs a scope
+
+“You can use my voice” is not a complete operating instruction. It leaves important questions unanswered: for which project, audience, channel, duration, territory, purpose, storage location, and revision process? Can the person revoke permission? Can the material be used in an advertisement, a lesson, a member experience, or a public post? Who can access the source files?
+
+The U.S. Copyright Office’s AI initiative identifies digital replicas as a distinct area of law-and-policy analysis; its first report in the series addressed that topic in July 2024. That does not decide every real-world rights question. It does underline why organizations should not treat a realistic likeness or voice as ordinary stock material.
+
+For Beacon work, the practical standard is narrower and more useful: keep a written consent record that names the source person, source asset, allowed use, prohibited use, disclosure treatment, storage location, review date, revocation path, and responsible human approver.
+
+Technical transparency is helpful, not magic
+
+People often look for a single technical answer: watermark it, detect it, label it, or attach metadata. Each can be useful in context. None should be described as a universal proof of authenticity or a substitute for careful review.
+
+NIST’s report on synthetic-content transparency reviews approaches for authenticating content and tracking provenance, labeling synthetic content, detecting synthetic content, preventing certain harmful outputs, testing related software, and auditing or maintaining synthetic content. The value of that list is its breadth. Transparency is a system of practices, not one switch a creator turns on after the video is finished.
+
+Keep the original source file where permitted. Retain the script. Keep versioned renders. Mark the review decision. State what is synthetic, illustrative, reconstructed, or simulated. Do not present a simulated testimonial, public reaction, interview, news event, or client result as if it happened on camera.
+
+Use a second channel to verify urgent requests
+
+Voice cloning also creates a straightforward human risk: a familiar-sounding request can be used to pressure someone into sharing money or information. The Federal Trade Commission advises people who receive an urgent request from a supposedly familiar voice to verify the story using a phone number they already know or another trusted route.
+
+That habit belongs in organizational workflows as well. A voice, video, or message should not be the only approval for a payment, credential change, sensitive upload, account recovery, or public release. Use a known second channel and a named human checkpoint.
+
+A simple release card
+
+What is synthetic or altered? ____
+Whose source asset is involved? ____
+What written consent covers this use? ____
+What disclosure will the audience see? ____
+Who approved the final render and claim language? ____
+Where are the source, script, version record, and removal path? ____
+
+The point is not to turn creative work into paperwork. The point is to keep a powerful medium connected to the people, evidence, and responsibility that make trust possible.
+
+Sources and boundaries
+
+This article is educational commentary. It is not legal advice, a determination of rights, a guarantee of compliance, a statement that a watermark or detector will work in every setting, or a certification that any synthetic-media tool is safe. Seek qualified advice for your circumstances and recheck current platform and legal requirements before release.
+
+U.S. Copyright Office, “Copyright and Artificial Intelligence” (Part 1: Digital Replicas published July 31, 2024; accessed October 7, 2026).
+
+National Institute of Standards and Technology, Reducing Risks Posed by Synthetic Content (NIST AI 100-4) (published November 20, 2024; accessed October 7, 2026).
+
+Federal Trade Commission Consumer Alert, “Fighting back against harmful voice cloning” (April 8, 2024; accessed October 7, 2026).
+
+A disclosure can help an audience see the medium. Consent, provenance, and human review are what help the audience decide whether to trust the message.

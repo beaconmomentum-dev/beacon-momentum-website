@@ -1,0 +1,293 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.498
+Before You Connect an App: A 15-Minute Permission Inventory. “Connect
+
+2
+00:00:03.498 --> 00:00:06.995
+your account” is one of the shortest sentences in modern
+
+3
+00:00:06.995 --> 00:00:10.493
+software. It can also be one of the most consequential.
+
+4
+00:00:10.493 --> 00:00:13.990
+A connected application may be able to read a calendar,
+
+5
+00:00:13.990 --> 00:00:17.488
+write a document, see contacts, access files, send messages, use
+
+6
+00:00:17.488 --> 00:00:20.985
+location, or retain information after the moment you needed the
+
+7
+00:00:20.985 --> 00:00:24.483
+feature. The exact scope depends on the app, account, device,
+
+8
+00:00:24.483 --> 00:00:27.981
+settings, and permission you approve. The answer is not to
+
+9
+00:00:27.981 --> 00:00:31.478
+treat every connection as dangerous. The answer is to treat
+
+10
+00:00:31.478 --> 00:00:34.976
+a connection as a decision about access—not as a harmless
+
+11
+00:00:34.976 --> 00:00:38.473
+decoration around a new tool. Take fifteen minutes before the
+
+12
+00:00:38.473 --> 00:00:41.971
+next connection Minute What to check 0–3 Write the one
+
+13
+00:00:41.971 --> 00:00:45.469
+task you want the app to help with. If the
+
+14
+00:00:45.469 --> 00:00:48.966
+task is vague, do not grant broad access yet. 3–6
+
+15
+00:00:48.966 --> 00:00:52.464
+Read the permission screen. Is the app asking to view,
+
+16
+00:00:52.464 --> 00:00:55.961
+create, edit, send, delete, or continuously access information? 6–9 Ask
+
+17
+00:00:55.961 --> 00:00:59.459
+whether a lower-access option, sample file, non-sensitive account, or manual
+
+18
+00:00:59.459 --> 00:01:02.956
+export would accomplish the same task. 9–12 Record the connection:
+
+19
+00:01:02.956 --> 00:01:06.454
+app name, account, permissions, person responsible, date granted, and how
+
+20
+00:01:06.454 --> 00:01:09.952
+to revoke it. 12–15 Set a review date. Remove the
+
+21
+00:01:09.952 --> 00:01:13.449
+connection if the tool is no longer useful, the scope
+
+22
+00:01:13.449 --> 00:01:16.947
+changes, or you cannot explain what it can access. Ask
+
+23
+00:01:16.947 --> 00:01:20.444
+what an app can see and what it can do
+
+24
+00:01:20.444 --> 00:01:23.942
+Reading access and writing access are different. A tool that
+
+25
+00:01:23.942 --> 00:01:27.439
+can see one document is different from a tool that
+
+26
+00:01:27.439 --> 00:01:30.937
+can search a drive. A tool that can suggest a
+
+27
+00:01:30.937 --> 00:01:34.435
+calendar entry is different from one that can create, edit,
+
+28
+00:01:34.435 --> 00:01:37.932
+or delete events. The Cybersecurity and Infrastructure Security Agency warns
+
+29
+00:01:37.932 --> 00:01:41.430
+that apps can access sensitive information and recommends a simple
+
+30
+00:01:41.430 --> 00:01:44.927
+baseline: install only the apps you need, remove those you
+
+31
+00:01:44.927 --> 00:01:48.425
+do not use, and deny access to data or functions
+
+32
+00:01:48.425 --> 00:01:51.923
+you do not want an app to have. That is
+
+33
+00:01:51.923 --> 00:01:55.420
+a practical rule because access tends to outlast the excitement
+
+34
+00:01:55.420 --> 00:01:58.918
+of a first test. It is also useful to look
+
+35
+00:01:58.918 --> 00:02:02.415
+for the actual permission categories. Depending on the device or
+
+36
+00:02:02.415 --> 00:02:05.913
+service, those may include contacts, files, camera, microphone, messages, calendar,
+
+37
+00:02:05.913 --> 00:02:09.410
+location, health data, or the ability to create and delete
+
+38
+00:02:09.410 --> 00:02:12.908
+records. A familiar brand name does not change the question:
+
+39
+00:02:12.908 --> 00:02:16.406
+what does this connection permit? Keep the first test small
+
+40
+00:02:16.406 --> 00:02:19.903
+For a new AI tool or connected workflow, begin with
+
+41
+00:02:19.903 --> 00:02:23.401
+material that would not create a serious problem if it
+
+42
+00:02:23.401 --> 00:02:26.898
+were mishandled: a fictional project, a public document, a blank
+
+43
+00:02:26.898 --> 00:02:30.396
+calendar, or a copy of a non-sensitive file. Do not
+
+44
+00:02:30.396 --> 00:02:33.893
+paste credentials, tokens, client records, member information, private call notes,
+
+45
+00:02:33.893 --> 00:02:37.391
+payment information, or confidential documents into a test simply to
+
+46
+00:02:37.391 --> 00:02:40.889
+see whether a workflow feels impressive. A small test can
+
+47
+00:02:40.889 --> 00:02:44.386
+answer a real question without turning the test into a
+
+48
+00:02:44.386 --> 00:02:47.884
+data-transfer decision. Use the controls you already have Many account
+
+49
+00:02:47.884 --> 00:02:51.381
+providers offer a place to review linked apps. Google’s account
+
+50
+00:02:51.381 --> 00:02:54.879
+guidance says people can review and update linked apps from
+
+51
+00:02:54.879 --> 00:02:58.377
+their Google Account and see the information they share with
+
+52
+00:02:58.377 --> 00:03:01.874
+applications from other developers. Other providers and device operating systems
+
+53
+00:03:01.874 --> 00:03:05.372
+offer their own connection and permission controls. Those controls are
+
+54
+00:03:05.372 --> 00:03:08.869
+not a guarantee that every app is safe or suitable.
+
+55
+00:03:08.869 --> 00:03:12.367
+They are a way to make access visible, reduce unnecessary
+
+56
+00:03:12.367 --> 00:03:15.864
+scope, and keep a revocation path available. The permission inventory
+
+57
+00:03:15.864 --> 00:03:19.362
+Use this one-line record for each connection: App: ____ Account:
+
+58
+00:03:19.362 --> 00:03:22.860
+____ Task: ____ Access granted: ____ Owner: ____ Review date:
+
+59
+00:03:22.860 --> 00:03:26.357
+____ Revocation path: ____ That record will not prevent every
+
+60
+00:03:26.357 --> 00:03:29.855
+mistake. It does make a simple promise to yourself: you
+
+61
+00:03:29.855 --> 00:03:33.352
+will know which door you opened, why you opened it,
+
+62
+00:03:33.352 --> 00:03:36.850
+and how to close it when the work is done.
+
+63
+00:03:36.850 --> 00:03:40.348
+Sources and boundaries This guide is educational information, not a
+
+64
+00:03:40.348 --> 00:03:43.845
+security assessment, privacy certification, or guarantee that a connected app
+
+65
+00:03:43.845 --> 00:03:47.343
+is safe, compliant, or appropriate for a particular organization. Account
+
+66
+00:03:47.343 --> 00:03:50.840
+controls and permissions vary by product, plan, region, device, and
+
+67
+00:03:50.840 --> 00:03:54.338
+version. Verify the current documentation and use qualified support when
+
+68
+00:03:54.338 --> 00:03:57.835
+your situation calls for it. Cybersecurity and Infrastructure Security Agency,
+
+69
+00:03:57.835 --> 00:04:01.333
+“Manage Application Permissions for Privacy and Security” (accessed October 7,
+
+70
+00:04:01.333 --> 00:04:04.831
+2026). Google Account Help, “Manage links between your Google Account
+
+71
+00:04:04.831 --> 00:04:08.328
+& apps from other developers” (accessed October 7, 2026). Convenience
+
+72
+00:04:08.328 --> 00:04:11.826
+is useful. Visibility, limits, and a way back are what
+
+73
+00:04:11.826 --> 00:04:12.875
+make convenience responsible.

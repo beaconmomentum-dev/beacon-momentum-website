@@ -1,0 +1,55 @@
+Before You Connect an App: A 15-Minute Permission Inventory.
+
+“Connect your account” is one of the shortest sentences in modern software. It can also be one of the most consequential.
+
+A connected application may be able to read a calendar, write a document, see contacts, access files, send messages, use location, or retain information after the moment you needed the feature. The exact scope depends on the app, account, device, settings, and permission you approve.
+
+The answer is not to treat every connection as dangerous. The answer is to treat a connection as a decision about access—not as a harmless decoration around a new tool.
+
+Take fifteen minutes before the next connection
+
+Minute What to check
+
+0–3 Write the one task you want the app to help with. If the task is vague, do not grant broad access yet.
+3–6 Read the permission screen. Is the app asking to view, create, edit, send, delete, or continuously access information?
+6–9 Ask whether a lower-access option, sample file, non-sensitive account, or manual export would accomplish the same task.
+9–12 Record the connection: app name, account, permissions, person responsible, date granted, and how to revoke it.
+12–15 Set a review date. Remove the connection if the tool is no longer useful, the scope changes, or you cannot explain what it can access.
+
+Ask what an app can see and what it can do
+
+Reading access and writing access are different. A tool that can see one document is different from a tool that can search a drive. A tool that can suggest a calendar entry is different from one that can create, edit, or delete events.
+
+The Cybersecurity and Infrastructure Security Agency warns that apps can access sensitive information and recommends a simple baseline: install only the apps you need, remove those you do not use, and deny access to data or functions you do not want an app to have. That is a practical rule because access tends to outlast the excitement of a first test.
+
+It is also useful to look for the actual permission categories. Depending on the device or service, those may include contacts, files, camera, microphone, messages, calendar, location, health data, or the ability to create and delete records. A familiar brand name does not change the question: what does this connection permit?
+
+Keep the first test small
+
+For a new AI tool or connected workflow, begin with material that would not create a serious problem if it were mishandled: a fictional project, a public document, a blank calendar, or a copy of a non-sensitive file.
+
+Do not paste credentials, tokens, client records, member information, private call notes, payment information, or confidential documents into a test simply to see whether a workflow feels impressive. A small test can answer a real question without turning the test into a data-transfer decision.
+
+Use the controls you already have
+
+Many account providers offer a place to review linked apps. Google’s account guidance says people can review and update linked apps from their Google Account and see the information they share with applications from other developers. Other providers and device operating systems offer their own connection and permission controls.
+
+Those controls are not a guarantee that every app is safe or suitable. They are a way to make access visible, reduce unnecessary scope, and keep a revocation path available.
+
+The permission inventory
+
+Use this one-line record for each connection:
+
+App: ____   Account: ____   Task: ____   Access granted: ____   Owner: ____   Review date: ____   Revocation path: ____
+
+That record will not prevent every mistake. It does make a simple promise to yourself: you will know which door you opened, why you opened it, and how to close it when the work is done.
+
+Sources and boundaries
+
+This guide is educational information, not a security assessment, privacy certification, or guarantee that a connected app is safe, compliant, or appropriate for a particular organization. Account controls and permissions vary by product, plan, region, device, and version. Verify the current documentation and use qualified support when your situation calls for it.
+
+Cybersecurity and Infrastructure Security Agency, “Manage Application Permissions for Privacy and Security” (accessed October 7, 2026).
+
+Google Account Help, “Manage links between your Google Account & apps from other developers” (accessed October 7, 2026).
+
+Convenience is useful. Visibility, limits, and a way back are what make convenience responsible.

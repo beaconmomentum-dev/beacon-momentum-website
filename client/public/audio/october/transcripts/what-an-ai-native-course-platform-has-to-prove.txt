@@ -1,0 +1,71 @@
+What an AI-Native Course Platform Has to Prove Before You Trust It With Learners.
+
+An AI-native course platform can make it easier to assemble a lesson, produce a visual, draft a worksheet, or offer a conversation around an idea. That can be genuinely useful.
+
+It is not the same thing as proving that learners will understand the material, that their data is handled appropriately, that a course can be accessed by the people it is meant to serve, or that the work can move with them if the platform changes.
+
+The right question is not “Can this tool build a course?” The right question is: What kind of learning experience does this tool actually make possible, under what conditions, and what evidence supports that answer?
+
+Start with the learner’s job
+
+A course is not a pile of generated modules. It is an agreement about what a learner is trying to do and how the experience will help them practice, check understanding, ask for help, and retain a usable record of the work.
+
+Before comparing platforms, write one sentence:
+
+After this learning experience, the participant should be able to: ____
+
+Then ask whether the course needs a sequence, a reflection prompt, a quiz, feedback, a human conversation, a private workspace, an accessible video player, captions, downloadable material, or a way to continue when an app changes. If the answer is yes, those are requirements to test—not features to assume.
+
+Use a platform evidence card
+
+Question What to ask for
+
+Learning design Can a learner follow a clear path, practice, receive feedback, and understand what comes next?
+Human role Where does an instructor, editor, or qualified reviewer remain responsible?
+Accessibility What is documented about captions, transcripts, keyboard use, contrast, reading order, downloads, and assistive technology?
+Privacy and data What learner, prompt, upload, analytics, voice, or chat data is processed? Is it used for model training? How is it deleted?
+Rights and ownership Who owns uploaded source material, created lessons, learner work, media, and exports?
+Portability and recovery Can you export course content, media, learner records, and data? Can you restore a working version?
+Terms and support What is the actual price, renewal, usage limit, support path, refund rule, and service-continuity commitment?
+
+A documented example is not a license to borrow the promise
+
+Harvard Business School describes Foundry as an AI-native workspace for founders. Its public materials describe an eight-week Bootcamp powered by Foundry’s AI platform, with stated work on a business model, market validation, and a pitch deck. HBS also presents AI mentorship modeled on faculty alongside live sessions with real experts.
+
+That is a useful example of a particular learning design: a defined learner, a defined duration, a clear applied task, a combination of AI-supported and human learning, and an institution stating what the program is meant to do.
+
+It is not evidence that another vendor’s course builder is based on the same system, licensed by Harvard, endorsed by Harvard, equally secure, equally accessible, or likely to produce the same learner experience. A familiar name in a webinar is not a product architecture.
+
+Ask questions before the trial, not after the upload
+
+HBS’s public Foundry FAQ identifies questions people should expect to ask about a learning platform: whether data is safe and confidential, whether it will be used to train AI models, who owns intellectual property, what security controls exist, whether data is monetized, and whether the platform claims rights to uploaded or generated materials.
+
+Those are not only questions for a university-scale program. They are good questions whenever a course platform asks for a creator’s library, a learner’s personal work, a voice recording, a payment connection, or a member list.
+
+Run a small, content-only proof
+
+Before moving a curriculum or learner community, make a bounded prototype:
+
+Use a short, non-sensitive lesson and a fictional learner profile.
+
+Do not connect payment, email, CRM, calendar, social, or member systems.
+
+Test the exact experience: lesson sequence, captions, downloads, access, feedback, and export.
+
+Record what worked, what was not documented, what could not be tested, and how to remove the prototype.
+
+Decide whether the platform earned a larger evaluation—not whether its demo was persuasive.
+
+That approach respects the learner and protects the work. A platform should make a course easier to deliver without becoming the only place the course remembers what it is.
+
+Sources and boundaries
+
+This is a vendor-neutral evaluation framework, not an endorsement, comparison, ranking, partnership claim, purchase recommendation, accessibility certification, or legal/privacy/security assessment. HBS Foundry is cited only as a documented example from HBS’s public materials. Product capabilities, terms, prices, access, and policies change; verify current first-party evidence before relying on it.
+
+Harvard Business School Foundry, “Foundry Bootcamp: Your Path to Success” (accessed October 7, 2026).
+
+Harvard Business School Foundry, “Take Your Venture to the Next Level” (accessed October 7, 2026).
+
+Harvard Business School Foundry, “Frequently Asked Questions” (accessed October 7, 2026).
+
+The course is not the app. The course is the learner’s ability to do something more clearly, with evidence, practice, and a path that can outlast a product cycle.
