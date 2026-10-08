@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { readinessMapRequestSchema } from "./readinessMap";
+import {
+  isReadinessMapDeliveryDisabled,
+  readinessMapRequestSchema,
+} from "./readinessMap";
 
 describe("Readiness Map delivery boundary", () => {
   it("keeps optional marketing consent false by default", () => {
@@ -39,5 +42,14 @@ describe("Readiness Map delivery boundary", () => {
       marketingConsent: false,
       consentVersion: "readiness-map-v1",
     });
+  });
+
+  it("hard-disables delivery in a private staging environment", () => {
+    expect(
+      isReadinessMapDeliveryDisabled({
+        READINESS_MAP_STAGING_NO_DELIVERY: "1",
+      }),
+    ).toBe(true);
+    expect(isReadinessMapDeliveryDisabled({})).toBe(false);
   });
 });

@@ -402,6 +402,14 @@ export function isAllowedOrigin(
   isProduction = ENV.isProduction,
 ): boolean {
   if (!origin) return !isProduction;
+  const privateStagingOrigin = process.env.READINESS_MAP_STAGING_ORIGIN;
+  if (
+    process.env.READINESS_MAP_STAGING_NO_DELIVERY === "1" &&
+    privateStagingOrigin &&
+    origin === privateStagingOrigin
+  ) {
+    return true;
+  }
   const productionOrigins = new Set([
     "https://beaconmomentum.com",
     "https://www.beaconmomentum.com",

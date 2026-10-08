@@ -38,6 +38,12 @@ type ReadinessMapRequest = z.infer<typeof requestSchema>;
 type RateLimitBucket = { count: number; resetAt: number };
 const rateLimitBuckets = new Map<string, RateLimitBucket>();
 
+export function isReadinessMapDeliveryDisabled(
+  environment: NodeJS.ProcessEnv = process.env,
+) {
+  return environment.READINESS_MAP_STAGING_NO_DELIVERY === "1";
+}
+
 function consumeRateLimit(key: string, now: number): boolean {
   if (rateLimitBuckets.size > MAX_RATE_LIMIT_BUCKETS) {
     rateLimitBuckets.forEach((bucket, bucketKey) => {
@@ -104,6 +110,15 @@ export function registerReadinessMapRoutes(app: Express) {
     const rateLimitKey = `${clientIdentifier(req)}:readiness-map-request`;
     if (!consumeRateLimit(rateLimitKey, Date.now())) {
       publicError(res, 429, "Please wait a few minutes before trying again.");
+      return;
+    }
+
+    if (isReadinessMapDeliveryDisabled()) {
+      publicError(
+        res,
+        503,
+        "The worksheet delivery test is not available in this private staging environment.",
+      );
       return;
     }
 

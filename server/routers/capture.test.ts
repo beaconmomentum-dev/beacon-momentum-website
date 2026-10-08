@@ -224,6 +224,31 @@ describe("public capture relay contract", () => {
     expect(isAllowedOrigin("http://localhost:5173", false)).toBe(true);
   });
 
+  it("allows a private staging origin only when delivery is hard-disabled", () => {
+    const priorNoDelivery = process.env.READINESS_MAP_STAGING_NO_DELIVERY;
+    const priorOrigin = process.env.READINESS_MAP_STAGING_ORIGIN;
+    try {
+      process.env.READINESS_MAP_STAGING_ORIGIN = "http://127.0.0.1:4011";
+      delete process.env.READINESS_MAP_STAGING_NO_DELIVERY;
+      expect(isAllowedOrigin("http://127.0.0.1:4011", true)).toBe(false);
+
+      process.env.READINESS_MAP_STAGING_NO_DELIVERY = "1";
+      expect(isAllowedOrigin("http://127.0.0.1:4011", true)).toBe(true);
+      expect(isAllowedOrigin("http://localhost:4011", true)).toBe(false);
+    } finally {
+      if (priorNoDelivery === undefined) {
+        delete process.env.READINESS_MAP_STAGING_NO_DELIVERY;
+      } else {
+        process.env.READINESS_MAP_STAGING_NO_DELIVERY = priorNoDelivery;
+      }
+      if (priorOrigin === undefined) {
+        delete process.env.READINESS_MAP_STAGING_ORIGIN;
+      } else {
+        process.env.READINESS_MAP_STAGING_ORIGIN = priorOrigin;
+      }
+    }
+  });
+
   it("uses the server credential only in the outbound request", async () => {
     const fetchImpl = vi
       .fn()
