@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, Download, LoaderCircle } from "lucide-react";
 import SharedFooter from "@/components/SharedFooter";
+import SharedNav from "@/components/SharedNav";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 const C = {
@@ -98,49 +99,7 @@ export default function ReadinessMapPage() {
 
   return (
     <div style={{ minHeight: "100vh", background: C.parchment, color: C.ink }}>
-      <header
-        style={{ borderBottom: `1px solid ${C.rule}`, background: C.white }}
-      >
-        <div
-          className="container"
-          style={{
-            maxWidth: "1120px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "1rem",
-            paddingTop: "1.15rem",
-            paddingBottom: "1.15rem",
-          }}
-        >
-          <a
-            href="/"
-            style={{
-              color: C.deep,
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "1.45rem",
-              fontWeight: 650,
-              textDecoration: "none",
-            }}
-          >
-            Beacon Momentum
-          </a>
-          <a
-            href="/"
-            style={{
-              color: C.deep,
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontSize: "0.72rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textDecoration: "none",
-              textTransform: "uppercase",
-            }}
-          >
-            Return to BeaconMomentum.com
-          </a>
-        </div>
-      </header>
+      <SharedNav />
 
       <main id="main-content">
         <section
