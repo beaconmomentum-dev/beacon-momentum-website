@@ -3210,15 +3210,18 @@ export default function BlogArticlePage() {
           }
           @media (max-width: 640px) {
             .beacon-article-body table {
-              display: block;
+              display: table;
+              width: 100%;
+              max-width: 100%;
+              min-width: 0;
+              table-layout: fixed;
               margin-left: 0;
               margin-right: 0;
-              overflow-x: auto;
-              -webkit-overflow-scrolling: touch;
             }
             .beacon-article-body th,
             .beacon-article-body td {
               padding: 0.8rem;
+              overflow-wrap: anywhere;
             }
             .beacon-article-body .beacon-evidence-grid {
               grid-template-columns: 1fr;

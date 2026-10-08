@@ -4,6 +4,8 @@
  */
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import SharedFooter from "@/components/SharedFooter";
+import SharedNav from "@/components/SharedNav";
 
 const COMMUNITY_URL = "https://beaconcommunity.net";
 const LABS_URL = "https://beaconlabs.ai";
@@ -323,30 +325,8 @@ function PrimaryCta({
 }
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activePillar, setActivePillar] = useState(0);
   const reduceMotion = useReducedMotionPreference();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 28);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    if (!menuOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
 
   const stagger = reduceMotion ? 0 : 0.08;
   const entry = {
@@ -359,105 +339,7 @@ export default function Home() {
       id="top"
       className="tide-home min-h-screen overflow-x-clip bg-[#061A29] text-[#EEF3EF]"
     >
-      <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-200 ${
-          scrolled
-            ? "fog-glass border-white/10"
-            : "border-transparent bg-transparent"
-        }`}
-      >
-        <div className="container flex h-[74px] items-center justify-between gap-5">
-          <a
-            href="#top"
-            className="group flex shrink-0 items-center"
-            aria-label="Beacon Momentum home"
-          >
-            <BrandLockup />
-          </a>
-
-          <nav
-            className="nav-desktop hidden items-center gap-7 lg:flex"
-            aria-label="Primary navigation"
-          >
-            {[
-              ["Choose a route", "#routes"],
-              ["The Watch", "#watch"],
-              ["The Signal", "/signal"],
-              ["The Atlas", "#portfolio"],
-            ].map(([label, href]) => (
-              <a
-                href={href}
-                key={label}
-                className="text-[0.69rem] font-semibold uppercase tracking-[0.15em] text-[#B8C6C2] transition-colors hover:text-[#D8A94A]"
-              >
-                {label}
-              </a>
-            ))}
-            <a
-              href="#routes"
-              className="brass-button inline-flex items-center gap-2 border border-white/25 px-4 py-2.5 text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-[#EEF3EF] hover:border-[#D8A94A] hover:text-[#D8A94A]"
-            >
-              Find your route <ArrowIcon className="h-3.5 w-3.5" />
-            </a>
-          </nav>
-
-          <button
-            type="button"
-            aria-label={
-              menuOpen ? "Close navigation menu" : "Open navigation menu"
-            }
-            aria-expanded={menuOpen}
-            aria-controls="momentum-mobile-navigation"
-            onClick={() => setMenuOpen((current) => !current)}
-            className="nav-hamburger brass-button grid h-11 w-11 place-items-center border border-white/20 text-[#EEF3EF] hover:border-[#D8A94A] hover:text-[#D8A94A] lg:hidden"
-          >
-            <MenuIcon open={menuOpen} />
-          </button>
-        </div>
-
-        {menuOpen && (
-          <motion.nav
-            id="momentum-mobile-navigation"
-            initial={{ opacity: 0, y: reduceMotion ? 0 : -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: reduceMotion ? 0 : -10 }}
-            transition={{
-              duration: reduceMotion ? 0 : 0.2,
-              ease: [0.23, 1, 0.32, 1],
-            }}
-            className="fog-glass border-t border-white/10 px-5 py-5 lg:hidden"
-            aria-label="Mobile navigation"
-          >
-            <div className="mx-auto flex max-w-xl flex-col gap-1">
-              {[
-                ["Choose a route", "#routes"],
-                ["The Watch", "#watch"],
-                ["The Signal", "/signal"],
-                ["The Atlas", "#portfolio"],
-              ].map(([label, href], index) => (
-                <a
-                  key={label}
-                  href={href}
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between border-b border-white/10 py-4 text-sm font-medium text-[#EEF3EF]"
-                >
-                  <span>{label}</span>
-                  <span className="font-ui text-xs tracking-[0.16em] text-[#D8A94A]">
-                    0{index + 1}
-                  </span>
-                </a>
-              ))}
-              <a
-                href="#routes"
-                onClick={() => setMenuOpen(false)}
-                className="mt-3 inline-flex items-center justify-between bg-[#D8A94A] px-4 py-4 text-xs font-semibold uppercase tracking-[0.13em] text-[#061A29]"
-              >
-                Find your route <ArrowIcon className="h-4 w-4" />
-              </a>
-            </div>
-          </motion.nav>
-        )}
-      </header>
+      <SharedNav />
 
       <main id="main-content">
         <section className="tide-grid tide-grain relative isolate flex min-h-[760px] items-end overflow-hidden border-b border-white/10 pb-14 pt-32 sm:min-h-[820px] sm:pb-20 lg:min-h-[880px] lg:pb-24">
@@ -1084,83 +966,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="relative overflow-hidden bg-[#04141F] py-12 text-[#B8C6C2] sm:py-16">
-        <div className="container">
-          <SignalStrip label="Return Bearing · Home Port 06" inverse />
-          <div className="flex flex-col gap-10 border-b border-white/10 pb-10 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <div className="mt-10">
-                <BrandLockup footer />
-              </div>
-              <p className="mt-5 max-w-sm text-sm leading-6 text-[#9BB0B0]">
-                Practical systems, curriculum, and community for people building
-                a longer horizon in the AI transition.
-              </p>
-            </div>
-            <a
-              href="#routes"
-              className="brass-button group inline-flex min-h-11 items-center justify-center gap-3 border border-[#D8A94A] px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#D8A94A] hover:bg-[#D8A94A] hover:text-[#061A29]"
-            >
-              Choose a route <ArrowIcon className="link-arrow h-4 w-4" />
-            </a>
-          </div>
-          <div className="grid gap-8 pt-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.7fr_0.7fr_0.7fr]">
-            <p className="text-[0.62rem] uppercase tracking-[0.17em] text-[#6F898A]">
-              © {new Date().getFullYear()} Beacon Momentum. The lighthouse is
-              lit.
-            </p>
-            <div>
-              <p className="text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">
-                Navigate
-              </p>
-              <div className="mt-3 flex flex-col gap-2 text-sm">
-                <a href="#routes" className="hover:text-[#EEF3EF]">
-                  Choose a route
-                </a>
-                <a href="#watch" className="hover:text-[#EEF3EF]">
-                  The Watch
-                </a>
-                <a href="#pillars" className="hover:text-[#EEF3EF]">
-                  Five Pillars
-                </a>
-              </div>
-            </div>
-            <div>
-              <p className="text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">
-                Explore
-              </p>
-              <div className="mt-3 flex flex-col gap-2 text-sm">
-                <a href={COMMUNITY_URL} className="hover:text-[#EEF3EF]">
-                  Beacon Community ↗
-                </a>
-                <a href={LABS_URL} className="hover:text-[#EEF3EF]">
-                  Beacon Labs ↗
-                </a>
-                <a href="/signal" className="hover:text-[#EEF3EF]">
-                  The Signal
-                </a>
-                <a href="#portfolio" className="hover:text-[#EEF3EF]">
-                  Beacon Portfolio
-                </a>
-              </div>
-            </div>
-            <div>
-              <p className="text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#D8A94A]">
-                Position
-              </p>
-              <p className="mt-3 text-sm leading-6">
-                Need help finding the right destination?{" "}
-                <a
-                  className="text-[#EEF3EF] underline decoration-[#D8A94A]/70 underline-offset-4 hover:text-[#D8A94A]"
-                  href="mailto:support@beaconmomentum.com"
-                >
-                  support@beaconmomentum.com
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SharedFooter />
     </div>
   );
 }

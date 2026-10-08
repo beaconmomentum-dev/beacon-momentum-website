@@ -1,5 +1,7 @@
 import { Link } from "wouter";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import SharedFooter from "@/components/SharedFooter";
+import SharedNav from "@/components/SharedNav";
 
 const C = {
   deep: "#071523",
@@ -46,32 +48,7 @@ export default function RefundPage() {
 
   return (
     <main id="main-content" style={{ minHeight: "100vh", background: C.deep, color: C.cream, fontFamily: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" }}>
-      <header style={{ borderBottom: `1px solid ${C.line}`, background: "rgba(7,21,35,0.96)" }}>
-        <div className="container" style={{ minHeight: "76px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
-          <Link href="/" style={{ color: C.cream, display: "inline-flex", alignItems: "center", gap: "0.65rem", textDecoration: "none", fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "0.78rem" }}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" style={{ width: "24px", height: "24px", flexShrink: 0 }}>
-              <rect width="64" height="64" rx="12" fill="#0D1D29"/>
-              <g fill="none" stroke="#F7F1E5" strokeWidth="3.25" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 19.5 14.5 16" opacity=".72"/>
-                <path d="M43 19.5 49.5 16" opacity=".72"/>
-                <path d="M21 23.5h-7" opacity=".48"/>
-                <path d="M43 23.5h7" opacity=".48"/>
-                <path d="m24 18 8-6 8 6Z"/>
-                <rect x="25" y="18" width="14" height="8" rx="1"/>
-                <path d="M23 26h18"/>
-                <path d="M24 26v3M40 26v3"/>
-                <path d="m25 29-3 22h20l-3-22Z"/>
-                <path d="M23 40h18" opacity=".58"/>
-                <path d="M30 51v-5q2-2 4 0v5"/>
-                <path d="M12 54q4-2 8 0t8 0 8 0 8 0 8 0 8 0" opacity=".6"/>
-              </g>
-              <circle cx="32" cy="22" r="2.2" fill="#E9BC52"/>
-            </svg>
-            Beacon Momentum
-          </Link>
-          <Link href="/the-watch" style={{ color: C.mist, textDecoration: "none", fontSize: "0.84rem" }}>The Watch</Link>
-        </div>
-      </header>
+      <SharedNav />
 
       <section style={{ padding: "clamp(3.5rem, 8vw, 7rem) 0", background: "radial-gradient(circle at 82% 7%, rgba(212,169,77,0.15), transparent 28%), linear-gradient(135deg, #071523 0%, #0D263B 100%)" }}>
         <div className="container" style={{ maxWidth: "860px" }}>
@@ -100,16 +77,7 @@ export default function RefundPage() {
         </div>
       </section>
 
-      <footer style={{ borderTop: `1px solid ${C.line}`, padding: "2rem 0", background: "#05101b" }}>
-        <div className="container" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
-          <p style={{ margin: 0, color: "rgba(247,241,229,0.52)", fontSize: "0.75rem" }}>© {new Date().getFullYear()} Beacon Momentum LLC. All rights reserved.</p>
-          <nav aria-label="Policy links" style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <Link href="/privacy" style={{ color: C.mist, textDecoration: "none", fontSize: "0.78rem" }}>Privacy</Link>
-            <Link href="/terms" style={{ color: C.mist, textDecoration: "none", fontSize: "0.78rem" }}>Terms</Link>
-            <Link href="/cookies" style={{ color: C.mist, textDecoration: "none", fontSize: "0.78rem" }}>Cookies</Link>
-          </nav>
-        </div>
-      </footer>
+      <SharedFooter />
     </main>
   );
 }

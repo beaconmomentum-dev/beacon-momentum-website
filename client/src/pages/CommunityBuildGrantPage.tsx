@@ -136,11 +136,11 @@ export default function CommunityBuildGrantPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "grid", gap: "1rem" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                <div className="community-build-form-pair" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                   <label style={formLabelStyle}>Full name<input required style={formInputStyle} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} /></label>
                   <label style={formLabelStyle}>Email<input required type="email" style={formInputStyle} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} /></label>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                <div className="community-build-form-pair" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                   <label style={formLabelStyle}>City<input required style={formInputStyle} value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} /></label>
                   <label style={formLabelStyle}>State<input required style={formInputStyle} value={formData.state} onChange={(e) => setFormData({ ...formData, state: e.target.value })} /></label>
                 </div>
@@ -181,7 +181,7 @@ export default function CommunityBuildGrantPage() {
         </section>
       </main>
       <SharedFooter />
-      <style>{`@media (max-width: 760px) {.community-build-intro,.community-build-purpose,.community-build-boundaries,.community-build-facts,.community-build-actions{grid-template-columns:1fr!important;}}`}</style>
+      <style>{`@media (max-width: 760px) {.community-build-intro,.community-build-purpose,.community-build-boundaries,.community-build-facts,.community-build-actions,.community-build-form-pair{grid-template-columns:1fr!important;}}`}</style>
     </div>
   );
 }
@@ -194,5 +194,5 @@ const sectionLabelStyle = { color: "var(--beacon-teal)", fontFamily: "'Outfit', 
 const sectionTitleStyle = { margin: "0.8rem 0 0", color: "var(--beacon-charcoal)", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(2.4rem, 4vw, 4rem)", lineHeight: 0.99, letterSpacing: "-0.03em" };
 const bodyStyle = { margin: 0, color: "var(--beacon-charcoal-mid)", fontFamily: "'Lora', Georgia, serif", fontSize: "1rem", lineHeight: 1.85 };
 const inlineLinkStyle = { display: "inline-flex", alignItems: "center", gap: "0.45rem", marginTop: "1.25rem", color: "var(--beacon-teal)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" as const };
-const formLabelStyle = { display: "flex", flexDirection: "column" as const, gap: "0.4rem", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.78rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "rgba(250,248,244,0.7)" };
-const formInputStyle = { padding: "0.7rem 0.8rem", background: "rgba(250,248,244,0.08)", border: "1px solid rgba(250,248,244,0.2)", color: "#FAF8F4", fontFamily: "'Lora', Georgia, serif", fontSize: "1rem" };
+const formLabelStyle = { display: "flex", flexDirection: "column" as const, minWidth: 0, gap: "0.4rem", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.78rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "rgba(250,248,244,0.7)" };
+const formInputStyle = { boxSizing: "border-box" as const, minWidth: 0, width: "100%", padding: "0.7rem 0.8rem", background: "rgba(250,248,244,0.08)", border: "1px solid rgba(250,248,244,0.2)", color: "#FAF8F4", fontFamily: "'Lora', Georgia, serif", fontSize: "1rem" };
