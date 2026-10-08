@@ -23,6 +23,18 @@ const RESOURCES_HERO_IMG = "/images/owned/beacon-resources-editorial.png";
 
 const RESOURCES = [
   {
+    icon: Compass,
+    category: "Free Printable Worksheet",
+    title: "The Readiness Map",
+    description:
+      "A four-page practical worksheet for naming one real job, setting a boundary, keeping human judgment visible, and choosing a correction step.",
+    cta: "Get the free map",
+    href: "/ReadinessMap",
+    external: false,
+    color: "#285F61",
+    bg: "#EEF6F4",
+  },
+  {
     icon: Video,
     category: "Video Education",
     title: "Beacon YouTube Channel",

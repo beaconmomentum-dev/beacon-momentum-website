@@ -6,11 +6,15 @@ import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
-import { registerWatchStripeTestWebhook, registerWatchStripeWebhook } from "../payment/watchWebhook";
+import {
+  registerWatchStripeTestWebhook,
+  registerWatchStripeWebhook,
+} from "../payment/watchWebhook";
 import { deliverPendingPaymentNotifications } from "../payment/paymentNotificationOutbox";
+import { registerReadinessMapRoutes } from "../readinessMap";
 
 function isPortAvailable(port: number): Promise<boolean> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const server = net.createServer();
     server.listen(port, () => {
       server.close(() => resolve(true));
@@ -36,12 +40,13 @@ async function startServer() {
   registerWatchStripeTestWebhook(app);
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
+  registerReadinessMapRoutes(app);
   app.use(
     "/api/trpc",
     createExpressMiddleware({
       router: appRouter,
       createContext,
-    })
+    }),
   );
 
   const legacySearch = (req: Request) => {
@@ -74,8 +79,11 @@ async function startServer() {
 
   const preferredPort = parseInt(process.env.PORT || "3000");
   const port = await findAvailablePort(preferredPort);
-  if (port !== preferredPort) console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
-  server.listen(port, () => console.log(`Server running on http://localhost:${port}/`));
+  if (port !== preferredPort)
+    console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
+  server.listen(port, () =>
+    console.log(`Server running on http://localhost:${port}/`),
+  );
 
   // Stripe retries any failed lifecycle persistence itself. This separate outbox
   // loop retries only the downstream Phoenix notification handoff, so a delayed
@@ -87,7 +95,10 @@ async function startServer() {
         console.info("[Payment notification outbox]", result);
       }
     } catch (error) {
-      console.error("[Payment notification outbox] delivery loop failed", error);
+      console.error(
+        "[Payment notification outbox] delivery loop failed",
+        error,
+      );
     }
   };
   void deliverPaymentOutbox();

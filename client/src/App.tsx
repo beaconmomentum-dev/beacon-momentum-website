@@ -27,35 +27,70 @@ const CookiePage = lazy(() => import("./pages/CookiePage"));
 const DisclaimerPage = lazy(() => import("./pages/DisclaimerPage"));
 const PillarSharePage = lazy(() => import("@/pages/PillarSharePage"));
 const ContactPage = lazy(() => import("@/pages/ContactPage"));
-const DigitalGrandpaLibraryPage = lazy(() => import("@/pages/DigitalGrandpaLibraryPage"));
+const DigitalGrandpaLibraryPage = lazy(
+  () => import("@/pages/DigitalGrandpaLibraryPage"),
+);
 const DigitalGrandpaPage = lazy(() => import("@/pages/DigitalGrandpaPage"));
 const BlogPage = lazy(() => import("@/pages/BlogPage"));
 const BlogArticlePage = lazy(() => import("@/pages/BlogArticlePage"));
 const TheWatchPage = lazy(() => import("@/pages/TheWatchPage"));
 const TheWatchCheckoutPage = lazy(() => import("@/pages/TheWatchCheckoutPage"));
-const TheWatchConfirmationPage = lazy(() => import("@/pages/TheWatchConfirmationPage"));
-const TheWatchTestCheckoutPage = lazy(() => import("@/pages/TheWatchTestCheckoutPage"));
-const TheWatchTestConfirmationPage = lazy(() => import("@/pages/TheWatchTestConfirmationPage"));
+const TheWatchConfirmationPage = lazy(
+  () => import("@/pages/TheWatchConfirmationPage"),
+);
+const TheWatchTestCheckoutPage = lazy(
+  () => import("@/pages/TheWatchTestCheckoutPage"),
+);
+const TheWatchTestConfirmationPage = lazy(
+  () => import("@/pages/TheWatchTestConfirmationPage"),
+);
 const TheWatchIntakePage = lazy(() => import("@/pages/TheWatchIntakePage"));
 const CohortDashboardPage = lazy(() => import("@/pages/CohortDashboardPage"));
-const WatchBriefPremiumPage = lazy(() => import("@/pages/WatchBriefPremiumPage"));
+const WatchBriefPremiumPage = lazy(
+  () => import("@/pages/WatchBriefPremiumPage"),
+);
 const HowBeaconWorksPage = lazy(() => import("@/pages/HowBeaconWorksPage"));
 const FoundationYearPage = lazy(() => import("@/pages/FoundationYearPage"));
 const FounderNotePage = lazy(() => import("@/pages/FounderNotePage"));
-const FoundationSupportPage = lazy(() => import("@/pages/FoundationSupportPage"));
-const FoundationSupportThankYouPage = lazy(() => import("@/pages/FoundationSupportThankYouPage"));
-const FiveQuestionsFieldNotePage = lazy(() => import("@/pages/FiveQuestionsFieldNotePage"));
-const ControlledAIWorkflowKitPage = lazy(() => import("@/pages/ControlledAIWorkflowKitPage"));
-const ControlledWorkflowPilotsPage = lazy(() => import("@/pages/ControlledWorkflowPilotsPage"));
-const CommunityBuildGrantPage = lazy(() => import("@/pages/CommunityBuildGrantPage"));
-const CommunityBuildSocialPage = lazy(() => import("@/pages/CommunityBuildSocialPage"));
-const DigitalRampUpFieldNotesIndexPage = lazy(() => import("@/pages/DigitalRampUpFieldNotesIndexPage"));
-const DigitalRampUpFieldNotePage = lazy(() => import("@/pages/DigitalRampUpFieldNotePage"));
+const FoundationSupportPage = lazy(
+  () => import("@/pages/FoundationSupportPage"),
+);
+const FoundationSupportThankYouPage = lazy(
+  () => import("@/pages/FoundationSupportThankYouPage"),
+);
+const FiveQuestionsFieldNotePage = lazy(
+  () => import("@/pages/FiveQuestionsFieldNotePage"),
+);
+const ControlledAIWorkflowKitPage = lazy(
+  () => import("@/pages/ControlledAIWorkflowKitPage"),
+);
+const ControlledWorkflowPilotsPage = lazy(
+  () => import("@/pages/ControlledWorkflowPilotsPage"),
+);
+const CommunityBuildGrantPage = lazy(
+  () => import("@/pages/CommunityBuildGrantPage"),
+);
+const CommunityBuildSocialPage = lazy(
+  () => import("@/pages/CommunityBuildSocialPage"),
+);
+const DigitalRampUpFieldNotesIndexPage = lazy(
+  () => import("@/pages/DigitalRampUpFieldNotesIndexPage"),
+);
+const DigitalRampUpFieldNotePage = lazy(
+  () => import("@/pages/DigitalRampUpFieldNotePage"),
+);
 const ManifestoPage = lazy(() => import("@/pages/ManifestoPage"));
 const ManifestoQAPage = lazy(() => import("@/pages/ManifestoQAPage"));
-const PracticalAISkillsPage = lazy(() => import("@/pages/PracticalAISkillsPage"));
-const AIWorkflowReleaseReadinessKitPage = lazy(() => import("@/pages/AIWorkflowReleaseReadinessKitPage"));
-const StormNavigatorsGuidePage = lazy(() => import("@/pages/StormNavigatorsGuidePage"));
+const PracticalAISkillsPage = lazy(
+  () => import("@/pages/PracticalAISkillsPage"),
+);
+const AIWorkflowReleaseReadinessKitPage = lazy(
+  () => import("@/pages/AIWorkflowReleaseReadinessKitPage"),
+);
+const StormNavigatorsGuidePage = lazy(
+  () => import("@/pages/StormNavigatorsGuidePage"),
+);
+const ReadinessMapPage = lazy(() => import("@/pages/ReadinessMapPage"));
 
 function LegacyBlogIndexRedirect() {
   const [, setLocation] = useLocation();
@@ -64,7 +99,11 @@ function LegacyBlogIndexRedirect() {
     setLocation("/signal", { replace: true });
   }, [setLocation]);
 
-  return <main id="main-content" aria-live="polite">Taking you to The Signal.</main>;
+  return (
+    <main id="main-content" aria-live="polite">
+      Taking you to The Signal.
+    </main>
+  );
 }
 
 function LegacyBlogArticleRedirect() {
@@ -75,7 +114,11 @@ function LegacyBlogArticleRedirect() {
     setLocation(`/signal/${slug}`, { replace: true });
   }, [setLocation, slug]);
 
-  return <main id="main-content" aria-live="polite">Taking you to The Signal.</main>;
+  return (
+    <main id="main-content" aria-live="polite">
+      Taking you to The Signal.
+    </main>
+  );
 }
 
 function RouteMetadataController() {
@@ -86,7 +129,11 @@ function RouteMetadataController() {
 
 function RouteLoading() {
   return (
-    <main id="main-content" aria-live="polite" className="grid min-h-screen place-items-center bg-[#061A29] px-6 text-center text-sm font-semibold uppercase tracking-[0.16em] text-[#D8A94A]">
+    <main
+      id="main-content"
+      aria-live="polite"
+      className="grid min-h-screen place-items-center bg-[#061A29] px-6 text-center text-sm font-semibold uppercase tracking-[0.16em] text-[#D8A94A]"
+    >
       Loading Beacon Momentum…
     </main>
   );
@@ -116,33 +163,71 @@ function Router() {
       <Route path="/signal" component={BlogPage} />
       <Route path="/blog/:slug" component={LegacyBlogArticleRedirect} />
       <Route path="/blog" component={LegacyBlogIndexRedirect} />
-      <Route path="/community-build-grant" component={CommunityBuildGrantPage} />
-      <Route path="/community-build-grant/social" component={CommunityBuildSocialPage} />
+      <Route
+        path="/community-build-grant"
+        component={CommunityBuildGrantPage}
+      />
+      <Route
+        path="/community-build-grant/social"
+        component={CommunityBuildSocialPage}
+      />
       <Route path="/field-notes" component={DigitalRampUpFieldNotesIndexPage} />
       <Route path="/watch-brief-premium" component={WatchBriefPremiumPage} />
       <Route path="/how-beacon-works" component={HowBeaconWorksPage} />
       <Route path="/foundation" component={FoundationYearPage} />
       <Route path="/foundation/founders-note" component={FounderNotePage} />
       <Route path="/foundation/support" component={FoundationSupportPage} />
-      <Route path="/foundation/thank-you" component={FoundationSupportThankYouPage} />
-      <Route path="/field-notes/five-questions-keep-you-in-charge" component={FiveQuestionsFieldNotePage} />
+      <Route
+        path="/foundation/thank-you"
+        component={FoundationSupportThankYouPage}
+      />
+      <Route
+        path="/field-notes/five-questions-keep-you-in-charge"
+        component={FiveQuestionsFieldNotePage}
+      />
       <Route path="/field-notes/:slug" component={DigitalRampUpFieldNotePage} />
       <Route path="/the-watch" component={TheWatchPage} />
-      <Route path="/the-watch/controlled-ai-workflow-kit" component={ControlledAIWorkflowKitPage} />
-      <Route path="/the-watch/controlled-workflow-pilots" component={ControlledWorkflowPilotsPage} />
+      <Route
+        path="/the-watch/controlled-ai-workflow-kit"
+        component={ControlledAIWorkflowKitPage}
+      />
+      <Route
+        path="/the-watch/controlled-workflow-pilots"
+        component={ControlledWorkflowPilotsPage}
+      />
       <Route path="/the-watch/checkout" component={TheWatchCheckoutPage} />
-      <Route path="/the-watch/confirmation" component={TheWatchConfirmationPage} />
-      <Route path="/_ops/the-watch/test-checkout" component={TheWatchTestCheckoutPage} />
-      <Route path="/_ops/the-watch/test-confirmation" component={TheWatchTestConfirmationPage} />
+      <Route
+        path="/the-watch/confirmation"
+        component={TheWatchConfirmationPage}
+      />
+      <Route
+        path="/_ops/the-watch/test-checkout"
+        component={TheWatchTestCheckoutPage}
+      />
+      <Route
+        path="/_ops/the-watch/test-confirmation"
+        component={TheWatchTestConfirmationPage}
+      />
       <Route path="/the-watch/intake" component={TheWatchIntakePage} />
       <Route path="/the-watch/cohort" component={CohortDashboardPage} />
       <Route path="/manifesto/questions" component={ManifestoQAPage} />
       <Route path="/manifesto" component={ManifestoPage} />
-      <Route path="/digital-grandpa/library" component={DigitalGrandpaLibraryPage} />
+      <Route
+        path="/digital-grandpa/library"
+        component={DigitalGrandpaLibraryPage}
+      />
       <Route path="/practical-ai-skills" component={PracticalAISkillsPage} />
-      <Route path="/storm-navigators-guide" component={StormNavigatorsGuidePage} />
-      <Route path="/ai-workflow-release-readiness-kit" component={AIWorkflowReleaseReadinessKitPage} />
+      <Route
+        path="/storm-navigators-guide"
+        component={StormNavigatorsGuidePage}
+      />
+      <Route
+        path="/ai-workflow-release-readiness-kit"
+        component={AIWorkflowReleaseReadinessKitPage}
+      />
       <Route path="/start" component={StarterPackPage} />
+      <Route path="/ReadinessMap" component={ReadinessMapPage} />
+      <Route path="/readiness-map" component={ReadinessMapPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

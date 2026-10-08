@@ -26,6 +26,8 @@ BEACON_STARTUP_VALIDATE_ONLY=1 \
 test -s "$SHARED/index-contract.js"
 test -s "$SHARED/index-contract.css"
 
+"$REPO_ROOT/ops/test-readiness-map-route-contract.sh"
+
 rm -f "$SITE_ROOT/assets/index-contract.css"
 if BEACON_SITE_ROOT="$SITE_ROOT" \
   BEACON_SHARED_ASSET_DIR="$TMP_ROOT/failing-shared" \

@@ -1,5 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
-import { buildGhlUpsertPayload, captureInputSchema, isAllowedOrigin, submitCaptureToGhl } from "./capture";
+import {
+  buildGhlUpsertPayload,
+  captureInputSchema,
+  isAllowedOrigin,
+  submitCaptureToGhl,
+} from "./capture";
 
 describe("public capture relay contract", () => {
   it("owns newsletter tags and source on the server", () => {
@@ -20,6 +25,28 @@ describe("public capture relay contract", () => {
     });
   });
 
+  it("keeps Readiness Map delivery separate from optional marketing consent", () => {
+    const delivery = captureInputSchema.parse({
+      event: "readiness_map_delivery_requested",
+      email: "person@example.com",
+      consentVersion: "readiness-map-v1",
+    });
+    const updates = captureInputSchema.parse({
+      event: "readiness_map_marketing_consent_granted",
+      email: "person@example.com",
+      consentVersion: "readiness-map-v1",
+    });
+
+    expect(buildGhlUpsertPayload(delivery)).toMatchObject({
+      source: "beaconmomentum.com/ReadinessMap",
+      tags: ["BM_Readiness_Map_Delivery_Requested"],
+    });
+    expect(buildGhlUpsertPayload(updates)).toMatchObject({
+      source: "beaconmomentum.com/ReadinessMap",
+      tags: ["BM_Readiness_Map_Updates_Allowed"],
+    });
+  });
+
   it("allow-lists Pathfinder pillars and emits only the derived result field", () => {
     const input = captureInputSchema.parse({
       event: "pathfinder_result",
@@ -32,7 +59,11 @@ describe("public capture relay contract", () => {
       customFields: [{ id: "4KG5TRT5jHFIv4rO7bqg", field_value: "venture" }],
     });
     expect(() =>
-      captureInputSchema.parse({ event: "pathfinder_result", email: "person@example.com", pillar: "unknown" }),
+      captureInputSchema.parse({
+        event: "pathfinder_result",
+        email: "person@example.com",
+        pillar: "unknown",
+      }),
     ).toThrow();
   });
 
@@ -53,7 +84,13 @@ describe("public capture relay contract", () => {
       firstName: "Person",
       lastName: "Example",
       phone: "+1 555 0100",
-      customFields: [{ id: "contact_message_field", field_value: "[Practical AI Skills] Please let me know when enrollment is available." }],
+      customFields: [
+        {
+          id: "contact_message_field",
+          field_value:
+            "[Practical AI Skills] Please let me know when enrollment is available.",
+        },
+      ],
     });
   });
 
@@ -63,8 +100,10 @@ describe("public capture relay contract", () => {
       email: "PERSON@EXAMPLE.COM",
       firstName: "Person",
       audience: "small_team_operator",
-      workflow: "Turn approved research notes into a first client-update draft.",
-      challenge: "We cannot reliably identify incomplete inputs or retain a review record.",
+      workflow:
+        "Turn approved research notes into a first client-update draft.",
+      challenge:
+        "We cannot reliably identify incomplete inputs or retain a review record.",
       stage: "weekly_use",
       paidIntent: "possibly",
       followUpConsent: true,
@@ -73,31 +112,48 @@ describe("public capture relay contract", () => {
       utmCampaign: "readiness-kit-launch",
     });
 
-    expect(buildGhlUpsertPayload(input, "2026-08-27T12:00:00.000Z")).toMatchObject({
+    expect(
+      buildGhlUpsertPayload(input, "2026-08-27T12:00:00.000Z"),
+    ).toMatchObject({
       email: "person@example.com",
       source: "beaconmomentum.com/ai-workflow-release-readiness-kit",
-      tags: ["BM_AI_Workflow_Readiness_Kit", "BM_Practical_AI_Skills", "BM_Consent_One_Followup"],
+      tags: [
+        "BM_AI_Workflow_Readiness_Kit",
+        "BM_Practical_AI_Skills",
+        "BM_Consent_One_Followup",
+      ],
     });
     const payload = buildGhlUpsertPayload(input, "2026-08-27T12:00:00.000Z");
-    expect(payload.customFields?.[0].field_value).toContain("recorded_at=2026-08-27T12:00:00.000Z");
-    expect(payload.customFields?.[0].field_value).toContain("utm_source=youtube");
+    expect(payload.customFields?.[0].field_value).toContain(
+      "recorded_at=2026-08-27T12:00:00.000Z",
+    );
+    expect(payload.customFields?.[0].field_value).toContain(
+      "utm_source=youtube",
+    );
   });
 
   it("does not accept a Readiness Kit inquiry without the specific follow-up permission", () => {
-    expect(() => captureInputSchema.parse({
-      event: "readiness_kit_beta_interest",
-      email: "person@example.com",
-      audience: "small_team_operator",
-      workflow: "Turn approved research notes into a first client-update draft.",
-      challenge: "We cannot reliably identify incomplete inputs or retain a review record.",
-      stage: "weekly_use",
-      paidIntent: "possibly",
-      followUpConsent: false,
-    })).toThrow();
+    expect(() =>
+      captureInputSchema.parse({
+        event: "readiness_kit_beta_interest",
+        email: "person@example.com",
+        audience: "small_team_operator",
+        workflow:
+          "Turn approved research notes into a first client-update draft.",
+        challenge:
+          "We cannot reliably identify incomplete inputs or retain a review record.",
+        stage: "weekly_use",
+        paidIntent: "possibly",
+        followUpConsent: false,
+      }),
+    ).toThrow();
   });
 
   it("maps the Digital Grandpa library waitlist on the server without browser-selected tags", () => {
-    const input = captureInputSchema.parse({ event: "digital_grandpa_library_interest", email: "person@example.com" });
+    const input = captureInputSchema.parse({
+      event: "digital_grandpa_library_interest",
+      email: "person@example.com",
+    });
     expect(buildGhlUpsertPayload(input)).toMatchObject({
       source: "beaconmomentum.com/digital-grandpa/library",
       tags: ["BM_Digital_Grandpa_Library_Waitlist"],
@@ -111,29 +167,54 @@ describe("public capture relay contract", () => {
       firstName: "Person",
       track: "systems",
       entryStage: "sentinel",
-      answers: { current_situation: "building", biggest_obstacle: "Need a smaller operating plan" },
+      answers: {
+        current_situation: "building",
+        biggest_obstacle: "Need a smaller operating plan",
+      },
     });
     expect(buildGhlUpsertPayload(input)).toMatchObject({
       source: "beaconmomentum.com/the-watch/intake",
-      tags: ["BM_Watch_Intake", "BM_Watch_Join", "BM_Watch_Enrollment_Request", "BM_Watch_Sentinel", "BM_Track_Systems"],
+      tags: [
+        "BM_Watch_Intake",
+        "BM_Watch_Join",
+        "BM_Watch_Enrollment_Request",
+        "BM_Watch_Sentinel",
+        "BM_Track_Systems",
+      ],
     });
-    expect(buildGhlUpsertPayload(input).customFields).toEqual(expect.arrayContaining([
+    expect(buildGhlUpsertPayload(input).customFields).toEqual(
+      expect.arrayContaining([
         { id: "watch_intake_track", field_value: "systems" },
         { id: "watch_intake_tier", field_value: "sentinel" },
-    ]));
+      ]),
+    );
   });
 
   it("does not report success when HighLevel returns a non-success status", async () => {
-    const fetchImpl = vi.fn().mockResolvedValue(new Response(JSON.stringify({ message: "rejected" }), { status: 400 }));
-    const input = captureInputSchema.parse({ event: "starter_pack_request", email: "person@example.com" });
+    const fetchImpl = vi
+      .fn()
+      .mockResolvedValue(
+        new Response(JSON.stringify({ message: "rejected" }), { status: 400 }),
+      );
+    const input = captureInputSchema.parse({
+      event: "starter_pack_request",
+      email: "person@example.com",
+    });
 
-    await expect(submitCaptureToGhl(input, { apiKey: "test-key", fetchImpl })).rejects.toThrow("upstream_rejected");
+    await expect(
+      submitCaptureToGhl(input, { apiKey: "test-key", fetchImpl }),
+    ).rejects.toThrow("upstream_rejected");
   });
 
   it("fails closed when no server-only credential has been configured", async () => {
-    const input = captureInputSchema.parse({ event: "starter_pack_request", email: "person@example.com" });
+    const input = captureInputSchema.parse({
+      event: "starter_pack_request",
+      email: "person@example.com",
+    });
 
-    await expect(submitCaptureToGhl(input, { apiKey: "" })).rejects.toThrow("not_configured");
+    await expect(submitCaptureToGhl(input, { apiKey: "" })).rejects.toThrow(
+      "not_configured",
+    );
   });
 
   it("requires an approved browser origin in production", () => {
@@ -144,10 +225,19 @@ describe("public capture relay contract", () => {
   });
 
   it("uses the server credential only in the outbound request", async () => {
-    const fetchImpl = vi.fn().mockResolvedValue(new Response(JSON.stringify({ succeeded: true }), { status: 200 }));
-    const input = captureInputSchema.parse({ event: "watch_join", email: "person@example.com" });
+    const fetchImpl = vi
+      .fn()
+      .mockResolvedValue(
+        new Response(JSON.stringify({ succeeded: true }), { status: 200 }),
+      );
+    const input = captureInputSchema.parse({
+      event: "watch_join",
+      email: "person@example.com",
+    });
 
-    await expect(submitCaptureToGhl(input, { apiKey: "test-key", fetchImpl })).resolves.toBeUndefined();
+    await expect(
+      submitCaptureToGhl(input, { apiKey: "test-key", fetchImpl }),
+    ).resolves.toBeUndefined();
     expect(fetchImpl).toHaveBeenCalledWith(
       "https://services.leadconnectorhq.com/contacts/upsert",
       expect.objectContaining({

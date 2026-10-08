@@ -5,11 +5,12 @@
  * This prevents a broken build from ever reaching production.
  */
 
-import { config } from 'dotenv'; config();
+import { config } from "dotenv";
+config();
 // Required for the CLIENT build (baked into the JS bundle at build time)
 const REQUIRED_CLIENT = [
-  "VITE_OAUTH_PORTAL_URL",   // OAuth portal URL (e.g. https://app.beaconmomentum.com)
-  "VITE_APP_ID",             // App identifier for Manus OAuth
+  "VITE_OAUTH_PORTAL_URL", // OAuth portal URL (e.g. https://app.beaconmomentum.com)
+  "VITE_APP_ID", // App identifier for Manus OAuth
 ];
 
 // Required for the SERVER at runtime (checked here so a misconfigured deploy is caught early)
@@ -38,7 +39,7 @@ const OPTIONAL = [
 let failed = false;
 
 const missing = [...REQUIRED_CLIENT, ...REQUIRED_SERVER].filter(
-  (k) => !process.env[k] || process.env[k].trim() === ""
+  (k) => !process.env[k] || process.env[k].trim() === "",
 );
 
 // GHL_API_KEY is the required server-side name. Existing production hosts that
@@ -50,20 +51,24 @@ if (!process.env.GHL_API_KEY && !process.env.VITE_GHL_API_KEY) {
 }
 
 if (missing.length > 0) {
-  console.error("\n❌  BUILD ABORTED — Missing required environment variables:\n");
+  console.error(
+    "\n❌  BUILD ABORTED — Missing required environment variables:\n",
+  );
   missing.forEach((k) => console.error(`   • ${k}`));
   console.error(
-    "\n   Copy .env.example to .env and fill in the missing values, then retry.\n"
+    "\n   Copy .env.example to .env and fill in the missing values, then retry.\n",
   );
   failed = true;
 }
 
 // Warn about VITE_ vars that are set to placeholder strings (common copy-paste mistake)
 const placeholders = [...REQUIRED_CLIENT].filter(
-  (k) => process.env[k] && process.env[k].includes("%VITE_")
+  (k) => process.env[k] && process.env[k].includes("%VITE_"),
 );
 if (placeholders.length > 0) {
-  console.error("\n❌  BUILD ABORTED — These vars still contain unsubstituted placeholders:\n");
+  console.error(
+    "\n❌  BUILD ABORTED — These vars still contain unsubstituted placeholders:\n",
+  );
   placeholders.forEach((k) => console.error(`   • ${k} = ${process.env[k]}`));
   failed = true;
 }
@@ -72,4 +77,6 @@ if (failed) {
   process.exit(1);
 }
 
-console.log("✅  All required environment variables are present. Proceeding with build.\n");
+console.log(
+  "✅  All required environment variables are present. Proceeding with build.\n",
+);

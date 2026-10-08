@@ -136,6 +136,16 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       "Review the Beacon Momentum membership and program paths with clear scope, access, and public disclosures.",
   },
+  "/ReadinessMap": {
+    title: "The Readiness Map",
+    description:
+      "A free printable worksheet to map one real job, set a boundary, keep human judgment visible, and choose a practical next step.",
+  },
+  "/readiness-map": {
+    title: "The Readiness Map",
+    description:
+      "A free printable worksheet to map one real job, set a boundary, keep human judgment visible, and choose a practical next step.",
+  },
   "/privacy": {
     title: "Privacy Policy",
     description:

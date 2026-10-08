@@ -62,4 +62,16 @@ if ! file "$tmp_file" | grep -Fq 'PDF document'; then
   exit 1
 fi
 
-printf 'Installed and verified Beacon Momentum downloads route: %s\n' "$origin_url"
+api_status="$(curl -ksS --resolve beaconmomentum.com:443:127.0.0.1 --max-time 20 \
+  -o /dev/null -w '%{http_code}' \
+  -X POST \
+  -H 'Origin: https://beaconmomentum.com' \
+  -H 'Content-Type: application/json' \
+  --data '{"email":"not-an-email"}' \
+  'https://beaconmomentum.com/api/readiness-map/request')"
+if [[ "$api_status" != "400" ]]; then
+  echo "ERROR: Readiness Map broker did not return expected validation response: $api_status" >&2
+  exit 1
+fi
+
+printf 'Installed and verified Beacon Momentum downloads and Readiness Map broker routes.\n'

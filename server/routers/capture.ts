@@ -27,7 +27,7 @@ const optionalFirstNameSchema = z
   .trim()
   .max(80)
   .optional()
-  .transform(value => value || undefined);
+  .transform((value) => value || undefined);
 
 const commonCaptureFields = {
   email: emailSchema,
@@ -45,6 +45,16 @@ export const captureInputSchema = z.discriminatedUnion("event", [
   z.object({
     ...commonCaptureFields,
     event: z.literal("starter_pack_request"),
+  }),
+  z.object({
+    ...commonCaptureFields,
+    /** Transactional-only Readiness Map delivery event. */
+    event: z.literal("readiness_map_delivery_requested"),
+  }),
+  z.object({
+    ...commonCaptureFields,
+    /** Explicit optional-marketing permission, never implied by delivery. */
+    event: z.literal("readiness_map_marketing_consent_granted"),
   }),
   z.object({
     ...commonCaptureFields,
@@ -70,10 +80,22 @@ export const captureInputSchema = z.discriminatedUnion("event", [
   z.object({
     ...commonCaptureFields,
     event: z.literal("readiness_kit_beta_interest"),
-    audience: z.enum(["independent_professional", "small_team_operator", "agency_or_studio", "internal_builder", "educator_or_researcher", "other"]),
+    audience: z.enum([
+      "independent_professional",
+      "small_team_operator",
+      "agency_or_studio",
+      "internal_builder",
+      "educator_or_researcher",
+      "other",
+    ]),
     workflow: z.string().trim().min(15).max(1200),
     challenge: z.string().trim().min(15).max(1200),
-    stage: z.enum(["testing_ideas", "occasional_use", "weekly_use", "frequent_cautious_use"]),
+    stage: z.enum([
+      "testing_ideas",
+      "occasional_use",
+      "weekly_use",
+      "frequent_cautious_use",
+    ]),
     paidIntent: z.enum(["yes", "possibly", "not_now"]),
     followUpConsent: z.literal(true),
     utmSource: z.string().trim().max(80).optional(),
@@ -90,7 +112,9 @@ export const captureInputSchema = z.discriminatedUnion("event", [
     event: z.literal("watch_intake_submission"),
     track: z.enum(["transition", "builder", "systems", "legacy"]),
     entryStage: z.literal("sentinel"),
-    answers: z.record(z.string().trim().min(1).max(80), z.string().trim().max(1200)).refine(value => Object.keys(value).length <= 12),
+    answers: z
+      .record(z.string().trim().min(1).max(80), z.string().trim().max(1200))
+      .refine((value) => Object.keys(value).length <= 12),
   }),
 ]);
 
@@ -124,7 +148,10 @@ type RelayOptions = {
   fetchImpl?: typeof fetch;
 };
 
-type CaptureFailureReason = "not_configured" | "upstream_rejected" | "upstream_unavailable";
+type CaptureFailureReason =
+  | "not_configured"
+  | "upstream_rejected"
+  | "upstream_unavailable";
 
 class CaptureRelayError extends Error {
   constructor(readonly reason: CaptureFailureReason) {
@@ -136,7 +163,10 @@ class CaptureRelayError extends Error {
  * The source and tags are intentionally derived here rather than accepted from
  * the browser. New public form types require an explicit code review addition.
  */
-export function buildGhlUpsertPayload(input: CaptureInput, recordedAt = new Date().toISOString()): GhlUpsertPayload {
+export function buildGhlUpsertPayload(
+  input: CaptureInput,
+  recordedAt = new Date().toISOString(),
+): GhlUpsertPayload {
   const payload: GhlUpsertPayload = {
     email: input.email,
     locationId: BEACON_MOMENTUM_LOCATION_ID,
@@ -163,11 +193,28 @@ export function buildGhlUpsertPayload(input: CaptureInput, recordedAt = new Date
         source: "beaconmomentum.com/start",
         tags: ["BM_Starter_Pack", "BM_YouTube_Optin"],
       };
+    case "readiness_map_delivery_requested":
+      return {
+        ...payload,
+        source: "beaconmomentum.com/ReadinessMap",
+        // Transactional-only tag. It is intentionally distinct from marketing consent.
+        tags: ["BM_Readiness_Map_Delivery_Requested"],
+      };
+    case "readiness_map_marketing_consent_granted":
+      return {
+        ...payload,
+        source: "beaconmomentum.com/ReadinessMap",
+        // Added only after the optional checkbox was affirmatively selected.
+        tags: ["BM_Readiness_Map_Updates_Allowed"],
+      };
     case "pathfinder_result":
       return {
         ...payload,
         source: "beaconmomentum.com/assessment",
-        tags: ["BM_Pathfinder", `BM_Path_${input.pillar.charAt(0).toUpperCase()}${input.pillar.slice(1)}`],
+        tags: [
+          "BM_Pathfinder",
+          `BM_Path_${input.pillar.charAt(0).toUpperCase()}${input.pillar.slice(1)}`,
+        ],
         customFields: [
           {
             id: "4KG5TRT5jHFIv4rO7bqg",
@@ -200,16 +247,23 @@ export function buildGhlUpsertPayload(input: CaptureInput, recordedAt = new Date
         ],
       };
     case "readiness_kit_beta_interest": {
-      const attribution = [
-        input.utmSource && `utm_source=${input.utmSource}`,
-        input.utmMedium && `utm_medium=${input.utmMedium}`,
-        input.utmCampaign && `utm_campaign=${input.utmCampaign}`,
-        input.utmContent && `utm_content=${input.utmContent}`,
-      ].filter(Boolean).join("; ") || "none";
+      const attribution =
+        [
+          input.utmSource && `utm_source=${input.utmSource}`,
+          input.utmMedium && `utm_medium=${input.utmMedium}`,
+          input.utmCampaign && `utm_campaign=${input.utmCampaign}`,
+          input.utmContent && `utm_content=${input.utmContent}`,
+        ]
+          .filter(Boolean)
+          .join("; ") || "none";
       return {
         ...payload,
         source: "beaconmomentum.com/ai-workflow-release-readiness-kit",
-        tags: ["BM_AI_Workflow_Readiness_Kit", "BM_Practical_AI_Skills", "BM_Consent_One_Followup"],
+        tags: [
+          "BM_AI_Workflow_Readiness_Kit",
+          "BM_Practical_AI_Skills",
+          "BM_Consent_One_Followup",
+        ],
         customFields: [
           {
             id: "contact_message_field",
@@ -243,11 +297,20 @@ export function buildGhlUpsertPayload(input: CaptureInput, recordedAt = new Date
       return {
         ...payload,
         source: "beaconmomentum.com/the-watch/intake",
-        tags: ["BM_Watch_Intake", "BM_Watch_Join", "BM_Watch_Enrollment_Request", "BM_Watch_Sentinel", trackTags[input.track]],
+        tags: [
+          "BM_Watch_Intake",
+          "BM_Watch_Join",
+          "BM_Watch_Enrollment_Request",
+          "BM_Watch_Sentinel",
+          trackTags[input.track],
+        ],
         customFields: [
           { id: "watch_intake_track", field_value: input.track },
           { id: "watch_intake_tier", field_value: input.entryStage },
-          { id: "watch_intake_answers", field_value: JSON.stringify(input.answers) },
+          {
+            id: "watch_intake_answers",
+            field_value: JSON.stringify(input.answers),
+          },
         ],
       };
     }
@@ -291,7 +354,9 @@ export async function submitCaptureToGhl(
     throw new CaptureRelayError("upstream_rejected");
   }
 
-  const body = (await response.json().catch(() => null)) as GhlUpsertResponse | null;
+  const body = (await response
+    .json()
+    .catch(() => null)) as GhlUpsertResponse | null;
   if (!body || (body.succeeded !== true && body.succeded !== true)) {
     throw new CaptureRelayError("upstream_rejected");
   }
@@ -313,7 +378,10 @@ function consumeRateLimit(key: string, now: number): boolean {
 
   const existing = rateLimitBuckets.get(key);
   if (!existing || existing.resetAt <= now) {
-    rateLimitBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    rateLimitBuckets.set(key, {
+      count: 1,
+      resetAt: now + RATE_LIMIT_WINDOW_MS,
+    });
     return true;
   }
   if (existing.count >= RATE_LIMIT_MAX_EVENTS) return false;
@@ -321,13 +389,18 @@ function consumeRateLimit(key: string, now: number): boolean {
   return true;
 }
 
-function clientIdentifier(headers: Record<string, string | string[] | undefined>): string {
+function clientIdentifier(
+  headers: Record<string, string | string[] | undefined>,
+): string {
   const forwarded = headers["cf-connecting-ip"] ?? headers["x-forwarded-for"];
   const raw = Array.isArray(forwarded) ? forwarded[0] : forwarded;
   return raw?.split(",")[0]?.trim() || "unknown";
 }
 
-export function isAllowedOrigin(origin: string | undefined, isProduction = ENV.isProduction): boolean {
+export function isAllowedOrigin(
+  origin: string | undefined,
+  isProduction = ENV.isProduction,
+): boolean {
   if (!origin) return !isProduction;
   const productionOrigins = new Set([
     "https://beaconmomentum.com",
@@ -339,8 +412,12 @@ export function isAllowedOrigin(origin: string | undefined, isProduction = ENV.i
   return !isProduction && /^http:\/\/localhost(?::\d+)?$/.test(origin);
 }
 
-function publicCaptureError(reason: CaptureFailureReason, requestId: string): TRPCError {
-  const code = reason === "upstream_rejected" ? "BAD_REQUEST" : "SERVICE_UNAVAILABLE";
+function publicCaptureError(
+  reason: CaptureFailureReason,
+  requestId: string,
+): TRPCError {
+  const code =
+    reason === "upstream_rejected" ? "BAD_REQUEST" : "SERVICE_UNAVAILABLE";
   return new TRPCError({
     code,
     message: `We could not receive that request right now. Please try again later. Reference: ${requestId}`,
@@ -348,31 +425,53 @@ function publicCaptureError(reason: CaptureFailureReason, requestId: string): TR
 }
 
 export const captureRouter = router({
-  submit: publicProcedure.input(captureInputSchema).mutation(async ({ input, ctx }) => {
-    const requestId = randomUUID();
-    const origin = ctx.req.get("origin");
-    if (!isAllowedOrigin(origin)) {
-      console.warn("[capture] rejected disallowed origin", { requestId, event: input.event });
-      throw new TRPCError({ code: "FORBIDDEN", message: "This request origin is not allowed." });
-    }
+  submit: publicProcedure
+    .input(captureInputSchema)
+    .mutation(async ({ input, ctx }) => {
+      const requestId = randomUUID();
+      const origin = ctx.req.get("origin");
+      if (!isAllowedOrigin(origin)) {
+        console.warn("[capture] rejected disallowed origin", {
+          requestId,
+          event: input.event,
+        });
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "This request origin is not allowed.",
+        });
+      }
 
-    const rateLimitKey = `${clientIdentifier(ctx.req.headers)}:${input.event}`;
-    if (!consumeRateLimit(rateLimitKey, Date.now())) {
-      console.warn("[capture] rejected rate-limited request", { requestId, event: input.event });
-      throw new TRPCError({
-        code: "TOO_MANY_REQUESTS",
-        message: "Please wait a few minutes before trying again.",
-      });
-    }
+      const rateLimitKey = `${clientIdentifier(ctx.req.headers)}:${input.event}`;
+      if (!consumeRateLimit(rateLimitKey, Date.now())) {
+        console.warn("[capture] rejected rate-limited request", {
+          requestId,
+          event: input.event,
+        });
+        throw new TRPCError({
+          code: "TOO_MANY_REQUESTS",
+          message: "Please wait a few minutes before trying again.",
+        });
+      }
 
-    try {
-      await submitCaptureToGhl(input);
-      console.info("[capture] accepted", { requestId, event: input.event, consentVersion: input.consentVersion });
-      return { success: true, requestId };
-    } catch (error) {
-      const reason = error instanceof CaptureRelayError ? error.reason : "upstream_unavailable";
-      console.warn("[capture] upstream delivery failed", { requestId, event: input.event, reason });
-      throw publicCaptureError(reason, requestId);
-    }
-  }),
+      try {
+        await submitCaptureToGhl(input);
+        console.info("[capture] accepted", {
+          requestId,
+          event: input.event,
+          consentVersion: input.consentVersion,
+        });
+        return { success: true, requestId };
+      } catch (error) {
+        const reason =
+          error instanceof CaptureRelayError
+            ? error.reason
+            : "upstream_unavailable";
+        console.warn("[capture] upstream delivery failed", {
+          requestId,
+          event: input.event,
+          reason,
+        });
+        throw publicCaptureError(reason, requestId);
+      }
+    }),
 });

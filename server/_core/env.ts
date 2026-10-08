@@ -21,13 +21,18 @@ export const ENV = {
   /** Server-only Stripe test-mode credentials used exclusively by the internal Watch lifecycle verification path. */
   stripeTestSecretKey: process.env.STRIPE_TEST_SECRET_KEY ?? "",
   stripeTestPublishableKey: process.env.STRIPE_TEST_PUBLISHABLE_KEY ?? "",
-  stripeTestWatchAnnualPriceId: process.env.STRIPE_TEST_WATCH_ANNUAL_PRICE_ID ?? "",
-  stripeTestWatchWebhookSecret: process.env.STRIPE_TEST_WATCH_WEBHOOK_SECRET ?? "",
-  /** SendGrid API key for transactional email notifications. */
+  stripeTestWatchAnnualPriceId:
+    process.env.STRIPE_TEST_WATCH_ANNUAL_PRICE_ID ?? "",
+  stripeTestWatchWebhookSecret:
+    process.env.STRIPE_TEST_WATCH_WEBHOOK_SECRET ?? "",
+  /** SendGrid API key for other existing transactional notifications. */
   sendgridApiKey: process.env.SENDGRID_API_KEY ?? "",
   /** Admin email for system notifications (defaults to support@beaconmomentum.com). */
-  adminNotificationEmail: process.env.ADMIN_NOTIFICATION_EMAIL ?? "support@beaconmomentum.com",
+  adminNotificationEmail:
+    process.env.ADMIN_NOTIFICATION_EMAIL ?? "support@beaconmomentum.com",
   /** Protected machine-to-machine Phoenix intake for durable payment lifecycle notifications. */
-  phoenixPaymentNotificationUrl: process.env.PHOENIX_PAYMENT_NOTIFICATION_URL ?? "",
-  phoenixPaymentNotificationToken: process.env.PHOENIX_PAYMENT_NOTIFICATION_TOKEN ?? "",
+  phoenixPaymentNotificationUrl:
+    process.env.PHOENIX_PAYMENT_NOTIFICATION_URL ?? "",
+  phoenixPaymentNotificationToken:
+    process.env.PHOENIX_PAYMENT_NOTIFICATION_TOKEN ?? "",
 };
