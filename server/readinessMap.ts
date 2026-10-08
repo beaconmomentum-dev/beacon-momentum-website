@@ -7,6 +7,7 @@ import {
   isAllowedOrigin,
   submitCaptureToGhl,
 } from "./routers/capture";
+import { sendReadinessMapDelivery } from "./readinessMapEmail";
 
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 6;
@@ -135,6 +136,25 @@ export function registerReadinessMapRoutes(app: Express) {
     } catch (error) {
       const reason = error instanceof Error ? error.message : "unknown";
       console.warn("[readiness-map] request failed", { reason });
+      publicError(
+        res,
+        503,
+        "The worksheet could not be sent right now. Please try again shortly or contact support@beaconmomentum.com.",
+      );
+      return;
+    }
+
+    try {
+      // SendGrid delivers the requested worksheet directly. HighLevel remains
+      // the consent/tag system of record and its transactional workflow stays
+      // disabled to prevent duplicate sends.
+      await sendReadinessMapDelivery({
+        email: input.email,
+        firstName: input.firstName,
+      });
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : "unknown";
+      console.warn("[readiness-map] transactional email failed", { reason });
       publicError(
         res,
         503,
