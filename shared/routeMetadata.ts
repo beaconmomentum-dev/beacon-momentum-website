@@ -172,6 +172,12 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
       "A practical Beacon Signal guide for separating AI features, demonstrations, reported results, and claims that still need proof.",
     type: "article",
   },
+  "/signal/can-this-agent-do-it-or-may-it-do-it": {
+    title: "Can This Agent Do It—or May It Do It?",
+    description:
+      "Before an AI agent reads, drafts, or acts across connected tools, separate technical capability from permission, review, and responsibility.",
+    type: "article",
+  },
   "/signal/before-you-connect-an-app": {
     title: "Before You Connect an App",
     description:

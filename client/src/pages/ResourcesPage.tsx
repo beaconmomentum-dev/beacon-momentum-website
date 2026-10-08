@@ -72,6 +72,18 @@ const RESOURCES = [
   },
   {
     icon: ShieldCheck,
+    category: "Agent Authority Briefing",
+    title: "Can This Agent Do It—or May It Do It?",
+    description:
+      "A practical decision frame for defining an agent’s bounded job, necessary information, human-owned decisions, and stop path before a connection is made.",
+    cta: "Read the briefing",
+    href: "/signal/can-this-agent-do-it-or-may-it-do-it",
+    external: false,
+    color: "#3D5A80",
+    bg: "#F0F4F8",
+  },
+  {
+    icon: ShieldCheck,
     category: "Public Field Note",
     title: "Five Questions That Keep You in Charge",
     description:

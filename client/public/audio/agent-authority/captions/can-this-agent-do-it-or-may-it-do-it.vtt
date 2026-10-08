@@ -1,0 +1,617 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.185
+Can This Agent Do It—or May It Do It? A
+
+2
+00:00:03.185 --> 00:00:06.371
+new generation of AI agents can inspect connected information, prepare
+
+3
+00:00:06.371 --> 00:00:09.556
+documents, update a plan, draft a message, and keep working
+
+4
+00:00:09.556 --> 00:00:12.742
+after you close the tab. That is a real change
+
+5
+00:00:12.742 --> 00:00:15.927
+in what software can attempt. But it creates a question
+
+6
+00:00:15.927 --> 00:00:19.113
+more important than the demo: Can this agent do the
+
+7
+00:00:19.113 --> 00:00:22.298
+work—or may it do the work? Those are not the
+
+8
+00:00:22.298 --> 00:00:25.484
+same thing. An agent may be technically capable of reading
+
+9
+00:00:25.484 --> 00:00:28.669
+an inbox, preparing a proposal, updating a record, or drafting
+
+10
+00:00:28.669 --> 00:00:31.855
+a post. That does not mean it has permission to
+
+11
+00:00:31.855 --> 00:00:35.040
+see the information, authority to make the decision, or clearance
+
+12
+00:00:35.040 --> 00:00:38.226
+to take the action. The moment an agent is connected
+
+13
+00:00:38.226 --> 00:00:41.411
+to real work, it can touch more than a task.
+
+14
+00:00:41.411 --> 00:00:44.597
+It can touch trust, customer relationships, private information, money, commitments,
+
+15
+00:00:44.597 --> 00:00:47.782
+and the record of what happened. The purpose of a
+
+16
+00:00:47.782 --> 00:00:50.967
+control is not to make us afraid of new tools.
+
+17
+00:00:50.967 --> 00:00:54.153
+It is to help us see where responsibility still belongs.
+
+18
+00:00:54.153 --> 00:00:57.338
+Capability is not authority Vendor announcements can establish what a
+
+19
+00:00:57.338 --> 00:01:00.524
+product is designed to do. They do not establish that
+
+20
+00:01:00.524 --> 00:01:03.709
+the product is appropriate for every task, every organization, or
+
+21
+00:01:03.709 --> 00:01:06.895
+every set of information. OpenAI’s current Dots documentation describes agents
+
+22
+00:01:06.895 --> 00:01:10.080
+with cloud computers that can work with connected applications. It
+
+23
+00:01:10.080 --> 00:01:13.266
+says background research uses restricted read-only tools, while other actions
+
+24
+00:01:13.266 --> 00:01:16.451
+are governed by permissions, rules, review, and approval paths. Meta’s
+
+25
+00:01:16.451 --> 00:01:19.637
+Muse announcement describes an agent running in a dedicated virtual
+
+26
+00:01:19.637 --> 00:01:22.822
+machine. Meta says people choose which applications it can access,
+
+27
+00:01:22.822 --> 00:01:26.008
+can set an access level, and are asked before certain
+
+28
+00:01:26.008 --> 00:01:29.193
+sensitive actions such as sending an email or making a
+
+29
+00:01:29.193 --> 00:01:32.379
+purchase. Salesforce describes Salesforce in Claude as operating through the
+
+30
+00:01:32.379 --> 00:01:35.564
+permissions and business rules an organization already uses, with organization-controlled
+
+31
+00:01:35.564 --> 00:01:38.750
+checks for write actions and external communications. Those are meaningful
+
+32
+00:01:38.750 --> 00:01:41.935
+product conditions. They are not proof that an agent will
+
+33
+00:01:41.935 --> 00:01:45.120
+be correct, that a process will be safe, or that
+
+34
+00:01:45.120 --> 00:01:48.306
+a particular organization has made a wise connection. A product
+
+35
+00:01:48.306 --> 00:01:51.491
+can be able to do something and still need a
+
+36
+00:01:51.491 --> 00:01:54.677
+human decision before it is allowed to do it. The
+
+37
+00:01:54.677 --> 00:01:57.862
+four questions before a connection 1. What is the bounded
+
+38
+00:01:57.862 --> 00:02:01.048
+job? “Help with operations” is not a job. “Manage the
+
+39
+00:02:01.048 --> 00:02:04.233
+business” is not a job. Both are invitations to ambiguity.
+
+40
+00:02:04.233 --> 00:02:07.419
+A bounded job describes a clear input, a visible output,
+
+41
+00:02:07.419 --> 00:02:10.604
+and a stopping point. Too broad “Handle our customer email.”
+
+42
+00:02:10.604 --> 00:02:13.790
+Bounded instead Prepare a draft summary of three approved public
+
+43
+00:02:13.790 --> 00:02:16.975
+support themes. Do not send anything. Too broad “Run our
+
+44
+00:02:16.975 --> 00:02:20.161
+content.” Bounded instead Turn an approved transcript into a draft
+
+45
+00:02:20.161 --> 00:02:23.346
+outline and three draft post options. Do not publish or
+
+46
+00:02:23.346 --> 00:02:26.532
+schedule. Too broad “Fix our CRM.” Bounded instead Identify duplicate
+
+47
+00:02:26.532 --> 00:02:29.717
+records in a non-production copy and flag them for a
+
+48
+00:02:29.717 --> 00:02:32.902
+human reviewer. Do not change records. The smaller version may
+
+49
+00:02:32.902 --> 00:02:36.088
+feel less dramatic. That is the point. A bounded job
+
+50
+00:02:36.088 --> 00:02:39.273
+allows someone to inspect what happened, find errors, and decide
+
+51
+00:02:39.273 --> 00:02:42.459
+whether the next step is appropriate. 2. What information is
+
+52
+00:02:42.459 --> 00:02:45.644
+necessary? A connection is not a blank check. If an
+
+53
+00:02:45.644 --> 00:02:48.830
+agent is preparing a draft from an approved public transcript,
+
+54
+00:02:48.830 --> 00:02:52.015
+it does not need access to a full mailbox, a
+
+55
+00:02:52.015 --> 00:02:55.201
+customer database, payment records, or private team conversations. If a
+
+56
+00:02:55.201 --> 00:02:58.386
+task can be tested with synthetic, public, or expressly authorized
+
+57
+00:02:58.386 --> 00:03:01.572
+non-sensitive information, start there. The National Institute of Standards and
+
+58
+00:03:01.572 --> 00:03:04.757
+Technology describes its AI Risk Management Framework as voluntary guidance
+
+59
+00:03:04.757 --> 00:03:07.943
+for incorporating trustworthiness considerations into the design, use, and evaluation
+
+60
+00:03:07.943 --> 00:03:11.128
+of AI systems. In plain language: name the purpose, understand
+
+61
+00:03:11.128 --> 00:03:14.314
+the risk, and do not hand a system more access
+
+62
+00:03:14.314 --> 00:03:17.499
+than the work requires. What exact information does this task
+
+63
+00:03:17.499 --> 00:03:20.684
+require? What information is useful but not necessary? Who has
+
+64
+00:03:20.684 --> 00:03:23.870
+authority to grant access? What is retained, remembered, logged, or
+
+65
+00:03:23.870 --> 00:03:27.055
+sent to another service? What happens to material already seen
+
+66
+00:03:27.055 --> 00:03:30.241
+if the connection is later removed? The answer should be
+
+67
+00:03:30.241 --> 00:03:33.426
+written down before the connection, not reconstructed after a problem.
+
+68
+00:03:33.426 --> 00:03:36.612
+3. Which decisions stay human-owned? A human approval step is
+
+69
+00:03:36.612 --> 00:03:39.797
+valuable only when the person can meaningfully review the work,
+
+70
+00:03:39.797 --> 00:03:42.983
+say no, and understand the consequence of saying yes. Decisions
+
+71
+00:03:42.983 --> 00:03:46.168
+that create a commitment, financial consequence, relationship consequence, or hard-to-reverse
+
+72
+00:03:46.168 --> 00:03:49.354
+change should remain human-owned. Sending an external message; Accepting or
+
+73
+00:03:49.354 --> 00:03:52.539
+changing a contract, price, or promise; Spending money or authorizing
+
+74
+00:03:52.539 --> 00:03:55.725
+payment; Changing permissions, passwords, or account access; Changing customer records
+
+75
+00:03:55.725 --> 00:03:58.910
+or contact preferences; and Publishing, scheduling, or promoting public content.
+
+76
+00:03:58.910 --> 00:04:02.096
+A useful agent reduces the searching and assembling a person
+
+77
+00:04:02.096 --> 00:04:05.281
+must do. It does not remove the responsibility to decide.
+
+78
+00:04:05.281 --> 00:04:08.467
+4. What is the stop path? Every test needs a
+
+79
+00:04:08.467 --> 00:04:11.652
+way to pause, review, and reverse course. Before an agent
+
+80
+00:04:11.652 --> 00:04:14.837
+works in a live environment, identify the person who owns
+
+81
+00:04:14.837 --> 00:04:18.023
+the task, the person who can pause or disconnect it,
+
+82
+00:04:18.023 --> 00:04:21.208
+the activity record that will be reviewed, the actions requiring
+
+83
+00:04:21.208 --> 00:04:24.394
+approval, the action that cannot be delegated, and the condition
+
+84
+00:04:24.394 --> 00:04:27.579
+that ends the test. If no one can explain how
+
+85
+00:04:27.579 --> 00:04:30.765
+the work can be paused, checked, or corrected, the system
+
+86
+00:04:30.765 --> 00:04:33.950
+is not ready for a larger role. Approval is not
+
+87
+00:04:33.950 --> 00:04:37.136
+the whole control system It is tempting to believe an
+
+88
+00:04:37.136 --> 00:04:40.321
+approval button solves the problem. It does not solve every
+
+89
+00:04:40.321 --> 00:04:43.507
+problem. An approval step may come too late if an
+
+90
+00:04:43.507 --> 00:04:46.692
+agent has already gathered unnecessary information. It may be too
+
+91
+00:04:46.692 --> 00:04:49.878
+shallow if the reviewer cannot see the sources used. It
+
+92
+00:04:49.878 --> 00:04:53.063
+may be ineffective if the person approving is rushed, lacks
+
+93
+00:04:53.063 --> 00:04:56.249
+context, or has no practical ability to reject the work.
+
+94
+00:04:56.249 --> 00:04:59.434
+Purpose What is the agent allowed to accomplish? Scope Which
+
+95
+00:04:59.434 --> 00:05:02.619
+systems and information may it use? Authority Which action can
+
+96
+00:05:02.619 --> 00:05:05.805
+it take alone, and which must return to a named
+
+97
+00:05:05.805 --> 00:05:08.990
+person? Evidence Can a reviewer see what shaped the output?
+
+98
+00:05:08.990 --> 00:05:12.176
+Record and stop path Can the team reconstruct what happened,
+
+99
+00:05:12.176 --> 00:05:15.361
+pause the work, correct it, or end it? This is
+
+100
+00:05:15.361 --> 00:05:18.547
+not bureaucracy for its own sake. It is how a
+
+101
+00:05:18.547 --> 00:05:21.732
+team preserves responsibility while using a more capable tool. A
+
+102
+00:05:21.732 --> 00:05:24.918
+small test is not a weak test Choose one non-consequential
+
+103
+00:05:24.918 --> 00:05:28.103
+job. Start with a draft, comparison, or research note—not an
+
+104
+00:05:28.103 --> 00:05:31.289
+external action. Set the baseline. Describe today’s process and the
+
+105
+00:05:31.289 --> 00:05:34.474
+quality criteria, reviewer effort, error types, and exceptions that matter.
+
+106
+00:05:34.474 --> 00:05:37.660
+Use limited information. Use synthetic, public, or expressly authorized non-sensitive
+
+107
+00:05:37.660 --> 00:05:40.845
+material whenever possible. Set the rules in writing. State what
+
+108
+00:05:40.845 --> 00:05:44.031
+the agent may read, what it may draft, what it
+
+109
+00:05:44.031 --> 00:05:47.216
+must not change, and what returns for review. Keep a
+
+110
+00:05:47.216 --> 00:05:50.401
+record. Retain the source materials, outputs, review comments, and changes
+
+111
+00:05:50.401 --> 00:05:53.587
+made because of the test. Decide from evidence. Keep the
+
+112
+00:05:53.587 --> 00:05:56.772
+scope, revise it, pause it, or stop it. One good
+
+113
+00:05:56.772 --> 00:05:59.958
+result is not a general claim about every task. This
+
+114
+00:05:59.958 --> 00:06:03.143
+kind of pilot does not promise a saving, a staffing
+
+115
+00:06:03.143 --> 00:06:06.329
+outcome, or a performance result. It gives a team something
+
+116
+00:06:06.329 --> 00:06:09.514
+more durable: evidence about one clearly defined piece of work.
+
+117
+00:06:09.514 --> 00:06:12.700
+Five sentences that should make you pause “Just connect everything.”
+
+118
+00:06:12.700 --> 00:06:15.885
+More access is not the same as a better test.
+
+119
+00:06:15.885 --> 00:06:19.071
+“It has approval, so it is safe.” Ask what it
+
+120
+00:06:19.071 --> 00:06:22.256
+can read before approval, what is logged, and whether the
+
+121
+00:06:22.256 --> 00:06:25.442
+reviewer has real authority. “The demo did it by itself.”
+
+122
+00:06:25.442 --> 00:06:28.627
+A vendor scenario shows a possibility. It does not establish
+
+123
+00:06:28.627 --> 00:06:31.813
+typical behavior in your environment. “It is only a draft.”
+
+124
+00:06:31.813 --> 00:06:34.998
+Drafts can still expose information, shape a decision, or be
+
+125
+00:06:34.998 --> 00:06:38.184
+mistaken for reviewed work. “We can fix it later.” An
+
+126
+00:06:38.184 --> 00:06:41.369
+external message, changed permission, public post, payment, or damaged relationship
+
+127
+00:06:41.369 --> 00:06:44.554
+may not be easily undone. The better question for builders
+
+128
+00:06:44.554 --> 00:06:47.740
+The point is not to make every agent wait for
+
+129
+00:06:47.740 --> 00:06:50.925
+an unnecessary click. The point is to place human judgment
+
+130
+00:06:50.925 --> 00:06:54.111
+where it matters most. A carefully designed system can let
+
+131
+00:06:54.111 --> 00:06:57.296
+an agent prepare a useful first pass while keeping authority
+
+132
+00:06:57.296 --> 00:07:00.482
+with the people who bear the consequences. It can use
+
+133
+00:07:00.482 --> 00:07:03.667
+a narrow connection instead of a broad one. It can
+
+134
+00:07:03.667 --> 00:07:06.853
+distinguish an approved draft from a public statement. Before an
+
+135
+00:07:06.853 --> 00:07:10.038
+agent enters a workflow, write one sentence that answers each
+
+136
+00:07:10.038 --> 00:07:13.224
+question: What may it do? What may it see? What
+
+137
+00:07:13.224 --> 00:07:16.409
+must it ask before doing? Who decides when it stops?
+
+138
+00:07:16.409 --> 00:07:19.595
+If those answers are not clear, the next move is
+
+139
+00:07:19.595 --> 00:07:22.780
+not a bigger integration. It is a smaller, better-defined test.
+
+140
+00:07:22.780 --> 00:07:25.966
+The lighthouse is lit. Direction comes before delegation. Sources and
+
+141
+00:07:25.966 --> 00:07:29.151
+boundaries This article evaluates governance questions, not the quality, availability,
+
+142
+00:07:29.151 --> 00:07:32.336
+suitability, security, privacy, or performance of a named product. Vendor
+
+143
+00:07:32.336 --> 00:07:35.522
+documentation is cited to describe vendor-stated controls and conditions. It
+
+144
+00:07:35.522 --> 00:07:38.707
+is not independent proof of reliability, safety, accuracy, cost, or
+
+145
+00:07:38.707 --> 00:07:41.893
+business results. Product capabilities, permissions, plan availability, retention settings, model
+
+146
+00:07:41.893 --> 00:07:45.078
+behavior, and policies can change; verify current first-party evidence before
+
+147
+00:07:45.078 --> 00:07:48.264
+relying on them. This article is educational and is not
+
+148
+00:07:48.264 --> 00:07:51.449
+legal, privacy, cybersecurity, financial, regulatory, or compliance advice. OpenAI, “Introducing
+
+149
+00:07:51.449 --> 00:07:54.635
+dots” (product documentation, September 29, 2026; accessed October 7, 2026).
+
+150
+00:07:54.635 --> 00:07:57.820
+Meta, “Introducing Muse: The World’s First Personal AI Agent Built
+
+151
+00:07:57.820 --> 00:08:01.006
+for Everyone” (product announcement, September 2026; accessed October 7, 2026).
+
+152
+00:08:01.006 --> 00:08:04.191
+Salesforce, “Claudeforce: Salesforce and Claude Partnership” (product/partner documentation; accessed October
+
+153
+00:08:04.191 --> 00:08:07.377
+7, 2026). National Institute of Standards and Technology, “AI Risk
+
+154
+00:08:07.377 --> 00:08:09.925
+Management Framework” (government guidance; accessed October 7, 2026).

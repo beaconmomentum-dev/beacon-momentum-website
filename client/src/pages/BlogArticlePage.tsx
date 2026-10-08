@@ -15,6 +15,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { AUGUST_ARTICLE_CONTENT } from "@/data/augustEditorial";
 import { SEPTEMBER_ARTICLE_CONTENT } from "@/data/septemberEditorial";
 import { OCTOBER_ARTICLE_CONTENT } from "@/data/octoberEditorial";
+import { AGENT_AUTHORITY_ARTICLE_CONTENT } from "@/data/agentAuthorityEditorial";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
 interface ArticleContent {
@@ -37,6 +38,7 @@ interface ArticleContent {
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
+  ...AGENT_AUTHORITY_ARTICLE_CONTENT,
   ...OCTOBER_ARTICLE_CONTENT,
   ...SEPTEMBER_ARTICLE_CONTENT,
   ...AUGUST_ARTICLE_CONTENT,

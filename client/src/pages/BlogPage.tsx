@@ -16,6 +16,7 @@ import { BEACON_EDITORIAL_IMAGE_ASPECT_RATIO } from "@/lib/blogMediaPolicy";
 import { AUGUST_ARTICLE_SUMMARIES } from "@/data/augustEditorial";
 import { SEPTEMBER_ARTICLE_SUMMARIES } from "@/data/septemberEditorial";
 import { OCTOBER_ARTICLE_SUMMARIES } from "@/data/octoberEditorial";
+import { AGENT_AUTHORITY_ARTICLE_SUMMARIES } from "@/data/agentAuthorityEditorial";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
@@ -39,6 +40,7 @@ interface Article {
 }
 
 const ARTICLES = [
+  ...AGENT_AUTHORITY_ARTICLE_SUMMARIES,
   ...OCTOBER_ARTICLE_SUMMARIES,
   ...SEPTEMBER_ARTICLE_SUMMARIES,
   ...AUGUST_ARTICLE_SUMMARIES,
