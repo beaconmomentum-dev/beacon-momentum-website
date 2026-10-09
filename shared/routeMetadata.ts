@@ -14,7 +14,7 @@ export interface RouteMetadata {
 const DEFAULT_METADATA: RouteMetadata = {
   title: "We Keep the Light. You Steer.",
   description:
-    "Beacon Momentum helps people and organizations make a steadier next move in an AI-shaped world—clearer work, useful capacity, and human judgment kept visible.",
+    "Start with The Watch, Beacon Momentum's annual member practice for building clearer work, useful capacity, and human judgment kept visible in an AI-shaped world.",
   image: DEFAULT_SOCIAL_IMAGE,
 };
 
@@ -23,7 +23,7 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   "/about": {
     title: "About Beacon Momentum",
     description:
-      "Learn how Beacon Momentum helps people build durable capability, navigate transition, and make practical decisions with care.",
+      "Learn how Beacon Momentum helps people and organizations make a clearer next move with AI—through useful practice, plain language, and human judgment.",
   },
   "/ai-workflow-release-readiness-kit": {
     title: "AI Workflow Release Readiness Kit",
@@ -139,7 +139,7 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   "/how-beacon-works": {
     title: "How Beacon Works",
     description:
-      "See how Beacon Momentum connects public orientation, member learning, practical systems, and responsible operating choices.",
+      "See Beacon Momentum's practical rhythm: name the work, try a small improvement, check the result, and keep what helps.",
   },
   "/pricing": {
     title: "Choose Your Beacon Route",
@@ -169,7 +169,7 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
   "/resources": {
     title: "Beacon Momentum Resources",
     description:
-      "Public Beacon Momentum resources for practical capability, durable work, and responsible AI-assisted systems.",
+      "Free Beacon Momentum resources, Signal articles, and clear next steps for people making sense of AI, work, and change.",
   },
   "/signal": {
     title: "The Signal",

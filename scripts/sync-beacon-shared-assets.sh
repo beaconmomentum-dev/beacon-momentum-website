@@ -40,7 +40,10 @@ if [[ $copied -eq 0 ]]; then
   exit 1
 fi
 
-mapfile -t referenced_assets < <(
+referenced_assets=()
+while IFS= read -r asset; do
+  referenced_assets+=("$asset")
+done < <(
   grep -oE '(src|href)="/assets/[^"]+"' "$INDEX_FILE" \
     | sed -E 's/^(src|href)="\/assets\///; s/"$//' \
     | sort -u

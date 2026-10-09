@@ -33,14 +33,14 @@ describe("Foundation phase public-presence contract", () => {
     expect(navigation).not.toContain('{ label: "Manifesto"');
   });
 
-  it("makes the lighthouse narrative and three visitor actions visible on the homepage", () => {
+  it("makes the practical lighthouse narrative and three visitor actions visible on the homepage", () => {
     const home = source("client/src/pages/Home.tsx");
 
-    expect(home).toContain("We keep the light.");
-    expect(home).toContain("You steer.");
-    expect(home).toContain("Make one job visible");
-    expect(home).toContain("Clarify an organization");
-    expect(home).toContain("Build an operating rhythm");
+    expect(home).toContain("Build work that");
+    expect(home).toContain("still feels like yours.");
+    expect(home).toContain("Review The Watch");
+    expect(home).toContain("The Readiness Map");
+    expect(home).toContain("Beacon Labs");
     expect(home).not.toContain("The Exit Ramp is Leverage");
   });
 
@@ -62,6 +62,6 @@ describe("Foundation phase public-presence contract", () => {
     expect(html).toContain("human judgment kept visible");
     expect(html).not.toContain("become the business AI recommends");
     expect(routeMetadata).toContain('title: "We Keep the Light. You Steer."');
-    expect(routeMetadata).toContain("human judgment kept visible");
+    expect(routeMetadata).toContain("Start with The Watch");
   });
 });

@@ -2,33 +2,26 @@
  * SharedFooter — Beacon Momentum
  * Design: Deep Water Editorial / Quiet Authority
  * Consistent footer used across ALL pages.
- * Dark charcoal background, four-column layout.
- * Tagline: "The Lighthouse Is Lit. Join Us at the Watch."
+ * Dark charcoal background, four-column wayfinding layout.
+ * Public copy identifies the next useful route before related properties.
  */
 import { Link } from "wouter";
 
 export default function SharedFooter() {
   const year = new Date().getFullYear();
 
-  const PILLARS = [
-    { label: "Beacon Life", href: "/pillar/life" },
-    { label: "Beacon Work", href: "/pillar/work" },
-    { label: "Beacon Venture", href: "/pillar/venture" },
-    { label: "Beacon Systems", href: "/pillar/systems" },
-    { label: "Beacon Labs", href: "/pillar/labs" },
-    { label: "The Watch (Community)", href: "/the-watch" },
+  const START_HERE = [
+    { label: "The Watch", href: "/the-watch" },
+    { label: "The Readiness Map", href: "/ReadinessMap" },
+    { label: "The Signal", href: "/signal" },
+    { label: "Resources", href: "/resources" },
   ];
 
-  const RESOURCES = [
-    { label: "Pathfinder Assessment", href: "/assessment" },
-    { label: "Resources & Guides", href: "/resources" },
+  const ABOUT_AND_PRACTICE = [
+    { label: "About Beacon Momentum", href: "/about" },
     { label: "How Beacon Works", href: "/how-beacon-works" },
-    { label: "Field Notes", href: "/field-notes" },
-    { label: "The Storm Navigator’s Guide", href: "/storm-navigators-guide" },
-    { label: "Foundation Year", href: "/foundation" },
-    { label: "The Signal", href: "/signal" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Signal Check", href: "https://beaconlabs.ai/signal-check", external: true },
+    { label: "The Watch membership details", href: "/the-watch" },
+    { label: "Membership and public pricing", href: "/pricing" },
     { label: "YouTube Channel", href: "https://www.youtube.com/@BeaconMomentum", external: true },
   ];
 
@@ -180,10 +173,10 @@ export default function SharedFooter() {
             maxWidth: "560px",
             marginTop: "0.75rem",
           }}>
-            A public orientation point for people building durable work, useful capability, and a steadier next move.
+            A public orientation point for people building clearer work, useful capability, and a steadier next move.
           </p>
           <Link href="/how-beacon-works" style={{ display: "inline-block", marginTop: "0.9rem", color: "var(--beacon-amber-light)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textDecoration: "underline", textUnderlineOffset: "0.25rem", textTransform: "uppercase" }}>
-            Choose your route
+            See how Beacon works
           </Link>
         </div>
 
@@ -199,12 +192,12 @@ export default function SharedFooter() {
           marginBottom: "3rem",
         }}>
           <div style={colStyle}>
-            <div style={colHeadStyle}>The Five Pillars</div>
-            {PILLARS.map((l) => <NavLink key={l.label} href={l.href} label={l.label} />)}
+            <div style={colHeadStyle}>Start here</div>
+            {START_HERE.map((l) => <NavLink key={l.label} href={l.href} label={l.label} />)}
           </div>
           <div style={colStyle}>
-            <div style={colHeadStyle}>Resources</div>
-            {RESOURCES.map((l) => <NavLink key={l.label} href={l.href} label={l.label} external={l.external} />)}
+            <div style={colHeadStyle}>About & practice</div>
+            {ABOUT_AND_PRACTICE.map((l) => <NavLink key={l.label} href={l.href} label={l.label} external={l.external} />)}
           </div>
           <div style={colStyle}>
             <div style={colHeadStyle}>Continue intentionally</div>

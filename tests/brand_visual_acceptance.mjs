@@ -14,10 +14,12 @@ const outputDir = path.resolve("docs/screenshots/brand-congruency-2026-08-21");
 fs.mkdirSync(outputDir, { recursive: true });
 
 const routes = [
-  { name: "home", path: "/", expected: "We keep the light", descriptor: "Public Front Door" },
+  { name: "home", path: "/", expected: "Build work that", descriptor: "Public Front Door" },
   { name: "watch", path: "/the-watch", expected: "The lighthouse is lit", descriptor: "The Watch" },
   { name: "watch-checkout", path: "/the-watch/checkout", expected: "Take your post for the year ahead", descriptor: "Secure enrollment" },
-  { name: "about", path: "/about", expected: "Built in the storm", descriptor: "Public Front Door" },
+  { name: "about", path: "/about", expected: "Built for people", descriptor: "Public Front Door" },
+  { name: "how-beacon-works", path: "/how-beacon-works", expected: "A practical way to use new tools", descriptor: "Public Front Door" },
+  { name: "resources", path: "/resources", expected: "Start with something useful", descriptor: "Public Front Door" },
   { name: "pricing", path: "/pricing", expected: "Start with the", descriptor: "Public Front Door" },
   { name: "digital-grandpa", path: "/digital-grandpa", expected: "A light for the road", descriptor: "Public Front Door" },
   { name: "digital-grandpa-library", path: "/digital-grandpa/library", expected: "Wisdom you can hold", descriptor: "Public Front Door" },
@@ -101,7 +103,7 @@ try {
       if (state.overflowPixels > 1) throw new Error(`${route.path} overflowed by ${state.overflowPixels}px at ${viewport.name}`);
       if (criticalFailures.length) throw new Error(`${route.path} critical asset failures: ${criticalFailures.join(" | ")}`);
 
-      if (["home", "watch", "watch-checkout", "pricing", "digital-grandpa", "digital-grandpa-library", "practical-ai-skills", "ai-workflow-release-readiness-kit"].includes(route.name)) {
+      if (["home", "watch", "watch-checkout", "about", "how-beacon-works", "resources", "pricing", "digital-grandpa", "digital-grandpa-library", "practical-ai-skills", "ai-workflow-release-readiness-kit"].includes(route.name)) {
         await page.screenshot({ path: path.join(outputDir, `${route.name}-${viewport.name}.png`), fullPage: false });
       }
 
