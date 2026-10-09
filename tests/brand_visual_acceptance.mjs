@@ -14,7 +14,7 @@ const outputDir = path.resolve("docs/screenshots/brand-congruency-2026-08-21");
 fs.mkdirSync(outputDir, { recursive: true });
 
 const routes = [
-  { name: "home", path: "/", expected: "Find a steadier", descriptor: "Public Front Door" },
+  { name: "home", path: "/", expected: "We keep the light", descriptor: "Public Front Door" },
   { name: "watch", path: "/the-watch", expected: "The lighthouse is lit", descriptor: "The Watch" },
   { name: "watch-checkout", path: "/the-watch/checkout", expected: "Take your post for the year ahead", descriptor: "Secure enrollment" },
   { name: "about", path: "/about", expected: "Built in the storm", descriptor: "Public Front Door" },

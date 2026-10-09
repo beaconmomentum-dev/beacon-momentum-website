@@ -33,7 +33,7 @@ describe("The Signal canonical route contract", () => {
     const sitemap = source("client/public/sitemap.xml");
     const html = source("client/index.html");
 
-    expect(nav).toContain('{ label: "The Signal", href: "/signal" }');
+    expect(nav).toContain('{ label: "Signal", href: "/signal" }');
     expect(footer).toContain('{ label: "The Signal", href: "/signal" }');
     expect(index).toContain('href={`/signal/${article.id}`}');
     expect(index).toContain('url: "/signal"');

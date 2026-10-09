@@ -3,9 +3,9 @@
  * System Design: Deep Water Editorial / Quiet Authority for the wider Beacon site;
  * homepage overlay: Tide & Tension — maritime modernism with Swiss editorial discipline.
  * ─────────────────────────────────────────────────────────
- * Color Philosophy: Warm parchment ground (#FAF8F4), deep coastal teal (#1A5C6B),
- *   amber signal (#C8860A), charcoal text (#1C1C1E). Pillar accents are distinct.
- * Typography: Self-contained Georgia (display/body) + system UI (interface)
+ * Color Philosophy: Warm parchment ground (#F5F3EC), deep coastal navy (#162433),
+ *   brass signal (#C49F53), accessible teal (#2E7A7D). Pillar accents are distinct.
+ * Typography: Fraunces (display) + Manrope (interface and body) + IBM Plex Mono (metadata)
  * Layout: Wide-margin editorial, asymmetric, not grid-centered
  * Signature Elements: Lighthouse beam motif, coastline dividers, tidal-pool reflections
  * Animation: Slow, deliberate entrances. Nothing snaps. Everything breathes.
@@ -59,17 +59,20 @@
   --radius: 0.25rem;
 
   /* Brand Palette */
-  --beacon-parchment: #FAF8F4;
-  --beacon-parchment-dark: #F0EDE6;
-  --beacon-charcoal: #1C1C1E;
-  --beacon-charcoal-mid: #3A3A3C;
-  --beacon-teal: #1A5C6B;
-  --beacon-teal-light: #2A7A8C;
-  --beacon-teal-pale: #E8F4F7;
-  --beacon-amber: #C8860A;
-  --beacon-amber-light: #E8A020;
-  --beacon-amber-pale: #FDF4E3;
-  --beacon-cream: #F5F0E8;
+  --beacon-parchment: #F5F3EC;
+  --beacon-parchment-dark: #EAE6DB;
+  --beacon-charcoal: #162433;
+  --beacon-charcoal-mid: #586B7D;
+  --beacon-teal: #2E7A7D;
+  --beacon-teal-light: #4E9695;
+  --beacon-teal-pale: #E3F0EE;
+  --beacon-amber: #C49F53;
+  --beacon-amber-light: #D9B96D;
+  --beacon-amber-pale: #F7F0DE;
+  --beacon-cream: #F5F3EC;
+  --beacon-display: "Fraunces", Georgia, serif;
+  --beacon-ui: "Manrope", Arial, sans-serif;
+  --beacon-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 
   /* Pillar Accent Colors */
   --pillar-life: #2E7D6B;       /* Deep sage-teal — personal resilience */
@@ -123,13 +126,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Lora', Georgia, serif;
+    font-family: var(--beacon-ui);
     background-color: var(--beacon-parchment);
     color: var(--beacon-charcoal);
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--beacon-display);
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.15;
@@ -142,6 +145,21 @@
   select:not(:disabled) {
     @apply cursor-pointer;
   }
+}
+
+/* Foundation typography contract: one shared public font system on every route.
+ * Existing page-level inline families are intentionally overridden until their
+ * individual components are refactored to tokens. */
+:where(p, li, a, button, input, select, textarea, label, td, th, figcaption) {
+  font-family: var(--beacon-ui) !important;
+}
+
+:where(h1, h2, h3, h4, h5, h6, .font-display) {
+  font-family: var(--beacon-display) !important;
+}
+
+:where(.font-mono, code, pre) {
+  font-family: var(--beacon-mono) !important;
 }
 
 @layer components {
@@ -161,9 +179,9 @@
   .flex { min-height: 0; min-width: 0; }
 
   /* Typography utilities */
-  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
-  .font-body { font-family: 'Lora', Georgia, serif; }
-  .font-ui { font-family: 'Outfit', system-ui, sans-serif; }
+  .font-display { font-family: var(--beacon-display); }
+  .font-body { font-family: var(--beacon-ui); }
+  .font-ui { font-family: var(--beacon-ui); }
 
   /* Beacon brand utilities */
   .text-beacon-teal { color: var(--beacon-teal); }
@@ -217,14 +235,14 @@
 
   /* Tide & Tension homepage — scoped so legacy pages preserve their existing editorial system. */
   .tide-home {
-    --tide-navy: #061A29;
-    --tide-ink: #0B2A3B;
-    --tide-brass: #D8A94A;
-    --tide-fog: #EEF0EB;
-    --tide-teal: #58A6A4;
-    --tide-display: "Fraunces", Georgia, serif;
-    --tide-ui: "Manrope", Arial, sans-serif;
-    --tide-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    --tide-navy: #162433;
+    --tide-ink: #223345;
+    --tide-brass: #C49F53;
+    --tide-fog: #F5F3EC;
+    --tide-teal: #2E7A7D;
+    --tide-display: var(--beacon-display);
+    --tide-ui: var(--beacon-ui);
+    --tide-mono: var(--beacon-mono);
     font-family: var(--tide-ui);
   }
   .tide-home .container { max-width: 1440px; }

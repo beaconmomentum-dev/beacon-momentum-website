@@ -6,6 +6,7 @@
 import { Link } from "wouter";
 import SharedFooter from "@/components/SharedFooter";
 import SharedNav from "@/components/SharedNav";
+import BeaconRouteLockup from "@/components/BeaconRouteLockup";
 
 const C = {
   deep: "#071523",
@@ -100,7 +101,12 @@ export default function TheWatchPage() {
               gap: "1rem",
             }}
           >
-            <Eyebrow>The Watch · Founding Year</Eyebrow>
+            <BeaconRouteLockup
+              descriptor="The Watch · Founding Year"
+              textColor={C.cream}
+              mutedColor={C.mist}
+              compact
+            />
             <Link
               href="/the-watch/checkout"
               style={{

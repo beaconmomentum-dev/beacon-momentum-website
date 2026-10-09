@@ -12,9 +12,9 @@ export interface RouteMetadata {
 }
 
 const DEFAULT_METADATA: RouteMetadata = {
-  title: "Find a Steadier Next Move.",
+  title: "We Keep the Light. You Steer.",
   description:
-    "Beacon Momentum is a public orientation point for people navigating transition, building durable work, and studying modern financial systems with care.",
+    "Beacon Momentum helps people and organizations make a steadier next move in an AI-shaped world—clearer work, useful capacity, and human judgment kept visible.",
   image: DEFAULT_SOCIAL_IMAGE,
 };
 

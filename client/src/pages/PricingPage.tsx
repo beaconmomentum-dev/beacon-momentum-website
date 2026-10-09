@@ -354,27 +354,6 @@ export default function PricingPage() {
                     flexDirection: "column",
                   }}
                 >
-                  {tier.highlight && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        background: tealMid,
-                        color: cream,
-                        fontFamily: "'Outfit', system-ui, sans-serif",
-                        fontWeight: 600,
-                        fontSize: "0.6rem",
-                        letterSpacing: "0.16em",
-                        textTransform: "uppercase",
-                        padding: "0.2rem 0.875rem",
-                      }}
-                    >
-                      Most Popular
-                    </div>
-                  )}
-
                   {/* Card header */}
                   <div
                     style={{

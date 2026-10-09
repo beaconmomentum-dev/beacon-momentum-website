@@ -393,9 +393,9 @@ export default function Home() {
                   }}
                   className="font-display mt-5 max-w-3xl text-[clamp(3.35rem,8.2vw,7.3rem)] leading-[0.91] tracking-[-0.055em] text-[#F6F5EF]"
                 >
-                  Find a steadier
+                  We keep the light.
                   <br />
-                  <span className="italic text-[#D8A94A]">next move.</span>
+                  <span className="italic text-[#D8A94A]">You steer.</span>
                 </motion.h1>
                 <motion.p
                   variants={entry}
@@ -405,11 +405,10 @@ export default function Home() {
                   }}
                   className="mt-8 max-w-2xl text-base leading-7 text-[#C8D3CF] sm:text-lg sm:leading-8"
                 >
-                  Beacon Momentum is a public orientation point for people
-                  navigating transition, building durable work, and studying
-                  modern financial systems with care. Start with the path that
-                  fits; every destination has a clear purpose and its own
-                  operating boundary.
+                  Beacon Momentum helps people and organizations make a steadier
+                  next move in an AI-shaped world. We clarify the work, multiply
+                  useful capacity, and keep your judgment where it belongs: in
+                  your hands.
                 </motion.p>
                 <motion.div
                   variants={entry}
@@ -419,12 +418,20 @@ export default function Home() {
                   }}
                   className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
                 >
-                  <PrimaryCta href="#routes">Choose your route</PrimaryCta>
+                  <PrimaryCta href="/ReadinessMap">Make one job visible</PrimaryCta>
+                  <a
+                    href={LABS_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="brass-button group inline-flex min-h-12 items-center justify-center gap-3 border border-white/25 px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#EEF3EF] hover:border-[#58A6A4] hover:text-[#B7E0DA] sm:px-6"
+                  >
+                    Clarify an organization <ArrowIcon className="link-arrow h-4 w-4" />
+                  </a>
                   <a
                     href="#watch"
                     className="brass-button group inline-flex min-h-12 items-center justify-center gap-3 border border-white/25 px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#EEF3EF] hover:border-[#58A6A4] hover:text-[#B7E0DA] sm:px-6"
                   >
-                    Visit The Watch <ArrowIcon className="link-arrow h-4 w-4" />
+                    Build an operating rhythm <ArrowIcon className="link-arrow h-4 w-4" />
                   </a>
                 </motion.div>
                 <motion.p
@@ -435,9 +442,9 @@ export default function Home() {
                   }}
                   className="mt-5 text-xs leading-5 text-[#9BB0B0]"
                 >
-                  The Watch is a $497 annual membership hosted at Beacon
-                  Community. Beacon Labs is a separate organization-facing
-                  services destination.
+                  Membership, B2B, and commerce records stay separate. What you
+                  share with one Beacon property does not move to another by
+                  default.
                 </motion.p>
               </motion.div>
 
@@ -546,12 +553,12 @@ export default function Home() {
                       The <span className="italic text-[#D8A94A]">Watch.</span>
                     </h3>
                     <p className="mt-5 max-w-sm text-sm leading-6 text-[#C7D4D0]">
-                      A $497/year membership for people building a steadier
-                      operating position through curriculum, playbooks, and a
-                      community environment.
+                      A member practice environment for people building a
+                      steadier operating position through curriculum, playbooks,
+                      and community.
                     </p>
                     <p className="mt-5 border-t border-white/15 pt-4 text-[0.61rem] font-semibold uppercase tracking-[0.15em] text-[#B7E0DA]">
-                      Continue to Beacon Community ↗
+                      Review The Watch at Beacon Community ↗
                     </p>
                   </div>
                 </a>
@@ -616,8 +623,8 @@ export default function Home() {
                   A change in the operating math
                 </p>
                 <h2 className="font-display mt-5 max-w-xl text-5xl leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-                  The Exit Ramp{" "}
-                  <span className="italic text-[#3E777A]">is Leverage.</span>
+                  A steadier operating{" "}
+                  <span className="italic text-[#3E777A]">position.</span>
                 </h2>
                 <div className="mt-9 border-l-2 border-[#D8A94A] pl-5">
                   <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#0B2A3B]">
@@ -633,22 +640,18 @@ export default function Home() {
               <div>
                 <div className="max-w-2xl space-y-5 text-base leading-8 text-[#34505B] sm:text-lg">
                   <p>
-                    For thirty years, the answer was always to work harder. Put
-                    in more hours. Get another degree. But the math no longer
-                    works. The human body does not scale, and corporate
-                    efficiency engines are using artificial intelligence to
-                    squeeze more out of the workforce.
+                    Work is changing quickly. The useful response is neither
+                    panic nor hype: name the work, understand the tools, and
+                    keep a human review point where the decision matters.
                   </p>
                   <p>
-                    Beacon Momentum treats AI as an emancipation tool: a way to
-                    separate useful outcomes from endless availability. The work
-                    is to build systems for lead generation, content, and
-                    operations that retain your judgment instead of consuming
-                    it.
+                    Beacon Momentum treats AI as a capability tool. The work is
+                    to build systems that reduce avoidable friction, retain your
+                    judgment, and make the next decision clearer.
                   </p>
                   <p className="font-display text-2xl leading-8 text-[#0B2A3B] sm:text-3xl">
-                    Stop renting your capacity to the moment. Build an operating
-                    position that compounds.
+                    Use what is useful. Keep judgment visible. Build work that
+                    can carry forward.
                   </p>
                 </div>
 

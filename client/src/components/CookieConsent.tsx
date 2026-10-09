@@ -35,11 +35,10 @@ export default function CookieConsent() {
       style={{
         position: "fixed",
         bottom: "1.5rem",
-        left: "50%",
-        transform: "translateX(-50%)",
+        right: "1.5rem",
         zIndex: 9999,
-        width: "min(92vw, 640px)",
-        background: "var(--beacon-charcoal, #1C1C1A)",
+        width: "min(92vw, 520px)",
+        background: "var(--beacon-charcoal, #162433)",
         borderRadius: "4px",
         padding: "1.25rem 1.5rem",
         display: "flex",
@@ -52,8 +51,11 @@ export default function CookieConsent() {
     >
       <style>{`
         @keyframes cookieSlideUp {
-          from { opacity: 0; transform: translateX(-50%) translateY(1rem); }
-          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+          from { opacity: 0; transform: translateY(1rem); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 640px) {
+          [aria-label="Cookie consent"] { bottom: 1rem !important; right: 1rem !important; }
         }
       `}</style>
 
@@ -69,7 +71,7 @@ export default function CookieConsent() {
 
       <p style={{
         flex: 1,
-        fontFamily: "'Outfit', system-ui, sans-serif",
+        fontFamily: "'Manrope', system-ui, sans-serif",
         fontWeight: 300,
         fontSize: "0.82rem",
         lineHeight: 1.6,
@@ -91,7 +93,7 @@ export default function CookieConsent() {
         <button
           onClick={decline}
           style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
+            fontFamily: "'Manrope', system-ui, sans-serif",
             fontWeight: 400,
             fontSize: "0.78rem",
             letterSpacing: "0.06em",
@@ -118,7 +120,7 @@ export default function CookieConsent() {
         <button
           onClick={accept}
           style={{
-            fontFamily: "'Outfit', system-ui, sans-serif",
+            fontFamily: "'Manrope', system-ui, sans-serif",
             fontWeight: 500,
             fontSize: "0.78rem",
             letterSpacing: "0.06em",
