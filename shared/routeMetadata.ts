@@ -51,6 +51,16 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       "Important public-use, educational, and responsibility disclosures for Beacon Momentum materials.",
   },
+  "/digital-grandpa": {
+    title: "Digital Grandpa",
+    description:
+      "A separate legacy and wisdom property offering hope, direction, love, and compassionate companionship for the road ahead.",
+  },
+  "/digital-grandpa/library": {
+    title: "The Porch Light Library",
+    description:
+      "A private-development preview of the Digital Grandpa library of books and companion works for reflection, purpose, and a meaningful next chapter.",
+  },
   "/field-notes": {
     title: "Digital Ramp-Up Field Notes",
     description:
@@ -132,9 +142,9 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
       "See how Beacon Momentum connects public orientation, member learning, practical systems, and responsible operating choices.",
   },
   "/pricing": {
-    title: "Beacon Momentum Pricing",
+    title: "Choose Your Beacon Route",
     description:
-      "Review the Beacon Momentum membership and program paths with clear scope, access, and public disclosures.",
+      "Compare distinct Beacon membership, public-intelligence, and organization-system routes with clear scope, boundaries, and no assumed cross-property transfer.",
   },
   "/ReadinessMap": {
     title: "The Readiness Map",

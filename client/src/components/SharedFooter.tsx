@@ -51,6 +51,12 @@ export default function SharedFooter() {
       href: "https://beacontrading.ai",
       external: true,
     },
+    {
+      label: "Digital Grandpa — Legacy, wisdom, and compassionate direction",
+      sublabel: "A separate legacy property for hopeful, human-scale stories and resources.",
+      href: "https://digitalgrandpa.org",
+      external: true,
+    },
   ];
 
   const SUPPORT_AND_POLICIES = [
