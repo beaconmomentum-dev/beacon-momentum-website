@@ -4,11 +4,12 @@
  * Full article detail page for The Signal.
  */
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useParams } from "wouter";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import SharedNav from "@/components/SharedNav";
 import SharedFooter from "@/components/SharedFooter";
+import { trackBeaconEvent } from "@/lib/beaconAnalytics";
 import { getArticleAudioSource } from "@/lib/blogMediaPolicy";
 import { getEditorialPathway } from "@/lib/editorialPathways";
 import { usePageMeta } from "@/hooks/usePageMeta";
@@ -2763,6 +2764,8 @@ function PillarBadge({ pillar, color }: { pillar: string; color: string }) {
 export default function BlogArticlePage() {
   const params = useParams<{ slug: string }>();
   const article = findArticle(params.slug || "");
+  const audioMilestones = useRef(new Set<number>());
+  const audioStarted = useRef(false);
 
   const articleDescription = article
     ? (article.excerpt ??
@@ -2786,6 +2789,50 @@ export default function BlogArticlePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [params.slug]);
+
+  useEffect(() => {
+    audioMilestones.current.clear();
+    audioStarted.current = false;
+  }, [article?.id]);
+
+  useEffect(() => {
+    if (!article) return;
+
+    const body = document.getElementById("beacon-article-reading-body");
+    if (!body) return;
+
+    const reached = new Set<number>();
+    const thresholds = [50, 75];
+
+    const reportReadingDepth = () => {
+      const box = body.getBoundingClientRect();
+      const bodyHeight = Math.max(body.scrollHeight, 1);
+      const visibleBodyPixels = Math.min(
+        Math.max(window.innerHeight - box.top, 0),
+        bodyHeight,
+      );
+      const viewedPercent = (visibleBodyPixels / bodyHeight) * 100;
+
+      for (const threshold of thresholds) {
+        if (viewedPercent >= threshold && !reached.has(threshold)) {
+          reached.add(threshold);
+          trackBeaconEvent(`signal_read_${threshold}`, {
+            article_slug: article.id,
+          });
+        }
+      }
+    };
+
+    window.addEventListener("scroll", reportReadingDepth, { passive: true });
+    window.addEventListener("resize", reportReadingDepth);
+    const firstCheck = window.requestAnimationFrame(reportReadingDepth);
+
+    return () => {
+      window.cancelAnimationFrame(firstCheck);
+      window.removeEventListener("scroll", reportReadingDepth);
+      window.removeEventListener("resize", reportReadingDepth);
+    };
+  }, [article]);
 
   // 404 state
   if (!article) {
@@ -2964,6 +3011,38 @@ export default function BlogArticlePage() {
                 id="beacon-audio-player"
                 src={articleAudioSrc}
                 preload="metadata"
+                onPlay={() => {
+                  if (!audioStarted.current) {
+                    audioStarted.current = true;
+                    trackBeaconEvent("signal_audio_play", {
+                      article_slug: article.id,
+                    });
+                  }
+                }}
+                onTimeUpdate={(event) => {
+                  const audio = event.currentTarget;
+                  if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
+                    return;
+                  }
+
+                  const progress = (audio.currentTime / audio.duration) * 100;
+                  for (const threshold of [25, 50, 75]) {
+                    if (progress >= threshold && !audioMilestones.current.has(threshold)) {
+                      audioMilestones.current.add(threshold);
+                      trackBeaconEvent(`signal_audio_${threshold}`, {
+                        article_slug: article.id,
+                      });
+                    }
+                  }
+                }}
+                onEnded={() => {
+                  if (!audioMilestones.current.has(100)) {
+                    audioMilestones.current.add(100);
+                    trackBeaconEvent("signal_audio_complete", {
+                      article_slug: article.id,
+                    });
+                  }
+                }}
               />
               <button
                 id="beacon-listen-btn"
@@ -3308,6 +3387,7 @@ export default function BlogArticlePage() {
         `}</style>
 
         <div
+          id="beacon-article-reading-body"
           className="beacon-article-body"
           dangerouslySetInnerHTML={{ __html: article.body }}
         />
