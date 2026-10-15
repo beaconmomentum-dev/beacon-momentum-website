@@ -16,6 +16,7 @@ import { AUGUST_ARTICLE_CONTENT } from "@/data/augustEditorial";
 import { SEPTEMBER_ARTICLE_CONTENT } from "@/data/septemberEditorial";
 import { OCTOBER_ARTICLE_CONTENT } from "@/data/octoberEditorial";
 import { AGENT_AUTHORITY_ARTICLE_CONTENT } from "@/data/agentAuthorityEditorial";
+import { OCTOBER_SIGNAL_EXPANSION_CONTENT } from "@/data/octoberSignalExpansion";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
 interface ArticleContent {
@@ -38,6 +39,7 @@ interface ArticleContent {
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
+  ...OCTOBER_SIGNAL_EXPANSION_CONTENT,
   ...AGENT_AUTHORITY_ARTICLE_CONTENT,
   ...OCTOBER_ARTICLE_CONTENT,
   ...SEPTEMBER_ARTICLE_CONTENT,
@@ -3248,6 +3250,12 @@ export default function BlogArticlePage() {
             line-height: 1.8;
             color: rgba(250, 248, 244, 0.85);
             margin-bottom: 0.5rem;
+            overflow-wrap: anywhere;
+          }
+          .beacon-article-body a {
+            color: ${article.pillarColor};
+            overflow-wrap: anywhere;
+            text-underline-offset: 0.16em;
           }
           .beacon-article-body strong {
             color: #FAF8F4;
