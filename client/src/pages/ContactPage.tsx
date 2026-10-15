@@ -5,6 +5,8 @@
  */
 import { useState } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import SharedFooter from "@/components/SharedFooter";
+import SharedNav from "@/components/SharedNav";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -101,72 +103,7 @@ export default function ContactPage() {
         fontFamily: "'Georgia', 'Times New Roman', serif",
       }}
     >
-      {/* Nav */}
-      <nav
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-          background: "rgba(10,22,40,0.92)",
-          backdropFilter: "blur(12px)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
-          padding: "1rem 2rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <a
-          href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.625rem",
-            textDecoration: "none",
-          }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" style={{ width: 32, height: 32, flexShrink: 0 }}>
-              <rect width="64" height="64" rx="12" fill="#0D1D29"/>
-              <g fill="none" stroke="#F7F1E5" strokeWidth="3.25" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 19.5 14.5 16" opacity=".72"/>
-                <path d="M43 19.5 49.5 16" opacity=".72"/>
-                <path d="M21 23.5h-7" opacity=".48"/>
-                <path d="M43 23.5h7" opacity=".48"/>
-                <path d="m24 18 8-6 8 6Z"/>
-                <rect x="25" y="18" width="14" height="8" rx="1"/>
-                <path d="M23 26h18"/>
-                <path d="M24 26v3M40 26v3"/>
-                <path d="m25 29-3 22h20l-3-22Z"/>
-                <path d="M23 40h18" opacity=".58"/>
-                <path d="M30 51v-5q2-2 4 0v5"/>
-                <path d="M12 54q4-2 8 0t8 0 8 0 8 0 8 0 8 0" opacity=".6"/>
-              </g>
-              <circle cx="32" cy="22" r="2.2" fill="#E9BC52"/>
-            </svg>
-          <span
-            style={{
-              fontFamily: "'Georgia', serif",
-              fontWeight: 700,
-              fontSize: "1.125rem",
-              color: "#e8e0d0",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Beacon Momentum
-          </span>
-        </a>
-        <a
-          href="/"
-          style={{
-            color: "#b8a882",
-            textDecoration: "none",
-            fontSize: "0.875rem",
-            letterSpacing: "0.04em",
-          }}
-        >
-          ← Back to Home
-        </a>
-      </nav>
+      <SharedNav />
 
       {/* Hero */}
       <section
@@ -595,6 +532,7 @@ export default function ContactPage() {
           }
         }
       `}</style>
+      <SharedFooter />
     </div>
   );
 }

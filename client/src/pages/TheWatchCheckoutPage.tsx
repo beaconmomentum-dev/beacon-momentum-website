@@ -8,6 +8,7 @@ import { loadStripe, type StripeElementsOptions } from "@stripe/stripe-js";
 import { useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import BeaconRouteLockup from "@/components/BeaconRouteLockup";
+import SharedFooter from "@/components/SharedFooter";
 import { trpc } from "@/lib/trpc";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -239,6 +240,7 @@ export default function TheWatchCheckoutPage() {
           </p>
         </div>
       </section>
+      <SharedFooter />
       <style>{`@media (max-width: 760px) { .watch-checkout-layout, .watch-checkout-disclosures { grid-template-columns: 1fr !important; } }`}</style>
     </main>
   );
