@@ -176,6 +176,36 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       "Beacon Momentum's public editorial library of practical field intelligence on AI, human capability, work, and durable operating systems.",
   },
+  "/signal/can-it-do-it-or-may-it-do-it": {
+    title: "Can It Do It—or May It Do It?",
+    description:
+      "A practical Beacon Signal framework for bounded AI jobs, explicit authority, least privilege, meaningful review, and safe stop paths.",
+    type: "article",
+  },
+  "/signal/what-ai-demonstrations-prove-and-do-not": {
+    title: "What a Demonstration Proves—and What It Does Not",
+    description:
+      "A practical checklist for reading AI benchmarks, simulations, and demos without claiming more certainty than the evidence supports.",
+    type: "article",
+  },
+  "/signal/the-work-behind-ai-you-can-see": {
+    title: "The Work Behind the AI You Can See",
+    description:
+      "A grounded guide to the equipment, energy, cooling, networks, people, and stewardship behind visible AI services.",
+    type: "article",
+  },
+  "/signal/when-a-public-dashboard-is-not-intelligence": {
+    title: "When a Public Dashboard Is Not Intelligence",
+    description:
+      "A practical guide to public-data provenance, coverage, timing, verification, privacy, and proportionate confidence.",
+    type: "article",
+  },
+  "/signal/a-business-model-is-not-a-business": {
+    title: "A Business Model Is Not a Business",
+    description:
+      "A human-centered guide to distinguishing AI capability, workflow demos, platform rules, and an accountable operating business.",
+    type: "article",
+  },
   "/signal/a-claim-is-not-evidence": {
     title: "A Claim Is Not Evidence",
     description:
