@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">What Anthropic's AI-Safety Incidents Actually Show</title>
+  <desc id="desc">A quiet editorial illustration of a bounded system with a visible gate, evidence lines, and a human approval light.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08162d"/><stop offset="1" stop-color="#27425f"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1250" cy="205" r="145" fill="#d9bb6e" opacity=".13" filter="url(#soft)"/>
+  <g fill="none" stroke="#b9d0df" stroke-width="4" opacity=".68"><rect x="250" y="180" width="1090" height="470" rx="32"/><path d="M510 180v470M800 180v470M1090 180v470"/><path d="M250 335h1090M250 492h1090"/></g>
+  <g fill="#f2df9c"><circle cx="510" cy="257" r="14"/><circle cx="800" cy="413" r="14"/><circle cx="1090" cy="570" r="14"/></g>
+  <g stroke="#e5c970" stroke-width="9" fill="none"><path d="M520 257 C650 257 660 413 790 413"/><path d="M810 413 C940 413 950 570 1080 570"/></g>
+  <g transform="translate(1260 595)"><path d="M0 150 L46 0 L92 150Z" fill="#e0c579"/><rect x="20" y="91" width="52" height="59" fill="#08162d"/><rect x="12" y="25" width="68" height="15" fill="#e0c579"/><rect x="28" y="-7" width="36" height="31" fill="#fff4b6"/><circle cx="46" cy="8" r="15" fill="#fff4b6" opacity=".9"/></g>
+  <text x="88" y="770" fill="#f6e7ae" font-family="Georgia,serif" font-size="43" letter-spacing="2">WHAT THE INCIDENTS ACTUALLY SHOW</text>
+  <text x="92" y="825" fill="#b4c9d8" font-family="Arial,sans-serif" font-size="23" letter-spacing="5">BEACON SIGNAL · WATCH BRIEF</text>
+</svg>

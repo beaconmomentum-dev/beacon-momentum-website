@@ -18,6 +18,7 @@ import { SEPTEMBER_ARTICLE_SUMMARIES } from "@/data/septemberEditorial";
 import { OCTOBER_ARTICLE_SUMMARIES } from "@/data/octoberEditorial";
 import { AGENT_AUTHORITY_ARTICLE_SUMMARIES } from "@/data/agentAuthorityEditorial";
 import { OCTOBER_SIGNAL_EXPANSION_SUMMARIES } from "@/data/octoberSignalExpansion";
+import { WATCH_BRIEF_OCTOBER_2026_SUMMARIES } from "@/data/watchBriefOctober2026";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
@@ -41,6 +42,7 @@ interface Article {
 }
 
 const ARTICLES = [
+  ...WATCH_BRIEF_OCTOBER_2026_SUMMARIES,
   ...OCTOBER_SIGNAL_EXPANSION_SUMMARIES,
   ...AGENT_AUTHORITY_ARTICLE_SUMMARIES,
   ...OCTOBER_ARTICLE_SUMMARIES,
