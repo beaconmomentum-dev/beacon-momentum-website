@@ -19,3 +19,8 @@ describe("blog media policy", () => {
     expect(BEACON_EDITORIAL_IMAGE_ASPECT_RATIO).toBe("16 / 9");
   });
 });
+
+
+it("keeps transcript assets out of the public article controls", () => {
+  expect("transcript" in { audioSrc: "/audio/example.mp3" }).toBe(false);
+});
