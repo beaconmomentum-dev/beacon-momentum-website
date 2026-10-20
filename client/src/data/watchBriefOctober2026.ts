@@ -22,6 +22,7 @@ export const WATCH_BRIEF_OCTOBER_2026_CONTENT = [
   },
   {
     "id": "what-anthropic-ai-safety-incidents-actually-show",
+    "audioSrc": "/audio/signal/what-anthropic-ai-safety-incidents-actually-show.mp3",
     "title": "What Anthropic’s AI-Safety Incidents Actually Show",
     "excerpt": "The verified record is serious, but the useful lesson is narrower: capability is not authority, a test is not a news report, and accountability must remain visible.",
     "category": "Beacon Signal",
@@ -36,6 +37,7 @@ export const WATCH_BRIEF_OCTOBER_2026_CONTENT = [
   },
   {
     "id": "the-cloud-has-a-seabed",
+    "audioSrc": "/audio/signal/the-cloud-has-a-seabed.mp3",
     "title": "The Cloud Has a Seabed",
     "excerpt": "The cloud is supported by physical routes, landing stations, repair systems, and human decisions. A practical resilience brief for organizations that need to know what happens when the normal path is unavailable.",
     "category": "Beacon Signal",

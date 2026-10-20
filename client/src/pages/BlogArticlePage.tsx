@@ -19,6 +19,7 @@ import { OCTOBER_ARTICLE_CONTENT } from "@/data/octoberEditorial";
 import { AGENT_AUTHORITY_ARTICLE_CONTENT } from "@/data/agentAuthorityEditorial";
 import { OCTOBER_SIGNAL_EXPANSION_CONTENT } from "@/data/octoberSignalExpansion";
 import { WATCH_BRIEF_OCTOBER_2026_CONTENT } from "@/data/watchBriefOctober2026";
+import { applySignalArchiveDates } from "@/data/signalArchiveSchedule";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
 interface ArticleContent {
@@ -40,7 +41,7 @@ interface ArticleContent {
 }
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
-const ARTICLE_CONTENT: ArticleContent[] = [
+const ARTICLE_CONTENT: ArticleContent[] = applySignalArchiveDates([
   ...WATCH_BRIEF_OCTOBER_2026_CONTENT,
   ...OCTOBER_SIGNAL_EXPANSION_CONTENT,
   ...AGENT_AUTHORITY_ARTICLE_CONTENT,
@@ -2732,7 +2733,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
       <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at The Watch.</p>
     `,
   },
-];
+]);
 
 // ─── Helper: find article by slug ─────────────────────────────────────────────
 function findArticle(slug: string): ArticleContent | undefined {
@@ -3099,24 +3100,6 @@ export default function BlogArticlePage() {
                 </svg>
                 <span id="beacon-listen-label">Listen</span>
               </button>
-              {article.transcriptSrc && (
-                <a
-                  href={article.transcriptSrc}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    color: "rgba(250,248,244,0.72)",
-                    fontFamily: "'Outfit', system-ui, sans-serif",
-                    fontSize: "0.72rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    textDecoration: "none",
-                  }}
-                >
-                  Transcript
-                </a>
-              )}
               {article.captionSrc && (
                 <a
                   href={article.captionSrc}

@@ -20,6 +20,7 @@ import { AGENT_AUTHORITY_ARTICLE_SUMMARIES } from "@/data/agentAuthorityEditoria
 import { OCTOBER_SIGNAL_EXPANSION_SUMMARIES } from "@/data/octoberSignalExpansion";
 import { WATCH_BRIEF_OCTOBER_2026_SUMMARIES } from "@/data/watchBriefOctober2026";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import { applySignalArchiveDates } from "@/data/signalArchiveSchedule";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
 const BLOG_HERO_IMG = "/images/beacon_hero.webp";
@@ -41,7 +42,7 @@ interface Article {
   category?: string; // Optional category label
 }
 
-const ARTICLES = [
+const ARTICLES = applySignalArchiveDates([
   ...WATCH_BRIEF_OCTOBER_2026_SUMMARIES,
   ...OCTOBER_SIGNAL_EXPANSION_SUMMARIES,
   ...AGENT_AUTHORITY_ARTICLE_SUMMARIES,
@@ -976,7 +977,7 @@ const ARTICLES = [
       "/images/editorial/hero-watch-brief-moon-launchpad-economy-16x9.webp",
     audioFile: "/audio/watch-brief-moon-launchpad-economy.mp3",
   },
-];
+]);
 
 const PILLARS: Pillar[] = [
   "All",

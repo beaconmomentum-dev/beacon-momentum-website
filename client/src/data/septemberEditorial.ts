@@ -1,6 +1,7 @@
 export const SEPTEMBER_ARTICLE_CONTENT = [
   {
     id: "young-adults-already-in-the-ai-conversation",
+    audioSrc: "/audio/signal/young-adults-already-in-the-ai-conversation.mp3",
     title: "Young Adults Are Already in the AI Conversation. Are We?",
     excerpt:
       "Young adults and students are already using AI while questioning its effect on work, learning, and connection. The useful response is not a lecture from the shoreline, but better orientation and clearer human support.",
