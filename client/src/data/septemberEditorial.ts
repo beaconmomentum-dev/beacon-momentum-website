@@ -98,6 +98,7 @@ export const SEPTEMBER_ARTICLE_CONTENT = [
     readTime: "7 min read",
     pillar: "Systems",
     pillarColor: "#3D5A80",
+    audioSrc: "/audio/when-the-past-gains-new-light.mp3",
     body: `
       <p class="beacon-article-lede">New tools, new images, new laboratory methods, and new ways of comparing evidence can change what scholars are able to see. That does not make history unstable. It makes history a living discipline: one that learns more when new evidence is examined with care.</p>
 
