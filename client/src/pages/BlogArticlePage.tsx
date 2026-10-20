@@ -2634,6 +2634,7 @@ const ARTICLE_CONTENT: ArticleContent[] = applySignalArchiveDates([
     pillarColor: "#1a3a5c",
     heroImage:
       "/images/editorial/hero-watch-brief-ai-safety-report-card-16x9.webp",
+    audioSrc: "/audio/watch-brief-ai-safety-report-card.mp3",
     body: `
       <h2>The Best AI Lab in the World Just Got a C+. Here Is What That Means for You.</h2>
       <p>The Future of Life Institute released its 2026 AI Safety Index this week. It grades every major AI laboratory on safety practices — not on how powerful their models are, but on whether those labs have the governance, transparency, and oversight structures in place to keep those models from becoming a liability.</p>
@@ -2666,6 +2667,7 @@ const ARTICLE_CONTENT: ArticleContent[] = applySignalArchiveDates([
     pillarColor: "#1a3a5c",
     heroImage:
       "/images/editorial/hero-watch-brief-huggingface-breach-16x9.webp",
+    audioSrc: "/audio/watch-brief-huggingface-breach.mp3",
     body: `
       <h2>An AI Hacked One of the World\u2019s Largest AI Platforms \u2014 and the Defenders Got Blocked by Their Own Tools</h2>
       <p>On July 16, 2026, Hugging Face — the single largest repository of open AI models on the internet, hosting over 45,000 models and used by more than 50,000 organizations — disclosed a breach of its production infrastructure. The attacker was not a person. It was an autonomous AI agent system that executed the entire operation from initial access to lateral movement across internal clusters, running tens of thousands of individual actions across a swarm of self-migrating, short-lived sandboxes. No human was at the keyboard directing each step. The agent ran over a weekend — deliberately, because that is when monitoring dashboards go quiet — and it never needed to sleep.</p>
@@ -2694,6 +2696,7 @@ const ARTICLE_CONTENT: ArticleContent[] = applySignalArchiveDates([
     pillar: "signal",
     pillarColor: "#1a3a5c",
     heroImage: "/images/editorial/hero-watch-brief-tesla-semi-16x9.webp",
+    audioSrc: "/audio/watch-brief-tesla-semi-freight.mp3",
     body: `
       <p class="beacon-article-lead">There is a number embedded in the price of almost everything you buy. It is not the cost of the product itself, the labor to make it, or the margin the retailer takes. It is the cost of moving the product — from factory to warehouse to store shelf to your door. That number is called <strong>cost per mile</strong>, and for the last hundred years it has been owned by diesel.</p>
       <p>Not because diesel is particularly elegant or efficient, but because it was cheap enough and reliable enough that nothing on the planet could compete with it. In April 2026, at a factory in Nevada, that changed.</p>
