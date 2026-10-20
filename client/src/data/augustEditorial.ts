@@ -131,9 +131,9 @@ const AUGUST_ARTICLE_DRAFTS = [
     readTime: "5 min read",
     pillar: "Signal",
     pillarColor: "#E9BC52",
-    heroImage: "/images/signal-series/02-ai-check-kite-poster.jpg",
+    heroImage: "/images/signal-series/02-ai-check-kite-neutral-poster.jpg",
     featured: true,
-    body: `<div style="width:100%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><video controls playsinline preload="metadata" poster="/images/signal-series/02-ai-check-kite-poster.jpg" aria-label="The AI Check Kite — When the Music Stops" style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0a0a0a"><source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/EUQjRypMMRNbFwEA.mp4" type="video/mp4">Your browser does not support embedded video. <a href="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/EUQjRypMMRNbFwEA.mp4">Watch the video directly.</a></video></div>
+    body: `<div style="width:100%;background:#0a0a0a;border-radius:2px;overflow:hidden;margin-bottom:1.5rem"><video controls playsinline preload="metadata" poster="/images/signal-series/02-ai-check-kite-neutral-poster.jpg" aria-label="The AI Check Kite — When the Music Stops" style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0a0a0a"><source src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/EUQjRypMMRNbFwEA.mp4" type="video/mp4">Your browser does not support embedded video. <a href="https://files.manuscdn.com/user_upload_by_module/session_file/310419663026807979/EUQjRypMMRNbFwEA.mp4">Watch the video directly.</a></video></div>
 <p class="beacon-article-lede">On Monday, Forbes published two separate analyses reaching the same conclusion: the financial structure supporting AI investment bears an uncomfortable resemblance to check kiting — an old form of fraud where insufficient funds are juggled between accounts to create the illusion of solvency.</p>
 <p>The numbers:</p>
 <ul>
