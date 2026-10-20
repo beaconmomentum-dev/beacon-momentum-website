@@ -190,6 +190,13 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     type: "article",
     image: `${BEACON_SITE_URL}/images/editorial/the-cloud-has-a-seabed.svg`,
   },
+  "/signal/the-cheap-part-that-can-stop-the-factory": {
+    title: "The Cheap Part That Can Stop the Factory",
+    description:
+      "A careful Beacon Signal brief on semiconductor chokepoints, replaceability, export controls, and what the verified Nexperia record does and does not establish.",
+    type: "article",
+    image: `${BEACON_SITE_URL}/images/editorial/the-cheap-part-that-can-stop-the-factory.svg`,
+  },
   "/signal/can-it-do-it-or-may-it-do-it": {
     title: "Can It Do It—or May It Do It?",
     description:
