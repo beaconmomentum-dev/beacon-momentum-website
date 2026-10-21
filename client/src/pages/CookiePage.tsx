@@ -1,11 +1,12 @@
 import { Link } from "wouter";
 import { resetBeaconAnalyticsConsent } from "@/lib/beaconAnalytics";
+import SharedFooter from "@/components/SharedFooter";
 
 function SimpleNav() {
   return (
     <nav style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(250,248,244,0.97)", borderBottom: "1px solid var(--beacon-parchment-dark)", backdropFilter: "blur(8px)" }}>
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem", minHeight: "44px", padding: "0 0.25rem" }}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" style={{ width: "1.75rem", height: "1.75rem", flexShrink: 0 }}>
             <rect width="64" height="64" rx="12" fill="#0D1D29" />
             <g fill="none" stroke="#F7F1E5" strokeWidth="3.25" strokeLinecap="round" strokeLinejoin="round">
@@ -26,7 +27,7 @@ function SimpleNav() {
           </svg>
           <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "1.05rem", color: "var(--beacon-charcoal)", letterSpacing: "-0.01em" }}>Beacon Momentum</span>
         </Link>
-        <Link href="/" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.8rem", color: "var(--beacon-charcoal-mid)", textDecoration: "none" }}>← Home</Link>
+        <Link href="/" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.8rem", color: "var(--beacon-charcoal-mid)", textDecoration: "none", display: "inline-flex", alignItems: "center", minHeight: "44px", padding: "0 0.5rem" }}>← Home</Link>
       </div>
     </nav>
   );
@@ -52,7 +53,7 @@ export default function CookiePage() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--beacon-parchment)" }}>
       <SimpleNav />
-      <section style={{ padding: "7rem 0" }}>
+      <section id="main-content" style={{ padding: "7rem 0" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <span style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 400, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--beacon-amber)", display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
             <span style={{ width: "2rem", height: "1px", background: "var(--beacon-amber)", display: "inline-block" }} />
@@ -67,7 +68,7 @@ export default function CookiePage() {
 
           <div style={{ fontFamily: "'Lora', Georgia, serif", fontWeight: 400, fontSize: "1rem", lineHeight: 1.85, color: "var(--beacon-charcoal-mid)" }}>
             <p style={pStyle}>
-              This policy explains how Beacon Momentum LLC ("Beacon Momentum," "we," "us," or "our") uses browser storage, cookies, and privacy-respecting measurement on beaconmomentum.com. It should be read with our <Link href="/privacy" style={{ color: "var(--beacon-teal)", textDecoration: "none" }}>Privacy Policy</Link> and <Link href="/terms" style={{ color: "var(--beacon-teal)", textDecoration: "none" }}>Terms of Use</Link>.
+              This policy explains how Beacon Momentum LLC ("Beacon Momentum," "we," "us," or "our") uses browser storage, cookies, and privacy-respecting measurement on beaconmomentum.com. It should be read with our <Link href="/privacy" style={{ color: "var(--beacon-teal)", textDecoration: "none", display: "inline-block", minHeight: "44px", padding: "0 0.25rem", verticalAlign: "middle" }}>Privacy Policy</Link> and <Link href="/terms" style={{ color: "var(--beacon-teal)", textDecoration: "none", display: "inline-block", minHeight: "44px", padding: "0 0.25rem", verticalAlign: "middle" }}>Terms of Use</Link>.
             </p>
 
             <h2 style={h2Style}>1. Our approach</h2>
@@ -132,6 +133,9 @@ export default function CookiePage() {
                 fontWeight: 600,
                 letterSpacing: "0.08em",
                 padding: "0.7rem 1rem",
+                minHeight: "44px",
+                display: "inline-flex",
+                alignItems: "center",
                 textTransform: "uppercase",
               }}
             >
@@ -160,22 +164,13 @@ export default function CookiePage() {
               1309 Coffeen Avenue, Suite 19387<br />
               Sheridan, Wyoming 82801<br />
               Mailing: PO Box 244, Cheshire, Massachusetts 01225<br />
-              <a href="mailto:info@beaconmomentum.com" style={{ color: "var(--beacon-teal)", textDecoration: "none" }}>info@beaconmomentum.com</a><br />
+              <a href="mailto:info@beaconmomentum.com" style={{ color: "var(--beacon-teal)", textDecoration: "none", display: "inline-block", minHeight: "44px", padding: "0.5rem 0", verticalAlign: "middle" }}>info@beaconmomentum.com</a><br />
               (888) 437-7657
             </p>
           </div>
         </div>
       </section>
-      <footer style={{ background: "var(--beacon-charcoal)", padding: "2.5rem 0" }}>
-        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <p style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.75rem", color: "rgba(250,248,244,0.3)", letterSpacing: "0.04em" }}>© {new Date().getFullYear()} Beacon Momentum LLC. All rights reserved.</p>
-          <div style={{ display: "flex", gap: "1.5rem" }}>
-            <Link href="/privacy" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.75rem", color: "rgba(250,248,244,0.3)", textDecoration: "none", letterSpacing: "0.04em" }}>Privacy</Link>
-            <Link href="/terms" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.75rem", color: "rgba(250,248,244,0.3)", textDecoration: "none", letterSpacing: "0.04em" }}>Terms</Link>
-            <Link href="/cookies" style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.75rem", color: "rgba(250,248,244,0.3)", textDecoration: "none", letterSpacing: "0.04em" }}>Cookies</Link>
-          </div>
-        </div>
-      </footer>
+      <SharedFooter />
     </div>
   );
 }

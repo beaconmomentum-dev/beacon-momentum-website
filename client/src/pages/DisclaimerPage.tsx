@@ -12,6 +12,7 @@
 
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
+import SharedFooter from "@/components/SharedFooter";
 
 const LAST_UPDATED = "June 13, 2026";
 
@@ -234,13 +235,13 @@ const SECTIONS: Section[] = [
           <p>Mailing: PO Box 244, Cheshire, MA 01225</p>
           <p>
             Email:{" "}
-            <a href="mailto:info@beaconmomentum.com" className="text-[#1A5C6B] hover:underline">
+            <a href="mailto:info@beaconmomentum.com" className="inline-flex min-h-[44px] items-center py-2 text-[#1A5C6B] hover:underline">
               info@beaconmomentum.com
             </a>
           </p>
           <p>
             Phone:{" "}
-            <a href="tel:+18884377657" className="text-[#1A5C6B] hover:underline">
+            <a href="tel:+18884377657" className="inline-flex min-h-[44px] items-center py-2 text-[#1A5C6B] hover:underline">
               (888) 437-7657
             </a>
           </p>
@@ -258,7 +259,7 @@ export default function DisclaimerPage() {
         <div className="max-w-3xl mx-auto">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[#9B8E7E] hover:text-[#C8BFB0] text-sm font-ui tracking-widest uppercase mb-8 transition-colors"
+            className="inline-flex min-h-[44px] items-center gap-2 text-[#9B8E7E] hover:text-[#C8BFB0] text-sm font-ui tracking-widest uppercase mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home
@@ -296,7 +297,7 @@ export default function DisclaimerPage() {
               <li key={section.id}>
                 <a
                   href={`#${section.id}`}
-                  className="text-[#1A5C6B] hover:text-[#154F5C] text-sm transition-colors"
+                  className="inline-flex min-h-[44px] items-center py-2 text-[#1A5C6B] hover:text-[#154F5C] text-sm transition-colors"
                 >
                   {idx + 1}. {section.title}
                 </a>
@@ -322,14 +323,8 @@ export default function DisclaimerPage() {
           ))}
         </div>
 
-        {/* Footer nav */}
-        <div className="mt-16 pt-8 border-t border-[#E8E4DC] flex flex-wrap gap-4 text-sm text-[#9B8E7E]">
-          <Link href="/privacy" className="hover:text-[#1A5C6B] transition-colors">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-[#1A5C6B] transition-colors">Terms of Use</Link>
-          <Link href="/cookies" className="hover:text-[#1A5C6B] transition-colors">Cookie Policy</Link>
-          <Link href="/" className="hover:text-[#1A5C6B] transition-colors">Return to Home</Link>
-        </div>
       </div>
+      <SharedFooter />
     </div>
   );
 }
