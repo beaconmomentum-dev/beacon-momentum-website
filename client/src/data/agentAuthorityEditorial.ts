@@ -7,6 +7,7 @@ export const AGENT_AUTHORITY_ARTICLE_CONTENT = [
     readTime: "7 min read",
     pillar: "Systems",
     pillarColor: "#3D5A80",
+    heroImage: "/images/editorial/hero-watch-brief-coding-agent-shakeout-16x9.webp",
     featured: true,
     audioSrc: "/audio/agent-authority/can-this-agent-do-it-or-may-it-do-it.mp3",
     transcriptSrc:
