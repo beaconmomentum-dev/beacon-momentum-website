@@ -10,6 +10,7 @@ export const SEPTEMBER_ARTICLE_CONTENT = [
     readTime: "8 min read",
     pillar: "Life",
     pillarColor: "#2A9D8F",
+    heroImage: "/images/editorial/hero-ai-transition-16x9.webp",
     featured: true,
     body: `
       <p class="beacon-article-lede">Young adults are already in the AI conversation. Many are using these tools. Many are questioning them. Many are trying to work out what belongs to a tool, what still belongs to a teacher or mentor, and what kind of future they are being asked to prepare for.</p>
@@ -98,6 +99,7 @@ export const SEPTEMBER_ARTICLE_CONTENT = [
     readTime: "7 min read",
     pillar: "Systems",
     pillarColor: "#3D5A80",
+    heroImage: "/images/editorial/hero-wisdom-information-16x9.webp",
     audioSrc: "/audio/when-the-past-gains-new-light.mp3",
     body: `
       <p class="beacon-article-lede">New tools, new images, new laboratory methods, and new ways of comparing evidence can change what scholars are able to see. That does not make history unstable. It makes history a living discipline: one that learns more when new evidence is examined with care.</p>
