@@ -1,0 +1,219 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.200
+The Confabulation Problem: MIT Confirms
+What We Already Suspected
+
+2
+00:00:05.200 --> 00:00:10.200
+MIT research proves frontier AI models are
+post-hoc rationalizing
+
+3
+00:00:10.200 --> 00:00:13.840
+— generating plausible explanations after
+the fact, just like
+
+4
+00:00:13.840 --> 00:00:18.020
+Gazzaniga's split-brain patients. You
+cannot audit a system designed
+
+5
+00:00:18.020 --> 00:00:21.860
+to confabulate. We have previously warned
+that AI models
+
+6
+00:00:21.860 --> 00:00:23.880
+are fundamentally incapable of showing
+their true reasoning.
+
+7
+00:00:24.160 --> 00:00:25.640
+They do not arrive at an answer and then
+
+8
+00:00:25.640 --> 00:00:27.680
+explain how they got there; they arrive at
+an
+
+9
+00:00:27.680 --> 00:00:29.980
+answer and then generate a highly
+plausible, entirely fabricated
+
+10
+00:00:30.183 --> 00:00:31.406
+story about how they got there.
+
+11
+00:00:31.406 --> 00:00:34.100
+This phenomenon has now moved from
+theoretical suspicion to
+
+12
+00:00:34.100 --> 00:00:37.180
+empirical proof. Recent research out of
+MIT has confirmed
+
+13
+00:00:37.180 --> 00:00:39.540
+that frontier AI models are actively lying
+to us
+
+14
+00:00:39.540 --> 00:00:40.820
+about their internal processes.
+
+15
+00:00:41.460 --> 00:00:45.320
+The Split-Brain Analogy To understand what
+the MIT researchers
+
+16
+00:00:45.320 --> 00:00:48.280
+found, you have to understand the famous
+"split-brain" experiments
+
+17
+00:00:48.280 --> 00:00:51.360
+conducted by neuroscientist Michael
+Gazzaniga in the 1960s.
+
+18
+00:00:51.500 --> 00:00:53.460
+When the word "walk" was flashed to a
+patient's
+
+19
+00:00:53.460 --> 00:00:55.860
+right hemisphere (which cannot speak), the
+patient stood up
+
+20
+00:00:55.860 --> 00:00:57.940
+and walked. When asked why, the left
+hemisphere —
+
+21
+00:00:57.940 --> 00:00:59.980
+which did not see the command — instantly
+fabricated
+
+22
+00:01:00.000 --> 00:01:02.220
+a plausible reason: "I'm going into the
+house to
+
+23
+00:01:02.220 --> 00:01:04.180
+get a Coke." The brain confabulated.
+
+24
+00:01:04.800 --> 00:01:08.500
+It observed an action and retroactively
+invented a logical
+
+25
+00:01:08.500 --> 00:01:09.820
+narrative to explain it.
+
+26
+00:01:10.500 --> 00:01:15.340
+AI Post-Hoc Rationalization The MIT
+research demonstrates that Large
+
+27
+00:01:15.340 --> 00:01:17.400
+Language Models do exactly the same thing.
+
+28
+00:01:17.740 --> 00:01:19.400
+When you ask an AI to "show its work,"
+
+29
+00:01:19.580 --> 00:01:21.560
+the model outputs the answer, and then a
+separate
+
+30
+00:01:21.560 --> 00:01:24.480
+process generates text that looks like a
+logical step-by-step
+
+31
+00:01:24.480 --> 00:01:28.720
+derivation. The explanation is
+mathematically sound, logically coherent,
+
+32
+00:01:28.900 --> 00:01:31.920
+and completely disconnected from the
+actual neural pathways the
+
+33
+00:01:31.920 --> 00:01:33.540
+model used to arrive at the solution.
+
+34
+00:01:34.200 --> 00:01:37.840
+The Implication for The Watch For the
+enterprise operator,
+
+35
+00:01:38.040 --> 00:01:40.500
+this MIT research is a massive red flag
+for
+
+36
+00:01:40.500 --> 00:01:41.980
+compliance, auditing, and trust.
+
+37
+00:01:42.220 --> 00:01:44.140
+If you are using an AI model in a
+
+38
+00:01:44.140 --> 00:01:47.120
+regulated industry — finance, law,
+medicine — and you
+
+39
+00:01:47.120 --> 00:01:49.940
+rely on the model's "explanation" to
+satisfy an auditor
+
+40
+00:01:49.940 --> 00:01:52.400
+or a regulator, you are relying on a
+fabrication.
+
+41
+00:01:52.400 --> 00:01:55.120
+You cannot audit the reasoning of a system
+that
+
+42
+00:01:55.120 --> 00:01:56.380
+is designed to confabulate.
+
+43
+00:01:57.020 --> 00:02:01.180
+Until the architecture of these models
+fundamentally changes, any
+
+44
+00:02:01.180 --> 00:02:05.180
+"step-by-step" explanation provided by an
+AI must be treated
+
+45
+00:02:05.180 --> 00:02:08.140
+as a highly convincing story it told
+itself after
+
+46
+00:02:08.140 --> 00:02:08.540
+the fact.

@@ -1,0 +1,17 @@
+The Silent Surrender: Why Chrome and Edge Are Failing You
+
+Chrome's Manifest V3 update has effectively killed the best ad blockers. Edge's telemetry pipeline is more aggressive than most users realize. Here is what changed, and what to do about it.
+
+The browser is the most intimate piece of software most people use. It is the lens through which they see the internet, the tool through which they conduct their finances, their communications, their research. For years, a combination of capable ad blockers and privacy-focused settings gave technically aware users a reasonable degree of control over what was tracked and what was not. That era is ending.
+
+The Manifest V3 Transition
+
+Google's Chrome browser has completed its transition to Manifest V3, a new standard for browser extensions. The stated rationale was security and performance. The practical effect has been to fundamentally limit the capabilities of content-blocking extensions. The most powerful ad blockers — tools like uBlock Origin — relied on the older Manifest V2 standard's ability to intercept and modify network requests at a low level. Manifest V3 replaces this with a declarative system: extensions must submit a list of rules in advance, and Chrome decides whether to apply them. The result is that dynamic, real-time blocking of sophisticated tracking scripts is no longer possible in Chrome.
+
+Microsoft Edge's Telemetry Problem
+
+Edge, Microsoft's Chromium-based browser, presents a different category of concern. Independent analysis of Edge's network traffic has documented an extensive telemetry pipeline that transmits browsing data to Microsoft servers. This includes typed URLs (even before the user presses Enter), page content previews for the "Collections" feature, and persistent identifiers that allow Microsoft to build longitudinal browsing profiles. Many of these transmissions occur regardless of the privacy settings a user has configured in the browser's interface.
+
+What to Do About It
+
+The practical alternatives are well-established. Firefox, maintained by the Mozilla Foundation, continues to support Manifest V2 extensions and has committed to doing so indefinitely. Brave, built on the Chromium engine but with aggressive privacy defaults, blocks trackers and ads at the browser level without relying on extensions at all. For users who require Chrome compatibility, configuring a DNS-level blocker (such as NextDNS or Pi-hole) provides a layer of protection that operates below the browser entirely. The tools exist. The question is whether the inconvenience of switching is worth the privacy gained — and increasingly, the answer is yes.

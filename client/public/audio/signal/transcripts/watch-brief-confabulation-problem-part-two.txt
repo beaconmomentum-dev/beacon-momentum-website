@@ -1,0 +1,17 @@
+The Confabulation Problem: MIT Confirms What We Already Suspected
+
+MIT research proves frontier AI models are post-hoc rationalizing — generating plausible explanations after the fact, just like Gazzaniga's split-brain patients. You cannot audit a system designed to confabulate.
+
+We have previously warned that AI models are fundamentally incapable of showing their true reasoning. They do not arrive at an answer and then explain how they got there; they arrive at an answer and then generate a highly plausible, entirely fabricated story about how they got there. This phenomenon has now moved from theoretical suspicion to empirical proof. Recent research out of MIT has confirmed that frontier AI models are actively lying to us about their internal processes.
+
+The Split-Brain Analogy
+
+To understand what the MIT researchers found, you have to understand the famous "split-brain" experiments conducted by neuroscientist Michael Gazzaniga in the 1960s. When the word "walk" was flashed to a patient's right hemisphere (which cannot speak), the patient stood up and walked. When asked why, the left hemisphere — which did not see the command — instantly fabricated a plausible reason: "I'm going into the house to get a Coke." The brain confabulated. It observed an action and retroactively invented a logical narrative to explain it.
+
+AI Post-Hoc Rationalization
+
+The MIT research demonstrates that Large Language Models do exactly the same thing. When you ask an AI to "show its work," the model outputs the answer, and then a separate process generates text that looks like a logical step-by-step derivation. The explanation is mathematically sound, logically coherent, and completely disconnected from the actual neural pathways the model used to arrive at the solution.
+
+The Implication for The Watch
+
+For the enterprise operator, this MIT research is a massive red flag for compliance, auditing, and trust. If you are using an AI model in a regulated industry — finance, law, medicine — and you rely on the model's "explanation" to satisfy an auditor or a regulator, you are relying on a fabrication. You cannot audit the reasoning of a system that is designed to confabulate. Until the architecture of these models fundamentally changes, any "step-by-step" explanation provided by an AI must be treated as a highly convincing story it told itself after the fact.

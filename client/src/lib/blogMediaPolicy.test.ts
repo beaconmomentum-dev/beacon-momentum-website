@@ -6,7 +6,7 @@ import {
   showIndexPlaybackControl,
 } from "./blogMediaPolicy";
 
-const confirmedMismatchIds = [
+const approvedReplacementIds = [
   "the-cloud-has-a-seabed",
   "what-anthropic-ai-safety-incidents-actually-show",
   "watch-brief-browser-privacy",
@@ -46,21 +46,16 @@ describe("blog media policy", () => {
     expect(showIndexPlaybackControl()).toBe(false);
   });
 
-  it("holds exactly the 20 still-unresolved confirmed mismatches", () => {
-    const expectedIds = confirmedMismatchIds;
-    expect(Object.keys(ARTICLE_AUDIO_RELEASE_HOLDS).sort()).toEqual(expectedIds);
-    expect(
-      Object.values(ARTICLE_AUDIO_RELEASE_HOLDS).filter(
-        (reason) => reason === "confirmed-mismatch",
-      ),
-    ).toHaveLength(20);
+  it("releases the 20 owner-approved replacement routes with no active holds", () => {
+    expect(Object.keys(ARTICLE_AUDIO_RELEASE_HOLDS)).toEqual([]);
 
-    for (const [index, id] of expectedIds.entries()) {
-      const article =
-        index % 2 === 0
-          ? { id, audioSrc: `/audio/${id}.mp3` }
-          : { id, audioFile: `/audio/${id}.mp3` };
-      expect(getArticleAudioSource(article)).toBeNull();
+    for (const id of approvedReplacementIds) {
+      const source =
+        id === "the-cloud-has-a-seabed" ||
+        id === "what-anthropic-ai-safety-incidents-actually-show"
+          ? `/audio/signal/${id}.mp3`
+          : `/audio/${id}.mp3`;
+      expect(getArticleAudioSource({ id, audioSrc: source })).toBe(source);
     }
   });
 
@@ -103,7 +98,17 @@ describe("blog media policy", () => {
     expect(BEACON_EDITORIAL_IMAGE_ASPECT_RATIO).toBe("16 / 9");
   });
 
-  it("keeps transcript assets out of the public article controls", () => {
-    expect("transcript" in { audioSrc: "/audio/example.mp3" }).toBe(false);
+  it("keeps approved audio disclosure and transcript/caption URLs with route media", () => {
+    const media = {
+      id: "approved-signal-audio",
+      audioSrc: "/audio/approved-signal-audio.mp3",
+      transcriptSrc: "/audio/signal/transcripts/approved-signal-audio.txt",
+      captionSrc: "/audio/signal/captions/approved-signal-audio.vtt",
+      audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
+    };
+    expect(getArticleAudioSource(media)).toBe(media.audioSrc);
+    expect(media.transcriptSrc).toContain("/transcripts/");
+    expect(media.captionSrc).toContain("/captions/");
+    expect(media.audioDisclosure).toContain("AI-generated narration");
   });
 });
