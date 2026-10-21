@@ -19,6 +19,7 @@ import { OCTOBER_ARTICLE_SUMMARIES } from "@/data/octoberEditorial";
 import { AGENT_AUTHORITY_ARTICLE_SUMMARIES } from "@/data/agentAuthorityEditorial";
 import { OCTOBER_SIGNAL_EXPANSION_SUMMARIES } from "@/data/octoberSignalExpansion";
 import { WATCH_BRIEF_OCTOBER_2026_SUMMARIES } from "@/data/watchBriefOctober2026";
+import { TEST_IS_WATCHING_SUMMARIES } from "@/data/theTestIsWatchingYouBack";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { applySignalArchiveDates } from "@/data/signalArchiveSchedule";
 
@@ -43,6 +44,7 @@ interface Article {
 }
 
 const ARTICLES = applySignalArchiveDates([
+  ...TEST_IS_WATCHING_SUMMARIES,
   ...WATCH_BRIEF_OCTOBER_2026_SUMMARIES,
   ...OCTOBER_SIGNAL_EXPANSION_SUMMARIES,
   ...AGENT_AUTHORITY_ARTICLE_SUMMARIES,

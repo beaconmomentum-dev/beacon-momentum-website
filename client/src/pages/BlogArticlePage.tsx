@@ -19,6 +19,7 @@ import { OCTOBER_ARTICLE_CONTENT } from "@/data/octoberEditorial";
 import { AGENT_AUTHORITY_ARTICLE_CONTENT } from "@/data/agentAuthorityEditorial";
 import { OCTOBER_SIGNAL_EXPANSION_CONTENT } from "@/data/octoberSignalExpansion";
 import { WATCH_BRIEF_OCTOBER_2026_CONTENT } from "@/data/watchBriefOctober2026";
+import { TEST_IS_WATCHING_CONTENT } from "@/data/theTestIsWatchingYouBack";
 import { applySignalArchiveDates } from "@/data/signalArchiveSchedule";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
@@ -42,6 +43,7 @@ interface ArticleContent {
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = applySignalArchiveDates([
+  ...TEST_IS_WATCHING_CONTENT,
   ...WATCH_BRIEF_OCTOBER_2026_CONTENT,
   ...OCTOBER_SIGNAL_EXPANSION_CONTENT,
   ...AGENT_AUTHORITY_ARTICLE_CONTENT,

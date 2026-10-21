@@ -197,6 +197,12 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     type: "article",
     image: `${BEACON_SITE_URL}/images/editorial/the-cheap-part-that-can-stop-the-factory.svg`,
   },
+  "/signal/the-test-is-watching-you-back": {
+    title: "Beacon Watch Brief: The Test Is Watching You Back",
+    description:
+      "A source-led look at reported AI agent activity, evaluation-origin incidents, controlled tests, and benchmark corrections—and what the evidence does and does not establish.",
+    type: "article",
+  },
   "/signal/can-it-do-it-or-may-it-do-it": {
     title: "Can It Do It—or May It Do It?",
     description:
