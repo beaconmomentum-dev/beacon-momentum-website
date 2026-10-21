@@ -1,0 +1,520 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.900
+The Wall Is Real The era of shipping your
+
+2
+00:00:02.900 --> 00:00:06.220
+best model and seeing what happens ended
+June 12th.
+
+3
+00:00:06.220 --> 00:00:09.220
+One lab hit the wall, negotiated its way
+back,
+
+4
+00:00:09.340 --> 00:00:12.200
+and is now permanently inside a
+relationship with Washington
+
+5
+00:00:12.200 --> 00:00:13.180
+it did not choose.
+
+6
+00:00:13.740 --> 00:00:16.200
+Another is still running toward the same
+wall at
+
+7
+00:00:16.200 --> 00:00:19.620
+full speed. The era of shipping your best
+model
+
+8
+00:00:19.620 --> 00:00:22.500
+and seeing what happens ended on June
+12th, 2026.
+
+9
+00:00:22.880 --> 00:00:25.460
+One lab learned that lesson, came back
+changed, and
+
+10
+00:00:25.460 --> 00:00:28.040
+is now permanently inside a relationship
+with Washington it
+
+11
+00:00:28.040 --> 00:00:30.600
+did not choose. Another lab is still
+running toward
+
+12
+00:00:30.600 --> 00:00:33.360
+the same wall at full speed, marketing AGI
+before
+
+13
+00:00:33.360 --> 00:00:36.500
+it ships, with no regulatory clearance and
+near-zero enterprise
+
+14
+00:00:36.500 --> 00:00:40.180
+trust. Both stories are worth
+understanding.
+
+15
+00:00:40.420 --> 00:00:42.840
+Not because of the models themselves — but
+because
+
+16
+00:00:42.840 --> 00:00:45.220
+of what they reveal about the landscape
+you are
+
+17
+00:00:45.220 --> 00:00:49.080
+building in. The Lab That Went Dark On
+June
+
+18
+00:00:49.340 --> 00:00:52.040
+12th, the Department of Commerce issued an
+export directive
+
+19
+00:00:52.040 --> 00:00:54.660
+that pulled Claude Fable 5 — at the time
+
+20
+00:00:54.660 --> 00:00:57.920
+the most capable publicly available AI
+model on Earth
+
+21
+00:00:57.920 --> 00:01:00.940
+— offline globally. The trigger was a
+report from
+
+22
+00:01:00.940 --> 00:01:04.660
+Amazon researchers describing a method of
+bypassing Fable 5's
+
+23
+00:01:04.660 --> 00:01:07.280
+safeguards to identify software
+vulnerabilities.
+
+24
+00:01:08.300 --> 00:01:10.680
+Eighteen days later, the investigation
+concluded.
+
+25
+00:01:10.900 --> 00:01:13.900
+The finding: the capability that triggered
+the shutdown existed
+
+26
+00:01:13.900 --> 00:01:16.420
+in practically every frontier model on the
+market, including
+
+27
+00:01:16.420 --> 00:01:19.100
+Claude Haiku — Anthropic's smallest,
+cheapest model — and
+
+28
+00:01:19.400 --> 00:01:22.560
+Kimmy K2.7, a Chinese open-weight model
+the US government
+
+29
+00:01:22.560 --> 00:01:24.220
+has no authority over whatsoever.
+
+30
+00:01:24.600 --> 00:01:27.080
+The emergency brake was pulled over
+something the entire
+
+31
+00:01:27.080 --> 00:01:30.600
+industry already had. Fable 5 came back on
+July
+
+32
+00:01:30.830 --> 00:01:32.220
+1st. But it came back changed.
+
+33
+00:01:32.520 --> 00:01:34.800
+To secure the return, Anthropic trained a
+new automated
+
+34
+00:01:34.800 --> 00:01:37.020
+classifier that blocks the specific
+technique in more than
+
+35
+00:01:37.020 --> 00:01:40.200
+99% of cases. The returning model was
+redesigned to
+
+36
+00:01:40.200 --> 00:01:43.140
+abort security-adjacent tasks more
+readily, with a fallback that
+
+37
+00:01:43.140 --> 00:01:45.760
+swaps in the previous-generation model
+mid-task when the classifier
+
+38
+00:01:45.760 --> 00:01:49.080
+fires. Anthropic acknowledged this will
+produce false positives on
+
+39
+00:01:49.080 --> 00:01:51.380
+legitimate coding and debugging work.
+
+40
+00:01:51.380 --> 00:01:53.140
+The deeper concession is structural.
+
+41
+00:01:53.760 --> 00:01:56.340
+Anthropic committed to pre-release
+government access for all future
+
+42
+00:01:56.340 --> 00:01:59.760
+frontier models, faster intelligence
+sharing on jailbreaks, and participation
+
+43
+00:01:59.760 --> 00:02:02.900
+in the inter-agency vulnerability sharing
+center established under the
+
+44
+00:02:02.900 --> 00:02:04.260
+June 2nd executive order.
+
+45
+00:02:04.580 --> 00:02:07.200
+The US government now tests Anthropic's
+models before the
+
+46
+00:02:07.200 --> 00:02:10.180
+public does. Four months ago, the Pentagon
+labeled Anthropic
+
+47
+00:02:10.180 --> 00:02:11.200
+a supply chain risk.
+
+48
+00:02:11.420 --> 00:02:12.440
+Today, they are partners.
+
+49
+00:02:13.200 --> 00:02:15.780
+The secondary story from that same week is
+the
+
+50
+00:02:15.780 --> 00:02:17.120
+one most coverage buried.
+
+51
+00:02:17.480 --> 00:02:20.520
+Anthropic launched Claude Sonnet 5 the
+same day Fable
+
+52
+00:02:20.520 --> 00:02:24.060
+returned — near-flagship performance at $2
+per million input
+
+53
+00:02:24.060 --> 00:02:26.940
+tokens, against Fable 5's $1,050.
+
+54
+00:02:27.280 --> 00:02:30.640
+An 80% price reduction for performance in
+the neighborhood
+
+55
+00:02:30.640 --> 00:02:31.980
+of last month's flagship.
+
+56
+00:02:32.940 --> 00:02:36.900
+Sonnet 5 was also deliberately trained
+with zero cybersecurity
+
+57
+00:02:36.900 --> 00:02:41.200
+datasets, producing a 0% success rate on
+exploit generation
+
+58
+00:02:41.350 --> 00:02:45.460
+in independent testing. Anthropic learned
+exactly where the regulatory
+
+59
+00:02:45.460 --> 00:02:48.420
+tripwire is and built its volume model to
+be
+
+60
+00:02:48.420 --> 00:02:50.500
+constitutionally incapable of crossing it.
+
+61
+00:02:51.360 --> 00:02:54.520
+The Lab Running Toward the Same Wall XAI
+has
+
+62
+00:02:54.520 --> 00:02:57.720
+been moving fast. By mid-2026, Musk is
+describing a
+
+63
+00:02:57.720 --> 00:03:00.060
+model trained on Colossus 2 with a
+possible 6
+
+64
+00:03:00.060 --> 00:03:03.660
+to 10 trillion parameters, multimodal
+across text, image, video,
+
+65
+00:03:03.820 --> 00:03:06.280
+and audio, with direct access to X's live
+data
+
+66
+00:03:06.280 --> 00:03:08.880
+feed — roughly 68 million posts per day —
+
+67
+00:03:09.160 --> 00:03:11.520
+giving it real-time knowledge no closed
+model with a
+
+68
+00:03:11.520 --> 00:03:12.980
+fixed training cutoff can match.
+
+69
+00:03:13.580 --> 00:03:17.160
+The AGI claim comes from Musk himself: a
+10%
+
+70
+00:03:17.380 --> 00:03:20.700
+probability that Grok 5 achieves something
+close to artificial
+
+71
+00:03:20.700 --> 00:03:24.300
+general intelligence. That number
+originated in a Twitter poll.
+
+72
+00:03:24.460 --> 00:03:26.120
+It is not a scientific estimate.
+
+73
+00:03:26.520 --> 00:03:30.000
+Andrej Karpathy, former OpenAI and Tesla
+AI lead, has
+
+74
+00:03:30.000 --> 00:03:32.780
+stated plainly that AGI is still years
+away.
+
+75
+00:03:33.660 --> 00:03:36.300
+As of mid-2026, Grok 5 has not shipped.
+
+76
+00:03:36.640 --> 00:03:38.040
+There are zero public benchmarks.
+
+77
+00:03:38.300 --> 00:03:40.120
+Everything known about the model comes
+from Musk's own
+
+78
+00:03:40.120 --> 00:03:42.760
+statements. Reuters found that despite
+being free or heavily
+
+79
+00:03:42.760 --> 00:03:45.260
+discounted for government use, just three
+of over 400
+
+80
+00:03:45.260 --> 00:03:46.880
+federal AI projects use Grok.
+
+81
+00:03:47.160 --> 00:03:48.860
+Enterprise usage numbers went down, not
+up.
+
+82
+00:03:49.260 --> 00:03:52.540
+FedRAMP High certification, required for
+serious government deployment, has
+
+83
+00:03:52.540 --> 00:03:56.900
+not been cleared. XAI's public posture is
+move fast.
+
+84
+00:03:57.320 --> 00:03:59.860
+Alignment work appears to be running a
+step behind
+
+85
+00:03:59.860 --> 00:04:01.460
+capability, not ahead of it.
+
+86
+00:04:01.660 --> 00:04:04.380
+That is the same trade-off that triggered
+the Fable
+
+87
+00:04:04.380 --> 00:04:08.100
+5 shutdown — capability shipped before the
+regulatory framework
+
+88
+00:04:08.100 --> 00:04:09.260
+had a place to put it.
+
+89
+00:04:10.580 --> 00:04:13.740
+What This Means for Builders The two
+stories together
+
+90
+00:04:13.740 --> 00:04:14.960
+draw a clear line.
+
+91
+00:04:15.180 --> 00:04:17.940
+The labs that survive the next phase of AI
+
+92
+00:04:17.940 --> 00:04:20.980
+regulation are the ones that built the
+relationship before
+
+93
+00:04:20.980 --> 00:04:23.660
+the directive came — not the ones
+scrambling to
+
+94
+00:04:23.660 --> 00:04:25.600
+negotiate after the shutdown order.
+
+95
+00:04:26.540 --> 00:04:28.940
+For builders, the lesson is not about
+which model
+
+96
+00:04:28.940 --> 00:04:31.660
+to use. It is about understanding the
+infrastructure you
+
+97
+00:04:31.660 --> 00:04:34.660
+are building on. SaaS dependencies on
+frontier models are
+
+98
+00:04:34.660 --> 00:04:36.120
+not just vendor lock-in risks.
+
+99
+00:04:36.280 --> 00:04:37.680
+They are regulatory exposure.
+
+100
+00:04:37.680 --> 00:04:40.220
+A model that is available today can be
+dark
+
+101
+00:04:40.220 --> 00:04:42.840
+tomorrow — not because the technology
+failed, but because
+
+102
+00:04:42.840 --> 00:04:45.380
+a competitor filed a report and a
+government agency
+
+103
+00:04:45.380 --> 00:04:48.620
+pulled the brake. The builders who are
+positioned for
+
+104
+00:04:48.620 --> 00:04:51.200
+the next 18 months are the ones running on
+
+105
+00:04:51.200 --> 00:04:55.120
+open-weight models they control, on
+infrastructure they own, with
+
+106
+00:04:55.120 --> 00:04:57.740
+workflows that do not depend on a single
+API
+
+107
+00:04:57.740 --> 00:05:00.340
+that can be switched off by executive
+order.
+
+108
+00:05:01.240 --> 00:05:02.780
+That is not paranoia.
+
+109
+00:05:02.960 --> 00:05:05.660
+That is the lesson Fable 5's 18 days in
+
+110
+00:05:05.660 --> 00:05:06.680
+the dark already taught.

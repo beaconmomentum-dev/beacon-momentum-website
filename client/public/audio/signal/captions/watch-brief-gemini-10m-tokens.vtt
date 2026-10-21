@@ -1,0 +1,213 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.760
+Ten Million Tokens: What Gemini 1.5's
+Context Window Actually
+
+2
+00:00:00.760 --> 00:00:07.600
+Changes Ten million tokens is
+
+3
+00:00:07.600 --> 00:00:10.580
+7 million words — enough to ingest an
+entire
+
+4
+00:00:10.580 --> 00:00:13.060
+decade of financial records in one prompt.
+
+5
+00:00:13.320 --> 00:00:15.380
+This is not an incremental upgrade.
+
+6
+00:00:15.640 --> 00:00:17.620
+It is the end of RAG as the default
+
+7
+00:00:17.620 --> 00:00:22.160
+enterprise architecture. In the rapid
+escalation of AI capabilities,
+
+8
+00:00:22.460 --> 00:00:25.000
+the most consequential breakthroughs are
+rarely the most visible.
+
+9
+00:00:25.000 --> 00:00:28.200
+While the public focuses on image
+generation or conversational
+
+10
+00:00:28.200 --> 00:00:30.920
+nuance, the true battleground for
+enterprise leverage is the
+
+11
+00:00:30.920 --> 00:00:33.280
+"context window" — the amount of
+information an AI
+
+12
+00:00:33.280 --> 00:00:35.240
+can hold in its working memory at one
+time.
+
+13
+00:00:35.600 --> 00:00:38.520
+With Gemini 1.5 Pro, Google expanded this
+to a
+
+14
+00:00:38.520 --> 00:00:40.000
+staggering 10 million tokens.
+
+15
+00:00:40.780 --> 00:00:43.900
+The Scale of Memory A token is roughly
+equivalent
+
+16
+00:00:43.900 --> 00:00:44.980
+to three-quarters of a word.
+
+17
+00:00:45.250 --> 00:00:47.780
+Ten million tokens equates to roughly 7
+million words
+
+18
+00:00:47.780 --> 00:00:50.020
+— enough to ingest the entire Harry Potter
+series,
+
+19
+00:00:50.280 --> 00:00:51.920
+the entire Lord of the Rings series, and
+the
+
+20
+00:00:51.920 --> 00:00:54.860
+entire Game of Thrones series
+simultaneously, with room to
+
+21
+00:00:54.930 --> 00:00:56.660
+spare. In a business context, it means you
+can
+
+22
+00:00:56.660 --> 00:00:59.340
+upload an entire decade of financial
+records, thousands of
+
+23
+00:00:59.340 --> 00:01:01.840
+PDFs, or hours of raw video and audio, and
+
+24
+00:01:01.840 --> 00:01:04.200
+the model can analyze the entire dataset
+holistically.
+
+25
+00:01:04.880 --> 00:01:07.420
+The End of RAG As We Know It Until
+
+26
+00:01:07.420 --> 00:01:10.040
+now, enterprises dealing with large
+datasets had to rely
+
+27
+00:01:10.040 --> 00:01:11.900
+on Retrieval-Augmented Generation (RAG).
+
+28
+00:01:12.340 --> 00:01:14.680
+Because the AI's memory was small, RAG
+systems would
+
+29
+00:01:14.680 --> 00:01:17.300
+chop a massive database into tiny pieces,
+search for
+
+30
+00:01:17.300 --> 00:01:19.320
+the most relevant piece, and feed only
+that fragment
+
+31
+00:01:19.320 --> 00:01:21.980
+to the AI. RAG is clunky, expensive to
+maintain,
+
+32
+00:01:22.200 --> 00:01:24.646
+and inherently flawed because the AI never
+actually "sees"
+
+33
+00:01:24.764 --> 00:01:27.420
+the whole picture. A 10 million token
+window effectively
+
+34
+00:01:27.420 --> 00:01:29.320
+bypasses RAG for many use cases.
+
+35
+00:01:30.040 --> 00:01:32.940
+You simply dump the entire database into
+the prompt.
+
+36
+00:01:33.660 --> 00:01:36.720
+The Implication for The Watch The
+expansion of the
+
+37
+00:01:36.720 --> 00:01:39.020
+context window is the ultimate leverage
+multiplier.
+
+38
+00:01:39.380 --> 00:01:41.280
+It shifts AI from being a tool that
+generates
+
+39
+00:01:41.280 --> 00:01:43.240
+content to a tool that synthesizes
+reality.
+
+40
+00:01:43.520 --> 00:01:45.180
+The winners in the next phase of the AI
+
+41
+00:01:45.180 --> 00:01:46.680
+rollout will not be the ones who write the
+
+42
+00:01:46.680 --> 00:01:48.700
+best prompts. The winners will be the ones
+who
+
+43
+00:01:48.700 --> 00:01:51.400
+understand how to feed the most
+comprehensive, high-quality datasets
+
+44
+00:01:51.400 --> 00:01:54.680
+into these massive context windows to
+extract insights that
+
+45
+00:01:54.680 --> 00:01:56.300
+were previously impossible to see.

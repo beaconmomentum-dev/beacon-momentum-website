@@ -1,0 +1,169 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.860
+ The Silent Surrender, Why Chrome and Edge Are Failing You
+
+2
+00:00:02.860 --> 00:00:08.580
+ Chrome's Manifest V3 update has effectively killed the best ad blockers.
+
+3
+00:00:09.000 --> 00:00:12.780
+ Edge's telemetry pipeline is more aggressive than most users realize.
+
+4
+00:00:13.300 --> 00:00:15.640
+ Here is what changed and what to do about it.
+
+5
+00:00:16.400 --> 00:00:19.880
+ The browser is the most intimate piece of software most people use.
+
+6
+00:00:20.240 --> 00:00:23.560
+ It is the lens through which they see the internet, the tool through which they conduct
+
+7
+00:00:23.560 --> 00:00:25.960
+ their finances, their communications, their research.
+
+8
+00:00:25.960 --> 00:00:30.860
+ For years, a combination of capable ad blockers and privacy-focused settings gave technically
+
+9
+00:00:30.860 --> 00:00:34.660
+ aware users a reasonable degree of control over what was tracked and what was not.
+
+10
+00:00:35.000 --> 00:00:36.020
+ That era is ending.
+
+11
+00:00:37.080 --> 00:00:38.680
+ The Manifest V3 Transition
+
+12
+00:00:38.680 --> 00:00:43.760
+ Google's Chrome browser has completed its transition to Manifest V3, a new standard
+
+13
+00:00:43.760 --> 00:00:44.740
+ for browser extensions.
+
+14
+00:00:45.380 --> 00:00:47.380
+ The stated rationale was security and performance.
+
+15
+00:00:47.760 --> 00:00:50.960
+ The practical effect has been to fundamentally limit the capabilities of content blocking
+
+16
+00:00:50.960 --> 00:00:51.480
+ extensions.
+
+17
+00:00:51.480 --> 00:00:55.720
+ The most powerful ad blockers, tools like uBlock Origin, relied on the older
+
+18
+00:00:55.960 --> 00:01:00.440
+ Manifest V2 standards ability to intercept and modify network requests at a low level.
+
+19
+00:01:01.400 --> 00:01:05.000
+ Manifest V3 replaces this with a declarative system.
+
+20
+00:01:05.200 --> 00:01:10.200
+ Extensions must submit a list of rules in advance and Chrome decides whether to apply
+
+21
+00:01:10.200 --> 00:01:10.480
+ them.
+
+22
+00:01:10.880 --> 00:01:16.080
+ The result is that dynamic, real-time blocking of sophisticated tracking scripts is no longer
+
+23
+00:01:16.080 --> 00:01:17.240
+ possible in Chrome.
+
+24
+00:01:18.380 --> 00:01:20.200
+ Microsoft Edge's telemetry problem
+
+25
+00:01:21.020 --> 00:01:24.780
+ Edge Microsoft's Chromium-based browser presents a different category of concern.
+
+26
+00:01:24.780 --> 00:01:29.180
+ Independent analysis of Edge's network traffic has documented an extensive telemetry pipeline
+
+27
+00:01:29.180 --> 00:01:31.320
+ that transmits browsing data to Microsoft servers.
+
+28
+00:01:31.320 --> 00:01:36.100
+ This includes typed URLs even before the user presses enter, page content previews for the
+
+29
+00:01:36.100 --> 00:01:40.740
+ collections feature, and persistent identifiers that allow Microsoft to build longitudinal browsing
+
+30
+00:01:40.740 --> 00:01:41.320
+ profiles.
+
+31
+00:01:41.320 --> 00:01:47.700
+ Many of these transmissions occur regardless of the privacy settings a user has configured in the
+
+32
+00:01:47.700 --> 00:01:48.800
+ browser's interface.
+
+33
+00:01:49.800 --> 00:01:50.660
+ What to do about it?
+
+34
+00:01:51.300 --> 00:01:53.700
+ The practical alternatives are well established.
+
+35
+00:01:54.040 --> 00:01:59.880
+ Firefox, maintained by the Mozilla Foundation, continues to support Manifest V2 extensions and has
+
+36
+00:01:59.880 --> 00:02:01.600
+ committed to doing so indefinitely.
+
+37
+00:02:02.080 --> 00:02:07.640
+ Brave, built on the Chromium engine but with aggressive privacy defaults, blocks trackers and ads at the browser
+
+38
+00:02:07.640 --> 00:02:09.880
+ level without relying on extensions at all.
+
+39
+00:02:10.980 --> 00:02:17.420
+ For users who require Chrome compatibility, configuring a DNS-level blocker such as NextDNS or PyHole
+
+40
+00:02:17.420 --> 00:02:21.320
+ provides a layer of protection that operates below the browser entirely.
+
+41
+00:02:21.720 --> 00:02:22.820
+ The tools exist.
+
+42
+00:02:23.120 --> 00:02:29.100
+ The question is whether the inconvenience of switching is worth the privacy gained, and increasingly, the answer is yes.
