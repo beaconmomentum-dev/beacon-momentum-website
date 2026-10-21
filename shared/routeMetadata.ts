@@ -257,6 +257,108 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
       "A vendor-neutral Beacon Signal framework for evaluating learning design, data practices, access, and portability in AI-native course platforms.",
     type: "article",
   },
+  "/signal/young-adults-already-in-the-ai-conversation": {
+    title: "Young Adults Are Already in the AI Conversation. Are We?",
+    description:
+      "A Beacon Signal reflection on how young adults are already living with AI and what responsible adults should notice before speaking for them.",
+    type: "article",
+  },
+  "/signal/when-the-past-gains-new-light": {
+    title: "When the Past Gains New Light",
+    description:
+      "A Beacon Signal essay on historical memory, new evidence, and the care required when technology changes what we can see.",
+    type: "article",
+  },
+  "/signal/five-questions-keep-you-in-charge": {
+    title: "Five Questions That Keep You in Charge",
+    description:
+      "A practical Beacon Signal checklist for keeping scope, evidence, authority, stop controls, and human ownership visible in AI-assisted work.",
+    type: "article",
+  },
+  "/signal/ai-capability-needs-a-home": {
+    title: "AI Capability Needs a Home",
+    description:
+      "A Beacon Signal guide to choosing the right place for AI-assisted work so useful capability remains understandable, reviewable, and recoverable.",
+    type: "article",
+  },
+  "/signal/dependency-ladder-what-lives-closest-to-home": {
+    title: "The Dependency Ladder: What Should Live Closest to Home?",
+    description:
+      "A Beacon Signal framework for deciding which AI dependencies belong close to the work, which may be shared, and which need a recovery path.",
+    type: "article",
+  },
+  "/signal/what-17600-actions-teach-us-about-ai-control": {
+    title: "What 17,600 Actions Teach Us About AI Control",
+    description:
+      "A Beacon Signal examination of action volume, authority boundaries, and why an agent’s control surface matters more than a single successful demo.",
+    type: "article",
+  },
+  "/signal/rare-earth-lesson-for-a-small-team": {
+    title: "The Rare-Earth Lesson for a Small Team",
+    description:
+      "A Beacon Signal note on concentrated dependencies, replaceability, and building resilient AI workflows with limited resources.",
+    type: "article",
+  },
+  "/signal/provenance-is-the-new-professionalism": {
+    title: "Provenance Is the New Professionalism",
+    description:
+      "A Beacon Signal guide to keeping sources, permissions, revisions, and evidence close to AI-assisted work.",
+    type: "article",
+  },
+  "/signal/ai-work-you-should-not-automate": {
+    title: "The AI Work You Should Not Automate",
+    description:
+      "A Beacon Signal framework for deciding which work needs human judgment, context, consent, or accountability rather than automatic execution.",
+    type: "article",
+  },
+  "/signal/membership-is-not-a-shortcut-to-community": {
+    title: "A Membership Is Not a Shortcut to Community",
+    description:
+      "A Beacon Signal reflection on belonging, participation, and the difference between access to a platform and a community people can trust.",
+    type: "article",
+  },
+  "/signal/build-recovery-plan-before-you-need-it": {
+    title: "Build the Recovery Plan Before You Need It",
+    description:
+      "A Beacon Signal guide to stop conditions, recovery paths, and keeping AI-assisted work useful when a dependency or workflow fails.",
+    type: "article",
+  },
+  "/signal/quiet-advantage-of-a-system-you-can-explain": {
+    title: "The Quiet Advantage of a System You Can Explain",
+    description:
+      "A Beacon Signal case for understandable systems, visible decisions, and durable AI capability that does not depend on mystery.",
+    type: "article",
+  },
+  "/signal/the-ai-check-kite": {
+    title: "The AI Check Kite — When the Music Stops",
+    description:
+      "A Beacon Signal field lesson on noticing when an AI-assisted workflow has lost its bearings and pausing before the error travels farther.",
+    type: "article",
+  },
+  "/signal/65-percent-of-founders": {
+    title: "65% of Founders Will Fail — Shortcuts vs. Levers",
+    description:
+      "A Beacon Signal examination of founder claims, business shortcuts, and the difference between leverage that compounds and promises that merely sound easy.",
+    type: "article",
+  },
+  "/signal/the-collective-illusion": {
+    title: "The Collective Illusion — You Are Not the Outlier",
+    description:
+      "A Beacon Signal reflection on social proof, shared uncertainty, and how to make a clearer decision when everyone appears more certain than they are.",
+    type: "article",
+  },
+  "/signal/300000-empty-seats": {
+    title: "300,000 Empty Seats — The Architecture of Fragility",
+    description:
+      "A Beacon Signal brief on workforce gaps, brittle assumptions, and the systems required before automation can responsibly carry more work.",
+    type: "article",
+  },
+  "/labs/the-model-rumor-is-not-the-model": {
+    title: "The Model Rumor Is Not the Model",
+    description:
+      "A Beacon Labs media-literacy exercise for separating AI rumors, benchmarks, anecdotes, demonstrations, and evidence before making a tool decision.",
+    type: "article",
+  },
   "/storm-navigators-guide": {
     title: "The Storm Navigator’s Guide",
     description:

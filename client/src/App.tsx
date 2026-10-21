@@ -84,6 +84,9 @@ const ManifestoQAPage = lazy(() => import("@/pages/ManifestoQAPage"));
 const PracticalAISkillsPage = lazy(
   () => import("@/pages/PracticalAISkillsPage"),
 );
+const ModelRumorLiteracyPage = lazy(
+  () => import("@/pages/ModelRumorLiteracyPage"),
+);
 const AIWorkflowReleaseReadinessKitPage = lazy(
   () => import("@/pages/AIWorkflowReleaseReadinessKitPage"),
 );
@@ -217,6 +220,10 @@ function Router() {
         component={DigitalGrandpaLibraryPage}
       />
       <Route path="/practical-ai-skills" component={PracticalAISkillsPage} />
+      <Route
+        path="/labs/the-model-rumor-is-not-the-model"
+        component={ModelRumorLiteracyPage}
+      />
       <Route
         path="/storm-navigators-guide"
         component={StormNavigatorsGuidePage}
