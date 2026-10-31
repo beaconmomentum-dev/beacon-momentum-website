@@ -86,6 +86,27 @@ jobs:
               fi
             done
 
+            echo '=== Marketing environment readiness (values hidden) ==='
+            env_file="$app/.env.production"
+            if [ -r "$env_file" ]; then
+              for key in VITE_OAUTH_PORTAL_URL VITE_APP_ID DATABASE_URL JWT_SECRET OAUTH_SERVER_URL GHL_API_KEY; do
+                if grep -Eq "^[[:space:]]*(export[[:space:]]+)?${key}=" "$env_file"; then
+                  printf '%s=present\n' "$key"
+                else
+                  printf '%s=missing\n' "$key"
+                fi
+              done
+              watch_flag="$(awk -F= '/^[[:space:]]*(export[[:space:]]+)?WATCH_LIVE_CHECKOUT_ENABLED=/ { gsub(/[[:space:]"\047]/, "", $2); print $2 }' "$env_file" | tail -n 1)"
+              printf 'WATCH_LIVE_CHECKOUT_ENABLED=%s\n' "${watch_flag:-unset}"
+              if grep -Eq '^[[:space:]]*(export[[:space:]]+)?STRIPE_WATCH_ANNUAL_PRICE_ID=' "$env_file"; then
+                echo 'STRIPE_WATCH_ANNUAL_PRICE_ID=present'
+              else
+                echo 'STRIPE_WATCH_ANNUAL_PRICE_ID=missing'
+              fi
+            else
+              echo 'production_env_file=unavailable'
+            fi
+
             echo '=== Installer metadata only ==='
             if [ -r "$installer" ]; then
               stat -c 'present=yes mode=%a owner=%U size=%s modified=%y' "$installer"

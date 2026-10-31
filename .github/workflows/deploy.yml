@@ -5,111 +5,81 @@ on:
     branches:
       - main
   workflow_dispatch:
-    inputs:
-      recover_dirty_worktree:
-        description: Create and push Git fallbacks for server-side source edits before deployment
-        required: false
-        default: false
-        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: beacon-momentum-production
+  cancel-in-progress: false
 
 jobs:
   deploy:
-    name: Deploy to beaconmomentum.com
+    name: Deploy exact release to beaconmomentum.com
     runs-on: ubuntu-latest
     steps:
-      - name: Setup SSH key
+      - name: Checkout exact release commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Setup production SSH key
         run: |
+          set -euo pipefail
           mkdir -p ~/.ssh
-          echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
+          printf '%s' "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh-keyscan -H "${{ secrets.PRODUCTION_SERVER_IP }}" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Create Git fallbacks and reconcile the production worktree
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.recover_dirty_worktree }}
+      - name: Install versioned host installer and deploy exact SHA
+        id: release
+        env:
+          RELEASE_SHA: ${{ github.sha }}
+          PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
         run: |
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
-            set -euo pipefail
-            cd /var/www/beacon-momentum-www
-
-            timestamp="$(date -u +%Y%m%dT%H%M%SZ)"
-            fallback_branch="fallback/production-before-visual-system-${timestamp}"
-            tracked_files=(
-              client/src/pages/BlogArticlePage.tsx
-              client/src/pages/DigitalRampUpFieldNotePage.tsx
-              client/src/pages/StarterPackPage.tsx
-            )
-            untracked_source_files=(
-              client/src/PillarPage.tsx
-              client/src/TheWatchPage.tsx
-            )
-            local_environment_file=".env.production.watch-live-20260727204838"
-
-            git switch -c "$fallback_branch"
-            git add -- "${tracked_files[@]}"
-            for file in "${untracked_source_files[@]}"; do
-              if [ -f "$file" ]; then
-                git add -- "$file"
-              fi
-            done
-
-            if ! git diff --cached --quiet; then
-              git -c user.name='Beacon Deployment Recovery' -c user.email='deploy@beaconmomentum.com' \
-                commit -m "backup: preserve production source edits before visual-system release"
-              git push origin "$fallback_branch"
-              echo "Created and pushed production-source fallback: $fallback_branch"
-            else
-              echo "No parent-repository source edits required a fallback commit."
-            fi
-
-            if [ -d beacon-mobile/.git ] || [ -f beacon-mobile/.git ]; then
-              if [ -n "$(git -C beacon-mobile status --porcelain)" ]; then
-                mobile_fallback_branch="fallback/production-before-visual-system-${timestamp}"
-                git -C beacon-mobile switch -c "$mobile_fallback_branch"
-                git -C beacon-mobile add -A
-                git -C beacon-mobile -c user.name='Beacon Deployment Recovery' -c user.email='deploy@beaconmomentum.com' \
-                  commit -m "backup: preserve production mobile edits before visual-system release"
-                git -C beacon-mobile push origin "$mobile_fallback_branch"
-                echo "Created and pushed mobile fallback: $mobile_fallback_branch"
-              fi
-            fi
-
-            if [ -f "$local_environment_file" ]; then
-              git stash push -a -m "backup: local production environment before visual-system release ${timestamp}" -- "$local_environment_file"
-              echo "Stashed local production environment file inside the server Git repository."
-            fi
-
-            git switch main
-            git reset --hard HEAD
-            git clean -ffd -- beacon-mobile "${untracked_source_files[@]}" "$local_environment_file"
-
-            if [ -n "$(git status --porcelain)" ]; then
-              echo "Unexpected production worktree changes remain after approved backups. Deployment halted."
-              git status --short
-              exit 1
-            fi
-
-            git pull --ff-only origin main
-          REMOTE
-
-      - name: Deploy via SSH
-        run: |
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} \
-            /usr/local/bin/deploy-beacon-www.sh
+          set -euo pipefail
+          [[ "$RELEASE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          remote_installer="/tmp/deploy-beacon-www-${RELEASE_SHA}.sh"
+          scp -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+            ops/deploy-beacon-www-release.sh \
+            "root@${PRODUCTION_SERVER_IP}:${remote_installer}"
+          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+            "root@${PRODUCTION_SERVER_IP}" \
+            "install -m 0755 '${remote_installer}' /usr/local/bin/deploy-beacon-www.sh && rm -f '${remote_installer}' && BEACON_DEPLOY_SHA='${RELEASE_SHA}' /usr/local/bin/deploy-beacon-www.sh"
 
       - name: Verify and repair Beacon capture route
+        env:
+          RELEASE_SHA: ${{ github.sha }}
+          PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
         run: |
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} \
-            'cd /var/www/beacon-momentum-www && chmod 0755 ops/ensure-beacon-capture-route.sh && ops/ensure-beacon-capture-route.sh'
+          set -euo pipefail
+          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+            "root@${PRODUCTION_SERVER_IP}" \
+            "route_script='/var/www/beacon-momentum-releases/${RELEASE_SHA}/ops/ensure-beacon-capture-route.sh'; test -f \"\$route_script\"; chmod 0755 \"\$route_script\"; \"\$route_script\""
 
-      - name: Verify deployment
+      - name: Verify public deployment
+        env:
+          RELEASE_SHA: ${{ github.sha }}
         run: |
+          set -euo pipefail
           sleep 5
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://beaconmomentum.com/)
-          echo "=== Beacon Momentum Deploy Complete ==="
-          echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-          echo "Commit: ${{ github.sha }}"
-          echo "HTTP Status: $HTTP_CODE"
-          [ "$HTTP_CODE" = "200" ] || exit 1
-          CAPTURE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -H "Origin: https://beaconmomentum.com" https://beaconmomentum.com/api/trpc/capture.submit?batch=1)
-          echo "Payload-free capture mutation status: $CAPTURE_STATUS"
-          [ "$CAPTURE_STATUS" = "405" ] || exit 1
+          HTTP_CODE="$(curl --fail --silent --show-error --output /dev/null --write-out '%{http_code}' https://beaconmomentum.com/)"
+          echo "Commit: ${RELEASE_SHA}"
+          echo "Public homepage HTTP status: ${HTTP_CODE}"
+          [[ "$HTTP_CODE" == "200" ]]
+          CAPTURE_STATUS="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' \
+            -H 'Origin: https://beaconmomentum.com' \
+            'https://beaconmomentum.com/api/trpc/capture.submit?batch=1')"
+          echo "Payload-free capture mutation status: ${CAPTURE_STATUS}"
+          [[ "$CAPTURE_STATUS" == "405" ]]
+
+      - name: Roll back if post-deploy verification fails
+        if: ${{ failure() && steps.release.outcome == 'success' }}
+        env:
+          PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+            "root@${PRODUCTION_SERVER_IP}" \
+            '/usr/local/bin/deploy-beacon-www.sh --rollback'

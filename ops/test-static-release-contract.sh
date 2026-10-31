@@ -40,3 +40,19 @@ if BEACON_SITE_ROOT="$SITE_ROOT" \
 fi
 
 echo "Static release and startup asset contract tests passed."
+
+INSTALLER="$REPO_ROOT/ops/deploy-beacon-www-release.sh"
+WORKFLOW="$REPO_ROOT/.github/workflows/deploy.yml"
+bash -n "$INSTALLER"
+grep -Fq 'worktree add --detach "$RELEASE_DIR" "$DEPLOY_SHA"' "$INSTALLER"
+grep -Fq 'pnpm@10.34.5' "$INSTALLER"
+grep -Fq 'pnpm install --frozen-lockfile --strict-peer-dependencies' "$INSTALLER"
+grep -Fq 'WATCH_LIVE_CHECKOUT_ENABLED:-false' "$INSTALLER"
+grep -Fq '"--rollback"' "$INSTALLER"
+if grep -Fq 'git pull origin main' "$INSTALLER"; then
+  echo "ERROR: deployment installer must not pull or mutate the production checkout" >&2
+  exit 1
+fi
+grep -Fq 'ops/deploy-beacon-www-release.sh' "$WORKFLOW"
+grep -Fq 'deploy-beacon-www.sh --rollback' "$WORKFLOW"
+echo "Versioned exact-SHA installer and rollback contract tests passed."
