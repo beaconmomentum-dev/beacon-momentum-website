@@ -89,6 +89,8 @@ jobs:
             echo '=== Installer metadata only ==='
             if [ -r "$installer" ]; then
               stat -c 'present=yes mode=%a owner=%U size=%s modified=%y' "$installer"
+              echo 'sanitized_installer_source:'
+              sed -E 's/^([[:space:]]*(export[[:space:]]+)?[A-Za-z_]*(KEY|TOKEN|SECRET|PASSWORD|DATABASE_URL)[A-Za-z_]*=).*/\1[REDACTED]/I' "$installer" | nl -ba
               awk '
                 /npm[[:space:]]+ci/ { print NR ": npm ci" }
                 /npm[[:space:]]+install/ { print NR ": npm install" }
