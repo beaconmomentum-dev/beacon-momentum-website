@@ -143,6 +143,11 @@ cd "$RELEASE_DIR"
 set -a
 # shellcheck source=/dev/null
 source "$ENV_FILE"
+if [[ -r "$OPTIONAL_RUNTIME_FILE" ]]; then
+  # Match the production PM2 launcher environment without printing values.
+  # shellcheck source=/dev/null
+  source "$OPTIONAL_RUNTIME_FILE"
+fi
 set +a
 export NODE_ENV=production
 [[ -n "${GHL_API_KEY:-}" ]] || { echo "ERROR: server-only GHL_API_KEY is absent from the production environment." >&2; exit 1; }
