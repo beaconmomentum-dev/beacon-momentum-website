@@ -1,934 +1,136 @@
-/**
- * Beacon Momentum — The Watch Enrollment Request Intake
- * Design: Deep Water Editorial / Quiet Authority
- *
- * Route: /the-watch/intake
- * Purpose: 6-step fit-and-starting-track questionnaire for people requesting The Watch.
- *   Collects context, recommends a starting track, and pushes the enrollment request to GHL.
- * Funnel rule: this is neither a checkout nor membership activation; approved members begin at Sentinel.
- *
- * GHL tags applied:
- *   BM_Watch_Intake         — any intake completion
- *   BM_Track_Transition     — primary track: career/life transition
- *   BM_Track_Builder        — primary track: building a business/venture
- *   BM_Track_Systems        — primary track: systems and AI integration
- *   BM_Track_Legacy         — primary track: legacy and long-term planning
- *
- * Custom fields written:
- *   watch_intake_track      — recommended starting track
- *   watch_intake_answers    — JSON blob of all answers
- *   watch_intake_tier       — Sentinel (single annual membership entry stage)
- */
-
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
-import SharedNav from "@/components/SharedNav";
+import { useState, type FormEvent } from "react";
+import { ArrowRight, Check, LoaderCircle } from "lucide-react";
 import SharedFooter from "@/components/SharedFooter";
-import { submitWatchIntake } from "@/lib/ghl";
-import { trpc } from "@/lib/trpc";
+import SharedNav from "@/components/SharedNav";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { submitWatchEnrollmentRequest } from "@/lib/ghl";
+import { Link } from "wouter";
 
-// ─── Design tokens ─────────────────────────────────────────────────────────────
 const C = {
-  navy: "#0A1628",
-  navyMid: "#0F1E35",
-  navyLight: "#162440",
+  deep: "#0A1628",
+  navy: "#0F1E35",
   amber: "#C8922A",
   amberLight: "#E8B84B",
   cream: "#F5F0E8",
-  muted: "rgba(245,240,232,0.6)",
-  faint: "rgba(245,240,232,0.08)",
-  border: "rgba(200,146,42,0.2)",
+  muted: "rgba(245,240,232,0.68)",
+  border: "rgba(200,146,42,0.24)",
 };
 const serif = "'Playfair Display', Georgia, serif";
-const body = "'Inter', system-ui, sans-serif";
+const body = "Inter, system-ui, sans-serif";
 
-// ─── Track definitions ─────────────────────────────────────────────────────────
-const TRACKS = {
-  transition: {
-    id: "transition",
-    label: "The Transition Track",
-    icon: "⚓",
-    description:
-      "For members navigating a major life or career shift — military separation, job change, relocation, or identity reset. Cohort focus: clarity, momentum, and landing on your feet.",
-    tag: "BM_Track_Transition",
-  },
-  builder: {
-    id: "builder",
-    label: "The Builder Track",
-    icon: "⚙",
-    description:
-      "For members building something — a business, a side venture, a consulting practice, or a new income stream. Cohort focus: execution, accountability, and revenue.",
-    tag: "BM_Track_Builder",
-  },
-  systems: {
-    id: "systems",
-    label: "The Systems Track",
-    icon: "◈",
-    description:
-      "For members who want to integrate AI tools, automate workflows, and build durable personal operating systems. Cohort focus: leverage, efficiency, and future-proofing.",
-    tag: "BM_Track_Systems",
-  },
-  legacy: {
-    id: "legacy",
-    label: "The Legacy Track",
-    icon: "◉",
-    description:
-      "For members focused on the long game — estate planning, knowledge transfer, mentorship, and building something that outlasts them. Cohort focus: permanence and impact.",
-    tag: "BM_Track_Legacy",
-  },
-};
+type Status = "idle" | "submitting" | "success" | "error";
 
-// ─── Question definitions ───────────────────────────────────────────────────────
-interface Question {
-  id: string;
-  step: number;
-  label: string;
-  sublabel?: string;
-  type: "radio" | "select" | "textarea" | "text" | "track";
-  options?: { value: string; label: string; sub?: string }[];
-  placeholder?: string;
-  required?: boolean;
-}
-
-const QUESTIONS: Question[] = [
-  {
-    id: "current_situation",
-    step: 1,
-    label: "What best describes where you are right now?",
-    sublabel: "Be honest. This is for placement, not judgment.",
-    type: "radio",
-    required: true,
-    options: [
-      { value: "separating", label: "Separating from military service" },
-      { value: "career_change", label: "Changing careers or industries" },
-      { value: "building", label: "Building a business or side venture" },
-      { value: "displaced", label: "Displaced by AI or industry shift" },
-      { value: "plateau", label: "Stuck on a plateau — capable but not moving" },
-      { value: "legacy", label: "Planning for the long game — legacy and impact" },
-      { value: "other", label: "Something else" },
-    ],
-  },
-  {
-    id: "biggest_obstacle",
-    step: 2,
-    label: "What is the single biggest obstacle between you and where you want to be?",
-    sublabel: "One sentence is enough. Be specific.",
-    type: "textarea",
-    required: true,
-    placeholder: "e.g. I know what to do but I can't make myself do it consistently.",
-  },
-  {
-    id: "time_horizon",
-    step: 3,
-    label: "What is your primary time horizon?",
-    sublabel: "Where is your focus right now?",
-    type: "radio",
-    required: true,
-    options: [
-      { value: "90_days", label: "90 days", sub: "Immediate stabilization or launch" },
-      { value: "1_year", label: "12 months", sub: "Building something durable" },
-      { value: "3_years", label: "3–5 years", sub: "Long-term positioning" },
-      { value: "legacy", label: "Legacy horizon", sub: "Beyond my own timeline" },
-    ],
-  },
-  {
-    id: "ai_comfort",
-    step: 4,
-    label: "How comfortable are you with AI tools right now?",
-    sublabel: "No wrong answer — this determines your starting point in the Systems track.",
-    type: "radio",
-    required: true,
-    options: [
-      { value: "none", label: "Not at all — I avoid them" },
-      { value: "curious", label: "Curious but haven't started" },
-      { value: "occasional", label: "I use them occasionally (ChatGPT, etc.)" },
-      { value: "regular", label: "I use AI tools regularly in my work" },
-      { value: "building", label: "I'm building with AI (APIs, automations, agents)" },
-    ],
-  },
-  {
-    id: "accountability",
-    step: 5,
-    label: "What kind of accountability works best for you?",
-    sublabel: "We'll use this to structure your cohort experience.",
-    type: "radio",
-    required: true,
-    options: [
-      { value: "public", label: "Public commitment — I need to say it out loud" },
-      { value: "partner", label: "One-on-one partner — a specific person checking in" },
-      { value: "group", label: "Small group — 4–8 people in the same situation" },
-      { value: "async", label: "Async check-ins — written, on my schedule" },
-      { value: "self", label: "Self-directed — I just need the structure, not the check-ins" },
-    ],
-  },
-  {
-    id: "track_choice",
-    step: 6,
-    label: "Based on what you've shared, which cohort track fits you best?",
-    sublabel:
-      "We'll validate this against your answers and assign your cohort. You can always switch tracks after your first 30 days.",
-    type: "track",
-    required: true,
-  },
-];
-
-// ─── Track scoring logic ────────────────────────────────────────────────────────
-function scoreTrack(answers: Record<string, string>): keyof typeof TRACKS {
-  const scores: Record<keyof typeof TRACKS, number> = {
-    transition: 0,
-    builder: 0,
-    systems: 0,
-    legacy: 0,
-  };
-
-  // situation
-  if (answers.current_situation === "separating" || answers.current_situation === "career_change")
-    scores.transition += 3;
-  if (answers.current_situation === "building") scores.builder += 3;
-  if (answers.current_situation === "displaced") scores.systems += 2;
-  if (answers.current_situation === "legacy") scores.legacy += 3;
-  if (answers.current_situation === "plateau") { scores.transition += 1; scores.builder += 1; }
-
-  // time horizon
-  if (answers.time_horizon === "90_days") scores.transition += 2;
-  if (answers.time_horizon === "1_year") scores.builder += 2;
-  if (answers.time_horizon === "3_years") { scores.systems += 1; scores.legacy += 1; }
-  if (answers.time_horizon === "legacy") scores.legacy += 3;
-
-  // AI comfort
-  if (answers.ai_comfort === "none" || answers.ai_comfort === "curious") scores.transition += 1;
-  if (answers.ai_comfort === "regular" || answers.ai_comfort === "building") scores.systems += 3;
-
-  const top = (Object.keys(scores) as (keyof typeof TRACKS)[]).reduce((a, b) =>
-    scores[a] >= scores[b] ? a : b
-  );
-  return top;
-}
-
-// ─── Progress bar ───────────────────────────────────────────────────────────────
-function ProgressBar({ step, total }: { step: number; total: number }) {
-  const pct = Math.round((step / total) * 100);
-  return (
-    <div style={{ marginBottom: "2.5rem" }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          fontFamily: body,
-          fontSize: "0.75rem",
-          letterSpacing: "0.08em",
-          textTransform: "uppercase",
-          color: C.muted,
-          marginBottom: "0.5rem",
-        }}
-      >
-        <span>Step {step} of {total}</span>
-        <span>{pct}% complete</span>
-      </div>
-      <div
-        style={{
-          height: "2px",
-          background: C.faint,
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            height: "100%",
-            width: `${pct}%`,
-            background: `linear-gradient(90deg, ${C.amber}, ${C.amberLight})`,
-            transition: "width 0.4s cubic-bezier(0.23,1,0.32,1)",
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-
-// ─── Radio option ───────────────────────────────────────────────────────────────
-function RadioOption({
-  value,
-  label,
-  sub,
-  selected,
-  onSelect,
-}: {
-  value: string;
-  label: string;
-  sub?: string;
-  selected: boolean;
-  onSelect: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onSelect}
-      style={{
-        display: "flex",
-        alignItems: "flex-start",
-        gap: "1rem",
-        padding: "1rem 1.25rem",
-        background: selected ? "rgba(200,146,42,0.1)" : C.faint,
-        border: `1px solid ${selected ? C.amber : C.border}`,
-        cursor: "pointer",
-        textAlign: "left",
-        width: "100%",
-        transition: "all 0.15s ease-out",
-        marginBottom: "0.5rem",
-      }}
-    >
-      <div
-        style={{
-          width: "18px",
-          height: "18px",
-          borderRadius: "50%",
-          border: `2px solid ${selected ? C.amber : C.muted}`,
-          flexShrink: 0,
-          marginTop: "2px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: "border-color 0.15s ease-out",
-        }}
-      >
-        {selected && (
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              background: C.amber,
-            }}
-          />
-        )}
-      </div>
-      <div>
-        <div
-          style={{
-            fontFamily: body,
-            fontSize: "0.95rem",
-            fontWeight: 500,
-            color: selected ? C.cream : "rgba(245,240,232,0.85)",
-            lineHeight: 1.4,
-          }}
-        >
-          {label}
-        </div>
-        {sub && (
-          <div
-            style={{
-              fontFamily: body,
-              fontSize: "0.8rem",
-              color: C.muted,
-              marginTop: "0.2rem",
-            }}
-          >
-            {sub}
-          </div>
-        )}
-      </div>
-    </button>
-  );
-}
-
-// ─── Track card ─────────────────────────────────────────────────────────────────
-function TrackCard({
-  track,
-  selected,
-  recommended,
-  onSelect,
-}: {
-  track: (typeof TRACKS)[keyof typeof TRACKS];
-  selected: boolean;
-  recommended: boolean;
-  onSelect: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onSelect}
-      style={{
-        display: "block",
-        padding: "1.5rem",
-        background: selected ? "rgba(200,146,42,0.12)" : C.faint,
-        border: `1px solid ${selected ? C.amber : C.border}`,
-        cursor: "pointer",
-        textAlign: "left",
-        width: "100%",
-        transition: "all 0.18s ease-out",
-        marginBottom: "0.75rem",
-        position: "relative",
-      }}
-    >
-      {recommended && (
-        <div
-          style={{
-            position: "absolute",
-            top: "-1px",
-            right: "1rem",
-            background: C.amber,
-            color: C.navy,
-            fontFamily: body,
-            fontSize: "0.65rem",
-            fontWeight: 700,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            padding: "0.2rem 0.6rem",
-          }}
-        >
-          Recommended for you
-        </div>
-      )}
-      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
-        <span style={{ fontSize: "1.25rem" }}>{track.icon}</span>
-        <span
-          style={{
-            fontFamily: serif,
-            fontSize: "1.05rem",
-            fontWeight: 600,
-            color: selected ? C.amberLight : C.cream,
-          }}
-        >
-          {track.label}
-        </span>
-      </div>
-      <p
-        style={{
-          fontFamily: body,
-          fontSize: "0.85rem",
-          lineHeight: 1.7,
-          color: C.muted,
-          margin: 0,
-        }}
-      >
-        {track.description}
-      </p>
-    </button>
-  );
-}
-
-// ─── Main page ──────────────────────────────────────────────────────────────────
 export default function TheWatchIntakePage() {
-  const [, navigate] = useLocation();
-  const [step, setStep] = useState(1);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [recommendedTrack, setRecommendedTrack] = useState<keyof typeof TRACKS>("transition");
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  usePageMeta({
+    title: "The Watch enrollment request",
+    description: "Request current information about The Watch. This form is not a purchase and does not activate membership.",
+    url: "/the-watch/intake",
+  });
 
-  const totalSteps = QUESTIONS.length;
-  const currentQ = QUESTIONS[step - 1];
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [acknowledged, setAcknowledged] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  // Persist intake to DB for the cohort lead dashboard
-  const submitIntakeMutation = trpc.cohort.submitIntake.useMutation();
-
-  // Compute the recommended starting track on the final question.
-  useEffect(() => {
-    if (step === totalSteps) {
-      const rec = scoreTrack(answers);
-      setRecommendedTrack(rec);
-      // Pre-select recommended track if not already chosen
-      if (!answers.track_choice) {
-        setAnswers((prev) => ({ ...prev, track_choice: rec }));
-      }
-    }
-  }, [step]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  function setAnswer(id: string, value: string) {
-    setAnswers((prev) => ({ ...prev, [id]: value }));
-  }
-
-  function canAdvance(): boolean {
-    if (!currentQ.required) return true;
-    return !!answers[currentQ.id]?.trim();
-  }
-
-  function handleNext() {
-    if (step < totalSteps) {
-      setStep((s) => s + 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }
-
-  function handleBack() {
-    if (step > 1) {
-      setStep((s) => s - 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }
-
-  async function handleSubmit() {
-    // Retrieve email from session storage (set by TheWatchPage JoinForm)
-    const email = sessionStorage.getItem("watch_intake_email") || "";
-    const firstName = sessionStorage.getItem("watch_intake_name") || undefined;
-    const entryStage = "sentinel";
-    const track = answers.track_choice || recommendedTrack;
-    setSubmitStatus("submitting");
-
-    const ok = await submitWatchIntake(email, firstName, track as "transition" | "builder" | "systems" | "legacy", answers);
-
-    // Also persist to DB for cohort lead dashboard (fire-and-forget, non-blocking)
-    if (email) {
-      submitIntakeMutation.mutate({
-        email,
-        firstName,
-        tier: entryStage,
-        track,
-        intakeAnswers: answers,
-      });
-    }
-
-    setSubmitStatus(ok ? "success" : "error");
-  }
-
-  // ── Success screen ────────────────────────────────────────────────────────────
-  if (submitStatus === "success") {
-    const track = answers.track_choice || recommendedTrack;
-    const trackData = TRACKS[track as keyof typeof TRACKS] || TRACKS.transition;
-    return (
-      <div style={{ background: C.navy, minHeight: "100vh", color: C.cream }}>
-        <SharedNav />
-        <div
-          style={{
-            minHeight: "80vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "4rem 1.5rem",
-          }}
-        >
-          <div style={{ maxWidth: "560px", textAlign: "center" }}>
-            {/* Compass icon */}
-            <div
-              style={{
-                width: "64px",
-                height: "64px",
-                border: `2px solid ${C.amber}`,
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 2rem",
-                fontSize: "1.75rem",
-              }}
-            >
-              {trackData.icon}
-            </div>
-            <h1
-              style={{
-                fontFamily: serif,
-                fontSize: "clamp(2rem, 4vw, 2.75rem)",
-                fontWeight: 600,
-                lineHeight: 1.1,
-                letterSpacing: "-0.025em",
-                color: C.cream,
-                marginBottom: "1rem",
-              }}
-            >
-              Your request is in.
-            </h1>
-            <p
-              style={{
-                fontFamily: body,
-                fontSize: "1rem",
-                lineHeight: 1.8,
-                color: C.muted,
-                marginBottom: "0.75rem",
-              }}
-            >
-              Your recommended starting track is:{" "}
-              <strong style={{ color: C.amberLight }}>{trackData.label}</strong>.
-            </p>
-            <p
-              style={{
-                fontFamily: body,
-                fontSize: "0.9rem",
-                lineHeight: 1.8,
-                color: C.muted,
-                marginBottom: "2.5rem",
-              }}
-            >
-              A member of the Beacon team will review your request and send the
-              current enrollment details, next steps, and a recommended cohort
-              path within 24 hours. Check your inbox — and your spam folder.
-            </p>
-            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/the-watch">
-                <button
-                  style={{
-                    background: C.amber,
-                    color: C.navy,
-                    border: "none",
-                    padding: "0.85rem 2rem",
-                    fontFamily: body,
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    cursor: "pointer",
-                  }}
-                >
-                  Back to The Watch
-                </button>
-              </Link>
-              <Link href="/">
-                <button
-                  style={{
-                    background: "transparent",
-                    color: C.cream,
-                    border: `1px solid ${C.border}`,
-                    padding: "0.85rem 2rem",
-                    fontFamily: body,
-                    fontSize: "0.85rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    cursor: "pointer",
-                  }}
-                >
-                  Explore Beacon
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <SharedFooter />
-      </div>
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!acknowledged || !email.trim() || status === "submitting") return;
+    setStatus("submitting");
+    const accepted = await submitWatchEnrollmentRequest(
+      email.trim(),
+      firstName.trim() || undefined,
+      acknowledged,
     );
+    setStatus(accepted ? "success" : "error");
   }
 
-  // ── Question renderer ─────────────────────────────────────────────────────────
-  function renderQuestion() {
-    const q = currentQ;
-
-    if (q.type === "radio" && q.options) {
-      return (
-        <div>
-          {q.options.map((opt) => (
-            <RadioOption
-              key={opt.value}
-              value={opt.value}
-              label={opt.label}
-              sub={opt.sub}
-              selected={answers[q.id] === opt.value}
-              onSelect={() => setAnswer(q.id, opt.value)}
-            />
-          ))}
-        </div>
-      );
-    }
-
-    if (q.type === "textarea") {
-      return (
-        <textarea
-          value={answers[q.id] || ""}
-          onChange={(e) => setAnswer(q.id, e.target.value)}
-          placeholder={q.placeholder}
-          rows={4}
-          style={{
-            width: "100%",
-            background: C.faint,
-            border: `1px solid ${answers[q.id] ? C.amber : C.border}`,
-            padding: "1rem",
-            fontFamily: body,
-            fontSize: "0.95rem",
-            color: C.cream,
-            lineHeight: 1.7,
-            resize: "vertical",
-            outline: "none",
-            transition: "border-color 0.15s ease-out",
-            boxSizing: "border-box",
-          }}
-        />
-      );
-    }
-
-    if (q.type === "text") {
-      return (
-        <input
-          type="text"
-          value={answers[q.id] || ""}
-          onChange={(e) => setAnswer(q.id, e.target.value)}
-          placeholder={q.placeholder}
-          style={{
-            width: "100%",
-            background: C.faint,
-            border: `1px solid ${answers[q.id] ? C.amber : C.border}`,
-            padding: "0.9rem 1rem",
-            fontFamily: body,
-            fontSize: "0.95rem",
-            color: C.cream,
-            outline: "none",
-            transition: "border-color 0.15s ease-out",
-            boxSizing: "border-box",
-          }}
-        />
-      );
-    }
-
-    if (q.type === "track") {
-      return (
-        <div>
-          {(Object.values(TRACKS) as (typeof TRACKS)[keyof typeof TRACKS][]).map((track) => (
-            <TrackCard
-              key={track.id}
-              track={track}
-              selected={answers.track_choice === track.id}
-              recommended={track.id === recommendedTrack}
-              onSelect={() => setAnswer("track_choice", track.id)}
-            />
-          ))}
-        </div>
-      );
-    }
-
-    return null;
-  }
-
-  // ── Main render ───────────────────────────────────────────────────────────────
   return (
-    <div style={{ background: C.navy, minHeight: "100vh", color: C.cream }}>
+    <div style={{ minHeight: "100vh", background: C.deep, color: C.cream }}>
       <SharedNav />
+      <main id="main-content">
+        <section style={{ padding: "clamp(3.5rem, 8vw, 6.5rem) 1.25rem" }}>
+          <div style={{ maxWidth: "980px", margin: "0 auto", display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(300px, 0.82fr)", gap: "clamp(2rem, 6vw, 5rem)", alignItems: "start" }} className="watch-request-grid">
+            <div>
+              <p style={{ margin: 0, color: C.amberLight, fontFamily: body, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+                The Watch · Enrollment request
+              </p>
+              <h1 style={{ margin: "1rem 0 1.25rem", fontFamily: serif, fontSize: "clamp(2.8rem, 6vw, 5rem)", fontWeight: 600, lineHeight: 0.98, letterSpacing: "-0.04em" }}>
+                Ask for the current details.
+              </h1>
+              <p style={{ maxWidth: "620px", color: C.muted, fontFamily: body, fontSize: "1.02rem", lineHeight: 1.8 }}>
+                The Watch is Beacon Momentum’s annual membership. Its current price, included access, renewal terms, and offer conditions are published on the <Link href="/the-watch" style={{ color: C.amberLight }}>canonical offer page</Link>. Review those terms before making any decision.
+              </p>
+              <div role="note" style={{ marginTop: "1.5rem", maxWidth: "620px", borderLeft: `2px solid ${C.amber}`, background: "rgba(245,240,232,0.04)", padding: "1rem 1.2rem", color: C.muted, fontFamily: body, fontSize: "0.9rem", lineHeight: 1.7 }}>
+                This form is an information request only. It does not take payment, create a paid membership, or activate account access. Any later payment and access step requires separate confirmation under the published terms.
+              </div>
+              <p style={{ marginTop: "1.5rem", color: C.muted, fontFamily: body, fontSize: "0.82rem", lineHeight: 1.7 }}>
+                To keep this first step proportionate, we ask only for an email address and an optional first name—not a personal history or explanation of your circumstances.
+              </p>
+              <Link href="/the-watch" style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem", marginTop: "1.4rem", color: C.amberLight, fontFamily: body, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.07em", textDecoration: "none", textTransform: "uppercase" }}>
+                Review The Watch <ArrowRight size={15} />
+              </Link>
+            </div>
 
-      {/* Hero strip */}
-      <div
-        style={{
-          background: C.navyMid,
-          borderBottom: `1px solid ${C.border}`,
-          padding: "3rem 1.5rem 2.5rem",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            fontFamily: body,
-            fontSize: "0.7rem",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            color: C.amber,
-            marginBottom: "0.75rem",
-          }}
-        >
-          The Watch · Enrollment Request
-        </div>
-        <h1
-          style={{
-            fontFamily: serif,
-            fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-            fontWeight: 600,
-            lineHeight: 1.15,
-            letterSpacing: "-0.02em",
-            color: C.cream,
-            margin: "0 auto 0.75rem",
-            maxWidth: "600px",
-          }}
-        >
-          Tell us where you are.
-        </h1>
-        <p
-          style={{
-            fontFamily: body,
-            fontSize: "0.95rem",
-            lineHeight: 1.7,
-            color: C.muted,
-            maxWidth: "480px",
-            margin: "0 auto",
-          }}
-        >
-          Six questions. About five minutes. Your answers help us recommend a
-          starting track and explain the right next step. This is not a checkout
-          or membership activation.
-        </p>
-      </div>
-
-      {/* Questionnaire */}
-      <div
-        style={{
-          maxWidth: "640px",
-          margin: "0 auto",
-          padding: "3rem 1.5rem 6rem",
-        }}
-      >
-        <ProgressBar step={step} total={totalSteps} />
-
-        {/* Question card */}
-        <div
-          style={{
-            background: C.navyMid,
-            border: `1px solid ${C.border}`,
-            padding: "2.5rem",
-            marginBottom: "2rem",
-          }}
-        >
-          {/* Step label */}
-          <div
-            style={{
-              fontFamily: body,
-              fontSize: "0.7rem",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: C.amber,
-              marginBottom: "0.75rem",
-            }}
-          >
-            Question {step}
+            <section aria-labelledby="request-form-title" style={{ background: C.navy, border: `1px solid ${C.border}`, borderTop: `4px solid ${C.amber}`, padding: "clamp(1.4rem, 4vw, 2.1rem)", boxShadow: "0 18px 42px rgba(0,0,0,0.2)" }}>
+              {status === "success" ? (
+                <div role="status" aria-live="polite">
+                  <Check aria-hidden="true" size={28} color={C.amberLight} />
+                  <h2 id="request-form-title" style={{ margin: "1rem 0 0.65rem", fontFamily: serif, fontSize: "2rem", lineHeight: 1.05 }}>Your request was sent.</h2>
+                  <p style={{ margin: 0, color: C.muted, fontFamily: body, fontSize: "0.92rem", lineHeight: 1.75 }}>
+                    No payment was made and no membership was activated. Beacon will respond with current enrollment information and any applicable next steps; response timing is not guaranteed.
+                  </p>
+                  <p style={{ margin: "1.1rem 0 0", color: C.muted, fontFamily: body, fontSize: "0.84rem", lineHeight: 1.65 }}>
+                    Questions? Contact <a href="mailto:support@beaconmomentum.com" style={{ color: C.amberLight }}>support@beaconmomentum.com</a>.
+                  </p>
+                  <Link href="/the-watch" style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem", marginTop: "1.5rem", color: C.amberLight, fontFamily: body, fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.07em", textDecoration: "none", textTransform: "uppercase" }}>
+                    Back to The Watch <ArrowRight size={15} />
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <h2 id="request-form-title" style={{ margin: 0, fontFamily: serif, fontSize: "2rem", lineHeight: 1.08 }}>Request information</h2>
+                  <p style={{ margin: "0.8rem 0 1.4rem", color: C.muted, fontFamily: body, fontSize: "0.86rem", lineHeight: 1.65 }}>
+                    Only your email and optional first name are sent with this request. Beacon’s Privacy Policy describes its handling of request information and service providers.
+                  </p>
+                  <form onSubmit={handleSubmit} style={{ display: "grid", gap: "1rem" }}>
+                    <label htmlFor="watch-request-name" style={{ display: "grid", gap: "0.45rem", color: C.muted, fontFamily: body, fontSize: "0.78rem", fontWeight: 650 }}>
+                      First name <span style={{ fontWeight: 400 }}>(optional)</span>
+                      <input id="watch-request-name" name="firstName" type="text" autoComplete="given-name" value={firstName} onChange={(event) => setFirstName(event.target.value)} style={inputStyle} />
+                    </label>
+                    <label htmlFor="watch-request-email" style={{ display: "grid", gap: "0.45rem", color: C.muted, fontFamily: body, fontSize: "0.78rem", fontWeight: 650 }}>
+                      Email address <span aria-hidden="true" style={{ color: C.amberLight }}>*</span>
+                      <input id="watch-request-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} style={inputStyle} />
+                    </label>
+                    <label style={{ display: "flex", alignItems: "flex-start", gap: "0.7rem", color: C.muted, fontFamily: body, fontSize: "0.78rem", lineHeight: 1.6, cursor: "pointer" }}>
+                      <input type="checkbox" required checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} style={{ marginTop: "0.18rem", accentColor: C.amber }} />
+                      <span>I understand this is an information request—not a purchase or automatic membership activation—and I have reviewed the <Link href="/privacy" style={{ color: C.amberLight }}>Privacy Policy</Link>.</span>
+                    </label>
+                    <button type="submit" disabled={!acknowledged || !email.trim() || status === "submitting"} style={{ display: "inline-flex", minHeight: "48px", alignItems: "center", justifyContent: "center", gap: "0.55rem", border: 0, background: acknowledged && email.trim() ? C.amber : "rgba(200,146,42,0.4)", color: C.deep, cursor: acknowledged && email.trim() && status !== "submitting" ? "pointer" : "not-allowed", fontFamily: body, fontSize: "0.76rem", fontWeight: 800, letterSpacing: "0.09em", textTransform: "uppercase" }}>
+                      {status === "submitting" ? <LoaderCircle className="animate-spin" size={17} /> : <ArrowRight size={16} />}
+                      {status === "submitting" ? "Sending request…" : "Send information request"}
+                    </button>
+                    {status === "error" && <p role="alert" style={{ margin: 0, color: "#F0A699", fontFamily: body, fontSize: "0.83rem", lineHeight: 1.6 }}>We could not send your request just now. Please try again later or email <a href="mailto:support@beaconmomentum.com" style={{ color: C.cream }}>support@beaconmomentum.com</a>.</p>}
+                  </form>
+                </>
+              )}
+            </section>
           </div>
-
-          {/* Question text */}
-          <h2
-            style={{
-              fontFamily: serif,
-              fontSize: "clamp(1.25rem, 2.5vw, 1.6rem)",
-              fontWeight: 600,
-              lineHeight: 1.25,
-              letterSpacing: "-0.015em",
-              color: C.cream,
-              marginBottom: currentQ.sublabel ? "0.5rem" : "1.5rem",
-            }}
-          >
-            {currentQ.label}
-          </h2>
-
-          {currentQ.sublabel && (
-            <p
-              style={{
-                fontFamily: body,
-                fontSize: "0.875rem",
-                lineHeight: 1.7,
-                color: C.muted,
-                marginBottom: "1.5rem",
-              }}
-            >
-              {currentQ.sublabel}
-            </p>
-          )}
-
-          {renderQuestion()}
-        </div>
-
-        {/* Navigation */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "1rem",
-          }}
-        >
-          {step > 1 ? (
-            <button
-              type="button"
-              onClick={handleBack}
-              style={{
-                background: "transparent",
-                color: C.muted,
-                border: `1px solid ${C.border}`,
-                padding: "0.8rem 1.5rem",
-                fontFamily: body,
-                fontSize: "0.85rem",
-                fontWeight: 600,
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                cursor: "pointer",
-                transition: "color 0.15s ease-out, border-color 0.15s ease-out",
-              }}
-            >
-              ← Back
-            </button>
-          ) : (
-            <div />
-          )}
-
-          {step < totalSteps ? (
-            <button
-              type="button"
-              onClick={handleNext}
-              disabled={!canAdvance()}
-              style={{
-                background: canAdvance() ? C.amber : "rgba(200,146,42,0.3)",
-                color: canAdvance() ? C.navy : "rgba(10,22,40,0.5)",
-                border: "none",
-                padding: "0.85rem 2.5rem",
-                fontFamily: body,
-                fontSize: "0.85rem",
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                cursor: canAdvance() ? "pointer" : "not-allowed",
-                transition: "background 0.15s ease-out, color 0.15s ease-out",
-                transform: "scale(1)",
-              }}
-            >
-              Continue →
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={!canAdvance() || submitStatus === "submitting"}
-              style={{
-                background: canAdvance() ? C.amber : "rgba(200,146,42,0.3)",
-                color: canAdvance() ? C.navy : "rgba(10,22,40,0.5)",
-                border: "none",
-                padding: "0.85rem 2.5rem",
-                fontFamily: body,
-                fontSize: "0.85rem",
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                cursor: canAdvance() && submitStatus !== "submitting" ? "pointer" : "not-allowed",
-                transition: "background 0.15s ease-out",
-              }}
-            >
-              {submitStatus === "submitting" ? "Submitting…" : "Submit Enrollment Request →"}
-            </button>
-          )}
-        </div>
-
-        {/* Error state */}
-        {submitStatus === "error" && (
-          <div
-            style={{
-              marginTop: "1.5rem",
-              padding: "1rem 1.25rem",
-              background: "rgba(220,50,50,0.1)",
-              border: "1px solid rgba(220,50,50,0.3)",
-              fontFamily: body,
-              fontSize: "0.875rem",
-              color: "#f87171",
-              lineHeight: 1.6,
-            }}
-          >
-            Something went wrong submitting your intake. Please try again, or
-            email{" "}
-            <a href="mailto:hello@beaconmomentum.com" style={{ color: C.amberLight }}>
-              hello@beaconmomentum.com
-            </a>{" "}
-            with your name and email address.
-          </div>
-        )}
-
-        {/* Reassurance note */}
-        <p
-          style={{
-            fontFamily: body,
-            fontSize: "0.78rem",
-            color: "rgba(245,240,232,0.35)",
-            lineHeight: 1.6,
-            textAlign: "center",
-            marginTop: "2.5rem",
-          }}
-        >
-          Your answers are used only to review your enrollment request and
-          recommend a starting track. They are never shared outside the Beacon
-          team.
-        </p>
-      </div>
-
+        </section>
+      </main>
       <SharedFooter />
+      <style>{`@media (max-width: 760px) { .watch-request-grid { grid-template-columns: 1fr !important; } }`}</style>
     </div>
   );
 }
+
+const inputStyle: React.CSSProperties = {
+  boxSizing: "border-box",
+  width: "100%",
+  border: "1px solid rgba(245,240,232,0.24)",
+  background: "rgba(245,240,232,0.06)",
+  color: "#F5F0E8",
+  padding: "0.8rem",
+  fontFamily: "Inter, system-ui, sans-serif",
+  fontSize: "0.96rem",
+  outlineOffset: "2px",
+};

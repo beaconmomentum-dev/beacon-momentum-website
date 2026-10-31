@@ -1,8 +1,8 @@
 /**
  * SharedNav — Beacon Momentum
  *
- * Five visitor choices stay visible: The Watch, Beacon Labs, Readiness Map,
- * Signal, and Explore. The featured action intentionally leads to The Watch.
+ * Six visitor choices stay visible: The Watch, Studio, Beacon Labs,
+ * Readiness Map, Signal, and Explore. The featured action leads to The Watch.
  */
 import { useState } from "react";
 import { Link } from "wouter";
@@ -12,6 +12,7 @@ type NavigationLink = { label: string; href: string; external?: boolean; };
 
 const PRIMARY_LINKS: NavigationLink[] = [
   { label: "The Watch", href: "/the-watch" },
+  { label: "Studio", href: "/studio" },
   { label: "Beacon Labs", href: "https://beaconlabs.ai", external: true },
   { label: "Readiness Map", href: "/ReadinessMap" },
   { label: "Signal", href: "/signal" },

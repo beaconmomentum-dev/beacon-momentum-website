@@ -20,6 +20,17 @@ const DEFAULT_METADATA: RouteMetadata = {
 
 const ROUTE_METADATA: Record<string, RouteMetadata> = {
   "/": DEFAULT_METADATA,
+  "/_review/labs/studio-services": {
+    title: "Studio Services Concept — Beacon Labs",
+    description:
+      "Local design review only. Proposed organization-facing Studio Services, not a live offer or inquiry page.",
+    robots: "noindex, nofollow",
+  },
+  "/studio": {
+    title: "Studio — Stories and Learning Media",
+    description:
+      "Explore Beacon Momentum Studio's human-first stories, source-led explainers, and learning media, rooted in Cheshire, Massachusetts and connected to a wider world.",
+  },
   "/about": {
     title: "About Beacon Momentum",
     description:

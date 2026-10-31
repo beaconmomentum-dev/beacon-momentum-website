@@ -64,10 +64,14 @@ export const captureInputSchema = z.discriminatedUnion("event", [
   z.object({
     ...commonCaptureFields,
     event: z.literal("watch_brief_premium_interest"),
+    /** Interest is an inquiry only; the submitter must affirm the privacy notice. */
+    privacyAcknowledged: z.literal(true),
   }),
   z.object({
     ...commonCaptureFields,
-    event: z.literal("watch_join"),
+    event: z.literal("watch_enrollment_request"),
+    /** The requester must affirm the request-only and privacy notice. */
+    privacyAcknowledged: z.literal(true),
   }),
   z.object({
     ...commonCaptureFields,
@@ -106,15 +110,6 @@ export const captureInputSchema = z.discriminatedUnion("event", [
   z.object({
     ...commonCaptureFields,
     event: z.literal("digital_grandpa_library_interest"),
-  }),
-  z.object({
-    ...commonCaptureFields,
-    event: z.literal("watch_intake_submission"),
-    track: z.enum(["transition", "builder", "systems", "legacy"]),
-    entryStage: z.literal("sentinel"),
-    answers: z
-      .record(z.string().trim().min(1).max(80), z.string().trim().max(1200))
-      .refine((value) => Object.keys(value).length <= 12),
   }),
 ]);
 
@@ -228,11 +223,12 @@ export function buildGhlUpsertPayload(
         source: "beaconmomentum.com/watch-brief-premium",
         tags: ["BM_Watch_Brief_Premium_Interest"],
       };
-    case "watch_join":
+    case "watch_enrollment_request":
       return {
         ...payload,
-        source: "beaconmomentum.com/the-watch",
-        tags: ["BM_Watch_Join", "BM_Watch_Sentinel", "BM_Community"],
+        source: "beaconmomentum.com/the-watch/intake",
+        // A request is not membership: never apply Sentinel or Community-access tags here.
+        tags: ["BM_Watch_Join", "BM_Watch_Enrollment_Request"],
       };
     case "contact_inquiry":
       return {
@@ -287,33 +283,6 @@ export function buildGhlUpsertPayload(
         source: "beaconmomentum.com/digital-grandpa/library",
         tags: ["BM_Digital_Grandpa_Library_Waitlist"],
       };
-    case "watch_intake_submission": {
-      const trackTags = {
-        transition: "BM_Track_Transition",
-        builder: "BM_Track_Builder",
-        systems: "BM_Track_Systems",
-        legacy: "BM_Track_Legacy",
-      } as const;
-      return {
-        ...payload,
-        source: "beaconmomentum.com/the-watch/intake",
-        tags: [
-          "BM_Watch_Intake",
-          "BM_Watch_Join",
-          "BM_Watch_Enrollment_Request",
-          "BM_Watch_Sentinel",
-          trackTags[input.track],
-        ],
-        customFields: [
-          { id: "watch_intake_track", field_value: input.track },
-          { id: "watch_intake_tier", field_value: input.entryStage },
-          {
-            id: "watch_intake_answers",
-            field_value: JSON.stringify(input.answers),
-          },
-        ],
-      };
-    }
   }
 }
 

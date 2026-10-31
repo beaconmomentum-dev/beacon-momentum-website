@@ -82,7 +82,7 @@ const faqs = [
   },
   {
     question: "Do my details move between Beacon properties?",
-    answer: "No. A Beacon Community membership, Beacon Labs inquiry, commerce purchase, and other property interaction remain separate by default. Each destination explains its own privacy and consent practices.",
+    answer: "Review the privacy notice linked where you provide information. Do not assume that every Beacon property uses the same systems or that details are automatically isolated across interactions.",
   },
 ];
 

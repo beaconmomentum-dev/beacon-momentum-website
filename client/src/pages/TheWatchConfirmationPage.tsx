@@ -44,7 +44,7 @@ export default function TheWatchConfirmationPage() {
       setState(result.paymentIntent?.status === "succeeded" ? "succeeded" : result.paymentIntent?.status === "processing" ? "processing" : "failed");
     }
     if (config.isLoading) return;
-    if (!config.data?.ready) {
+    if (!config.data?.publishableKey) {
       setState("unavailable");
       return;
     }
@@ -56,7 +56,7 @@ export default function TheWatchConfirmationPage() {
     : state === "processing"
       ? { title: "Your payment is processing.", body: "We are waiting for the payment processor’s final confirmation. Do not submit another payment. Check your email shortly, or contact support if you do not receive a confirmation." }
       : state === "failed"
-        ? { title: "We could not confirm the payment.", body: "No access is being represented as active from this screen. Return to secure enrollment to review the payment details, or contact support for help." }
+        ? { title: "We could not confirm the payment.", body: "No access is being represented as active from this screen. If you already made a payment, contact support with your receipt details. For a new membership request, use The Watch request form." }
         : { title: "Confirm your enrollment status.", body: "We cannot verify a payment from this browser session. Please check the email used at checkout or contact Beacon support with your receipt details." };
 
   return (
@@ -66,7 +66,7 @@ export default function TheWatchConfirmationPage() {
         <h1 style={{ margin: "1rem 0 0", fontFamily: "Georgia, serif", fontWeight: 500, fontSize: "clamp(2.25rem, 5vw, 4rem)", letterSpacing: "-0.04em", lineHeight: 1.04 }}>{copy.title}</h1>
         <p style={{ margin: "1.5rem 0 0", color: C.mist, lineHeight: 1.8, fontSize: "1.02rem" }}>{copy.body}</p>
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginTop: "2rem" }}>
-          {(state === "failed" || state === "unavailable") && <Link href="/the-watch/checkout" style={{ background: C.amber, color: C.deep, padding: "0.9rem 1.15rem", textDecoration: "none", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em", fontSize: "0.76rem" }}>Return to secure enrollment</Link>}
+          {(state === "failed" || state === "unavailable") && <Link href="/the-watch/intake" style={{ background: C.amber, color: C.deep, padding: "0.9rem 1.15rem", textDecoration: "none", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em", fontSize: "0.76rem" }}>Start an enrollment request</Link>}
           <Link href="/the-watch" style={{ border: `1px solid ${C.line}`, color: C.cream, padding: "0.9rem 1.15rem", textDecoration: "none", fontWeight: 700, fontSize: "0.8rem" }}>Review The Watch</Link>
           <a href="mailto:support@beaconmomentum.com" style={{ border: `1px solid ${C.line}`, color: C.cream, padding: "0.9rem 1.15rem", textDecoration: "none", fontWeight: 700, fontSize: "0.8rem" }}>Contact support</a>
         </div>

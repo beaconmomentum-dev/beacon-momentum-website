@@ -118,8 +118,8 @@ function PaymentForm({ email, subscriptionId }: { email: string; subscriptionId:
 
 export default function TheWatchCheckoutPage() {
   usePageMeta({
-    title: "The Watch secure enrollment",
-    description: "Complete secure annual enrollment for The Watch, Beacon Momentum's $497 annual membership.",
+    title: "The Watch enrollment request",
+    description: "The Watch begins with an enrollment request. This page does not take payment or activate membership.",
     url: "/the-watch/checkout",
   });
 
@@ -176,7 +176,7 @@ export default function TheWatchCheckoutPage() {
             <p style={{ color: C.amber, textTransform: "uppercase", letterSpacing: "0.17em", fontSize: "0.72rem", fontWeight: 800, margin: "0 0 1rem" }}>Founding Year enrollment</p>
             <h1 style={{ maxWidth: "760px", margin: 0, fontFamily: "Georgia, serif", fontSize: "clamp(2.5rem, 5.5vw, 4.6rem)", fontWeight: 500, lineHeight: 1.03, letterSpacing: "-0.035em" }}>Take your post for the year ahead.</h1>
             <p style={{ maxWidth: "650px", margin: "1.5rem 0 0", color: C.mist, fontSize: "1.08rem", lineHeight: 1.75 }}>
-              This is a Beacon-controlled annual enrollment for the first 1,000 paid annual members. Your current rate is $497/year—$500 below the later $997 annual rate for new members—and it remains with uninterrupted, paid renewals.
+              The Watch is an annual membership with published Founding Year terms. New enrollment begins with a request; this page does not take payment or activate membership while the payment and account handoff remain under review.
             </p>
             <div style={{ marginTop: "2rem", padding: "1.25rem", borderLeft: `2px solid ${C.amber}`, background: "rgba(247,241,229,0.045)" }}>
               <p style={{ margin: 0, color: C.cream, lineHeight: 1.65 }}><strong>What begins here:</strong> Sentinel membership, the Beacon Venture Execution Sprint, Watch Brief Premium member benefit, Pathfinder Assessment, resource library, and the current execution field kit.</p>
@@ -191,7 +191,13 @@ export default function TheWatchCheckoutPage() {
             </div>
             <p style={{ margin: "0.65rem 0 1.5rem", color: C.mist, fontSize: "0.9rem", lineHeight: 1.65 }}>No free trial. One annual membership. Founding Year enrollment is available to the first 1,000 paid annual members. Earned stages are not separate purchases.</p>
 
-            {!checkout && (
+            {!config.data?.ready ? (
+              <div role="status" style={{ display: "grid", gap: "1rem", color: C.mist, fontSize: "0.92rem", lineHeight: 1.7 }}>
+                <p style={{ margin: 0, color: C.cream, fontWeight: 700 }}>Direct payment is not available on this route.</p>
+                <p style={{ margin: 0 }}>Start with an enrollment request. Sending a request does not charge you, create an account, or activate membership.</p>
+                <Link href="/the-watch/intake" style={{ display: "inline-flex", width: "fit-content", minHeight: "44px", alignItems: "center", background: C.amber, color: C.deep, padding: "0.75rem 1rem", textDecoration: "none", fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", fontSize: "0.76rem" }}>Start an enrollment request</Link>
+              </div>
+            ) : !checkout ? (
               <form onSubmit={beginPayment} style={{ display: "grid", gap: "1rem" }}>
                 <label style={{ display: "grid", gap: "0.45rem", color: C.mist, fontSize: "0.82rem" }}>
                   Full name
@@ -210,13 +216,11 @@ export default function TheWatchCheckoutPage() {
                   {config.isLoading ? "Loading secure enrollment…" : createSubscription.isPending ? "Preparing secure payment…" : config.data?.ready ? "Continue to secure payment" : "Enrollment configuration pending"}
                 </button>
               </form>
-            )}
-
-            {checkout && stripePromise && checkoutOptions && (
+            ) : checkout && stripePromise && checkoutOptions ? (
               <Elements stripe={stripePromise} options={checkoutOptions}>
                 <PaymentForm email={email} subscriptionId={checkout.subscriptionId} />
               </Elements>
-            )}
+            ) : null}
           </aside>
         </div>
       </section>

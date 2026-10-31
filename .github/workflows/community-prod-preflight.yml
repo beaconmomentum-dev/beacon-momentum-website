@@ -1,23 +1,33 @@
-name: Beacon Community Production Preflight
+name: Beacon Production Preflight
 
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: beacon-production-preflight
+  cancel-in-progress: false
+
 jobs:
   preflight:
-    name: Inspect Beacon Community release path
+    name: Read-only production release inspection
     runs-on: ubuntu-latest
     steps:
-      - name: Setup SSH key
+      - name: Setup production SSH key
         run: |
+          set -euo pipefail
           mkdir -p ~/.ssh
-          echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
+          printf '%s' "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh-keyscan -H "${{ secrets.PRODUCTION_SERVER_IP }}" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Inspect release path without modifying production
+      - name: Inspect Community release path without modifying production
         run: |
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
+          set -euo pipefail
+          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+            root@"${{ secrets.PRODUCTION_SERVER_IP }}" 'bash -s' <<'REMOTE'
             set -euo pipefail
             release_root='/var/www/beacon-community'
             current_release="${release_root}/current"
@@ -27,16 +37,74 @@ jobs:
             readlink -f "${current_release}" 2>/dev/null || true
             find "${release_root}" -maxdepth 2 -mindepth 1 -type d -printf '%p\n' 2>/dev/null | sort | head -n 50
 
-            echo '=== Current release Git state ==='
-            git -C "${current_release}" remote -v 2>/dev/null || true
-            git -C "${current_release}" branch -vv 2>/dev/null || true
-            git -C "${current_release}" status --short 2>/dev/null || true
-            git -C "${current_release}" log -1 --oneline 2>/dev/null || true
-            [ -f "${current_release}/package.json" ] && grep -E '"(name|build|start)"' "${current_release}/package.json" || true
+            echo '=== Community Git state ==='
+            if git -C "${current_release}" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+              printf 'branch='; git -C "${current_release}" branch --show-current
+              printf 'commit='; git -C "${current_release}" rev-parse HEAD
+              git -C "${current_release}" status --short
+            else
+              echo 'git_worktree=no'
+            fi
 
-            echo '=== Beacon Community process ==='
-            pm2 describe beacon-community 2>/dev/null || true
-
-            echo '=== Nginx server mapping ==='
+            echo '=== Community process and Nginx ==='
+            pm2 list | sed -n '1,12p'
+            printf 'community_pid='; pm2 pid beacon-community 2>/dev/null || true
             grep -R "server_name.*beaconcommunity.net" /etc/nginx/sites-enabled 2>/dev/null || true
+          REMOTE
+
+      - name: Inspect Marketing host installer without modifying production
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+            root@"${{ secrets.PRODUCTION_SERVER_IP }}" 'bash -s' <<'REMOTE'
+            set -euo pipefail
+            app='/var/www/beacon-momentum-www'
+            installer='/usr/local/bin/deploy-beacon-www.sh'
+
+            echo '=== Marketing Git state ==='
+            if git -C "$app" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+              printf 'branch='; git -C "$app" branch --show-current
+              printf 'commit='; git -C "$app" rev-parse HEAD
+              printf 'origin='; git -C "$app" remote get-url origin 2>/dev/null | sed -E 's#(https?://)[^/@]+@#\1REDACTED@#' || true
+              echo 'working_tree_paths:'
+              git -C "$app" status --short
+              echo 'lockfile_hashes:'
+              for f in package.json pnpm-lock.yaml package-lock.json; do
+                if [ -f "$app/$f" ]; then sha256sum "$app/$f"; fi
+              done
+            else
+              echo 'git_worktree=no'
+            fi
+
+            echo '=== Marketing runtime versions ==='
+            for tool in node npm pnpm corepack; do
+              if command -v "$tool" >/dev/null 2>&1; then
+                printf '%s=' "$tool"
+                "$tool" --version 2>/dev/null | head -n 1 || true
+              else
+                printf '%s=not-installed\n' "$tool"
+              fi
+            done
+
+            echo '=== Installer metadata only ==='
+            if [ -r "$installer" ]; then
+              stat -c 'present=yes mode=%a owner=%U size=%s modified=%y' "$installer"
+              awk '
+                /npm[[:space:]]+ci/ { print NR ": npm ci" }
+                /npm[[:space:]]+install/ { print NR ": npm install" }
+                /npm[[:space:]]+run[[:space:]]+build/ { print NR ": npm run build" }
+                /pnpm[[:space:]]+install/ { print NR ": pnpm install" }
+                /pnpm[[:space:]]+run[[:space:]]+build/ { print NR ": pnpm run build" }
+                /yarn[[:space:]]+install/ { print NR ": yarn install" }
+                /corepack/ { print NR ": corepack invocation" }
+                /package-lock\.json/ { print NR ": references package-lock.json" }
+                /pnpm-lock\.yaml/ { print NR ": references pnpm-lock.yaml" }
+              ' "$installer"
+            else
+              echo 'installer_present=no'
+            fi
+
+            echo '=== Marketing process health ==='
+            pm2 list | sed -n '1,12p'
+            printf 'marketing_pid='; pm2 pid beacon-momentum-www 2>/dev/null || true
           REMOTE

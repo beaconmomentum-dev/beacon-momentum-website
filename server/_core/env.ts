@@ -4,13 +4,8 @@ export const ENV = {
   databaseUrl: process.env.DATABASE_URL ?? "",
   ownerOpenId: process.env.OWNER_OPEN_ID ?? "",
   isProduction: process.env.NODE_ENV === "production",
-  /**
-   * Server-only HighLevel credential for the public capture relay. New
-   * deployments must use GHL_API_KEY. The second lookup is a production-only
-   * compatibility bridge for the pre-existing server environment; no browser
-   * source reads it, and it should be retired once the host variable is moved.
-   */
-  ghlApiKey: process.env.GHL_API_KEY ?? process.env.VITE_GHL_API_KEY ?? "",
+  /** Server-only HighLevel credential. Public-prefixed variables are never used. */
+  ghlApiKey: process.env.GHL_API_KEY ?? "",
   /** Shared password for cohort lead dashboard access */
   cohortLeadPassword: process.env.COHORT_LEAD_PASSWORD ?? "",
   /** Server-only Stripe credentials for Beacon-controlled The Watch enrollment. */
@@ -25,6 +20,8 @@ export const ENV = {
     process.env.STRIPE_TEST_WATCH_ANNUAL_PRICE_ID ?? "",
   stripeTestWatchWebhookSecret:
     process.env.STRIPE_TEST_WATCH_WEBHOOK_SECRET ?? "",
+  /** Live Watch checkout remains disabled until the owner release gates are cleared. */
+  watchLiveCheckoutEnabled: process.env.WATCH_LIVE_CHECKOUT_ENABLED === "true",
   /** SendGrid API key for other existing transactional notifications. */
   sendgridApiKey: process.env.SENDGRID_API_KEY ?? "",
   /** Admin email for system notifications (defaults to support@beaconmomentum.com). */

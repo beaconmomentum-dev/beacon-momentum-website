@@ -18,14 +18,15 @@ const cream = "#F8F5EC";
 export default function WatchBriefPremiumPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [privacyAcknowledged, setPrivacyAcknowledged] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!email || status === "submitting") return;
+    if (!email || !privacyAcknowledged || status === "submitting") return;
 
     setStatus("submitting");
-    const accepted = await requestWatchBriefPremiumDetails(email, name || undefined);
+    const accepted = await requestWatchBriefPremiumDetails(email, name || undefined, privacyAcknowledged);
     setStatus(accepted ? "success" : "error");
   }
 
@@ -51,7 +52,7 @@ export default function WatchBriefPremiumPage() {
               </div>
               <div style={{ borderLeft: `1px solid rgba(216,169,74,0.45)`, paddingLeft: "1.5rem" }}>
                 <p style={{ margin: 0, fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: amber }}>The distinction</p>
-                <p style={{ margin: "0.75rem 0 0", fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", lineHeight: 1.7, color: "rgba(248,245,236,0.7)" }}>The Beacon Brief is a free weekly email. This is a paid monthly dossier. The Watch is the annual curriculum and community membership.</p>
+                <p style={{ margin: "0.75rem 0 0", fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", lineHeight: 1.7, color: "rgba(248,245,236,0.7)" }}>The Beacon Brief is a free weekly email. This is a separate monthly dossier inquiry. The Watch is the annual curriculum and community membership.</p>
               </div>
             </div>
           </div>
@@ -82,10 +83,10 @@ export default function WatchBriefPremiumPage() {
 
             <aside style={{ background: navy, color: cream, padding: "2rem", borderTop: `4px solid ${amber}`, boxShadow: "0 20px 45px rgba(6,26,41,0.16)" }}>
               <Mail size={20} color={amber} />
-              <p style={{ margin: "1.5rem 0 0", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: amber }}>Request enrollment details</p>
-              <p style={{ margin: "0.75rem 0 1.5rem", fontFamily: "'Lora', Georgia, serif", fontSize: "0.92rem", lineHeight: 1.7, color: "rgba(248,245,236,0.72)" }}>We will send the current release schedule and secure enrollment instructions. This form is not a checkout.</p>
+              <p style={{ margin: "1.5rem 0 0", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: amber }}>Request current information · no checkout</p>
+              <p style={{ margin: "0.75rem 0 1.5rem", fontFamily: "'Lora', Georgia, serif", fontSize: "0.92rem", lineHeight: 1.7, color: "rgba(248,245,236,0.72)" }}>The public listing currently shows $27/month. This inquiry does not start a subscription or collect payment; any available offer and full terms must be provided before a purchase decision.</p>
               {status === "success" ? (
-                <div role="status" style={{ border: "1px solid rgba(114,184,180,0.55)", padding: "1rem", fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", lineHeight: 1.6, color: "#B7E0DA" }}>Your request is in. We’ll send the next steps and current enrollment details.</div>
+                <div role="status" style={{ border: "1px solid rgba(114,184,180,0.55)", padding: "1rem", fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", lineHeight: 1.6, color: "#B7E0DA" }}>Your information request was sent. No subscription has started and no payment was taken. We’ll respond with current availability and terms; response timing is not guaranteed.</div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: "grid", gap: "0.9rem" }}>
                   <label style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.68rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(248,245,236,0.68)" }}>First name <span style={{ textTransform: "none", letterSpacing: 0 }}>(optional)</span>
@@ -94,7 +95,11 @@ export default function WatchBriefPremiumPage() {
                   <label style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.68rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(248,245,236,0.68)" }}>Email
                     <input type="email" required value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" style={{ display: "block", width: "100%", boxSizing: "border-box", marginTop: "0.45rem", padding: "0.8rem", background: "rgba(248,245,236,0.06)", border: "1px solid rgba(248,245,236,0.24)", color: cream, fontFamily: "'Lora', Georgia, serif" }} />
                   </label>
-                  <button type="submit" disabled={status === "submitting"} style={{ marginTop: "0.35rem", padding: "0.9rem 1rem", border: `1px solid ${amber}`, background: amber, color: deep, cursor: status === "submitting" ? "wait" : "pointer", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", opacity: status === "submitting" ? 0.7 : 1 }}>{status === "submitting" ? "Sending…" : "Request enrollment details"}</button>
+                  <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontFamily: "'Lora', Georgia, serif", fontSize: "0.78rem", lineHeight: 1.55, color: "rgba(248,245,236,0.7)" }}>
+                    <input type="checkbox" required checked={privacyAcknowledged} onChange={(event) => setPrivacyAcknowledged(event.target.checked)} style={{ marginTop: "0.15rem", accentColor: amber }} />
+                    <span>I understand this is an information request, not a subscription, and I have reviewed the <a href="/privacy" style={{ color: "#F2CE7C" }}>Privacy Policy</a>.</span>
+                  </label>
+                  <button type="submit" disabled={status === "submitting" || !email.trim() || !privacyAcknowledged} style={{ marginTop: "0.35rem", padding: "0.9rem 1rem", border: `1px solid ${amber}`, background: amber, color: deep, cursor: status === "submitting" || !email.trim() || !privacyAcknowledged ? "not-allowed" : "pointer", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", opacity: status === "submitting" || !email.trim() || !privacyAcknowledged ? 0.7 : 1 }}>{status === "submitting" ? "Sending…" : "Request current information"}</button>
                   {status === "error" && <p role="alert" style={{ margin: 0, fontFamily: "'Lora', Georgia, serif", fontSize: "0.82rem", color: "#F0A699" }}>We could not send your request. Please try again in a moment.</p>}
                 </form>
               )}

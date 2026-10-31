@@ -1,5 +1,4 @@
 import { readFileSync } from "node:fs";
-import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -21,5 +20,9 @@ describe("public sitemap routes", () => {
     expect(sitemap).toContain(
       "https://beaconmomentum.com/community-build-grant",
     );
+  });
+
+  it("includes the public Beacon Studio route", () => {
+    expect(sitemap).toContain("https://beaconmomentum.com/studio");
   });
 });

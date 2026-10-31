@@ -44,14 +44,14 @@ export default function CommunityBuildGrantPage() {
       <main id="main-content">
         <section style={{ background: "var(--beacon-charcoal)", color: "#FAF8F4", padding: "clamp(4.5rem, 9vw, 8rem) 0" }}>
           <div className="container" style={{ maxWidth: "960px" }}>
-            <p style={eyebrowStyle}>Community Build Award · entries open</p>
+            <p style={eyebrowStyle}>Community Build Award · rules pending</p>
             <h1 style={heroTitleStyle}>Chance first.<br />Purpose after selection.</h1>
             <p style={heroLeadStyle}>
               Beacon Momentum is announcing a fair, purpose-based framework for a {COMMUNITY_BUILD_RELEASE.awardValue} Community Build Award.
             </p>
-            <div style={{ ...noticeStyle, borderColor: "rgba(74,222,128,0.5)" }} role="status">
-              <CheckCircle size={18} color="#4ade80" aria-hidden="true" />
-              <span><strong>Entries are now open.</strong> One recipient will be drawn at random on {COMMUNITY_BUILD_RELEASE.drawingDate}. Annual cycle. No purchase necessary. Submit the free entry form below.</span>
+            <div style={noticeStyle} role="status">
+              <ShieldCheck size={18} color="var(--beacon-amber-light)" aria-hidden="true" />
+              <span><strong>{COMMUNITY_BUILD_RELEASE.frameworkStatus}</strong> No entries are being accepted. Final eligibility, entry methods, dates, and Official Rules will be published before the program opens.</span>
             </div>
             <p style={{ ...heroLeadStyle, marginTop: "1.5rem", fontSize: "0.95rem" }}>
               {COMMUNITY_BUILD_RELEASE.missionContext}
@@ -123,12 +123,12 @@ export default function CommunityBuildGrantPage() {
 
         <section style={{ background: "var(--beacon-charcoal)", color: "#FAF8F4", padding: "clamp(4rem, 8vw, 6rem) 0" }}>
           <div className="container" style={{ maxWidth: "720px" }}>
-            <p style={{ ...eyebrowStyle, textAlign: "center" }}>Free entry</p>
-            <h2 style={{ ...sectionTitleStyle, color: "#FAF8F4", textAlign: "center", marginBottom: "0.5rem" }}>Enter the $4,970 Community Build Award</h2>
+            <p style={{ ...eyebrowStyle, textAlign: "center" }}>Entry status</p>
+            <h2 style={{ ...sectionTitleStyle, color: "#FAF8F4", textAlign: "center", marginBottom: "0.5rem" }}>{COMMUNITY_BUILD_RELEASE.entryOpen ? "Enter the Community Build Award" : "Entries are not open"}</h2>
             <p style={{ textAlign: "center", color: "rgba(250,248,244,0.7)", fontFamily: "'Lora', Georgia, serif", fontSize: "0.95rem", lineHeight: 1.7, marginBottom: "2rem" }}>
-              One entry per person. Drawing on {COMMUNITY_BUILD_RELEASE.drawingDate}. No purchase necessary. No obligation of any kind.
+              {COMMUNITY_BUILD_RELEASE.entryOpen ? `One entry per person. No purchase necessary. No obligation of any kind.` : "No entry form is available. The program will not accept entries until its final Official Rules and entry details are published."}
             </p>
-            {formState === "success" ? (
+            {COMMUNITY_BUILD_RELEASE.entryOpen ? (formState === "success" ? (
               <div style={{ textAlign: "center", padding: "2rem", border: "1px solid rgba(74,222,128,0.4)", background: "rgba(74,222,128,0.08)" }}>
                 <CheckCircle size={32} color="#4ade80" style={{ margin: "0 auto 1rem" }} />
                 <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.8rem", marginBottom: "0.5rem" }}>You're entered.</h3>
@@ -151,6 +151,10 @@ export default function CommunityBuildGrantPage() {
                   By entering, you confirm you are 18+ and a US resident. One entry per person per annual cycle. {COMMUNITY_BUILD_RELEASE.universalDisclosure}
                 </p>
               </form>
+            )) : (
+              <div role="status" style={{ maxWidth: "620px", margin: "0 auto", padding: "1.5rem", border: "1px solid rgba(225,176,106,0.38)", color: "rgba(250,248,244,0.82)", fontFamily: "'Lora', Georgia, serif", fontSize: "0.95rem", lineHeight: 1.75, textAlign: "center" }}>
+                Entry is closed. This page is not collecting names, email addresses, or other entry information.
+              </div>
             )}
           </div>
         </section>

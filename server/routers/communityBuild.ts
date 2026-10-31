@@ -5,6 +5,7 @@ import { getDb } from "../db";
 import { communityBuildEntries } from "../../drizzle/schema";
 import { ENV } from "../_core/env";
 import sgMail from "@sendgrid/mail";
+import { COMMUNITY_BUILD_RELEASE } from "../../client/src/data/communityBuildRelease";
 
 /** Initialize SendGrid if configured */
 if (ENV.sendgridApiKey) {
@@ -97,6 +98,13 @@ const entryInputSchema = z.object({
 
 export const communityBuildRouter = router({
   enter: publicProcedure.input(entryInputSchema).mutation(async ({ input, ctx }) => {
+    if (!COMMUNITY_BUILD_RELEASE.entryOpen) {
+      throw new TRPCError({
+        code: "PRECONDITION_FAILED",
+        message: "Entry is not open. No entries are currently being accepted.",
+      });
+    }
+
     const ip = clientIp(ctx.req.headers);
 
     // Rate limit

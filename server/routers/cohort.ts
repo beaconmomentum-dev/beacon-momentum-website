@@ -11,7 +11,7 @@
  *   - `cohort.memberDetail`   — single member with full intake answers
  *   - `cohort.saveNotes`      — update lead notes for a member
  *   - `cohort.assignMember`   — assign a member to a lead / group
- *   - `cohort.submitIntake`   — called by TheWatchIntakePage to persist answers
+ *   - public intake storage is intentionally disabled; new requests use the limited, acknowledged capture relay
  */
 
 import { TRPCError } from "@trpc/server";
@@ -24,7 +24,6 @@ import {
   getAllWatchMembers,
   getCohortLeadSession,
   getWatchMembersByLead,
-  upsertWatchMemberIntake,
   updateWatchMemberAssignment,
   updateWatchMemberNotes,
 } from "../db";
@@ -183,29 +182,4 @@ export const cohortRouter = router({
       return { success: true };
     }),
 
-  /**
-   * Submit intake answers from the intake form.
-   * Called by TheWatchIntakePage after successful GHL submission.
-   * This is a public procedure — no session required — so any completed intake is persisted.
-   */
-  submitIntake: publicProcedure
-    .input(
-      z.object({
-        email: z.string().email(),
-        firstName: z.string().optional(),
-        tier: z.string(),
-        track: z.string(),
-        intakeAnswers: z.record(z.string(), z.string()),
-      })
-    )
-    .mutation(async ({ input }) => {
-      const id = await upsertWatchMemberIntake({
-        email: input.email,
-        firstName: input.firstName ?? null,
-        tier: input.tier,
-        track: input.track,
-        intakeAnswers: input.intakeAnswers,
-      });
-      return { success: true, id };
-    }),
 });

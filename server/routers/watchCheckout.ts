@@ -16,6 +16,7 @@ type BillingMode = "live" | "test";
 
 interface WatchCheckoutConfig {
   mode: BillingMode;
+  enabled: boolean;
   secretKey: string;
   publishableKey: string;
   priceId: string;
@@ -24,6 +25,12 @@ interface WatchCheckoutConfig {
 }
 
 function getStripeClient(config: WatchCheckoutConfig) {
+  if (!config.enabled) {
+    throw new TRPCError({
+      code: "PRECONDITION_FAILED",
+      message: "Enrollment requests are currently the first step. Payment is not available here. Visit https://beaconmomentum.com/the-watch#join for the request path.",
+    });
+  }
   if (!config.secretKey) {
     throw new TRPCError({
       code: "PRECONDITION_FAILED",
@@ -82,7 +89,8 @@ function createWatchCheckoutRouter(config: WatchCheckoutConfig) {
   /** A publishable key is safe to expose; secrets and price IDs never leave the server. */
   publicConfig: publicProcedure.query(() => ({
     ready: Boolean(
-      config.publishableKey &&
+      config.enabled &&
+        config.publishableKey &&
         config.secretKey &&
         config.priceId &&
         config.webhookSecret
@@ -176,6 +184,7 @@ function createWatchCheckoutRouter(config: WatchCheckoutConfig) {
 
 export const watchCheckoutRouter = createWatchCheckoutRouter({
   mode: "live",
+  enabled: ENV.watchLiveCheckoutEnabled,
   secretKey: ENV.stripeSecretKey,
   publishableKey: ENV.stripePublishableKey,
   priceId: ENV.stripeWatchAnnualPriceId,
@@ -189,6 +198,7 @@ export const watchCheckoutRouter = createWatchCheckoutRouter({
  */
 export const watchTestCheckoutRouter = createWatchCheckoutRouter({
   mode: "test",
+  enabled: !ENV.isProduction,
   secretKey: ENV.stripeTestSecretKey,
   publishableKey: ENV.stripeTestPublishableKey,
   priceId: ENV.stripeTestWatchAnnualPriceId,

@@ -94,6 +94,7 @@ const StormNavigatorsGuidePage = lazy(
   () => import("@/pages/StormNavigatorsGuidePage"),
 );
 const ReadinessMapPage = lazy(() => import("@/pages/ReadinessMapPage"));
+const StudioPage = lazy(() => import("@/pages/StudioPage"));
 
 function LegacyBlogIndexRedirect() {
   const [, setLocation] = useLocation();
@@ -146,6 +147,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/studio" component={StudioPage} />
       <Route path="/assessment" component={Assessment} />
       <Route path="/pillar/:id" component={PillarPage} />
       <Route path="/about" component={AboutPage} />
@@ -203,14 +205,18 @@ function Router() {
         path="/the-watch/confirmation"
         component={TheWatchConfirmationPage}
       />
-      <Route
-        path="/_ops/the-watch/test-checkout"
-        component={TheWatchTestCheckoutPage}
-      />
-      <Route
-        path="/_ops/the-watch/test-confirmation"
-        component={TheWatchTestConfirmationPage}
-      />
+      {import.meta.env.DEV && (
+        <>
+          <Route
+            path="/_ops/the-watch/test-checkout"
+            component={TheWatchTestCheckoutPage}
+          />
+          <Route
+            path="/_ops/the-watch/test-confirmation"
+            component={TheWatchTestConfirmationPage}
+          />
+        </>
+      )}
       <Route path="/the-watch/intake" component={TheWatchIntakePage} />
       <Route path="/the-watch/cohort" component={CohortDashboardPage} />
       <Route path="/manifesto/questions" component={ManifestoQAPage} />

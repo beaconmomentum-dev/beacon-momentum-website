@@ -2,7 +2,7 @@
  * Cohort Dashboard — Integration Tests
  * Tests the key tRPC procedures: login, me, members, submitIntake, saveNotes
  */
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect } from "vitest";
 
 const BASE = process.env.COHORT_INTEGRATION_BASE_URL;
 const describeIntegration = BASE ? describe : describe.skip;
@@ -69,23 +69,18 @@ describeIntegration("Cohort Dashboard", () => {
     expect(result.result?.data?.json).toBeNull();
   });
 
-  it("can submit intake answers", async () => {
+  it("does not expose anonymous prospect intake as a member-database write", async () => {
     const result = await trpcPost("cohort.submitIntake", {
       email: "testmember@vitest.com",
       firstName: "Test",
-      tier: "navigator",
+      tier: "sentinel",
       track: "transition",
       intakeAnswers: {
-        tier: "navigator",
-        current_situation: "Vitest test member",
-        biggest_obstacle: "Testing",
-        time_horizon: "3-6 months",
-        ai_comfort: "curious_but_cautious",
-        accountability: "structured_check_ins",
+        current_situation: "Test only",
         track_choice: "transition",
       },
     });
-    expect(result.result?.data?.json).toMatchObject({ success: true });
+    expect(result).toHaveProperty("error");
   });
 
   it("returns members list when authenticated", async () => {

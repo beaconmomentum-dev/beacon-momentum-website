@@ -12,6 +12,7 @@ export default function SharedFooter() {
 
   const START_HERE = [
     { label: "The Watch", href: "/the-watch" },
+    { label: "Studio", href: "/studio" },
     { label: "The Readiness Map", href: "/ReadinessMap" },
     { label: "The Signal", href: "/signal" },
     { label: "Resources", href: "/resources" },

@@ -8,7 +8,7 @@ import { communityBuildRouter } from "./routers/communityBuild";
 export const appRouter = router({
   /** Cohort lead dashboard — password-protected with Beacon-controlled credentials. */
   cohort: cohortRouter,
-  /** Public, server-side CRM capture relay. Client migration is released separately. */
+  /** Public forms use this narrow allow-listed relay; CRM credentials remain server-side. */
   capture: captureRouter,
   /** One-time Foundation Year support through Beacon-controlled Stripe Elements. */
   foundationSupport: foundationSupportRouter,

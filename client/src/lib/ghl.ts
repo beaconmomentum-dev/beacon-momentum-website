@@ -7,7 +7,6 @@
  */
 
 type PathfinderPillar = "life" | "work" | "venture" | "systems" | "labs";
-type WatchTrack = "transition" | "builder" | "systems" | "legacy";
 
 function isPathfinderPillar(value: string): value is PathfinderPillar {
   return ["life", "work", "venture", "systems", "labs"].includes(value);
@@ -16,10 +15,10 @@ function isPathfinderPillar(value: string): value is PathfinderPillar {
 type RelayEvent =
   | { event: "newsletter_signup"; email: string; firstName?: string; consentVersion: string }
   | { event: "starter_pack_request"; email: string; firstName?: string; consentVersion: string }
-  | { event: "watch_brief_premium_interest"; email: string; firstName?: string; consentVersion: string }
+  | { event: "watch_brief_premium_interest"; email: string; firstName?: string; privacyAcknowledged: true; consentVersion: string }
   | { event: "pathfinder_result"; email: string; firstName?: string; pillar: PathfinderPillar; consentVersion: string }
   | { event: "digital_grandpa_library_interest"; email: string; consentVersion: string }
-  | { event: "watch_intake_submission"; email: string; firstName?: string; track: WatchTrack; entryStage: "sentinel"; answers: Record<string, string>; consentVersion: string };
+  | { event: "watch_enrollment_request"; email: string; firstName?: string; privacyAcknowledged: true; consentVersion: string };
 
 async function submitCapture(payload: RelayEvent): Promise<boolean> {
   try {
@@ -38,8 +37,9 @@ export function subscribeToBeaconBrief(email: string, firstName?: string) {
   return submitCapture({ event: "newsletter_signup", email, firstName, consentVersion: "beacon-brief-v1" });
 }
 
-export function requestWatchBriefPremiumDetails(email: string, firstName?: string) {
-  return submitCapture({ event: "watch_brief_premium_interest", email, firstName, consentVersion: "watch-brief-premium-v1" });
+export function requestWatchBriefPremiumDetails(email: string, firstName: string | undefined, privacyAcknowledged: boolean) {
+  if (!privacyAcknowledged) return Promise.resolve(false);
+  return submitCapture({ event: "watch_brief_premium_interest", email, firstName, privacyAcknowledged: true, consentVersion: "watch-brief-premium-v2" });
 }
 
 export function submitPathfinderResult(email: string, pillar: string, _answers?: Record<string, string>, firstName?: string) {
@@ -55,6 +55,7 @@ export function requestDigitalGrandpaLibraryInterest(email: string) {
   return submitCapture({ event: "digital_grandpa_library_interest", email, consentVersion: "digital-grandpa-library-v1" });
 }
 
-export function submitWatchIntake(email: string, firstName: string | undefined, track: WatchTrack, answers: Record<string, string>) {
-  return submitCapture({ event: "watch_intake_submission", email, firstName, track, entryStage: "sentinel", answers, consentVersion: "watch-intake-v1" });
+export function submitWatchEnrollmentRequest(email: string, firstName: string | undefined, privacyAcknowledged: boolean) {
+  if (!privacyAcknowledged) return Promise.resolve(false);
+  return submitCapture({ event: "watch_enrollment_request", email, firstName, privacyAcknowledged: true, consentVersion: "watch-enrollment-request-v2" });
 }

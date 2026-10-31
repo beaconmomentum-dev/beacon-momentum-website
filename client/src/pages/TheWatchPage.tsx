@@ -101,7 +101,7 @@ export default function TheWatchPage() {
               textColor={COLORS.parchment}
             />
             <Link
-              href="/the-watch/checkout"
+              href="/the-watch/intake"
               style={{
                 background: COLORS.brass,
                 color: COLORS.deep,
@@ -115,7 +115,7 @@ export default function TheWatchPage() {
                 whiteSpace: "nowrap",
               }}
             >
-              Review enrollment
+              Start an enrollment request
             </Link>
           </div>
         </section>
@@ -170,7 +170,7 @@ export default function TheWatchPage() {
                 </p>
                 <div className="watch-actions" style={{ display: "flex", flexWrap: "wrap", gap: "0.9rem", marginTop: "2.4rem" }}>
                   <Link
-                    href="/the-watch/checkout"
+                    href="/the-watch/intake"
                     style={{
                       background: COLORS.brass,
                       color: COLORS.deep,
@@ -183,7 +183,7 @@ export default function TheWatchPage() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Review Founding Year enrollment
+                    Start an enrollment request
                   </Link>
                   <a
                     href="#membership"
@@ -270,21 +270,21 @@ export default function TheWatchPage() {
           </div>
         </section>
 
-        <section style={{ background: "linear-gradient(130deg, #223345, #162433)", padding: "clamp(4.5rem, 9vw, 8rem) 0" }}>
+        <section id="join" style={{ background: "linear-gradient(130deg, #223345, #162433)", padding: "clamp(4.5rem, 9vw, 8rem) 0" }}>
           <div className="container" style={{ maxWidth: "1100px" }}>
-            <FieldLabel>Founding Year enrollment</FieldLabel>
+            <FieldLabel>Enrollment begins with a request</FieldLabel>
             <h2 style={{ fontSize: "clamp(2.4rem, 5vw, 5.2rem)", lineHeight: 1.02, margin: "1rem 0 0", maxWidth: "860px" }}>
-              If the work is useful to you, choose your post for the year ahead.
+              A request first. A separate decision before payment.
             </h2>
             <p style={{ color: COLORS.mist, fontSize: "1.08rem", lineHeight: 1.75, margin: "1.35rem 0 0", maxWidth: "680px" }}>
-              Review the access, annual renewal terms, and payment details before you enroll. The Watch is here for a
-              steady practice—not a rush toward a checkout.
+              Submitting the request does not charge you, create an account, or activate membership. Any later payment
+              and access step requires separate confirmation under the published terms.
             </p>
             <Link
-              href="/the-watch/checkout"
+              href="/the-watch/intake"
               style={{ background: COLORS.brass, color: COLORS.deep, display: "inline-block", fontFamily: "var(--beacon-ui)", fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.07em", marginTop: "2rem", padding: "1rem 1.25rem", textDecoration: "none", textTransform: "uppercase" }}
             >
-              Continue to secure enrollment
+              Start the enrollment request
             </Link>
           </div>
         </section>

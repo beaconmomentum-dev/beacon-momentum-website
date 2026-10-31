@@ -1,5 +1,6 @@
 export const COMMUNITY_BUILD_RELEASE = {
-  frameworkStatus: "Entries are now open.",
+  entryOpen: false,
+  frameworkStatus: "Entries are closed pending publication of final Official Rules.",
   awardValue: "$4,970",
   awardName: "Community Build Award",
   cycle: "Annual — one drawing per year",

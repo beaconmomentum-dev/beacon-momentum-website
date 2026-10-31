@@ -67,6 +67,26 @@ describe("public capture relay contract", () => {
     ).toThrow();
   });
 
+  it("requires an acknowledgement for Watch Brief Premium information requests", () => {
+    const input = captureInputSchema.parse({
+      event: "watch_brief_premium_interest",
+      email: "person@example.com",
+      privacyAcknowledged: true,
+      consentVersion: "watch-brief-premium-v2",
+    });
+    expect(buildGhlUpsertPayload(input)).toMatchObject({
+      source: "beaconmomentum.com/watch-brief-premium",
+      tags: ["BM_Watch_Brief_Premium_Interest"],
+    });
+    expect(() =>
+      captureInputSchema.parse({
+        event: "watch_brief_premium_interest",
+        email: "person@example.com",
+        privacyAcknowledged: false,
+      }),
+    ).toThrow();
+  });
+
   it("owns contact inquiry routing and does not let the browser choose tags or CRM location", () => {
     const input = captureInputSchema.parse({
       event: "contact_inquiry",
@@ -160,34 +180,34 @@ describe("public capture relay contract", () => {
     });
   });
 
-  it("maps Watch intake fields and track tags on the server", () => {
+  it("maps an acknowledged Watch request without assigning membership or storing detailed answers", () => {
     const input = captureInputSchema.parse({
-      event: "watch_intake_submission",
+      event: "watch_enrollment_request",
       email: "person@example.com",
       firstName: "Person",
-      track: "systems",
-      entryStage: "sentinel",
-      answers: {
-        current_situation: "building",
-        biggest_obstacle: "Need a smaller operating plan",
-      },
+      privacyAcknowledged: true,
+      consentVersion: "watch-enrollment-request-v2",
     });
-    expect(buildGhlUpsertPayload(input)).toMatchObject({
+    const payload = buildGhlUpsertPayload(input);
+    expect(payload).toMatchObject({
       source: "beaconmomentum.com/the-watch/intake",
-      tags: [
-        "BM_Watch_Intake",
-        "BM_Watch_Join",
-        "BM_Watch_Enrollment_Request",
-        "BM_Watch_Sentinel",
-        "BM_Track_Systems",
-      ],
+      tags: ["BM_Watch_Join", "BM_Watch_Enrollment_Request"],
+      email: "person@example.com",
+      firstName: "Person",
     });
-    expect(buildGhlUpsertPayload(input).customFields).toEqual(
-      expect.arrayContaining([
-        { id: "watch_intake_track", field_value: "systems" },
-        { id: "watch_intake_tier", field_value: "sentinel" },
-      ]),
-    );
+    expect(payload.tags).not.toContain("BM_Watch_Sentinel");
+    expect(payload.tags).not.toContain("BM_Community");
+    expect(payload.customFields).toBeUndefined();
+  });
+
+  it("rejects a Watch request without affirmative privacy/request acknowledgement", () => {
+    expect(() =>
+      captureInputSchema.parse({
+        event: "watch_enrollment_request",
+        email: "person@example.com",
+        privacyAcknowledged: false,
+      }),
+    ).toThrow();
   });
 
   it("does not report success when HighLevel returns a non-success status", async () => {
@@ -256,8 +276,9 @@ describe("public capture relay contract", () => {
         new Response(JSON.stringify({ succeeded: true }), { status: 200 }),
       );
     const input = captureInputSchema.parse({
-      event: "watch_join",
+      event: "watch_enrollment_request",
       email: "person@example.com",
+      privacyAcknowledged: true,
     });
 
     await expect(
