@@ -109,4 +109,20 @@ jobs:
             echo '=== Marketing process health ==='
             pm2 list | sed -n '1,12p'
             printf 'marketing_pid='; pm2 pid beacon-momentum-www 2>/dev/null || true
+            pm2 jlist | node -e '
+              let raw = "";
+              process.stdin.on("data", chunk => raw += chunk);
+              process.stdin.on("end", () => {
+                const apps = JSON.parse(raw);
+                const app = apps.find(item => item.name === "beacon-momentum-www");
+                if (!app) { console.log("marketing_process_metadata=not-found"); return; }
+                const env = app.pm2_env.env || app.pm2_env;
+                console.log(`marketing_script=${app.pm2_env.pm_exec_path || "unknown"}`);
+                console.log(`marketing_cwd=${app.pm2_env.pm_cwd || "unknown"}`);
+                console.log(`marketing_status=${app.pm2_env.status || "unknown"}`);
+                for (const key of ["BEACON_REPO_ROOT", "BEACON_SITE_ROOT", "BEACON_ENV_FILE"]) {
+                  if (env[key]) console.log(`${key}=${env[key]}`);
+                }
+              });
+            '
           REMOTE
