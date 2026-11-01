@@ -82,6 +82,41 @@ read_previous_pm2_paths() {
   [[ -r "$PREVIOUS_ENV_FILE" ]] || { echo "ERROR: prior runtime environment file is unavailable" >&2; return 1; }
 }
 
+load_public_build_settings() {
+  local source_file="$APP_ROOT/.env"
+  [[ -r "$source_file" ]] || return 0
+  while IFS=$'\t' read -r key encoded; do
+    case "$key" in
+      VITE_OAUTH_PORTAL_URL|VITE_APP_ID|VITE_GHL_API_KEY) ;;
+      *) echo "ERROR: unexpected dotenv key returned." >&2; return 1 ;;
+    esac
+    printf -v "$key" '%s' "$(printf '%s' "$encoded" | base64 -d)"
+    export "$key"
+  done < <(node - "$source_file" <<'NODE'
+const fs = require("node:fs");
+const dotenv = require("dotenv");
+const allowed = new Set(["VITE_OAUTH_PORTAL_URL", "VITE_APP_ID", "VITE_GHL_API_KEY"]);
+const values = dotenv.parse(fs.readFileSync(process.argv[2]));
+for (const key of allowed) {
+  if (values[key]) console.log(`${key}\t${Buffer.from(values[key]).toString("base64")}`);
+}
+NODE
+  )
+}
+
+migrate_legacy_ghl_key() {
+  local legacy_key="$1"
+  local tmp
+  [[ -n "$legacy_key" ]] || { echo "ERROR: no existing GHL credential is available to migrate." >&2; return 1; }
+  tmp="$(mktemp "$ENV_FILE.migrate.XXXXXX")"
+  awk '!/^[[:space:]]*(export[[:space:]]+)?GHL_API_KEY=/' "$ENV_FILE" > "$tmp"
+  printf '\nGHL_API_KEY=%q\n' "$legacy_key" >> "$tmp"
+  chmod --reference="$ENV_FILE" "$tmp"
+  chown --reference="$ENV_FILE" "$tmp"
+  mv -f "$tmp" "$ENV_FILE"
+  echo "Migrated the existing GHL credential to server-only GHL_API_KEY; retained the legacy alias."
+}
+
 rollback_to_previous() {
   local repo_root="$1"
   local site_root="$2"
@@ -140,6 +175,8 @@ git -C "$APP_ROOT" cat-file -e "$DEPLOY_SHA^{commit}"
 git -C "$APP_ROOT" worktree add --detach "$RELEASE_DIR" "$DEPLOY_SHA"
 
 cd "$RELEASE_DIR"
+npm exec --yes --package=pnpm@10.34.5 -- pnpm install --frozen-lockfile --strict-peer-dependencies
+load_public_build_settings
 set -a
 # shellcheck source=/dev/null
 source "$ENV_FILE"
@@ -149,6 +186,17 @@ if [[ -r "$OPTIONAL_RUNTIME_FILE" ]]; then
   source "$OPTIONAL_RUNTIME_FILE"
 fi
 set +a
+if [[ -z "${GHL_API_KEY:-}" ]]; then
+  migrate_legacy_ghl_key "${VITE_GHL_API_KEY:-}"
+  set -a
+  # shellcheck source=/dev/null
+  source "$ENV_FILE"
+  if [[ -r "$OPTIONAL_RUNTIME_FILE" ]]; then
+    # shellcheck source=/dev/null
+    source "$OPTIONAL_RUNTIME_FILE"
+  fi
+  set +a
+fi
 export NODE_ENV=production
 [[ -n "${GHL_API_KEY:-}" ]] || { echo "ERROR: server-only GHL_API_KEY is absent from the production environment." >&2; exit 1; }
 [[ "${WATCH_LIVE_CHECKOUT_ENABLED:-false}" != "true" ]] || { echo "ERROR: live Watch checkout is enabled; clear the price/terms verification gate before this release." >&2; exit 1; }
@@ -156,7 +204,6 @@ export NODE_ENV=production
 pnpm_version="$(npm exec --yes --package=pnpm@10.34.5 -- pnpm --version)"
 [[ "$pnpm_version" == "10.34.5" ]] || { echo "ERROR: exact pinned pnpm version is unavailable." >&2; exit 1; }
 printf 'Using pnpm %s with the committed frozen lockfile.\n' "$pnpm_version"
-npm exec --yes --package=pnpm@10.34.5 -- pnpm install --frozen-lockfile --strict-peer-dependencies
 npm exec --yes --package=pnpm@10.34.5 -- pnpm run build
 
 [[ -s "$RELEASE_DIR/dist/index.js" && -s "$RELEASE_DIR/dist/public/index.html" ]] || { echo "ERROR: staged build artifacts are incomplete." >&2; exit 1; }

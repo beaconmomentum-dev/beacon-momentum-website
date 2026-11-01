@@ -5,6 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      release_sha:
+        description: Full application commit SHA to deploy
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -18,7 +23,7 @@ jobs:
     name: Deploy exact release to beaconmomentum.com
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout exact release commit
+      - name: Checkout release workflow and installer
         uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
@@ -35,7 +40,7 @@ jobs:
       - name: Install versioned host installer and deploy exact SHA
         id: release
         env:
-          RELEASE_SHA: ${{ github.sha }}
+          RELEASE_SHA: ${{ github.event_name == 'workflow_dispatch' && inputs.release_sha || github.sha }}
           PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
         run: |
           set -euo pipefail
@@ -50,7 +55,7 @@ jobs:
 
       - name: Verify and repair Beacon capture route
         env:
-          RELEASE_SHA: ${{ github.sha }}
+          RELEASE_SHA: ${{ github.event_name == 'workflow_dispatch' && inputs.release_sha || github.sha }}
           PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
         run: |
           set -euo pipefail
@@ -60,7 +65,7 @@ jobs:
 
       - name: Verify public deployment
         env:
-          RELEASE_SHA: ${{ github.sha }}
+          RELEASE_SHA: ${{ github.event_name == 'workflow_dispatch' && inputs.release_sha || github.sha }}
         run: |
           set -euo pipefail
           sleep 5
