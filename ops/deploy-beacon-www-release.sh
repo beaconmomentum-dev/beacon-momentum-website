@@ -206,6 +206,10 @@ pnpm_version="$(npm exec --yes --package=pnpm@10.34.5 -- pnpm --version)"
 printf 'Using pnpm %s with the committed frozen lockfile.\n' "$pnpm_version"
 npm exec --yes --package=pnpm@10.34.5 -- pnpm run build
 
+if [[ -n "${VITE_GHL_API_KEY:-}" ]] && grep -RFl -- "$VITE_GHL_API_KEY" "$RELEASE_DIR/dist/public" >/dev/null; then
+  echo "ERROR: legacy GHL credential was detected in the public build; refusing to publish it." >&2
+  exit 1
+fi
 [[ -s "$RELEASE_DIR/dist/index.js" && -s "$RELEASE_DIR/dist/public/index.html" ]] || { echo "ERROR: staged build artifacts are incomplete." >&2; exit 1; }
 
 state_tmp="$(mktemp "$RELEASES_ROOT/.previous-release.XXXXXX")"

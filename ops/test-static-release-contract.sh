@@ -49,6 +49,7 @@ grep -Fq 'pnpm@10.34.5' "$INSTALLER"
 grep -Fq 'pnpm install --frozen-lockfile --strict-peer-dependencies' "$INSTALLER"
 grep -Fq 'WATCH_LIVE_CHECKOUT_ENABLED:-false' "$INSTALLER"
 grep -Fq 'migrate_legacy_ghl_key' "$INSTALLER"
+grep -Fq 'legacy GHL credential was detected in the public build' "$INSTALLER"
 grep -Fq '"--rollback"' "$INSTALLER"
 if grep -Fq 'git pull origin main' "$INSTALLER"; then
   echo "ERROR: deployment installer must not pull or mutate the production checkout" >&2
@@ -57,4 +58,19 @@ fi
 grep -Fq 'ops/deploy-beacon-www-release.sh' "$WORKFLOW"
 grep -Fq 'inputs.release_sha' "$WORKFLOW"
 grep -Fq 'deploy-beacon-www.sh --rollback' "$WORKFLOW"
+sed -n '/^migrate_legacy_ghl_key() {/,/^}/p' "$INSTALLER" > "$TMP_ROOT/migration-function.sh"
+printf 'VITE_GHL_API_KEY=legacy-placeholder\n' > "$TMP_ROOT/migration.env"
+chmod 0600 "$TMP_ROOT/migration.env"
+TEST_LEGACY='dummy-secret#with spaces$and'
+export ENV_FILE="$TMP_ROOT/migration.env" TEST_LEGACY
+cat >> "$TMP_ROOT/migration-function.sh" <<'TEST'
+migrate_legacy_ghl_key "$TEST_LEGACY"
+set -a
+source "$ENV_FILE"
+set +a
+[[ "${VITE_GHL_API_KEY:-}" == "legacy-placeholder" ]]
+[[ "${GHL_API_KEY:-}" == "$TEST_LEGACY" ]]
+[[ "$(stat -c '%a' "$ENV_FILE")" == "600" ]]
+TEST
+bash "$TMP_ROOT/migration-function.sh" >/dev/null
 echo "Versioned exact-SHA installer and rollback contract tests passed."
