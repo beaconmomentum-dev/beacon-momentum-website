@@ -34,17 +34,12 @@ const DigitalGrandpaPage = lazy(() => import("@/pages/DigitalGrandpaPage"));
 const BlogPage = lazy(() => import("@/pages/BlogPage"));
 const BlogArticlePage = lazy(() => import("@/pages/BlogArticlePage"));
 const TheWatchPage = lazy(() => import("@/pages/TheWatchPage"));
-const TheWatchCheckoutPage = lazy(() => import("@/pages/TheWatchCheckoutPage"));
-const TheWatchConfirmationPage = lazy(
-  () => import("@/pages/TheWatchConfirmationPage"),
-);
 const TheWatchTestCheckoutPage = lazy(
   () => import("@/pages/TheWatchTestCheckoutPage"),
 );
 const TheWatchTestConfirmationPage = lazy(
   () => import("@/pages/TheWatchTestConfirmationPage"),
 );
-const TheWatchIntakePage = lazy(() => import("@/pages/TheWatchIntakePage"));
 const CohortDashboardPage = lazy(() => import("@/pages/CohortDashboardPage"));
 const WatchBriefPremiumPage = lazy(
   () => import("@/pages/WatchBriefPremiumPage"),
@@ -200,11 +195,6 @@ function Router() {
         path="/the-watch/controlled-workflow-pilots"
         component={ControlledWorkflowPilotsPage}
       />
-      <Route path="/the-watch/checkout" component={TheWatchCheckoutPage} />
-      <Route
-        path="/the-watch/confirmation"
-        component={TheWatchConfirmationPage}
-      />
       {import.meta.env.DEV && (
         <>
           <Route
@@ -217,7 +207,6 @@ function Router() {
           />
         </>
       )}
-      <Route path="/the-watch/intake" component={TheWatchIntakePage} />
       <Route path="/the-watch/cohort" component={CohortDashboardPage} />
       <Route path="/manifesto/questions" component={ManifestoQAPage} />
       <Route path="/manifesto" component={ManifestoPage} />

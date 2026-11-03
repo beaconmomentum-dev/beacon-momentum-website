@@ -1577,7 +1577,7 @@ function BeaconBriefStrip() {
                 textDecoration: "none",
               }}
             >
-              Explore The Watch · $497/year{" "}
+              Explore The Watch · $497/year for the first 1,000 paid checkouts · $997/year after{" "}
               <ArrowRight
                 size={13}
                 style={{ display: "inline", verticalAlign: "-2px" }}

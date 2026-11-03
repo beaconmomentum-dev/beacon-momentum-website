@@ -541,7 +541,7 @@ export default function PillarPage() {
                 className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-ui tracking-widest uppercase text-white rounded-sm"
                 style={{ backgroundColor: pillar.color }}
               >
-                Annual Membership
+                First 1,000 Paid Checkouts
               </div>
               <div className="flex items-baseline gap-1 mb-1">
                 <span className="font-display text-6xl text-[#2C2416]">$497</span>
@@ -550,6 +550,7 @@ export default function PillarPage() {
               <p className="text-sm mb-1" style={{ color: pillar.color }}>
                 About $41/month — annual commitment
               </p>
+              <p className="text-sm text-[#6B5E4E] mb-5">The first 1,000 completed paid checkout sessions are $497/year. After the cohort fills, new members pay $997/year. Founding members who remain continuously active and paid keep the $497/year renewal rate under the published terms.</p>
               <p className="text-sm text-[#6B5E4E] mb-8">Full membership access from day one. No hidden tiers or competing plans.</p>
               <ul className="space-y-3 mb-10">
                 {[

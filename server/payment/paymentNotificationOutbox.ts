@@ -18,6 +18,15 @@ export interface PaymentNotificationInput {
 
 const RETRY_SECONDS = [60, 300, 1800, 7200, 21600, 86400];
 
+function safeDeliveryError(error: unknown): string {
+  if (error instanceof Error && error.name === "TimeoutError") return "request_timeout";
+  if (error instanceof Error) {
+    const status = error.message.match(/^Phoenix intake returned (\d{3})$/)?.[1];
+    if (status) return `phoenix_http_${status}`;
+  }
+  return "provider_or_network_error";
+}
+
 function tagsForStatus(status: PaymentNotificationStatus): string[] {
   if (status === "active") return ["BM_Member", "BM_Payment_Active"];
   if (status === "past_due") return ["BM_Payment_Past_Due"];
@@ -102,7 +111,7 @@ export async function deliverPendingPaymentNotifications(limit = 20): Promise<{ 
       delivered += 1;
     } catch (error) {
       const attempts = row.attemptCount + 1;
-      await markRetry(row.id, row.attemptCount, error instanceof Error ? error.message : "Phoenix delivery failed");
+      await markRetry(row.id, row.attemptCount, safeDeliveryError(error));
       if (attempts >= 10) deadLettered += 1; else retried += 1;
     }
   }

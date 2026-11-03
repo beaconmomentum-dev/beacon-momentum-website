@@ -46,7 +46,7 @@ describe("Beacon parent identity contract", () => {
   it("uses the shared parent lockup on custom Watch and support headers", () => {
     const requiredRouteFiles = [
       "pages/TheWatchPage.tsx",
-      "pages/TheWatchCheckoutPage.tsx",
+      "pages/TheWatchPage.tsx",
       "pages/FoundationSupportPage.tsx",
       "pages/CohortDashboardPage.tsx",
     ];

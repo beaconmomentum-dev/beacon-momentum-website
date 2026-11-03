@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import BeaconRouteLockup from "@/components/BeaconRouteLockup";
 import SharedFooter from "@/components/SharedFooter";
 import SharedNav from "@/components/SharedNav";
@@ -17,7 +16,7 @@ const membershipCommitments = [
   {
     number: "01",
     title: "A clear annual membership",
-    body: "Founding Year membership is $497 per year for the first 1,000 paid annual members. It is a membership purchase—not an investment, ownership interest, or promise of a financial outcome.",
+    body: "The first 1,000 completed paid checkout sessions are $497 per year. After that founding cohort fills, new memberships are $997 per year. It is a membership purchase—not an investment, ownership interest, or promise of a financial outcome.",
   },
   {
     number: "02",
@@ -34,11 +33,11 @@ const membershipCommitments = [
 const questions = [
   {
     question: "What does membership include?",
-    answer: "The Watch includes member access to Beacon curriculum pathways, practical operating guides, community structure, and the recurring Watch Brief Premium member benefit. The exact member experience is shown before secure enrollment.",
+    answer: "The Watch includes member access to Beacon curriculum pathways, practical operating guides, community structure, and the recurring Watch Brief Premium member benefit. The included experience and terms are described on this page and in the published terms before you confirm payment.",
   },
   {
     question: "What happens after the Founding Year period?",
-    answer: "The current Founding Year rate is $497 per year for the first 1,000 paid annual members. A member who remains continuously active and paid keeps that renewal rate; later new-member pricing is published separately as terms change.",
+    answer: "The first 1,000 completed paid checkout sessions are $497 per year. After Stripe records the 1,000th completed session, new enrollments move to $997 per year. Founding members who remain continuously active and paid keep the $497 annual renewal rate under the published terms; the future new-member rate is not an automatic increase to their renewal.",
   },
   {
     question: "Is The Watch an investment or a business opportunity?",
@@ -100,8 +99,8 @@ export default function TheWatchPage() {
               mutedColor={COLORS.mist}
               textColor={COLORS.parchment}
             />
-            <Link
-              href="/the-watch/intake"
+            <a
+              href="/the-watch/checkout"
               style={{
                 background: COLORS.brass,
                 color: COLORS.deep,
@@ -115,8 +114,8 @@ export default function TheWatchPage() {
                 whiteSpace: "nowrap",
               }}
             >
-              Start an enrollment request
-            </Link>
+              Join The Watch
+            </a>
           </div>
         </section>
 
@@ -169,8 +168,8 @@ export default function TheWatchPage() {
                   judgment visible, and build an operating rhythm that can carry forward.
                 </p>
                 <div className="watch-actions" style={{ display: "flex", flexWrap: "wrap", gap: "0.9rem", marginTop: "2.4rem" }}>
-                  <Link
-                    href="/the-watch/intake"
+                  <a
+                    href="/the-watch/checkout"
                     style={{
                       background: COLORS.brass,
                       color: COLORS.deep,
@@ -183,8 +182,8 @@ export default function TheWatchPage() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Start an enrollment request
-                  </Link>
+                    Join The Watch
+                  </a>
                   <a
                     href="#membership"
                     style={{
@@ -216,13 +215,14 @@ export default function TheWatchPage() {
               </div>
               <div style={{ alignSelf: "end" }}>
                 <p style={{ color: "rgba(22,36,51,0.78)", fontSize: "1.08rem", lineHeight: 1.8, margin: 0 }}>
-                  Founding Year enrollment is $497 per year for the first 1,000 paid annual members. We state the
+                  The first 1,000 completed paid checkout sessions are $497 per year. We state the
                   membership, access, renewal terms, and boundaries plainly before you enroll—because a good decision
                   does not need a pressure trick.
                 </p>
                 <p style={{ color: "rgba(22,36,51,0.7)", fontSize: "0.94rem", lineHeight: 1.7, margin: "1.15rem 0 0" }}>
-                  The later new-member annual rate is $997. A Founding Year member who stays continuously active and
-                  paid retains the $497 annual renewal rate under the published terms.
+                  After the founding cohort fills, the annual rate for new members is $997. Founding members who remain continuously active and
+                  paid keep the $497 annual renewal rate under the published terms; the $997 rate is not an automatic
+                  increase to their renewal.
                 </p>
               </div>
             </div>
@@ -272,20 +272,28 @@ export default function TheWatchPage() {
 
         <section id="join" style={{ background: "linear-gradient(130deg, #223345, #162433)", padding: "clamp(4.5rem, 9vw, 8rem) 0" }}>
           <div className="container" style={{ maxWidth: "1100px" }}>
-            <FieldLabel>Enrollment begins with a request</FieldLabel>
+            <FieldLabel>Founding cohort · Annual rates</FieldLabel>
             <h2 style={{ fontSize: "clamp(2.4rem, 5vw, 5.2rem)", lineHeight: 1.02, margin: "1rem 0 0", maxWidth: "860px" }}>
-              A request first. A separate decision before payment.
+              $497/year for the first 1,000 paid checkouts.
+              <br />
+              <em style={{ color: "rgba(245,243,236,0.72)", fontWeight: 500 }}>$997/year after the cohort fills.</em>
             </h2>
-            <p style={{ color: COLORS.mist, fontSize: "1.08rem", lineHeight: 1.75, margin: "1.35rem 0 0", maxWidth: "680px" }}>
-              Submitting the request does not charge you, create an account, or activate membership. Any later payment
-              and access step requires separate confirmation under the published terms.
+            <p style={{ color: COLORS.mist, fontSize: "1.08rem", lineHeight: 1.75, margin: "1.35rem 0 0", maxWidth: "760px" }}>
+              The first 1,000 completed paid checkout sessions receive the $497 annual rate. After that, new members pay
+              $997 per year. Founding members who remain continuously active and paid keep the $497 annual renewal rate
+              under the published terms; $997 is not an automatic increase to a Founding member's renewal.
             </p>
-            <Link
-              href="/the-watch/intake"
+            <p style={{ color: COLORS.mist, fontSize: "0.98rem", lineHeight: 1.75, margin: "1.1rem 0 0", maxWidth: "760px" }}>
+              Continue to Stripe's secure hosted checkout to review the terms and pay. After Stripe confirms payment,
+              we send a one-time account-claim link to the email address used at checkout; access is not granted before
+              payment confirmation.
+            </p>
+            <a
+              href="/the-watch/checkout"
               style={{ background: COLORS.brass, color: COLORS.deep, display: "inline-block", fontFamily: "var(--beacon-ui)", fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.07em", marginTop: "2rem", padding: "1rem 1.25rem", textDecoration: "none", textTransform: "uppercase" }}
             >
-              Start the enrollment request
-            </Link>
+              Continue to secure checkout
+            </a>
           </div>
         </section>
       </main>

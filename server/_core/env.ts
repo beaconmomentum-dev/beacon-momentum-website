@@ -13,6 +13,11 @@ export const ENV = {
   stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY ?? "",
   stripeWatchAnnualPriceId: process.env.STRIPE_WATCH_ANNUAL_PRICE_ID ?? "",
   stripeWatchWebhookSecret: process.env.STRIPE_WATCH_WEBHOOK_SECRET ?? "",
+  /** Direct Stripe-hosted Watch checkout links; these stay server-side. */
+  stripeWatchFoundingPaymentLinkId: process.env.STRIPE_WATCH_FOUNDING_PAYMENT_LINK_ID ?? "",
+  stripeWatchStandardPaymentLinkId: process.env.STRIPE_WATCH_STANDARD_PAYMENT_LINK_ID ?? "",
+  stripeWatchStandardPriceId: process.env.STRIPE_WATCH_STANDARD_PRICE_ID ?? "",
+  watchDirectPaymentEnabled: process.env.WATCH_DIRECT_PAYMENT_ENABLED === "true",
   /** Server-only Stripe test-mode credentials used exclusively by the internal Watch lifecycle verification path. */
   stripeTestSecretKey: process.env.STRIPE_TEST_SECRET_KEY ?? "",
   stripeTestPublishableKey: process.env.STRIPE_TEST_PUBLISHABLE_KEY ?? "",
@@ -20,6 +25,14 @@ export const ENV = {
     process.env.STRIPE_TEST_WATCH_ANNUAL_PRICE_ID ?? "",
   stripeTestWatchWebhookSecret:
     process.env.STRIPE_TEST_WATCH_WEBHOOK_SECRET ?? "",
+  stripeTestWatchFoundingPaymentLinkId:
+    process.env.STRIPE_TEST_WATCH_FOUNDING_PAYMENT_LINK_ID ?? "",
+  stripeTestWatchStandardPaymentLinkId:
+    process.env.STRIPE_TEST_WATCH_STANDARD_PAYMENT_LINK_ID ?? "",
+  stripeTestWatchStandardPriceId:
+    process.env.STRIPE_TEST_WATCH_STANDARD_PRICE_ID ?? "",
+  watchTestDirectPaymentEnabled:
+    process.env.WATCH_TEST_DIRECT_PAYMENT_ENABLED === "true",
   /** Live Watch checkout remains disabled until the owner release gates are cleared. */
   watchLiveCheckoutEnabled: process.env.WATCH_LIVE_CHECKOUT_ENABLED === "true",
   /** SendGrid API key for other existing transactional notifications. */

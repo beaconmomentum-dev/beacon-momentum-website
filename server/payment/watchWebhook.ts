@@ -12,7 +12,6 @@ import { ENV } from "../_core/env";
 import { type WatchBillingMode, updateWatchEnrollmentStatus, upsertWatchEnrollment } from "../db";
 import { enqueuePaymentNotification } from "./paymentNotificationOutbox";
 
-const OFFERING_KEY = "the_watch_founding_year_2026";
 const FOUNDATION_SUPPORT_OFFERING_KEY = "foundation_year_voluntary_support_2026";
 
 function stripeObjectId(value: string | { id: string } | null | undefined): string | null {
@@ -40,11 +39,8 @@ function getRenewsAt(subscription: Stripe.Subscription): Date | null {
   return periodEnd > 0 ? new Date(periodEnd * 1000) : null;
 }
 
-function isWatchSubscription(subscription: Stripe.Subscription, priceId: string): boolean {
-  return (
-    subscription.metadata.beacon_offering === OFFERING_KEY ||
-    subscription.items.data.some((item) => item.price.id === priceId)
-  );
+export function isWatchSubscription(subscription: Stripe.Subscription, priceIds: readonly string[]): boolean {
+  return subscription.items.data.some((item) => priceIds.includes(item.price.id));
 }
 
 function mapSubscriptionStatus(status: Stripe.Subscription.Status): "active" | "past_due" | "cancelled" | "pending" {
@@ -85,13 +81,13 @@ interface WatchWebhookConfig {
   path: string;
   billingMode: WatchBillingMode;
   secretKey: string;
-  priceId: string;
+  priceIds: readonly string[];
   webhookSecret: string;
 }
 
 function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
   app.post(config.path, express.raw({ type: "application/json" }), async (req: Request, res: Response) => {
-    if (!config.secretKey || !config.webhookSecret || !config.priceId) {
+    if (!config.secretKey || !config.webhookSecret || config.priceIds.length !== 2 || config.priceIds.some((id) => !id)) {
       res.status(503).json({ received: false, message: "Webhook is not configured." });
       return;
     }
@@ -106,8 +102,8 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
     try {
       const stripe = new Stripe(config.secretKey);
       event = stripe.webhooks.constructEvent(req.body, signature, config.webhookSecret);
-    } catch (error) {
-      console.error("[Watch webhook] Signature verification failed", error);
+    } catch {
+      console.error("[Watch webhook] Signature verification failed");
       res.status(400).json({ received: false });
       return;
     }
@@ -121,7 +117,7 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
           if (!subscriptionId) break;
 
           const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-          if (!isWatchSubscription(subscription, config.priceId)) break;
+          if (!isWatchSubscription(subscription, config.priceIds)) break;
 
           const customer = await stripe.customers.retrieve(stripeObjectId(subscription.customer) ?? "");
           if (customer.deleted || !customer.email) {
@@ -157,7 +153,7 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
           if (!subscriptionId) break;
 
           const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-          if (!isWatchSubscription(subscription, config.priceId)) break;
+          if (!isWatchSubscription(subscription, config.priceIds)) break;
           await updateWatchEnrollmentStatus(subscription.id, "past_due", getRenewsAt(subscription));
           const customer = await stripe.customers.retrieve(stripeObjectId(subscription.customer) ?? "");
           if (customer.deleted || !customer.email) throw new Error(`Watch subscription ${subscription.id} has no usable customer email.`);
@@ -177,7 +173,7 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
         case "customer.subscription.updated":
         case "customer.subscription.deleted": {
           const subscription = event.data.object as Stripe.Subscription;
-          if (!isWatchSubscription(subscription, config.priceId)) break;
+          if (!isWatchSubscription(subscription, config.priceIds)) break;
           const notificationStatus = mapSubscriptionStatus(subscription.status);
           await updateWatchEnrollmentStatus(subscription.id, notificationStatus, getRenewsAt(subscription));
           const customer = await stripe.customers.retrieve(stripeObjectId(subscription.customer) ?? "");
@@ -206,11 +202,10 @@ function registerWatchWebhook(app: Express, config: WatchWebhookConfig) {
           // Acknowledge unrelated events on this narrow endpoint without side effects.
           break;
       }
-    } catch (error) {
+    } catch {
       console.error("[Watch webhook] Lifecycle persistence failed", {
         eventId: event.id,
         eventType: event.type,
-        error,
       });
       // Stripe retries non-2xx responses, preserving the event for recovery.
       res.status(500).json({ received: false });
@@ -226,7 +221,7 @@ export function registerWatchStripeWebhook(app: Express) {
     path: "/api/the-watch/stripe-webhook",
     billingMode: "live",
     secretKey: ENV.stripeSecretKey,
-    priceId: ENV.stripeWatchAnnualPriceId,
+    priceIds: [ENV.stripeWatchAnnualPriceId, ENV.stripeWatchStandardPriceId],
     webhookSecret: ENV.stripeWatchWebhookSecret,
   });
 }
@@ -237,7 +232,7 @@ export function registerWatchStripeTestWebhook(app: Express) {
     path: "/api/_ops/the-watch/stripe-test-webhook",
     billingMode: "test",
     secretKey: ENV.stripeTestSecretKey,
-    priceId: ENV.stripeTestWatchAnnualPriceId,
+    priceIds: [ENV.stripeTestWatchAnnualPriceId, ENV.stripeTestWatchStandardPriceId],
     webhookSecret: ENV.stripeTestWatchWebhookSecret,
   });
 }
