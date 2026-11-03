@@ -7,6 +7,11 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import {
+  configureTrustedProxy,
+  createRequestBodyParsers,
+  requestBodyErrorHandler,
+} from "./httpSecurity";
+import {
   registerWatchStripeTestWebhook,
   registerWatchStripeWebhook,
 } from "../payment/watchWebhook";
@@ -32,14 +37,15 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 
 async function startServer() {
   const app = express();
+  configureTrustedProxy(app);
   const server = createServer(app);
 
   // Stripe signatures require the exact raw request body; this must precede
   // the global JSON parser and any middleware that consumes request bodies.
   registerWatchStripeWebhook(app);
   registerWatchStripeTestWebhook(app);
-  app.use(express.json({ limit: "50mb" }));
-  app.use(express.urlencoded({ limit: "50mb", extended: true }));
+  const [jsonBodyParser, urlencodedBodyParser] = createRequestBodyParsers();
+  app.use(jsonBodyParser, urlencodedBodyParser);
   registerReadinessMapRoutes(app);
   app.use(
     "/api/trpc",
@@ -68,6 +74,7 @@ async function startServer() {
     serveStatic(app);
   }
 
+  app.use(requestBodyErrorHandler);
   app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
     if (err instanceof URIError) {
       res.status(400).send("Bad Request");

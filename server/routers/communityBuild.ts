@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
+import type { Request } from "express";
 import { publicProcedure, router } from "../_core/trpc";
+import { getTrustedClientIp } from "../_core/httpSecurity";
 import { getDb } from "../db";
 import { communityBuildEntries } from "../../drizzle/schema";
 import { ENV } from "../_core/env";
@@ -83,10 +85,8 @@ function consumeRate(key: string, now: number): boolean {
   return true;
 }
 
-function clientIp(headers: Record<string, string | string[] | undefined>): string {
-  const forwarded = headers["cf-connecting-ip"] ?? headers["x-forwarded-for"];
-  const raw = Array.isArray(forwarded) ? forwarded[0] : forwarded;
-  return raw?.split(",")[0]?.trim() || "unknown";
+function clientIp(req: Request): string {
+  return getTrustedClientIp(req);
 }
 
 const entryInputSchema = z.object({
@@ -105,7 +105,7 @@ export const communityBuildRouter = router({
       });
     }
 
-    const ip = clientIp(ctx.req.headers);
+    const ip = clientIp(ctx.req);
 
     // Rate limit
     if (!consumeRate(ip, Date.now())) {

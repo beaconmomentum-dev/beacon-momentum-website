@@ -17,7 +17,6 @@ type RelayEvent =
   | { event: "starter_pack_request"; email: string; firstName?: string; consentVersion: string }
   | { event: "watch_brief_premium_interest"; email: string; firstName?: string; privacyAcknowledged: true; consentVersion: string }
   | { event: "pathfinder_result"; email: string; firstName?: string; pillar: PathfinderPillar; consentVersion: string }
-  | { event: "digital_grandpa_library_interest"; email: string; consentVersion: string }
   | { event: "watch_enrollment_request"; email: string; firstName?: string; privacyAcknowledged: true; consentVersion: string };
 
 async function submitCapture(payload: RelayEvent): Promise<boolean> {
@@ -49,10 +48,6 @@ export function submitPathfinderResult(email: string, pillar: string, _answers?:
 
 export function requestStarterPack(email: string, firstName?: string) {
   return submitCapture({ event: "starter_pack_request", email, firstName, consentVersion: "starter-pack-v1" });
-}
-
-export function requestDigitalGrandpaLibraryInterest(email: string) {
-  return submitCapture({ event: "digital_grandpa_library_interest", email, consentVersion: "digital-grandpa-library-v1" });
 }
 
 export function submitWatchEnrollmentRequest(email: string, firstName: string | undefined, privacyAcknowledged: boolean) {
