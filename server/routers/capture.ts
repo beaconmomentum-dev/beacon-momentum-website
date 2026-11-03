@@ -11,8 +11,10 @@
 
 import { TRPCError } from "@trpc/server";
 import { randomUUID } from "crypto";
+import type { Request } from "express";
 import { z } from "zod/v4";
 import { ENV } from "../_core/env";
+import { getTrustedClientIp } from "../_core/httpSecurity";
 import { publicProcedure, router } from "../_core/trpc";
 
 const GHL_BASE_URL = "https://services.leadconnectorhq.com";
@@ -358,12 +360,8 @@ function consumeRateLimit(key: string, now: number): boolean {
   return true;
 }
 
-function clientIdentifier(
-  headers: Record<string, string | string[] | undefined>,
-): string {
-  const forwarded = headers["cf-connecting-ip"] ?? headers["x-forwarded-for"];
-  const raw = Array.isArray(forwarded) ? forwarded[0] : forwarded;
-  return raw?.split(",")[0]?.trim() || "unknown";
+function clientIdentifier(req: Request): string {
+  return getTrustedClientIp(req);
 }
 
 export function isAllowedOrigin(
@@ -418,7 +416,7 @@ export const captureRouter = router({
         });
       }
 
-      const rateLimitKey = `${clientIdentifier(ctx.req.headers)}:${input.event}`;
+      const rateLimitKey = `${clientIdentifier(ctx.req)}:${input.event}`;
       if (!consumeRateLimit(rateLimitKey, Date.now())) {
         console.warn("[capture] rejected rate-limited request", {
           requestId,

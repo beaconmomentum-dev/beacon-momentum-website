@@ -2,6 +2,7 @@ import type { Express, Request, Response } from "express";
 import path from "path";
 import { z } from "zod/v4";
 import { ENV } from "./_core/env";
+import { getTrustedClientIp } from "./_core/httpSecurity";
 import {
   captureInputSchema,
   isAllowedOrigin,
@@ -66,8 +67,7 @@ function consumeRateLimit(key: string, now: number): boolean {
 }
 
 function clientIdentifier(req: Request): string {
-  const forwarded = req.get("cf-connecting-ip") ?? req.get("x-forwarded-for");
-  return forwarded?.split(",")[0]?.trim() || "unknown";
+  return getTrustedClientIp(req);
 }
 
 function publicError(res: Response, status: number, message: string) {
