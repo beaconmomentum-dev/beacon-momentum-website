@@ -118,10 +118,10 @@ export default function Home() {
                 <p className="home-boundary-note">The Watch, Beacon Labs, and other Beacon properties have separate experiences, records, and choices. Visiting one does not enroll you in another.</p>
               </div>
               <aside className="home-hero-aside">
-                <p>THE WATCH · FOUNDING RATE</p>
+                <p>THE WATCH · FIRST 1,000 PAID CHECKOUTS</p>
                 <h2>One year to build a steadier way of working.</h2>
                 <div><span>$497</span><small>per year</small></div>
-                <p>Future new members: $997/year. Founding members who remain continuously active and paid renew at $497/year unless they cancel before renewal. Review the member experience, annual terms, and enrollment details before you decide.</p>
+                <p>The first 1,000 completed paid checkout sessions: $497/year. After the cohort fills, new members: $997/year. Founding members who remain continuously active and paid renew at $497/year unless they cancel before renewal. Review the member experience and published terms before you decide.</p>
                 <Link href="/the-watch">See what The Watch holds <ArrowRight size={15} /></Link>
               </aside>
             </div>

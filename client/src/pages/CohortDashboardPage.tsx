@@ -1186,7 +1186,7 @@ function Dashboard({ leadEmail, onLogout }: { leadEmail: string; onLogout: () =>
                 {myOnly ? "No members assigned to you yet." : "No members found matching the current filters."}
               </p>
               <p style={{ fontFamily: body, fontSize: "0.8rem", color: "rgba(245,240,232,0.3)", marginTop: "0.5rem" }}>
-                Members appear here after completing the intake form at /the-watch/intake
+                Members appear here after a confirmed Stripe subscription payment is processed by the Watch webhook.
               </p>
             </div>
           ) : (

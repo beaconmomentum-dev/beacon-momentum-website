@@ -36,7 +36,7 @@ export default function TermsPage() {
             Terms of Use
           </h1>
           <p style={{ fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, fontSize: "0.8rem", color: "var(--beacon-charcoal-mid)", marginBottom: "3rem", letterSpacing: "0.04em" }}>
-            Last updated: June 13, 2026 &nbsp;·&nbsp; Effective: June 13, 2026
+            Last updated: November 3, 2026 &nbsp;·&nbsp; Effective: November 3, 2026
           </p>
 
           <div style={{ fontFamily: "'Lora', Georgia, serif", fontWeight: 400, fontSize: "1rem", lineHeight: 1.85, color: "var(--beacon-charcoal-mid)" }}>
@@ -92,6 +92,16 @@ export default function TermsPage() {
             <h2 style={h2Style}>5. Purchases and Payments</h2>
             <p style={pStyle}>
               Certain Beacon programs, memberships, and resources are available for purchase. All prices are stated in United States dollars. Payment is processed through Stripe, a PCI-compliant payment processor. Beacon Momentum does not store your payment card information.
+            </p>
+            <h3 style={h3Style}>The Watch annual membership</h3>
+            <p style={pStyle}>
+              The first 1,000 completed paid Stripe checkout sessions for The Watch are offered at $497 per year. Stripe's completed-session count determines when that founding cohort is full. After the cohort is full, new enrollments are $997 per year. A refunded or canceled enrollment does not restore a founding-rate slot.
+            </p>
+            <p style={pStyle}>
+              The Watch membership renews annually unless you cancel before the next renewal. Founding members who remain continuously active and paid renew at $497 per year; the $997 new-member rate does not automatically increase a Founding member's renewal. If you cancel and later re-enroll, the rate then offered to new members applies.
+            </p>
+            <p style={pStyle}>
+              Access is granted only after Stripe confirms payment. We send a one-time account-claim link to the email address used at checkout. Access continues through the paid annual period, subject to these Terms and the separate refund policy published at beaconmomentum.com/refund.
             </p>
             <p style={pStyle}>
               All sales are final unless otherwise stated at the time of purchase. If a specific refund policy applies to a program, it will be disclosed on the program's purchase page. Chargebacks initiated without first contacting Beacon Momentum may result in suspension of access to the Services.

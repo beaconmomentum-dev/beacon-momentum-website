@@ -19,7 +19,7 @@ const sections = [
   },
   {
     title: "2. The Watch annual membership",
-    body: "The Watch is a $497 annual membership with no free trial. A successful payment purchases access for the current annual term. Except where required by applicable law or where Beacon Momentum states otherwise in writing for a specific offer, annual membership payments are not refundable after payment is successfully completed.",
+    body: "The Watch has no free trial. The first 1,000 completed paid Stripe checkout sessions are $497 per year; after that cohort fills, new members pay $997 per year. Founding members who remain continuously active and paid renew at $497 per year. A successful payment purchases access for the current annual term. Except where required by applicable law or where Beacon Momentum states otherwise in writing for a specific offer, annual membership payments are not refundable after payment is successfully completed. A refunded or canceled enrollment does not restore a founding-rate slot.",
   },
   {
     title: "3. Cancellation and future renewal",
@@ -55,7 +55,7 @@ export default function RefundPage() {
           <p style={{ margin: 0, color: C.amber, textTransform: "uppercase", letterSpacing: "0.17em", fontSize: "0.72rem", fontWeight: 800 }}>Beacon Momentum LLC</p>
           <h1 style={{ maxWidth: "760px", margin: "1rem 0 0", fontFamily: "Georgia, Cambria, serif", fontSize: "clamp(2.7rem, 6vw, 5rem)", fontWeight: 500, lineHeight: 1.03, letterSpacing: "-0.04em" }}>Refund and cancellation policy</h1>
           <p style={{ maxWidth: "700px", margin: "1.35rem 0 0", color: C.mist, fontSize: "1.05rem", lineHeight: 1.75 }}>Clear terms for Watch enrollment, annual renewal, cancellation, and payment support.</p>
-          <p style={{ margin: "1rem 0 0", color: "rgba(247,241,229,0.56)", fontSize: "0.8rem", letterSpacing: "0.03em" }}>Last updated: August 11, 2026</p>
+          <p style={{ margin: "1rem 0 0", color: "rgba(247,241,229,0.56)", fontSize: "0.8rem", letterSpacing: "0.03em" }}>Last updated: November 3, 2026</p>
         </div>
       </section>
 

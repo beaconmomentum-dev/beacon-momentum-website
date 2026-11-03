@@ -15,6 +15,7 @@ import {
   registerWatchStripeTestWebhook,
   registerWatchStripeWebhook,
 } from "../payment/watchWebhook";
+import { registerWatchPaymentLinkRoutes } from "../payment/watchPaymentLink";
 import { deliverPendingPaymentNotifications } from "../payment/paymentNotificationOutbox";
 import { registerReadinessMapRoutes } from "../readinessMap";
 
@@ -44,6 +45,7 @@ async function startServer() {
   // the global JSON parser and any middleware that consumes request bodies.
   registerWatchStripeWebhook(app);
   registerWatchStripeTestWebhook(app);
+  registerWatchPaymentLinkRoutes(app);
   const [jsonBodyParser, urlencodedBodyParser] = createRequestBodyParsers();
   app.use(jsonBodyParser, urlencodedBodyParser);
   registerReadinessMapRoutes(app);
@@ -102,11 +104,8 @@ async function startServer() {
       if (result.delivered || result.retried || result.deadLettered) {
         console.info("[Payment notification outbox]", result);
       }
-    } catch (error) {
-      console.error(
-        "[Payment notification outbox] delivery loop failed",
-        error,
-      );
+    } catch {
+      console.error("[Payment notification outbox] delivery loop failed");
     }
   };
   void deliverPaymentOutbox();

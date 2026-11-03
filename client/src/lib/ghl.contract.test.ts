@@ -10,7 +10,7 @@ const sources = [
   "pages/DigitalGrandpaLibraryPage.tsx",
   "pages/DigitalGrandpaPage.tsx",
   "pages/StarterPackPage.tsx",
-  "pages/TheWatchIntakePage.tsx",
+  "pages/TheWatchPage.tsx",
   "pages/WatchBriefPremiumPage.tsx",
 ].map(file => fs.readFileSync(path.join(clientRoot, file), "utf8"));
 
