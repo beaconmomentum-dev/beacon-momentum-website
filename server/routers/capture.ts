@@ -109,10 +109,6 @@ export const captureInputSchema = z.discriminatedUnion("event", [
     utmCampaign: z.string().trim().max(120).optional(),
     utmContent: z.string().trim().max(120).optional(),
   }),
-  z.object({
-    ...commonCaptureFields,
-    event: z.literal("digital_grandpa_library_interest"),
-  }),
 ]);
 
 export type CaptureInput = z.infer<typeof captureInputSchema>;
@@ -129,6 +125,8 @@ export type GhlUpsertPayload = {
   phone?: string;
   locationId: string;
   source: string;
+  createNewIfDuplicateAllowed: false;
+  /** Additive tag plan; submitCaptureToGhl never sends this in the upsert body. */
   tags: string[];
   customFields?: GhlCustomField[];
 };
@@ -168,6 +166,7 @@ export function buildGhlUpsertPayload(
     email: input.email,
     locationId: BEACON_MOMENTUM_LOCATION_ID,
     source: "beaconmomentum.com",
+    createNewIfDuplicateAllowed: false,
     tags: [],
   };
 
@@ -229,8 +228,8 @@ export function buildGhlUpsertPayload(
       return {
         ...payload,
         source: "beaconmomentum.com/the-watch/intake",
-        // A request is not membership: never apply Sentinel or Community-access tags here.
-        tags: ["BM_Watch_Join", "BM_Watch_Enrollment_Request"],
+        // CRM workflow behavior is unverified. Keep this request inquiry-only.
+        tags: [],
       };
     case "contact_inquiry":
       return {
@@ -279,12 +278,6 @@ export function buildGhlUpsertPayload(
         ],
       };
     }
-    case "digital_grandpa_library_interest":
-      return {
-        ...payload,
-        source: "beaconmomentum.com/digital-grandpa/library",
-        tags: ["BM_Digital_Grandpa_Library_Waitlist"],
-      };
   }
 }
 
@@ -303,16 +296,22 @@ export async function submitCaptureToGhl(
     throw new CaptureRelayError("not_configured");
   }
 
+  const { tags, ...upsertPayload } = buildGhlUpsertPayload(input);
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${apiKey}`,
+    Version: "v3",
+  };
+
   let response: Response;
   try {
     response = await fetchImpl(`${GHL_BASE_URL}/contacts/upsert`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-        Version: "2021-07-28",
-      },
-      body: JSON.stringify(buildGhlUpsertPayload(input)),
+      headers,
+      body: JSON.stringify({
+        ...upsertPayload,
+        createNewIfDuplicateAllowed: false,
+      }),
     });
   } catch {
     throw new CaptureRelayError("upstream_unavailable");
@@ -328,7 +327,36 @@ export async function submitCaptureToGhl(
   const body = (await response
     .json()
     .catch(() => null)) as GhlUpsertResponse | null;
-  if (!body || (body.succeeded !== true && body.succeded !== true)) {
+  const contactId = body?.contact?.id;
+  if (
+    !body ||
+    !contactId ||
+    body.succeeded === false ||
+    body.succeded === false
+  ) {
+    throw new CaptureRelayError("upstream_rejected");
+  }
+
+  if (tags.length === 0) return;
+
+  let tagResponse: Response;
+  try {
+    tagResponse = await fetchImpl(
+      `${GHL_BASE_URL}/contacts/${encodeURIComponent(contactId)}/tags`,
+      {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ tags }),
+      },
+    );
+  } catch {
+    throw new CaptureRelayError("upstream_unavailable");
+  }
+
+  if (!tagResponse.ok) {
+    if (tagResponse.status === 429 || tagResponse.status >= 500) {
+      throw new CaptureRelayError("upstream_unavailable");
+    }
     throw new CaptureRelayError("upstream_rejected");
   }
 }
@@ -380,8 +408,6 @@ export function isAllowedOrigin(
   const productionOrigins = new Set([
     "https://beaconmomentum.com",
     "https://www.beaconmomentum.com",
-    "https://digitalgrandpa.org",
-    "https://www.digitalgrandpa.org",
   ]);
   if (productionOrigins.has(origin)) return true;
   return !isProduction && /^http:\/\/localhost(?::\d+)?$/.test(origin);

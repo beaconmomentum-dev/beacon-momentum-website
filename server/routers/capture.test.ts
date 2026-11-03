@@ -21,6 +21,7 @@ describe("public capture relay contract", () => {
       firstName: "Bob",
       locationId: "vvhkYM6iySBVh5kOcFGM",
       source: "beaconmomentum.com/newsletter",
+      createNewIfDuplicateAllowed: false,
       tags: ["BM_Newsletter", "BM_Beacon_Brief"],
     });
   });
@@ -169,15 +170,15 @@ describe("public capture relay contract", () => {
     ).toThrow();
   });
 
-  it("maps the Digital Grandpa library waitlist on the server without browser-selected tags", () => {
-    const input = captureInputSchema.parse({
-      event: "digital_grandpa_library_interest",
-      email: "person@example.com",
-    });
-    expect(buildGhlUpsertPayload(input)).toMatchObject({
-      source: "beaconmomentum.com/digital-grandpa/library",
-      tags: ["BM_Digital_Grandpa_Library_Waitlist"],
-    });
+  it("rejects Digital Grandpa events and origins on the Beacon Momentum relay", () => {
+    expect(() =>
+      captureInputSchema.parse({
+        event: "digital_grandpa_library_interest",
+        email: "person@example.com",
+      }),
+    ).toThrow();
+    expect(isAllowedOrigin("https://digitalgrandpa.org", true)).toBe(false);
+    expect(isAllowedOrigin("https://www.digitalgrandpa.org", true)).toBe(false);
   });
 
   it("maps an acknowledged Watch request without assigning membership or storing detailed answers", () => {
@@ -191,7 +192,7 @@ describe("public capture relay contract", () => {
     const payload = buildGhlUpsertPayload(input);
     expect(payload).toMatchObject({
       source: "beaconmomentum.com/the-watch/intake",
-      tags: ["BM_Watch_Join", "BM_Watch_Enrollment_Request"],
+      tags: [],
       email: "person@example.com",
       firstName: "Person",
     });
@@ -269,12 +270,83 @@ describe("public capture relay contract", () => {
     }
   });
 
-  it("uses the server credential only in the outbound request", async () => {
+  it("upserts without tags and applies consented non-entitlement tags additively", async () => {
     const fetchImpl = vi
       .fn()
-      .mockResolvedValue(
-        new Response(JSON.stringify({ succeeded: true }), { status: 200 }),
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ contact: { id: "contact-123" } }), {
+          status: 200,
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ tags: ["BM_Starter_Pack"] }), {
+          status: 201,
+        }),
       );
+    const input = captureInputSchema.parse({
+      event: "starter_pack_request",
+      email: "person@example.com",
+    });
+
+    await expect(
+      submitCaptureToGhl(input, { apiKey: "test-key", fetchImpl }),
+    ).resolves.toBeUndefined();
+    expect(fetchImpl).toHaveBeenNthCalledWith(
+      1,
+      "https://services.leadconnectorhq.com/contacts/upsert",
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          Authorization: "Bearer test-key",
+          Version: "v3",
+        }),
+        body: expect.not.stringContaining('"tags"'),
+      }),
+    );
+    const upsertBody = JSON.parse(fetchImpl.mock.calls[0][1].body as string);
+    expect(upsertBody.createNewIfDuplicateAllowed).toBe(false);
+    expect(upsertBody).not.toHaveProperty("tags");
+    expect(fetchImpl).toHaveBeenNthCalledWith(
+      2,
+      "https://services.leadconnectorhq.com/contacts/contact-123/tags",
+      expect.objectContaining({
+        method: "POST",
+        headers: expect.objectContaining({
+          Authorization: "Bearer test-key",
+          Version: "v3",
+        }),
+        body: JSON.stringify({ tags: ["BM_Starter_Pack", "BM_YouTube_Optin"] }),
+      }),
+    );
+  });
+
+  it("does not report success when HighLevel rejects the additive tag update", async () => {
+    const fetchImpl = vi
+      .fn()
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ contact: { id: "contact-123" } }), {
+          status: 200,
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ message: "forbidden" }), { status: 403 }),
+      );
+    const input = captureInputSchema.parse({
+      event: "starter_pack_request",
+      email: "person@example.com",
+    });
+
+    await expect(
+      submitCaptureToGhl(input, { apiKey: "test-key", fetchImpl }),
+    ).rejects.toThrow("upstream_rejected");
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it("does not issue any tags call for a Watch enrollment request", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ contact: { id: "contact-watch" } }), {
+        status: 200,
+      }),
+    );
     const input = captureInputSchema.parse({
       event: "watch_enrollment_request",
       email: "person@example.com",
@@ -284,12 +356,9 @@ describe("public capture relay contract", () => {
     await expect(
       submitCaptureToGhl(input, { apiKey: "test-key", fetchImpl }),
     ).resolves.toBeUndefined();
-    expect(fetchImpl).toHaveBeenCalledWith(
-      "https://services.leadconnectorhq.com/contacts/upsert",
-      expect.objectContaining({
-        headers: expect.objectContaining({ Authorization: "Bearer test-key" }),
-        body: expect.stringContaining("BM_Watch_Join"),
-      }),
-    );
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    const requestBody = JSON.parse(fetchImpl.mock.calls[0][1].body as string);
+    expect(requestBody).not.toHaveProperty("tags");
+    expect(requestBody.source).toBe("beaconmomentum.com/the-watch/intake");
   });
 });
