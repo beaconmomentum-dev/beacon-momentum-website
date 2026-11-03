@@ -1,0 +1,48 @@
+name: Marketing Validation
+
+on:
+  push:
+    branches:
+      - fix/ghl-upsert-tag-safety-2026-11-03
+  pull_request:
+    branches:
+      - main
+      - deploy/marketing-release-2026-10-31
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Unit, type, and deployment-contract checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run local test suite
+        run: pnpm test
+
+      - name: Type-check
+        run: pnpm check
+
+      - name: Verify deployment contracts
+        run: pnpm run test:deploy-contract
+
+      - name: Verify capture-route deployment contract
+        run: pnpm run test:capture-route-contract
