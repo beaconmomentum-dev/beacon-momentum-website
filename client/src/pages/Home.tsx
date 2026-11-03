@@ -118,10 +118,10 @@ export default function Home() {
                 <p className="home-boundary-note">The Watch, Beacon Labs, and other Beacon properties have separate experiences, records, and choices. Visiting one does not enroll you in another.</p>
               </div>
               <aside className="home-hero-aside">
-                <p>THE WATCH · ANNUAL MEMBERSHIP</p>
+                <p>THE WATCH · FOUNDING RATE</p>
                 <h2>One year to build a steadier way of working.</h2>
                 <div><span>$497</span><small>per year</small></div>
-                <p>Review the member experience, annual terms, and enrollment details before you decide.</p>
+                <p>Future new members: $997/year. Founding members who remain continuously active and paid renew at $497/year unless they cancel before renewal. Review the member experience, annual terms, and enrollment details before you decide.</p>
                 <Link href="/the-watch">See what The Watch holds <ArrowRight size={15} /></Link>
               </aside>
             </div>

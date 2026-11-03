@@ -1577,7 +1577,7 @@ function BeaconBriefStrip() {
                 textDecoration: "none",
               }}
             >
-              Explore The Watch · $497/year{" "}
+              Explore The Watch · $497/year Founding rate · $997/year for future new members{" "}
               <ArrowRight
                 size={13}
                 style={{ display: "inline", verticalAlign: "-2px" }}

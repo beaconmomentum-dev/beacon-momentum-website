@@ -21,7 +21,7 @@ const routes = [
     label: "Membership & learning",
     name: "The Watch",
     price: "$497 / year",
-    body: "A year-long learning and community environment for people who want practical systems, clear context, and a steadier operating rhythm.",
+    body: "The Founding annual rate is $497. The future annual rate for new members is $997; Founding members who remain continuously active and paid keep the $497 renewal rate under the published terms.",
     details: [
       "Five capability pathways and field guides",
       "Member resources and community structure",
@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     question: "Is The Watch a subscription with multiple paid tiers?",
-    answer: "No. The Watch is one annual membership at $497 per year. Sentinel, Navigator, and Quartermaster are earned stages of participation—not paid plans to compare or purchase.",
+    answer: "No. The Watch is one annual membership. The Founding rate is $497 per year; the future rate for new members is $997 per year. Founding members who remain continuously active and paid keep the $497 renewal rate under the published terms. Sentinel, Navigator, and Quartermaster are earned stages of participation—not paid plans to compare or purchase.",
   },
   {
     question: "What happens if I am not ready to enroll?",

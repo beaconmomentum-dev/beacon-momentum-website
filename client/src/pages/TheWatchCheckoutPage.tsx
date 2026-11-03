@@ -189,7 +189,7 @@ export default function TheWatchCheckoutPage() {
               <strong style={{ color: C.cream, fontSize: "2.7rem", letterSpacing: "-0.05em" }}>$497</strong>
               <span style={{ color: C.mist }}>/ year</span>
             </div>
-            <p style={{ margin: "0.65rem 0 1.5rem", color: C.mist, fontSize: "0.9rem", lineHeight: 1.65 }}>No free trial. One annual membership. Founding Year enrollment is available to the first 1,000 paid annual members. Earned stages are not separate purchases.</p>
+            <p style={{ margin: "0.65rem 0 1.5rem", color: C.mist, fontSize: "0.9rem", lineHeight: 1.65 }}>No free trial. One annual membership. The Founding Year rate is $497/year; the future annual rate for new members is $997. Founding members who remain continuously active and paid keep the $497 annual renewal rate under the published terms. Earned stages are not separate purchases.</p>
 
             {!config.data?.ready ? (
               <div role="status" style={{ display: "grid", gap: "1rem", color: C.mist, fontSize: "0.92rem", lineHeight: 1.7 }}>
@@ -229,7 +229,7 @@ export default function TheWatchCheckoutPage() {
         <div className="container watch-checkout-disclosures" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "1px", background: C.line, border: `1px solid ${C.line}` }}>
           {[
             ["Issuer", "Payments are made to Beacon Momentum LLC."],
-            ["Renewal", "Founding Year members renew automatically at $497/year while continuously active and paid, unless they cancel before renewal. Later new enrollment is $997/year after the first 1,000 paid annual members."],
+            ["Renewal", "Founding Year members renew automatically at $497/year while continuously active and paid, unless they cancel before renewal. The future $997/year rate applies to new members; it is not an automatic increase to a Founding member's renewal."],
             ["Purchase boundary", "This purchase is not an investment, loan, equity interest, revenue-share interest, promise of financial return, charitable contribution, or tax-deductible donation."],
           ].map(([label, copy]) => (
             <div key={label} style={{ background: C.deep, padding: "1.35rem" }}>

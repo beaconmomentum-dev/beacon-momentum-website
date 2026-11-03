@@ -58,7 +58,7 @@ export default function TheWatchIntakePage() {
                 Ask for the current details.
               </h1>
               <p style={{ maxWidth: "620px", color: C.muted, fontFamily: body, fontSize: "1.02rem", lineHeight: 1.8 }}>
-                The Watch is Beacon Momentum’s annual membership. Its current price, included access, renewal terms, and offer conditions are published on the <Link href="/the-watch" style={{ color: C.amberLight }}>canonical offer page</Link>. Review those terms before making any decision.
+                The Watch is Beacon Momentum’s annual membership. The Founding rate is $497/year; the future rate for new members is $997/year. Founding members who remain continuously active and paid renew at $497/year unless they cancel before renewal. Review the membership, renewal information, and enrollment path on the <Link href="/the-watch" style={{ color: C.amberLight }}>canonical offer page</Link> before making any decision.
               </p>
               <div role="note" style={{ marginTop: "1.5rem", maxWidth: "620px", borderLeft: `2px solid ${C.amber}`, background: "rgba(245,240,232,0.04)", padding: "1rem 1.2rem", color: C.muted, fontFamily: body, fontSize: "0.9rem", lineHeight: 1.7 }}>
                 This form is an information request only. It does not take payment, create a paid membership, or activate account access. Any later payment and access step requires separate confirmation under the published terms.

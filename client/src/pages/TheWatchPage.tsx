@@ -17,7 +17,7 @@ const membershipCommitments = [
   {
     number: "01",
     title: "A clear annual membership",
-    body: "Founding Year membership is $497 per year for the first 1,000 paid annual members. It is a membership purchase—not an investment, ownership interest, or promise of a financial outcome.",
+    body: "Founding Year membership is $497 per year. The future annual rate for new members is $997. It is a membership purchase—not an investment, ownership interest, or promise of a financial outcome.",
   },
   {
     number: "02",
@@ -38,7 +38,7 @@ const questions = [
   },
   {
     question: "What happens after the Founding Year period?",
-    answer: "The current Founding Year rate is $497 per year for the first 1,000 paid annual members. A member who remains continuously active and paid keeps that renewal rate; later new-member pricing is published separately as terms change.",
+    answer: "The Founding Year rate is $497 per year. The future annual rate for new members is $997. Founding members who remain continuously active and paid keep the $497 annual renewal rate under the published terms. The future new-member rate is not an automatic increase to a Founding member's renewal.",
   },
   {
     question: "Is The Watch an investment or a business opportunity?",
@@ -216,13 +216,14 @@ export default function TheWatchPage() {
               </div>
               <div style={{ alignSelf: "end" }}>
                 <p style={{ color: "rgba(22,36,51,0.78)", fontSize: "1.08rem", lineHeight: 1.8, margin: 0 }}>
-                  Founding Year enrollment is $497 per year for the first 1,000 paid annual members. We state the
+                  Founding Year enrollment is $497 per year. We state the
                   membership, access, renewal terms, and boundaries plainly before you enroll—because a good decision
                   does not need a pressure trick.
                 </p>
                 <p style={{ color: "rgba(22,36,51,0.7)", fontSize: "0.94rem", lineHeight: 1.7, margin: "1.15rem 0 0" }}>
-                  The later new-member annual rate is $997. A Founding Year member who stays continuously active and
-                  paid retains the $497 annual renewal rate under the published terms.
+                  The future annual rate for new members is $997. Founding members who remain continuously active and
+                  paid keep renewing at $497 per year under the published terms; the $997 rate is not an automatic
+                  increase to their renewal.
                 </p>
               </div>
             </div>
@@ -272,19 +273,26 @@ export default function TheWatchPage() {
 
         <section id="join" style={{ background: "linear-gradient(130deg, #223345, #162433)", padding: "clamp(4.5rem, 9vw, 8rem) 0" }}>
           <div className="container" style={{ maxWidth: "1100px" }}>
-            <FieldLabel>Enrollment begins with a request</FieldLabel>
+            <FieldLabel>Founding Year · Annual rates</FieldLabel>
             <h2 style={{ fontSize: "clamp(2.4rem, 5vw, 5.2rem)", lineHeight: 1.02, margin: "1rem 0 0", maxWidth: "860px" }}>
-              A request first. A separate decision before payment.
+              $497/year for Founding members.
+              <br />
+              <em style={{ color: "rgba(245,243,236,0.72)", fontWeight: 500 }}>$997/year for future new members.</em>
             </h2>
-            <p style={{ color: COLORS.mist, fontSize: "1.08rem", lineHeight: 1.75, margin: "1.35rem 0 0", maxWidth: "680px" }}>
-              Submitting the request does not charge you, create an account, or activate membership. Any later payment
-              and access step requires separate confirmation under the published terms.
+            <p style={{ color: COLORS.mist, fontSize: "1.08rem", lineHeight: 1.75, margin: "1.35rem 0 0", maxWidth: "760px" }}>
+              Founding members who remain continuously active and paid keep the $497 annual renewal rate under the
+              published terms. The $997 rate applies to future new members; it is not an automatic increase to a
+              Founding member's renewal.
+            </p>
+            <p style={{ color: COLORS.mist, fontSize: "0.98rem", lineHeight: 1.75, margin: "1.1rem 0 0", maxWidth: "760px" }}>
+              Start with an information request. It does not charge you, create an account, or activate membership.
+              Any later payment and access step requires separate confirmation under the published terms.
             </p>
             <Link
               href="/the-watch/intake"
               style={{ background: COLORS.brass, color: COLORS.deep, display: "inline-block", fontFamily: "var(--beacon-ui)", fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.07em", marginTop: "2rem", padding: "1rem 1.25rem", textDecoration: "none", textTransform: "uppercase" }}
             >
-              Start the enrollment request
+              Request Founding-rate details
             </Link>
           </div>
         </section>
