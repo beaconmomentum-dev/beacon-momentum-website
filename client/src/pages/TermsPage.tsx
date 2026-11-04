@@ -101,7 +101,12 @@ export default function TermsPage() {
               The Watch membership renews annually unless you cancel before the next renewal. Founding members who remain continuously active and paid renew at $497 per year; the $997 new-member rate does not automatically increase a Founding member's renewal. If you cancel and later re-enroll, the rate then offered to new members applies.
             </p>
             <p style={pStyle}>
-              Access is granted only after Stripe confirms payment. We send a one-time account-claim link to the email address used at checkout. Access continues through the paid annual period, subject to these Terms and the separate refund policy published at beaconmomentum.com/refund.
+              Stripe payment confirmation triggers Beacon to email a one-time claim link to the checkout email
+              address. Watch entitlement activates only after the claim is completed and verified using that same
+              checkout email.
+              Payment alone does not create a Beacon Community account or change any other Beacon access. Access
+              continues through the paid annual period, subject to these Terms and the separate refund policy
+              published at beaconmomentum.com/refund.
             </p>
             <p style={pStyle}>
               All sales are final unless otherwise stated at the time of purchase. If a specific refund policy applies to a program, it will be disclosed on the program's purchase page. Chargebacks initiated without first contacting Beacon Momentum may result in suspension of access to the Services.
