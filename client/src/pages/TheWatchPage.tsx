@@ -285,8 +285,10 @@ export default function TheWatchPage() {
             </p>
             <p style={{ color: COLORS.mist, fontSize: "0.98rem", lineHeight: 1.75, margin: "1.1rem 0 0", maxWidth: "760px" }}>
               Continue to Stripe's secure hosted checkout to review the terms and pay. After Stripe confirms payment,
-              we send a one-time account-claim link to the email address used at checkout; access is not granted before
-              payment confirmation.
+              Beacon emails a one-time claim link to the checkout email. Use that same email to create or sign in to
+              your Beacon Community account. Watch access activates only after the claim is completed and verified.
+              Payment alone does not create a Community account or change any other Beacon memberships or course
+              entitlements.
             </p>
             <a
               href="/the-watch/checkout"
