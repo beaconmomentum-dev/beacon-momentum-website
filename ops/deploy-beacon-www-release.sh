@@ -8,6 +8,7 @@ APP_ROOT="${BEACON_APP_ROOT:-/var/www/beacon-momentum-www}"
 RELEASES_ROOT="${BEACON_RELEASES_ROOT:-/var/www/beacon-momentum-releases}"
 ENV_FILE="${BEACON_ENV_FILE:-$APP_ROOT/.env.production}"
 OPTIONAL_RUNTIME_FILE="${BEACON_OPTIONAL_RUNTIME_FILE:-/root/beacon-watch-test-runtime}"
+WATCH_SESSION_RUNTIME_FILE="${BEACON_WATCH_SESSION_RUNTIME_FILE:-/root/beacon-watch-checkout-runtime}"
 PROCESS_NAME="beacon-momentum-www"
 PORT="${BEACON_PORT:-3012}"
 PUBLIC_HOST="${BEACON_PUBLIC_HOST:-beaconmomentum.com}"
@@ -107,12 +108,26 @@ NODE
 migrate_legacy_ghl_key() {
   local legacy_key="$1"
   local tmp
+  local mode owner
   [[ -n "$legacy_key" ]] || { echo "ERROR: no existing GHL credential is available to migrate." >&2; return 1; }
   tmp="$(mktemp "$ENV_FILE.migrate.XXXXXX")"
   awk '!/^[[:space:]]*(export[[:space:]]+)?GHL_API_KEY=/' "$ENV_FILE" > "$tmp"
   printf '\nGHL_API_KEY=%q\n' "$legacy_key" >> "$tmp"
-  chmod --reference="$ENV_FILE" "$tmp"
-  chown --reference="$ENV_FILE" "$tmp"
+  if stat -c '%a' "$ENV_FILE" >/dev/null 2>&1; then
+    mode="$(stat -c '%a' "$ENV_FILE")"
+    owner="$(stat -c '%u:%g' "$ENV_FILE")"
+  else
+    mode="$(stat -f '%Lp' "$ENV_FILE")"
+    owner="$(stat -f '%u:%g' "$ENV_FILE")"
+  fi
+  chmod "$mode" "$tmp"
+  if [[ "$(id -u)" == '0' ]]; then
+    chown "$owner" "$tmp"
+  elif [[ "$owner" != "$(id -u):$(id -g)" ]]; then
+    echo "ERROR: cannot preserve the runtime file owner without root." >&2
+    rm -f "$tmp"
+    return 1
+  fi
   mv -f "$tmp" "$ENV_FILE"
   echo "Migrated the existing GHL credential to server-only GHL_API_KEY; retained the legacy alias."
 }
@@ -185,6 +200,11 @@ if [[ -r "$OPTIONAL_RUNTIME_FILE" ]]; then
   # shellcheck source=/dev/null
   source "$OPTIONAL_RUNTIME_FILE"
 fi
+if [[ -r "$WATCH_SESSION_RUNTIME_FILE" ]]; then
+  # Keep the Watch bridge separate from .env.production; never print its values.
+  # shellcheck source=/dev/null
+  source "$WATCH_SESSION_RUNTIME_FILE"
+fi
 set +a
 if [[ -z "${GHL_API_KEY:-}" ]]; then
   migrate_legacy_ghl_key "${VITE_GHL_API_KEY:-}"
@@ -194,6 +214,10 @@ if [[ -z "${GHL_API_KEY:-}" ]]; then
   if [[ -r "$OPTIONAL_RUNTIME_FILE" ]]; then
     # shellcheck source=/dev/null
     source "$OPTIONAL_RUNTIME_FILE"
+  fi
+  if [[ -r "$WATCH_SESSION_RUNTIME_FILE" ]]; then
+    # shellcheck source=/dev/null
+    source "$WATCH_SESSION_RUNTIME_FILE"
   fi
   set +a
 fi

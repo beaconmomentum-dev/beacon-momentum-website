@@ -1,46 +1,11 @@
+import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 import type { Express, Request, Response } from "express";
-import Stripe from "stripe";
 import { ENV } from "../_core/env";
 
-const FOUNDING_PRIMARY_LIMIT = 999;
-const FOUNDING_FINAL_LIMIT = 1;
-const FOUNDING_LIMIT = 1_000;
-const CLAIM_SENT_URL = "https://beaconcommunity.net/watch/claim-sent";
-function safeTestClaimSentUrl(raw: string | undefined): string | null {
-  if (!raw) return null;
-  try {
-    const url = new URL(raw);
-    if (
-      url.protocol !== "http:" ||
-      url.hostname !== "127.0.0.1" ||
-      !url.port ||
-      url.username ||
-      url.password ||
-      url.pathname !== "/watch/claim-sent" ||
-      url.search ||
-      url.hash
-    ) return null;
-    return url.toString();
-  } catch {
-    return null;
-  }
-}
-const FOUNDING_AMOUNT = 49_700;
-const STANDARD_AMOUNT = 99_700;
-
-type LinkTier = "founding" | "final-founding" | "standard";
-
-interface LinkConfig {
-  id: string;
-  priceId: string;
-  amount: number;
-  tier: LinkTier;
-}
-
-interface StripeLinkReader {
-  paymentLinks: Pick<Stripe["paymentLinks"], "retrieve" | "listLineItems">;
-  prices: Pick<Stripe["prices"], "retrieve">;
-}
+const COMMUNITY_BRIDGE_URL = "https://beaconcommunity.net/api/watch/checkout-session";
+const CHECKOUT_HOST = "checkout.stripe.com";
+const REQUEST_TIMEOUT_MS = 15_000;
+const ATTEMPT_COOKIE = "watch_checkout_attempt";
 
 function setRedirectSafetyHeaders(res: Response) {
   res.setHeader("Cache-Control", "no-store, max-age=0");
@@ -57,213 +22,109 @@ function unavailable(res: Response) {
   );
 }
 
-function priceIdFromLineItem(item: { price: string | Stripe.Price | null }): string | null {
-  if (!item.price) return null;
-  return typeof item.price === "string" ? item.price : item.price.id;
+function safeCheckoutUrl(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  try {
+    const url = new URL(value);
+    if (url.protocol !== "https:" || url.hostname !== CHECKOUT_HOST || url.username || url.password) return null;
+    return url.toString();
+  } catch {
+    return null;
+  }
 }
 
-async function verifyLink(
-  stripe: StripeLinkReader,
-  config: LinkConfig,
-  expectedLiveMode: boolean,
-  expectedClaimSentUrl: string,
-): Promise<{ active: boolean; completedCount: number; url: string }> {
-  const link = await stripe.paymentLinks.retrieve(config.id);
-  if (link.livemode !== expectedLiveMode) throw new Error("wrong_mode");
-  if (link.consent_collection?.terms_of_service !== "required") throw new Error("terms_not_required");
-  if (link.payment_method_types?.length !== 1 || link.payment_method_types[0] !== "card") {
-    throw new Error("payment_methods_not_card_only");
-  }
-  const discounts = (link as unknown as { discounts?: unknown[] }).discounts;
-  if (link.allow_promotion_codes || (discounts?.length ?? 0) > 0) throw new Error("discounts_enabled");
-  if ((link.subscription_data?.trial_period_days ?? 0) !== 0) throw new Error("trial_enabled");
-  const completion = link.after_completion;
-  if (completion.type !== "redirect" || !("redirect" in completion) || completion.redirect?.url !== expectedClaimSentUrl) {
-    throw new Error("unexpected_completion_destination");
-  }
-
-  const url = new URL(link.url);
-  if (url.protocol !== "https:" || url.hostname !== "buy.stripe.com") throw new Error("unsafe_checkout_host");
-
-  const lineItems = await stripe.paymentLinks.listLineItems(config.id, { limit: 2 });
-  if (lineItems.data.length !== 1 || lineItems.has_more) throw new Error("unexpected_line_items");
-  const item = lineItems.data[0];
-  if (item.quantity !== 1 || item.adjustable_quantity?.enabled) throw new Error("quantity_not_fixed");
-  if (priceIdFromLineItem(item) !== config.priceId) throw new Error("unexpected_price_id");
-
-  const price = await stripe.prices.retrieve(config.priceId);
-  if (
-    !price.active ||
-    price.currency !== "usd" ||
-    price.unit_amount !== config.amount ||
-    price.recurring?.interval !== "year" ||
-    price.recurring.interval_count !== 1
-  ) {
-    throw new Error("price_terms_mismatch");
-  }
-
-  const completed = link.restrictions?.completed_sessions;
-  if (config.tier === "founding" || config.tier === "final-founding") {
-    const expectedLimit = config.tier === "founding" ? FOUNDING_PRIMARY_LIMIT : FOUNDING_FINAL_LIMIT;
-    if (
-      !completed ||
-      completed.limit !== expectedLimit ||
-      !Number.isInteger(completed.count) ||
-      completed.count < 0 ||
-      completed.count > expectedLimit
-    ) {
-      throw new Error("founding_cap_mismatch");
-    }
-  } else if (completed) {
-    throw new Error("standard_link_must_not_have_founders_cap");
-  }
-  return { active: link.active, completedCount: completed?.count ?? 0, url: link.url };
+function attemptCookieValue(requestId: string, secret: string): string {
+  const signature = createHmac("sha256", secret).update(requestId).digest("hex");
+  return `${requestId}.${signature}`;
 }
 
-export function selectWatchTier(input: {
-  foundingActive: boolean;
-  foundingCompletedCount: number;
-  finalFoundingActive: boolean;
-  finalFoundingCompletedCount: number;
-  standardActive: boolean;
-}): LinkTier | null {
-  const { foundingCompletedCount, finalFoundingCompletedCount } = input;
-  if (
-    !Number.isInteger(foundingCompletedCount) ||
-    foundingCompletedCount < 0 ||
-    foundingCompletedCount > FOUNDING_PRIMARY_LIMIT ||
-    !Number.isInteger(finalFoundingCompletedCount) ||
-    finalFoundingCompletedCount < 0 ||
-    finalFoundingCompletedCount > FOUNDING_FINAL_LIMIT
-  ) return null;
-
-  const totalFoundingSessions = foundingCompletedCount + finalFoundingCompletedCount;
-  if (totalFoundingSessions >= FOUNDING_LIMIT) return input.standardActive ? "standard" : null;
-  if (foundingCompletedCount < FOUNDING_PRIMARY_LIMIT) return input.foundingActive ? "founding" : null;
-  return input.finalFoundingActive ? "final-founding" : null;
-}
-export function isWatchCheckoutEnabled(input: {
-  billingMode: string | undefined;
-  isProduction: boolean;
-  liveEnabled: boolean;
-  testEnabled: boolean;
-}): boolean {
-  if (input.billingMode === "LIVE") return input.liveEnabled;
-  if (input.billingMode === "TEST") return !input.isProduction && input.testEnabled;
-  return false;
+function requestIdFromCookie(cookieHeader: string | undefined, secret: string): string | null {
+  const entry = cookieHeader?.split(";").map((part) => part.trim()).find((part) => part.startsWith(`${ATTEMPT_COOKIE}=`));
+  const value = entry?.slice(ATTEMPT_COOKIE.length + 1) ?? "";
+  const match = /^([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})\.([0-9a-f]{64})$/i.exec(value);
+  if (!match) return null;
+  const expected = createHmac("sha256", secret).update(match[1]).digest();
+  const supplied = Buffer.from(match[2], "hex");
+  return supplied.length === expected.length && timingSafeEqual(supplied, expected) ? match[1] : null;
 }
 
-export function createWatchPaymentLinkHandler(options: {
+export function createWatchCheckoutSessionHandler(options: {
   enabled: boolean;
-  expectedLiveMode: boolean;
-  secretKey: string;
-  foundingLinkId: string;
-  finalFoundingLinkId: string;
-  foundingPriceId: string;
-  standardLinkId: string;
-  standardPriceId: string;
-  testClaimSentUrl?: string;
-  stripeFactory?: (secretKey: string) => StripeLinkReader;
+  bridgeUrl: string;
+  bridgeSecret: string;
+  fetchImpl?: typeof fetch;
+  now?: () => number;
+  requestIdFactory?: () => string;
 }) {
-  return async (_req: Request, res: Response) => {
-    const expectedClaimSentUrl = options.expectedLiveMode
-      ? CLAIM_SENT_URL
-      : safeTestClaimSentUrl(options.testClaimSentUrl);
+  return async (req: Request, res: Response) => {
     if (
       !options.enabled ||
-      !expectedClaimSentUrl ||
-      !options.secretKey ||
-      !options.foundingLinkId ||
-      !options.finalFoundingLinkId ||
-      !options.foundingPriceId ||
-      !options.standardLinkId ||
-      !options.standardPriceId
+      options.bridgeUrl !== COMMUNITY_BRIDGE_URL ||
+      options.bridgeSecret.length < 32
     ) {
       unavailable(res);
       return;
     }
 
+    setRedirectSafetyHeaders(res);
+    const requestId = requestIdFromCookie(req.headers?.cookie, options.bridgeSecret) ??
+      (options.requestIdFactory ?? randomUUID)();
+    const cookie = attemptCookieValue(requestId, options.bridgeSecret);
+    res.setHeader(
+      "Set-Cookie",
+      `${ATTEMPT_COOKIE}=${cookie}; Path=/the-watch/checkout; Max-Age=3600; HttpOnly; Secure; SameSite=Lax`,
+    );
+    const body = JSON.stringify({ requestId });
+    const timestamp = String(Math.floor((options.now?.() ?? Date.now()) / 1000));
+    const signature = createHmac("sha256", options.bridgeSecret)
+      .update(`${timestamp}.${body}`)
+      .digest("hex");
+
     try {
-      const stripe = options.stripeFactory
-        ? options.stripeFactory(options.secretKey)
-        : new Stripe(options.secretKey);
-      const [founding, finalFounding, standard] = await Promise.all([
-        verifyLink(stripe, {
-          id: options.foundingLinkId,
-          priceId: options.foundingPriceId,
-          amount: FOUNDING_AMOUNT,
-          tier: "founding",
-        }, options.expectedLiveMode, expectedClaimSentUrl),
-        verifyLink(stripe, {
-          id: options.finalFoundingLinkId,
-          priceId: options.foundingPriceId,
-          amount: FOUNDING_AMOUNT,
-          tier: "final-founding",
-        }, options.expectedLiveMode, expectedClaimSentUrl),
-        verifyLink(stripe, {
-          id: options.standardLinkId,
-          priceId: options.standardPriceId,
-          amount: STANDARD_AMOUNT,
-          tier: "standard",
-        }, options.expectedLiveMode, expectedClaimSentUrl),
-      ]);
-      const tier = selectWatchTier({
-        foundingActive: founding.active,
-        foundingCompletedCount: founding.completedCount,
-        finalFoundingActive: finalFounding.active,
-        finalFoundingCompletedCount: finalFounding.completedCount,
-        standardActive: standard.active,
+      const response = await (options.fetchImpl ?? fetch)(options.bridgeUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Watch-Checkout-Timestamp": timestamp,
+          "X-Watch-Checkout-Signature": signature,
+        },
+        body,
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+        redirect: "manual",
       });
-      if (!tier) {
-        console.error("[Watch direct checkout] Link state did not match the approved cohort transition", {
-          foundingActive: founding.active,
-          foundingCompletedCount: founding.completedCount,
-          finalFoundingActive: finalFounding.active,
-          finalFoundingCompletedCount: finalFounding.completedCount,
-          standardActive: standard.active,
-        });
+      if (!response.ok) {
+        console.warn("[Watch checkout bridge] Community did not create a Checkout Session", { status: response.status });
         unavailable(res);
         return;
       }
-
+      const payload: unknown = await response.json();
+      const destination = payload && typeof payload === "object"
+        ? safeCheckoutUrl((payload as { url?: unknown }).url)
+        : null;
+      if (!destination) {
+        console.error("[Watch checkout bridge] Community response did not contain an approved Stripe Checkout URL");
+        unavailable(res);
+        return;
+      }
       setRedirectSafetyHeaders(res);
-      const destination = tier === "standard"
-        ? standard.url
-        : tier === "final-founding"
-          ? finalFounding.url
-          : founding.url;
       res.redirect(303, destination);
-    } catch (error) {
-      console.error("[Watch direct checkout] Stripe link validation failed", {
-        reason: error instanceof Error ? error.message : "unknown",
-      });
+    } catch {
+      console.error("[Watch checkout bridge] Community request failed; no customer details were transmitted");
       unavailable(res);
     }
   };
 }
 
 export function registerWatchPaymentLinkRoutes(app: Express) {
-  const mode = process.env.WATCH_BILLING_MODE;
-  const isLive = mode === "LIVE";
-  const isTest = mode === "TEST";
-  const enabled = isWatchCheckoutEnabled({
-    billingMode: mode,
-    isProduction: ENV.isProduction,
-    liveEnabled: ENV.watchDirectPaymentEnabled && ENV.watchLiveCheckoutEnabled,
-    testEnabled: ENV.watchTestDirectPaymentEnabled,
-  });
-  const handler = createWatchPaymentLinkHandler({
-    enabled,
-    expectedLiveMode: isLive,
-    secretKey: isTest ? ENV.stripeTestSecretKey : ENV.stripeSecretKey,
-    foundingLinkId: isTest ? ENV.stripeTestWatchFoundingPaymentLinkId : ENV.stripeWatchFoundingPaymentLinkId,
-    finalFoundingLinkId: isTest ? ENV.stripeTestWatchFinalFoundingPaymentLinkId : ENV.stripeWatchFinalFoundingPaymentLinkId,
-    foundingPriceId: isTest ? ENV.stripeTestWatchAnnualPriceId : ENV.stripeWatchAnnualPriceId,
-    standardLinkId: isTest ? ENV.stripeTestWatchStandardPaymentLinkId : ENV.stripeWatchStandardPaymentLinkId,
-    standardPriceId: isTest ? ENV.stripeTestWatchStandardPriceId : ENV.stripeWatchStandardPriceId,
-    testClaimSentUrl: isTest ? ENV.watchTestClaimSentUrl : undefined,
+  const handler = createWatchCheckoutSessionHandler({
+    enabled:
+      ENV.isProduction &&
+      ENV.watchCheckoutSessionsEnabled &&
+      process.env.WATCH_BILLING_MODE === "LIVE",
+    bridgeUrl: ENV.watchCheckoutBridgeUrl,
+    bridgeSecret: ENV.watchCheckoutBridgeSecret,
   });
   app.get("/the-watch/checkout", handler);
-  // Old enrollment-request URLs now enter the single-step hosted Checkout path.
+  // Old enrollment-request URLs now enter the same single-step hosted Checkout path.
   app.get("/the-watch/intake", (_req, res) => res.redirect(303, "/the-watch/checkout"));
 }

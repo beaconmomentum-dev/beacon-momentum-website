@@ -89,7 +89,12 @@ source "$ENV_FILE"
 set +a
 [[ "${VITE_GHL_API_KEY:-}" == "legacy-placeholder" ]]
 [[ "${GHL_API_KEY:-}" == "$TEST_LEGACY" ]]
-[[ "$(stat -c '%a' "$ENV_FILE")" == "600" ]]
+if stat -c '%a' "$ENV_FILE" >/dev/null 2>&1; then
+  env_mode="$(stat -c '%a' "$ENV_FILE")"
+else
+  env_mode="$(stat -f '%Lp' "$ENV_FILE")"
+fi
+[[ "$env_mode" == "600" ]]
 TEST
 bash "$TMP_ROOT/migration-function.sh" >/dev/null
 echo "Versioned exact-SHA installer and rollback contract tests passed."
