@@ -21,27 +21,36 @@ concurrency:
 jobs:
   deploy:
     name: Deploy exact release to beaconmomentum.com
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS, ARM64, signalman-release]
     steps:
-      - name: Fetch installer from this workflow revision
+      - name: Check out workflow revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - name: Stage exact workflow installer
         env:
           WORKFLOW_SHA: ${{ github.sha }}
-          REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
           [[ "$WORKFLOW_SHA" =~ ^[0-9a-f]{40}$ ]]
-          curl --fail --location --silent --show-error \
-            "https://raw.githubusercontent.com/${REPOSITORY}/${WORKFLOW_SHA}/ops/deploy-beacon-www-release.sh" \
-            --output "$RUNNER_TEMP/deploy-beacon-www-release.sh"
+          cp ops/deploy-beacon-www-release.sh "$RUNNER_TEMP/deploy-beacon-www-release.sh"
           bash -n "$RUNNER_TEMP/deploy-beacon-www-release.sh"
 
-      - name: Setup production SSH key
+      - name: Setup production SSH key and verify pinned host key
+        env:
+          PRODUCTION_SSH_KEY_B64: ${{ secrets.PRODUCTION_SSH_KEY }}
+          PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP || '159.203.81.39' }}
         run: |
           set -euo pipefail
-          mkdir -p ~/.ssh
-          printf '%s' "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.PRODUCTION_SERVER_IP }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+          [[ "$PRODUCTION_SERVER_IP" == "159.203.81.39" ]]
+          KEY_PATH="$RUNNER_TEMP/beacon-production-deploy-key-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          printf '%s' "$PRODUCTION_SSH_KEY_B64" | python3 -c 'import base64,sys; sys.stdout.buffer.write(base64.b64decode(sys.stdin.buffer.read()))' > "$KEY_PATH"
+          chmod 600 "$KEY_PATH"
+          test -s "$KEY_PATH"
+          printf 'BEACON_DEPLOY_KEY_PATH=%s\n' "$KEY_PATH" >> "$GITHUB_ENV"
+          ssh-keygen -F "$PRODUCTION_SERVER_IP" -f ops/production_known_hosts >/dev/null
+          ssh-keygen -lf ops/production_known_hosts -E sha256
 
       - name: Install versioned host installer and deploy exact SHA
         id: release
@@ -54,10 +63,10 @@ jobs:
           [[ "$WORKFLOW_SHA" =~ ^[0-9a-f]{40}$ ]]
           [[ "$RELEASE_SHA" =~ ^[0-9a-f]{40}$ ]]
           remote_installer="/tmp/deploy-beacon-www-${WORKFLOW_SHA}.sh"
-          scp -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+          scp -i "$BEACON_DEPLOY_KEY_PATH" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$GITHUB_WORKSPACE/ops/production_known_hosts" \
             "$RUNNER_TEMP/deploy-beacon-www-release.sh" \
             "root@${PRODUCTION_SERVER_IP}:${remote_installer}"
-          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+          ssh -i "$BEACON_DEPLOY_KEY_PATH" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$GITHUB_WORKSPACE/ops/production_known_hosts" \
             "root@${PRODUCTION_SERVER_IP}" \
             "install -m 0755 '${remote_installer}' /usr/local/bin/deploy-beacon-www.sh && rm -f '${remote_installer}' && BEACON_DEPLOY_SHA='${RELEASE_SHA}' /usr/local/bin/deploy-beacon-www.sh"
 
@@ -67,7 +76,7 @@ jobs:
           PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
         run: |
           set -euo pipefail
-          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+          ssh -i "$BEACON_DEPLOY_KEY_PATH" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$GITHUB_WORKSPACE/ops/production_known_hosts" \
             "root@${PRODUCTION_SERVER_IP}" \
             "route_script='/var/www/beacon-momentum-releases/${RELEASE_SHA}/ops/ensure-beacon-capture-route.sh'; test -f \"\$route_script\"; chmod 0755 \"\$route_script\"; \"\$route_script\""
 
@@ -93,6 +102,13 @@ jobs:
           PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP }}
         run: |
           set -euo pipefail
-          ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no \
+          ssh -i "$BEACON_DEPLOY_KEY_PATH" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$GITHUB_WORKSPACE/ops/production_known_hosts" \
             "root@${PRODUCTION_SERVER_IP}" \
             '/usr/local/bin/deploy-beacon-www.sh --rollback'
+
+      - name: Remove temporary production SSH key
+        if: ${{ always() }}
+        run: |
+          set -euo pipefail
+          KEY_PATH="$RUNNER_TEMP/beacon-production-deploy-key-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          rm -f "$KEY_PATH"
