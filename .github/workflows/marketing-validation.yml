@@ -38,6 +38,11 @@ jobs:
       - name: Run local test suite
         run: pnpm test
 
+      - name: Verify isolated Watch runtime contract
+        run: |
+          bash -n ops/configure-watch-checkout-runtime.sh ops/test-watch-checkout-runtime-contract.sh
+          bash ops/test-watch-checkout-runtime-contract.sh
+
       - name: Type-check
         run: pnpm check
 

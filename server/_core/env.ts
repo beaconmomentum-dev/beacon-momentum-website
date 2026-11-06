@@ -19,6 +19,10 @@ export const ENV = {
   stripeWatchStandardPaymentLinkId: process.env.STRIPE_WATCH_STANDARD_PAYMENT_LINK_ID ?? "",
   stripeWatchStandardPriceId: process.env.STRIPE_WATCH_STANDARD_PRICE_ID ?? "",
   watchDirectPaymentEnabled: process.env.WATCH_DIRECT_PAYMENT_ENABLED === "true",
+  /** Server-to-server HMAC bridge for Watch-specific Stripe Checkout Sessions. */
+  watchCheckoutSessionsEnabled: process.env.WATCH_CHECKOUT_SESSION_ENABLED === "true",
+  watchCheckoutBridgeUrl: process.env.WATCH_CHECKOUT_BRIDGE_URL ?? "",
+  watchCheckoutBridgeSecret: process.env.WATCH_CHECKOUT_BRIDGE_SECRET ?? "",
   /** Server-only Stripe test-mode credentials used exclusively by the internal Watch lifecycle verification path. */
   stripeTestSecretKey: process.env.STRIPE_TEST_SECRET_KEY ?? "",
   stripeTestPublishableKey: process.env.STRIPE_TEST_PUBLISHABLE_KEY ?? "",

@@ -16,6 +16,7 @@ SITE_ROOT="${BEACON_SITE_ROOT:-$REPO_ROOT/dist/public}"
 SHARED_ASSET_DIR="${BEACON_SHARED_ASSET_DIR:-/var/www/beacon-shared-assets}"
 ENV_FILE="${BEACON_ENV_FILE:-$REPO_ROOT/.env.production}"
 OPTIONAL_RUNTIME_FILE="${BEACON_OPTIONAL_RUNTIME_FILE:-/root/beacon-watch-test-runtime}"
+WATCH_SESSION_RUNTIME_FILE="${BEACON_WATCH_SESSION_RUNTIME_FILE:-/root/beacon-watch-checkout-runtime}"
 SYNC_SCRIPT="$REPO_ROOT/scripts/sync-beacon-shared-assets.sh"
 
 if [[ ! -r "$ENV_FILE" ]]; then
@@ -37,6 +38,10 @@ source "$ENV_FILE"
 if [[ -r "$OPTIONAL_RUNTIME_FILE" ]]; then
   # shellcheck source=/dev/null
   source "$OPTIONAL_RUNTIME_FILE"
+fi
+if [[ -r "$WATCH_SESSION_RUNTIME_FILE" ]]; then
+  # shellcheck source=/dev/null
+  source "$WATCH_SESSION_RUNTIME_FILE"
 fi
 set +a
 

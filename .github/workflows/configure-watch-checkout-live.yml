@@ -1,0 +1,126 @@
+name: Configure Watch Checkout LIVE bridge
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_runtime_release_sha:
+        description: Exact Marketing release SHA currently deployed on the Hub
+        required: true
+        type: string
+      execute_configuration:
+        description: Install the isolated Watch bridge runtime and restart Marketing
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: beacon-marketing-watch-live-runtime
+  cancel-in-progress: false
+
+jobs:
+  verify-inputs:
+    name: Verify exact runtime request
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the Marketing release branch
+        uses: actions/checkout@v4
+        with:
+          ref: deploy/marketing-release-2026-10-31
+          fetch-depth: 0
+
+      - name: Validate release SHA and local-only contract
+        env:
+          EXPECTED_RELEASE_SHA: ${{ inputs.expected_runtime_release_sha }}
+        run: |
+          [[ "$GITHUB_REF" == 'refs/heads/deploy/marketing-release-2026-10-31' ]] || { echo '::error::Run this workflow from the Marketing release branch only.'; exit 1; }
+          [[ "$EXPECTED_RELEASE_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo '::error::Expected runtime release SHA must be 40 lowercase hex characters.'; exit 1; }
+          git fetch --no-tags origin deploy/marketing-release-2026-10-31
+          git merge-base --is-ancestor "$EXPECTED_RELEASE_SHA" refs/remotes/origin/deploy/marketing-release-2026-10-31
+          bash -n ops/configure-watch-checkout-runtime.sh ops/test-watch-checkout-runtime-contract.sh
+          bash ops/configure-watch-checkout-runtime.sh --validate-inputs "$EXPECTED_RELEASE_SHA"
+          bash ops/test-watch-checkout-runtime-contract.sh
+          ssh-keygen -F 159.203.81.39 -f ops/production_known_hosts >/dev/null
+
+      - name: Confirm validation-only mode
+        if: ${{ !inputs.execute_configuration }}
+        run: echo 'Inputs and runtime contract validated. No production connection or runtime change was made.'
+
+  configure-production-runtime:
+    name: Provision Marketing LIVE runtime over pinned SSH
+    needs: verify-inputs
+    if: ${{ inputs.execute_configuration }}
+    runs-on: [self-hosted, macOS, ARM64, signalman-release]
+    timeout-minutes: 20
+    environment: production
+    env:
+      PRODUCTION_SSH_KEY_B64: ${{ secrets.PRODUCTION_SSH_KEY }}
+      PRODUCTION_SERVER_IP: ${{ secrets.PRODUCTION_SERVER_IP || '159.203.81.39' }}
+      EXPECTED_RELEASE_SHA: ${{ inputs.expected_runtime_release_sha }}
+    steps:
+      - name: Check out the Marketing release branch
+        uses: actions/checkout@v4
+        with:
+          ref: deploy/marketing-release-2026-10-31
+          fetch-depth: 1
+
+      - name: Materialize short-lived pinned SSH key
+        run: |
+          set -euo pipefail
+          [[ -n "$PRODUCTION_SSH_KEY_B64" ]] || { echo '::error title=Missing production SSH credential::No host was contacted.'; exit 1; }
+          [[ "$PRODUCTION_SERVER_IP" == '159.203.81.39' ]] || { echo '::error::Refusing any host other than the documented Beacon Hub.'; exit 1; }
+          [[ "$GITHUB_REF" == 'refs/heads/deploy/marketing-release-2026-10-31' ]]
+          mkdir -p "$RUNNER_TEMP"
+          printf '%s' "$PRODUCTION_SSH_KEY_B64" | python3 -c 'import base64,sys; sys.stdout.buffer.write(base64.b64decode(sys.stdin.buffer.read()))' > "$RUNNER_TEMP/marketing-watch-runtime-key"
+          chmod 600 "$RUNNER_TEMP/marketing-watch-runtime-key"
+          test -s "$RUNNER_TEMP/marketing-watch-runtime-key"
+          ssh-keygen -F "$PRODUCTION_SERVER_IP" -f ops/production_known_hosts >/dev/null
+          echo "MARKETING_WATCH_SSH_KEY=$RUNNER_TEMP/marketing-watch-runtime-key" >> "$GITHUB_ENV"
+          echo "MARKETING_WATCH_KNOWN_HOSTS=$GITHUB_WORKSPACE/ops/production_known_hosts" >> "$GITHUB_ENV"
+          echo "MARKETING_WATCH_ORIGIN=$PRODUCTION_SERVER_IP" >> "$GITHUB_ENV"
+          [[ "$GITHUB_RUN_ID" =~ ^[0-9]+$ ]]
+          echo "MARKETING_WATCH_REMOTE_SECRET_FILE=/root/.work/watch-launch-readiness-20261106/marketing-watch-bridge-$GITHUB_RUN_ID" >> "$GITHUB_ENV"
+
+      - name: Transfer the bridge secret in a protected temporary file
+        env:
+          WATCH_CHECKOUT_BRIDGE_SECRET: ${{ secrets.WATCH_CHECKOUT_BRIDGE_SECRET }}
+        run: |
+          set -euo pipefail
+          if [[ "${#WATCH_CHECKOUT_BRIDGE_SECRET}" -lt 32 || "$WATCH_CHECKOUT_BRIDGE_SECRET" == *$'\n'* || "$WATCH_CHECKOUT_BRIDGE_SECRET" == *$'\r'* ]]; then
+            echo '::error title=Missing Watch bridge secret::Set the production WATCH_CHECKOUT_BRIDGE_SECRET; no host was contacted.'
+            exit 1
+          fi
+          LOCAL_SECRET_FILE="$RUNNER_TEMP/marketing-watch-bridge-secret"
+          printf '%s' "$WATCH_CHECKOUT_BRIDGE_SECRET" > "$LOCAL_SECRET_FILE"
+          chmod 600 "$LOCAL_SECRET_FILE"
+          unset WATCH_CHECKOUT_BRIDGE_SECRET
+          ssh -i "$MARKETING_WATCH_SSH_KEY" -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o "UserKnownHostsFile=$MARKETING_WATCH_KNOWN_HOSTS" \
+            "root@$MARKETING_WATCH_ORIGIN" 'install -d -o root -g root -m 700 /root/.work/watch-launch-readiness-20261106'
+          scp -i "$MARKETING_WATCH_SSH_KEY" -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o "UserKnownHostsFile=$MARKETING_WATCH_KNOWN_HOSTS" \
+            "$LOCAL_SECRET_FILE" "root@$MARKETING_WATCH_ORIGIN:$MARKETING_WATCH_REMOTE_SECRET_FILE"
+          ssh -i "$MARKETING_WATCH_SSH_KEY" -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o "UserKnownHostsFile=$MARKETING_WATCH_KNOWN_HOSTS" \
+            "root@$MARKETING_WATCH_ORIGIN" "chmod 600 '$MARKETING_WATCH_REMOTE_SECRET_FILE' && test -s '$MARKETING_WATCH_REMOTE_SECRET_FILE'"
+          rm -f "$LOCAL_SECRET_FILE"
+
+      - name: Install the isolated Watch runtime on the exact active release
+        run: |
+          ssh -i "$MARKETING_WATCH_SSH_KEY" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o "UserKnownHostsFile=$MARKETING_WATCH_KNOWN_HOSTS" \
+            "root@$MARKETING_WATCH_ORIGIN" env "WATCH_CHECKOUT_BRIDGE_SECRET_FILE=$MARKETING_WATCH_REMOTE_SECRET_FILE" bash -s -- --execute "$EXPECTED_RELEASE_SHA" \
+            < ops/configure-watch-checkout-runtime.sh
+
+      - name: Remove temporary deployment and secret files
+        if: always()
+        run: |
+          set +e
+          if [[ -n "${MARKETING_WATCH_SSH_KEY:-}" && -n "${MARKETING_WATCH_REMOTE_SECRET_FILE:-}" && -n "${MARKETING_WATCH_ORIGIN:-}" ]]; then
+            ssh -i "$MARKETING_WATCH_SSH_KEY" -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o "UserKnownHostsFile=$MARKETING_WATCH_KNOWN_HOSTS" \
+              "root@$MARKETING_WATCH_ORIGIN" "rm -f -- '$MARKETING_WATCH_REMOTE_SECRET_FILE'" || echo '::warning::Could not remove the short-lived remote bridge-secret file.'
+          fi
+          rm -f "$RUNNER_TEMP/marketing-watch-runtime-key" "$RUNNER_TEMP/marketing-watch-bridge-secret"
