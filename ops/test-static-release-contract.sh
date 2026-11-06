@@ -58,6 +58,15 @@ fi
 grep -Fq 'ops/deploy-beacon-www-release.sh' "$WORKFLOW"
 grep -Fq 'inputs.release_sha' "$WORKFLOW"
 grep -Fq 'deploy-beacon-www.sh --rollback' "$WORKFLOW"
+grep -Fq 'runs-on: [self-hosted, macOS, ARM64, signalman-release]' "$WORKFLOW"
+grep -Fq 'deploy/marketing-release-2026-10-31' "$WORKFLOW"
+grep -Fq 'StrictHostKeyChecking=yes' "$WORKFLOW"
+grep -Fq 'UserKnownHostsFile="$GITHUB_WORKSPACE/ops/production_known_hosts"' "$WORKFLOW"
+if grep -Eq 'StrictHostKeyChecking=no|ssh-keyscan|base64 -d' "$WORKFLOW"; then
+  echo "ERROR: production workflow must use the tracked host pin and portable key decoding" >&2
+  exit 1
+fi
+ssh-keygen -F 159.203.81.39 -f "$REPO_ROOT/ops/production_known_hosts" >/dev/null
 sed -n '/^migrate_legacy_ghl_key() {/,/^}/p' "$INSTALLER" > "$TMP_ROOT/migration-function.sh"
 printf 'VITE_GHL_API_KEY=legacy-placeholder\n' > "$TMP_ROOT/migration.env"
 chmod 0600 "$TMP_ROOT/migration.env"
