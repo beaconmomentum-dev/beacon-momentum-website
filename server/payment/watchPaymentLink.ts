@@ -2,12 +2,14 @@ import type { Express, Request, Response } from "express";
 import Stripe from "stripe";
 import { ENV } from "../_core/env";
 
+const FOUNDING_PRIMARY_LIMIT = 999;
+const FOUNDING_FINAL_LIMIT = 1;
 const FOUNDING_LIMIT = 1_000;
 const CLAIM_SENT_URL = "https://beaconcommunity.net/watch/claim-sent";
 const FOUNDING_AMOUNT = 49_700;
 const STANDARD_AMOUNT = 99_700;
 
-type LinkTier = "founding" | "standard";
+type LinkTier = "founding" | "final-founding" | "standard";
 
 interface LinkConfig {
   id: string;
@@ -81,29 +83,45 @@ async function verifyLink(
   }
 
   const completed = link.restrictions?.completed_sessions;
-  if (config.tier === "founding") {
-    if (!completed || completed.limit !== FOUNDING_LIMIT || !Number.isInteger(completed.count) || completed.count < 0) {
+  if (config.tier === "founding" || config.tier === "final-founding") {
+    const expectedLimit = config.tier === "founding" ? FOUNDING_PRIMARY_LIMIT : FOUNDING_FINAL_LIMIT;
+    if (
+      !completed ||
+      completed.limit !== expectedLimit ||
+      !Number.isInteger(completed.count) ||
+      completed.count < 0 ||
+      completed.count > expectedLimit
+    ) {
       throw new Error("founding_cap_mismatch");
     }
   } else if (completed) {
     throw new Error("standard_link_must_not_have_founders_cap");
   }
-
   return { active: link.active, completedCount: completed?.count ?? 0, url: link.url };
 }
 
 export function selectWatchTier(input: {
   foundingActive: boolean;
   foundingCompletedCount: number;
+  finalFoundingActive: boolean;
+  finalFoundingCompletedCount: number;
   standardActive: boolean;
 }): LinkTier | null {
-  if (!Number.isInteger(input.foundingCompletedCount) || input.foundingCompletedCount < 0) return null;
-  if (input.foundingCompletedCount < FOUNDING_LIMIT) {
-    return input.foundingActive ? "founding" : null;
-  }
-  return input.standardActive ? "standard" : null;
-}
+  const { foundingCompletedCount, finalFoundingCompletedCount } = input;
+  if (
+    !Number.isInteger(foundingCompletedCount) ||
+    foundingCompletedCount < 0 ||
+    foundingCompletedCount > FOUNDING_PRIMARY_LIMIT ||
+    !Number.isInteger(finalFoundingCompletedCount) ||
+    finalFoundingCompletedCount < 0 ||
+    finalFoundingCompletedCount > FOUNDING_FINAL_LIMIT
+  ) return null;
 
+  const totalFoundingSessions = foundingCompletedCount + finalFoundingCompletedCount;
+  if (totalFoundingSessions >= FOUNDING_LIMIT) return input.standardActive ? "standard" : null;
+  if (foundingCompletedCount < FOUNDING_PRIMARY_LIMIT) return input.foundingActive ? "founding" : null;
+  return input.finalFoundingActive ? "final-founding" : null;
+}
 export function isWatchCheckoutEnabled(input: {
   billingMode: string | undefined;
   isProduction: boolean;
@@ -120,6 +138,7 @@ export function createWatchPaymentLinkHandler(options: {
   expectedLiveMode: boolean;
   secretKey: string;
   foundingLinkId: string;
+  finalFoundingLinkId: string;
   foundingPriceId: string;
   standardLinkId: string;
   standardPriceId: string;
@@ -130,6 +149,7 @@ export function createWatchPaymentLinkHandler(options: {
       !options.enabled ||
       !options.secretKey ||
       !options.foundingLinkId ||
+      !options.finalFoundingLinkId ||
       !options.foundingPriceId ||
       !options.standardLinkId ||
       !options.standardPriceId
@@ -142,12 +162,18 @@ export function createWatchPaymentLinkHandler(options: {
       const stripe = options.stripeFactory
         ? options.stripeFactory(options.secretKey)
         : new Stripe(options.secretKey);
-      const [founding, standard] = await Promise.all([
+      const [founding, finalFounding, standard] = await Promise.all([
         verifyLink(stripe, {
           id: options.foundingLinkId,
           priceId: options.foundingPriceId,
           amount: FOUNDING_AMOUNT,
           tier: "founding",
+        }, options.expectedLiveMode),
+        verifyLink(stripe, {
+          id: options.finalFoundingLinkId,
+          priceId: options.foundingPriceId,
+          amount: FOUNDING_AMOUNT,
+          tier: "final-founding",
         }, options.expectedLiveMode),
         verifyLink(stripe, {
           id: options.standardLinkId,
@@ -156,16 +182,19 @@ export function createWatchPaymentLinkHandler(options: {
           tier: "standard",
         }, options.expectedLiveMode),
       ]);
-
       const tier = selectWatchTier({
         foundingActive: founding.active,
         foundingCompletedCount: founding.completedCount,
+        finalFoundingActive: finalFounding.active,
+        finalFoundingCompletedCount: finalFounding.completedCount,
         standardActive: standard.active,
       });
       if (!tier) {
         console.error("[Watch direct checkout] Link state did not match the approved cohort transition", {
           foundingActive: founding.active,
           foundingCompletedCount: founding.completedCount,
+          finalFoundingActive: finalFounding.active,
+          finalFoundingCompletedCount: finalFounding.completedCount,
           standardActive: standard.active,
         });
         unavailable(res);
@@ -173,7 +202,12 @@ export function createWatchPaymentLinkHandler(options: {
       }
 
       setRedirectSafetyHeaders(res);
-      res.redirect(303, tier === "founding" ? founding.url : standard.url);
+      const destination = tier === "standard"
+        ? standard.url
+        : tier === "final-founding"
+          ? finalFounding.url
+          : founding.url;
+      res.redirect(303, destination);
     } catch (error) {
       console.error("[Watch direct checkout] Stripe link validation failed", {
         reason: error instanceof Error ? error.message : "unknown",
@@ -198,6 +232,7 @@ export function registerWatchPaymentLinkRoutes(app: Express) {
     expectedLiveMode: isLive,
     secretKey: isTest ? ENV.stripeTestSecretKey : ENV.stripeSecretKey,
     foundingLinkId: isTest ? ENV.stripeTestWatchFoundingPaymentLinkId : ENV.stripeWatchFoundingPaymentLinkId,
+    finalFoundingLinkId: isTest ? ENV.stripeTestWatchFinalFoundingPaymentLinkId : ENV.stripeWatchFinalFoundingPaymentLinkId,
     foundingPriceId: isTest ? ENV.stripeTestWatchAnnualPriceId : ENV.stripeWatchAnnualPriceId,
     standardLinkId: isTest ? ENV.stripeTestWatchStandardPaymentLinkId : ENV.stripeWatchStandardPaymentLinkId,
     standardPriceId: isTest ? ENV.stripeTestWatchStandardPriceId : ENV.stripeWatchStandardPriceId,
