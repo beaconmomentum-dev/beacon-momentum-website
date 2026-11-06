@@ -15,6 +15,7 @@ export const ENV = {
   stripeWatchWebhookSecret: process.env.STRIPE_WATCH_WEBHOOK_SECRET ?? "",
   /** Direct Stripe-hosted Watch checkout links; these stay server-side. */
   stripeWatchFoundingPaymentLinkId: process.env.STRIPE_WATCH_FOUNDING_PAYMENT_LINK_ID ?? "",
+  stripeWatchFinalFoundingPaymentLinkId: process.env.STRIPE_WATCH_FINAL_FOUNDING_PAYMENT_LINK_ID ?? "",
   stripeWatchStandardPaymentLinkId: process.env.STRIPE_WATCH_STANDARD_PAYMENT_LINK_ID ?? "",
   stripeWatchStandardPriceId: process.env.STRIPE_WATCH_STANDARD_PRICE_ID ?? "",
   watchDirectPaymentEnabled: process.env.WATCH_DIRECT_PAYMENT_ENABLED === "true",
@@ -27,6 +28,8 @@ export const ENV = {
     process.env.STRIPE_TEST_WATCH_WEBHOOK_SECRET ?? "",
   stripeTestWatchFoundingPaymentLinkId:
     process.env.STRIPE_TEST_WATCH_FOUNDING_PAYMENT_LINK_ID ?? "",
+  stripeTestWatchFinalFoundingPaymentLinkId:
+    process.env.STRIPE_TEST_WATCH_FINAL_FOUNDING_PAYMENT_LINK_ID ?? "",
   stripeTestWatchStandardPaymentLinkId:
     process.env.STRIPE_TEST_WATCH_STANDARD_PAYMENT_LINK_ID ?? "",
   stripeTestWatchStandardPriceId:
