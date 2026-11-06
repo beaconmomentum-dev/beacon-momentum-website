@@ -6,6 +6,25 @@ const FOUNDING_PRIMARY_LIMIT = 999;
 const FOUNDING_FINAL_LIMIT = 1;
 const FOUNDING_LIMIT = 1_000;
 const CLAIM_SENT_URL = "https://beaconcommunity.net/watch/claim-sent";
+function safeTestClaimSentUrl(raw: string | undefined): string | null {
+  if (!raw) return null;
+  try {
+    const url = new URL(raw);
+    if (
+      url.protocol !== "http:" ||
+      url.hostname !== "127.0.0.1" ||
+      !url.port ||
+      url.username ||
+      url.password ||
+      url.pathname !== "/watch/claim-sent" ||
+      url.search ||
+      url.hash
+    ) return null;
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
 const FOUNDING_AMOUNT = 49_700;
 const STANDARD_AMOUNT = 99_700;
 
@@ -47,6 +66,7 @@ async function verifyLink(
   stripe: StripeLinkReader,
   config: LinkConfig,
   expectedLiveMode: boolean,
+  expectedClaimSentUrl: string,
 ): Promise<{ active: boolean; completedCount: number; url: string }> {
   const link = await stripe.paymentLinks.retrieve(config.id);
   if (link.livemode !== expectedLiveMode) throw new Error("wrong_mode");
@@ -58,7 +78,7 @@ async function verifyLink(
   if (link.allow_promotion_codes || (discounts?.length ?? 0) > 0) throw new Error("discounts_enabled");
   if ((link.subscription_data?.trial_period_days ?? 0) !== 0) throw new Error("trial_enabled");
   const completion = link.after_completion;
-  if (completion.type !== "redirect" || !("redirect" in completion) || completion.redirect?.url !== CLAIM_SENT_URL) {
+  if (completion.type !== "redirect" || !("redirect" in completion) || completion.redirect?.url !== expectedClaimSentUrl) {
     throw new Error("unexpected_completion_destination");
   }
 
@@ -142,11 +162,16 @@ export function createWatchPaymentLinkHandler(options: {
   foundingPriceId: string;
   standardLinkId: string;
   standardPriceId: string;
+  testClaimSentUrl?: string;
   stripeFactory?: (secretKey: string) => StripeLinkReader;
 }) {
   return async (_req: Request, res: Response) => {
+    const expectedClaimSentUrl = options.expectedLiveMode
+      ? CLAIM_SENT_URL
+      : safeTestClaimSentUrl(options.testClaimSentUrl);
     if (
       !options.enabled ||
+      !expectedClaimSentUrl ||
       !options.secretKey ||
       !options.foundingLinkId ||
       !options.finalFoundingLinkId ||
@@ -168,19 +193,19 @@ export function createWatchPaymentLinkHandler(options: {
           priceId: options.foundingPriceId,
           amount: FOUNDING_AMOUNT,
           tier: "founding",
-        }, options.expectedLiveMode),
+        }, options.expectedLiveMode, expectedClaimSentUrl),
         verifyLink(stripe, {
           id: options.finalFoundingLinkId,
           priceId: options.foundingPriceId,
           amount: FOUNDING_AMOUNT,
           tier: "final-founding",
-        }, options.expectedLiveMode),
+        }, options.expectedLiveMode, expectedClaimSentUrl),
         verifyLink(stripe, {
           id: options.standardLinkId,
           priceId: options.standardPriceId,
           amount: STANDARD_AMOUNT,
           tier: "standard",
-        }, options.expectedLiveMode),
+        }, options.expectedLiveMode, expectedClaimSentUrl),
       ]);
       const tier = selectWatchTier({
         foundingActive: founding.active,
@@ -236,6 +261,7 @@ export function registerWatchPaymentLinkRoutes(app: Express) {
     foundingPriceId: isTest ? ENV.stripeTestWatchAnnualPriceId : ENV.stripeWatchAnnualPriceId,
     standardLinkId: isTest ? ENV.stripeTestWatchStandardPaymentLinkId : ENV.stripeWatchStandardPaymentLinkId,
     standardPriceId: isTest ? ENV.stripeTestWatchStandardPriceId : ENV.stripeWatchStandardPriceId,
+    testClaimSentUrl: isTest ? ENV.watchTestClaimSentUrl : undefined,
   });
   app.get("/the-watch/checkout", handler);
   // Old enrollment-request URLs now enter the single-step hosted Checkout path.

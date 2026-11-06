@@ -6,6 +6,7 @@ import {
   selectWatchTier,
 } from "./watchPaymentLink";
 const CLAIM_SENT_URL = "https://beaconcommunity.net/watch/claim-sent";
+const TEST_CLAIM_SENT_URL = "http://127.0.0.1:3015/watch/claim-sent";
 const FOUNDING_URL = "https://buy.stripe.com/founding-example";
 const FINAL_FOUNDING_URL = "https://buy.stripe.com/final-founding-example";
 const STANDARD_URL = "https://buy.stripe.com/standard-example";
@@ -27,12 +28,16 @@ function mockStripeReader(options: {
   finalFoundingActive?: boolean;
   standardActive?: boolean;
   livemode: boolean;
+  claimSentUrl?: string;
   foundingLimit?: number;
   finalFoundingLimit?: number;
 }) {
   const shared = {
     livemode: options.livemode,
-    after_completion: { type: "redirect", redirect: { url: CLAIM_SENT_URL } },
+    after_completion: {
+      type: "redirect",
+      redirect: { url: options.claimSentUrl ?? TEST_CLAIM_SENT_URL },
+    },
     consent_collection: { terms_of_service: "required" },
     payment_method_types: ["card"],
     allow_promotion_codes: false,
@@ -82,6 +87,7 @@ const baseOptions = {
   foundingPriceId: "price_founder",
   standardLinkId: "plink_standard",
   standardPriceId: "price_standard",
+  testClaimSentUrl: TEST_CLAIM_SENT_URL,
 };
 describe("Watch price-tier routing with a 999 + 1 Stripe cap", () => {
   it("uses the primary founder link until its 999 completed sessions are exhausted", () => {
@@ -136,6 +142,61 @@ describe("Watch price-tier routing with a 999 + 1 Stripe cap", () => {
   it("rejects a live Stripe link when TEST mode is expected", async () => {
     const stripe = mockStripeReader({ foundingCount: 0, finalFoundingCount: 0, livemode: true });
     const handler = createWatchPaymentLinkHandler({ ...baseOptions, stripeFactory: () => stripe as never });
+    const { result, response } = responseRecorder();
+    await handler({} as Request, response);
+    expect(result.statusCode).toBe(503);
+  });
+  it("accepts the isolated loopback claim-sent destination in TEST mode", async () => {
+    const stripe = mockStripeReader({ foundingCount: 0, finalFoundingCount: 0, livemode: false });
+    const handler = createWatchPaymentLinkHandler({ ...baseOptions, stripeFactory: () => stripe as never });
+    const { result, response } = responseRecorder();
+    await handler({} as Request, response);
+    expect(result.statusCode).toBe(303);
+    expect(result.location).toBe(FOUNDING_URL);
+  });
+  it("fails closed when TEST return is not an explicit loopback URL", async () => {
+    const factory = vi.fn();
+    const handler = createWatchPaymentLinkHandler({
+      ...baseOptions,
+      testClaimSentUrl: "https://beaconcommunity.net/watch/claim-sent",
+      stripeFactory: factory,
+    });
+    const { result, response } = responseRecorder();
+    await handler({} as Request, response);
+    expect(result.statusCode).toBe(503);
+    expect(factory).not.toHaveBeenCalled();
+  });
+  it("keeps LIVE callback pinned to the canonical Community destination", async () => {
+    const stripe = mockStripeReader({
+      foundingCount: 0,
+      finalFoundingCount: 0,
+      livemode: true,
+      claimSentUrl: CLAIM_SENT_URL,
+    });
+    const handler = createWatchPaymentLinkHandler({
+      ...baseOptions,
+      expectedLiveMode: true,
+      testClaimSentUrl: TEST_CLAIM_SENT_URL,
+      stripeFactory: () => stripe as never,
+    });
+    const { result, response } = responseRecorder();
+    await handler({} as Request, response);
+    expect(result.statusCode).toBe(303);
+    expect(result.location).toBe(FOUNDING_URL);
+  });
+  it("rejects a loopback callback on a LIVE Stripe link", async () => {
+    const stripe = mockStripeReader({
+      foundingCount: 0,
+      finalFoundingCount: 0,
+      livemode: true,
+      claimSentUrl: TEST_CLAIM_SENT_URL,
+    });
+    const handler = createWatchPaymentLinkHandler({
+      ...baseOptions,
+      expectedLiveMode: true,
+      testClaimSentUrl: TEST_CLAIM_SENT_URL,
+      stripeFactory: () => stripe as never,
+    });
     const { result, response } = responseRecorder();
     await handler({} as Request, response);
     expect(result.statusCode).toBe(503);

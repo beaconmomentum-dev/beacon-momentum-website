@@ -36,6 +36,8 @@ export const ENV = {
     process.env.STRIPE_TEST_WATCH_STANDARD_PRICE_ID ?? "",
   watchTestDirectPaymentEnabled:
     process.env.WATCH_TEST_DIRECT_PAYMENT_ENABLED === "true",
+  /** TEST-mode checkout return; must be an explicit HTTP 127.0.0.1 URL. */
+  watchTestClaimSentUrl: process.env.WATCH_TEST_CLAIM_SENT_URL ?? "",
   /** Live Watch checkout remains disabled until the owner release gates are cleared. */
   watchLiveCheckoutEnabled: process.env.WATCH_LIVE_CHECKOUT_ENABLED === "true",
   /** SendGrid API key for other existing transactional notifications. */
