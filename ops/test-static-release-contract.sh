@@ -59,11 +59,21 @@ grep -Fq 'ops/deploy-beacon-www-release.sh' "$WORKFLOW"
 grep -Fq 'inputs.release_sha' "$WORKFLOW"
 grep -Fq 'deploy-beacon-www.sh --rollback' "$WORKFLOW"
 grep -Fq 'runs-on: [self-hosted, macOS, ARM64, signalman-release]' "$WORKFLOW"
-grep -Fq 'deploy/marketing-release-2026-10-31' "$WORKFLOW"
+grep -Fq 'workflow_dispatch:' "$WORKFLOW"
+if grep -Fq 'deploy/marketing-release-2026-10-31' "$WORKFLOW"; then
+  echo "ERROR: the Marketing release branch must require explicit exact-SHA dispatch" >&2
+  exit 1
+fi
 grep -Fq 'StrictHostKeyChecking=yes' "$WORKFLOW"
 grep -Fq 'UserKnownHostsFile="$GITHUB_WORKSPACE/ops/production_known_hosts"' "$WORKFLOW"
-if grep -Eq 'StrictHostKeyChecking=no|ssh-keyscan|base64 -d' "$WORKFLOW"; then
-  echo "ERROR: production workflow must use the tracked host pin and portable key decoding" >&2
+grep -Fq 'KEY_PATH="$RUNNER_TEMP/beacon-production-deploy-key-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"' "$WORKFLOW"
+grep -Fq 'BEACON_DEPLOY_KEY_PATH=%s' "$WORKFLOW"
+grep -Fq 'if: ${{ always() }}' "$WORKFLOW"
+grep -Fq 'rm -f "$KEY_PATH"' "$WORKFLOW"
+KEY_USE_COUNT="$(grep -oF -- '-i "$BEACON_DEPLOY_KEY_PATH"' "$WORKFLOW" | wc -l | tr -d '[:space:]')"
+[[ "$KEY_USE_COUNT" == "4" ]]
+if grep -Eq 'StrictHostKeyChecking=no|ssh-keyscan|base64 -d|~/.ssh|/\.ssh/' "$WORKFLOW"; then
+  echo "ERROR: production workflow must use the tracked host pin and a cleaned runner-temp key" >&2
   exit 1
 fi
 ssh-keygen -F 159.203.81.39 -f "$REPO_ROOT/ops/production_known_hosts" >/dev/null
