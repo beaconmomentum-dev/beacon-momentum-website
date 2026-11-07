@@ -23,6 +23,10 @@ contains "$CONFIG" 'chmod 600'
 contains "$CONFIG" 'mv -f "$TEMP_RUNTIME" "$RUNTIME_FILE"'
 contains "$CONFIG" 'rollback_runtime=previous_file_restored'
 contains "$CONFIG" 'watch_bridge_runtime_loaded='
+contains "$CONFIG" 'for ((attempt=1; attempt<=30; attempt++))'
+contains "$CONFIG" 'if ! wait_for_local_homepage; then'
+contains "$CONFIG" 'restore_watch_environment'
+contains "$CONFIG" 'unset WATCH_CHECKOUT_BRIDGE_SECRET_FILE'
 contains "$WORKFLOW" 'runs-on: [self-hosted, macOS, ARM64, signalman-release]'
 contains "$WORKFLOW" 'environment: production'
 contains "$WORKFLOW" 'secrets.WATCH_CHECKOUT_BRIDGE_SECRET'
@@ -35,5 +39,10 @@ contains "$CI" 'bash ops/test-watch-checkout-runtime-contract.sh'
 if grep -E 'curl[^#]*(/the-watch/checkout|checkout-session)' "$CONFIG" "$WORKFLOW" >/dev/null; then
   fail 'contract must not probe the live Checkout route or create a session'
 fi
+
+rollback_restore_line="$(grep -nF '    restore_watch_environment ||' "$CONFIG" | head -n 1 | cut -d: -f1)"
+rollback_restart_line="$(grep -nF '    pm2 restart "$PM2_NAME" --update-env' "$CONFIG" | head -n 1 | cut -d: -f1)"
+[[ -n "$rollback_restore_line" && -n "$rollback_restart_line" && "$rollback_restore_line" -lt "$rollback_restart_line" ]] ||
+  fail 'rollback must restore the pre-attempt Watch environment before restarting PM2'
 
 echo 'PASS: Marketing Watch runtime is isolated, exact-SHA guarded, protected, rollback-capable, and has no live checkout probe.'
