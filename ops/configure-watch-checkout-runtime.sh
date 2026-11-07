@@ -40,6 +40,44 @@ RUNTIME_CHANGED=0
 HAD_PREVIOUS_RUNTIME=0
 SUCCESS=0
 
+PREVIOUS_WATCH_BILLING_MODE_SET="${WATCH_BILLING_MODE+x}"
+PREVIOUS_WATCH_BILLING_MODE="${WATCH_BILLING_MODE-}"
+PREVIOUS_WATCH_SESSION_ENABLED_SET="${WATCH_CHECKOUT_SESSION_ENABLED+x}"
+PREVIOUS_WATCH_SESSION_ENABLED="${WATCH_CHECKOUT_SESSION_ENABLED-}"
+PREVIOUS_WATCH_BRIDGE_URL_SET="${WATCH_CHECKOUT_BRIDGE_URL+x}"
+PREVIOUS_WATCH_BRIDGE_URL="${WATCH_CHECKOUT_BRIDGE_URL-}"
+PREVIOUS_WATCH_BRIDGE_SECRET_SET="${WATCH_CHECKOUT_BRIDGE_SECRET+x}"
+PREVIOUS_WATCH_BRIDGE_SECRET="${WATCH_CHECKOUT_BRIDGE_SECRET-}"
+
+restore_watch_environment() {
+  unset WATCH_BILLING_MODE WATCH_CHECKOUT_SESSION_ENABLED WATCH_CHECKOUT_BRIDGE_URL WATCH_CHECKOUT_BRIDGE_SECRET
+  if [[ "$HAD_PREVIOUS_RUNTIME" == '1' && -s "$RUNTIME_FILE" ]]; then
+    set -a
+    # shellcheck source=/dev/null
+    if ! . "$RUNTIME_FILE"; then
+      set +a
+      return 1
+    fi
+    set +a
+    return 0
+  fi
+  [[ "$PREVIOUS_WATCH_BILLING_MODE_SET" != 'x' ]] || export WATCH_BILLING_MODE="$PREVIOUS_WATCH_BILLING_MODE"
+  [[ "$PREVIOUS_WATCH_SESSION_ENABLED_SET" != 'x' ]] || export WATCH_CHECKOUT_SESSION_ENABLED="$PREVIOUS_WATCH_SESSION_ENABLED"
+  [[ "$PREVIOUS_WATCH_BRIDGE_URL_SET" != 'x' ]] || export WATCH_CHECKOUT_BRIDGE_URL="$PREVIOUS_WATCH_BRIDGE_URL"
+  [[ "$PREVIOUS_WATCH_BRIDGE_SECRET_SET" != 'x' ]] || export WATCH_CHECKOUT_BRIDGE_SECRET="$PREVIOUS_WATCH_BRIDGE_SECRET"
+}
+
+wait_for_local_homepage() {
+  local attempt
+  for ((attempt=1; attempt<=30; attempt++)); do
+    if curl -fsS --max-time 2 "http://127.0.0.1:$PORT/" >/dev/null 2>&1; then
+      return 0
+    fi
+    sleep 1
+  done
+  return 1
+}
+
 rollback_on_error() {
   local rc=$?
   trap - EXIT
@@ -54,7 +92,13 @@ rollback_on_error() {
       rm -f -- "$RUNTIME_FILE"
       echo 'rollback_runtime=new_file_removed'
     fi
+    restore_watch_environment || echo 'rollback_environment=restore_failed' >&2
     pm2 restart "$PM2_NAME" --update-env >"/tmp/marketing-watch-runtime-rollback-$STAMP.log" 2>&1 || true
+    if wait_for_local_homepage; then
+      echo 'rollback_health=local_homepage_200'
+    else
+      echo 'rollback_health=not_confirmed' >&2
+    fi
   fi
   [[ -z "$BRIDGE_SECRET_FILE" ]] || rm -f -- "$BRIDGE_SECRET_FILE"
   [[ -z "$TEMP_RUNTIME" ]] || rm -f -- "$TEMP_RUNTIME"
@@ -77,6 +121,7 @@ esac
 BRIDGE_SECRET="$(cat "$BRIDGE_SECRET_FILE")"
 rm -f -- "$BRIDGE_SECRET_FILE"
 BRIDGE_SECRET_FILE=''
+unset WATCH_CHECKOUT_BRIDGE_SECRET_FILE
 [[ "${#BRIDGE_SECRET}" -ge 32 && "$BRIDGE_SECRET" != *$'\n'* && "$BRIDGE_SECRET" != *$'\r'* ]] || {
   echo 'ERROR: bridge secret is missing, too short, or contains a line break.' >&2
   exit 1
@@ -147,10 +192,10 @@ if ! pm2 restart "$PM2_NAME" --update-env >"/tmp/marketing-watch-runtime-pm2-$ST
   echo 'ERROR: Marketing PM2 restart failed; restoring the prior runtime.' >&2
   exit 1
 fi
-curl -fsS --max-time 10 "http://127.0.0.1:$PORT/" >/dev/null || {
+if ! wait_for_local_homepage; then
   echo 'ERROR: local Marketing homepage health check failed after runtime update.' >&2
   exit 1
-}
+fi
 pm2 jlist | WATCH_EXPECTED_BRIDGE_SECRET="$BRIDGE_SECRET" node -e '
 let raw = "";
 process.stdin.on("data", chunk => raw += chunk);
@@ -168,7 +213,7 @@ process.stdin.on("end", () => {
 ' || { echo 'ERROR: PM2 process did not load the isolated Watch runtime settings.' >&2; exit 1; }
 
 SUCCESS=1
-unset BRIDGE_SECRET WATCH_CHECKOUT_BRIDGE_SECRET
+unset BRIDGE_SECRET WATCH_CHECKOUT_BRIDGE_SECRET WATCH_CHECKOUT_BRIDGE_SECRET_FILE
 printf 'watch_checkout_runtime=complete active_release_sha=%s\n' "$EXPECTED_RELEASE_SHA"
 printf 'runtime_file_permissions=600; pm2_status=online; bridge_secret_value=withheld\n'
 printf 'health_checks=local_homepage_200,runtime_flags_loaded; no Checkout Session or payment was submitted\n'
