@@ -19,6 +19,9 @@ import { OCTOBER_ARTICLE_CONTENT } from "@/data/octoberEditorial";
 import { AGENT_AUTHORITY_ARTICLE_CONTENT } from "@/data/agentAuthorityEditorial";
 import { OCTOBER_SIGNAL_EXPANSION_CONTENT } from "@/data/octoberSignalExpansion";
 import { WATCH_BRIEF_OCTOBER_2026_CONTENT } from "@/data/watchBriefOctober2026";
+import { TITLE_9_CLAUDE_MEETINGS_CONTENT } from "@/data/title9ClaudeMeetingsEditorial";
+import { TITLE_8_FORECAST_CONTENT } from "@/data/title8ForecastEditorial";
+import { TITLE_7_AD_AGENT_CONTENT } from "@/data/title7AdAgentEditorial";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
 interface ArticleContent {
@@ -41,6 +44,9 @@ interface ArticleContent {
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = [
+  ...TITLE_9_CLAUDE_MEETINGS_CONTENT,
+  ...TITLE_8_FORECAST_CONTENT,
+  ...TITLE_7_AD_AGENT_CONTENT,
   ...WATCH_BRIEF_OCTOBER_2026_CONTENT,
   ...OCTOBER_SIGNAL_EXPANSION_CONTENT,
   ...AGENT_AUTHORITY_ARTICLE_CONTENT,
