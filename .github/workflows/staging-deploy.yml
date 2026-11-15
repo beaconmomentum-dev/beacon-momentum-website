@@ -1,0 +1,120 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches:
+      - 'staging/**'
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch or commit to deploy to staging
+        required: true
+        default: main
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: staging-deploy
+  cancel-in-progress: false
+
+env:
+  STAGING_SSH_PORT: ${{ vars.STAGING_SSH_PORT || '22' }}
+  STAGING_DEPLOY_SCRIPT: ${{ vars.STAGING_DEPLOY_SCRIPT || '/usr/local/bin/deploy-beacon-www-staging.sh' }}
+
+jobs:
+  deploy:
+    name: Deploy to Beacon staging
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: ${{ vars.STAGING_BASE_URL }}
+    steps:
+      - name: Checkout requested revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.ref || github.sha }}
+          persist-credentials: false
+
+      - name: Resolve checked-out staging revision
+        run: echo "DEPLOY_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Validate staging configuration
+        env:
+          STAGING_SERVER_IP: ${{ secrets.STAGING_SERVER_IP }}
+          STAGING_SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
+          STAGING_BASE_URL: ${{ vars.STAGING_BASE_URL }}
+        run: |
+          set -Eeuo pipefail
+          test -n "$STAGING_SERVER_IP" || { echo 'ERROR: staging environment is missing STAGING_SERVER_IP'; exit 1; }
+          test -n "$STAGING_SSH_KEY" || { echo 'ERROR: staging environment is missing STAGING_SSH_KEY'; exit 1; }
+          test -n "$STAGING_BASE_URL" || { echo 'ERROR: staging environment is missing STAGING_BASE_URL'; exit 1; }
+          case "$STAGING_BASE_URL" in
+            https://*) ;;
+            *) echo 'ERROR: STAGING_BASE_URL must use https://'; exit 1 ;;
+          esac
+          case "$STAGING_SERVER_IP" in
+            127.*|10.*|192.168.*|172.1[6-9].*|172.2[0-9].*|172.3[0-1].*)
+              echo 'ERROR: STAGING_SERVER_IP must be a provider-reachable staging origin, not a runner-local/private address.'
+              exit 1
+              ;;
+          esac
+          echo 'Staging configuration is present; production secrets are not referenced.'
+
+      - name: Setup staging SSH key
+        env:
+          STAGING_SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
+          STAGING_SERVER_IP: ${{ secrets.STAGING_SERVER_IP }}
+        run: |
+          set -Eeuo pipefail
+          install -m 0700 -d ~/.ssh
+          printf '%s' "$STAGING_SSH_KEY" | base64 -d > ~/.ssh/staging_deploy_key
+          chmod 600 ~/.ssh/staging_deploy_key
+          ssh-keyscan -T 10 -p "$STAGING_SSH_PORT" -H "$STAGING_SERVER_IP" >> ~/.ssh/staging_known_hosts 2>/dev/null || true
+
+      - name: Preflight staging SSH transport and authentication
+        env:
+          SSH_HOST: ${{ secrets.STAGING_SERVER_IP }}
+          SSH_USER: ${{ vars.STAGING_SSH_USER || 'root' }}
+          SSH_PORT: ${{ vars.STAGING_SSH_PORT || '22' }}
+          SSH_KEY: ${{ runner.temp }}/staging_deploy_key
+          SSH_KNOWN_HOSTS: ${{ runner.temp }}/staging_known_hosts
+          SSH_CONNECT_TIMEOUT: 10
+          LOG_PREFIX: STAGING_SSH_PREFLIGHT
+        run: |
+          set -Eeuo pipefail
+          install -m 0600 ~/.ssh/staging_deploy_key "${{ runner.temp }}/staging_deploy_key"
+          install -m 0644 ~/.ssh/staging_known_hosts "${{ runner.temp }}/staging_known_hosts"
+          bash ops/beacon-production-ssh-preflight.sh
+
+      - name: Deploy exact revision to staging
+        env:
+          STAGING_SERVER_IP: ${{ secrets.STAGING_SERVER_IP }}
+          STAGING_SSH_USER: ${{ vars.STAGING_SSH_USER || 'root' }}
+        run: |
+          set -Eeuo pipefail
+          ssh -i "${{ runner.temp }}/staging_deploy_key" \
+            -p "$STAGING_SSH_PORT" \
+            -o BatchMode=yes \
+            -o ConnectTimeout=10 \
+            -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="${{ runner.temp }}/staging_known_hosts" \
+            -o IdentitiesOnly=yes \
+            "$STAGING_SSH_USER@$STAGING_SERVER_IP" \
+            bash -s -- "$STAGING_DEPLOY_SCRIPT" "$DEPLOY_SHA" <<'REMOTE'
+          set -Eeuo pipefail
+          deploy_script="$1"
+          deploy_sha="$2"
+          test -x "$deploy_script" || { echo "ERROR: staging deploy script is not executable: $deploy_script"; exit 1; }
+          "$deploy_script" "$deploy_sha"
+          REMOTE
+
+      - name: Verify staging HTTPS endpoint
+        env:
+          STAGING_BASE_URL: ${{ vars.STAGING_BASE_URL }}
+        run: |
+          set -Eeuo pipefail
+          status="$(curl --fail --silent --show-error --max-time 15 -o /dev/null -w '%{http_code}' "$STAGING_BASE_URL/")"
+          echo "Staging HTTP status: $status"
+          test "$status" = 200

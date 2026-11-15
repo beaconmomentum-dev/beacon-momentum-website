@@ -22,7 +22,21 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H ${{ secrets.PRODUCTION_SERVER_IP }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh-keyscan -T 10 -p "${{ vars.PRODUCTION_SSH_PORT || '22' }}" -H "${{ secrets.PRODUCTION_SERVER_IP }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Preflight production SSH transport and authentication
+        env:
+          SSH_HOST: ${{ secrets.PRODUCTION_SERVER_IP }}
+          SSH_USER: root
+          SSH_PORT: ${{ vars.PRODUCTION_SSH_PORT || '22' }}
+          SSH_KEY: ${{ runner.temp }}/deploy_key
+          SSH_KNOWN_HOSTS: ${{ runner.temp }}/known_hosts
+          SSH_CONNECT_TIMEOUT: 10
+        run: |
+          install -m 0700 -d "${{ runner.temp }}/beacon-preflight"
+          install -m 0600 ~/.ssh/deploy_key "${{ runner.temp }}/deploy_key"
+          install -m 0644 ~/.ssh/known_hosts "${{ runner.temp }}/known_hosts"
+          bash ops/beacon-production-ssh-preflight.sh
 
       - name: Create Git fallbacks and reconcile the production worktree
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.recover_dirty_worktree }}
