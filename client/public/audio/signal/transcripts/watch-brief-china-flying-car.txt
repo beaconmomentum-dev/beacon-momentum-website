@@ -1,0 +1,19 @@
+The Flying Car Is No Longer a Joke: China's eVTOL Moment
+
+EHang received the world's first full type certificate for a pilotless passenger eVTOL. Tourists in Guangzhou are already buying tickets. The West is still writing regulations.
+
+For over a century, the "flying car" has been the ultimate symbol of a promised future that never arrived. But while the West has been debating zoning laws and writing theoretical regulations, China has quietly kicked the door to the future wide open. The flying car is no longer a rendering. It is a commercial reality, and the West is dangerously behind.
+
+The Regulatory Rubicon
+
+EHang, a Chinese autonomous aerial vehicle technology company, recently achieved what no Western company has managed: they received a full type certificate for a pilotless, passenger-carrying eVTOL aircraft from the Civil Aviation Administration of China. This is not a testing permit or a research exemption. It is a standard airworthiness certificate.
+
+The aircraft carries two passengers, has absolutely no flight controls in the cabin, and uses 16 propellers mounted in coaxial pairs for redundancy. It flies at roughly 130 km/h. Ordinary tourists in Guangzhou are currently buying tickets, climbing into a pod with zero controls, and taking real, commercial sightseeing flights.
+
+The Supply Chain and the State
+
+How did China cross this regulatory Rubicon while Western companies are still trapped in certification purgatory? It comes down to two structural advantages. First, the supply chain: China dominates battery technology — the single hardest component in any eVTOL. Second, state mandate: Beijing has formally designated the "low-altitude economy" as a strategic emerging industry, projecting the sector will reach 1.5 trillion yuan by 2025.
+
+The Implication for The Watch
+
+The true use case for eVTOLs is not replacing the Honda Civic in an American suburb. The use case is deploying transportation networks in regions where roads are poor, congested, or non-existent. Just as much of the developing world skipped landlines and went straight to mobile phones, entire regions will skip building highways and go straight to low-altitude aerial networks. The pattern is undeniable: The West invents the concept, gets bogged down in regulatory friction, and China deploys it at scale.

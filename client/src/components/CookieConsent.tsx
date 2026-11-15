@@ -104,6 +104,9 @@ export default function CookieConsent() {
         <Link
           href="/cookies"
           style={{
+            display: "inline-flex",
+            alignItems: "center",
+            minHeight: "44px",
             color: "var(--beacon-amber, #C8963E)",
             textDecoration: "none",
             fontWeight: 400,
@@ -128,6 +131,8 @@ export default function CookieConsent() {
             border: "1px solid rgba(250,248,244,0.25)",
             borderRadius: "2px",
             padding: "0.45rem 0.875rem",
+            minHeight: "44px",
+            boxSizing: "border-box",
             cursor: "pointer",
           }}
         >
@@ -147,6 +152,8 @@ export default function CookieConsent() {
             border: "1px solid var(--beacon-amber, #C8963E)",
             borderRadius: "2px",
             padding: "0.45rem 0.875rem",
+            minHeight: "44px",
+            boxSizing: "border-box",
             cursor: "pointer",
           }}
         >

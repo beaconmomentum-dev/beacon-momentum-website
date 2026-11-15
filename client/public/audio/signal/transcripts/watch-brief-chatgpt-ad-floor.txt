@@ -1,0 +1,17 @@
+The ChatGPT Ad Floor: What $25,000 in Real Spend Taught Us About the New Attention Economy
+
+ChatGPT Ads has a $3-5 CPC floor, 150+ leads per day, and almost no competition. The reporting is broken and the targeting is raw. This is the golden age window — and it is closing.
+
+The digital advertising landscape is a mature, highly optimized oligopoly dominated by Meta and Google. But a new front has opened, and the early data suggests it is behaving entirely differently than the established platforms. The initial results from operators who have pushed significant spend — upwards of $25,000 in real-world testing — reveal a platform that is highly lucrative, deeply flawed, and structurally unique.
+
+The High-Intent Premium
+
+The most striking data point from early ChatGPT Ad spend is the cost per click: an absolute floor of $3 to $5. In the Meta ecosystem, a $5 CPC would be considered disastrously high for many consumer campaigns. But ChatGPT is not a scrolling feed where users passively consume content; it is a high-intent utility. Users are actively seeking solutions, writing code, or drafting documents. The data shows that while the clicks are expensive, the conversion rates are exceptionally high. One operator reported generating 150+ leads per day, noting that the traffic converts at significantly better rates than equivalent Meta traffic.
+
+The Infrastructure Lag
+
+However, the platform's infrastructure is currently buckling under its own weight. Early adopters report that the reporting interface suffers from severe latency — an advertiser might see zero spend all morning, only for the dashboard to refresh and reveal the entire daily budget has been exhausted. The targeting options lack the granular depth that Meta and Google have refined over a decade. Operators estimate they could sustain $20,000 to $50,000 a day in spend without exhausting the inventory.
+
+The Implication for The Watch
+
+This is a classic "golden age" window. When a new advertising platform launches with massive traffic but immature targeting and reporting, it creates a temporary arbitrage opportunity. The established, highly optimized agencies stay away because the tools are too raw. The operators who figure out the winning offers and landing page structures now will establish a dominant position before the platform matures and the legacy money floods in. The window is open, but it will not stay open for long.

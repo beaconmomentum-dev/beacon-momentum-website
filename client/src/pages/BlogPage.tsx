@@ -22,7 +22,9 @@ import { WATCH_BRIEF_OCTOBER_2026_SUMMARIES } from "@/data/watchBriefOctober2026
 import { TITLE_9_CLAUDE_MEETINGS_SUMMARIES } from "@/data/title9ClaudeMeetingsEditorial";
 import { TITLE_8_FORECAST_SUMMARIES } from "@/data/title8ForecastEditorial";
 import { TITLE_7_AD_AGENT_SUMMARIES } from "@/data/title7AdAgentEditorial";
+import { TEST_IS_WATCHING_SUMMARIES } from "@/data/theTestIsWatchingYouBack";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import { applySignalArchiveDates } from "@/data/signalArchiveSchedule";
 
 // ─── Hero image ────────────────────────────────────────────────────────────────
 const BLOG_HERO_IMG = "/images/beacon_hero.webp";
@@ -44,10 +46,11 @@ interface Article {
   category?: string; // Optional category label
 }
 
-const ARTICLES = [
+const ARTICLES = applySignalArchiveDates([
   ...TITLE_9_CLAUDE_MEETINGS_SUMMARIES,
   ...TITLE_8_FORECAST_SUMMARIES,
   ...TITLE_7_AD_AGENT_SUMMARIES,
+  ...TEST_IS_WATCHING_SUMMARIES,
   ...WATCH_BRIEF_OCTOBER_2026_SUMMARIES,
   ...OCTOBER_SIGNAL_EXPANSION_SUMMARIES,
   ...AGENT_AUTHORITY_ARTICLE_SUMMARIES,
@@ -982,7 +985,7 @@ const ARTICLES = [
       "/images/editorial/hero-watch-brief-moon-launchpad-economy-16x9.webp",
     audioFile: "/audio/watch-brief-moon-launchpad-economy.mp3",
   },
-];
+]);
 
 const PILLARS: Pillar[] = [
   "All",

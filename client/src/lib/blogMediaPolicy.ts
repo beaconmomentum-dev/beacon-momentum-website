@@ -1,16 +1,33 @@
 export type ArticleMedia = {
   audioSrc?: string;
   audioFile?: string;
+  id?: string;
+  transcriptSrc?: string;
+  captionSrc?: string;
+  audioDisclosure?: string;
 };
 
 /** The shared index frame used by all future Beacon editorial filing masters. */
 export const BEACON_EDITORIAL_IMAGE_ASPECT_RATIO = "16 / 9";
 
 /**
+ * Active production holds. Keep a route here whenever its published narration
+ * is known to be misaligned or its replacement has not passed release QA.
+ */
+export const ARTICLE_AUDIO_RELEASE_HOLDS = Object.freeze({} as const);
+
+/**
  * Audio is an article-level experience. Normalize the two legacy source fields
  * so a narrated article can present its control on its own route.
  */
 export function getArticleAudioSource(article: ArticleMedia): string | null {
+  if (
+    article.id &&
+    Object.prototype.hasOwnProperty.call(ARTICLE_AUDIO_RELEASE_HOLDS, article.id)
+  ) {
+    return null;
+  }
+
   return article.audioSrc || article.audioFile || null;
 }
 

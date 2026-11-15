@@ -1,0 +1,149 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.220
+ Gemini 5 What Google Got Right and What the Benchmarks Miss
+
+2
+00:00:03.220 --> 00:00:09.940
+ Google's Gemini 5 is a genuine leap, but the most important story is not the benchmark scores,
+
+3
+00:00:10.280 --> 00:00:14.600
+ it is the pricing structure and what it signals about where the AI market is heading.
+
+4
+00:00:15.440 --> 00:00:20.460
+ The frontier AI model race is crowded and Google is preparing its next major leap.
+
+5
+00:00:20.900 --> 00:00:24.800
+ While official announcements are pending, the trajectory of Google's AI development
+
+6
+00:00:24.800 --> 00:00:29.600
+ points clearly toward the architecture, capabilities and market positioning of Gemini 5.
+
+7
+00:00:30.000 --> 00:00:34.320
+ The story is not about benchmark supremacy, it is about structural advantage.
+
+8
+00:00:35.420 --> 00:00:40.780
+ The Architectural Bet Mixture of Experts The defining characteristic of Gemini 5 will
+
+9
+00:00:40.780 --> 00:00:44.140
+ almost certainly be a massive expansion of the mixture of experts' Moe architecture.
+
+10
+00:00:44.720 --> 00:00:48.380
+ Instead of a single monolithic model that activates for every query, Moe divides the
+
+11
+00:00:48.380 --> 00:00:49.860
+ system into specialized subnetworks.
+
+12
+00:00:50.320 --> 00:00:52.800
+ Only the relevant experts activate for a specific task.
+
+13
+00:00:53.140 --> 00:00:56.780
+ This allows Google to build a model with a vastly larger total parameter count without
+
+14
+00:00:56.780 --> 00:00:59.400
+ a proportional increase in the computational cost per query.
+
+15
+00:01:00.000 --> 00:01:03.820
+ It is the only viable path to scaling intelligence economically.
+
+16
+00:01:04.880 --> 00:01:06.680
+ Context Windows and the Agentic Shift
+
+17
+00:01:06.680 --> 00:01:10.860
+ Google has already pushed context windows further than anyone else, up to 2 million
+
+18
+00:01:10.860 --> 00:01:12.660
+ tokens in Gemini 1.5 Pro.
+
+19
+00:01:13.180 --> 00:01:16.920
+ Gemini 5 is expected to maintain or expand this, but the focus will shift from simply
+
+20
+00:01:16.920 --> 00:01:18.860
+ reading massive documents to acting on them.
+
+21
+00:01:19.260 --> 00:01:21.240
+ The industry is moving from chatbots to agents.
+
+22
+00:01:21.680 --> 00:01:25.520
+ Gemini 5 is being designed to integrate deeply into Google's ecosystem, workspace Android
+
+23
+00:01:25.520 --> 00:01:28.360
+ search, execute multi-step workflows autonomously.
+
+24
+00:01:29.360 --> 00:01:30.400
+ A pricing strategy
+
+25
+00:01:30.400 --> 00:01:34.040
+ Google's pricing tiers are established and predictable.
+
+26
+00:01:34.580 --> 00:01:40.880
+ Consumer tiers range from entry-level $8.10-slash-month to ultra-$50-slash-month.
+
+27
+00:01:41.360 --> 00:01:46.160
+ Enterprise integration runs through Google Workspace at approximately $21-seat-month.
+
+28
+00:01:46.580 --> 00:01:49.300
+ Developer access is metered via Vertex AI.
+
+29
+00:01:49.300 --> 00:01:55.960
+ Gemini 5's most powerful capabilities will launch behind the ultra and enterprise paywalls
+
+30
+00:01:55.960 --> 00:02:00.900
+ first, a deliberate strategy to monetize the frontier while maintaining broad market
+
+31
+00:02:00.900 --> 00:02:02.300
+ presence at lower tiers.
+
+32
+00:02:03.020 --> 00:02:04.220
+ The bottom line.
+
+33
+00:02:05.120 --> 00:02:08.880
+ Gemini 5's job is not to win every benchmark by a fraction of a point.
+
+34
+00:02:09.360 --> 00:02:14.340
+ Its job is to leverage Google's structural advantages, massive scale, live search integration
+
+35
+00:02:14.340 --> 00:02:19.840
+ and enterprise reach, to deliver a highly capable, agentic model that is economically viable to
+
+36
+00:02:19.840 --> 00:02:20.880
+ run at global scale.
+
+37
+00:02:21.300 --> 00:02:23.800
+ The company that owns the infrastructure owns the future.

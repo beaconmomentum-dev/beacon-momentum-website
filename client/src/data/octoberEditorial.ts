@@ -10,6 +10,7 @@ const OCTOBER_ARTICLE_DRAFTS = [
     readTime: "6 min read",
     pillar: "Systems",
     pillarColor: "#3D5A80",
+    heroImage: "/images/editorial/what-a-demonstration-proves.webp",
     featured: true,
     body: `
       <p class="beacon-article-lede">A new AI workflow can look convincing in under a minute. A screen changes. A report appears. A creator says it saved hours, replaced a team, or turned a difficult task into a button.</p>
@@ -97,6 +98,7 @@ const OCTOBER_ARTICLE_DRAFTS = [
     readTime: "5 min read",
     pillar: "Systems",
     pillarColor: "#1A5C6B",
+    heroImage: "/images/editorial/hero-ai-tools-16x9.webp",
     featured: true,
     body: `
       <p class="beacon-article-lede">“Connect your account” is one of the shortest sentences in modern software. It can also be one of the most consequential.</p>
@@ -169,6 +171,7 @@ const OCTOBER_ARTICLE_DRAFTS = [
     readTime: "7 min read",
     pillar: "Systems",
     pillarColor: "#5C3D6B",
+    heroImage: "/images/editorial/hero-watch-brief-ai-safety-report-card-16x9.webp",
     featured: true,
     body: `
       <p class="beacon-article-lede">Synthetic media can make a useful explanation more vivid. It can also make a false impression feel more believable.</p>
@@ -241,6 +244,7 @@ const OCTOBER_ARTICLE_DRAFTS = [
     readTime: "7 min read",
     pillar: "Work",
     pillarColor: "#2A7F6F",
+    heroImage: "/images/editorial/hero-ai-transition-16x9.webp",
     featured: true,
     body: `
       <p class="beacon-article-lede">An AI-native course platform can make it easier to assemble a lesson, produce a visual, draft a worksheet, or offer a conversation around an idea. That can be genuinely useful.</p>

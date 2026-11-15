@@ -1,0 +1,133 @@
+The Cloud Has a Seabed
+
+The cloud is supported by physical routes, landing stations, repair systems, and human decisions. A practical resilience brief for organizations that need to know what happens when the normal path is unavailable.
+
+Most organizations experience the internet as a service. A page loads, a payment clears, a video call begins, and the physical path disappears from view.
+
+That path is not abstract. Submarine telecommunications cables form the backbone of international digital connectivity. The International Cable Protection Committee says the global network includes approximately 500 cable systems and about 1.8 million kilometres of cable infrastructure. The International Telecommunication Union describes submarine cables as carrying more than 99 percent of worldwide data traffic. Source 1 Source 2
+
+This matters because a system can be highly efficient and still have a narrow margin for failure. A company may have cloud redundancy, multiple vendors, and a reliable office connection. None of that automatically tells it how dependent its work is on particular landing points, routes, providers, repair arrangements, or regional corridors.
+
+The question is not whether the internet is about to disappear. It is not. The better question is simpler and more useful:
+
+If a critical connection became unavailable, what would still work, what would slow down, and what would the organization do next?
+
+Cable faults are routine. That does not make resilience optional.
+
+The ICPC reports approximately 150 to 200 submarine telecommunications cable faults globally each year. It also reports that roughly 70 to 80 percent result from accidental human activity, especially commercial fishing and ships’ anchors. Other causes include equipment failure, abrasion, storms, seafloor movement, landslides, and sediment flows. Source 1
+
+That figure needs careful handling. It is a global annual count for submarine telecommunications cables. It is not a probability that a particular company will lose service, and it does not include every kind of subsea power cable fault. The ICPC also notes that the cable network has grown substantially while the annual fault count has remained broadly stable. On that measure, the global fault rate per kilometre has declined as installation and burial practices have improved. Source 1
+
+The important distinction is between routine fault frequency and consequence concentration. Most faults do not create a visible global outage. Traffic can be rerouted, and the affected cable can be repaired through the industry’s maintenance system. The same ICPC factsheet says two Baltic cables damaged in November 2024 were repaired within two weeks without service interruption. Source 1
+
+Routine repair capacity is a resilience strength. It is not a reason to assume that every location, customer, or service has equal protection. The consequences depend on geography, available alternate routes, spare capacity, permitting, weather, repair access, and the importance of the affected connection.
+
+The problem is not only the cable. It is the system around it.
+
+The ITU’s 2026 report on submarine cable resilience identifies several challenges: physical exposure, longer repair times, geographical concentration, and the dependence of many countries—especially small island developing states and other underserved regions—on a small number of cable systems. Its recommendations emphasize timely deployment and repair, risk monitoring, route diversity, infrastructure redundancy, coordination, and preparedness. Source 2
+
+The U.S. Department of State’s 2024 joint statement makes the same point from a policy perspective. Undersea cable infrastructure includes more than the cable itself. It includes landing stations, software, terrestrial connections, repair centres, and the vessels used for deployment, maintenance, and repair. The statement calls for resilience, redundancy, security, route diversity, regular risk assessment, and closer government-industry coordination. Source 3
+
+That wider definition changes how a business should think about continuity. A cable is not a standalone object. It is one part of a chain that includes:
+
+the physical route;
+
+the landing station;
+
+the terrestrial network on either side;
+
+the cloud or carrier provider;
+
+the organization’s DNS, identity, and communications systems;
+
+the repair and maintenance arrangements; and
+
+the people who must decide what to do during degradation.
+
+A failure anywhere in that chain can become an operational problem even if the global internet remains available.
+
+Why “redundant” does not always mean “ready”
+
+Redundancy is often treated as a yes-or-no property. A company either has a backup, or it does not. Real resilience is more demanding.
+
+A backup path has to be independent enough to help. It must have usable capacity. It must be reachable by the systems that need it. The organization must know how to switch to it. People must have practiced the switch. Authentication, DNS, email, payment, support, and data-recovery procedures must still function while the primary path is impaired.
+
+Two connections that enter the same building through the same regional corridor may provide less resilience than their labels suggest. Two cloud regions may share a provider, identity dependency, or network route. A second communications application may not help if the same account, phone number, or single sign-on system controls both.
+
+This is why the ITU emphasizes geographical diversity and why the State Department statement calls for route planning, alternative routes, and regular risk assessment across the cable lifecycle. Source 2 Source 3
+
+The security question requires restraint
+
+Recent cable incidents have attracted attention because some occurred in politically sensitive waters and involved vessels, anchors, or routes that raised questions about intent. Those questions are legitimate. They are not the same as proof.
+
+The ICPC says it does not investigate individual incidents or speculate about whether a particular event was accidental or deliberate. It also says it has no verified data establishing state-sponsored submarine cable sabotage since the Second World War, while acknowledging that deliberate damage, theft, vandalism, and incidents with unverifiable intent remain possible. Source 1
+
+That is a useful discipline for public discussion. Cable security has to address malicious interference, but the operational response to a damaged cable begins with measures that also reduce ordinary accidents: better route knowledge, careful anchoring, coordination with marine users, monitoring, rerouting, and timely repair.
+
+A dramatic theory is not a continuity plan. An organization cannot wait for a public attribution decision before mapping its dependencies or testing its fallback communications.
+
+What the cloud’s physical layer means for AI
+
+Artificial intelligence adds another reason to take this infrastructure seriously. Training, serving, and coordinating large digital systems can move substantial data among facilities and regions. The growth of AI does not prove that a particular cable route is unsafe, and it does not mean that a cable fault will stop an AI service. It does mean that digital concentration deserves attention.
+
+The State Department statement describes the broader pattern: more connected communications infrastructure creates greater dependency and introduces vulnerabilities. Source 3 The ITU’s resilience recommendations focus on the same basic response: diversity, monitoring, preparedness, and coordinated repair. Source 2
+
+The practical lesson is not to fear “the cloud.” It is to stop treating the cloud as weightless. Every service has a physical and organizational path. Responsible adoption means understanding enough of that path to make good decisions when the normal path is unavailable.
+
+A small organization’s first resilience map
+
+A small business does not need to model the entire global cable network. It does need a short, honest inventory of what would interrupt its work.
+
+Start with the work that cannot stop for a day. List the systems involved in receiving an inquiry, accepting a payment, delivering a product, communicating with a customer, and recovering the business after an error.
+
+For each system, record:
+
+First. The service and its owner. Who provides it, and who inside the business can make a change?
+
+Second. The dependency path. What domain, identity provider, email account, payment processor, cloud region, or network connection does it rely on?
+
+Third. The fallback. What is the practical alternative if the service is slow or unreachable?
+
+Fourth. The switching rule. Who decides to use the fallback, and what evidence triggers that decision?
+
+Fifth. The recovery record. What was tested, when, and what failed?
+
+This map is valuable even when no cable problem occurs. It exposes single points of failure, forgotten credentials, unclear ownership, and backups that exist on paper but have never been used.
+
+What to watch next
+
+The most useful indicators are not viral claims that a particular outage proves an act of war. They are measurable changes in resilience:
+
+whether governments and operators improve route diversity;
+
+whether repair capacity and permitting become faster;
+
+whether vulnerable regions gain practical alternate paths;
+
+whether organizations test degraded operations rather than only normal uptime;
+
+whether cable monitoring and incident reporting become more transparent; and
+
+whether AI and cloud operators explain important dependency and recovery assumptions clearly.
+
+The public record supports a balanced conclusion. Submarine cables are critical infrastructure. Faults are common enough to be routine. Most are accidental. The network is resilient enough that many faults do not interrupt service. At the same time, physical exposure, geographic concentration, and uneven dependence mean that resilience is not distributed equally.
+
+The sane response is neither complacency nor apocalypse. It is a dependency map, a practiced fallback, and a willingness to distinguish a verified incident from a compelling story.
+
+Beacon’s working question
+
+Do we know what our digital work depends on, and have we tested what happens when one of those dependencies becomes unavailable?
+
+This is an operational question, not a prediction about geopolitics. It is also a useful standard for AI adoption. The more capable and interconnected the system becomes, the more important it is to understand its limits, its fallback paths, and the human decisions around it.
+
+Disclosure
+
+This Watch Brief is an original Beacon analysis based on public institutional sources. It does not determine the cause of any individual cable incident, provide legal or geopolitical advice, or certify the resilience of any vendor, route, cloud service, or organization. Infrastructure conditions, public reports, and official recommendations change; readers should reopen the cited records before relying on them for a current decision.
+
+Sources and boundaries
+
+First. International Cable Protection Committee Media Enquiries and Factsheet: Submarine Cable Protection and Resilience
+
+Second. International Telecommunication Union: International Advisory Body approves landmark report to strengthen submarine cable resilience
+
+Third. U.S. Department of State: Joint Statement on the Security and Resilience of Undersea Cables in a Globally Digitalized World

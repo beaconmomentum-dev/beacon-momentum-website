@@ -110,7 +110,7 @@ export default function SharedFooter() {
     if (external) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer"
-          style={{ textDecoration: "none", display: "block" }}
+          style={{ textDecoration: "none", display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "44px" }}
           onMouseEnter={hoverEnter} onMouseLeave={hoverLeave}>
           {inner}
         </a>
@@ -118,7 +118,7 @@ export default function SharedFooter() {
     }
     return (
       <Link href={href}
-        style={{ textDecoration: "none", display: "block" }}
+        style={{ textDecoration: "none", display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "44px" }}
         onMouseEnter={hoverEnter} onMouseLeave={hoverLeave}>
         {inner}
       </Link>
@@ -175,13 +175,13 @@ export default function SharedFooter() {
           }}>
             A public orientation point for people building clearer work, useful capability, and a steadier next move.
           </p>
-          <Link href="/how-beacon-works" style={{ display: "inline-block", marginTop: "0.9rem", color: "var(--beacon-amber-light)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textDecoration: "underline", textUnderlineOffset: "0.25rem", textTransform: "uppercase" }}>
+          <Link href="/how-beacon-works" style={{ display: "inline-flex", alignItems: "center", minHeight: "44px", marginTop: "0.9rem", color: "var(--beacon-amber-light)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textDecoration: "underline", textUnderlineOffset: "0.25rem", textTransform: "uppercase" }}>
             See how Beacon works
           </Link>
         </div>
 
         <div style={{ borderBottom: "1px solid rgba(250,248,244,0.08)", color: "rgba(250,248,244,0.52)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.12em", paddingBottom: "1rem", textTransform: "uppercase" }}>
-          <a href="https://beaconmomentum.com/" style={{ color: "#FAF8F4", textDecoration: "underline", textUnderlineOffset: "0.2rem" }}>Beacon Momentum LLC</a> / Beacon Momentum / Public front door
+          <a href="https://beaconmomentum.com/" style={{ color: "#FAF8F4", textDecoration: "underline", textUnderlineOffset: "0.2rem", display: "inline-flex", alignItems: "center", minHeight: "44px" }}>Beacon Momentum LLC</a> / Beacon Momentum / Public front door
         </div>
 
         {/* Four-column grid */}
@@ -211,7 +211,7 @@ export default function SharedFooter() {
           <div style={colStyle}>
             <div style={colHeadStyle}>Support & policies</div>
             <p style={{ color: "rgba(250,248,244,0.55)", fontFamily: "'Lora', Georgia, serif", fontSize: "0.78rem", lineHeight: 1.55, margin: "0 0 0.9rem" }}>
-              Need help or a policy document? Contact <a href="mailto:support@beaconmomentum.com" style={{ color: "#FAF8F4" }}>support@beaconmomentum.com</a>. Include the property name and the page or action involved so we can route your request correctly.
+              Need help or a policy document? Contact <a href="mailto:support@beaconmomentum.com" style={{ color: "#FAF8F4", display: "inline-block", minHeight: "44px", boxSizing: "border-box", verticalAlign: "middle" }}>support@beaconmomentum.com</a>. Include the property name and the page or action involved so we can route your request correctly.
             </p>
             {SUPPORT_AND_POLICIES.map((l) => <NavLink key={l.label} href={l.href} label={l.label} />)}
           </div>

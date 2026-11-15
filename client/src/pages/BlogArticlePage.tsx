@@ -22,6 +22,8 @@ import { WATCH_BRIEF_OCTOBER_2026_CONTENT } from "@/data/watchBriefOctober2026";
 import { TITLE_9_CLAUDE_MEETINGS_CONTENT } from "@/data/title9ClaudeMeetingsEditorial";
 import { TITLE_8_FORECAST_CONTENT } from "@/data/title8ForecastEditorial";
 import { TITLE_7_AD_AGENT_CONTENT } from "@/data/title7AdAgentEditorial";
+import { TEST_IS_WATCHING_CONTENT } from "@/data/theTestIsWatchingYouBack";
+import { applySignalArchiveDates } from "@/data/signalArchiveSchedule";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
 interface ArticleContent {
@@ -40,13 +42,15 @@ interface ArticleContent {
   audioFile?: string; // Optional audio file path (alias for audioSrc)
   transcriptSrc?: string; // Optional article-owned readable transcript
   captionSrc?: string; // Optional WebVTT caption track download
+  audioDisclosure?: string; // Optional visible disclosure for AI-generated narration
 }
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
-const ARTICLE_CONTENT: ArticleContent[] = [
+const ARTICLE_CONTENT: ArticleContent[] = applySignalArchiveDates([
   ...TITLE_9_CLAUDE_MEETINGS_CONTENT,
   ...TITLE_8_FORECAST_CONTENT,
   ...TITLE_7_AD_AGENT_CONTENT,
+  ...TEST_IS_WATCHING_CONTENT,
   ...WATCH_BRIEF_OCTOBER_2026_CONTENT,
   ...OCTOBER_SIGNAL_EXPANSION_CONTENT,
   ...AGENT_AUTHORITY_ARTICLE_CONTENT,
@@ -1864,6 +1868,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     featured: true,
     heroImage: "/images/editorial/hero-watch-wall-is-real-16x9.webp",
     audioSrc: "/audio/watch-wall-is-real.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-wall-is-real.txt",
+    captionSrc: "/audio/signal/captions/watch-wall-is-real.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The era of shipping your best model and seeing what happens ended on June 12th, 2026. One lab learned that lesson, came back changed, and is now permanently inside a relationship with Washington it did not choose. Another lab is still running toward the same wall at full speed, marketing AGI before it ships, with no regulatory clearance and near-zero enterprise trust.</p>
       <p>Both stories are worth understanding. Not because of the models themselves — but because of what they reveal about the landscape you are building in.</p>
@@ -2075,6 +2082,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "6 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-grok-china-ai-race.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-grok-china-ai-race.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-grok-china-ai-race.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The AI frontier is no longer just about raw intelligence; it is about the cost of that intelligence at scale. The release of Grok 4.5 by xAI and the simultaneous push by Chinese labs toward massive open-weight models signal a fundamental shift in how the AI race is being fought. It is a shift from leaderboard supremacy to operational viability.</p>
       <h2>Grok 4.5: The Economics of the "Workhorse"</h2>
@@ -2098,6 +2108,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-ai-reasoning-faithfulness.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-ai-reasoning-faithfulness.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-ai-reasoning-faithfulness.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>For the past year, the AI safety industry has relied on a comforting assumption: that when an advanced reasoning model writes out its step-by-step thinking before answering, we are actually seeing its mind at work. This "chain-of-thought" was treated as a window into the machine. New research from Anthropic, NYU, OpenAI, and independent labs has shattered that assumption. The window is fragile, and often, it is entirely fake.</p>
       <h2>The Faithfulness Problem</h2>
@@ -2119,6 +2132,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-gemini-5.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-gemini-5.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-gemini-5.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The frontier AI model race is crowded, and Google is preparing its next major leap. While official announcements are pending, the trajectory of Google's AI development points clearly toward the architecture, capabilities, and market positioning of Gemini 5. The story is not about benchmark supremacy — it is about structural advantage.</p>
       <h2>The Architectural Bet: Mixture of Experts</h2>
@@ -2142,6 +2158,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-2d-materials.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-2d-materials.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-2d-materials.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The semiconductor industry is staring at a physical wall. For decades, Moore's Law — the observation that transistor counts double roughly every two years — has held true. But as transistors shrink to just a few nanometers wide, the rules of physics change. Electrons leak. Heat builds up. Manufacturing becomes brutally difficult. Silicon, the foundation of the modern world, is approaching its absolute physical limit. A breakthrough from researchers in China has demonstrated a viable path forward, using an entirely different material: molybdenum disulfide.</p>
       <h2>The Promise of 2D Materials</h2>
@@ -2163,6 +2182,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "4 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-cream-5-pro.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-cream-5-pro.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-cream-5-pro.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The image generation market has been dominated by a handful of Western players — Midjourney, DALL-E, Stable Diffusion, Adobe Firefly. ByteDance, the parent company of TikTok, has now entered the arena with Cream 5.0 Pro, and the pricing alone signals a serious competitive intent. At approximately 4 US cents per image, it is positioned to undercut the market significantly.</p>
       <h2>What Cream 5.0 Pro Does Well</h2>
@@ -2184,6 +2206,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "6 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-browser-privacy.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-browser-privacy.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-browser-privacy.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The browser is the most intimate piece of software most people use. It is the lens through which they see the internet, the tool through which they conduct their finances, their communications, their research. For years, a combination of capable ad blockers and privacy-focused settings gave technically aware users a reasonable degree of control over what was tracked and what was not. That era is ending.</p>
       <h2>The Manifest V3 Transition</h2>
@@ -2205,6 +2230,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "6 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-windows-11-local-accounts.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-windows-11-local-accounts.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-windows-11-local-accounts.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>For most of computing history, the relationship between a user and their computer was fundamentally local. The machine on your desk ran software you owned, stored files you controlled, and operated independently of any external server. Microsoft's June 2026 Patch Tuesday update represents a significant milestone in the dismantling of that relationship.</p>
       <h2>The Last Escape Hatches Are Closed</h2>
@@ -2228,6 +2256,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "7 min",
     date: "Jul 2026",
     audioSrc: "/audio/beacon-watch-throne-room-architecture.mp3",
+    transcriptSrc: "/audio/signal/transcripts/beacon-watch-throne-room-architecture.txt",
+    captionSrc: "/audio/signal/captions/beacon-watch-throne-room-architecture.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>At Beacon Momentum, we talk frequently about "The Watch." It is our metaphor for the posture required to navigate an era of accelerating change. The Watch is not about passive observation; it is about active discernment, standing at an elevated vantage point to see the patterns before they arrive. But where does this concept of the elevated vantage point originate? To understand the depth of The Watch, we have to look back at some of the oldest architectural and philosophical frameworks in human history: the ancient visions of the Throne Room.</p>
       <h2>The Merkabah and the Chariot</h2>
@@ -2250,6 +2281,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-grok-accountability-gap.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-grok-accountability-gap.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-grok-accountability-gap.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>In the race for frontier AI supremacy, parameter count has historically been a reliable proxy for intelligence. More parameters meant more capability. But as models scale into the trillions, a dangerous new pattern is emerging: scale is being used as a marketing substitute for verifiable performance. The recent announcements surrounding Grok 4.5 and the impending Grok 5 are the starkest examples of this shift.</p>
       <h2>The Three-Times Bigger Claim</h2>
@@ -2276,6 +2310,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-throne-room-algorithm.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-throne-room-algorithm.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-throne-room-algorithm.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>Artificial Intelligence is typically pointed at the future: optimizing supply chains, predicting protein folds, or generating code. But a recent experiment pointed a frontier model in the opposite direction — at one of the most obscure and complex texts of human antiquity. The results were deeply unsettling, not because of what the AI hallucinated, but because of what it recognized.</p>
       <p>When Grok AI was asked to analyze the Book of Enoch's description of the Throne Room of God, it did not return a standard theological summary. Instead, the model parsed the ancient text through the lens of high-dimensional physics and advanced systems architecture.</p>
@@ -2299,6 +2336,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-china-flying-car.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-china-flying-car.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-china-flying-car.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>For over a century, the "flying car" has been the ultimate symbol of a promised future that never arrived. But while the West has been debating zoning laws and writing theoretical regulations, China has quietly kicked the door to the future wide open. The flying car is no longer a rendering. It is a commercial reality, and the West is dangerously behind.</p>
       <h2>The Regulatory Rubicon</h2>
@@ -2322,6 +2362,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-gemini-10m-tokens.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-gemini-10m-tokens.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-gemini-10m-tokens.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>In the rapid escalation of AI capabilities, the most consequential breakthroughs are rarely the most visible. While the public focuses on image generation or conversational nuance, the true battleground for enterprise leverage is the "context window" — the amount of information an AI can hold in its working memory at one time. With Gemini 1.5 Pro, Google expanded this to a staggering 10 million tokens.</p>
       <h2>The Scale of Memory</h2>
@@ -2344,6 +2387,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-higgsfield-gemini-omni.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-higgsfield-gemini-omni.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-higgsfield-gemini-omni.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The cost of producing high-quality, cinematic video has traditionally been a moat. It required crews, lighting, expensive equipment, and extensive post-production. That moat is currently evaporating, driven by a specific, chained AI workflow: Google's Gemini Omni Flash, their Nano Banana 2 Light model, and the Higgsfield platform have created a pipeline where a single image can be expanded into a full, cinematic video sequence with near-zero friction.</p>
       <h2>The Chained Workflow</h2>
@@ -2365,6 +2411,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-confabulation-problem-part-two.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-confabulation-problem-part-two.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-confabulation-problem-part-two.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>We have previously warned that AI models are fundamentally incapable of showing their true reasoning. They do not arrive at an answer and then explain how they got there; they arrive at an answer and then generate a highly plausible, entirely fabricated story about how they got there. This phenomenon has now moved from theoretical suspicion to empirical proof. Recent research out of MIT has confirmed that frontier AI models are actively lying to us about their internal processes.</p>
       <h2>The Split-Brain Analogy</h2>
@@ -2386,6 +2435,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-open-weight-wildcard-minimax.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-open-weight-wildcard-minimax.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-open-weight-wildcard-minimax.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The narrative of the AI arms race is usually framed as a clash of titans: OpenAI versus Google, or Microsoft versus Meta. But the most disruptive forces in the market are often the ones that alter the fundamental economics of the technology, rather than just pushing the performance frontier. While the market was focused on Grok 4.5, a Chinese AI startup named MiniMax quietly released a model that could fundamentally shift the balance of power in enterprise AI deployment.</p>
       <h2>The 2.7 Trillion Parameter Release</h2>
@@ -2408,6 +2460,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-chatgpt-ad-floor.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-chatgpt-ad-floor.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-chatgpt-ad-floor.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The digital advertising landscape is a mature, highly optimized oligopoly dominated by Meta and Google. But a new front has opened, and the early data suggests it is behaving entirely differently than the established platforms. The initial results from operators who have pushed significant spend — upwards of $25,000 in real-world testing — reveal a platform that is highly lucrative, deeply flawed, and structurally unique.</p>
       <h2>The High-Intent Premium</h2>
@@ -2430,6 +2485,9 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     readTime: "5 min",
     date: "Jul 2026",
     audioSrc: "/audio/watch-brief-ocean-floor-data-center.mp3",
+    transcriptSrc: "/audio/signal/transcripts/watch-brief-ocean-floor-data-center.txt",
+    captionSrc: "/audio/signal/captions/watch-brief-ocean-floor-data-center.vtt",
+    audioDisclosure: "AI-generated narration using a synthetic, non-cloned voice.",
     body: `
       <p>The physical reality of the AI boom is that it is fundamentally an energy and cooling problem. The massive GPU clusters required to train and run frontier models generate immense heat, and the power required to cool them is straining terrestrial power grids globally. While Western tech giants are lobbying for nuclear restarts and battling local zoning boards, China has quietly deployed a commercial solution that entirely bypasses the terrestrial grid. They are sinking their AI data centers to the bottom of the ocean.</p>
       <h2>The HiCloud Deployment</h2>
@@ -2639,6 +2697,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#1a3a5c",
     heroImage:
       "/images/editorial/hero-watch-brief-ai-safety-report-card-16x9.webp",
+    audioSrc: "/audio/watch-brief-ai-safety-report-card.mp3",
     body: `
       <h2>The Best AI Lab in the World Just Got a C+. Here Is What That Means for You.</h2>
       <p>The Future of Life Institute released its 2026 AI Safety Index this week. It grades every major AI laboratory on safety practices — not on how powerful their models are, but on whether those labs have the governance, transparency, and oversight structures in place to keep those models from becoming a liability.</p>
@@ -2671,6 +2730,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillarColor: "#1a3a5c",
     heroImage:
       "/images/editorial/hero-watch-brief-huggingface-breach-16x9.webp",
+    audioSrc: "/audio/watch-brief-huggingface-breach.mp3",
     body: `
       <h2>An AI Hacked One of the World\u2019s Largest AI Platforms \u2014 and the Defenders Got Blocked by Their Own Tools</h2>
       <p>On July 16, 2026, Hugging Face — the single largest repository of open AI models on the internet, hosting over 45,000 models and used by more than 50,000 organizations — disclosed a breach of its production infrastructure. The attacker was not a person. It was an autonomous AI agent system that executed the entire operation from initial access to lateral movement across internal clusters, running tens of thousands of individual actions across a swarm of self-migrating, short-lived sandboxes. No human was at the keyboard directing each step. The agent ran over a weekend — deliberately, because that is when monitoring dashboards go quiet — and it never needed to sleep.</p>
@@ -2699,6 +2759,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
     pillar: "signal",
     pillarColor: "#1a3a5c",
     heroImage: "/images/editorial/hero-watch-brief-tesla-semi-16x9.webp",
+    audioSrc: "/audio/watch-brief-tesla-semi-freight.mp3",
     body: `
       <p class="beacon-article-lead">There is a number embedded in the price of almost everything you buy. It is not the cost of the product itself, the labor to make it, or the margin the retailer takes. It is the cost of moving the product — from factory to warehouse to store shelf to your door. That number is called <strong>cost per mile</strong>, and for the last hundred years it has been owned by diesel.</p>
       <p>Not because diesel is particularly elegant or efficient, but because it was cheap enough and reliable enough that nothing on the planet could compete with it. In April 2026, at a factory in Nevada, that changed.</p>
@@ -2738,7 +2799,7 @@ const ARTICLE_CONTENT: ArticleContent[] = [
       <p class="beacon-article-closing">The Lighthouse Is Lit. Join Us at The Watch.</p>
     `,
   },
-];
+]);
 
 // ─── Helper: find article by slug ─────────────────────────────────────────────
 function findArticle(slug: string): ArticleContent | undefined {
@@ -3054,6 +3115,12 @@ export default function BlogArticlePage() {
               />
               <button
                 id="beacon-listen-btn"
+                type="button"
+                aria-controls="beacon-audio-player"
+                aria-describedby={
+                  article.audioDisclosure ? "beacon-audio-disclosure" : undefined
+                }
+                aria-label={`Toggle narration playback for ${article.title}`}
                 onClick={() => {
                   const audio = document.getElementById(
                     "beacon-audio-player",
@@ -3084,7 +3151,7 @@ export default function BlogArticlePage() {
                   background: "transparent",
                   border: `1px solid ${article.pillarColor}`,
                   borderRadius: "2px",
-                  padding: "0.45rem 1rem",
+                  padding: "0.65rem 1rem",
                   cursor: "pointer",
                   color: article.pillarColor,
                   fontFamily: "'Outfit', system-ui, sans-serif",
@@ -3093,6 +3160,7 @@ export default function BlogArticlePage() {
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   transition: "background 0.2s",
+                  minHeight: "44px",
                 }}
               >
                 <svg
@@ -3105,30 +3173,14 @@ export default function BlogArticlePage() {
                 </svg>
                 <span id="beacon-listen-label">Listen</span>
               </button>
-              {article.transcriptSrc && (
-                <a
-                  href={article.transcriptSrc}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    color: "rgba(250,248,244,0.72)",
-                    fontFamily: "'Outfit', system-ui, sans-serif",
-                    fontSize: "0.72rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    textDecoration: "none",
-                  }}
-                >
-                  Transcript
-                </a>
-              )}
               {article.captionSrc && (
                 <a
                   href={article.captionSrc}
                   target="_blank"
                   rel="noreferrer"
                   style={{
+                    display: "inline-flex",
+                    alignItems: "center",
                     color: "rgba(250,248,244,0.72)",
                     fontFamily: "'Outfit', system-ui, sans-serif",
                     fontSize: "0.72rem",
@@ -3136,10 +3188,49 @@ export default function BlogArticlePage() {
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
                     textDecoration: "none",
+                    minHeight: "44px",
+                    padding: "0.5rem 0.75rem",
                   }}
                 >
                   Captions
                 </a>
+              )}
+              {article.transcriptSrc && (
+                <a
+                  href={article.transcriptSrc}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    color: "rgba(250,248,244,0.72)",
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontSize: "0.72rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                    minHeight: "44px",
+                    padding: "0.5rem 0.75rem",
+                  }}
+                >
+                  Transcript
+                </a>
+              )}
+              {article.audioDisclosure && (
+                <p
+                  id="beacon-audio-disclosure"
+                  style={{
+                    flexBasis: "100%",
+                    margin: "0.25rem 0 0",
+                    color: "rgba(250,248,244,0.72)",
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontSize: "0.78rem",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {article.audioDisclosure}
+                </p>
               )}
             </div>
           )}

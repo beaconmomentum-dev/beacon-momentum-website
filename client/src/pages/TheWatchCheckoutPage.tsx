@@ -166,7 +166,7 @@ export default function TheWatchCheckoutPage() {
       <header style={{ borderBottom: `1px solid ${C.line}`, background: "rgba(7,21,35,0.96)" }}>
         <div className="container" style={{ minHeight: "76px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
           <BeaconRouteLockup descriptor="The Watch · Secure enrollment" href="/the-watch" textColor={C.cream} mutedColor={C.mist} compact />
-          <button onClick={() => navigate("/the-watch")} style={{ background: "transparent", border: 0, color: C.mist, cursor: "pointer", fontSize: "0.84rem" }}>← Review membership</button>
+          <button type="button" onClick={() => navigate("/the-watch")} style={{ background: "transparent", border: 0, color: C.mist, cursor: "pointer", fontSize: "0.84rem", minHeight: "44px", minWidth: "44px", boxSizing: "border-box", padding: "0.5rem 0.75rem" }}>← Review membership</button>
         </div>
       </header>
 
@@ -236,7 +236,7 @@ export default function TheWatchCheckoutPage() {
         </div>
         <div className="container" style={{ marginTop: "1.25rem" }}>
           <p style={{ margin: 0, color: "rgba(247,241,229,0.52)", fontSize: "0.78rem", lineHeight: 1.6 }}>
-            Questions before enrollment? Contact <a href="mailto:support@beaconmomentum.com" style={{ color: C.alert }}>support@beaconmomentum.com</a>. Cancellation, payment-failure, re-enrollment, privacy, and refund terms apply as published by Beacon Momentum LLC.
+            Questions before enrollment? Contact <a href="mailto:support@beaconmomentum.com" style={{ color: C.alert, display: "inline-block", minHeight: "44px", boxSizing: "border-box", verticalAlign: "middle" }}>support@beaconmomentum.com</a>. Cancellation, payment-failure, re-enrollment, privacy, and refund terms apply as published by Beacon Momentum LLC.
           </p>
         </div>
       </section>

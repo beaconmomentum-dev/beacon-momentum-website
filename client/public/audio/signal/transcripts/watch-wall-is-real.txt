@@ -1,0 +1,39 @@
+The Wall Is Real
+
+The era of shipping your best model and seeing what happens ended June 12th. One lab hit the wall, negotiated its way back, and is now permanently inside a relationship with Washington it did not choose. Another is still running toward the same wall at full speed.
+
+The era of shipping your best model and seeing what happens ended on June 12th, 2026. One lab learned that lesson, came back changed, and is now permanently inside a relationship with Washington it did not choose. Another lab is still running toward the same wall at full speed, marketing AGI before it ships, with no regulatory clearance and near-zero enterprise trust.
+
+Both stories are worth understanding. Not because of the models themselves — but because of what they reveal about the landscape you are building in.
+
+The Lab That Went Dark
+
+On June 12th, the Department of Commerce issued an export directive that pulled Claude Fable 5 — at the time the most capable publicly available AI model on Earth — offline globally. The trigger was a report from Amazon researchers describing a method of bypassing Fable 5's safeguards to identify software vulnerabilities.
+
+Eighteen days later, the investigation concluded. The finding: the capability that triggered the shutdown existed in practically every frontier model on the market, including Claude Haiku — Anthropic's smallest, cheapest model — and Kimmy K2.7, a Chinese open-weight model the US government has no authority over whatsoever. The emergency brake was pulled over something the entire industry already had.
+
+Fable 5 came back on July 1st. But it came back changed. To secure the return, Anthropic trained a new automated classifier that blocks the specific technique in more than 99% of cases. The returning model was redesigned to abort security-adjacent tasks more readily, with a fallback that swaps in the previous-generation model mid-task when the classifier fires. Anthropic acknowledged this will produce false positives on legitimate coding and debugging work.
+
+The deeper concession is structural. Anthropic committed to pre-release government access for all future frontier models, faster intelligence sharing on jailbreaks, and participation in the inter-agency vulnerability sharing center established under the June 2nd executive order. The US government now tests Anthropic's models before the public does. Four months ago, the Pentagon labeled Anthropic a supply chain risk. Today, they are partners.
+
+The secondary story from that same week is the one most coverage buried. Anthropic launched Claude Sonnet 5 the same day Fable returned — near-flagship performance at $2 per million input tokens, against Fable 5's $1,050. An 80% price reduction for performance in the neighborhood of last month's flagship. Sonnet 5 was also deliberately trained with zero cybersecurity datasets, producing a 0% success rate on exploit generation in independent testing. Anthropic learned exactly where the regulatory tripwire is and built its volume model to be constitutionally incapable of crossing it.
+
+The Lab Running Toward the Same Wall
+
+XAI has been moving fast. By mid-2026, Musk is describing a model trained on Colossus 2 with a possible 6 to 10 trillion parameters, multimodal across text, image, video, and audio, with direct access to X's live data feed — roughly 68 million posts per day — giving it real-time knowledge no closed model with a fixed training cutoff can match.
+
+The AGI claim comes from Musk himself: a 10% probability that Grok 5 achieves something close to artificial general intelligence. That number originated in a Twitter poll. It is not a scientific estimate. Andrej Karpathy, former OpenAI and Tesla AI lead, has stated plainly that AGI is still years away.
+
+As of mid-2026, Grok 5 has not shipped. There are zero public benchmarks. Everything known about the model comes from Musk's own statements. Reuters found that despite being free or heavily discounted for government use, just three of over 400 federal AI projects use Grok. Enterprise usage numbers went down, not up. FedRAMP High certification, required for serious government deployment, has not been cleared.
+
+XAI's public posture is move fast. Alignment work appears to be running a step behind capability, not ahead of it. That is the same trade-off that triggered the Fable 5 shutdown — capability shipped before the regulatory framework had a place to put it.
+
+What This Means for Builders
+
+The two stories together draw a clear line. The labs that survive the next phase of AI regulation are the ones that built the relationship before the directive came — not the ones scrambling to negotiate after the shutdown order.
+
+For builders, the lesson is not about which model to use. It is about understanding the infrastructure you are building on. SaaS dependencies on frontier models are not just vendor lock-in risks. They are regulatory exposure. A model that is available today can be dark tomorrow — not because the technology failed, but because a competitor filed a report and a government agency pulled the brake.
+
+The builders who are positioned for the next 18 months are the ones running on open-weight models they control, on infrastructure they own, with workflows that do not depend on a single API that can be switched off by executive order.
+
+That is not paranoia. That is the lesson Fable 5's 18 days in the dark already taught.

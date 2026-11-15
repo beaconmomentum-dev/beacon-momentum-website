@@ -1,6 +1,7 @@
 export const SEPTEMBER_ARTICLE_CONTENT = [
   {
     id: "young-adults-already-in-the-ai-conversation",
+    audioSrc: "/audio/signal/young-adults-already-in-the-ai-conversation.mp3",
     title: "Young Adults Are Already in the AI Conversation. Are We?",
     excerpt:
       "Young adults and students are already using AI while questioning its effect on work, learning, and connection. The useful response is not a lecture from the shoreline, but better orientation and clearer human support.",
@@ -9,6 +10,7 @@ export const SEPTEMBER_ARTICLE_CONTENT = [
     readTime: "8 min read",
     pillar: "Life",
     pillarColor: "#2A9D8F",
+    heroImage: "/images/editorial/hero-ai-transition-16x9.webp",
     featured: true,
     body: `
       <p class="beacon-article-lede">Young adults are already in the AI conversation. Many are using these tools. Many are questioning them. Many are trying to work out what belongs to a tool, what still belongs to a teacher or mentor, and what kind of future they are being asked to prepare for.</p>
@@ -97,6 +99,8 @@ export const SEPTEMBER_ARTICLE_CONTENT = [
     readTime: "7 min read",
     pillar: "Systems",
     pillarColor: "#3D5A80",
+    heroImage: "/images/editorial/hero-wisdom-information-16x9.webp",
+    audioSrc: "/audio/when-the-past-gains-new-light.mp3",
     body: `
       <p class="beacon-article-lede">New tools, new images, new laboratory methods, and new ways of comparing evidence can change what scholars are able to see. That does not make history unstable. It makes history a living discipline: one that learns more when new evidence is examined with care.</p>
 

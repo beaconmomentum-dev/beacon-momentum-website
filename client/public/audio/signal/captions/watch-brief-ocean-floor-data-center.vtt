@@ -1,0 +1,226 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.060
+The Ocean Floor Data Center: China's
+Underwater AI Infrastructure
+
+2
+00:00:04.060 --> 00:00:09.220
+Play HiCloud has sunk 2,000 AI computers
+35 meters
+
+3
+00:00:09.220 --> 00:00:10.520
+off the coast of Shanghai.
+
+4
+00:00:11.140 --> 00:00:14.380
+Seawater cooling eliminates 40% of power
+costs.
+
+5
+00:00:14.780 --> 00:00:17.400
+China Telecom is already running live
+workloads.
+
+6
+00:00:17.900 --> 00:00:20.260
+Microsoft proved the concept and walked
+away.
+
+7
+00:00:21.080 --> 00:00:23.540
+The physical reality of the AI boom is
+that
+
+8
+00:00:23.540 --> 00:00:25.580
+it is fundamentally an energy and cooling
+problem.
+
+9
+00:00:25.580 --> 00:00:28.440
+The massive GPU clusters required to train
+and run
+
+10
+00:00:28.440 --> 00:00:31.180
+frontier models generate immense heat, and
+the power required
+
+11
+00:00:31.180 --> 00:00:33.560
+to cool them is straining terrestrial
+power grids globally.
+
+12
+00:00:34.060 --> 00:00:36.460
+While Western tech giants are lobbying for
+nuclear restarts
+
+13
+00:00:36.460 --> 00:00:39.460
+and battling local zoning boards, China
+has quietly deployed
+
+14
+00:00:39.460 --> 00:00:42.680
+a commercial solution that entirely
+bypasses the terrestrial grid.
+
+15
+00:00:43.200 --> 00:00:45.920
+They are sinking their AI data centers to
+the
+
+16
+00:00:45.920 --> 00:00:46.800
+bottom of the ocean.
+
+17
+00:00:47.320 --> 00:00:50.820
+The HiCloud Deployment Off the coast of
+Shanghai, a
+
+18
+00:00:50.820 --> 00:00:55.353
+Chinese company named HiCloud has deployed
+2,000 AI-optimized computers
+
+19
+00:00:55.517 --> 00:00:59.480
+sealed inside massive, waterproof capsules
+sunk 35 meters below
+
+20
+00:00:59.480 --> 00:01:03.020
+the ocean surface. This is not a
+theoretical experiment.
+
+21
+00:01:03.440 --> 00:01:06.720
+China Telecom is already using this
+underwater infrastructure for
+
+22
+00:01:06.720 --> 00:01:11.600
+live, production workloads. The
+engineering logic is brutally efficient:
+
+23
+00:01:11.900 --> 00:01:16.160
+at 35 meters depth, ambient seawater
+provides continuous, free
+
+24
+00:01:16.160 --> 00:01:19.460
+cooling — eliminating the HVAC systems
+that consume up
+
+25
+00:01:19.460 --> 00:01:22.600
+to 40% of a land-based data center's total
+power
+
+26
+00:01:22.600 --> 00:01:26.120
+draw. The facility is powered directly by
+nearby offshore
+
+27
+00:01:26.120 --> 00:01:30.960
+wind farms. The Commercialization Gap
+Microsoft pioneered the concept
+
+28
+00:01:30.960 --> 00:01:33.580
+with Project Natick, testing underwater
+servers off the coast
+
+29
+00:01:33.580 --> 00:01:36.760
+of Scotland. Microsoft's results were
+highly positive — the
+
+30
+00:01:36.760 --> 00:01:39.320
+underwater servers actually failed far
+less often than land-based
+
+31
+00:01:39.320 --> 00:01:42.160
+ones. Yet Microsoft shut the project down
+in 2024.
+
+32
+00:01:42.520 --> 00:01:45.420
+The geopolitical signal is stark: the
+United States demonstrated
+
+33
+00:01:45.420 --> 00:01:48.680
+the concept, validated the physics,
+confirmed the reliability advantages,
+
+34
+00:01:48.940 --> 00:01:50.320
+and then abandoned the commercialization.
+
+35
+00:01:51.200 --> 00:01:54.820
+China took the abandoned concept, scaled
+it to 2,000
+
+36
+00:01:54.820 --> 00:01:58.040
+servers, integrated it with offshore wind,
+and turned it
+
+37
+00:01:58.040 --> 00:01:59.700
+into a live commercial product.
+
+38
+00:02:00.500 --> 00:02:03.720
+The Implication for The Watch The West is
+currently
+
+39
+00:02:03.720 --> 00:02:06.200
+focused on restricting China's access to
+chips.
+
+40
+00:02:06.460 --> 00:02:08.900
+But if China can establish a structural
+cost and
+
+41
+00:02:08.900 --> 00:02:11.600
+scaling advantage in the physical
+infrastructure required to run
+
+42
+00:02:11.600 --> 00:02:13.780
+those chips, the balance of power in the
+AI
+
+43
+00:02:13.780 --> 00:02:15.760
+race will shift from who has the best
+silicon
+
+44
+00:02:15.760 --> 00:02:18.500
+to who has the cheapest, most scalable
+power and
+
+45
+00:02:18.500 --> 00:02:21.220
+cooling. Right now, the cheapest cooling
+is at the
+
+46
+00:02:21.220 --> 00:02:22.040
+bottom of the ocean.

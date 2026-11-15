@@ -1,0 +1,21 @@
+Gemini 5: What Google Got Right and What the Benchmarks Miss
+
+Google's Gemini 5 is a genuine leap. But the most important story is not the benchmark scores — it is the pricing structure and what it signals about where the AI market is heading.
+
+The frontier AI model race is crowded, and Google is preparing its next major leap. While official announcements are pending, the trajectory of Google's AI development points clearly toward the architecture, capabilities, and market positioning of Gemini 5. The story is not about benchmark supremacy — it is about structural advantage.
+
+The Architectural Bet: Mixture of Experts
+
+The defining characteristic of Gemini 5 will almost certainly be a massive expansion of the Mixture of Experts (MoE) architecture. Instead of a single monolithic model that activates for every query, MoE divides the system into specialized sub-networks. Only the relevant "experts" activate for a specific task. This allows Google to build a model with a vastly larger total parameter count without a proportional increase in the computational cost per query. It is the only viable path to scaling intelligence economically.
+
+Context Windows and the Agentic Shift
+
+Google has already pushed context windows further than anyone else (up to 2 million tokens in Gemini 1.5 Pro). Gemini 5 is expected to maintain or expand this, but the focus will shift from simply reading massive documents to acting on them. The industry is moving from chatbots to agents. Gemini 5 is being designed to integrate deeply into Google's ecosystem — Workspace, Android, Search — to execute multi-step workflows autonomously.
+
+The Pricing Strategy
+
+Google's pricing tiers are established and predictable. Consumer tiers range from entry-level ($8-$10/month) to Ultra (~$50/month). Enterprise integration runs through Google Workspace at approximately $21/seat/month. Developer access is metered via Vertex AI. Gemini 5's most powerful capabilities will launch behind the Ultra and Enterprise paywalls first — a deliberate strategy to monetize the frontier while maintaining broad market presence at lower tiers.
+
+The Bottom Line
+
+Gemini 5's job is not to win every benchmark by a fraction of a point. Its job is to leverage Google's structural advantages — massive scale, live search integration, and enterprise reach — to deliver a highly capable, agentic model that is economically viable to run at global scale. The company that owns the infrastructure owns the future.

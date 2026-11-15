@@ -1,0 +1,995 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.960
+The Cloud Has a Seabed The cloud is
+supported
+
+2
+00:00:02.960 --> 00:00:07.040
+by physical routes, landing stations,
+repair systems, and human
+
+3
+00:00:07.040 --> 00:00:11.280
+decisions. A practical resilience brief
+for organizations that need
+
+4
+00:00:11.280 --> 00:00:13.440
+to know what happens when the normal path
+is
+
+5
+00:00:13.440 --> 00:00:18.560
+unavailable. Most organizations experience
+the internet as a service.
+
+6
+00:00:19.080 --> 00:00:21.900
+A page loads, a payment clears, a video
+call
+
+7
+00:00:21.900 --> 00:00:24.680
+begins, and the physical path disappears
+from view.
+
+8
+00:00:25.420 --> 00:00:27.000
+That path is not abstract.
+
+9
+00:00:27.440 --> 00:00:30.500
+Submarine telecommunications cables form
+the backbone of international digital
+
+10
+00:00:30.500 --> 00:00:33.700
+connectivity. The International Cable
+Protection Committee says the global
+
+11
+00:00:33.700 --> 00:00:37.140
+network includes approximately 500 cable
+systems and about 1.8
+
+12
+00:00:37.140 --> 00:00:38.880
+million kilometres of cable
+infrastructure.
+
+13
+00:00:39.220 --> 00:00:42.520
+The International Telecommunication Union
+describes submarine cables as carrying
+
+14
+00:00:42.520 --> 00:00:44.900
+more than 99 percent of worldwide data
+traffic.
+
+15
+00:00:45.200 --> 00:00:48.820
+Source 1 Source 2 This matters because a
+system
+
+16
+00:00:48.820 --> 00:00:51.080
+can be highly efficient and still have a
+narrow
+
+17
+00:00:51.080 --> 00:00:54.400
+margin for failure. A company may have
+cloud redundancy,
+
+18
+00:00:54.600 --> 00:00:57.240
+multiple vendors, and a reliable office
+connection.
+
+19
+00:00:57.600 --> 00:01:00.200
+None of that automatically tells it how
+dependent its
+
+20
+00:01:00.200 --> 00:01:03.720
+work is on particular landing points,
+routes, providers, repair
+
+21
+00:01:03.720 --> 00:01:05.420
+arrangements, or regional corridors.
+
+22
+00:01:06.280 --> 00:01:08.980
+The question is not whether the internet
+is about
+
+23
+00:01:08.980 --> 00:01:10.660
+to disappear. It is not.
+
+24
+00:01:10.840 --> 00:01:14.640
+The better question is simpler and more
+useful: If
+
+25
+00:01:14.640 --> 00:01:17.900
+a critical connection became unavailable,
+what would still work,
+
+26
+00:01:18.020 --> 00:01:20.180
+what would slow down, and what would the
+organization
+
+27
+00:01:20.180 --> 00:01:23.400
+do next? Cable faults are routine.
+
+28
+00:01:23.600 --> 00:01:25.460
+That does not make resilience optional.
+
+29
+00:01:26.080 --> 00:01:31.100
+The ICPC reports approximately 150 to 200
+submarine telecommunications
+
+30
+00:01:31.100 --> 00:01:32.760
+cable faults globally each year.
+
+31
+00:01:32.980 --> 00:01:35.540
+It also reports that roughly 70 to 80
+percent
+
+32
+00:01:35.540 --> 00:01:38.920
+result from accidental human activity,
+especially commercial fishing and
+
+33
+00:01:38.920 --> 00:01:42.840
+ships’ anchors. Other causes include
+equipment failure, abrasion, storms,
+
+34
+00:01:43.060 --> 00:01:45.320
+seafloor movement, landslides, and
+sediment flows.
+
+35
+00:01:45.780 --> 00:01:48.800
+Source 1 That figure needs careful
+handling.
+
+36
+00:01:49.140 --> 00:01:51.620
+It is a global annual count for submarine
+telecommunications
+
+37
+00:01:51.860 --> 00:01:53.820
+cables. It is not a probability that a
+particular
+
+38
+00:01:53.820 --> 00:01:55.920
+company will lose service, and it does not
+include
+
+39
+00:01:55.920 --> 00:01:57.540
+every kind of subsea power cable fault.
+
+40
+00:01:57.700 --> 00:01:59.960
+The ICPC also notes that the cable network
+has
+
+41
+00:01:59.960 --> 00:02:02.260
+grown substantially while the annual fault
+count has remained
+
+42
+00:02:02.260 --> 00:02:04.740
+broadly stable. On that measure, the
+global fault rate
+
+43
+00:02:04.740 --> 00:02:07.660
+per kilometre has declined as installation
+and burial practices
+
+44
+00:02:07.660 --> 00:02:12.140
+have improved. Source 1 The important
+distinction is between
+
+45
+00:02:12.140 --> 00:02:14.680
+routine fault frequency and consequence
+concentration.
+
+46
+00:02:15.120 --> 00:02:17.600
+Most faults do not create a visible global
+outage.
+
+47
+00:02:17.600 --> 00:02:20.160
+Traffic can be rerouted, and the affected
+cable can
+
+48
+00:02:20.160 --> 00:02:22.120
+be repaired through the industry’s
+maintenance system.
+
+49
+00:02:22.420 --> 00:02:25.580
+The same ICPC factsheet says two Baltic
+cables damaged
+
+50
+00:02:25.580 --> 00:02:28.520
+in November 2024 were repaired within two
+weeks without
+
+51
+00:02:28.520 --> 00:02:33.360
+service interruption. Source 1 Routine
+repair capacity is a
+
+52
+00:02:33.590 --> 00:02:36.140
+resilience strength. It is not a reason to
+assume
+
+53
+00:02:36.140 --> 00:02:39.800
+that every location, customer, or service
+has equal protection.
+
+54
+00:02:40.280 --> 00:02:44.460
+The consequences depend on geography,
+available alternate routes, spare
+
+55
+00:02:44.460 --> 00:02:48.040
+capacity, permitting, weather, repair
+access, and the importance of
+
+56
+00:02:48.040 --> 00:02:51.640
+the affected connection. The problem is
+not only the
+
+57
+00:02:51.640 --> 00:02:53.600
+cable. It is the system around it.
+
+58
+00:02:54.120 --> 00:02:57.820
+The ITU’s 2026 report on submarine cable
+resilience identifies
+
+59
+00:02:57.820 --> 00:03:01.460
+several challenges: physical exposure,
+longer repair times, geographical
+
+60
+00:03:01.460 --> 00:03:04.920
+concentration, and the dependence of many
+countries—especially small island
+
+61
+00:03:04.920 --> 00:03:07.480
+developing states and other underserved
+regions—on a small number
+
+62
+00:03:07.480 --> 00:03:10.800
+of cable systems. Its recommendations
+emphasize timely deployment and
+
+63
+00:03:10.800 --> 00:03:14.300
+repair, risk monitoring, route diversity,
+infrastructure redundancy, coordination,
+
+64
+00:03:14.660 --> 00:03:17.640
+and preparedness. Source 2 The U.S.
+
+65
+00:03:17.980 --> 00:03:20.160
+Department of State’s 2024 joint statement
+makes the same
+
+66
+00:03:20.160 --> 00:03:21.460
+point from a policy perspective.
+
+67
+00:03:22.020 --> 00:03:24.500
+Undersea cable infrastructure includes
+more than the cable itself.
+
+68
+00:03:24.780 --> 00:03:28.460
+It includes landing stations, software,
+terrestrial connections, repair centres,
+
+69
+00:03:28.460 --> 00:03:30.580
+and the vessels used for deployment,
+maintenance, and repair.
+
+70
+00:03:30.940 --> 00:03:34.060
+The statement calls for resilience,
+redundancy, security, route diversity,
+
+71
+00:03:34.260 --> 00:03:36.880
+regular risk assessment, and closer
+government-industry coordination.
+
+72
+00:03:37.460 --> 00:03:41.480
+Source 3 That wider definition changes how
+a business
+
+73
+00:03:41.480 --> 00:03:43.020
+should think about continuity.
+
+74
+00:03:43.320 --> 00:03:45.660
+A cable is not a standalone object.
+
+75
+00:03:45.660 --> 00:03:47.900
+It is one part of a chain that includes:
+
+76
+00:03:47.900 --> 00:03:53.460
+the physical route; the landing station;
+the terrestrial network
+
+77
+00:03:53.460 --> 00:03:57.520
+on either side; the cloud or carrier
+provider; the
+
+78
+00:03:57.520 --> 00:04:02.600
+organization’s DNS, identity, and
+communications systems; the repair and
+
+79
+00:04:02.600 --> 00:04:06.220
+maintenance arrangements; and the people
+who must decide what
+
+80
+00:04:06.220 --> 00:04:07.400
+to do during degradation.
+
+81
+00:04:08.270 --> 00:04:10.960
+A failure anywhere in that chain can
+become an
+
+82
+00:04:10.960 --> 00:04:14.760
+operational problem even if the global
+internet remains available.
+
+83
+00:04:15.660 --> 00:04:19.840
+Why “redundant” does not always mean
+“ready” Redundancy is
+
+84
+00:04:19.840 --> 00:04:22.180
+often treated as a yes-or-no property.
+
+85
+00:04:22.460 --> 00:04:24.880
+A company either has a backup, or it does
+
+86
+00:04:24.880 --> 00:04:27.340
+not. Real resilience is more demanding.
+
+87
+00:04:28.420 --> 00:04:30.760
+A backup path has to be independent enough
+to
+
+88
+00:04:30.760 --> 00:04:32.720
+help. It must have usable capacity.
+
+89
+00:04:33.040 --> 00:04:35.080
+It must be reachable by the systems that
+need
+
+90
+00:04:35.080 --> 00:04:37.260
+it. The organization must know how to
+switch to
+
+91
+00:04:37.260 --> 00:04:39.160
+it. People must have practiced the switch.
+
+92
+00:04:39.860 --> 00:04:44.060
+Authentication, DNS, email, payment,
+support, and data-recovery procedures must
+
+93
+00:04:44.060 --> 00:04:46.380
+still function while the primary path is
+impaired.
+
+94
+00:04:47.120 --> 00:04:49.940
+Two connections that enter the same
+building through the
+
+95
+00:04:49.940 --> 00:04:52.960
+same regional corridor may provide less
+resilience than their
+
+96
+00:04:52.960 --> 00:04:56.420
+labels suggest. Two cloud regions may
+share a provider,
+
+97
+00:04:56.620 --> 00:04:58.700
+identity dependency, or network route.
+
+98
+00:04:59.100 --> 00:05:02.040
+A second communications application may
+not help if the
+
+99
+00:05:02.040 --> 00:05:05.520
+same account, phone number, or single
+sign-on system controls
+
+100
+00:05:05.520 --> 00:05:10.560
+both. This is why the ITU emphasizes
+geographical diversity
+
+101
+00:05:10.560 --> 00:05:13.440
+and why the State Department statement
+calls for route
+
+102
+00:05:13.440 --> 00:05:17.120
+planning, alternative routes, and regular
+risk assessment across the
+
+103
+00:05:17.120 --> 00:05:22.200
+cable lifecycle. Source 2 Source 3 The
+security question
+
+104
+00:05:22.200 --> 00:05:27.120
+requires restraint Recent cable incidents
+have attracted attention because
+
+105
+00:05:27.120 --> 00:05:30.740
+some occurred in politically sensitive
+waters and involved vessels,
+
+106
+00:05:31.060 --> 00:05:34.080
+anchors, or routes that raised questions
+about intent.
+
+107
+00:05:34.420 --> 00:05:36.040
+Those questions are legitimate.
+
+108
+00:05:36.320 --> 00:05:37.620
+They are not the same as proof.
+
+109
+00:05:38.300 --> 00:05:41.820
+The ICPC says it does not investigate
+individual incidents
+
+110
+00:05:41.820 --> 00:05:44.560
+or speculate about whether a particular
+event was accidental
+
+111
+00:05:44.927 --> 00:05:47.120
+or deliberate. It also says it has no
+verified
+
+112
+00:05:47.120 --> 00:05:50.880
+data establishing state-sponsored
+submarine cable sabotage since the Second
+
+113
+00:05:50.880 --> 00:05:54.560
+World War, while acknowledging that
+deliberate damage, theft, vandalism,
+
+114
+00:05:54.560 --> 00:05:57.460
+and incidents with unverifiable intent
+remain possible.
+
+115
+00:05:57.620 --> 00:06:01.420
+Source 1 That is a useful discipline for
+public
+
+116
+00:06:01.420 --> 00:06:05.600
+discussion. Cable security has to address
+malicious interference, but
+
+117
+00:06:05.600 --> 00:06:08.620
+the operational response to a damaged
+cable begins with
+
+118
+00:06:08.620 --> 00:06:12.440
+measures that also reduce ordinary
+accidents: better route knowledge,
+
+119
+00:06:12.720 --> 00:06:17.180
+careful anchoring, coordination with
+marine users, monitoring, rerouting, and
+
+120
+00:06:17.180 --> 00:06:21.300
+timely repair. A dramatic theory is not a
+continuity
+
+121
+00:06:21.300 --> 00:06:25.120
+plan. An organization cannot wait for a
+public attribution
+
+122
+00:06:25.120 --> 00:06:28.960
+decision before mapping its dependencies
+or testing its fallback
+
+123
+00:06:28.960 --> 00:06:33.040
+communications. What the cloud’s physical
+layer means for AI
+
+124
+00:06:33.600 --> 00:06:36.820
+Artificial intelligence adds another
+reason to take this infrastructure
+
+125
+00:06:36.820 --> 00:06:41.040
+seriously. Training, serving, and
+coordinating large digital systems can
+
+126
+00:06:41.040 --> 00:06:43.560
+move substantial data among facilities and
+regions.
+
+127
+00:06:43.960 --> 00:06:45.840
+The growth of AI does not prove that a
+
+128
+00:06:45.840 --> 00:06:48.280
+particular cable route is unsafe, and it
+does not
+
+129
+00:06:48.280 --> 00:06:50.140
+mean that a cable fault will stop an AI
+
+130
+00:06:50.140 --> 00:06:53.880
+service. It does mean that digital
+concentration deserves attention.
+
+131
+00:06:54.680 --> 00:06:58.360
+The State Department statement describes
+the broader pattern: more
+
+132
+00:06:58.360 --> 00:07:02.540
+connected communications infrastructure
+creates greater dependency and introduces
+
+133
+00:07:02.540 --> 00:07:07.540
+vulnerabilities. Source 3 The ITU’s
+resilience recommendations focus on
+
+134
+00:07:07.540 --> 00:07:11.960
+the same basic response: diversity,
+monitoring, preparedness, and coordinated
+
+135
+00:07:11.960 --> 00:07:16.340
+repair. Source 2 The practical lesson is
+not to
+
+136
+00:07:16.340 --> 00:07:19.120
+fear “the cloud.” It is to stop treating
+the
+
+137
+00:07:19.120 --> 00:07:22.280
+cloud as weightless. Every service has a
+physical and
+
+138
+00:07:22.280 --> 00:07:26.600
+organizational path. Responsible adoption
+means understanding enough of that
+
+139
+00:07:26.600 --> 00:07:29.140
+path to make good decisions when the
+normal path
+
+140
+00:07:29.140 --> 00:07:34.360
+is unavailable. A small organization’s
+first resilience map A
+
+141
+00:07:34.360 --> 00:07:37.060
+small business does not need to model the
+entire
+
+142
+00:07:37.060 --> 00:07:40.300
+global cable network. It does need a
+short, honest
+
+143
+00:07:40.300 --> 00:07:42.500
+inventory of what would interrupt its
+work.
+
+144
+00:07:43.400 --> 00:07:45.660
+Start with the work that cannot stop for a
+
+145
+00:07:45.660 --> 00:07:49.060
+day. List the systems involved in
+receiving an inquiry,
+
+146
+00:07:49.340 --> 00:07:52.480
+accepting a payment, delivering a product,
+communicating with a
+
+147
+00:07:52.480 --> 00:07:55.120
+customer, and recovering the business
+after an error.
+
+148
+00:07:56.180 --> 00:07:58.500
+For each system, record: First.
+
+149
+00:07:58.500 --> 00:07:59.900
+The service and its owner.
+
+150
+00:08:00.040 --> 00:08:02.360
+Who provides it, and who inside the
+business can
+
+151
+00:08:02.360 --> 00:08:04.700
+make a change? Second.
+
+152
+00:08:04.700 --> 00:08:08.840
+The dependency path. What domain, identity
+provider, email account,
+
+153
+00:08:09.120 --> 00:08:12.380
+payment processor, cloud region, or
+network connection does it
+
+154
+00:08:12.380 --> 00:08:15.220
+rely on? Third. The fallback.
+
+155
+00:08:15.380 --> 00:08:17.780
+What is the practical alternative if the
+service is
+
+156
+00:08:17.780 --> 00:08:20.540
+slow or unreachable? Fourth.
+
+157
+00:08:20.720 --> 00:08:23.200
+The switching rule. Who decides to use the
+fallback,
+
+158
+00:08:23.200 --> 00:08:25.160
+and what evidence triggers that decision?
+
+159
+00:08:26.040 --> 00:08:27.640
+Fifth. The recovery record.
+
+160
+00:08:27.800 --> 00:08:29.420
+What was tested, when, and what failed?
+
+161
+00:08:29.420 --> 00:08:33.320
+This map is valuable even when no cable
+problem
+
+162
+00:08:33.320 --> 00:08:37.420
+occurs. It exposes single points of
+failure, forgotten credentials,
+
+163
+00:08:37.800 --> 00:08:40.760
+unclear ownership, and backups that exist
+on paper but
+
+164
+00:08:40.760 --> 00:08:41.840
+have never been used.
+
+165
+00:08:42.600 --> 00:08:46.300
+What to watch next The most useful
+indicators are
+
+166
+00:08:46.300 --> 00:08:49.260
+not viral claims that a particular outage
+proves an
+
+167
+00:08:49.260 --> 00:08:52.440
+act of war. They are measurable changes in
+resilience:
+
+168
+00:08:53.520 --> 00:08:58.100
+whether governments and operators improve
+route diversity; whether repair
+
+169
+00:08:58.100 --> 00:09:02.840
+capacity and permitting become faster;
+whether vulnerable regions gain
+
+170
+00:09:02.840 --> 00:09:07.800
+practical alternate paths; whether
+organizations test degraded operations
+
+171
+00:09:07.800 --> 00:09:12.360
+rather than only normal uptime; whether
+cable monitoring and
+
+172
+00:09:12.360 --> 00:09:17.280
+incident reporting become more
+transparent; and whether AI and
+
+173
+00:09:17.280 --> 00:09:21.320
+cloud operators explain important
+dependency and recovery assumptions
+
+174
+00:09:21.320 --> 00:09:25.300
+clearly. The public record supports a
+balanced conclusion.
+
+175
+00:09:25.720 --> 00:09:27.880
+Submarine cables are critical
+infrastructure.
+
+176
+00:09:28.180 --> 00:09:29.860
+Faults are common enough to be routine.
+
+177
+00:09:30.020 --> 00:09:32.680
+Most are accidental. The network is
+resilient enough that
+
+178
+00:09:32.680 --> 00:09:34.400
+many faults do not interrupt service.
+
+179
+00:09:34.920 --> 00:09:38.360
+At the same time, physical exposure,
+geographic concentration, and
+
+180
+00:09:38.360 --> 00:09:41.700
+uneven dependence mean that resilience is
+not distributed equally.
+
+181
+00:09:42.400 --> 00:09:46.120
+The sane response is neither complacency
+nor apocalypse.
+
+182
+00:09:46.540 --> 00:09:49.660
+It is a dependency map, a practiced
+fallback, and
+
+183
+00:09:49.660 --> 00:09:52.560
+a willingness to distinguish a verified
+incident from a
+
+184
+00:09:52.560 --> 00:09:57.500
+compelling story. Beacon’s working
+question Do we know what
+
+185
+00:09:57.500 --> 00:09:59.900
+our digital work depends on, and have we
+tested
+
+186
+00:09:59.900 --> 00:10:03.220
+what happens when one of those
+dependencies becomes unavailable?
+
+187
+00:10:04.140 --> 00:10:07.420
+This is an operational question, not a
+prediction about
+
+188
+00:10:07.420 --> 00:10:10.920
+geopolitics. It is also a useful standard
+for AI
+
+189
+00:10:10.920 --> 00:10:14.600
+adoption. The more capable and
+interconnected the system becomes,
+
+190
+00:10:14.800 --> 00:10:17.200
+the more important it is to understand its
+limits,
+
+191
+00:10:17.380 --> 00:10:20.340
+its fallback paths, and the human
+decisions around it.
+
+192
+00:10:21.480 --> 00:10:25.100
+Disclosure This Watch Brief is an original
+Beacon analysis
+
+193
+00:10:25.100 --> 00:10:26.920
+based on public institutional sources.
+
+194
+00:10:27.300 --> 00:10:29.240
+It does not determine the cause of any
+individual
+
+195
+00:10:29.240 --> 00:10:32.740
+cable incident, provide legal or
+geopolitical advice, or certify
+
+196
+00:10:32.740 --> 00:10:35.140
+the resilience of any vendor, route, cloud
+service, or
+
+197
+00:10:35.140 --> 00:10:38.480
+organization. Infrastructure conditions,
+public reports, and official
+
+198
+00:10:38.480 --> 00:10:41.960
+recommendations change; readers should
+reopen the cited records before
+
+199
+00:10:41.960 --> 00:10:43.600
+relying on them for a current decision.
+
+200
+00:10:44.320 --> 00:10:46.720
+Sources and boundaries First.
+
+201
+00:10:47.480 --> 00:10:51.680
+International Cable Protection Committee
+Media Enquiries and Factsheet: Submarine
+
+202
+00:10:51.860 --> 00:10:54.980
+Cable Protection and Resilience Second.
+
+203
+00:10:55.740 --> 00:10:59.720
+International Telecommunication Union:
+International Advisory Body approves
+
+204
+00:10:59.720 --> 00:11:04.680
+landmark report to strengthen submarine
+cable resilience Third.
+
+205
+00:11:05.000 --> 00:11:08.020
+U.S. Department of State: Joint Statement
+on the Security
+
+206
+00:11:08.020 --> 00:11:11.720
+and Resilience of Undersea Cables in a
+Globally Digitalized
+
+207
+00:11:11.720 --> 00:11:12.060
+World

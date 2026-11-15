@@ -84,6 +84,9 @@ const ManifestoQAPage = lazy(() => import("@/pages/ManifestoQAPage"));
 const PracticalAISkillsPage = lazy(
   () => import("@/pages/PracticalAISkillsPage"),
 );
+const ModelRumorLiteracyPage = lazy(
+  () => import("@/pages/ModelRumorLiteracyPage"),
+);
 const AIWorkflowReleaseReadinessKitPage = lazy(
   () => import("@/pages/AIWorkflowReleaseReadinessKitPage"),
 );
@@ -218,6 +221,10 @@ function Router() {
       />
       <Route path="/practical-ai-skills" component={PracticalAISkillsPage} />
       <Route
+        path="/labs/the-model-rumor-is-not-the-model"
+        component={ModelRumorLiteracyPage}
+      />
+      <Route
         path="/storm-navigators-guide"
         component={StormNavigatorsGuidePage}
       />
@@ -243,7 +250,7 @@ function App() {
           <CookieConsent />
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#1A5C6B] focus:text-white focus:text-sm focus:font-ui focus:tracking-widest focus:uppercase"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:min-h-[44px] focus:inline-flex focus:items-center focus:px-4 focus:py-2 focus:bg-[#1A5C6B] focus:text-white focus:text-sm focus:font-ui focus:tracking-widest focus:uppercase"
           >
             Skip to main content
           </a>

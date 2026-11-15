@@ -1,0 +1,17 @@
+The Ocean Floor Data Center: China's Underwater AI Infrastructure Play
+
+HiCloud has sunk 2,000 AI computers 35 meters off the coast of Shanghai. Seawater cooling eliminates 40% of power costs. China Telecom is already running live workloads. Microsoft proved the concept and walked away.
+
+The physical reality of the AI boom is that it is fundamentally an energy and cooling problem. The massive GPU clusters required to train and run frontier models generate immense heat, and the power required to cool them is straining terrestrial power grids globally. While Western tech giants are lobbying for nuclear restarts and battling local zoning boards, China has quietly deployed a commercial solution that entirely bypasses the terrestrial grid. They are sinking their AI data centers to the bottom of the ocean.
+
+The HiCloud Deployment
+
+Off the coast of Shanghai, a Chinese company named HiCloud has deployed 2,000 AI-optimized computers sealed inside massive, waterproof capsules sunk 35 meters below the ocean surface. This is not a theoretical experiment. China Telecom is already using this underwater infrastructure for live, production workloads. The engineering logic is brutally efficient: at 35 meters depth, ambient seawater provides continuous, free cooling — eliminating the HVAC systems that consume up to 40% of a land-based data center's total power draw. The facility is powered directly by nearby offshore wind farms.
+
+The Commercialization Gap
+
+Microsoft pioneered the concept with Project Natick, testing underwater servers off the coast of Scotland. Microsoft's results were highly positive — the underwater servers actually failed far less often than land-based ones. Yet Microsoft shut the project down in 2024. The geopolitical signal is stark: the United States demonstrated the concept, validated the physics, confirmed the reliability advantages, and then abandoned the commercialization. China took the abandoned concept, scaled it to 2,000 servers, integrated it with offshore wind, and turned it into a live commercial product.
+
+The Implication for The Watch
+
+The West is currently focused on restricting China's access to chips. But if China can establish a structural cost and scaling advantage in the physical infrastructure required to run those chips, the balance of power in the AI race will shift from who has the best silicon to who has the cheapest, most scalable power and cooling. Right now, the cheapest cooling is at the bottom of the ocean.
