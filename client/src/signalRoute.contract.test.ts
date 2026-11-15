@@ -45,4 +45,19 @@ describe("The Signal canonical route contract", () => {
     expect(sitemap).not.toContain("https://beaconmomentum.com/blog");
     expect(html).toContain("https://beaconmomentum.com/signal?q={search_term_string}");
   });
+  it("has the Title 9 dated source integration", () => {
+    const data = source("client/src/data/title9ClaudeMeetingsEditorial.ts");
+    expect(data).toContain("November 15, 2026");
+  });
+
+  it("has the Title 8 dated source integration", () => {
+    const data = source("client/src/data/title8ForecastEditorial.ts");
+    expect(data).toContain("November 15, 2026");
+  });
+
+  it("has the Title 7 dated source integration", () => {
+    const data = source("client/src/data/title7AdAgentEditorial.ts");
+    expect(data).toContain("November 15, 2026");
+  });
+
 });

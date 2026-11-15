@@ -176,6 +176,20 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       "Beacon Momentum's public editorial library of practical field intelligence on AI, human capability, work, and durable operating systems.",
   },
+  "/signal/what-anthropic-ai-safety-incidents-actually-show": {
+    title: "What Anthropic’s AI-Safety Incidents Actually Show",
+    description:
+      "A careful Beacon Signal account of evaluation failures, model behavior, governance, and the difference between capability and authority.",
+    type: "article",
+    image: `${BEACON_SITE_URL}/images/editorial/what-anthropic-ai-safety-incidents-actually-show.svg`,
+  },
+  "/signal/the-cloud-has-a-seabed": {
+    title: "The Cloud Has a Seabed",
+    description:
+      "A practical Beacon Signal brief on submarine cables, route diversity, repair capacity, and the physical dependencies beneath digital work.",
+    type: "article",
+    image: `${BEACON_SITE_URL}/images/editorial/the-cloud-has-a-seabed.svg`,
+  },
   "/signal/can-it-do-it-or-may-it-do-it": {
     title: "Can It Do It—or May It Do It?",
     description:

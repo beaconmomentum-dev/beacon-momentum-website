@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">The Cloud Has a Seabed</title>
+  <desc id="desc">A quiet editorial illustration of a cloud connected by a cable to a deep ocean floor with a lighthouse point of light.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1730"/><stop offset="1" stop-color="#172c4d"/></linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a4561"/><stop offset="1" stop-color="#071322"/></linearGradient>
+    <linearGradient id="cable" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e7c978"/><stop offset="1" stop-color="#b8944b"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1280" cy="170" r="74" fill="#d6e5ee" opacity=".9"/>
+  <g fill="#edf5f7" opacity=".9">
+    <ellipse cx="430" cy="215" rx="150" ry="58"/><ellipse cx="555" cy="190" rx="105" ry="82"/><ellipse cx="680" cy="225" rx="160" ry="52"/>
+  </g>
+  <g stroke="#d5b866" stroke-width="3" opacity=".55"><path d="M260 290 C520 350 670 300 850 345" fill="none"/><path d="M770 305 C990 365 1110 300 1340 335" fill="none"/></g>
+  <rect y="365" width="1600" height="535" fill="url(#sea)"/>
+  <path d="M0 650 C220 585 360 730 570 665 S920 575 1130 670 S1390 730 1600 630 V900 H0Z" fill="#07101d"/>
+  <path d="M90 760 C360 720 510 815 790 760 S1160 710 1500 790" fill="none" stroke="#2e5264" stroke-width="7" opacity=".7"/>
+  <path d="M520 290 C640 410 710 470 790 550 S980 670 1170 745" fill="none" stroke="url(#cable)" stroke-width="16"/>
+  <path d="M520 290 C640 410 710 470 790 550 S980 670 1170 745" fill="none" stroke="#f6df9a" stroke-width="3" opacity=".8"/>
+  <g transform="translate(1160 600)"><path d="M0 145 L42 0 L84 145Z" fill="#d9c17b"/><rect x="18" y="86" width="48" height="59" fill="#0b1730"/><rect x="11" y="20" width="62" height="14" fill="#d9c17b"/><rect x="25" y="-6" width="34" height="28" fill="#f6e7b1"/><circle cx="42" cy="8" r="12" fill="#fff4ba" filter="url(#glow)"/></g>
+  <text x="92" y="790" fill="#f6e7b1" font-family="Georgia,serif" font-size="50" letter-spacing="3">THE CLOUD HAS A SEABED</text>
+  <text x="96" y="842" fill="#a9c3d1" font-family="Arial,sans-serif" font-size="23" letter-spacing="5">BEACON SIGNAL · WATCH BRIEF</text>
+</svg>
