@@ -31,11 +31,17 @@ jobs:
       name: staging
       url: ${{ vars.STAGING_BASE_URL }}
     steps:
-      - name: Checkout requested revision
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.ref || github.sha }}
-          persist-credentials: false
+      - name: Checkout requested revision without submodules
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECKOUT_REF: ${{ github.event_name == 'workflow_dispatch' && inputs.ref || github.sha }}
+        run: |
+          set -Eeuo pipefail
+          git init .
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          auth_header="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')"
+          git -c http.extraheader="$auth_header" fetch --no-tags --no-recurse-submodules --depth=1 origin "$CHECKOUT_REF"
+          git checkout --detach FETCH_HEAD
 
       - name: Resolve checked-out staging revision
         run: echo "DEPLOY_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
