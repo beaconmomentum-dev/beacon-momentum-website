@@ -12,7 +12,17 @@ SSH_KNOWN_HOSTS="${SSH_KNOWN_HOSTS:-$HOME/.ssh/known_hosts}"
 SSH_CONNECT_TIMEOUT="${SSH_CONNECT_TIMEOUT:-10}"
 LOG_PREFIX="${LOG_PREFIX:-SSH_PREFLIGHT}"
 
-log() { printf '%s %s %s\n' "$(date -u '+%Y-%m-%dT%H:%M:%S.%3NZ')" "$LOG_PREFIX" "$*"; }
+timestamp_utc() {
+  local candidate
+  candidate="$(date -u '+%Y-%m-%dT%H:%M:%S.%3NZ' 2>/dev/null || true)"
+  if [[ "$candidate" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$ ]]; then
+    printf '%s' "$candidate"
+  else
+    printf '%s.000Z' "$(date -u '+%Y-%m-%dT%H:%M:%S')"
+  fi
+}
+
+log() { printf '%s %s %s\n' "$(timestamp_utc)" "$LOG_PREFIX" "$*"; }
 
 classify_failure() {
   local text="$1"
