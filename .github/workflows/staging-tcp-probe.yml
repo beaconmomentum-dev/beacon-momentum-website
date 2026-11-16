@@ -1,0 +1,155 @@
+name: Diagnostic - Staging TCP Reachability
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Run a local mock TCP probe without reading staging secrets
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: staging-tcp-probe
+  cancel-in-progress: false
+
+jobs:
+  dry-run:
+    name: Secret-free mock TCP probe
+    if: ${{ inputs.dry_run }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Run probe against a local mock listener
+        run: |
+          set -Eeuo pipefail
+          work="${RUNNER_TEMP}/beacon-staging-tcp-dry-run"
+          mkdir -p "$work"
+
+          python3 - "$work/port" <<'PY' &
+          import pathlib
+          import socket
+          import sys
+
+          port_file = pathlib.Path(sys.argv[1])
+          with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
+              server.bind(("127.0.0.1", 0))
+              server.listen(1)
+              port_file.write_text(str(server.getsockname()[1]))
+              server.settimeout(30)
+              try:
+                  connection, _ = server.accept()
+                  connection.close()
+              except socket.timeout:
+                  raise SystemExit("mock listener timed out")
+          PY
+          listener_pid=$!
+          trap 'kill "$listener_pid" 2>/dev/null || true' EXIT
+
+          for _ in $(seq 1 30); do
+            [[ -s "$work/port" ]] && break
+            sleep 0.1
+          done
+          test -s "$work/port"
+          export TARGET_HOST=127.0.0.1
+          export TARGET_PORT="$(cat "$work/port")"
+
+          python3 - <<'PY'
+          import os
+          import socket
+          import sys
+
+          host = os.environ["TARGET_HOST"]
+          port = int(os.environ["TARGET_PORT"])
+          try:
+              addresses = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+          except socket.gaierror:
+              print("STAGING_TCP_PROBE=FAIL class=dns_resolution_failed")
+              sys.exit(1)
+
+          for family, socktype, proto, _canonname, sockaddr in addresses:
+              sock = socket.socket(family, socktype, proto)
+              sock.settimeout(8.0)
+              try:
+                  sock.connect(sockaddr)
+                  print(f"STAGING_TCP_PROBE=PASS family={family}")
+                  sys.exit(0)
+              finally:
+                  sock.close()
+
+          print("STAGING_TCP_PROBE=FAIL class=connection_failed")
+          sys.exit(1)
+          PY
+
+          wait "$listener_pid"
+
+  staging-probe:
+    name: Raw TCP probe to staging SSH port
+    if: ${{ !inputs.dry_run }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    environment:
+      name: staging-diagnostics
+    steps:
+      - name: Test staging DNS and raw TCP connectivity
+        env:
+          TARGET_HOST: ${{ secrets.STAGING_SERVER_IP }}
+          TARGET_PORT: ${{ vars.STAGING_SSH_PORT || '22' }}
+        run: |
+          set -Eeuo pipefail
+          python3 - <<'PY'
+          import os
+          import socket
+          import sys
+
+          host = os.environ.get("TARGET_HOST", "")
+          port_text = os.environ.get("TARGET_PORT", "22")
+          if not host:
+              print("STAGING_TCP_PROBE=FAIL class=missing_destination")
+              sys.exit(2)
+          try:
+              port = int(port_text)
+              if not 1 <= port <= 65535:
+                  raise ValueError
+          except ValueError:
+              print("STAGING_TCP_PROBE=FAIL class=invalid_port")
+              sys.exit(2)
+
+          try:
+              addresses = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+          except socket.gaierror:
+              print("STAGING_TCP_PROBE=FAIL class=dns_resolution_failed")
+              sys.exit(1)
+
+          saw_timeout = False
+          saw_refused = False
+          saw_unreachable = False
+          for family, socktype, proto, _canonname, sockaddr in addresses:
+              sock = socket.socket(family, socktype, proto)
+              sock.settimeout(8.0)
+              try:
+                  sock.connect(sockaddr)
+                  print(f"STAGING_TCP_PROBE=PASS family={family}")
+                  sys.exit(0)
+              except socket.timeout:
+                  saw_timeout = True
+              except ConnectionRefusedError:
+                  saw_refused = True
+              except OSError:
+                  saw_unreachable = True
+              finally:
+                  sock.close()
+
+          if saw_timeout:
+              print("STAGING_TCP_PROBE=FAIL class=timeout")
+          elif saw_refused:
+              print("STAGING_TCP_PROBE=FAIL class=connection_refused")
+          elif saw_unreachable:
+              print("STAGING_TCP_PROBE=FAIL class=route_or_socket_error")
+          else:
+              print("STAGING_TCP_PROBE=FAIL class=connection_failed")
+          sys.exit(1)
+          PY
