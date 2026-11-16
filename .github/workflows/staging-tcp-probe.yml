@@ -1,6 +1,9 @@
 name: Diagnostic - Staging TCP Reachability
 
 on:
+  push:
+    branches:
+      - 'diagnostic/**'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -19,7 +22,7 @@ concurrency:
 jobs:
   dry-run:
     name: Secret-free mock TCP probe
-    if: ${{ inputs.dry_run }}
+    if: ${{ github.event_name == 'push' || inputs.dry_run }}
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
@@ -88,7 +91,7 @@ jobs:
 
   staging-probe:
     name: Raw TCP probe to staging SSH port
-    if: ${{ !inputs.dry_run }}
+    if: ${{ github.event_name == 'workflow_dispatch' && !inputs.dry_run }}
     runs-on: ubuntu-latest
     timeout-minutes: 2
     environment:
