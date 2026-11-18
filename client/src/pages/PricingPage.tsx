@@ -20,10 +20,12 @@ const routes = [
     marker: "01",
     label: "Membership & learning",
     name: "The Watch",
-    price: "$497 / year",
-    body: "A year-long learning and community environment for people who want practical systems, clear context, and a steadier operating rhythm.",
+    price: "$497 / year · Founding Year",
+    body: "An annual individual membership for lessons, practical guides, member references, community participation, Practice Year starter resources, and Watch Brief Premium as a member benefit.",
     details: [
-      "Five capability pathways and field guides",
+      "Founding Year enrollment at $497 per year",
+      "Later new-member rate of $997 per year after the founding offer closes",
+      "$497 annual renewal for continuously active and paid founding members",
       "Member resources and community structure",
       "Watch Brief Premium included for members",
       "Sentinel, Navigator, and Quartermaster progression earned through participation",
@@ -35,21 +37,38 @@ const routes = [
   {
     marker: "02",
     label: "Public intelligence",
-    name: "Watch Brief Premium",
-    price: "$27 / month",
-    body: "A monthly operating dossier for people who want a concise, recurring intelligence brief without joining the annual membership.",
+    name: "Signal resources",
+    price: "Free to explore",
+    body: "Evidence-led Signal articles and field notes for people who want to examine a claim, a tool, or a change in the world of work before choosing a paid route.",
     details: [
-      "One deeper evidence-led briefing",
-      "One curated tool note",
-      "One practical signal worth examining",
-      "Separate from the annual Watch membership",
+      "Free public Signal articles",
+      "Practical field notes",
+      "Self-directed starting point",
+      "Watch Brief Premium included with The Watch",
     ],
-    action: "Review the dossier",
-    href: "/watch-brief-premium",
+    action: "Browse public resources",
+    href: "/resources",
     featured: false,
   },
   {
     marker: "03",
+    label: "Individual one-time product",
+    name: "The Execution Engine",
+    price: "$297 one-time",
+    body: "A separate lifetime-access product for the six-module Execution Engine course. It does not automatically include Beacon Circle annual membership.",
+    details: [
+      "Six guided course modules",
+      "One-time payment through the member platform",
+      "Lifetime Execution Engine access",
+      "Separate from The Watch annual membership",
+    ],
+    action: "Review Execution Engine",
+    href: "https://beaconcommunity.net/enroll",
+    featured: false,
+    external: true,
+  },
+  {
+    marker: "04",
     label: "Organization systems",
     name: "Beacon Labs Signal Check",
     price: "Start with a free read",
@@ -70,11 +89,11 @@ const routes = [
 const faqs = [
   {
     question: "Why does Beacon offer different routes?",
-    answer: "People arrive with different work in front of them. The Watch is an annual membership and learning environment; Watch Brief Premium is a separate monthly dossier; Beacon Labs serves organizations. Each route has its own terms, experience, and decision point.",
+    answer: "Public resources support self-directed learning. The Watch is one annual individual membership with a $497 Founding Year rate and a later $997 new-member rate after the founding offer closes. Founding members who remain continuously active and paid retain the $497 annual renewal rate under the published terms. Watch Brief Premium is included with The Watch, and Beacon Labs serves organizations through a separate route.",
   },
   {
     question: "Is The Watch a subscription with multiple paid tiers?",
-    answer: "No. The Watch is one annual membership at $497 per year. Sentinel, Navigator, and Quartermaster are earned stages of participation—not paid plans to compare or purchase.",
+    answer: "No. The Watch is one annual membership with a $497 Founding Year rate and a later $997 new-member rate after the founding offer closes. Founding members who remain continuously active and paid retain the $497 annual renewal rate under the published terms. Sentinel, Navigator, and Quartermaster are earned stages of participation—not paid plans to compare or purchase.",
   },
   {
     question: "What happens if I am not ready to enroll?",
@@ -147,7 +166,7 @@ export default function PricingPage() {
           <div className="container">
             <div className="pricing-section-heading">
               <div>
-                <FieldLabel>Three routes, held apart on purpose</FieldLabel>
+                <FieldLabel>Four routes, held apart on purpose</FieldLabel>
                 <h2 style={{ fontSize: "clamp(2.2rem, 4.5vw, 4.45rem)", lineHeight: 1.02, margin: "1rem 0 0", maxWidth: "720px" }}>
                   Choose the route that names the work in front of you.
                 </h2>
@@ -230,8 +249,9 @@ export default function PricingPage() {
         .pricing-signal-strip { align-items: center; border-bottom: 1px solid rgba(245,243,236,0.18); color: rgba(245,243,236,0.58); display: flex; font-family: var(--beacon-mono); font-size: 0.62rem; gap: 0.85rem; letter-spacing: 0.09em; padding-bottom: 0.8rem; }
         .pricing-signal-strip span:first-child { background: var(--beacon-amber); height: 1px; width: 2rem; }.pricing-signal-strip span:nth-child(2) { background: var(--beacon-teal-light); height: 1px; width: 1rem; }.pricing-signal-strip span:last-child { margin-left: auto; }
         .pricing-hero-grid, .pricing-section-heading, .pricing-signal-check-grid, .pricing-faq-grid { display: grid; gap: clamp(2rem, 7vw, 6.5rem); grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); }.pricing-hero-grid { align-items: end; margin-top: 2.4rem; }.pricing-hero-note { border-left: 1px solid rgba(196,159,83,0.5); color: rgba(245,243,236,0.82); font-size: 1.26rem; line-height: 1.5; padding: 0.5rem 0 0.5rem 1.5rem; }.pricing-hero-note p { font-family: var(--beacon-display); margin: 1rem 0 0; }
-        .pricing-section-heading { align-items: end; margin-bottom: 3rem; }.pricing-section-heading > p { color: var(--beacon-charcoal-mid); font-size: 0.97rem; line-height: 1.72; margin: 0; }.pricing-route-grid { display: grid; gap: 1px; grid-template-columns: repeat(3, minmax(0, 1fr)); }.pricing-route-card { background: #fff; border: 1px solid var(--beacon-parchment-dark); display: flex; flex-direction: column; min-height: 525px; padding: clamp(1.4rem, 2.7vw, 2.2rem); position: relative; }.pricing-route-card-featured { background: #F7F0DE; border-color: rgba(196,159,83,0.7); }.pricing-route-marker { color: var(--beacon-amber); font-family: var(--beacon-mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; margin: 0 0 2.3rem; }.pricing-route-card h3 { font-size: 2rem; margin: 0.8rem 0 0; }.pricing-route-price { color: var(--beacon-teal); font-family: var(--beacon-display); font-size: 1.5rem; font-weight: 600; line-height: 1.2; margin: 1rem 0 0; }.pricing-route-body { color: var(--beacon-charcoal-mid); font-size: 0.93rem; line-height: 1.7; margin: 1.1rem 0 0; }.pricing-route-card ul { display: grid; gap: 0.7rem; list-style: none; margin: 1.6rem 0 auto; padding: 0 0 1.6rem; }.pricing-route-card li { align-items: flex-start; color: var(--beacon-charcoal-mid); display: flex; font-size: 0.84rem; gap: 0.55rem; line-height: 1.48; }.pricing-route-card li svg { color: var(--beacon-teal); flex: 0 0 auto; margin-top: 0.1rem; }
+        .pricing-section-heading { align-items: end; margin-bottom: 3rem; }.pricing-section-heading > p { color: var(--beacon-charcoal-mid); font-size: 0.97rem; line-height: 1.72; margin: 0; }.pricing-route-grid { display: grid; gap: 1px; grid-template-columns: repeat(4, minmax(0, 1fr)); }.pricing-route-card { background: #fff; border: 1px solid var(--beacon-parchment-dark); display: flex; flex-direction: column; min-height: 525px; padding: clamp(1.4rem, 2.7vw, 2.2rem); position: relative; }.pricing-route-card-featured { background: #F7F0DE; border-color: rgba(196,159,83,0.7); }.pricing-route-marker { color: var(--beacon-amber); font-family: var(--beacon-mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; margin: 0 0 2.3rem; }.pricing-route-card h3 { font-size: 2rem; margin: 0.8rem 0 0; }.pricing-route-price { color: var(--beacon-teal); font-family: var(--beacon-display); font-size: 1.5rem; font-weight: 600; line-height: 1.2; margin: 1rem 0 0; }.pricing-route-body { color: var(--beacon-charcoal-mid); font-size: 0.93rem; line-height: 1.7; margin: 1.1rem 0 0; }.pricing-route-card ul { display: grid; gap: 0.7rem; list-style: none; margin: 1.6rem 0 auto; padding: 0 0 1.6rem; }.pricing-route-card li { align-items: flex-start; color: var(--beacon-charcoal-mid); display: flex; font-size: 0.84rem; gap: 0.55rem; line-height: 1.48; }.pricing-route-card li svg { color: var(--beacon-teal); flex: 0 0 auto; margin-top: 0.1rem; }
         .pricing-primary-action { align-items: center; background: var(--beacon-amber); border: 0; color: var(--beacon-charcoal); display: inline-flex; font-family: var(--beacon-ui); font-size: 0.76rem; font-weight: 800; gap: 0.5rem; letter-spacing: 0.06em; margin-top: 1.5rem; padding: 0.95rem 1.1rem; text-decoration: none; text-transform: uppercase; }.pricing-faq-item { border-bottom: 1px solid rgba(196,159,83,0.3); }.pricing-faq-item button { align-items: center; background: transparent; border: 0; color: var(--beacon-parchment); display: flex; font-family: var(--beacon-ui); font-size: 1rem; font-weight: 750; gap: 1rem; justify-content: space-between; padding: 1.25rem 0; text-align: left; width: 100%; }.pricing-faq-item p { color: rgba(245,243,236,0.76); font-size: 0.93rem; line-height: 1.72; margin: 0; padding: 0 0 1.3rem; }
+        @media (max-width: 1100px) and (min-width: 821px) { .pricing-route-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 820px) { .pricing-hero-grid, .pricing-section-heading, .pricing-signal-check-grid, .pricing-faq-grid, .pricing-route-grid { grid-template-columns: 1fr; }.pricing-signal-strip { align-items: flex-start; flex-wrap: wrap; }.pricing-signal-strip span:last-child { margin-left: 0; width: 100%; }.pricing-route-card { min-height: 0; }.pricing-hero-note { max-width: 520px; } }
       `}</style>
     </div>

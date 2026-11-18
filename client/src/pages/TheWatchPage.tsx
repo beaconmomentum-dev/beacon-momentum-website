@@ -17,7 +17,7 @@ const membershipCommitments = [
   {
     number: "01",
     title: "A clear annual membership",
-    body: "Founding Year membership is $497 per year for the first 1,000 paid annual members. It is a membership purchase—not an investment, ownership interest, or promise of a financial outcome.",
+    body: "Founding Year membership is $497 per year for eligible founding members under the published terms. It is a membership purchase—not an investment, ownership interest, or promise of a financial outcome.",
   },
   {
     number: "02",
@@ -34,11 +34,11 @@ const membershipCommitments = [
 const questions = [
   {
     question: "What does membership include?",
-    answer: "The Watch includes member access to Beacon curriculum pathways, practical operating guides, community structure, and the recurring Watch Brief Premium member benefit. The exact member experience is shown before secure enrollment.",
+    answer: "The Watch includes member access to the Practice Year starter resources, Beacon curriculum pathways, practical operating guides, community structure, and the recurring Watch Brief Premium member benefit. The exact member experience is shown before secure enrollment.",
   },
   {
     question: "What happens after the Founding Year period?",
-    answer: "The current Founding Year rate is $497 per year for the first 1,000 paid annual members. A member who remains continuously active and paid keeps that renewal rate; later new-member pricing is published separately as terms change.",
+    answer: "Founding Year enrollment is $497 per year for eligible founding members under the published terms. A member who remains continuously active and paid keeps that renewal rate; later new-member pricing is $997 per year after the founding offer closes.",
   },
   {
     question: "Is The Watch an investment or a business opportunity?",
@@ -216,7 +216,7 @@ export default function TheWatchPage() {
               </div>
               <div style={{ alignSelf: "end" }}>
                 <p style={{ color: "rgba(22,36,51,0.78)", fontSize: "1.08rem", lineHeight: 1.8, margin: 0 }}>
-                  Founding Year enrollment is $497 per year for the first 1,000 paid annual members. We state the
+                  Founding Year enrollment is $497 per year for eligible founding members under the published terms. We state the
                   membership, access, renewal terms, and boundaries plainly before you enroll—because a good decision
                   does not need a pressure trick.
                 </p>
