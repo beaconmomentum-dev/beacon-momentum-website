@@ -30,7 +30,11 @@ describe("Phase 2 one-design-system contract", () => {
 
     expect(watch).toContain("$497 per year");
     expect(watch).toContain("not an investment");
-    expect(pricing).toContain("Three routes, held apart on purpose");
+    expect(pricing).toContain("Four routes, held apart on purpose");
+    expect(pricing).toContain("$497 / year · Founding Year");
+    expect(pricing).toContain("$997 per year after the founding offer closes");
+    expect(pricing).toContain("$297 one-time");
+    expect(pricing).not.toContain("$27 / month");
     expect(pricing).toContain("Accounts, submitted details, payment information, and access do not transfer automatically");
     expect(pricing).toContain("Beacon Labs Signal Check");
   });
