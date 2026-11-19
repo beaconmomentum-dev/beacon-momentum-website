@@ -116,7 +116,7 @@ jobs:
       - name: Deploy via SSH
         run: |
           ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 "root@${PRODUCTION_SSH_HOST}" \
-            /usr/local/bin/deploy-beacon-www.sh
+            "BEACON_DEPLOY_SHA=$BEACON_DEPLOY_SHA /usr/local/bin/deploy-beacon-www.sh"
 
       - name: Verify deployed source revision
         run: |
