@@ -89,10 +89,24 @@ check_absent() {
   fi
 }
 
+check_publication_date() {
+  local file="$1"
+  local date_iso="$2"
+  local date_label="$3"
+  local description="$4"
+  if grep -Eqi "<time[^>]+data-publication-date=\"true\"[^>]+datetime=\"${date_iso}\"" "$file" && grep -Fq -- "$date_label" "$file"; then
+    pass "$description"
+  else
+    fail "$description (semantic publication date not found: ${date_iso} / ${date_label})"
+  fi
+}
+
 check_route() {
   local slug="$1"
-  local title_marker="$2"
-  local label="$3"
+  local title="$2"
+  local date_iso="$3"
+  local date_label="$4"
+  local label="$5"
   local body="$WORK_DIR/${slug}.html"
   local headers="$WORK_DIR/${slug}.headers"
   local url="$BASE_URL/signal/$slug"
@@ -104,8 +118,8 @@ check_route() {
     return
   fi
 
-  check_contains "$body" "$title_marker" "$label title marker is present"
-  check_contains "$body" "$EXPECTED_DATE" "$label publication date is present"
+  check_contains "$body" "<title>${title} — Beacon Momentum</title>" "$label branded document title is present"
+  check_publication_date "$body" "$date_iso" "$date_label" "$label semantic publication date is present"
   check_absent "$body" '[APPROVED PUBLICATION DATE]' "$label has no publication-date placeholder"
   check_absent "$body" 'PRIVATE — HOLD' "$label has no private-hold marker"
   check_absent "$body" 'PRIVATE — NOT PUBLISHED' "$label has no not-published marker"
@@ -196,15 +210,21 @@ fi
 printf '%s\n' '--- Titles 7–9 route checks ---'
 check_route \
   'ai-advertising-agent-measurement' \
-  'AI Advertising Agent' \
+  'AI Advertising Agent Measurement' \
+  '2026-11-15' \
+  'November 15, 2026' \
   'Title 7 — AI Advertising Agent Measurement'
 check_route \
   'a-forecast-is-not-a-finish-line' \
   'A Forecast Is Not a Finish Line' \
+  '2026-11-15' \
+  'November 15, 2026' \
   'Title 8 — A Forecast Is Not a Finish Line'
 check_route \
   'claude-meetings-a-permission-system-not-a-notetaker' \
-  'Claude Meetings' \
+  'Claude Meetings: A Permission System, Not a Notetaker' \
+  '2026-11-15' \
+  'November 15, 2026' \
   'Title 9 — Claude Meetings'
 
 printf '%s\n' '--- capture endpoint check ---'
