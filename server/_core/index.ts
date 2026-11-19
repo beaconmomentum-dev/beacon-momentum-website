@@ -30,9 +30,43 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
   throw new Error(`No available port found starting from ${startPort}`);
 }
 
+function installProductionSecurityHeaders(app: express.Express) {
+  if (process.env.NODE_ENV !== "production") return;
+
+  app.use((_req, res, next) => {
+    // Emit HSTS only from the production process. Expand scope only after
+    // every Beacon-owned subdomain has been confirmed HTTPS-only.
+    res.setHeader("Strict-Transport-Security", "max-age=31536000");
+    res.setHeader("X-Content-Type-Options", "nosniff");
+
+    // Start in report-only mode because the current Vite template contains
+    // JSON-LD inline scripts and Google Fonts/Stripe integrations. Promote to
+    // Content-Security-Policy only after collected violations are reviewed.
+    res.setHeader(
+      "Content-Security-Policy-Report-Only",
+      [
+        "default-src 'self'",
+        "base-uri 'self'",
+        "object-src 'none'",
+        "frame-ancestors 'self'",
+        "form-action 'self' https://checkout.stripe.com",
+        "script-src 'self' 'unsafe-inline' https://js.stripe.com",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+        "font-src 'self' data: https://fonts.gstatic.com",
+        "img-src 'self' data: blob: https:",
+        "connect-src 'self' https:",
+        "frame-src 'self' https://js.stripe.com https://hooks.stripe.com",
+      ].join("; "),
+    );
+    next();
+  });
+}
+
 async function startServer() {
   const app = express();
   const server = createServer(app);
+
+  installProductionSecurityHeaders(app);
 
   // Stripe signatures require the exact raw request body; this must precede
   // the global JSON parser and any middleware that consumes request bodies.
