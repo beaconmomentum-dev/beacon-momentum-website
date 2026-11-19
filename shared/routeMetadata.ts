@@ -371,6 +371,12 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
       "A source-led Beacon Signal brief separating the Microsoft Exchange Online incident from the FAA ground stop and extracting a resilience lesson without claiming a shared cause.",
     type: "article",
   },
+  "/signal/the-system-should-leave-you-stronger": {
+    title: "The System Should Leave You Stronger",
+    description:
+      "A source-led Beacon Watch analysis of AI adoption, hidden work, trust, worker voice, and the operating conditions that help systems leave people stronger.",
+    type: "article",
+  },
   "/labs/the-model-rumor-is-not-the-model": {
     title: "The Model Rumor Is Not the Model",
     description:
