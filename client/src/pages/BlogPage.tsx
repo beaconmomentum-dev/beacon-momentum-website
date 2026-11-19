@@ -23,6 +23,7 @@ import { TITLE_9_CLAUDE_MEETINGS_SUMMARIES } from "@/data/title9ClaudeMeetingsEd
 import { TITLE_8_FORECAST_SUMMARIES } from "@/data/title8ForecastEditorial";
 import { TITLE_7_AD_AGENT_SUMMARIES } from "@/data/title7AdAgentEditorial";
 import { TEST_IS_WATCHING_SUMMARIES } from "@/data/theTestIsWatchingYouBack";
+import { NOVEMBER_EDITORIAL_RELEASE_SUMMARIES } from "@/data/novemberEditorialRelease";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { applySignalArchiveDates } from "@/data/signalArchiveSchedule";
 
@@ -47,6 +48,7 @@ interface Article {
 }
 
 const ARTICLES = applySignalArchiveDates([
+  ...NOVEMBER_EDITORIAL_RELEASE_SUMMARIES,
   ...TITLE_9_CLAUDE_MEETINGS_SUMMARIES,
   ...TITLE_8_FORECAST_SUMMARIES,
   ...TITLE_7_AD_AGENT_SUMMARIES,
