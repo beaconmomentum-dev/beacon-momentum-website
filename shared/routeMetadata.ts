@@ -359,6 +359,18 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
       "A Beacon Signal brief on workforce gaps, brittle assumptions, and the systems required before automation can responsibly carry more work.",
     type: "article",
   },
+  "/signal/starship-flight-15-catch-is-a-milestone-not-a-cost-curve": {
+    title: "A Catch Is a Milestone. It Is Not Yet a Cost Curve.",
+    description:
+      "A source-led Beacon Signal brief on what SpaceX's Flight 15 record establishes—and what a first Starship catch does not yet prove about reuse, cadence, or cost.",
+    type: "article",
+  },
+  "/signal/microsoft-faa-outages-what-records-establish": {
+    title: "When Systems Fail: What the Microsoft and FAA Records Establish",
+    description:
+      "A source-led Beacon Signal brief separating the Microsoft Exchange Online incident from the FAA ground stop and extracting a resilience lesson without claiming a shared cause.",
+    type: "article",
+  },
   "/labs/the-model-rumor-is-not-the-model": {
     title: "The Model Rumor Is Not the Model",
     description:
