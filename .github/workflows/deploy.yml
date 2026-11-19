@@ -16,7 +16,7 @@ jobs:
   deploy:
     name: Deploy to beaconmomentum.com
     environment: production
-    runs-on: [self-hosted, Linux, X64, beacon-production]
+    runs-on: [self-hosted, beacon-production]
     timeout-minutes: 15
     env:
       PRODUCTION_SSH_PORT: ${{ vars.PRODUCTION_SSH_PORT || '22' }}
