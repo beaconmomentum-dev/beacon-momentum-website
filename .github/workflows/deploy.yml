@@ -122,7 +122,7 @@ jobs:
         run: |
           set -euo pipefail
           remote_sha=$(ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 "root@${PRODUCTION_SSH_HOST}" \
-            'cd /var/www/beacon-momentum-www && git rev-parse HEAD')
+            'set -euo pipefail; pid=$(pm2 pid beacon-momentum-www | tr -d "[:space:]"); root=$(tr "\\0" "\\n" < "/proc/$pid/environ" | sed -n "s/^BEACON_REPO_ROOT=//p"); test -n "$root"; git -C "$root" rev-parse HEAD')
           echo "Remote source revision: $remote_sha"
           echo "Expected workflow revision: $GITHUB_SHA"
           test "$remote_sha" = "$GITHUB_SHA"
