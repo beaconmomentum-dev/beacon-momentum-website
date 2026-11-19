@@ -24,6 +24,7 @@ import { TITLE_8_FORECAST_CONTENT } from "@/data/title8ForecastEditorial";
 import { TITLE_7_AD_AGENT_CONTENT } from "@/data/title7AdAgentEditorial";
 import { TEST_IS_WATCHING_CONTENT } from "@/data/theTestIsWatchingYouBack";
 import { NOVEMBER_EDITORIAL_RELEASE_CONTENT } from "@/data/novemberEditorialRelease";
+import { SYSTEM_SHOULD_LEAVE_YOU_STRONGER_CONTENT } from "@/data/systemShouldLeaveYouStronger";
 import { applySignalArchiveDates } from "@/data/signalArchiveSchedule";
 
 // ─── Article Content Type ─────────────────────────────────────────────────────
@@ -53,6 +54,7 @@ function publicationDateTime(date: string): string | undefined {
 
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = applySignalArchiveDates([
+  ...SYSTEM_SHOULD_LEAVE_YOU_STRONGER_CONTENT,
   ...NOVEMBER_EDITORIAL_RELEASE_CONTENT,
   ...TITLE_9_CLAUDE_MEETINGS_CONTENT,
   ...TITLE_8_FORECAST_CONTENT,
