@@ -46,6 +46,11 @@ interface ArticleContent {
   audioDisclosure?: string; // Optional visible disclosure for AI-generated narration
 }
 
+function publicationDateTime(date: string): string | undefined {
+  const parsed = new Date(`${date} 00:00:00 UTC`);
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString().slice(0, 10);
+}
+
 // ─── Full Article Content ─────────────────────────────────────────────────────
 const ARTICLE_CONTENT: ArticleContent[] = applySignalArchiveDates([
   ...NOVEMBER_EDITORIAL_RELEASE_CONTENT,
@@ -3053,7 +3058,9 @@ export default function BlogArticlePage() {
             >
               <Clock size={13} /> {article.readTime} read
             </span>
-            <span
+            <time
+              dateTime={publicationDateTime(article.date)}
+              data-publication-date="true"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -3064,7 +3071,7 @@ export default function BlogArticlePage() {
               }}
             >
               <Calendar size={13} /> {article.date}
-            </span>
+            </time>
           </div>
 
           {/* Listen Button */}
