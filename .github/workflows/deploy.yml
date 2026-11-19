@@ -20,6 +20,7 @@ jobs:
     timeout-minutes: 15
     env:
       PRODUCTION_SSH_PORT: ${{ vars.PRODUCTION_SSH_PORT || '22' }}
+      PRODUCTION_SSH_HOST: ${{ vars.PRODUCTION_SSH_HOST || '127.0.0.1' }}
     steps:
       - name: Setup SSH key
         run: |
@@ -27,12 +28,12 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.PRODUCTION_SSH_KEY }}" | base64 -d > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -p "$PRODUCTION_SSH_PORT" -H "${{ secrets.PRODUCTION_SERVER_IP }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh-keyscan -p "$PRODUCTION_SSH_PORT" -H "$PRODUCTION_SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
       - name: Preflight production TCP and SSH transport
         run: |
           set -euo pipefail
-          host="${{ secrets.PRODUCTION_SERVER_IP }}"
+          host="$PRODUCTION_SSH_HOST"
           echo "Checking TCP reachability to ${host}:${PRODUCTION_SSH_PORT}"
           timeout 15s bash -c "</dev/tcp/${host}/${PRODUCTION_SSH_PORT}"
           ssh -i ~/.ssh/deploy_key \
@@ -47,7 +48,7 @@ jobs:
       - name: Create Git fallbacks and reconcile the production worktree
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.recover_dirty_worktree }}
         run: |
-          ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 root@${{ secrets.PRODUCTION_SERVER_IP }} 'bash -s' <<'REMOTE'
+          ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 "root@${PRODUCTION_SSH_HOST}" 'bash -s' <<'REMOTE'
             set -euo pipefail
             cd /var/www/beacon-momentum-www
 
@@ -113,13 +114,13 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 root@${{ secrets.PRODUCTION_SERVER_IP }} \
+          ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 "root@${PRODUCTION_SSH_HOST}" \
             /usr/local/bin/deploy-beacon-www.sh
 
       - name: Verify deployed source revision
         run: |
           set -euo pipefail
-          remote_sha=$(ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 root@${{ secrets.PRODUCTION_SERVER_IP }} \
+          remote_sha=$(ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 "root@${PRODUCTION_SSH_HOST}" \
             'cd /var/www/beacon-momentum-www && git rev-parse HEAD')
           echo "Remote source revision: $remote_sha"
           echo "Expected workflow revision: $GITHUB_SHA"
@@ -127,7 +128,7 @@ jobs:
 
       - name: Verify and repair Beacon capture route
         run: |
-          ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 root@${{ secrets.PRODUCTION_SERVER_IP }} \
+          ssh -i ~/.ssh/deploy_key -p "$PRODUCTION_SSH_PORT" -o StrictHostKeyChecking=no -o ConnectTimeout=20 -o ConnectionAttempts=1 "root@${PRODUCTION_SSH_HOST}" \
             'cd /var/www/beacon-momentum-www && chmod 0755 ops/ensure-beacon-capture-route.sh && ops/ensure-beacon-capture-route.sh'
 
       - name: Verify deployment
