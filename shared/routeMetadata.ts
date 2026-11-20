@@ -377,6 +377,14 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
       "A source-led Beacon Watch analysis of AI adoption, hidden work, trust, worker voice, and the operating conditions that help systems leave people stronger.",
     type: "article",
   },
+  "/signal/founders-framework-america-250": {
+    title:
+      "The Founders’ Framework: What Jefferson’s Four Words Mean for Every Builder in 2026",
+    description:
+      "A Beacon Signal essay on Jefferson’s change from property to the pursuit of happiness, productive capability, and what builders ask an economy to make possible.",
+    type: "article",
+    image: `${BEACON_SITE_URL}/images/editorial/hero-founders-framework-16x9.webp`,
+  },
   "/labs/the-model-rumor-is-not-the-model": {
     title: "The Model Rumor Is Not the Model",
     description:
