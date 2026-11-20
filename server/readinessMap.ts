@@ -95,6 +95,15 @@ function productionPdfPath() {
  * route. The browser never sees CRM or email-provider credentials.
  */
 export function registerReadinessMapRoutes(app: Express) {
+  app.get("/api/readiness-map/request", (_req, res) => {
+    res.setHeader("Allow", "POST");
+    publicError(
+      res,
+      405,
+      "This endpoint accepts POST requests only.",
+    );
+  });
+
   app.post("/api/readiness-map/request", async (req, res) => {
     if (!isAllowedOrigin(req.get("origin"))) {
       publicError(res, 403, "This request origin is not allowed.");

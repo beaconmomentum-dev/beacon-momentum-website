@@ -1,7 +1,8 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   isReadinessMapDeliveryDisabled,
   readinessMapRequestSchema,
+  registerReadinessMapRoutes,
 } from "./readinessMap";
 
 describe("Readiness Map delivery boundary", () => {
@@ -51,5 +52,32 @@ describe("Readiness Map delivery boundary", () => {
       }),
     ).toBe(true);
     expect(isReadinessMapDeliveryDisabled({})).toBe(false);
+  });
+
+  it("rejects GET requests without reaching the SPA fallback", () => {
+    const get = vi.fn();
+    const post = vi.fn();
+    registerReadinessMapRoutes({ get, post } as never);
+
+    const getHandler = get.mock.calls.find(
+      ([path]) => path === "/api/readiness-map/request",
+    )?.[1] as (req: unknown, res: {
+      setHeader: (name: string, value: string) => void;
+      status: (code: number) => { json: (body: unknown) => void };
+    }) => void;
+    const res = {
+      setHeader: vi.fn(),
+      status: vi.fn().mockReturnThis(),
+      json: vi.fn(),
+    };
+
+    expect(getHandler).toBeTypeOf("function");
+    getHandler({}, res);
+    expect(res.setHeader).toHaveBeenCalledWith("Allow", "POST");
+    expect(res.status).toHaveBeenCalledWith(405);
+    expect(res.json).toHaveBeenCalledWith({
+      ok: false,
+      message: "This endpoint accepts POST requests only.",
+    });
   });
 });
