@@ -7,6 +7,7 @@
  * rather than a same-day information dump.
  */
 export const SIGNAL_ARCHIVE_DATES: Record<string, string> = {
+  "founders-framework-america-250": "2026-07-04",
   "the-system-should-leave-you-stronger": "2026-11-19",
   "starship-flight-15-catch-is-a-milestone-not-a-cost-curve": "2026-11-19",
   "microsoft-faa-outages-what-records-establish": "2026-11-19",

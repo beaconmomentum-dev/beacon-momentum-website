@@ -60,4 +60,23 @@ describe("The Signal canonical route contract", () => {
     expect(data).toContain("November 15, 2026");
   });
 
+  it("keeps the Founders Framework promotion surfaces synchronized", () => {
+    const index = source("client/src/pages/BlogPage.tsx");
+    const metadata = source("shared/routeMetadata.ts");
+    const archive = source("client/src/data/signalArchiveSchedule.ts");
+    const sitemap = source("client/public/sitemap.xml");
+    const slug = "founders-framework-america-250";
+
+    expect(index).toContain(`id: "${slug}"`);
+    expect(metadata).toContain(`/signal/${slug}`);
+    expect(archive).toContain(`"${slug}": "2026-07-04"`);
+    expect(sitemap).toContain(
+      `<loc>https://beaconmomentum.com/signal/${slug}</loc>`,
+    );
+    expect(index.match(new RegExp(slug, "g")) ?? []).toHaveLength(1);
+    expect(metadata.match(new RegExp(slug, "g")) ?? []).toHaveLength(1);
+    expect(archive.match(new RegExp(slug, "g")) ?? []).toHaveLength(1);
+    expect(sitemap.match(new RegExp(slug, "g")) ?? []).toHaveLength(1);
+  });
+
 });

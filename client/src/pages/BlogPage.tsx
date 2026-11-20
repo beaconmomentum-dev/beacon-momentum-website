@@ -62,6 +62,19 @@ const ARTICLES = applySignalArchiveDates([
   ...SEPTEMBER_ARTICLE_SUMMARIES,
   ...AUGUST_ARTICLE_SUMMARIES,
   {
+    id: "founders-framework-america-250",
+    title:
+      "The Founders’ Framework: What Jefferson’s Four Words Mean for Every Builder in 2026",
+    excerpt:
+      "Jefferson changed four words in the founding document and declared war on a particular idea of what human beings are and what an economy is for. Two hundred and fifty years later, those four words are the most important framework a builder can carry.",
+    pillar: "Systems",
+    pillarColor: "#3D5A80",
+    readTime: "7 min",
+    date: "Jul 4, 2026",
+    thumbnail: "/images/editorial/hero-founders-framework-16x9.webp",
+    featured: true,
+  },
+  {
     id: "3-ai-business-models-launch-this-weekend",
     title:
       "3 AI Business Models You Can Launch This Weekend (That Actually Build Legacy)",
