@@ -124,6 +124,20 @@ function LegacyBlogArticleRedirect() {
   );
 }
 
+function LegacyWatchRedirect() {
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    setLocation("/the-watch", { replace: true });
+  }, [setLocation]);
+
+  return (
+    <main id="main-content" aria-live="polite">
+      Taking you to The Watch.
+    </main>
+  );
+}
+
 function RouteMetadataController() {
   const [location] = useLocation();
   useRouteMetadata(location);
@@ -190,6 +204,7 @@ function Router() {
       />
       <Route path="/field-notes/:slug" component={DigitalRampUpFieldNotePage} />
       <Route path="/the-watch" component={TheWatchPage} />
+      <Route path="/watch" component={LegacyWatchRedirect} />
       <Route
         path="/the-watch/controlled-ai-workflow-kit"
         component={ControlledAIWorkflowKitPage}

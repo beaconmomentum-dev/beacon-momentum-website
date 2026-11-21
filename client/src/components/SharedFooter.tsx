@@ -11,10 +11,10 @@ export default function SharedFooter() {
   const year = new Date().getFullYear();
 
   const START_HERE = [
-    { label: "The Watch", href: "/the-watch" },
     { label: "The Readiness Map", href: "/ReadinessMap" },
     { label: "The Signal", href: "/signal" },
     { label: "Resources", href: "/resources" },
+    { label: "The Watch", href: "/the-watch" },
   ];
 
   const ABOUT_AND_PRACTICE = [
