@@ -25,21 +25,21 @@ const watchBenefits = [
 
 const startingPoints = [
   {
-    icon: Landmark,
-    label: "The member path",
-    title: "The Watch",
-    body: "For people who want a year-long place to learn, practice, and build a steadier way of working.",
-    cta: "Review The Watch",
-    href: "/the-watch",
-    primary: true,
-  },
-  {
     icon: Compass,
     label: "The free starting point",
     title: "The Readiness Map",
     body: "For anyone who needs to make one real job visible before choosing a tool, a program, or a bigger commitment.",
     cta: "Get the free map",
     href: "/ReadinessMap",
+    primary: true,
+  },
+  {
+    icon: Landmark,
+    label: "The member path",
+    title: "The Watch",
+    body: "For people who want a year-long place to learn, practice, and build a steadier way of working.",
+    cta: "Review The Watch",
+    href: "/the-watch",
   },
   {
     icon: Sparkles,
@@ -112,8 +112,8 @@ export default function Home() {
                   AI can make good work easier to start, easier to repeat, and easier to carry forward. It can also make the noise louder. Beacon helps you sort the useful from the urgent, keep your judgment close, and choose a next step you can actually live with.
                 </p>
                 <div className="home-hero-actions">
-                  <PrimaryLink href="/the-watch">Review The Watch</PrimaryLink>
-                  <Link className="home-text-link" href="/ReadinessMap">Start free with the Readiness Map <ArrowRight size={15} /></Link>
+                  <PrimaryLink href="/ReadinessMap">Start free with the Readiness Map</PrimaryLink>
+                  <Link className="home-text-link" href="/signal">Read The Signal <ArrowRight size={15} /></Link>
                 </div>
                 <p className="home-boundary-note">The Watch, Beacon Labs, and other Beacon properties have separate experiences, records, and choices. Visiting one does not enroll you in another.</p>
               </div>
