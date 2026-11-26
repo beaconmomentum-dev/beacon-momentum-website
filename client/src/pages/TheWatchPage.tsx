@@ -134,7 +134,7 @@ export default function TheWatchPage() {
                 <span />
                 <span />
                 <span>THE WATCH · MEMBER FIELD 01</span>
-                <span>45°36′ N / 73°33′ W</span>
+                <span>42°34′ N / 73°09′ W · Cheshire, MA</span>
               </div>
               <div style={{ marginTop: "2.25rem" }}>
                 <FieldLabel>The Watch · Founding Year</FieldLabel>

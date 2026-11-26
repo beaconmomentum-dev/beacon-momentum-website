@@ -51,14 +51,14 @@ const routes = [
   {
     marker: "03",
     label: "Organization systems",
-    name: "Beacon Labs Signal Check",
-    price: "Start with a free read",
-    body: "A separate, organization-facing diagnostic for teams that need a clear view of their public digital posture, operating risk, and next practical decision.",
+    name: "Beacon Labs",
+    price: "Free Signal Check",
+    body: "For organizations. Bob reads how your business shows up today and tells you, in writing, what he would do first.",
     details: [
-      "Free initial digital-presence read",
-      "Consent-based, separate organizational path",
-      "Optional expanded diagnostic after the first read",
-      "No transfer from a Watch membership or other Beacon property",
+      "Signal Check: free, a short written read within five business days",
+      "Signal Check Working Session: $197 through Dec 1, then $297",
+      "90-Day Operator Engagement for ongoing, hands-on help",
+      "All in writing, no sales calls",
     ],
     action: "Visit Beacon Labs",
     href: "https://beaconlabs.ai/signal-check",
@@ -183,7 +183,7 @@ export default function PricingPage() {
             </div>
             <div>
               <p style={{ color: "rgba(22,36,51,0.78)", fontSize: "1.05rem", lineHeight: 1.78, margin: 0 }}>
-                The Signal Check begins with a no-cost initial read of a brand’s digital presence. An organization can choose an expanded diagnostic afterward, but there is no fee for the first read and no cross-property handoff by default.
+                The Signal Check is free. If you want the full picture, the Working Session adds up to seven prioritized findings, a 30/60/90-day brief and a recorded walkthrough. Ongoing help is the 90-Day Operator Engagement.
               </p>
               <a href="https://beaconlabs.ai/signal-check" rel="noopener noreferrer" target="_blank" className="pricing-primary-action">Visit Beacon Labs for a Signal Check <ArrowRight size={16} /></a>
             </div>
@@ -216,7 +216,7 @@ export default function PricingPage() {
 
         <section style={{ background: "linear-gradient(130deg, #223345, #162433)", color: C.parchment, padding: "clamp(4.5rem, 9vw, 7.5rem) 0" }}>
           <div className="container" style={{ maxWidth: "1100px" }}>
-            <BeaconRouteLockup compact descriptor="Public Front Door" mutedColor="rgba(245,243,236,0.7)" textColor={C.parchment} />
+            <BeaconRouteLockup compact descriptor="Founded by Bob Burr" mutedColor="rgba(245,243,236,0.7)" textColor={C.parchment} />
             <h2 style={{ fontSize: "clamp(2.5rem, 5.2vw, 5.4rem)", lineHeight: 1.01, margin: "1.5rem 0 0", maxWidth: "860px" }}>
               Not ready for a purchase? Start with one visible job.
             </h2>

@@ -173,7 +173,7 @@ export default function SharedFooter() {
             maxWidth: "560px",
             marginTop: "0.75rem",
           }}>
-            A public orientation point for people building clearer work, useful capability, and a steadier next move.
+            Bob Burr’s practice for people and organizations in transition: use AI where it helps, and keep your own judgment.
           </p>
           <Link href="/how-beacon-works" style={{ display: "inline-flex", alignItems: "center", minHeight: "44px", marginTop: "0.9rem", color: "var(--beacon-amber-light)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textDecoration: "underline", textUnderlineOffset: "0.25rem", textTransform: "uppercase" }}>
             See how Beacon works
@@ -181,7 +181,7 @@ export default function SharedFooter() {
         </div>
 
         <div style={{ borderBottom: "1px solid rgba(250,248,244,0.08)", color: "rgba(250,248,244,0.52)", fontFamily: "'Outfit', system-ui, sans-serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.12em", paddingBottom: "1rem", textTransform: "uppercase" }}>
-          <a href="https://beaconmomentum.com/" style={{ color: "#FAF8F4", textDecoration: "underline", textUnderlineOffset: "0.2rem", display: "inline-flex", alignItems: "center", minHeight: "44px" }}>Beacon Momentum LLC</a> / Beacon Momentum / Public front door
+          <a href="https://beaconmomentum.com/" style={{ color: "#FAF8F4", textDecoration: "underline", textUnderlineOffset: "0.2rem", display: "inline-flex", alignItems: "center", minHeight: "44px" }}>Beacon Momentum LLC</a> · Founded by Bob Burr · Cheshire, Massachusetts
         </div>
 
         {/* Four-column grid */}
@@ -202,7 +202,7 @@ export default function SharedFooter() {
           <div style={colStyle}>
             <div style={colHeadStyle}>Continue intentionally</div>
             <p style={{ color: "rgba(250,248,244,0.55)", fontFamily: "'Lora', Georgia, serif", fontSize: "0.78rem", lineHeight: 1.55, margin: "0 0 0.9rem" }}>
-              You are continuing to a separate Beacon property with its own experience, policies, and enrollment or inquiry process. Accounts, submitted details, payment information, and access do not transfer automatically.
+              Each Beacon site has its own account and checkout. Signing up on one does not sign you up anywhere else.
             </p>
             {CONTINUE_INTENTIONALLY.map((l) => (
               <NavLink key={l.label} href={l.href} label={l.label} sublabel={l.sublabel} external={l.external} />

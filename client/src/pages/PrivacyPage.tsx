@@ -124,9 +124,10 @@ export default function PrivacyPage() {
                 </thead>
                 <tbody>
                   {[
-                    ["GoHighLevel (GHL)", "CRM, email marketing, assessment routing", "Name, email, assessment responses"],
+                    ["Beacon’s own server (DigitalOcean)", "Self-hosted customer records (CRM), member access and assessment routing", "Name, email, assessment responses, order records"],
+                    ["SendGrid (Twilio)", "Transactional email: receipts, downloads and member access", "Name, email"],
                     ["Stripe", "Payment processing", "Name, email, payment card data (PCI-compliant)"],
-                    ["Cloudflare", "Website hosting and CDN", "IP address, technical request data"],
+                    ["Cloudflare", "Website security and content delivery", "IP address, technical request data"],
                     ["Analytics provider", "Anonymized website analytics", "Anonymized/aggregated usage data only"],
                   ].map(([processor, purpose, data], i) => (
                     <tr key={i} style={{ borderBottom: "1px solid var(--beacon-parchment-dark)" }}>

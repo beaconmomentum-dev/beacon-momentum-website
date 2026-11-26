@@ -43,9 +43,9 @@ const startingPoints = [
   },
   {
     icon: Sparkles,
-    label: "The organization path",
+    label: "For organizations",
     title: "Beacon Labs",
-    body: "For teams that need a practical, evidence-led way to choose what to improve, test, defer, or leave alone.",
+    body: "A free Signal Check, a written Working Session, or a 90-day engagement with me. All in writing, no sales calls.",
     cta: "Visit Beacon Labs",
     href: LABS_URL,
     external: true,
@@ -77,7 +77,7 @@ function SignalLine({ label, coordinates = false }: { label: string; coordinates
       <span />
       <span>{label}</span>
       <i />
-      {coordinates && <span className="home-signal-coordinates">45°36′ N / 73°33′ W</span>}
+      {coordinates && <span className="home-signal-coordinates">42°34′ N / 73°09′ W · Cheshire, MA</span>}
     </div>
   );
 }
@@ -99,7 +99,7 @@ export default function Home() {
           <img alt="" aria-hidden="true" className="home-hero-image" decoding="async" fetchPriority="high" loading="eager" src="/images/home/beacon-routeboard-hero.webp" />
           <div className="home-hero-scrim" />
           <div className="container home-hero-content">
-            <SignalLine coordinates label="BEACON MOMENTUM · PUBLIC FRONT DOOR" />
+            <SignalLine coordinates label="BEACON MOMENTUM · FOUNDED BY BOB BURR" />
             <div className="home-hero-grid">
               <div>
                 <p className="home-eyebrow">For people who want a sane way forward with AI</p>
@@ -115,13 +115,12 @@ export default function Home() {
                   <PrimaryLink href="/the-watch">Review The Watch</PrimaryLink>
                   <Link className="home-text-link" href="/ReadinessMap">Start free with the Readiness Map <ArrowRight size={15} /></Link>
                 </div>
-                <p className="home-boundary-note">The Watch, Beacon Labs, and other Beacon properties have separate experiences, records, and choices. Visiting one does not enroll you in another.</p>
               </div>
               <aside className="home-hero-aside">
-                <p>THE WATCH · ANNUAL MEMBERSHIP</p>
+                <p>THE WATCH · FOUNDING RATE</p>
                 <h2>One year to build a steadier way of working.</h2>
                 <div><span>$497</span><small>per year</small></div>
-                <p>Review the member experience, annual terms, and enrollment details before you decide.</p>
+                <p>The founding rate for new members. Later new members pay $997 a year. Every term is on the page before you pay.</p>
                 <Link href="/the-watch">See what The Watch holds <ArrowRight size={15} /></Link>
               </aside>
             </div>
@@ -138,6 +137,19 @@ export default function Home() {
               <p>Beacon is not here to sell a shortcut, a fear story, or the idea that a tool can take responsibility for your life. We are here to help people and teams make work clearer, save effort where it is safe to do so, and remain accountable for what matters.</p>
               <p>That means starting with the work itself. Name what needs attention. Try a small, useful step. Check the result. Keep what helps. Change what does not.</p>
               <p className="home-promise">Use what is useful. Keep judgment visible. Build work that can carry forward.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="home-founder" id="bob">
+          <div className="container home-founder-grid">
+            <img alt="Bob Burr, founder of Beacon Momentum" className="home-founder-photo" decoding="async" loading="lazy" src="/images/founder/bob-burr.webp" />
+            <div>
+              <SignalLine label="WHO YOU WILL BE WORKING WITH" />
+              <h2>I'm Bob Burr. I run Beacon myself.</h2>
+              <p>I'm a U.S. Navy veteran, medically retired, and I run Beacon from a private AI lab in my home in Cheshire, Massachusetts. Member and client work stays on my own equipment, with local AI models. Nothing gets pasted into public AI services.</p>
+              <p>I work in writing, on your schedule. No sales calls, no hype, no promised results. The method is simple: name the work, try one small useful step, check the result, and keep what helps.</p>
+              <Link className="home-text-link home-founder-link" href="/about">More about me <ArrowRight size={15} /></Link>
             </div>
           </div>
         </section>
@@ -185,7 +197,6 @@ export default function Home() {
                 </article>;
               })}
             </div>
-            <p className="home-route-boundary">Beacon Labs is a separate organization service. A Beacon Labs inquiry is not a Watch membership, and a Watch membership does not create an organization engagement.</p>
           </div>
         </section>
 
@@ -205,9 +216,9 @@ export default function Home() {
 
         <section className="home-closing">
           <div className="container">
-            <p className="home-eyebrow">A public front door, not a pressure funnel</p>
+            <p className="home-eyebrow">No pressure, no funnel</p>
             <h2>Start where you are. Build from there.</h2>
-            <p>Beacon Momentum is the public orientation point for the Beacon family of properties. Every path should tell you what it is for, what it costs when there is a cost, and what happens when you continue.</p>
+            <p>Every path here tells you what it is for, what it costs, and what happens next. Start with the free Readiness Map, or join The Watch when you are ready. If you have a question first, write to me at support@beaconmomentum.com.</p>
             <div className="home-closing-actions"><PrimaryLink href="/the-watch">Review The Watch</PrimaryLink><Link className="home-text-link" href="/resources">Explore public resources <ArrowRight size={15} /></Link></div>
           </div>
         </section>
@@ -222,6 +233,8 @@ export default function Home() {
         .home-watch { background: linear-gradient(135deg, #162433, #223345); color: var(--beacon-parchment); padding: clamp(4.5rem,9vw,8rem) 0; }.home-watch-grid { align-items: start; display: grid; gap: clamp(2.5rem,8vw,7.5rem); grid-template-columns: minmax(0,1fr) minmax(0,.9fr); margin-top: 3rem; }.home-watch h2 { font-size: clamp(2.7rem,5.5vw,5.8rem); line-height: .98; margin: 1rem 0 0; }.home-watch-copy { color: rgba(245,243,236,.78); font-size: 1.07rem; line-height: 1.78; margin: 1.55rem 0 0; max-width: 620px; }.home-watch .home-primary-link { margin-top: 2rem; }.home-watch-benefits { border-top: 1px solid rgba(196,159,83,.38); }.home-watch-benefits article { border-bottom: 1px solid rgba(196,159,83,.38); padding: 1.45rem 0 1.5rem 3rem; position: relative; }.home-watch-benefits article > span { color: var(--beacon-amber); font-family: var(--beacon-mono); font-size: .65rem; font-weight: 700; left: 0; letter-spacing: .14em; position: absolute; top: 1.65rem; }.home-watch-benefits h3 { font-family: var(--beacon-ui); font-size: 1.05rem; font-weight: 750; letter-spacing: 0; margin: 0; }.home-watch-benefits p { color: rgba(245,243,236,.7); font-size: .92rem; line-height: 1.7; margin: .6rem 0 0; }
         .home-routes { background: #E3F0EE; padding: clamp(4.5rem,9vw,8rem) 0; }.home-section-heading { align-items: end; display: grid; gap: clamp(2rem,8vw,7rem); grid-template-columns: minmax(0,1fr) minmax(0,.75fr); margin: 3rem 0; }.home-section-heading > p { color: var(--beacon-charcoal-mid); font-size: .99rem; line-height: 1.75; margin: 0; }.home-route-grid { display: grid; gap: 1px; grid-template-columns: repeat(3,minmax(0,1fr)); }.home-route-card { background: var(--beacon-parchment); border: 1px solid rgba(22,36,51,.14); display: flex; flex-direction: column; min-height: 340px; padding: clamp(1.4rem,3vw,2.25rem); }.home-route-card-primary { background: #F7F0DE; border-color: rgba(196,159,83,.75); }.home-route-card svg { color: var(--beacon-teal); }.home-route-card > p { color: var(--beacon-teal); font-family: var(--beacon-mono); font-size: .64rem; font-weight: 700; letter-spacing: .12em; margin: 2.1rem 0 0; text-transform: uppercase; }.home-route-card h3 { font-size: 2rem; margin: .8rem 0 0; }.home-route-card > span { color: var(--beacon-charcoal-mid); font-size: .92rem; line-height: 1.7; margin-top: .95rem; }.home-route-card a { align-items: center; color: var(--beacon-charcoal); display: inline-flex; font-family: var(--beacon-ui); font-size: .76rem; font-weight: 800; gap: .45rem; letter-spacing: .05em; margin-top: auto; padding-top: 1.75rem; text-decoration: underline; text-underline-offset: .25rem; text-transform: uppercase; }.home-route-boundary { border-left: 2px solid var(--beacon-amber); color: var(--beacon-charcoal-mid); font-size: .86rem; line-height: 1.65; margin: 2rem 0 0; max-width: 780px; padding-left: 1rem; }
         .home-signal { background: var(--beacon-charcoal); color: var(--beacon-parchment); padding: clamp(4.5rem,9vw,8rem) 0; }.home-section-heading-light > p { color: rgba(245,243,236,.7); }.home-signal-grid { display: grid; gap: 1px; grid-template-columns: repeat(3,minmax(0,1fr)); }.home-signal-card { background: rgba(245,243,236,.04); border: 1px solid rgba(245,243,236,.16); color: var(--beacon-parchment); display: flex; flex-direction: column; min-height: 290px; padding: clamp(1.4rem,2.7vw,2rem); text-decoration: none; }.home-signal-card:hover { background: rgba(245,243,236,.09); }.home-signal-card svg { color: var(--beacon-amber); }.home-signal-card h3 { font-size: 1.55rem; margin: 1.55rem 0 0; }.home-signal-card p { color: rgba(245,243,236,.72); font-size: .91rem; line-height: 1.7; margin: .85rem 0 0; }.home-signal-card span { align-items: center; color: var(--beacon-amber-light); display: inline-flex; font-family: var(--beacon-ui); font-size: .73rem; font-weight: 800; gap: .4rem; letter-spacing: .05em; margin-top: auto; padding-top: 1.4rem; text-transform: uppercase; }.home-signal-all { align-items: center; color: var(--beacon-parchment); display: inline-flex; font-family: var(--beacon-ui); font-size: .78rem; font-weight: 800; gap: .5rem; letter-spacing: .05em; margin-top: 2rem; text-decoration: underline; text-underline-offset: .28rem; text-transform: uppercase; }
+        .home-founder { background: var(--beacon-parchment); color: var(--beacon-charcoal); padding: clamp(4.5rem,9vw,7.5rem) 0; border-top: 1px solid rgba(22,36,51,.08); }.home-founder-grid { align-items: center; display: grid; gap: clamp(2.5rem,7vw,6rem); grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); max-width: 1100px; }.home-founder-photo { aspect-ratio: 4/5; border: 1px solid rgba(22,36,51,.14); box-shadow: 0 24px 60px rgba(22,36,51,.16); object-fit: cover; object-position: center 20%; width: 100%; }.home-founder h2 { font-size: clamp(2.1rem,4.4vw,3.3rem); line-height: 1.05; margin: 1.2rem 0 0; }.home-founder p { font-size: 1.05rem; line-height: 1.75; margin: 1.2rem 0 0; max-width: 620px; }.home-founder .home-founder-link { color: var(--beacon-charcoal); margin-top: 1.6rem; }
+        @media (max-width: 820px) { .home-founder-grid { grid-template-columns: 1fr; }.home-founder-photo { max-width: 320px; } }
         .home-closing { background: linear-gradient(125deg, #223345, #162433); color: var(--beacon-parchment); padding: clamp(4.5rem,9vw,7.5rem) 0; }.home-closing > .container { max-width: 1100px; }.home-closing > .container > p:not(.home-eyebrow) { color: rgba(245,243,236,.76); font-size: 1.05rem; line-height: 1.75; margin: 1.35rem 0 0; max-width: 680px; }.home-closing .home-text-link { color: var(--beacon-parchment); }
         @media (max-width: 820px) { .home-hero { min-height: 0; }.home-hero-grid,.home-introduction-grid,.home-watch-grid,.home-section-heading,.home-route-grid,.home-signal-grid { grid-template-columns: 1fr; }.home-hero-aside { max-width: 440px; }.home-section-heading { margin: 2.3rem 0; }.home-v3 .home-signal-line { align-items: flex-start; flex-wrap: wrap; }.home-v3 .home-signal-line i { display: none; }.home-signal-coordinates { width: 100%; }.home-route-card,.home-signal-card { min-height: 0; } }
       `}</style>
