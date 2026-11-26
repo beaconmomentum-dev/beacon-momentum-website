@@ -2,6 +2,7 @@ import { ArrowRight, Compass, HeartHandshake, Lightbulb, UsersRound } from "luci
 import { Link } from "wouter";
 import SharedFooter from "@/components/SharedFooter";
 import SharedNav from "@/components/SharedNav";
+import LightSongs from "@/components/LightSongs";
 
 const commitments = [
   {
@@ -65,6 +66,8 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        <LightSongs heading="The road that led here" />
 
         <section className="about-introduction">
           <div className="container about-split">

@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight, BookOpen, Compass, FileText, Landmark, Sparkl
 import { Link } from "wouter";
 import SharedFooter from "@/components/SharedFooter";
 import SharedNav from "@/components/SharedNav";
+import LightSongs from "@/components/LightSongs";
 
 const LABS_URL = "https://beaconlabs.ai";
 
@@ -153,6 +154,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div style={{ background: "var(--beacon-parchment)" }}><LightSongs /></div>
 
         <section className="home-watch" id="watch">
           <div className="container">
