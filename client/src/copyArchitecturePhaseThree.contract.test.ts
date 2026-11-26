@@ -26,7 +26,8 @@ describe("Phase 3 public-copy architecture contract", () => {
     expect(home).toContain("Review Founding Year enrollment");
     expect(home).toContain("The Readiness Map");
     expect(home).toContain("Beacon Labs");
-    expect(home).toContain("Visiting one does not enroll you in another");
+    expect(home).toContain("I'm Bob Burr");
+    expect(source("client/src/components/SharedFooter.tsx")).toContain("Signing up on one does not sign you up anywhere else");
     expect(home).toContain("$497");
     expect(home).not.toContain("autonomous employee");
   });

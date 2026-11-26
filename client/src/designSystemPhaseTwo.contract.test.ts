@@ -32,7 +32,7 @@ describe("Phase 2 one-design-system contract", () => {
     expect(watch).toContain("not an investment");
     expect(pricing).toContain("Three routes, held apart on purpose");
     expect(pricing).toContain("Accounts, submitted details, payment information, and access do not transfer automatically");
-    expect(pricing).toContain("Beacon Labs Signal Check");
+    expect(pricing).toContain("Visit Beacon Labs for a Signal Check");
   });
 
   it("keeps Digital Grandpa visually related but substantively separate and free of Beacon capture calls", () => {
