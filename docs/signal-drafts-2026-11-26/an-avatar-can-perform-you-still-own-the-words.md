@@ -6,7 +6,7 @@ seo_description: "A source-led Beacon Signal brief on HeyGen Avatar 6: what the 
 category: Beacon Signal
 pillar: Systems
 readTime: 6 min read
-status: DRAFT — not published
+status: published 2026-11-27
 url_when_published: https://beaconmomentum.com/signal/an-avatar-can-perform-you-still-own-the-words
 ---
 
@@ -33,7 +33,7 @@ Read plainly: in HeyGen's own side-by-side test, people still picked the real re
 
 ## What the record does not establish
 
-The performance figures come from HeyGen or from a ranking HeyGen cites. This brief did not test the model independently. A sponsored creator video is a demonstration, not an independent test. HeyGen's claim that results need "no tweaking, no regenerating" is a product claim, not a measured finding. [3] The record also does not tell us how audiences feel when they later learn that a video they trusted was an avatar.
+The performance figures come from HeyGen or from a ranking HeyGen cites. This brief did not test the model independently. In the interest of disclosure: Beacon is itself testing HeyGen, using Bob Burr's own face and a clone of his voice; this brief does not draw on those tests. A sponsored creator video is a demonstration, not an independent test. HeyGen's claim that results need "no tweaking, no regenerating" is a product claim, not a measured finding. [3] The record also does not tell us how audiences feel when they later learn that a video they trusted was an avatar.
 
 ## A better avatar raises the stakes of disclosure
 

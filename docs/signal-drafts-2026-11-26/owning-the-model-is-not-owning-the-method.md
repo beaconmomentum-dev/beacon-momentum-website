@@ -6,7 +6,7 @@ seo_description: "A source-led Beacon Signal brief on Microsoft's MAI models, MA
 category: Beacon Signal
 pillar: Systems
 readTime: 6 min read
-status: DRAFT — not published
+status: published 2026-11-27
 url_when_published: https://beaconmomentum.com/signal/owning-the-model-is-not-owning-the-method
 ---
 

@@ -6,7 +6,7 @@ seo_description: "A source-led Beacon Signal brief on Dario Amodei's free-will s
 category: Beacon Signal
 pillar: Systems
 readTime: 7 min read
-status: DRAFT — not published
+status: published 2026-11-27
 url_when_published: https://beaconmomentum.com/signal/who-signs-off-when-agents-do-the-work
 ---
 

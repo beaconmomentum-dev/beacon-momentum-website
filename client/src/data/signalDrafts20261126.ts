@@ -1,7 +1,6 @@
 /**
- * DRAFT — Beacon Signal briefs prepared 2026-11-26 from four videos Bob reviewed.
+ * Beacon Signal briefs prepared 2026-11-26, published 2026-11-27, from four videos Bob reviewed.
  * Not published. Claims limited to primary records cited in each Sources list.
- * Owner review required before merge to main (merge = deploy).
  */
 
 export const SIGNAL_DRAFTS_2026_11_26_CONTENT = [
@@ -11,7 +10,7 @@ export const SIGNAL_DRAFTS_2026_11_26_CONTENT = [
     excerpt:
       "Anthropic's CEO says humans must not surrender judgment to AI, in the same week Anthropic released agents that can approve routine code. The record points to a narrower, practical lesson: keep the checker separate from the builder, and write down who signs off.",
     category: "Beacon Signal",
-    date: "November 26, 2026",
+    date: "November 27, 2026",
     readTime: "7 min read",
     pillar: "Systems",
     pillarColor: "#3D4F6B",
@@ -78,7 +77,7 @@ export const SIGNAL_DRAFTS_2026_11_26_CONTENT = [
     excerpt:
       "Microsoft says no one wants to pour their IQ into someone else's model. What its November model releases actually establish, what 'control' means in its offer, and the small-business version of owning your setup.",
     category: "Beacon Signal",
-    date: "November 26, 2026",
+    date: "November 27, 2026",
     readTime: "6 min read",
     pillar: "Systems",
     pillarColor: "#3D4F6B",
@@ -149,7 +148,7 @@ export const SIGNAL_DRAFTS_2026_11_26_CONTENT = [
     excerpt:
       "HeyGen's Avatar 6 counts, points and changes tone with the script. Its headline '84%' figure means something narrower than it sounds, and a more lifelike avatar raises the stakes of disclosure rather than lowering them.",
     category: "Beacon Signal",
-    date: "November 26, 2026",
+    date: "November 27, 2026",
     readTime: "6 min read",
     pillar: "Systems",
     pillarColor: "#3D4F6B",
@@ -175,7 +174,7 @@ export const SIGNAL_DRAFTS_2026_11_26_CONTENT = [
 
 <h2>What the record does not establish</h2>
 
-<p>The performance figures come from HeyGen or from a ranking HeyGen cites. This brief did not test the model independently. A sponsored creator video is a demonstration, not an independent test. HeyGen's claim that results need "no tweaking, no regenerating" is a product claim, not a measured finding. <sup>[3]</sup> The record also does not tell us how audiences feel when they later learn that a video they trusted was an avatar.</p>
+<p>The performance figures come from HeyGen or from a ranking HeyGen cites. This brief did not test the model independently. In the interest of disclosure: Beacon is itself testing HeyGen, using Bob Burr's own face and a clone of his voice; this brief does not draw on those tests. A sponsored creator video is a demonstration, not an independent test. HeyGen's claim that results need "no tweaking, no regenerating" is a product claim, not a measured finding. <sup>[3]</sup> The record also does not tell us how audiences feel when they later learn that a video they trusted was an avatar.</p>
 
 <h2>A better avatar raises the stakes of disclosure</h2>
 
@@ -210,7 +209,7 @@ export const SIGNAL_DRAFTS_2026_11_26_CONTENT = [
     excerpt:
       "A mathematician working with Claude released a machine-checked proof of the Riemann Hypothesis, and Lean's maintainers say they have full confidence in it. What the record establishes, what it does not yet, and why verified is not the same as understood.",
     category: "Beacon Signal",
-    date: "November 26, 2026",
+    date: "November 27, 2026",
     readTime: "7 min read",
     pillar: "Systems",
     pillarColor: "#3D4F6B",
