@@ -34,3 +34,6 @@ client/public/__manus__/
 # Wrangler
 .wrangler/
 .env.production
+
+# Local public-form intake records (runtime only)
+intake/

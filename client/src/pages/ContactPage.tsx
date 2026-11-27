@@ -25,6 +25,7 @@ export default function ContactPage() {
     phone: "",
     subject: "",
     message: "",
+    website: "",
   });
   const [status, setStatus] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -52,6 +53,7 @@ export default function ContactPage() {
         phone: form.phone || undefined,
         subject: form.subject || undefined,
         message: form.message,
+        website: form.website || undefined,
         consentVersion: "beacon-contact-v1",
       };
 
@@ -62,6 +64,8 @@ export default function ContactPage() {
       });
 
       if (!res.ok) throw new Error(`Capture relay ${res.status}`);
+      const body = (await res.json()) as Array<{ error?: unknown }> | undefined;
+      if (body?.[0]?.error) throw new Error("Capture relay rejected");
       setStatus("success");
     } catch {
       setStatus("error");
@@ -235,7 +239,29 @@ export default function ContactPage() {
               </a>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate>
+            <form onSubmit={handleSubmit} noValidate style={{ position: "relative" }}>
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "-10000px",
+                  top: "auto",
+                  width: "1px",
+                  height: "1px",
+                  overflow: "hidden",
+                }}
+              >
+                <label htmlFor="website">Website</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website}
+                  onChange={handleChange}
+                />
+              </div>
               <div
                 style={{
                   display: "grid",

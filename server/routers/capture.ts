@@ -1,12 +1,15 @@
 /**
  * Beacon public-capture relay — candidate implementation.
  *
- * The browser may ask for a named public event, but it may not choose a CRM
- * location, tag, custom field, or API credential. This router maps a narrow
- * event allow-list to the verified Beacon Momentum HighLevel location.
+ * The browser may ask for a named public event, but it may not choose a
+ * destination, credential, or notification list. GoHighLevel was cancelled
+ * in November 2026. Each accepted event is now recorded by SendGrid email
+ * to admin@beaconmomentum.com and in a local JSONL log. No auto-reply is
+ * sent to the submitter.
  *
- * Each supported event below has an explicit server-owned source, tag, and
- * custom-field mapping. Browser callers cannot select any of those values.
+ * The leftover HighLevel payload helpers below are retained only so existing
+ * unit tests of server-owned event mapping still run; the live router no
+ * longer calls the HighLevel API.
  */
 
 import { TRPCError } from "@trpc/server";
@@ -14,6 +17,7 @@ import { randomUUID } from "crypto";
 import { z } from "zod/v4";
 import { ENV } from "../_core/env";
 import { publicProcedure, router } from "../_core/trpc";
+import { CaptureDeliveryError, deliverPublicCapture } from "../captureEmail";
 
 const GHL_BASE_URL = "https://services.leadconnectorhq.com";
 const BEACON_MOMENTUM_LOCATION_ID = "vvhkYM6iySBVh5kOcFGM";
@@ -34,6 +38,8 @@ const commonCaptureFields = {
   firstName: optionalFirstNameSchema,
   /** Stable UI copy/version identifier, stored only as a receipt attribute. */
   consentVersion: z.string().trim().min(1).max(80).default("2026-07-26"),
+  /** Hidden honeypot. A filled value is accepted silently and never emailed. */
+  website: z.string().trim().max(200).optional(),
 };
 
 export const captureInputSchema = z.discriminatedUnion("event", [
@@ -462,15 +468,18 @@ export const captureRouter = router({
       }
 
       try {
-        await submitCaptureToGhl(input);
+        const delivery = await deliverPublicCapture(input, { requestId });
         console.info("[capture] accepted", {
           requestId,
           event: input.event,
           consentVersion: input.consentVersion,
+          honeypot: delivery.honeypot,
+          sendgridStatus: delivery.status ?? null,
         });
         return { success: true, requestId };
       } catch (error) {
         const reason =
+          error instanceof CaptureDeliveryError ||
           error instanceof CaptureRelayError
             ? error.reason
             : "upstream_unavailable";

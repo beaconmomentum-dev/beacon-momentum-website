@@ -10,5 +10,7 @@ describe("Contact page capture boundary", () => {
     expect(source).toContain('event: "contact_inquiry"');
     expect(source).not.toContain("VITE_GHL_API_KEY");
     expect(source).not.toContain("services.leadconnectorhq.com");
+    expect(source).not.toContain("msgsndr");
+    expect(source).toContain('name="website"');
   });
 });
