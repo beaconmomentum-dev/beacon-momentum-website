@@ -2,12 +2,11 @@ import type { Express, Request, Response } from "express";
 import path from "path";
 import { z } from "zod/v4";
 import { ENV } from "./_core/env";
+import { isAllowedOrigin } from "./routers/capture";
 import {
-  captureInputSchema,
-  isAllowedOrigin,
-  submitCaptureToGhl,
-} from "./routers/capture";
-import { sendReadinessMapDelivery } from "./readinessMapEmail";
+  sendReadinessMapDelivery,
+  sendReadinessMapNotification,
+} from "./readinessMapEmail";
 
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 6;
@@ -133,30 +132,8 @@ export function registerReadinessMapRoutes(app: Express) {
     }
 
     try {
-      // Transactional delivery is a distinct CRM event and always occurs.
-      await submitCaptureToGhl(
-        captureInputSchema.parse({
-          event: "readiness_map_delivery_requested",
-          email: input.email,
-          firstName: input.firstName,
-          consentVersion: input.consentVersion,
-        }),
-      );
-    } catch (error) {
-      const reason = error instanceof Error ? error.message : "unknown";
-      console.warn("[readiness-map] request failed", { reason });
-      publicError(
-        res,
-        503,
-        "The worksheet could not be sent right now. Please try again shortly or contact support@beaconmomentum.com.",
-      );
-      return;
-    }
-
-    try {
-      // SendGrid delivers the requested worksheet directly. HighLevel remains
-      // the consent/tag system of record and its transactional workflow stays
-      // disabled to prevent duplicate sends.
+      // SendGrid delivers the requested worksheet directly. (GoHighLevel was
+      // cancelled in Nov 2026; Beacon's own inboxes now hold the request record.)
       await sendReadinessMapDelivery({
         email: input.email,
         firstName: input.firstName,
@@ -172,24 +149,18 @@ export function registerReadinessMapRoutes(app: Express) {
       return;
     }
 
-    // Optional updates are recorded only after an affirmative checkbox action.
-    // Their recording must never block or retract the requested free delivery.
-    if (input.marketingConsent) {
-      try {
-        await submitCaptureToGhl(
-          captureInputSchema.parse({
-            event: "readiness_map_marketing_consent_granted",
-            email: input.email,
-            firstName: input.firstName,
-            consentVersion: input.consentVersion,
-          }),
-        );
-      } catch (error) {
-        const reason = error instanceof Error ? error.message : "unknown";
-        console.warn("[readiness-map] optional consent record failed", {
-          reason,
-        });
-      }
+    // Record the request (and any affirmative updates consent) in Beacon's own
+    // inboxes. Recording must never block or retract the requested free delivery.
+    try {
+      await sendReadinessMapNotification({
+        email: input.email,
+        firstName: input.firstName,
+        marketingConsent: input.marketingConsent,
+        consentVersion: input.consentVersion,
+      });
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : "unknown";
+      console.warn("[readiness-map] request record email failed", { reason });
     }
 
     console.info("[readiness-map] delivery request accepted", {

@@ -112,4 +112,48 @@ function escapeHtml(value: string) {
   });
 }
 
+type NotificationInput = DeliveryInput & { marketingConsent: boolean; consentVersion: string };
+
+export const READINESS_MAP_NOTIFY_TO = ["hello@beaconlabs.ai", "admin@beaconmomentum.com"];
+
+/** Internal record of a Readiness Map request, sent to Beacon's own inboxes (replaces the cancelled GHL CRM event). */
+export function buildReadinessMapNotification(
+  input: NotificationInput,
+  options: Pick<DeliveryOptions, "fromEmail" | "fromName"> = {},
+) {
+  const when = new Date().toISOString();
+  const text = [
+    "New Readiness Map request (beaconmomentum.com).",
+    "",
+    `Email: ${input.email}`,
+    `First name: ${input.firstName?.trim() || "(not given)"}`,
+    `Updates consent: ${input.marketingConsent ? "YES (checkbox ticked)" : "no"}`,
+    `Consent version: ${input.consentVersion}`,
+    `Received: ${when}`,
+    "",
+    "The worksheet email was sent to the requester. Do not add them to marketing unless consent is YES.",
+  ].join("\n");
+  return READINESS_MAP_NOTIFY_TO.map((to) => ({
+    to,
+    from: { email: options.fromEmail || "support@beaconmomentum.com", name: options.fromName || "Beacon Momentum" },
+    replyTo: input.email,
+    subject: `Readiness Map request: ${input.email}${input.marketingConsent ? " (updates: yes)" : ""}`,
+    text,
+    html: `<pre style="font-family:Menlo,monospace;font-size:13px;white-space:pre-wrap">${escapeHtml(text)}</pre>`,
+  }));
+}
+
+export async function sendReadinessMapNotification(
+  input: NotificationInput,
+  options: DeliveryOptions = {},
+): Promise<void> {
+  const apiKey = options.apiKey ?? process.env.SENDGRID_API_KEY ?? "";
+  if (!apiKey) throw new Error("sendgrid_not_configured");
+  const client = options.sendGridClient ?? sgMail;
+  client.setApiKey(apiKey);
+  for (const message of buildReadinessMapNotification(input, options)) {
+    await client.send(message);
+  }
+}
+
 export { READINESS_MAP_URL };
