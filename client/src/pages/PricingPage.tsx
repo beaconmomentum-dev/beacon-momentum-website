@@ -56,7 +56,7 @@ const routes = [
     body: "For organizations. Bob reads how your business shows up today and tells you, in writing, what he would do first.",
     details: [
       "Signal Check: free, a short written read within five business days",
-      "Signal Check Working Session: $197 through Dec 1, then $297",
+      "Signal Check Working Session: $197 through Dec 12, then $297",
       "90-Day Operator Engagement for ongoing, hands-on help",
       "All in writing, no sales calls",
     ],
