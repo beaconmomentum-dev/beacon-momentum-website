@@ -4,9 +4,9 @@
  * Vimeo's public oEmbed data, checked Nov 26, 2026.
  */
 const SONGS = [
-  { id: "1239674792", title: "The Light Kept Traveling", length: "5:17", href: "https://vimeo.com/digitalgrandpa/thelightkepttraveling" },
-  { id: "1239809877", title: "Where the Light Finds You", length: "6:05", href: "https://vimeo.com/digitalgrandpa/wherethelightfindsyou" },
-  { id: "1239933960", title: "Porch Light", length: "5:29", href: "https://vimeo.com/digitalgrandpa/porchlight" },
+  { part: "Part 1", id: "1239809877", title: "Where the Light Finds You", length: "6:05", href: "https://vimeo.com/digitalgrandpa/wherethelightfindsyou" },
+  { part: "Part 2", id: "1239933960", title: "Porch Light", length: "5:29", href: "https://vimeo.com/digitalgrandpa/porchlight" },
+  { part: "Part 3", id: "1239674792", title: "The Light Kept Traveling", length: "5:17", href: "https://vimeo.com/digitalgrandpa/thelightkepttraveling" },
 ];
 
 export default function LightSongs({ heading = "Where the light comes from", dark = false }: { heading?: string; dark?: boolean }) {
@@ -30,10 +30,11 @@ export default function LightSongs({ heading = "Where the light comes from", dar
                   referrerPolicy="strict-origin-when-cross-origin"
                   src={`https://player.vimeo.com/video/${s.id}?dnt=1&title=0&byline=0&portrait=0`}
                   style={{ border: 0, display: "block", height: "100%", width: "100%" }}
-                  title={`${s.title}, an original song by Bob Burr`}
+                  title={`${s.part}: ${s.title}, an original song by Bob Burr`}
                 />
               </div>
               <figcaption style={{ fontFamily: "var(--beacon-ui)", fontSize: ".85rem", marginTop: ".7rem" }}>
+                <span style={{ color: muted, display: "block", fontSize: ".72rem", letterSpacing: ".12em", textTransform: "uppercase" }}>{s.part}</span>
                 <a href={s.href} rel="noopener noreferrer" style={{ color: ink, fontWeight: 700 }} target="_blank">{s.title}</a>
                 <span style={{ color: muted }}> · {s.length}</span>
               </figcaption>
