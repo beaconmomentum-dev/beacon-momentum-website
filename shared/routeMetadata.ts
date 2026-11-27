@@ -371,6 +371,30 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
       "A source-led Beacon Signal brief separating the Microsoft Exchange Online incident from the FAA ground stop and extracting a resilience lesson without claiming a shared cause.",
     type: "article",
   },
+  "/signal/who-signs-off-when-agents-do-the-work": {
+    title: "Who Signs Off When the Agent Does the Work?",
+    description:
+      "A source-led Beacon Signal brief on Dario Amodei's free-will statement, Claude Ship approvals, and Anthropic's Rust migration record: why the checker must stay separate from the builder.",
+    type: "article",
+  },
+  "/signal/owning-the-model-is-not-owning-the-method": {
+    title: "Owning the Model Is Not the Same as Owning the Method",
+    description:
+      "A source-led Beacon Signal brief on Microsoft's MAI models, MAI Base 2, and licensed weights: what the record establishes about control, and why small businesses should own their method, data, and tests.",
+    type: "article",
+  },
+  "/signal/an-avatar-can-perform-you-still-own-the-words": {
+    title: "An Avatar Can Perform. You Still Own the Words.",
+    description:
+      "A source-led Beacon Signal brief on HeyGen Avatar 6: what the launch record and technical report establish, what the 84% figure measures, and practical disclosure rules for AI avatars.",
+    type: "article",
+  },
+  "/signal/the-proof-was-checked-before-it-was-understood": {
+    title: "The Proof Was Checked Before It Was Understood",
+    description:
+      "A source-led Beacon Signal brief on the Alpöge–Claude Riemann Hypothesis proof: what the Lean verification establishes, Clay's status and rules, and the lesson for anyone checking AI work.",
+    type: "article",
+  },
   "/signal/the-system-should-leave-you-stronger": {
     title: "The System Should Leave You Stronger",
     description:

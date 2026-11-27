@@ -8,6 +8,10 @@
  */
 export const SIGNAL_ARCHIVE_DATES: Record<string, string> = {
   "founders-framework-america-250": "2026-07-04",
+  "who-signs-off-when-agents-do-the-work": "2026-11-26",
+  "owning-the-model-is-not-owning-the-method": "2026-11-26",
+  "an-avatar-can-perform-you-still-own-the-words": "2026-11-26",
+  "the-proof-was-checked-before-it-was-understood": "2026-11-26",
   "the-system-should-leave-you-stronger": "2026-11-19",
   "starship-flight-15-catch-is-a-milestone-not-a-cost-curve": "2026-11-19",
   "microsoft-faa-outages-what-records-establish": "2026-11-19",
