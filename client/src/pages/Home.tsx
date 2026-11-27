@@ -121,7 +121,7 @@ export default function Home() {
                 <p>THE WATCH · FOUNDING RATE</p>
                 <h2>One year to build a steadier way of working.</h2>
                 <div><span>$497</span><small>per year</small></div>
-                <p>The founding rate for new members. Later new members pay $997 a year. Every term is on the page before you pay.</p>
+                <p>The founding rate for new members. The regular rate is $997 a year from 2027. Every term is on the page before you pay.</p>
                 <Link href="/the-watch">See what The Watch holds <ArrowRight size={15} /></Link>
               </aside>
             </div>

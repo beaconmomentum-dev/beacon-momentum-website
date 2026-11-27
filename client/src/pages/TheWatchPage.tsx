@@ -17,7 +17,7 @@ const membershipCommitments = [
   {
     number: "01",
     title: "A clear annual membership",
-    body: "Founding Year membership is $497 per year for the first 1,000 paid annual members. It is a membership purchase—not an investment, ownership interest, or promise of a financial outcome.",
+    body: "Founding Year membership is $497 per year; the regular rate is $997 a year from 2027. It is a membership purchase—not an investment, ownership interest, or promise of a financial outcome.",
   },
   {
     number: "02",
@@ -38,7 +38,7 @@ const questions = [
   },
   {
     question: "What happens after the Founding Year period?",
-    answer: "The current Founding Year rate is $497 per year for the first 1,000 paid annual members. A member who remains continuously active and paid keeps that renewal rate; later new-member pricing is published separately as terms change.",
+    answer: "The Founding Year rate is $497 per year, and the regular rate is $997 a year from 2027. A member who remains continuously active and paid keeps the $497 renewal rate.",
   },
   {
     question: "Is The Watch an investment or a business opportunity?",
@@ -216,12 +216,12 @@ export default function TheWatchPage() {
               </div>
               <div style={{ alignSelf: "end" }}>
                 <p style={{ color: "rgba(22,36,51,0.78)", fontSize: "1.08rem", lineHeight: 1.8, margin: 0 }}>
-                  Founding Year enrollment is $497 per year for the first 1,000 paid annual members. We state the
+                  Founding Year enrollment is $497 per year; the regular rate is $997 a year from 2027. We state the
                   membership, access, renewal terms, and boundaries plainly before you enroll—because a good decision
                   does not need a pressure trick.
                 </p>
                 <p style={{ color: "rgba(22,36,51,0.7)", fontSize: "0.94rem", lineHeight: 1.7, margin: "1.15rem 0 0" }}>
-                  The later new-member annual rate is $997. A Founding Year member who stays continuously active and
+                  From 2027, the regular annual rate for new members is $997. A Founding Year member who stays continuously active and
                   paid retains the $497 annual renewal rate under the published terms.
                 </p>
               </div>
